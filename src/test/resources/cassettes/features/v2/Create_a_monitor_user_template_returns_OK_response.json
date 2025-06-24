@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"A description.\",\"monitor_definition\":{\"message\":\"A msg.\",\"name\":\"A name test-create_a_monitor_user_template_returns_ok_response-1748486176\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"},\"tags\":[\"integration:Azure\"],\"template_variables\":[{\"available_values\":[\"value1\",\"value2\"],\"defaults\":[\"defaultValue\"],\"name\":\"regionName\",\"tag_key\":\"datacenter\"}],\"title\":\"Postgres DB test-create_a_monitor_user_template_returns_ok_response-1748486176\"},\"type\":\"monitor-user-template\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/template",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"monitor-user-template\",\"attributes\":{\"modified\":\"2025-05-29T02:36:16.272266+00:00\",\"tags\":[\"integration:Azure\"],\"monitor_definition\":{\"message\":\"A msg.\",\"name\":\"A name test-create_a_monitor_user_template_returns_ok_response-1748486176\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"},\"template_variables\":[{\"available_values\":[\"value1\",\"value2\"],\"defaults\":[\"defaultValue\"],\"tag_key\":\"datacenter\",\"name\":\"regionName\"}],\"description\":\"A description.\",\"version\":0,\"creator_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"created\":\"2025-05-29T02:36:16.272266+00:00\",\"title\":\"Postgres DB test-create_a_monitor_user_template_returns_ok_response-1748486176\"},\"id\":\"15c66feb-f77d-407b-bf4c-615d3dc4fa50\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "214c7178-b917-c060-ef39-9acae4df489d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/template/15c66feb-f77d-407b-bf4c-615d3dc4fa50",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "09aec19a-cf78-505e-ca41-e6dc75dda553"
+  }
+]

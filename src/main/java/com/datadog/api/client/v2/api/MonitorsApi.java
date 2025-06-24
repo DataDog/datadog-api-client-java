@@ -12,6 +12,11 @@ import com.datadog.api.client.v2.model.MonitorNotificationRuleCreateRequest;
 import com.datadog.api.client.v2.model.MonitorNotificationRuleListResponse;
 import com.datadog.api.client.v2.model.MonitorNotificationRuleResponse;
 import com.datadog.api.client.v2.model.MonitorNotificationRuleUpdateRequest;
+import com.datadog.api.client.v2.model.MonitorUserTemplateCreateRequest;
+import com.datadog.api.client.v2.model.MonitorUserTemplateCreateResponse;
+import com.datadog.api.client.v2.model.MonitorUserTemplateListResponse;
+import com.datadog.api.client.v2.model.MonitorUserTemplateResponse;
+import com.datadog.api.client.v2.model.MonitorUserTemplateUpdateRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -341,6 +346,158 @@ public class MonitorsApi {
   }
 
   /**
+   * Create a monitor user template.
+   *
+   * <p>See {@link #createMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return MonitorUserTemplateCreateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorUserTemplateCreateResponse createMonitorUserTemplate(
+      MonitorUserTemplateCreateRequest body) throws ApiException {
+    return createMonitorUserTemplateWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a monitor user template.
+   *
+   * <p>See {@link #createMonitorUserTemplateWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;MonitorUserTemplateCreateResponse&gt;
+   */
+  public CompletableFuture<MonitorUserTemplateCreateResponse> createMonitorUserTemplateAsync(
+      MonitorUserTemplateCreateRequest body) {
+    return createMonitorUserTemplateWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new monitor user template.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;MonitorUserTemplateCreateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonitorUserTemplateCreateResponse> createMonitorUserTemplateWithHttpInfo(
+      MonitorUserTemplateCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createMonitorUserTemplate");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/monitor/template";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.createMonitorUserTemplate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorUserTemplateCreateResponse>() {});
+  }
+
+  /**
+   * Create a monitor user template.
+   *
+   * <p>See {@link #createMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorUserTemplateCreateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonitorUserTemplateCreateResponse>>
+      createMonitorUserTemplateWithHttpInfoAsync(MonitorUserTemplateCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonitorUserTemplateCreateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MonitorUserTemplateCreateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createMonitorUserTemplate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/monitor/template";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.createMonitorUserTemplate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonitorUserTemplateCreateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorUserTemplateCreateResponse>() {});
+  }
+
+  /**
    * Delete a monitor configuration policy.
    *
    * <p>See {@link #deleteMonitorConfigPolicyWithHttpInfo}.
@@ -608,6 +765,161 @@ public class MonitorsApi {
       builder =
           apiClient.createBuilder(
               "v2.MonitorsApi.deleteMonitorNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a monitor user template.
+   *
+   * <p>See {@link #deleteMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteMonitorUserTemplate(String templateId) throws ApiException {
+    deleteMonitorUserTemplateWithHttpInfo(templateId);
+  }
+
+  /**
+   * Delete a monitor user template.
+   *
+   * <p>See {@link #deleteMonitorUserTemplateWithHttpInfoAsync}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteMonitorUserTemplateAsync(String templateId) {
+    return deleteMonitorUserTemplateWithHttpInfoAsync(templateId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an existing monitor user template by its ID.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteMonitorUserTemplateWithHttpInfo(String templateId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'templateId' when calling deleteMonitorUserTemplate");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/template/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.deleteMonitorUserTemplate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a monitor user template.
+   *
+   * <p>See {@link #deleteMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteMonitorUserTemplateWithHttpInfoAsync(
+      String templateId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'templateId' when calling"
+                  + " deleteMonitorUserTemplate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/template/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.deleteMonitorUserTemplate",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1183,6 +1495,230 @@ public class MonitorsApi {
         new GenericType<MonitorNotificationRuleListResponse>() {});
   }
 
+  /** Manage optional parameters to getMonitorUserTemplate. */
+  public static class GetMonitorUserTemplateOptionalParameters {
+    private Boolean withAllVersions;
+
+    /**
+     * Set withAllVersions.
+     *
+     * @param withAllVersions Whether to include all versions of the template in the response in the
+     *     versions field. (optional)
+     * @return GetMonitorUserTemplateOptionalParameters
+     */
+    public GetMonitorUserTemplateOptionalParameters withAllVersions(Boolean withAllVersions) {
+      this.withAllVersions = withAllVersions;
+      return this;
+    }
+  }
+
+  /**
+   * Get a monitor user template.
+   *
+   * <p>See {@link #getMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @return MonitorUserTemplateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorUserTemplateResponse getMonitorUserTemplate(String templateId) throws ApiException {
+    return getMonitorUserTemplateWithHttpInfo(
+            templateId, new GetMonitorUserTemplateOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a monitor user template.
+   *
+   * <p>See {@link #getMonitorUserTemplateWithHttpInfoAsync}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @return CompletableFuture&lt;MonitorUserTemplateResponse&gt;
+   */
+  public CompletableFuture<MonitorUserTemplateResponse> getMonitorUserTemplateAsync(
+      String templateId) {
+    return getMonitorUserTemplateWithHttpInfoAsync(
+            templateId, new GetMonitorUserTemplateOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a monitor user template.
+   *
+   * <p>See {@link #getMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param parameters Optional parameters for the request.
+   * @return MonitorUserTemplateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorUserTemplateResponse getMonitorUserTemplate(
+      String templateId, GetMonitorUserTemplateOptionalParameters parameters) throws ApiException {
+    return getMonitorUserTemplateWithHttpInfo(templateId, parameters).getData();
+  }
+
+  /**
+   * Get a monitor user template.
+   *
+   * <p>See {@link #getMonitorUserTemplateWithHttpInfoAsync}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;MonitorUserTemplateResponse&gt;
+   */
+  public CompletableFuture<MonitorUserTemplateResponse> getMonitorUserTemplateAsync(
+      String templateId, GetMonitorUserTemplateOptionalParameters parameters) {
+    return getMonitorUserTemplateWithHttpInfoAsync(templateId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a monitor user template by its ID.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;MonitorUserTemplateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonitorUserTemplateResponse> getMonitorUserTemplateWithHttpInfo(
+      String templateId, GetMonitorUserTemplateOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'templateId' when calling getMonitorUserTemplate");
+    }
+    Boolean withAllVersions = parameters.withAllVersions;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/template/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "with_all_versions", withAllVersions));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.getMonitorUserTemplate",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorUserTemplateResponse>() {});
+  }
+
+  /**
+   * Get a monitor user template.
+   *
+   * <p>See {@link #getMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorUserTemplateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonitorUserTemplateResponse>>
+      getMonitorUserTemplateWithHttpInfoAsync(
+          String templateId, GetMonitorUserTemplateOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonitorUserTemplateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      CompletableFuture<ApiResponse<MonitorUserTemplateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'templateId' when calling getMonitorUserTemplate"));
+      return result;
+    }
+    Boolean withAllVersions = parameters.withAllVersions;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/template/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "with_all_versions", withAllVersions));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.getMonitorUserTemplate",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonitorUserTemplateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorUserTemplateResponse>() {});
+  }
+
   /**
    * Get all monitor configuration policies.
    *
@@ -1293,6 +1829,135 @@ public class MonitorsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MonitorConfigPolicyListResponse>() {});
+  }
+
+  /**
+   * Get all monitor user templates.
+   *
+   * <p>See {@link #listMonitorUserTemplatesWithHttpInfo}.
+   *
+   * @return MonitorUserTemplateListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorUserTemplateListResponse listMonitorUserTemplates() throws ApiException {
+    return listMonitorUserTemplatesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get all monitor user templates.
+   *
+   * <p>See {@link #listMonitorUserTemplatesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;MonitorUserTemplateListResponse&gt;
+   */
+  public CompletableFuture<MonitorUserTemplateListResponse> listMonitorUserTemplatesAsync() {
+    return listMonitorUserTemplatesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve all monitor user templates.
+   *
+   * @return ApiResponse&lt;MonitorUserTemplateListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonitorUserTemplateListResponse> listMonitorUserTemplatesWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listMonitorUserTemplates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/monitor/template";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.listMonitorUserTemplates",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorUserTemplateListResponse>() {});
+  }
+
+  /**
+   * Get all monitor user templates.
+   *
+   * <p>See {@link #listMonitorUserTemplatesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorUserTemplateListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonitorUserTemplateListResponse>>
+      listMonitorUserTemplatesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listMonitorUserTemplates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonitorUserTemplateListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/monitor/template";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.listMonitorUserTemplates",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonitorUserTemplateListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorUserTemplateListResponse>() {});
   }
 
   /**
@@ -1638,5 +2303,519 @@ public class MonitorsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MonitorNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Update a monitor user template to a new version.
+   *
+   * <p>See {@link #updateMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param body (required)
+   * @return MonitorUserTemplateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorUserTemplateResponse updateMonitorUserTemplate(
+      String templateId, MonitorUserTemplateUpdateRequest body) throws ApiException {
+    return updateMonitorUserTemplateWithHttpInfo(templateId, body).getData();
+  }
+
+  /**
+   * Update a monitor user template to a new version.
+   *
+   * <p>See {@link #updateMonitorUserTemplateWithHttpInfoAsync}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;MonitorUserTemplateResponse&gt;
+   */
+  public CompletableFuture<MonitorUserTemplateResponse> updateMonitorUserTemplateAsync(
+      String templateId, MonitorUserTemplateUpdateRequest body) {
+    return updateMonitorUserTemplateWithHttpInfoAsync(templateId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates a new version of an existing monitor user template.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;MonitorUserTemplateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonitorUserTemplateResponse> updateMonitorUserTemplateWithHttpInfo(
+      String templateId, MonitorUserTemplateUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'templateId' when calling updateMonitorUserTemplate");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateMonitorUserTemplate");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/template/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.updateMonitorUserTemplate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorUserTemplateResponse>() {});
+  }
+
+  /**
+   * Update a monitor user template to a new version.
+   *
+   * <p>See {@link #updateMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorUserTemplateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonitorUserTemplateResponse>>
+      updateMonitorUserTemplateWithHttpInfoAsync(
+          String templateId, MonitorUserTemplateUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonitorUserTemplateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      CompletableFuture<ApiResponse<MonitorUserTemplateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'templateId' when calling"
+                  + " updateMonitorUserTemplate"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MonitorUserTemplateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateMonitorUserTemplate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/template/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.updateMonitorUserTemplate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonitorUserTemplateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorUserTemplateResponse>() {});
+  }
+
+  /**
+   * Validate an existing monitor user template.
+   *
+   * <p>See {@link #validateExistingMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void validateExistingMonitorUserTemplate(
+      String templateId, MonitorUserTemplateUpdateRequest body) throws ApiException {
+    validateExistingMonitorUserTemplateWithHttpInfo(templateId, body);
+  }
+
+  /**
+   * Validate an existing monitor user template.
+   *
+   * <p>See {@link #validateExistingMonitorUserTemplateWithHttpInfoAsync}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> validateExistingMonitorUserTemplateAsync(
+      String templateId, MonitorUserTemplateUpdateRequest body) {
+    return validateExistingMonitorUserTemplateWithHttpInfoAsync(templateId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Validate the structure and content of an existing monitor user template being updated to a new
+   * version.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> validateExistingMonitorUserTemplateWithHttpInfo(
+      String templateId, MonitorUserTemplateUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "validateExistingMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'templateId' when calling"
+              + " validateExistingMonitorUserTemplate");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling validateExistingMonitorUserTemplate");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/template/{template_id}/validate"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.validateExistingMonitorUserTemplate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Validate an existing monitor user template.
+   *
+   * <p>See {@link #validateExistingMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param templateId ID of the monitor user template. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> validateExistingMonitorUserTemplateWithHttpInfoAsync(
+      String templateId, MonitorUserTemplateUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "validateExistingMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'templateId' when calling"
+                  + " validateExistingMonitorUserTemplate"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " validateExistingMonitorUserTemplate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/template/{template_id}/validate"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.validateExistingMonitorUserTemplate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Validate a monitor user template.
+   *
+   * <p>See {@link #validateMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void validateMonitorUserTemplate(MonitorUserTemplateCreateRequest body)
+      throws ApiException {
+    validateMonitorUserTemplateWithHttpInfo(body);
+  }
+
+  /**
+   * Validate a monitor user template.
+   *
+   * <p>See {@link #validateMonitorUserTemplateWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> validateMonitorUserTemplateAsync(
+      MonitorUserTemplateCreateRequest body) {
+    return validateMonitorUserTemplateWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Validate the structure and content of a monitor user template.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> validateMonitorUserTemplateWithHttpInfo(
+      MonitorUserTemplateCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "validateMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling validateMonitorUserTemplate");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/monitor/template/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.validateMonitorUserTemplate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Validate a monitor user template.
+   *
+   * <p>See {@link #validateMonitorUserTemplateWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> validateMonitorUserTemplateWithHttpInfoAsync(
+      MonitorUserTemplateCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "validateMonitorUserTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling validateMonitorUserTemplate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/monitor/template/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.validateMonitorUserTemplate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 }

@@ -668,10 +668,17 @@ public class ApiClient {
           put("v2.updateAWSAccount", false);
           put("v2.listAWSLogsServices", false);
           put("v2.createMonitorNotificationRule", false);
+          put("v2.createMonitorUserTemplate", false);
           put("v2.deleteMonitorNotificationRule", false);
+          put("v2.deleteMonitorUserTemplate", false);
           put("v2.getMonitorNotificationRule", false);
           put("v2.getMonitorNotificationRules", false);
+          put("v2.getMonitorUserTemplate", false);
+          put("v2.listMonitorUserTemplates", false);
           put("v2.updateMonitorNotificationRule", false);
+          put("v2.updateMonitorUserTemplate", false);
+          put("v2.validateExistingMonitorUserTemplate", false);
+          put("v2.validateMonitorUserTemplate", false);
           put("v2.getAggregatedConnections", false);
           put("v2.createPipeline", false);
           put("v2.deletePipeline", false);

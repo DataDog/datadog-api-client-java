@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"It's a threshold\",\"monitor_definition\":{\"message\":\"cats\",\"name\":\"High Error Rate on service\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"},\"tags\":[\"category:test\"],\"template_variables\":[{\"available_values\":[],\"defaults\":[\"cats\"],\"name\":\"scope\"}],\"title\":\"api spec given template test-get_all_monitor_user_templates_returns_ok_response-1748486181\"},\"type\":\"monitor-user-template\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/template",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"monitor-user-template\",\"attributes\":{\"description\":\"It's a threshold\",\"created\":\"2025-05-29T02:36:21.696273+00:00\",\"template_variables\":[{\"available_values\":[],\"defaults\":[\"cats\"],\"name\":\"scope\"}],\"creator_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"version\":0,\"tags\":[\"category:test\"],\"modified\":\"2025-05-29T02:36:21.696273+00:00\",\"title\":\"api spec given template test-get_all_monitor_user_templates_returns_ok_response-1748486181\",\"monitor_definition\":{\"message\":\"cats\",\"name\":\"High Error Rate on service\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"}},\"id\":\"900b870a-1f9d-4b6c-95b7-9859bbb0a778\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "18c7f673-57e0-eb4f-7038-2467a82c6d06"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/monitor/template",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"type\":\"monitor-user-template\",\"attributes\":{\"created\":\"2025-05-29T02:36:21.696273+00:00\",\"creator_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"version\":0,\"tags\":[\"category:test\"],\"title\":\"api spec given template test-get_all_monitor_user_templates_returns_ok_response-1748486181\",\"modified\":\"2025-05-29T02:36:21.696273+00:00\",\"monitor_definition\":{\"name\":\"High Error Rate on service\",\"type\":\"query alert\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"message\":\"cats\"},\"description\":\"It's a threshold\",\"template_variables\":[{\"defaults\":[\"cats\"],\"name\":\"scope\",\"available_values\":[]}]},\"id\":\"900b870a-1f9d-4b6c-95b7-9859bbb0a778\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "562225db-c581-6227-28a2-1773abd0c05e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/template/900b870a-1f9d-4b6c-95b7-9859bbb0a778",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "50be29aa-2786-5d63-0c9d-7cc0238bc70f"
+  }
+]
