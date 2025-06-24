@@ -282,7 +282,9 @@ public class MetricsApi {
   }
 
   /**
-   * Get the list of actively reporting metrics from a given time until now.
+   * Get the list of actively reporting metrics from a given time until now. The tag service resets
+   * daily at midnight UTC. This endpoint returns only metrics that have reported since the last
+   * reset, even if the <code>from</code> parameter specifies an earlier time.
    *
    * @param from Seconds since the Unix epoch. (required)
    * @param parameters Optional parameters for the request.
