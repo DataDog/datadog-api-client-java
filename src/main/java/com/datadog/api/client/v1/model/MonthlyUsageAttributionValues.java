@@ -128,6 +128,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINES_VCPU_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ONLINE_ARCHIVE_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ONLINE_ARCHIVE_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_PERCENTAGE,
@@ -533,6 +535,14 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_USAGE = "online_archive_usage";
   private Double onlineArchiveUsage;
+
+  public static final String JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_PERCENTAGE =
+      "product_analytics_session_percentage";
+  private Double productAnalyticsSessionPercentage;
+
+  public static final String JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_USAGE =
+      "product_analytics_session_usage";
+  private Double productAnalyticsSessionUsage;
 
   public static final String JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE =
       "profiled_container_percentage";
@@ -2981,6 +2991,50 @@ public class MonthlyUsageAttributionValues {
     this.onlineArchiveUsage = onlineArchiveUsage;
   }
 
+  public MonthlyUsageAttributionValues productAnalyticsSessionPercentage(
+      Double productAnalyticsSessionPercentage) {
+    this.productAnalyticsSessionPercentage = productAnalyticsSessionPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Product Analytics session usage by tag(s).
+   *
+   * @return productAnalyticsSessionPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getProductAnalyticsSessionPercentage() {
+    return productAnalyticsSessionPercentage;
+  }
+
+  public void setProductAnalyticsSessionPercentage(Double productAnalyticsSessionPercentage) {
+    this.productAnalyticsSessionPercentage = productAnalyticsSessionPercentage;
+  }
+
+  public MonthlyUsageAttributionValues productAnalyticsSessionUsage(
+      Double productAnalyticsSessionUsage) {
+    this.productAnalyticsSessionUsage = productAnalyticsSessionUsage;
+    return this;
+  }
+
+  /**
+   * The total Product Analytics session usage by tag(s).
+   *
+   * @return productAnalyticsSessionUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getProductAnalyticsSessionUsage() {
+    return productAnalyticsSessionUsage;
+  }
+
+  public void setProductAnalyticsSessionUsage(Double productAnalyticsSessionUsage) {
+    this.productAnalyticsSessionUsage = productAnalyticsSessionUsage;
+  }
+
   public MonthlyUsageAttributionValues profiledContainerPercentage(
       Double profiledContainerPercentage) {
     this.profiledContainerPercentage = profiledContainerPercentage;
@@ -3856,6 +3910,12 @@ public class MonthlyUsageAttributionValues {
             this.onlineArchivePercentage, monthlyUsageAttributionValues.onlineArchivePercentage)
         && Objects.equals(this.onlineArchiveUsage, monthlyUsageAttributionValues.onlineArchiveUsage)
         && Objects.equals(
+            this.productAnalyticsSessionPercentage,
+            monthlyUsageAttributionValues.productAnalyticsSessionPercentage)
+        && Objects.equals(
+            this.productAnalyticsSessionUsage,
+            monthlyUsageAttributionValues.productAnalyticsSessionUsage)
+        && Objects.equals(
             this.profiledContainerPercentage,
             monthlyUsageAttributionValues.profiledContainerPercentage)
         && Objects.equals(
@@ -4035,6 +4095,8 @@ public class MonthlyUsageAttributionValues {
         obsPipelinesVcpuUsage,
         onlineArchivePercentage,
         onlineArchiveUsage,
+        productAnalyticsSessionPercentage,
+        productAnalyticsSessionUsage,
         profiledContainerPercentage,
         profiledContainerUsage,
         profiledFargatePercentage,
@@ -4334,6 +4396,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(onlineArchivePercentage))
         .append("\n");
     sb.append("    onlineArchiveUsage: ").append(toIndentedString(onlineArchiveUsage)).append("\n");
+    sb.append("    productAnalyticsSessionPercentage: ")
+        .append(toIndentedString(productAnalyticsSessionPercentage))
+        .append("\n");
+    sb.append("    productAnalyticsSessionUsage: ")
+        .append(toIndentedString(productAnalyticsSessionUsage))
+        .append("\n");
     sb.append("    profiledContainerPercentage: ")
         .append(toIndentedString(profiledContainerPercentage))
         .append("\n");

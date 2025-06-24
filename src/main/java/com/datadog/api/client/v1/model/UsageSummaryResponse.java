@@ -145,6 +145,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_PRODUCT_ANALYTICS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_CONTAINER_AGENT_COUNT_AVG,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM,
@@ -648,6 +649,9 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM =
       "opentelemetry_host_top99p_sum";
   private Long opentelemetryHostTop99pSum;
+
+  public static final String JSON_PROPERTY_PRODUCT_ANALYTICS_AGG_SUM = "product_analytics_agg_sum";
+  private Long productAnalyticsAggSum;
 
   public static final String JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P_SUM =
       "profiling_aas_count_top99p_sum";
@@ -3612,6 +3616,27 @@ public class UsageSummaryResponse {
     this.opentelemetryHostTop99pSum = opentelemetryHostTop99pSum;
   }
 
+  public UsageSummaryResponse productAnalyticsAggSum(Long productAnalyticsAggSum) {
+    this.productAnalyticsAggSum = productAnalyticsAggSum;
+    return this;
+  }
+
+  /**
+   * Sum of all product analytics sessions for all hours in the current month for all organizations.
+   *
+   * @return productAnalyticsAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getProductAnalyticsAggSum() {
+    return productAnalyticsAggSum;
+  }
+
+  public void setProductAnalyticsAggSum(Long productAnalyticsAggSum) {
+    this.productAnalyticsAggSum = productAnalyticsAggSum;
+  }
+
   public UsageSummaryResponse profilingAasCountTop99pSum(Long profilingAasCountTop99pSum) {
     this.profilingAasCountTop99pSum = profilingAasCountTop99pSum;
     return this;
@@ -5141,6 +5166,7 @@ public class UsageSummaryResponse {
             this.opentelemetryApmHostTop99pSum, usageSummaryResponse.opentelemetryApmHostTop99pSum)
         && Objects.equals(
             this.opentelemetryHostTop99pSum, usageSummaryResponse.opentelemetryHostTop99pSum)
+        && Objects.equals(this.productAnalyticsAggSum, usageSummaryResponse.productAnalyticsAggSum)
         && Objects.equals(
             this.profilingAasCountTop99pSum, usageSummaryResponse.profilingAasCountTop99pSum)
         && Objects.equals(
@@ -5396,6 +5422,7 @@ public class UsageSummaryResponse {
         onlineArchiveEventsCountAggSum,
         opentelemetryApmHostTop99pSum,
         opentelemetryHostTop99pSum,
+        productAnalyticsAggSum,
         profilingAasCountTop99pSum,
         profilingContainerAgentCountAvg,
         profilingHostCountTop99pSum,
@@ -5770,6 +5797,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    opentelemetryHostTop99pSum: ")
         .append(toIndentedString(opentelemetryHostTop99pSum))
+        .append("\n");
+    sb.append("    productAnalyticsAggSum: ")
+        .append(toIndentedString(productAnalyticsAggSum))
         .append("\n");
     sb.append("    profilingAasCountTop99pSum: ")
         .append(toIndentedString(profilingAasCountTop99pSum))

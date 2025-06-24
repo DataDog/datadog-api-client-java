@@ -137,6 +137,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_PRODUCT_ANALYTICS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PUBLIC_ID,
@@ -606,6 +607,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P = "opentelemetry_host_top99p";
   private Long opentelemetryHostTop99p;
+
+  public static final String JSON_PROPERTY_PRODUCT_ANALYTICS_SUM = "product_analytics_sum";
+  private Long productAnalyticsSum;
 
   public static final String JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P =
       "profiling_aas_count_top99p";
@@ -3470,6 +3474,28 @@ public class UsageSummaryDateOrg {
     this.opentelemetryHostTop99p = opentelemetryHostTop99p;
   }
 
+  public UsageSummaryDateOrg productAnalyticsSum(Long productAnalyticsSum) {
+    this.productAnalyticsSum = productAnalyticsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all product analytics sessions over all hours in the current date for the
+   * given org.
+   *
+   * @return productAnalyticsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getProductAnalyticsSum() {
+    return productAnalyticsSum;
+  }
+
+  public void setProductAnalyticsSum(Long productAnalyticsSum) {
+    this.productAnalyticsSum = productAnalyticsSum;
+  }
+
   public UsageSummaryDateOrg profilingAasCountTop99p(Long profilingAasCountTop99p) {
     this.profilingAasCountTop99p = profilingAasCountTop99p;
     return this;
@@ -4850,6 +4876,7 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.opentelemetryApmHostTop99p, usageSummaryDateOrg.opentelemetryApmHostTop99p)
         && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDateOrg.opentelemetryHostTop99p)
+        && Objects.equals(this.productAnalyticsSum, usageSummaryDateOrg.productAnalyticsSum)
         && Objects.equals(this.profilingAasCountTop99p, usageSummaryDateOrg.profilingAasCountTop99p)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDateOrg.profilingHostTop99p)
         && Objects.equals(this.publicId, usageSummaryDateOrg.publicId)
@@ -5083,6 +5110,7 @@ public class UsageSummaryDateOrg {
         onlineArchiveEventsCountSum,
         opentelemetryApmHostTop99p,
         opentelemetryHostTop99p,
+        productAnalyticsSum,
         profilingAasCountTop99p,
         profilingHostTop99p,
         publicId,
@@ -5414,6 +5442,9 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    opentelemetryHostTop99p: ")
         .append(toIndentedString(opentelemetryHostTop99p))
+        .append("\n");
+    sb.append("    productAnalyticsSum: ")
+        .append(toIndentedString(productAnalyticsSum))
         .append("\n");
     sb.append("    profilingAasCountTop99p: ")
         .append(toIndentedString(profilingAasCountTop99p))
