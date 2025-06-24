@@ -1,0 +1,31 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"A description.\",\"monitor_definition\":{\"message\":\"A msg.\",\"name\":\"A name test-validate_a_monitor_user_template_returns_ok_response-1748486184\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"},\"tags\":[\"integration:Azure\"],\"template_variables\":[{\"available_values\":[\"value1\",\"value2\"],\"defaults\":[\"defaultValue\"],\"name\":\"regionName\",\"tag_key\":\"datacenter\"}],\"title\":\"Postgres DB test-validate_a_monitor_user_template_returns_ok_response-1748486184\"},\"type\":\"monitor-user-template\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/template/validate",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "834da5c5-d0cd-4ac6-96c6-b65e3d0b737e"
+  }
+]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"testeditamonitorconfigurationpolicyreturnsunprocessableentityresponse1682627701\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"type\":\"monitor-config-policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"testeditamonitorconfigurationpolicyreturnsunprocessableentityresponse1748486178\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"type\":\"monitor-config-policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"monitor-config-policy\",\"attributes\":{\"policy\":{\"tag_key\":\"testeditamonitorconfigurationpolicyreturnsunprocessableentityresponse1682627701\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"id\":\"fc38f7f0-e53a-11ed-947f-da7ad0900002\"}}\n",
+      "body": "{\"data\":{\"type\":\"monitor-config-policy\",\"attributes\":{\"policy\":{\"tag_key\":\"testeditamonitorconfigurationpolicyreturnsunprocessableentityresponse1748486178\",\"valid_tag_values\":[\"prod\",\"staging\"],\"tag_key_required\":false},\"policy_type\":\"tag\"},\"id\":\"f2f83512-b2c2-4dc4-a8db-c785cd818d6f\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,17 +27,17 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f73a1e04-a46a-afee-2f9a-4f686d2e03c4"
+    "id": "1279eac4-3fcd-e892-6676-46c1255d2f8c"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"testeditamonitorconfigurationpolicyreturnsunprocessableentityresponse1682627701\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"id\":\"00000000-0000-1234-0000-000000000000\",\"type\":\"monitor-config-policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"testeditamonitorconfigurationpolicyreturnsunprocessableentityresponse1748486178\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"id\":\"00000000-0000-1234-0000-000000000000\",\"type\":\"monitor-config-policy\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/monitor/policy/fc38f7f0-e53a-11ed-947f-da7ad0900002",
+      "path": "/api/v2/monitor/policy/f2f83512-b2c2-4dc4-a8db-c785cd818d6f",
       "keepAlive": false,
       "secure": true
     },
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9a404b45-283d-1dba-a5c1-22902f88fcfc"
+    "id": "937be9c1-c424-4a6a-bcfc-ecada84b00d1"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/monitor/policy/fc38f7f0-e53a-11ed-947f-da7ad0900002",
+      "path": "/api/v2/monitor/policy/f2f83512-b2c2-4dc4-a8db-c785cd818d6f",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "93ccb037-d37a-1ad7-b5b6-0ac50481dfcb"
+    "id": "2f514e1d-9cd9-6d3f-0003-8346926553ac"
   }
 ]
