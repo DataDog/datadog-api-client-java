@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2.38.0/2025-06-24
+
+### Fixed
+* Fix basic auth requirements [#2932](https://github.com/DataDog/datadog-api-client-java/pull/2932)
+
+### Added
+* Microsoft Sentinel Public API support [#2930](https://github.com/DataDog/datadog-api-client-java/pull/2930)
+* Add the AP2 datacenter. [#2928](https://github.com/DataDog/datadog-api-client-java/pull/2928)
+
 ## 2.37.0/2025-06-23
 
 ### Fixed
