@@ -87,6 +87,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "profiled_container_usage",
               "profiled_fargate_usage",
               "profiled_host_usage",
+              "product_analytics_session_usage",
               "rum_browser_mobile_sessions_usage",
               "rum_replay_sessions_usage",
               "sca_fargate_usage",
@@ -222,6 +223,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("profiled_fargate_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_HOST_USAGE =
       new HourlyUsageAttributionUsageType("profiled_host_usage");
+  public static final HourlyUsageAttributionUsageType PRODUCT_ANALYTICS_SESSION_USAGE =
+      new HourlyUsageAttributionUsageType("product_analytics_session_usage");
   public static final HourlyUsageAttributionUsageType RUM_BROWSER_MOBILE_SESSIONS_USAGE =
       new HourlyUsageAttributionUsageType("rum_browser_mobile_sessions_usage");
   public static final HourlyUsageAttributionUsageType RUM_REPLAY_SESSIONS_USAGE =
