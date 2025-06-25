@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object representing an event creation request. */
+/** An event object. */
 @JsonPropertyOrder({
   EventCreateRequest.JSON_PROPERTY_ATTRIBUTES,
   EventCreateRequest.JSON_PROPERTY_TYPE
@@ -31,6 +32,18 @@ public class EventCreateRequest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private EventCreateRequestType type;
 
+  public EventCreateRequest() {}
+
+  @JsonCreator
+  public EventCreateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES) EventPayload attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) EventCreateRequestType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
   public EventCreateRequest attributes(EventPayload attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -42,9 +55,8 @@ public class EventCreateRequest {
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public EventPayload getAttributes() {
     return attributes;
   }
@@ -64,9 +76,8 @@ public class EventCreateRequest {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public EventCreateRequestType getType() {
     return type;
   }

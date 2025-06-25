@@ -57,7 +57,7 @@ public class EventsApi {
    *
    * <p>See {@link #createEventWithHttpInfo}.
    *
-   * @param body Event request object (required)
+   * @param body Event creation request payload. (required)
    * @return EventCreateResponsePayload
    * @throws ApiException if fails to make API call
    */
@@ -71,7 +71,7 @@ public class EventsApi {
    *
    * <p>See {@link #createEventWithHttpInfoAsync}.
    *
-   * @param body Event request object (required)
+   * @param body Event creation request payload. (required)
    * @return CompletableFuture&lt;EventCreateResponsePayload&gt;
    */
   public CompletableFuture<EventCreateResponsePayload> createEventAsync(
@@ -84,22 +84,29 @@ public class EventsApi {
   }
 
   /**
-   * This endpoint allows you to post events.
+   * This endpoint allows you to publish events.
    *
-   * <p>✅ <strong>Only events with the <code>change</code> category</strong> are in General
-   * Availability. See <a href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for
-   * more details.
+   * <p>✅ <strong>Only events with the <code>change</code> or <code>alert</code> category</strong>
+   * are in General Availability. For change events, see <a
+   * href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for more details.
    *
-   * <p>❌ For use cases involving other event categories, please use the V1 endpoint.
+   * <p>❌ For use cases involving other event categories, use the V1 endpoint or reach out to <a
+   * href="https://www.datadoghq.com/support/">support</a>.
    *
-   * @param body Event request object (required)
+   * <p>❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint
+   * for notification functionality.
+   *
+   * <p>❌ This endpoint is not available for the Government (US1-FED) site. Contact your account
+   * representative for more information.
+   *
+   * @param body Event creation request payload. (required)
    * @return ApiResponse&lt;EventCreateResponsePayload&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -143,7 +150,7 @@ public class EventsApi {
    *
    * <p>See {@link #createEventWithHttpInfo}.
    *
-   * @param body Event request object (required)
+   * @param body Event creation request payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;EventCreateResponsePayload&gt;&gt;
    */
   public CompletableFuture<ApiResponse<EventCreateResponsePayload>> createEventWithHttpInfoAsync(
