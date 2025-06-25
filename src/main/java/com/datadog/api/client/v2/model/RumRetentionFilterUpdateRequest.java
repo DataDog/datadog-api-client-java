@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The RUM retention filter body to update. */
+/** The RUM retention filter body to update */
 @JsonPropertyOrder({RumRetentionFilterUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
