@@ -18,38 +18,40 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Event category identifying the type of event. */
-@JsonSerialize(using = EventCategory.EventCategorySerializer.class)
-public class EventCategory extends ModelEnum<String> {
+/** Integration ID sourced from integration manifests. */
+@JsonSerialize(using = EventPayloadIntegrationId.EventPayloadIntegrationIdSerializer.class)
+public class EventPayloadIntegrationId extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("change", "alert"));
+      new HashSet<String>(Arrays.asList("custom-events"));
 
-  public static final EventCategory CHANGE = new EventCategory("change");
-  public static final EventCategory ALERT = new EventCategory("alert");
+  public static final EventPayloadIntegrationId CUSTOM_EVENTS =
+      new EventPayloadIntegrationId("custom-events");
 
-  EventCategory(String value) {
+  EventPayloadIntegrationId(String value) {
     super(value, allowedValues);
   }
 
-  public static class EventCategorySerializer extends StdSerializer<EventCategory> {
-    public EventCategorySerializer(Class<EventCategory> t) {
+  public static class EventPayloadIntegrationIdSerializer
+      extends StdSerializer<EventPayloadIntegrationId> {
+    public EventPayloadIntegrationIdSerializer(Class<EventPayloadIntegrationId> t) {
       super(t);
     }
 
-    public EventCategorySerializer() {
+    public EventPayloadIntegrationIdSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(EventCategory value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        EventPayloadIntegrationId value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static EventCategory fromValue(String value) {
-    return new EventCategory(value);
+  public static EventPayloadIntegrationId fromValue(String value) {
+    return new EventPayloadIntegrationId(value);
   }
 }
