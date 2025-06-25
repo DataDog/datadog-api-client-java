@@ -30,6 +30,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsHTTPVersion;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
+import com.datadog.api.client.v1.model.SyntheticsTestRequestDNSServerPort;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestPort;
 import com.datadog.api.client.v1.model.SyntheticsVariableParser;
 import java.util.Arrays;
@@ -170,7 +171,8 @@ public class Example {
                                         new SyntheticsTestRequest()
                                             .host("troisdizaines.com")
                                             .dnsServer("8.8.8.8")
-                                            .dnsServerPort("53"))),
+                                            .dnsServerPort(
+                                                new SyntheticsTestRequestDNSServerPort("53")))),
                             new SyntheticsAPIStep(
                                 new SyntheticsAPITestStep()
                                     .name("TCP step")

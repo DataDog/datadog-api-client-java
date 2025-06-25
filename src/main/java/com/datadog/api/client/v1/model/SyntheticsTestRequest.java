@@ -93,7 +93,7 @@ public class SyntheticsTestRequest {
   private String dnsServer;
 
   public static final String JSON_PROPERTY_DNS_SERVER_PORT = "dnsServerPort";
-  private String dnsServerPort;
+  private SyntheticsTestRequestDNSServerPort dnsServerPort;
 
   public static final String JSON_PROPERTY_FILES = "files";
   private List<SyntheticsTestRequestBodyFile> files = null;
@@ -409,8 +409,9 @@ public class SyntheticsTestRequest {
     this.dnsServer = dnsServer;
   }
 
-  public SyntheticsTestRequest dnsServerPort(String dnsServerPort) {
+  public SyntheticsTestRequest dnsServerPort(SyntheticsTestRequestDNSServerPort dnsServerPort) {
     this.dnsServerPort = dnsServerPort;
+    this.unparsed |= dnsServerPort.unparsed;
     return this;
   }
 
@@ -422,11 +423,11 @@ public class SyntheticsTestRequest {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DNS_SERVER_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDnsServerPort() {
+  public SyntheticsTestRequestDNSServerPort getDnsServerPort() {
     return dnsServerPort;
   }
 
-  public void setDnsServerPort(String dnsServerPort) {
+  public void setDnsServerPort(SyntheticsTestRequestDNSServerPort dnsServerPort) {
     this.dnsServerPort = dnsServerPort;
   }
 
