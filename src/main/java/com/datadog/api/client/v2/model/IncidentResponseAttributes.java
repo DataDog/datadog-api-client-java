@@ -34,6 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentResponseAttributes.JSON_PROPERTY_DETECTED,
   IncidentResponseAttributes.JSON_PROPERTY_FIELDS,
   IncidentResponseAttributes.JSON_PROPERTY_INCIDENT_TYPE_UUID,
+  IncidentResponseAttributes.JSON_PROPERTY_IS_TEST,
   IncidentResponseAttributes.JSON_PROPERTY_MODIFIED,
   IncidentResponseAttributes.JSON_PROPERTY_NON_DATADOG_CREATOR,
   IncidentResponseAttributes.JSON_PROPERTY_NOTIFICATION_HANDLES,
@@ -85,6 +86,9 @@ public class IncidentResponseAttributes {
 
   public static final String JSON_PROPERTY_INCIDENT_TYPE_UUID = "incident_type_uuid";
   private String incidentTypeUuid;
+
+  public static final String JSON_PROPERTY_IS_TEST = "is_test";
+  private Boolean isTest;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
   private OffsetDateTime modified;
@@ -411,6 +415,27 @@ public class IncidentResponseAttributes {
 
   public void setIncidentTypeUuid(String incidentTypeUuid) {
     this.incidentTypeUuid = incidentTypeUuid;
+  }
+
+  public IncidentResponseAttributes isTest(Boolean isTest) {
+    this.isTest = isTest;
+    return this;
+  }
+
+  /**
+   * A flag indicating whether the incident is a test incident.
+   *
+   * @return isTest
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_TEST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsTest() {
+    return isTest;
+  }
+
+  public void setIsTest(Boolean isTest) {
+    this.isTest = isTest;
   }
 
   /**
@@ -786,6 +811,7 @@ public class IncidentResponseAttributes {
         && Objects.equals(this.detected, incidentResponseAttributes.detected)
         && Objects.equals(this.fields, incidentResponseAttributes.fields)
         && Objects.equals(this.incidentTypeUuid, incidentResponseAttributes.incidentTypeUuid)
+        && Objects.equals(this.isTest, incidentResponseAttributes.isTest)
         && Objects.equals(this.modified, incidentResponseAttributes.modified)
         && Objects.equals(this.nonDatadogCreator, incidentResponseAttributes.nonDatadogCreator)
         && Objects.equals(this.notificationHandles, incidentResponseAttributes.notificationHandles)
@@ -818,6 +844,7 @@ public class IncidentResponseAttributes {
         detected,
         fields,
         incidentTypeUuid,
+        isTest,
         modified,
         nonDatadogCreator,
         notificationHandles,
@@ -855,6 +882,7 @@ public class IncidentResponseAttributes {
     sb.append("    detected: ").append(toIndentedString(detected)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    incidentTypeUuid: ").append(toIndentedString(incidentTypeUuid)).append("\n");
+    sb.append("    isTest: ").append(toIndentedString(isTest)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    nonDatadogCreator: ").append(toIndentedString(nonDatadogCreator)).append("\n");
     sb.append("    notificationHandles: ")

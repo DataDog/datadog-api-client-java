@@ -26,6 +26,7 @@ import java.util.Objects;
   IncidentCreateAttributes.JSON_PROPERTY_FIELDS,
   IncidentCreateAttributes.JSON_PROPERTY_INCIDENT_TYPE_UUID,
   IncidentCreateAttributes.JSON_PROPERTY_INITIAL_CELLS,
+  IncidentCreateAttributes.JSON_PROPERTY_IS_TEST,
   IncidentCreateAttributes.JSON_PROPERTY_NOTIFICATION_HANDLES,
   IncidentCreateAttributes.JSON_PROPERTY_TITLE
 })
@@ -47,6 +48,9 @@ public class IncidentCreateAttributes {
 
   public static final String JSON_PROPERTY_INITIAL_CELLS = "initial_cells";
   private List<IncidentTimelineCellCreateAttributes> initialCells = null;
+
+  public static final String JSON_PROPERTY_IS_TEST = "is_test";
+  private Boolean isTest;
 
   public static final String JSON_PROPERTY_NOTIFICATION_HANDLES = "notification_handles";
   private List<IncidentNotificationHandle> notificationHandles = null;
@@ -193,6 +197,27 @@ public class IncidentCreateAttributes {
     this.initialCells = initialCells;
   }
 
+  public IncidentCreateAttributes isTest(Boolean isTest) {
+    this.isTest = isTest;
+    return this;
+  }
+
+  /**
+   * A flag indicating whether the incident is a test incident.
+   *
+   * @return isTest
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_TEST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsTest() {
+    return isTest;
+  }
+
+  public void setIsTest(Boolean isTest) {
+    this.isTest = isTest;
+  }
+
   public IncidentCreateAttributes notificationHandles(
       List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
@@ -309,6 +334,7 @@ public class IncidentCreateAttributes {
         && Objects.equals(this.fields, incidentCreateAttributes.fields)
         && Objects.equals(this.incidentTypeUuid, incidentCreateAttributes.incidentTypeUuid)
         && Objects.equals(this.initialCells, incidentCreateAttributes.initialCells)
+        && Objects.equals(this.isTest, incidentCreateAttributes.isTest)
         && Objects.equals(this.notificationHandles, incidentCreateAttributes.notificationHandles)
         && Objects.equals(this.title, incidentCreateAttributes.title)
         && Objects.equals(this.additionalProperties, incidentCreateAttributes.additionalProperties);
@@ -322,6 +348,7 @@ public class IncidentCreateAttributes {
         fields,
         incidentTypeUuid,
         initialCells,
+        isTest,
         notificationHandles,
         title,
         additionalProperties);
@@ -338,6 +365,7 @@ public class IncidentCreateAttributes {
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    incidentTypeUuid: ").append(toIndentedString(incidentTypeUuid)).append("\n");
     sb.append("    initialCells: ").append(toIndentedString(initialCells)).append("\n");
+    sb.append("    isTest: ").append(toIndentedString(isTest)).append("\n");
     sb.append("    notificationHandles: ")
         .append(toIndentedString(notificationHandles))
         .append("\n");
