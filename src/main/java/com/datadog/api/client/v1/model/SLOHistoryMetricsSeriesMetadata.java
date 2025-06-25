@@ -60,7 +60,9 @@ public class SLOHistoryMetricsSeriesMetadata {
    * Query aggregator function.
    *
    * @return aggr
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -68,6 +70,7 @@ public class SLOHistoryMetricsSeriesMetadata {
     return aggr;
   }
 
+  @Deprecated
   public void setAggr(String aggr) {
     this.aggr = aggr;
   }
@@ -81,7 +84,9 @@ public class SLOHistoryMetricsSeriesMetadata {
    * Query expression.
    *
    * @return expression
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,6 +94,7 @@ public class SLOHistoryMetricsSeriesMetadata {
     return expression;
   }
 
+  @Deprecated
   public void setExpression(String expression) {
     this.expression = expression;
   }
@@ -102,7 +108,9 @@ public class SLOHistoryMetricsSeriesMetadata {
    * Query metric used.
    *
    * @return metric
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,6 +118,7 @@ public class SLOHistoryMetricsSeriesMetadata {
     return metric;
   }
 
+  @Deprecated
   public void setMetric(String metric) {
     this.metric = metric;
   }
@@ -123,7 +132,9 @@ public class SLOHistoryMetricsSeriesMetadata {
    * Query index from original combined query.
    *
    * @return queryIndex
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,6 +142,7 @@ public class SLOHistoryMetricsSeriesMetadata {
     return queryIndex;
   }
 
+  @Deprecated
   public void setQueryIndex(Long queryIndex) {
     this.queryIndex = queryIndex;
   }
@@ -144,7 +156,9 @@ public class SLOHistoryMetricsSeriesMetadata {
    * Query scope.
    *
    * @return scope
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,6 +166,7 @@ public class SLOHistoryMetricsSeriesMetadata {
     return scope;
   }
 
+  @Deprecated
   public void setScope(String scope) {
     this.scope = scope;
   }
