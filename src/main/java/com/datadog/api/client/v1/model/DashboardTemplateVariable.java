@@ -26,7 +26,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DashboardTemplateVariable.JSON_PROPERTY_DEFAULT,
   DashboardTemplateVariable.JSON_PROPERTY_DEFAULTS,
   DashboardTemplateVariable.JSON_PROPERTY_NAME,
-  DashboardTemplateVariable.JSON_PROPERTY_PREFIX
+  DashboardTemplateVariable.JSON_PROPERTY_PREFIX,
+  DashboardTemplateVariable.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -46,6 +47,9 @@ public class DashboardTemplateVariable {
 
   public static final String JSON_PROPERTY_PREFIX = "prefix";
   private JsonNullable<String> prefix = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private JsonNullable<String> type = JsonNullable.<String>undefined();
 
   public DashboardTemplateVariable() {}
 
@@ -216,6 +220,38 @@ public class DashboardTemplateVariable {
     this.prefix = JsonNullable.<String>of(prefix);
   }
 
+  public DashboardTemplateVariable type(String type) {
+    this.type = JsonNullable.<String>of(type);
+    return this;
+  }
+
+  /**
+   * The type of variable. This is to differentiate between filter variables (interpolated in query)
+   * and group by variables (interpolated into group by).
+   *
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getType() {
+    return type.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getType_JsonNullable() {
+    return type;
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<String> type) {
+    this.type = type;
+  }
+
+  public void setType(String type) {
+    this.type = JsonNullable.<String>of(type);
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -277,13 +313,15 @@ public class DashboardTemplateVariable {
         && Objects.equals(this.defaults, dashboardTemplateVariable.defaults)
         && Objects.equals(this.name, dashboardTemplateVariable.name)
         && Objects.equals(this.prefix, dashboardTemplateVariable.prefix)
+        && Objects.equals(this.type, dashboardTemplateVariable.type)
         && Objects.equals(
             this.additionalProperties, dashboardTemplateVariable.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableValues, _default, defaults, name, prefix, additionalProperties);
+    return Objects.hash(
+        availableValues, _default, defaults, name, prefix, type, additionalProperties);
   }
 
   @Override
@@ -295,6 +333,7 @@ public class DashboardTemplateVariable {
     sb.append("    defaults: ").append(toIndentedString(defaults)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
