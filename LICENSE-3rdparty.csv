@@ -94,7 +94,6 @@ import,org.glassfish.jersey.core:jersey-client,EPL-2.0,2011-2019 Oracle and/or i
 import,org.glassfish.jersey.core:jersey-common,EPL-2.0,2010-2020 Oracle and/or its affiliates
 import,org.glassfish.jersey.ext:jersey-entity-filtering,EPL-2.0,2013-2019 Oracle and/or its affiliates
 import,org.glassfish.jersey.inject:jersey-hk2,EPL-2.0,2017-2019 Oracle and/or its affiliates
-import,org.glassfish.jersey.media:jersey-media-json-jackson,EPL-2.0,2012-2019 Oracle and/or its affiliates
 import,org.glassfish.jersey.media:jersey-media-multipart,EPL-2.0,2012-2019 Oracle and/or its affiliates
 import,org.hamcrest:hamcrest-core,BSD-3-Clause,2000-2015 www.hamcrest.org
 import,org.javassist:javassist,Apache-2.0,1999-2020 by Shigeru Chiba

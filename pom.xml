@@ -330,7 +330,6 @@
                             <include>org.glassfish.hk2:hk2-api</include>
                             <include>org.glassfish.hk2:hk2-utils</include>
                             <include>org.glassfish.jersey.media:jersey-media-multipart</include>
-                            <include>org.glassfish.jersey.media:jersey-media-json-jackson</include>
                             <include>org.glassfish.jersey.ext:jersey-entity-filtering</include>
                             <include>com.fasterxml.jackson.module:jackson-module-jaxb-annotations</include>
                             <include>com.fasterxml.jackson.core:jackson-core</include>
@@ -464,12 +463,6 @@
             <artifactId>jersey-media-multipart</artifactId>
             <version>${jersey-version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <version>${jersey-version}</version>
-        </dependency>
-
         <!-- JSON processing: jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
