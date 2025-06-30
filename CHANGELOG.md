@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.39.0/2025-06-30
+
+### Changed
+* Update template variable schemas with type field in dashboards and shared dashboards endpoints for group by template variables [#2955](https://github.com/DataDog/datadog-api-client-java/pull/2955)
+
 ## 2.38.0/2025-06-24
 
 ### Fixed
