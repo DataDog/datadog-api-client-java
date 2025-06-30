@@ -76,12 +76,14 @@ public class SyntheticsMobileTest {
   public SyntheticsMobileTest(
       @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG)
           SyntheticsMobileTestConfig config,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS)
           SyntheticsMobileTestOptions options,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsMobileTestType type) {
     this.config = config;
     this.unparsed |= config.unparsed;
+    this.message = message;
     this.name = name;
     this.options = options;
     this.unparsed |= options.unparsed;
@@ -149,9 +151,8 @@ public class SyntheticsMobileTest {
    *
    * @return message
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
     return message;
   }
