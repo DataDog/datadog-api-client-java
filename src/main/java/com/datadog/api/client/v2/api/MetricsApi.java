@@ -1980,6 +1980,24 @@ public class MetricsApi {
         new GenericType<MetricAllTagsResponse>() {});
   }
 
+  /** Manage optional parameters to listVolumesByMetricName. */
+  public static class ListVolumesByMetricNameOptionalParameters {
+    private Long windowSeconds;
+
+    /**
+     * Set windowSeconds.
+     *
+     * @param windowSeconds The number of seconds of look back (from now). Default value is 604,800
+     *     (1 week), minimum value is 7200 (2 hours), maximum value is 2,630,000 (1 month).
+     *     (optional)
+     * @return ListVolumesByMetricNameOptionalParameters
+     */
+    public ListVolumesByMetricNameOptionalParameters windowSeconds(Long windowSeconds) {
+      this.windowSeconds = windowSeconds;
+      return this;
+    }
+  }
+
   /**
    * List distinct metric volumes by metric name.
    *
@@ -1990,7 +2008,9 @@ public class MetricsApi {
    * @throws ApiException if fails to make API call
    */
   public MetricVolumesResponse listVolumesByMetricName(String metricName) throws ApiException {
-    return listVolumesByMetricNameWithHttpInfo(metricName).getData();
+    return listVolumesByMetricNameWithHttpInfo(
+            metricName, new ListVolumesByMetricNameOptionalParameters())
+        .getData();
   }
 
   /**
@@ -2002,7 +2022,41 @@ public class MetricsApi {
    * @return CompletableFuture&lt;MetricVolumesResponse&gt;
    */
   public CompletableFuture<MetricVolumesResponse> listVolumesByMetricNameAsync(String metricName) {
-    return listVolumesByMetricNameWithHttpInfoAsync(metricName)
+    return listVolumesByMetricNameWithHttpInfoAsync(
+            metricName, new ListVolumesByMetricNameOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List distinct metric volumes by metric name.
+   *
+   * <p>See {@link #listVolumesByMetricNameWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return MetricVolumesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MetricVolumesResponse listVolumesByMetricName(
+      String metricName, ListVolumesByMetricNameOptionalParameters parameters) throws ApiException {
+    return listVolumesByMetricNameWithHttpInfo(metricName, parameters).getData();
+  }
+
+  /**
+   * List distinct metric volumes by metric name.
+   *
+   * <p>See {@link #listVolumesByMetricNameWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;MetricVolumesResponse&gt;
+   */
+  public CompletableFuture<MetricVolumesResponse> listVolumesByMetricNameAsync(
+      String metricName, ListVolumesByMetricNameOptionalParameters parameters) {
+    return listVolumesByMetricNameWithHttpInfoAsync(metricName, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -2016,6 +2070,7 @@ public class MetricsApi {
    * ingested volumes.
    *
    * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricVolumesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2029,8 +2084,8 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricVolumesResponse> listVolumesByMetricNameWithHttpInfo(String metricName)
-      throws ApiException {
+  public ApiResponse<MetricVolumesResponse> listVolumesByMetricNameWithHttpInfo(
+      String metricName, ListVolumesByMetricNameOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -2038,19 +2093,23 @@ public class MetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'metricName' when calling listVolumesByMetricName");
     }
+    Long windowSeconds = parameters.windowSeconds;
     // create path and map variables
     String localVarPath =
         "/api/v2/metrics/{metric_name}/volumes"
             .replaceAll(
                 "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.MetricsApi.listVolumesByMetricName",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -2072,10 +2131,12 @@ public class MetricsApi {
    * <p>See {@link #listVolumesByMetricNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MetricVolumesResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricVolumesResponse>>
-      listVolumesByMetricNameWithHttpInfoAsync(String metricName) {
+      listVolumesByMetricNameWithHttpInfoAsync(
+          String metricName, ListVolumesByMetricNameOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -2087,13 +2148,17 @@ public class MetricsApi {
               "Missing the required parameter 'metricName' when calling listVolumesByMetricName"));
       return result;
     }
+    Long windowSeconds = parameters.windowSeconds;
     // create path and map variables
     String localVarPath =
         "/api/v2/metrics/{metric_name}/volumes"
             .replaceAll(
                 "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
 
     Invocation.Builder builder;
     try {
@@ -2101,7 +2166,7 @@ public class MetricsApi {
           apiClient.createBuilder(
               "v2.MetricsApi.listVolumesByMetricName",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
