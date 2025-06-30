@@ -27,6 +27,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SelectableTemplateVariableItems.JSON_PROPERTY_DEFAULT_VALUE,
   SelectableTemplateVariableItems.JSON_PROPERTY_NAME,
   SelectableTemplateVariableItems.JSON_PROPERTY_PREFIX,
+  SelectableTemplateVariableItems.JSON_PROPERTY_TYPE,
   SelectableTemplateVariableItems.JSON_PROPERTY_VISIBLE_TAGS
 })
 @jakarta.annotation.Generated(
@@ -41,6 +42,9 @@ public class SelectableTemplateVariableItems {
 
   public static final String JSON_PROPERTY_PREFIX = "prefix";
   private String prefix;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private JsonNullable<String> type = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VISIBLE_TAGS = "visible_tags";
   private JsonNullable<List<String>> visibleTags = JsonNullable.<List<String>>undefined();
@@ -106,6 +110,38 @@ public class SelectableTemplateVariableItems {
 
   public void setPrefix(String prefix) {
     this.prefix = prefix;
+  }
+
+  public SelectableTemplateVariableItems type(String type) {
+    this.type = JsonNullable.<String>of(type);
+    return this;
+  }
+
+  /**
+   * The type of variable. This is to differentiate between filter variables (interpolated in query)
+   * and group by variables (interpolated into group by).
+   *
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getType() {
+    return type.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getType_JsonNullable() {
+    return type;
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<String> type) {
+    this.type = type;
+  }
+
+  public void setType(String type) {
+    this.type = JsonNullable.<String>of(type);
   }
 
   public SelectableTemplateVariableItems visibleTags(List<String> visibleTags) {
@@ -211,6 +247,7 @@ public class SelectableTemplateVariableItems {
     return Objects.equals(this.defaultValue, selectableTemplateVariableItems.defaultValue)
         && Objects.equals(this.name, selectableTemplateVariableItems.name)
         && Objects.equals(this.prefix, selectableTemplateVariableItems.prefix)
+        && Objects.equals(this.type, selectableTemplateVariableItems.type)
         && Objects.equals(this.visibleTags, selectableTemplateVariableItems.visibleTags)
         && Objects.equals(
             this.additionalProperties, selectableTemplateVariableItems.additionalProperties);
@@ -218,7 +255,7 @@ public class SelectableTemplateVariableItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultValue, name, prefix, visibleTags, additionalProperties);
+    return Objects.hash(defaultValue, name, prefix, type, visibleTags, additionalProperties);
   }
 
   @Override
@@ -228,6 +265,7 @@ public class SelectableTemplateVariableItems {
     sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    visibleTags: ").append(toIndentedString(visibleTags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
