@@ -76,13 +76,13 @@
                     <id>nexus</id>
                     <!-- Use the localhost endpoint for testing -->
                     <!-- <url>http://localhost:8081/repository/maven-snapshots/</url> -->
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                    <url>https://central.sonatype.com/repository/maven-snapshots/</url>
                 </snapshotRepository>
                 <repository>
                     <id>nexus</id>
                     <!-- Use the localhost endpoint for testing -->
                     <!-- <url>http://localhost:8081/repository/maven-releases/</url> -->
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    <url>https://ossrh-staging-api.central.sonatype.com/service/local/</url>
                 </repository>
             </distributionManagement>
 
@@ -97,7 +97,7 @@
                             <serverId>nexus</serverId>
                             <!-- Use the localhost endpoint for testing -->
                             <!-- <nexusUrl>http://localhost:8081/repository/maven-releases/</nexusUrl> -->
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <nexusUrl>https://ossrh-staging-api.central.sonatype.com/service/local/</nexusUrl>
                             <autoReleaseAfterClose>false</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
