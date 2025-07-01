@@ -71,34 +71,16 @@
                 </property>
             </activation>
 
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>nexus</id>
-                    <!-- Use the localhost endpoint for testing -->
-                    <!-- <url>http://localhost:8081/repository/maven-snapshots/</url> -->
-                    <url>https://central.sonatype.com/repository/maven-snapshots/</url>
-                </snapshotRepository>
-                <repository>
-                    <id>nexus</id>
-                    <!-- Use the localhost endpoint for testing -->
-                    <!-- <url>http://localhost:8081/repository/maven-releases/</url> -->
-                    <url>https://ossrh-staging-api.central.sonatype.com/service/local/</url>
-                </repository>
-            </distributionManagement>
-
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.8</version>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.8.0</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <serverId>nexus</serverId>
-                            <!-- Use the localhost endpoint for testing -->
-                            <!-- <nexusUrl>http://localhost:8081/repository/maven-releases/</nexusUrl> -->
-                            <nexusUrl>https://ossrh-staging-api.central.sonatype.com/service/local/</nexusUrl>
-                            <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>false</autoPublish>
                         </configuration>
                     </plugin>
                     <plugin>
