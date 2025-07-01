@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"billing_account_id\":\"123456_A123BC_12AB34\",\"bucket_name\":\"dd-cost-bucket\",\"export_dataset_name\":\"billing\",\"export_prefix\":\"datadog_cloud_cost_usage_export\",\"export_project_name\":\"dd-cloud-cost-report\",\"service_account\":\"InvalidServiceAccount\"},\"type\":\"gcp_uc_config_post_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cost/gcp_uc_config",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"not a valid service_account\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bd40f832-e95d-6d57-a92d-0f313352a7eb"
+  }
+]
