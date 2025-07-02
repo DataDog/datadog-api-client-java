@@ -94,6 +94,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_INVOCATIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LLM_OBSERVABILITY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LLM_OBSERVABILITY_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_15DAY_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_15DAY_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_180DAY_PERCENTAGE,
@@ -120,6 +122,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_MOBILE_APP_TESTING_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NDM_NETFLOW_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NDM_NETFLOW_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINE_BYTES_PERCENTAGE,
@@ -128,16 +132,26 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINES_VCPU_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ONLINE_ARCHIVE_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ONLINE_ARCHIVE_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_PUBLISHED_APP_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_PUBLISHED_APP_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_BROWSER_MOBILE_SESSIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_INGESTED_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_INGESTED_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_INVESTIGATE_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_INVESTIGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_REPLAY_SESSIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_REPLAY_SESSIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SCA_FARGATE_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SCA_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_PERCENTAGE,
@@ -417,6 +431,13 @@ public class MonthlyUsageAttributionValues {
       "lambda_traced_invocations_usage";
   private Double lambdaTracedInvocationsUsage;
 
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_PERCENTAGE =
+      "llm_observability_percentage";
+  private Double llmObservabilityPercentage;
+
+  public static final String JSON_PROPERTY_LLM_OBSERVABILITY_USAGE = "llm_observability_usage";
+  private Double llmObservabilityUsage;
+
   public static final String JSON_PROPERTY_LOGS_INDEXED_15DAY_PERCENTAGE =
       "logs_indexed_15day_percentage";
   private Double logsIndexed15dayPercentage;
@@ -508,6 +529,14 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_NDM_NETFLOW_USAGE = "ndm_netflow_usage";
   private Double ndmNetflowUsage;
 
+  public static final String JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_PERCENTAGE =
+      "network_device_wireless_percentage";
+  private Double networkDeviceWirelessPercentage;
+
+  public static final String JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_USAGE =
+      "network_device_wireless_usage";
+  private Double networkDeviceWirelessUsage;
+
   public static final String JSON_PROPERTY_NPM_HOST_PERCENTAGE = "npm_host_percentage";
   private Double npmHostPercentage;
 
@@ -534,6 +563,14 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_USAGE = "online_archive_usage";
   private Double onlineArchiveUsage;
 
+  public static final String JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_PERCENTAGE =
+      "product_analytics_session_percentage";
+  private Double productAnalyticsSessionPercentage;
+
+  public static final String JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_USAGE =
+      "product_analytics_session_usage";
+  private Double productAnalyticsSessionUsage;
+
   public static final String JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE =
       "profiled_container_percentage";
   private Double profiledContainerPercentage;
@@ -554,6 +591,12 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_PROFILED_HOST_USAGE = "profiled_host_usage";
   private Double profiledHostUsage;
 
+  public static final String JSON_PROPERTY_PUBLISHED_APP_PERCENTAGE = "published_app_percentage";
+  private Double publishedAppPercentage;
+
+  public static final String JSON_PROPERTY_PUBLISHED_APP_USAGE = "published_app_usage";
+  private Double publishedAppUsage;
+
   public static final String JSON_PROPERTY_RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE =
       "rum_browser_mobile_sessions_percentage";
   private Double rumBrowserMobileSessionsPercentage;
@@ -562,12 +605,33 @@ public class MonthlyUsageAttributionValues {
       "rum_browser_mobile_sessions_usage";
   private Double rumBrowserMobileSessionsUsage;
 
+  public static final String JSON_PROPERTY_RUM_INGESTED_PERCENTAGE = "rum_ingested_percentage";
+  private Double rumIngestedPercentage;
+
+  public static final String JSON_PROPERTY_RUM_INGESTED_USAGE = "rum_ingested_usage";
+  private Double rumIngestedUsage;
+
+  public static final String JSON_PROPERTY_RUM_INVESTIGATE_PERCENTAGE =
+      "rum_investigate_percentage";
+  private Double rumInvestigatePercentage;
+
+  public static final String JSON_PROPERTY_RUM_INVESTIGATE_USAGE = "rum_investigate_usage";
+  private Double rumInvestigateUsage;
+
   public static final String JSON_PROPERTY_RUM_REPLAY_SESSIONS_PERCENTAGE =
       "rum_replay_sessions_percentage";
   private Double rumReplaySessionsPercentage;
 
   public static final String JSON_PROPERTY_RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage";
   private Double rumReplaySessionsUsage;
+
+  public static final String JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_PERCENTAGE =
+      "rum_session_replay_add_on_percentage";
+  private Double rumSessionReplayAddOnPercentage;
+
+  public static final String JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_USAGE =
+      "rum_session_replay_add_on_usage";
+  private Double rumSessionReplayAddOnUsage;
 
   public static final String JSON_PROPERTY_SCA_FARGATE_PERCENTAGE = "sca_fargate_percentage";
   private Double scaFargatePercentage;
@@ -2255,6 +2319,49 @@ public class MonthlyUsageAttributionValues {
     this.lambdaTracedInvocationsUsage = lambdaTracedInvocationsUsage;
   }
 
+  public MonthlyUsageAttributionValues llmObservabilityPercentage(
+      Double llmObservabilityPercentage) {
+    this.llmObservabilityPercentage = llmObservabilityPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of LLM Observability usage by tag(s).
+   *
+   * @return llmObservabilityPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLlmObservabilityPercentage() {
+    return llmObservabilityPercentage;
+  }
+
+  public void setLlmObservabilityPercentage(Double llmObservabilityPercentage) {
+    this.llmObservabilityPercentage = llmObservabilityPercentage;
+  }
+
+  public MonthlyUsageAttributionValues llmObservabilityUsage(Double llmObservabilityUsage) {
+    this.llmObservabilityUsage = llmObservabilityUsage;
+    return this;
+  }
+
+  /**
+   * The LLM Observability usage by tag(s).
+   *
+   * @return llmObservabilityUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_OBSERVABILITY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLlmObservabilityUsage() {
+    return llmObservabilityUsage;
+  }
+
+  public void setLlmObservabilityUsage(Double llmObservabilityUsage) {
+    this.llmObservabilityUsage = llmObservabilityUsage;
+  }
+
   public MonthlyUsageAttributionValues logsIndexed15dayPercentage(
       Double logsIndexed15dayPercentage) {
     this.logsIndexed15dayPercentage = logsIndexed15dayPercentage;
@@ -2811,6 +2918,50 @@ public class MonthlyUsageAttributionValues {
     this.ndmNetflowUsage = ndmNetflowUsage;
   }
 
+  public MonthlyUsageAttributionValues networkDeviceWirelessPercentage(
+      Double networkDeviceWirelessPercentage) {
+    this.networkDeviceWirelessPercentage = networkDeviceWirelessPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of network device wireless usage by tag(s).
+   *
+   * @return networkDeviceWirelessPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getNetworkDeviceWirelessPercentage() {
+    return networkDeviceWirelessPercentage;
+  }
+
+  public void setNetworkDeviceWirelessPercentage(Double networkDeviceWirelessPercentage) {
+    this.networkDeviceWirelessPercentage = networkDeviceWirelessPercentage;
+  }
+
+  public MonthlyUsageAttributionValues networkDeviceWirelessUsage(
+      Double networkDeviceWirelessUsage) {
+    this.networkDeviceWirelessUsage = networkDeviceWirelessUsage;
+    return this;
+  }
+
+  /**
+   * The network device wireless usage by tag(s).
+   *
+   * @return networkDeviceWirelessUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getNetworkDeviceWirelessUsage() {
+    return networkDeviceWirelessUsage;
+  }
+
+  public void setNetworkDeviceWirelessUsage(Double networkDeviceWirelessUsage) {
+    this.networkDeviceWirelessUsage = networkDeviceWirelessUsage;
+  }
+
   public MonthlyUsageAttributionValues npmHostPercentage(Double npmHostPercentage) {
     this.npmHostPercentage = npmHostPercentage;
     return this;
@@ -2981,6 +3132,50 @@ public class MonthlyUsageAttributionValues {
     this.onlineArchiveUsage = onlineArchiveUsage;
   }
 
+  public MonthlyUsageAttributionValues productAnalyticsSessionPercentage(
+      Double productAnalyticsSessionPercentage) {
+    this.productAnalyticsSessionPercentage = productAnalyticsSessionPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Product Analytics session usage by tag(s).
+   *
+   * @return productAnalyticsSessionPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getProductAnalyticsSessionPercentage() {
+    return productAnalyticsSessionPercentage;
+  }
+
+  public void setProductAnalyticsSessionPercentage(Double productAnalyticsSessionPercentage) {
+    this.productAnalyticsSessionPercentage = productAnalyticsSessionPercentage;
+  }
+
+  public MonthlyUsageAttributionValues productAnalyticsSessionUsage(
+      Double productAnalyticsSessionUsage) {
+    this.productAnalyticsSessionUsage = productAnalyticsSessionUsage;
+    return this;
+  }
+
+  /**
+   * The Product Analytics session usage by tag(s).
+   *
+   * @return productAnalyticsSessionUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_SESSION_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getProductAnalyticsSessionUsage() {
+    return productAnalyticsSessionUsage;
+  }
+
+  public void setProductAnalyticsSessionUsage(Double productAnalyticsSessionUsage) {
+    this.productAnalyticsSessionUsage = productAnalyticsSessionUsage;
+  }
+
   public MonthlyUsageAttributionValues profiledContainerPercentage(
       Double profiledContainerPercentage) {
     this.profiledContainerPercentage = profiledContainerPercentage;
@@ -3108,6 +3303,48 @@ public class MonthlyUsageAttributionValues {
     this.profiledHostUsage = profiledHostUsage;
   }
 
+  public MonthlyUsageAttributionValues publishedAppPercentage(Double publishedAppPercentage) {
+    this.publishedAppPercentage = publishedAppPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of published application usage by tag(s).
+   *
+   * @return publishedAppPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLISHED_APP_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getPublishedAppPercentage() {
+    return publishedAppPercentage;
+  }
+
+  public void setPublishedAppPercentage(Double publishedAppPercentage) {
+    this.publishedAppPercentage = publishedAppPercentage;
+  }
+
+  public MonthlyUsageAttributionValues publishedAppUsage(Double publishedAppUsage) {
+    this.publishedAppUsage = publishedAppUsage;
+    return this;
+  }
+
+  /**
+   * The published application usage by tag(s).
+   *
+   * @return publishedAppUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLISHED_APP_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getPublishedAppUsage() {
+    return publishedAppUsage;
+  }
+
+  public void setPublishedAppUsage(Double publishedAppUsage) {
+    this.publishedAppUsage = publishedAppUsage;
+  }
+
   public MonthlyUsageAttributionValues rumBrowserMobileSessionsPercentage(
       Double rumBrowserMobileSessionsPercentage) {
     this.rumBrowserMobileSessionsPercentage = rumBrowserMobileSessionsPercentage;
@@ -3152,6 +3389,90 @@ public class MonthlyUsageAttributionValues {
     this.rumBrowserMobileSessionsUsage = rumBrowserMobileSessionsUsage;
   }
 
+  public MonthlyUsageAttributionValues rumIngestedPercentage(Double rumIngestedPercentage) {
+    this.rumIngestedPercentage = rumIngestedPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of RUM Ingested usage by tag(s).
+   *
+   * @return rumIngestedPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_INGESTED_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getRumIngestedPercentage() {
+    return rumIngestedPercentage;
+  }
+
+  public void setRumIngestedPercentage(Double rumIngestedPercentage) {
+    this.rumIngestedPercentage = rumIngestedPercentage;
+  }
+
+  public MonthlyUsageAttributionValues rumIngestedUsage(Double rumIngestedUsage) {
+    this.rumIngestedUsage = rumIngestedUsage;
+    return this;
+  }
+
+  /**
+   * The total RUM Ingested usage by tag(s).
+   *
+   * @return rumIngestedUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_INGESTED_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getRumIngestedUsage() {
+    return rumIngestedUsage;
+  }
+
+  public void setRumIngestedUsage(Double rumIngestedUsage) {
+    this.rumIngestedUsage = rumIngestedUsage;
+  }
+
+  public MonthlyUsageAttributionValues rumInvestigatePercentage(Double rumInvestigatePercentage) {
+    this.rumInvestigatePercentage = rumInvestigatePercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of RUM Investigate usage by tag(s).
+   *
+   * @return rumInvestigatePercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_INVESTIGATE_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getRumInvestigatePercentage() {
+    return rumInvestigatePercentage;
+  }
+
+  public void setRumInvestigatePercentage(Double rumInvestigatePercentage) {
+    this.rumInvestigatePercentage = rumInvestigatePercentage;
+  }
+
+  public MonthlyUsageAttributionValues rumInvestigateUsage(Double rumInvestigateUsage) {
+    this.rumInvestigateUsage = rumInvestigateUsage;
+    return this;
+  }
+
+  /**
+   * The total RUM Investigate usage by tag(s).
+   *
+   * @return rumInvestigateUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_INVESTIGATE_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getRumInvestigateUsage() {
+    return rumInvestigateUsage;
+  }
+
+  public void setRumInvestigateUsage(Double rumInvestigateUsage) {
+    this.rumInvestigateUsage = rumInvestigateUsage;
+  }
+
   public MonthlyUsageAttributionValues rumReplaySessionsPercentage(
       Double rumReplaySessionsPercentage) {
     this.rumReplaySessionsPercentage = rumReplaySessionsPercentage;
@@ -3193,6 +3514,50 @@ public class MonthlyUsageAttributionValues {
 
   public void setRumReplaySessionsUsage(Double rumReplaySessionsUsage) {
     this.rumReplaySessionsUsage = rumReplaySessionsUsage;
+  }
+
+  public MonthlyUsageAttributionValues rumSessionReplayAddOnPercentage(
+      Double rumSessionReplayAddOnPercentage) {
+    this.rumSessionReplayAddOnPercentage = rumSessionReplayAddOnPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of RUM Session Replay Add-On usage by tag(s).
+   *
+   * @return rumSessionReplayAddOnPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getRumSessionReplayAddOnPercentage() {
+    return rumSessionReplayAddOnPercentage;
+  }
+
+  public void setRumSessionReplayAddOnPercentage(Double rumSessionReplayAddOnPercentage) {
+    this.rumSessionReplayAddOnPercentage = rumSessionReplayAddOnPercentage;
+  }
+
+  public MonthlyUsageAttributionValues rumSessionReplayAddOnUsage(
+      Double rumSessionReplayAddOnUsage) {
+    this.rumSessionReplayAddOnUsage = rumSessionReplayAddOnUsage;
+    return this;
+  }
+
+  /**
+   * The total RUM Session Replay Add-On usage by tag(s).
+   *
+   * @return rumSessionReplayAddOnUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_SESSION_REPLAY_ADD_ON_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getRumSessionReplayAddOnUsage() {
+    return rumSessionReplayAddOnUsage;
+  }
+
+  public void setRumSessionReplayAddOnUsage(Double rumSessionReplayAddOnUsage) {
+    this.rumSessionReplayAddOnUsage = rumSessionReplayAddOnUsage;
   }
 
   public MonthlyUsageAttributionValues scaFargatePercentage(Double scaFargatePercentage) {
@@ -3780,6 +4145,11 @@ public class MonthlyUsageAttributionValues {
             this.lambdaTracedInvocationsUsage,
             monthlyUsageAttributionValues.lambdaTracedInvocationsUsage)
         && Objects.equals(
+            this.llmObservabilityPercentage,
+            monthlyUsageAttributionValues.llmObservabilityPercentage)
+        && Objects.equals(
+            this.llmObservabilityUsage, monthlyUsageAttributionValues.llmObservabilityUsage)
+        && Objects.equals(
             this.logsIndexed15dayPercentage,
             monthlyUsageAttributionValues.logsIndexed15dayPercentage)
         && Objects.equals(
@@ -3840,6 +4210,12 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.ndmNetflowPercentage, monthlyUsageAttributionValues.ndmNetflowPercentage)
         && Objects.equals(this.ndmNetflowUsage, monthlyUsageAttributionValues.ndmNetflowUsage)
+        && Objects.equals(
+            this.networkDeviceWirelessPercentage,
+            monthlyUsageAttributionValues.networkDeviceWirelessPercentage)
+        && Objects.equals(
+            this.networkDeviceWirelessUsage,
+            monthlyUsageAttributionValues.networkDeviceWirelessUsage)
         && Objects.equals(this.npmHostPercentage, monthlyUsageAttributionValues.npmHostPercentage)
         && Objects.equals(this.npmHostUsage, monthlyUsageAttributionValues.npmHostUsage)
         && Objects.equals(
@@ -3856,6 +4232,12 @@ public class MonthlyUsageAttributionValues {
             this.onlineArchivePercentage, monthlyUsageAttributionValues.onlineArchivePercentage)
         && Objects.equals(this.onlineArchiveUsage, monthlyUsageAttributionValues.onlineArchiveUsage)
         && Objects.equals(
+            this.productAnalyticsSessionPercentage,
+            monthlyUsageAttributionValues.productAnalyticsSessionPercentage)
+        && Objects.equals(
+            this.productAnalyticsSessionUsage,
+            monthlyUsageAttributionValues.productAnalyticsSessionUsage)
+        && Objects.equals(
             this.profiledContainerPercentage,
             monthlyUsageAttributionValues.profiledContainerPercentage)
         && Objects.equals(
@@ -3868,16 +4250,32 @@ public class MonthlyUsageAttributionValues {
             this.profiledHostPercentage, monthlyUsageAttributionValues.profiledHostPercentage)
         && Objects.equals(this.profiledHostUsage, monthlyUsageAttributionValues.profiledHostUsage)
         && Objects.equals(
+            this.publishedAppPercentage, monthlyUsageAttributionValues.publishedAppPercentage)
+        && Objects.equals(this.publishedAppUsage, monthlyUsageAttributionValues.publishedAppUsage)
+        && Objects.equals(
             this.rumBrowserMobileSessionsPercentage,
             monthlyUsageAttributionValues.rumBrowserMobileSessionsPercentage)
         && Objects.equals(
             this.rumBrowserMobileSessionsUsage,
             monthlyUsageAttributionValues.rumBrowserMobileSessionsUsage)
         && Objects.equals(
+            this.rumIngestedPercentage, monthlyUsageAttributionValues.rumIngestedPercentage)
+        && Objects.equals(this.rumIngestedUsage, monthlyUsageAttributionValues.rumIngestedUsage)
+        && Objects.equals(
+            this.rumInvestigatePercentage, monthlyUsageAttributionValues.rumInvestigatePercentage)
+        && Objects.equals(
+            this.rumInvestigateUsage, monthlyUsageAttributionValues.rumInvestigateUsage)
+        && Objects.equals(
             this.rumReplaySessionsPercentage,
             monthlyUsageAttributionValues.rumReplaySessionsPercentage)
         && Objects.equals(
             this.rumReplaySessionsUsage, monthlyUsageAttributionValues.rumReplaySessionsUsage)
+        && Objects.equals(
+            this.rumSessionReplayAddOnPercentage,
+            monthlyUsageAttributionValues.rumSessionReplayAddOnPercentage)
+        && Objects.equals(
+            this.rumSessionReplayAddOnUsage,
+            monthlyUsageAttributionValues.rumSessionReplayAddOnUsage)
         && Objects.equals(
             this.scaFargatePercentage, monthlyUsageAttributionValues.scaFargatePercentage)
         && Objects.equals(this.scaFargateUsage, monthlyUsageAttributionValues.scaFargateUsage)
@@ -4001,6 +4399,8 @@ public class MonthlyUsageAttributionValues {
         invocationsUsage,
         lambdaTracedInvocationsPercentage,
         lambdaTracedInvocationsUsage,
+        llmObservabilityPercentage,
+        llmObservabilityUsage,
         logsIndexed15dayPercentage,
         logsIndexed15dayUsage,
         logsIndexed180dayPercentage,
@@ -4027,6 +4427,8 @@ public class MonthlyUsageAttributionValues {
         mobileAppTestingUsage,
         ndmNetflowPercentage,
         ndmNetflowUsage,
+        networkDeviceWirelessPercentage,
+        networkDeviceWirelessUsage,
         npmHostPercentage,
         npmHostUsage,
         obsPipelineBytesPercentage,
@@ -4035,16 +4437,26 @@ public class MonthlyUsageAttributionValues {
         obsPipelinesVcpuUsage,
         onlineArchivePercentage,
         onlineArchiveUsage,
+        productAnalyticsSessionPercentage,
+        productAnalyticsSessionUsage,
         profiledContainerPercentage,
         profiledContainerUsage,
         profiledFargatePercentage,
         profiledFargateUsage,
         profiledHostPercentage,
         profiledHostUsage,
+        publishedAppPercentage,
+        publishedAppUsage,
         rumBrowserMobileSessionsPercentage,
         rumBrowserMobileSessionsUsage,
+        rumIngestedPercentage,
+        rumIngestedUsage,
+        rumInvestigatePercentage,
+        rumInvestigateUsage,
         rumReplaySessionsPercentage,
         rumReplaySessionsUsage,
+        rumSessionReplayAddOnPercentage,
+        rumSessionReplayAddOnUsage,
         scaFargatePercentage,
         scaFargateUsage,
         sdsScannedBytesPercentage,
@@ -4240,6 +4652,12 @@ public class MonthlyUsageAttributionValues {
     sb.append("    lambdaTracedInvocationsUsage: ")
         .append(toIndentedString(lambdaTracedInvocationsUsage))
         .append("\n");
+    sb.append("    llmObservabilityPercentage: ")
+        .append(toIndentedString(llmObservabilityPercentage))
+        .append("\n");
+    sb.append("    llmObservabilityUsage: ")
+        .append(toIndentedString(llmObservabilityUsage))
+        .append("\n");
     sb.append("    logsIndexed15dayPercentage: ")
         .append(toIndentedString(logsIndexed15dayPercentage))
         .append("\n");
@@ -4316,6 +4734,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(ndmNetflowPercentage))
         .append("\n");
     sb.append("    ndmNetflowUsage: ").append(toIndentedString(ndmNetflowUsage)).append("\n");
+    sb.append("    networkDeviceWirelessPercentage: ")
+        .append(toIndentedString(networkDeviceWirelessPercentage))
+        .append("\n");
+    sb.append("    networkDeviceWirelessUsage: ")
+        .append(toIndentedString(networkDeviceWirelessUsage))
+        .append("\n");
     sb.append("    npmHostPercentage: ").append(toIndentedString(npmHostPercentage)).append("\n");
     sb.append("    npmHostUsage: ").append(toIndentedString(npmHostUsage)).append("\n");
     sb.append("    obsPipelineBytesPercentage: ")
@@ -4334,6 +4758,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(onlineArchivePercentage))
         .append("\n");
     sb.append("    onlineArchiveUsage: ").append(toIndentedString(onlineArchiveUsage)).append("\n");
+    sb.append("    productAnalyticsSessionPercentage: ")
+        .append(toIndentedString(productAnalyticsSessionPercentage))
+        .append("\n");
+    sb.append("    productAnalyticsSessionUsage: ")
+        .append(toIndentedString(productAnalyticsSessionUsage))
+        .append("\n");
     sb.append("    profiledContainerPercentage: ")
         .append(toIndentedString(profiledContainerPercentage))
         .append("\n");
@@ -4350,17 +4780,37 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(profiledHostPercentage))
         .append("\n");
     sb.append("    profiledHostUsage: ").append(toIndentedString(profiledHostUsage)).append("\n");
+    sb.append("    publishedAppPercentage: ")
+        .append(toIndentedString(publishedAppPercentage))
+        .append("\n");
+    sb.append("    publishedAppUsage: ").append(toIndentedString(publishedAppUsage)).append("\n");
     sb.append("    rumBrowserMobileSessionsPercentage: ")
         .append(toIndentedString(rumBrowserMobileSessionsPercentage))
         .append("\n");
     sb.append("    rumBrowserMobileSessionsUsage: ")
         .append(toIndentedString(rumBrowserMobileSessionsUsage))
         .append("\n");
+    sb.append("    rumIngestedPercentage: ")
+        .append(toIndentedString(rumIngestedPercentage))
+        .append("\n");
+    sb.append("    rumIngestedUsage: ").append(toIndentedString(rumIngestedUsage)).append("\n");
+    sb.append("    rumInvestigatePercentage: ")
+        .append(toIndentedString(rumInvestigatePercentage))
+        .append("\n");
+    sb.append("    rumInvestigateUsage: ")
+        .append(toIndentedString(rumInvestigateUsage))
+        .append("\n");
     sb.append("    rumReplaySessionsPercentage: ")
         .append(toIndentedString(rumReplaySessionsPercentage))
         .append("\n");
     sb.append("    rumReplaySessionsUsage: ")
         .append(toIndentedString(rumReplaySessionsUsage))
+        .append("\n");
+    sb.append("    rumSessionReplayAddOnPercentage: ")
+        .append(toIndentedString(rumSessionReplayAddOnPercentage))
+        .append("\n");
+    sb.append("    rumSessionReplayAddOnUsage: ")
+        .append(toIndentedString(rumSessionReplayAddOnUsage))
         .append("\n");
     sb.append("    scaFargatePercentage: ")
         .append(toIndentedString(scaFargatePercentage))
