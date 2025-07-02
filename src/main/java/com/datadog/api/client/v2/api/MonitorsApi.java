@@ -240,13 +240,6 @@ public class MonitorsApi {
    */
   public ApiResponse<MonitorNotificationRuleResponse> createMonitorNotificationRuleWithHttpInfo(
       MonitorNotificationRuleCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createMonitorNotificationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -289,17 +282,6 @@ public class MonitorsApi {
    */
   public CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>>
       createMonitorNotificationRuleWithHttpInfoAsync(MonitorNotificationRuleCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createMonitorNotificationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -679,13 +661,6 @@ public class MonitorsApi {
    */
   public ApiResponse<Void> deleteMonitorNotificationRuleWithHttpInfo(String ruleId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteMonitorNotificationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'ruleId' is set
@@ -731,16 +706,6 @@ public class MonitorsApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteMonitorNotificationRuleWithHttpInfoAsync(
       String ruleId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteMonitorNotificationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'ruleId' is set
@@ -1184,13 +1149,6 @@ public class MonitorsApi {
    */
   public ApiResponse<MonitorNotificationRuleResponse> getMonitorNotificationRuleWithHttpInfo(
       String ruleId, GetMonitorNotificationRuleOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getMonitorNotificationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'ruleId' is set
@@ -1241,17 +1199,6 @@ public class MonitorsApi {
   public CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>>
       getMonitorNotificationRuleWithHttpInfoAsync(
           String ruleId, GetMonitorNotificationRuleOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getMonitorNotificationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'ruleId' is set
@@ -1398,13 +1345,6 @@ public class MonitorsApi {
    */
   public ApiResponse<MonitorNotificationRuleListResponse> getMonitorNotificationRulesWithHttpInfo(
       GetMonitorNotificationRulesOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getMonitorNotificationRules";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     String include = parameters.include;
     // create path and map variables
@@ -1446,17 +1386,6 @@ public class MonitorsApi {
   public CompletableFuture<ApiResponse<MonitorNotificationRuleListResponse>>
       getMonitorNotificationRulesWithHttpInfoAsync(
           GetMonitorNotificationRulesOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getMonitorNotificationRules";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MonitorNotificationRuleListResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     String include = parameters.include;
     // create path and map variables
@@ -2175,13 +2104,6 @@ public class MonitorsApi {
    */
   public ApiResponse<MonitorNotificationRuleResponse> updateMonitorNotificationRuleWithHttpInfo(
       String ruleId, MonitorNotificationRuleUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateMonitorNotificationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'ruleId' is set
@@ -2235,17 +2157,6 @@ public class MonitorsApi {
   public CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>>
       updateMonitorNotificationRuleWithHttpInfoAsync(
           String ruleId, MonitorNotificationRuleUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateMonitorNotificationRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'ruleId' is set
