@@ -1,0 +1,48 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v1/synthetics/tests/search",
+      "queryStringParameters": {
+        "include_full_config": [
+          "true"
+        ],
+        "search_suites": [
+          "true"
+        ],
+        "facets_only": [
+          "true"
+        ],
+        "start": [
+          "10"
+        ],
+        "count": [
+          "5"
+        ],
+        "sort": [
+          "name,desc"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"tests\":[],\"total\":0,\"facets\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1e11963d-2717-30b4-9395-3ca218c6dc16"
+  }
+]

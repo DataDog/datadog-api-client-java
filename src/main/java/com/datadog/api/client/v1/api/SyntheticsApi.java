@@ -3916,6 +3916,260 @@ public class SyntheticsApi {
         new GenericType<SyntheticsTestDetails>() {});
   }
 
+  /** Manage optional parameters to searchTests. */
+  public static class SearchTestsOptionalParameters {
+    private Boolean includeFullConfig;
+    private Boolean searchSuites;
+    private Boolean facetsOnly;
+    private Long start;
+    private Long count;
+    private String sort;
+
+    /**
+     * Set includeFullConfig.
+     *
+     * @param includeFullConfig If true, include the full configuration for each test in the
+     *     response. (optional)
+     * @return SearchTestsOptionalParameters
+     */
+    public SearchTestsOptionalParameters includeFullConfig(Boolean includeFullConfig) {
+      this.includeFullConfig = includeFullConfig;
+      return this;
+    }
+
+    /**
+     * Set searchSuites.
+     *
+     * @param searchSuites If true, returns suites instead of tests. (optional)
+     * @return SearchTestsOptionalParameters
+     */
+    public SearchTestsOptionalParameters searchSuites(Boolean searchSuites) {
+      this.searchSuites = searchSuites;
+      return this;
+    }
+
+    /**
+     * Set facetsOnly.
+     *
+     * @param facetsOnly If true, return only facets instead of full test details. (optional)
+     * @return SearchTestsOptionalParameters
+     */
+    public SearchTestsOptionalParameters facetsOnly(Boolean facetsOnly) {
+      this.facetsOnly = facetsOnly;
+      return this;
+    }
+
+    /**
+     * Set start.
+     *
+     * @param start The offset from which to start returning results. (optional, default to 0)
+     * @return SearchTestsOptionalParameters
+     */
+    public SearchTestsOptionalParameters start(Long start) {
+      this.start = start;
+      return this;
+    }
+
+    /**
+     * Set count.
+     *
+     * @param count The maximum number of results to return. (optional, default to 50)
+     * @return SearchTestsOptionalParameters
+     */
+    public SearchTestsOptionalParameters count(Long count) {
+      this.count = count;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort The sort order for the results (e.g., 'name,asc' or 'name,desc'). (optional,
+     *     default to "name,asc")
+     * @return SearchTestsOptionalParameters
+     */
+    public SearchTestsOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+  }
+
+  /**
+   * Search Synthetic tests.
+   *
+   * <p>See {@link #searchTestsWithHttpInfo}.
+   *
+   * @return SyntheticsListTestsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsListTestsResponse searchTests() throws ApiException {
+    return searchTestsWithHttpInfo(new SearchTestsOptionalParameters()).getData();
+  }
+
+  /**
+   * Search Synthetic tests.
+   *
+   * <p>See {@link #searchTestsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SyntheticsListTestsResponse&gt;
+   */
+  public CompletableFuture<SyntheticsListTestsResponse> searchTestsAsync() {
+    return searchTestsWithHttpInfoAsync(new SearchTestsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search Synthetic tests.
+   *
+   * <p>See {@link #searchTestsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SyntheticsListTestsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsListTestsResponse searchTests(SearchTestsOptionalParameters parameters)
+      throws ApiException {
+    return searchTestsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Search Synthetic tests.
+   *
+   * <p>See {@link #searchTestsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SyntheticsListTestsResponse&gt;
+   */
+  public CompletableFuture<SyntheticsListTestsResponse> searchTestsAsync(
+      SearchTestsOptionalParameters parameters) {
+    return searchTestsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search for Synthetic tests and Test Suites.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SyntheticsListTestsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns the list of Synthetic tests matching the search. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsListTestsResponse> searchTestsWithHttpInfo(
+      SearchTestsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Boolean includeFullConfig = parameters.includeFullConfig;
+    Boolean searchSuites = parameters.searchSuites;
+    Boolean facetsOnly = parameters.facetsOnly;
+    Long start = parameters.start;
+    Long count = parameters.count;
+    String sort = parameters.sort;
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/search";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_full_config", includeFullConfig));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search_suites", searchSuites));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "facets_only", facetsOnly));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.SyntheticsApi.searchTests",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsListTestsResponse>() {});
+  }
+
+  /**
+   * Search Synthetic tests.
+   *
+   * <p>See {@link #searchTestsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsListTestsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsListTestsResponse>> searchTestsWithHttpInfoAsync(
+      SearchTestsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Boolean includeFullConfig = parameters.includeFullConfig;
+    Boolean searchSuites = parameters.searchSuites;
+    Boolean facetsOnly = parameters.facetsOnly;
+    Long start = parameters.start;
+    Long count = parameters.count;
+    String sort = parameters.sort;
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/search";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_full_config", includeFullConfig));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search_suites", searchSuites));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "facets_only", facetsOnly));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.SyntheticsApi.searchTests",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsListTestsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsListTestsResponse>() {});
+  }
+
   /**
    * Trigger tests from CI/CD pipelines.
    *
