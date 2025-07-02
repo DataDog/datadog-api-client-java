@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.AWSAccountCreateRequest;
 import com.datadog.api.client.v2.model.AWSAccountResponse;
 import com.datadog.api.client.v2.model.AWSAccountUpdateRequest;
 import com.datadog.api.client.v2.model.AWSAccountsResponse;
+import com.datadog.api.client.v2.model.AWSIntegrationIamPermissionsResponse;
 import com.datadog.api.client.v2.model.AWSNamespacesResponse;
 import com.datadog.api.client.v2.model.AWSNewExternalIDResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -663,6 +664,119 @@ public class AwsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AWSAccountResponse>() {});
+  }
+
+  /**
+   * Get AWS integration IAM permissions.
+   *
+   * <p>See {@link #getAWSIntegrationIAMPermissionsWithHttpInfo}.
+   *
+   * @return AWSIntegrationIamPermissionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSIntegrationIamPermissionsResponse getAWSIntegrationIAMPermissions()
+      throws ApiException {
+    return getAWSIntegrationIAMPermissionsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get AWS integration IAM permissions.
+   *
+   * <p>See {@link #getAWSIntegrationIAMPermissionsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AWSIntegrationIamPermissionsResponse&gt;
+   */
+  public CompletableFuture<AWSIntegrationIamPermissionsResponse>
+      getAWSIntegrationIAMPermissionsAsync() {
+    return getAWSIntegrationIAMPermissionsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all AWS IAM permissions required for the AWS integration.
+   *
+   * @return ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> AWS IAM Permissions object </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSIntegrationIamPermissionsResponse>
+      getAWSIntegrationIAMPermissionsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/aws/iam_permissions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
+  }
+
+  /**
+   * Get AWS integration IAM permissions.
+   *
+   * <p>See {@link #getAWSIntegrationIAMPermissionsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>>
+      getAWSIntegrationIAMPermissionsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/aws/iam_permissions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
   }
 
   /** Manage optional parameters to listAWSAccounts. */
