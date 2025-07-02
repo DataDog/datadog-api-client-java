@@ -37,6 +37,7 @@ public class SyntheticsStepType extends ModelEnum<String> {
               "assertRequests",
               "click",
               "extractFromJavascript",
+              "extractFromEmailBody",
               "extractVariable",
               "goToEmailLink",
               "goToUrl",
@@ -73,6 +74,8 @@ public class SyntheticsStepType extends ModelEnum<String> {
   public static final SyntheticsStepType CLICK = new SyntheticsStepType("click");
   public static final SyntheticsStepType EXTRACT_FROM_JAVASCRIPT =
       new SyntheticsStepType("extractFromJavascript");
+  public static final SyntheticsStepType EXTRACT_FROM_EMAIL_BODY =
+      new SyntheticsStepType("extractFromEmailBody");
   public static final SyntheticsStepType EXTRACT_VARIABLE =
       new SyntheticsStepType("extractVariable");
   public static final SyntheticsStepType GO_TO_EMAIL_LINK = new SyntheticsStepType("goToEmailLink");
