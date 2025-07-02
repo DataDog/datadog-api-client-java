@@ -67,6 +67,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "ingested_spans_bytes_usage",
               "invocations_usage",
               "lambda_traced_invocations_usage",
+              "llm_observability_usage",
               "logs_indexed_15day_usage",
               "logs_indexed_180day_usage",
               "logs_indexed_1day_usage",
@@ -81,14 +82,20 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "mobile_app_testing_usage",
               "ndm_netflow_usage",
               "npm_host_usage",
+              "network_device_wireless_usage",
               "obs_pipeline_bytes_usage",
               "obs_pipelines_vcpu_usage",
               "online_archive_usage",
+              "product_analytics_session_usage",
               "profiled_container_usage",
               "profiled_fargate_usage",
               "profiled_host_usage",
+              "published_app",
               "rum_browser_mobile_sessions_usage",
+              "rum_ingested_usage",
+              "rum_investigate_usage",
               "rum_replay_sessions_usage",
+              "rum_session_replay_add_on_usage",
               "sca_fargate_usage",
               "sds_scanned_bytes_usage",
               "serverless_apps_usage",
@@ -182,6 +189,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("invocations_usage");
   public static final HourlyUsageAttributionUsageType LAMBDA_TRACED_INVOCATIONS_USAGE =
       new HourlyUsageAttributionUsageType("lambda_traced_invocations_usage");
+  public static final HourlyUsageAttributionUsageType LLM_OBSERVABILITY_USAGE =
+      new HourlyUsageAttributionUsageType("llm_observability_usage");
   public static final HourlyUsageAttributionUsageType LOGS_INDEXED_15DAY_USAGE =
       new HourlyUsageAttributionUsageType("logs_indexed_15day_usage");
   public static final HourlyUsageAttributionUsageType LOGS_INDEXED_180DAY_USAGE =
@@ -208,24 +217,36 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("mobile_app_testing_usage");
   public static final HourlyUsageAttributionUsageType NDM_NETFLOW_USAGE =
       new HourlyUsageAttributionUsageType("ndm_netflow_usage");
-  public static final HourlyUsageAttributionUsageType NPM_HOST_USAGE =
+  public static final HourlyUsageAttributionUsageType NETWORK_DEVICE_WIRELESS_USAGE =
       new HourlyUsageAttributionUsageType("npm_host_usage");
+  public static final HourlyUsageAttributionUsageType NPM_HOST_USAGE =
+      new HourlyUsageAttributionUsageType("network_device_wireless_usage");
   public static final HourlyUsageAttributionUsageType OBS_PIPELINE_BYTES_USAGE =
       new HourlyUsageAttributionUsageType("obs_pipeline_bytes_usage");
   public static final HourlyUsageAttributionUsageType OBS_PIPELINE_VCPU_USAGE =
       new HourlyUsageAttributionUsageType("obs_pipelines_vcpu_usage");
   public static final HourlyUsageAttributionUsageType ONLINE_ARCHIVE_USAGE =
       new HourlyUsageAttributionUsageType("online_archive_usage");
+  public static final HourlyUsageAttributionUsageType PRODUCT_ANALYTICS_SESSION_USAGE =
+      new HourlyUsageAttributionUsageType("product_analytics_session_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_CONTAINER_USAGE =
       new HourlyUsageAttributionUsageType("profiled_container_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_FARGATE_USAGE =
       new HourlyUsageAttributionUsageType("profiled_fargate_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_HOST_USAGE =
       new HourlyUsageAttributionUsageType("profiled_host_usage");
+  public static final HourlyUsageAttributionUsageType PUBLISHED_APP_USAGE =
+      new HourlyUsageAttributionUsageType("published_app");
   public static final HourlyUsageAttributionUsageType RUM_BROWSER_MOBILE_SESSIONS_USAGE =
       new HourlyUsageAttributionUsageType("rum_browser_mobile_sessions_usage");
+  public static final HourlyUsageAttributionUsageType RUM_INGESTED_USAGE =
+      new HourlyUsageAttributionUsageType("rum_ingested_usage");
+  public static final HourlyUsageAttributionUsageType RUM_INVESTIGATE_USAGE =
+      new HourlyUsageAttributionUsageType("rum_investigate_usage");
   public static final HourlyUsageAttributionUsageType RUM_REPLAY_SESSIONS_USAGE =
       new HourlyUsageAttributionUsageType("rum_replay_sessions_usage");
+  public static final HourlyUsageAttributionUsageType RUM_SESSION_REPLAY_ADD_ON_USAGE =
+      new HourlyUsageAttributionUsageType("rum_session_replay_add_on_usage");
   public static final HourlyUsageAttributionUsageType SCA_FARGATE_USAGE =
       new HourlyUsageAttributionUsageType("sca_fargate_usage");
   public static final HourlyUsageAttributionUsageType SDS_SCANNED_BYTES_USAGE =
