@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.39.0/2025-07-02
+
+### Added
+* Add extractFromEmailBody step for synthetics browser test [#2956](https://github.com/DataDog/datadog-api-client-java/pull/2956)
+* Document Cloud Cost Management GCP endpoints publicly [#2896](https://github.com/DataDog/datadog-api-client-java/pull/2896)
+
 ## 2.38.0/2025-06-24
 
 ### Fixed
