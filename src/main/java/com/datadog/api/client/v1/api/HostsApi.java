@@ -384,7 +384,8 @@ public class HostsApi {
   /**
    * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3
    * hours are included by default. Retention is 7 days. Results are paginated with a max of 1000
-   * results at a time.
+   * results at a time. <strong>Note:</strong> If the host is an Amazon EC2 instance, <code>id
+   * </code> is replaced with <code>aws_id</code> in the response.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HostListResponse&gt;
