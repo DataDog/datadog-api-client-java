@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## 2.39.0/2025-07-02
+
+### Added
+* Adds missing /api/v1/synthetics/tests/search spec [#2973](https://github.com/DataDog/datadog-api-client-java/pull/2973)
+* Add extractFromEmailBody step for synthetics browser test [#2956](https://github.com/DataDog/datadog-api-client-java/pull/2956)
+* Update Incident API specs to include `is_test` in `POST /incidents` and incidents response [#2945](https://github.com/DataDog/datadog-api-client-java/pull/2945)
+* Add App Key Registration API  [#2939](https://github.com/DataDog/datadog-api-client-java/pull/2939)
+* Document Cloud Cost Management GCP endpoints publicly [#2896](https://github.com/DataDog/datadog-api-client-java/pull/2896)
+* Add Monitor Template API [#2876](https://github.com/DataDog/datadog-api-client-java/pull/2876)
+
+### Changed
+* Update template variable schemas with type field in dashboards and shared dashboards endpoints for group by template variables [#2955](https://github.com/DataDog/datadog-api-client-java/pull/2955)
+* Update events intake specs for v2 Events post endpoint [#2946](https://github.com/DataDog/datadog-api-client-java/pull/2946)
+
+### Fixed
+* Synthetics mobile test `message` field is now required [#2951](https://github.com/DataDog/datadog-api-client-java/pull/2951)
+* Make dns port be string and number [#2935](https://github.com/DataDog/datadog-api-client-java/pull/2935)
+
+### Security
+* Remove caseIndex from historical jobs api spec [#2950](https://github.com/DataDog/datadog-api-client-java/pull/2950)
+
+### Deprecated
+* Deprecate SLO metadata fields in api spec [#2900](https://github.com/DataDog/datadog-api-client-java/pull/2900)
+
 ## 2.38.0/2025-06-24
 
 ### Fixed
