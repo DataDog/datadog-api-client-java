@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"query\":\"source:python\"},\"name\":\"testPipelineArrayAppendNoPreserve\",\"processors\":[{\"is_enabled\":true,\"name\":\"append_ip_and_remove_source\",\"operation\":{\"preserve_source\":false,\"source\":\"network.client.ip\",\"target\":\"sourceIps\",\"type\":\"append\"},\"type\":\"array-processor\"}],\"tags\":[]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/logs/config/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"B91fO94kQnCeZ4bOoZQOWg\",\"type\":\"pipeline\",\"name\":\"testPipelineArrayAppendNoPreserve\",\"is_enabled\":false,\"is_read_only\":false,\"filter\":{\"query\":\"source:python\"},\"processors\":[{\"name\":\"append_ip_and_remove_source\",\"is_enabled\":true,\"operation\":{\"source\":\"network.client.ip\",\"target\":\"sourceIps\",\"preserve_source\":false,\"type\":\"append\"},\"type\":\"array-processor\"}],\"tags\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c5d4e470-e0df-e8eb-6dfd-55ebe4d07d64"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/logs/config/pipelines/B91fO94kQnCeZ4bOoZQOWg",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b152c851-78b7-1b06-e1b1-2177b9404b61"
+  }
+]

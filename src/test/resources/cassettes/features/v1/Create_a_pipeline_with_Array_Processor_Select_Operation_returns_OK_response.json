@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"query\":\"source:python\"},\"name\":\"testPipelineArraySelect\",\"processors\":[{\"is_enabled\":true,\"name\":\"extract_referrer\",\"operation\":{\"filter\":\"name:Referrer\",\"source\":\"httpRequest.headers\",\"target\":\"referrer\",\"type\":\"select\",\"value_to_extract\":\"value\"},\"type\":\"array-processor\"}],\"tags\":[]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/logs/config/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"e3TVPUCYQ7a37CTTJB1HcA\",\"type\":\"pipeline\",\"name\":\"testPipelineArraySelect\",\"is_enabled\":false,\"is_read_only\":false,\"filter\":{\"query\":\"source:python\"},\"processors\":[{\"name\":\"extract_referrer\",\"is_enabled\":true,\"operation\":{\"source\":\"httpRequest.headers\",\"target\":\"referrer\",\"filter\":\"name:Referrer\",\"value_to_extract\":\"value\",\"type\":\"select\"},\"type\":\"array-processor\"}],\"tags\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "154a281c-9947-b222-4fa9-0ce0c43a8d0a"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/logs/config/pipelines/e3TVPUCYQ7a37CTTJB1HcA",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "effbea81-ffb8-3c00-00bd-7f72dd5460a9"
+  }
+]
