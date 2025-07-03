@@ -8,7 +8,6 @@ import com.datadog.api.client.v2.model.MonitorNotificationRuleResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.getMonitorNotificationRule", true);
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
     // there is a valid "monitor_notification_rule" in the system
