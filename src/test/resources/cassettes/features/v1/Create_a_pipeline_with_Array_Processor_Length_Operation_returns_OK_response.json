@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"query\":\"source:python\"},\"name\":\"testPipelineArrayLength\",\"processors\":[{\"is_enabled\":true,\"name\":\"count_tags\",\"operation\":{\"source\":\"tags\",\"target\":\"tagCount\",\"type\":\"length\"},\"type\":\"array-processor\"}],\"tags\":[]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/logs/config/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"MB-HZA9rRlKRHb-2LpYBxw\",\"type\":\"pipeline\",\"name\":\"testPipelineArrayLength\",\"is_enabled\":false,\"is_read_only\":false,\"filter\":{\"query\":\"source:python\"},\"processors\":[{\"name\":\"count_tags\",\"is_enabled\":true,\"operation\":{\"source\":\"tags\",\"target\":\"tagCount\",\"type\":\"length\"},\"type\":\"array-processor\"}],\"tags\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "67025982-2f8c-625d-85b4-3218a993ca7d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/logs/config/pipelines/MB-HZA9rRlKRHb-2LpYBxw",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f36ba1d2-bc57-574e-54ed-23c513caf164"
+  }
+]
