@@ -49,7 +49,7 @@ public class Example {
                                         .id(SCHEDULE_DATA_RELATIONSHIPS_LAYERS_DATA_0_ID)
                                         .effectiveDate(OffsetDateTime.now().plusDays(-10))
                                         .endDate(OffsetDateTime.now().plusDays(10))
-                                        .interval(new LayerAttributesInterval().seconds(300L))
+                                        .interval(new LayerAttributesInterval().seconds(3600L))
                                         .members(
                                             Collections.singletonList(
                                                 new ScheduleRequestDataAttributesLayersItemsMembersItems()

@@ -154,6 +154,7 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
 
   /**
    * Defines how often the rotation repeats, using a combination of days and optional seconds.
+   * Should be at least 1 hour.
    *
    * @return interval
    */
