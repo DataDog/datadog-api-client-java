@@ -94,10 +94,14 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "invocations_percentage",
               "lambda_traced_invocations_usage",
               "lambda_traced_invocations_percentage",
+              "llm_observability_usage",
+              "llm_observability_percentage",
               "mobile_app_testing_percentage",
               "mobile_app_testing_usage",
               "ndm_netflow_usage",
               "ndm_netflow_percentage",
+              "network_device_wireless_usage",
+              "network_device_wireless_percentage",
               "npm_host_usage",
               "npm_host_percentage",
               "obs_pipeline_bytes_usage",
@@ -106,12 +110,16 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "obs_pipelines_vcpu_percentage",
               "online_archive_usage",
               "online_archive_percentage",
+              "product_analytics_session_usage",
+              "product_analytics_session_percentage",
               "profiled_container_usage",
               "profiled_container_percentage",
               "profiled_fargate_usage",
               "profiled_fargate_percentage",
               "profiled_host_usage",
               "profiled_host_percentage",
+              "published_app_usage",
+              "published_app_percentage",
               "serverless_apps_usage",
               "serverless_apps_percentage",
               "snmp_usage",
@@ -154,8 +162,14 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "logs_indexed_3day_percentage",
               "logs_indexed_1day_usage",
               "logs_indexed_1day_percentage",
+              "rum_ingested_usage",
+              "rum_ingested_percentage",
+              "rum_investigate_usage",
+              "rum_investigate_percentage",
               "rum_replay_sessions_usage",
               "rum_replay_sessions_percentage",
+              "rum_session_replay_add_on_usage",
+              "rum_session_replay_add_on_percentage",
               "rum_browser_mobile_sessions_usage",
               "rum_browser_mobile_sessions_percentage",
               "ingested_spans_bytes_usage",
@@ -310,6 +324,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("lambda_traced_invocations_usage");
   public static final MonthlyUsageAttributionSupportedMetrics LAMBDA_TRACED_INVOCATIONS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("lambda_traced_invocations_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LLM_OBSERVABILITY_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("llm_observability_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LLM_OBSERVABILITY_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("llm_observability_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics MOBILE_APP_TESTING_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("mobile_app_testing_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics MOBILE_APP_TESTING_PERCENTAGE =
@@ -318,6 +336,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("ndm_netflow_usage");
   public static final MonthlyUsageAttributionSupportedMetrics NDM_NETFLOW_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("ndm_netflow_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics NETWORK_DEVICE_WIRELESS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("network_device_wireless_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics NETWORK_DEVICE_WIRELESS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("network_device_wireless_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics NPM_HOST_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("npm_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics NPM_HOST_PERCENTAGE =
@@ -334,6 +356,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("online_archive_usage");
   public static final MonthlyUsageAttributionSupportedMetrics ONLINE_ARCHIVE_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("online_archive_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics PRODUCT_ANALYTICS_SESSION_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("product_analytics_session_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics PRODUCT_ANALYTICS_SESSION_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("product_analytics_session_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_CONTAINER_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("profiled_container_usage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_CONTAINER_PERCENTAGE =
@@ -346,6 +372,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("profiled_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_HOST_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("profiled_host_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics PUBLISHED_APP_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("published_app_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics PUBLISHED_APP_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("published_app_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics SERVERLESS_APPS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("serverless_apps_usage");
   public static final MonthlyUsageAttributionSupportedMetrics SERVERLESS_APPS_PERCENTAGE =
@@ -432,10 +462,22 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("logs_indexed_1day_usage");
   public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_1DAY_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("logs_indexed_1day_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics RUM_INGESTED_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("rum_ingested_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics RUM_INGESTED_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("rum_ingested_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics RUM_INVESTIGATE_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("rum_investigate_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics RUM_INVESTIGATE_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("rum_investigate_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics RUM_REPLAY_SESSIONS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("rum_replay_sessions_usage");
   public static final MonthlyUsageAttributionSupportedMetrics RUM_REPLAY_SESSIONS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("rum_replay_sessions_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics RUM_SESSION_REPLAY_ADD_ON_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("rum_session_replay_add_on_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics RUM_SESSION_REPLAY_ADD_ON_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("rum_session_replay_add_on_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics RUM_BROWSER_MOBILE_SESSIONS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("rum_browser_mobile_sessions_usage");
   public static final MonthlyUsageAttributionSupportedMetrics
