@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Defines how often the rotation repeats, using a combination of days and optional seconds. */
+/**
+ * Defines how often the rotation repeats, using a combination of days and optional seconds. Should
+ * be at least 1 hour.
+ */
 @JsonPropertyOrder({
   LayerAttributesInterval.JSON_PROPERTY_DAYS,
   LayerAttributesInterval.JSON_PROPERTY_SECONDS
