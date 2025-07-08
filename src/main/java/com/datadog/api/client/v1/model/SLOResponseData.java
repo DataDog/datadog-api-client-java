@@ -33,7 +33,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOResponseData.JSON_PROPERTY_MODIFIED_AT,
   SLOResponseData.JSON_PROPERTY_MONITOR_IDS,
   SLOResponseData.JSON_PROPERTY_MONITOR_TAGS,
-  SLOResponseData.JSON_PROPERTY_NAME,
   SLOResponseData.JSON_PROPERTY_QUERY,
   SLOResponseData.JSON_PROPERTY_SLI_SPECIFICATION,
   SLOResponseData.JSON_PROPERTY_TAGS,
@@ -73,9 +72,6 @@ public class SLOResponseData {
 
   public static final String JSON_PROPERTY_MONITOR_TAGS = "monitor_tags";
   private List<String> monitorTags = null;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private ServiceLevelObjectiveQuery query;
@@ -313,27 +309,6 @@ public class SLOResponseData {
 
   public void setMonitorTags(List<String> monitorTags) {
     this.monitorTags = monitorTags;
-  }
-
-  public SLOResponseData name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The name of the service level objective object.
-   *
-   * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public SLOResponseData query(ServiceLevelObjectiveQuery query) {
@@ -606,7 +581,6 @@ public class SLOResponseData {
         && Objects.equals(this.modifiedAt, sloResponseData.modifiedAt)
         && Objects.equals(this.monitorIds, sloResponseData.monitorIds)
         && Objects.equals(this.monitorTags, sloResponseData.monitorTags)
-        && Objects.equals(this.name, sloResponseData.name)
         && Objects.equals(this.query, sloResponseData.query)
         && Objects.equals(this.sliSpecification, sloResponseData.sliSpecification)
         && Objects.equals(this.tags, sloResponseData.tags)
@@ -630,7 +604,6 @@ public class SLOResponseData {
         modifiedAt,
         monitorIds,
         monitorTags,
-        name,
         query,
         sliSpecification,
         tags,
@@ -655,7 +628,6 @@ public class SLOResponseData {
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    monitorIds: ").append(toIndentedString(monitorIds)).append("\n");
     sb.append("    monitorTags: ").append(toIndentedString(monitorTags)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    sliSpecification: ").append(toIndentedString(sliSpecification)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
