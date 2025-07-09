@@ -270,7 +270,9 @@ public class HourlyUsageAttributionBody {
   }
 
   /**
-   * Supported products for hourly usage attribution requests.
+   * Supported products for hourly usage attribution requests. The following values have been
+   * <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
+   * estimated_ingested_spans_usage</code>.
    *
    * @return usageType
    */

@@ -18,7 +18,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Supported products for hourly usage attribution requests. */
+/**
+ * Supported products for hourly usage attribution requests. The following values have been
+ * <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
+ * estimated_ingested_spans_usage</code>.
+ */
 @JsonSerialize(
     using = HourlyUsageAttributionUsageType.HourlyUsageAttributionUsageTypeSerializer.class)
 public class HourlyUsageAttributionUsageType extends ModelEnum<String> {

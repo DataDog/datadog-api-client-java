@@ -16,7 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Fields in Usage Summary by tag(s). */
+/**
+ * Fields in Usage Summary by tag(s). The following values have been <strong>deprecated</strong>:
+ * <code>estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
+ * <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage</code>.
+ */
 @JsonPropertyOrder({
   MonthlyUsageAttributionValues.JSON_PROPERTY_API_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_API_USAGE,
