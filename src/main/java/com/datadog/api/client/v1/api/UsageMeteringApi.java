@@ -385,7 +385,9 @@ public class UsageMeteringApi {
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. (required)
+   * @param usageType Usage type to retrieve. The following values have been
+   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
+   *     estimated_ingested_spans_usage</code>. (required)
    * @return HourlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
    */
@@ -403,7 +405,9 @@ public class UsageMeteringApi {
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. (required)
+   * @param usageType Usage type to retrieve. The following values have been
+   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
+   *     estimated_ingested_spans_usage</code>. (required)
    * @return CompletableFuture&lt;HourlyUsageAttributionResponse&gt;
    */
   public CompletableFuture<HourlyUsageAttributionResponse> getHourlyUsageAttributionAsync(
@@ -423,7 +427,9 @@ public class UsageMeteringApi {
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. (required)
+   * @param usageType Usage type to retrieve. The following values have been
+   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
+   *     estimated_ingested_spans_usage</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return HourlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
@@ -443,7 +449,9 @@ public class UsageMeteringApi {
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. (required)
+   * @param usageType Usage type to retrieve. The following values have been
+   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
+   *     estimated_ingested_spans_usage</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;HourlyUsageAttributionResponse&gt;
    */
@@ -475,7 +483,9 @@ public class UsageMeteringApi {
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. (required)
+   * @param usageType Usage type to retrieve. The following values have been
+   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
+   *     estimated_ingested_spans_usage</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HourlyUsageAttributionResponse&gt;
    * @throws ApiException if fails to make API call
@@ -552,7 +562,9 @@ public class UsageMeteringApi {
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. (required)
+   * @param usageType Usage type to retrieve. The following values have been
+   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
+   *     estimated_ingested_spans_usage</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;HourlyUsageAttributionResponse&gt;&gt;
    */
@@ -1352,7 +1364,10 @@ public class UsageMeteringApi {
     /**
      * Set sortName.
      *
-     * @param sortName The field to sort by. (optional)
+     * @param sortName The field to sort by. The following values have been
+     *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
+     *     estimated_indexed_spans_percentage</code>, <code>estimated_ingested_spans_usage</code>,
+     *     <code>estimated_ingested_spans_percentage</code>. (optional)
      * @return GetMonthlyUsageAttributionOptionalParameters
      */
     public GetMonthlyUsageAttributionOptionalParameters sortName(
@@ -1408,7 +1423,10 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. (required)
+   *     types. The following values have been <strong>deprecated</strong>: <code>
+   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
+   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
+   *     </code>. (required)
    * @return MonthlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
    */
@@ -1428,7 +1446,10 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. (required)
+   *     types. The following values have been <strong>deprecated</strong>: <code>
+   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
+   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
+   *     </code>. (required)
    * @return CompletableFuture&lt;MonthlyUsageAttributionResponse&gt;
    */
   public CompletableFuture<MonthlyUsageAttributionResponse> getMonthlyUsageAttributionAsync(
@@ -1449,7 +1470,10 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. (required)
+   *     types. The following values have been <strong>deprecated</strong>: <code>
+   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
+   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
+   *     </code>. (required)
    * @param parameters Optional parameters for the request.
    * @return MonthlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
@@ -1470,7 +1494,10 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. (required)
+   *     types. The following values have been <strong>deprecated</strong>: <code>
+   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
+   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
+   *     </code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;MonthlyUsageAttributionResponse&gt;
    */
@@ -1503,7 +1530,10 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. (required)
+   *     types. The following values have been <strong>deprecated</strong>: <code>
+   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
+   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
+   *     </code>. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MonthlyUsageAttributionResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1586,7 +1616,10 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. (required)
+   *     types. The following values have been <strong>deprecated</strong>: <code>
+   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
+   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
+   *     </code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MonthlyUsageAttributionResponse&gt;&gt;
    */
