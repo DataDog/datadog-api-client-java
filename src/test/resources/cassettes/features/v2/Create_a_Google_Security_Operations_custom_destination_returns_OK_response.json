@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"forward_tags\":false,\"forward_tags_restriction_list\":[\"datacenter\",\"host\"],\"forward_tags_restriction_list_type\":\"ALLOW_LIST\",\"forwarder_destination\":{\"auth\":{\"client_email\":\"client@example.com\",\"client_id\":\"def123456\",\"private_key\":\"-----BEGIN PRIVATE KEY-----\\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBK...\\n-----END PRIVATE KEY-----\\n\",\"private_key_id\":\"abc12345678\",\"project_id\":\"gcp-project\",\"type\":\"gcp_private_key\"},\"customer_id\":\"123-456-7890\",\"namespace\":\"google-security-operations-namespace\",\"regional_endpoint\":\"https://malachiteingestion-pa.googleapis.com\",\"type\":\"google_security_operations\"},\"name\":\"Nginx logs\",\"query\":\"source:nginx\"},\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/custom-destinations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"363586eb-0e4c-45c6-ba95-5afaddead03f\",\"attributes\":{\"name\":\"Nginx logs\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"customer_id\":\"123-456-7890\",\"regional_endpoint\":\"https://malachiteingestion-pa.googleapis.com\",\"namespace\":\"google-security-operations-namespace\",\"auth\":{\"project_id\":\"gcp-project\",\"client_email\":\"client@example.com\",\"type\":\"gcp_private_key\"},\"type\":\"google_security_operations\"},\"forward_tags_restriction_list_type\":\"ALLOW_LIST\",\"forward_tags_restriction_list\":[\"datacenter\",\"host\"],\"forward_tags\":false},\"type\":\"custom_destination\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1db6a6ab-99d9-d8ab-9eb0-880014ac1ce1"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/custom-destinations/363586eb-0e4c-45c6-ba95-5afaddead03f",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b3574495-65ea-2dc8-baf4-1959bbb48471"
+  }
+]

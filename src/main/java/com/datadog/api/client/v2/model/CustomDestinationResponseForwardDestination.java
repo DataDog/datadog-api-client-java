@@ -320,6 +320,74 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
             e);
       }
 
+      // deserialize CustomDestinationResponseForwardDestinationGoogleSecurityOperations
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class.equals(
+                Integer.class)
+            || CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class.equals(
+                Long.class)
+            || CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class.equals(
+                Float.class)
+            || CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class.equals(
+                Double.class)
+            || CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class.equals(
+                Boolean.class)
+            || CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class.equals(
+                String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class.equals(
+                            Integer.class)
+                        || CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class
+                            .equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class.equals(
+                            Float.class)
+                        || CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class
+                            .equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class.equals(
+                        Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class.equals(
+                        String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(
+                      CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((CustomDestinationResponseForwardDestinationGoogleSecurityOperations) tmp)
+              .unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema"
+                  + " 'CustomDestinationResponseForwardDestinationGoogleSecurityOperations'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'CustomDestinationResponseForwardDestinationGoogleSecurityOperations'",
+            e);
+      }
+
       CustomDestinationResponseForwardDestination ret =
           new CustomDestinationResponseForwardDestination();
       if (match == 1) {
@@ -375,6 +443,12 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
     setActualInstance(o);
   }
 
+  public CustomDestinationResponseForwardDestination(
+      CustomDestinationResponseForwardDestinationGoogleSecurityOperations o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "CustomDestinationResponseForwardDestinationHttp",
@@ -388,6 +462,9 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
     schemas.put(
         "CustomDestinationResponseForwardDestinationMicrosoftSentinel",
         new GenericType<CustomDestinationResponseForwardDestinationMicrosoftSentinel>() {});
+    schemas.put(
+        "CustomDestinationResponseForwardDestinationGoogleSecurityOperations",
+        new GenericType<CustomDestinationResponseForwardDestinationGoogleSecurityOperations>() {});
     JSON.registerDescendants(
         CustomDestinationResponseForwardDestination.class, Collections.unmodifiableMap(schemas));
   }
@@ -402,7 +479,8 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
    * against the oneOf child schemas: CustomDestinationResponseForwardDestinationHttp,
    * CustomDestinationResponseForwardDestinationSplunk,
    * CustomDestinationResponseForwardDestinationElasticsearch,
-   * CustomDestinationResponseForwardDestinationMicrosoftSentinel
+   * CustomDestinationResponseForwardDestinationMicrosoftSentinel,
+   * CustomDestinationResponseForwardDestinationGoogleSecurityOperations
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -435,6 +513,13 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        CustomDestinationResponseForwardDestinationGoogleSecurityOperations.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -444,7 +529,8 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
         "Invalid instance type. Must be CustomDestinationResponseForwardDestinationHttp,"
             + " CustomDestinationResponseForwardDestinationSplunk,"
             + " CustomDestinationResponseForwardDestinationElasticsearch,"
-            + " CustomDestinationResponseForwardDestinationMicrosoftSentinel");
+            + " CustomDestinationResponseForwardDestinationMicrosoftSentinel,"
+            + " CustomDestinationResponseForwardDestinationGoogleSecurityOperations");
   }
 
   /**
@@ -452,12 +538,14 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
    * CustomDestinationResponseForwardDestinationHttp,
    * CustomDestinationResponseForwardDestinationSplunk,
    * CustomDestinationResponseForwardDestinationElasticsearch,
-   * CustomDestinationResponseForwardDestinationMicrosoftSentinel
+   * CustomDestinationResponseForwardDestinationMicrosoftSentinel,
+   * CustomDestinationResponseForwardDestinationGoogleSecurityOperations
    *
    * @return The actual instance (CustomDestinationResponseForwardDestinationHttp,
    *     CustomDestinationResponseForwardDestinationSplunk,
    *     CustomDestinationResponseForwardDestinationElasticsearch,
-   *     CustomDestinationResponseForwardDestinationMicrosoftSentinel)
+   *     CustomDestinationResponseForwardDestinationMicrosoftSentinel,
+   *     CustomDestinationResponseForwardDestinationGoogleSecurityOperations)
    */
   @Override
   public Object getActualInstance() {
@@ -518,5 +606,23 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
   public CustomDestinationResponseForwardDestinationMicrosoftSentinel
       getCustomDestinationResponseForwardDestinationMicrosoftSentinel() throws ClassCastException {
     return (CustomDestinationResponseForwardDestinationMicrosoftSentinel) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of
+   * `CustomDestinationResponseForwardDestinationGoogleSecurityOperations`. If the actual instance
+   * is not `CustomDestinationResponseForwardDestinationGoogleSecurityOperations`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of
+   *     `CustomDestinationResponseForwardDestinationGoogleSecurityOperations`
+   * @throws ClassCastException if the instance is not
+   *     `CustomDestinationResponseForwardDestinationGoogleSecurityOperations`
+   */
+  public CustomDestinationResponseForwardDestinationGoogleSecurityOperations
+      getCustomDestinationResponseForwardDestinationGoogleSecurityOperations()
+          throws ClassCastException {
+    return (CustomDestinationResponseForwardDestinationGoogleSecurityOperations)
+        super.getActualInstance();
   }
 }
