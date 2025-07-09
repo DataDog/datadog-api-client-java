@@ -19,14 +19,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The schema version of entity type. The field is known as schema-version in the previous version.
+ * The version of the schema data that was used to populate this entity's data. This could be via
+ * the API, Terraform, or YAML file in a repository. The field is known as schema-version in the
+ * previous version.
  */
 @JsonSerialize(using = EntityV3APIVersion.EntityV3APIVersionSerializer.class)
 public class EntityV3APIVersion extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("v3"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("v3", "v2.2", "v2.1", "v2"));
 
   public static final EntityV3APIVersion V3 = new EntityV3APIVersion("v3");
+  public static final EntityV3APIVersion V2_2 = new EntityV3APIVersion("v2.2");
+  public static final EntityV3APIVersion V2_1 = new EntityV3APIVersion("v2.1");
+  public static final EntityV3APIVersion V2 = new EntityV3APIVersion("v2");
 
   EntityV3APIVersion(String value) {
     super(value, allowedValues);
