@@ -902,6 +902,57 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             e);
       }
 
+      // deserialize ObservabilityPipelineRemapVrlProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineRemapVrlProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineRemapVrlProcessor.class.equals(Long.class)
+            || ObservabilityPipelineRemapVrlProcessor.class.equals(Float.class)
+            || ObservabilityPipelineRemapVrlProcessor.class.equals(Double.class)
+            || ObservabilityPipelineRemapVrlProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineRemapVrlProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineRemapVrlProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineRemapVrlProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineRemapVrlProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineRemapVrlProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineRemapVrlProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineRemapVrlProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineRemapVrlProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineRemapVrlProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ObservabilityPipelineRemapVrlProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineRemapVrlProcessor'",
+            e);
+      }
+
       ObservabilityPipelineConfigProcessorItem ret = new ObservabilityPipelineConfigProcessorItem();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -1013,6 +1064,11 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineRemapVrlProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "ObservabilityPipelineFilterProcessor",
@@ -1062,6 +1118,9 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     schemas.put(
         "ObservabilityPipelineThrottleProcessor",
         new GenericType<ObservabilityPipelineThrottleProcessor>() {});
+    schemas.put(
+        "ObservabilityPipelineRemapVrlProcessor",
+        new GenericType<ObservabilityPipelineRemapVrlProcessor>() {});
     JSON.registerDescendants(
         ObservabilityPipelineConfigProcessorItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -1081,7 +1140,7 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineOcsfMapperProcessor,
    * ObservabilityPipelineAddEnvVarsProcessor, ObservabilityPipelineDedupeProcessor,
    * ObservabilityPipelineEnrichmentTableProcessor, ObservabilityPipelineReduceProcessor,
-   * ObservabilityPipelineThrottleProcessor
+   * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineRemapVrlProcessor
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1170,6 +1229,11 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineRemapVrlProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -1187,7 +1251,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             + " ObservabilityPipelineOcsfMapperProcessor, ObservabilityPipelineAddEnvVarsProcessor,"
             + " ObservabilityPipelineDedupeProcessor,"
             + " ObservabilityPipelineEnrichmentTableProcessor,"
-            + " ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor");
+            + " ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor,"
+            + " ObservabilityPipelineRemapVrlProcessor");
   }
 
   /**
@@ -1199,7 +1264,7 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineOcsfMapperProcessor,
    * ObservabilityPipelineAddEnvVarsProcessor, ObservabilityPipelineDedupeProcessor,
    * ObservabilityPipelineEnrichmentTableProcessor, ObservabilityPipelineReduceProcessor,
-   * ObservabilityPipelineThrottleProcessor
+   * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineRemapVrlProcessor
    *
    * @return The actual instance (ObservabilityPipelineFilterProcessor,
    *     ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineQuotaProcessor,
@@ -1209,7 +1274,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    *     ObservabilityPipelineSensitiveDataScannerProcessor,
    *     ObservabilityPipelineOcsfMapperProcessor, ObservabilityPipelineAddEnvVarsProcessor,
    *     ObservabilityPipelineDedupeProcessor, ObservabilityPipelineEnrichmentTableProcessor,
-   *     ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor)
+   *     ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor,
+   *     ObservabilityPipelineRemapVrlProcessor)
    */
   @Override
   public Object getActualInstance() {
@@ -1412,5 +1478,17 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
   public ObservabilityPipelineThrottleProcessor getObservabilityPipelineThrottleProcessor()
       throws ClassCastException {
     return (ObservabilityPipelineThrottleProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineRemapVrlProcessor`. If the actual instance is
+   * not `ObservabilityPipelineRemapVrlProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineRemapVrlProcessor`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineRemapVrlProcessor`
+   */
+  public ObservabilityPipelineRemapVrlProcessor getObservabilityPipelineRemapVrlProcessor()
+      throws ClassCastException {
+    return (ObservabilityPipelineRemapVrlProcessor) super.getActualInstance();
   }
 }
