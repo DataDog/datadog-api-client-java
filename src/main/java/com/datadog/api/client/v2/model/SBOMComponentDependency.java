@@ -18,99 +18,69 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Provides additional information about a BOM. */
+/** The dependencies of a component of the SBOM. */
 @JsonPropertyOrder({
-  SBOMMetadata.JSON_PROPERTY_AUTHORS,
-  SBOMMetadata.JSON_PROPERTY_COMPONENT,
-  SBOMMetadata.JSON_PROPERTY_TIMESTAMP
+  SBOMComponentDependency.JSON_PROPERTY_DEPENDS_ON,
+  SBOMComponentDependency.JSON_PROPERTY_REF
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SBOMMetadata {
+public class SBOMComponentDependency {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AUTHORS = "authors";
-  private List<SBOMMetadataAuthor> authors = null;
+  public static final String JSON_PROPERTY_DEPENDS_ON = "dependsOn";
+  private List<String> dependsOn = null;
 
-  public static final String JSON_PROPERTY_COMPONENT = "component";
-  private SBOMMetadataComponent component;
+  public static final String JSON_PROPERTY_REF = "ref";
+  private String ref;
 
-  public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
-  private String timestamp;
+  public SBOMComponentDependency dependsOn(List<String> dependsOn) {
+    this.dependsOn = dependsOn;
+    return this;
+  }
 
-  public SBOMMetadata authors(List<SBOMMetadataAuthor> authors) {
-    this.authors = authors;
-    for (SBOMMetadataAuthor item : authors) {
-      this.unparsed |= item.unparsed;
+  public SBOMComponentDependency addDependsOnItem(String dependsOnItem) {
+    if (this.dependsOn == null) {
+      this.dependsOn = new ArrayList<>();
     }
-    return this;
-  }
-
-  public SBOMMetadata addAuthorsItem(SBOMMetadataAuthor authorsItem) {
-    if (this.authors == null) {
-      this.authors = new ArrayList<>();
-    }
-    this.authors.add(authorsItem);
-    this.unparsed |= authorsItem.unparsed;
+    this.dependsOn.add(dependsOnItem);
     return this;
   }
 
   /**
-   * List of authors of the SBOM.
+   * The components that are dependencies of the ref component.
    *
-   * @return authors
+   * @return dependsOn
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTHORS)
+  @JsonProperty(JSON_PROPERTY_DEPENDS_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SBOMMetadataAuthor> getAuthors() {
-    return authors;
+  public List<String> getDependsOn() {
+    return dependsOn;
   }
 
-  public void setAuthors(List<SBOMMetadataAuthor> authors) {
-    this.authors = authors;
+  public void setDependsOn(List<String> dependsOn) {
+    this.dependsOn = dependsOn;
   }
 
-  public SBOMMetadata component(SBOMMetadataComponent component) {
-    this.component = component;
-    this.unparsed |= component.unparsed;
+  public SBOMComponentDependency ref(String ref) {
+    this.ref = ref;
     return this;
   }
 
   /**
-   * The component that the BOM describes.
+   * The identifier for the related component.
    *
-   * @return component
+   * @return ref
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPONENT)
+  @JsonProperty(JSON_PROPERTY_REF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SBOMMetadataComponent getComponent() {
-    return component;
+  public String getRef() {
+    return ref;
   }
 
-  public void setComponent(SBOMMetadataComponent component) {
-    this.component = component;
-  }
-
-  public SBOMMetadata timestamp(String timestamp) {
-    this.timestamp = timestamp;
-    return this;
-  }
-
-  /**
-   * The timestamp of the SBOM creation.
-   *
-   * @return timestamp
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTimestamp() {
-    return timestamp;
-  }
-
-  public void setTimestamp(String timestamp) {
-    this.timestamp = timestamp;
+  public void setRef(String ref) {
+    this.ref = ref;
   }
 
   /**
@@ -125,10 +95,10 @@ public class SBOMMetadata {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SBOMMetadata
+   * @return SBOMComponentDependency
    */
   @JsonAnySetter
-  public SBOMMetadata putAdditionalProperty(String key, Object value) {
+  public SBOMComponentDependency putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -159,7 +129,7 @@ public class SBOMMetadata {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SBOMMetadata object is equal to o. */
+  /** Return true if this SBOMComponentDependency object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -168,25 +138,23 @@ public class SBOMMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SBOMMetadata sbomMetadata = (SBOMMetadata) o;
-    return Objects.equals(this.authors, sbomMetadata.authors)
-        && Objects.equals(this.component, sbomMetadata.component)
-        && Objects.equals(this.timestamp, sbomMetadata.timestamp)
-        && Objects.equals(this.additionalProperties, sbomMetadata.additionalProperties);
+    SBOMComponentDependency sbomComponentDependency = (SBOMComponentDependency) o;
+    return Objects.equals(this.dependsOn, sbomComponentDependency.dependsOn)
+        && Objects.equals(this.ref, sbomComponentDependency.ref)
+        && Objects.equals(this.additionalProperties, sbomComponentDependency.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authors, component, timestamp, additionalProperties);
+    return Objects.hash(dependsOn, ref, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SBOMMetadata {\n");
-    sb.append("    authors: ").append(toIndentedString(authors)).append("\n");
-    sb.append("    component: ").append(toIndentedString(component)).append("\n");
-    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("class SBOMComponentDependency {\n");
+    sb.append("    dependsOn: ").append(toIndentedString(dependsOn)).append("\n");
+    sb.append("    ref: ").append(toIndentedString(ref)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

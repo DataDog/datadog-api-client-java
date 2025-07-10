@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SBOMAttributes.JSON_PROPERTY_BOM_FORMAT,
   SBOMAttributes.JSON_PROPERTY_COMPONENTS,
+  SBOMAttributes.JSON_PROPERTY_DEPENDENCIES,
   SBOMAttributes.JSON_PROPERTY_METADATA,
   SBOMAttributes.JSON_PROPERTY_SERIAL_NUMBER,
   SBOMAttributes.JSON_PROPERTY_SPEC_VERSION,
@@ -37,6 +38,9 @@ public class SBOMAttributes {
 
   public static final String JSON_PROPERTY_COMPONENTS = "components";
   private List<SBOMComponent> components = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_DEPENDENCIES = "dependencies";
+  private List<SBOMComponentDependency> dependencies = new ArrayList<>();
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private SBOMMetadata metadata;
@@ -57,12 +61,15 @@ public class SBOMAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_BOM_FORMAT) String bomFormat,
       @JsonProperty(required = true, value = JSON_PROPERTY_COMPONENTS)
           List<SBOMComponent> components,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DEPENDENCIES)
+          List<SBOMComponentDependency> dependencies,
       @JsonProperty(required = true, value = JSON_PROPERTY_METADATA) SBOMMetadata metadata,
       @JsonProperty(required = true, value = JSON_PROPERTY_SERIAL_NUMBER) String serialNumber,
       @JsonProperty(required = true, value = JSON_PROPERTY_SPEC_VERSION) SpecVersion specVersion,
       @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) Long version) {
     this.bomFormat = bomFormat;
     this.components = components;
+    this.dependencies = dependencies;
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
     this.serialNumber = serialNumber;
@@ -120,6 +127,35 @@ public class SBOMAttributes {
 
   public void setComponents(List<SBOMComponent> components) {
     this.components = components;
+  }
+
+  public SBOMAttributes dependencies(List<SBOMComponentDependency> dependencies) {
+    this.dependencies = dependencies;
+    for (SBOMComponentDependency item : dependencies) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SBOMAttributes addDependenciesItem(SBOMComponentDependency dependenciesItem) {
+    this.dependencies.add(dependenciesItem);
+    this.unparsed |= dependenciesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of dependencies between components of the SBOM.
+   *
+   * @return dependencies
+   */
+  @JsonProperty(JSON_PROPERTY_DEPENDENCIES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<SBOMComponentDependency> getDependencies() {
+    return dependencies;
+  }
+
+  public void setDependencies(List<SBOMComponentDependency> dependencies) {
+    this.dependencies = dependencies;
   }
 
   public SBOMAttributes metadata(SBOMMetadata metadata) {
@@ -267,6 +303,7 @@ public class SBOMAttributes {
     SBOMAttributes sbomAttributes = (SBOMAttributes) o;
     return Objects.equals(this.bomFormat, sbomAttributes.bomFormat)
         && Objects.equals(this.components, sbomAttributes.components)
+        && Objects.equals(this.dependencies, sbomAttributes.dependencies)
         && Objects.equals(this.metadata, sbomAttributes.metadata)
         && Objects.equals(this.serialNumber, sbomAttributes.serialNumber)
         && Objects.equals(this.specVersion, sbomAttributes.specVersion)
@@ -277,7 +314,14 @@ public class SBOMAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        bomFormat, components, metadata, serialNumber, specVersion, version, additionalProperties);
+        bomFormat,
+        components,
+        dependencies,
+        metadata,
+        serialNumber,
+        specVersion,
+        version,
+        additionalProperties);
   }
 
   @Override
@@ -286,6 +330,7 @@ public class SBOMAttributes {
     sb.append("class SBOMAttributes {\n");
     sb.append("    bomFormat: ").append(toIndentedString(bomFormat)).append("\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
+    sb.append("    dependencies: ").append(toIndentedString(dependencies)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
     sb.append("    specVersion: ").append(toIndentedString(specVersion)).append("\n");
