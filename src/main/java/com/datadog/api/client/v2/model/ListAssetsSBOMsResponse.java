@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,99 +19,104 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Provides additional information about a BOM. */
+/** The expected response schema when listing assets SBOMs. */
 @JsonPropertyOrder({
-  SBOMMetadata.JSON_PROPERTY_AUTHORS,
-  SBOMMetadata.JSON_PROPERTY_COMPONENT,
-  SBOMMetadata.JSON_PROPERTY_TIMESTAMP
+  ListAssetsSBOMsResponse.JSON_PROPERTY_DATA,
+  ListAssetsSBOMsResponse.JSON_PROPERTY_LINKS,
+  ListAssetsSBOMsResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SBOMMetadata {
+public class ListAssetsSBOMsResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AUTHORS = "authors";
-  private List<SBOMMetadataAuthor> authors = null;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<SBOM> data = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_COMPONENT = "component";
-  private SBOMMetadataComponent component;
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private Links links;
 
-  public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
-  private String timestamp;
+  public static final String JSON_PROPERTY_META = "meta";
+  private Metadata meta;
 
-  public SBOMMetadata authors(List<SBOMMetadataAuthor> authors) {
-    this.authors = authors;
-    for (SBOMMetadataAuthor item : authors) {
+  public ListAssetsSBOMsResponse() {}
+
+  @JsonCreator
+  public ListAssetsSBOMsResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<SBOM> data) {
+    this.data = data;
+  }
+
+  public ListAssetsSBOMsResponse data(List<SBOM> data) {
+    this.data = data;
+    for (SBOM item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public SBOMMetadata addAuthorsItem(SBOMMetadataAuthor authorsItem) {
-    if (this.authors == null) {
-      this.authors = new ArrayList<>();
-    }
-    this.authors.add(authorsItem);
-    this.unparsed |= authorsItem.unparsed;
+  public ListAssetsSBOMsResponse addDataItem(SBOM dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * List of authors of the SBOM.
+   * List of assets SBOMs.
    *
-   * @return authors
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTHORS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SBOMMetadataAuthor> getAuthors() {
-    return authors;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<SBOM> getData() {
+    return data;
   }
 
-  public void setAuthors(List<SBOMMetadataAuthor> authors) {
-    this.authors = authors;
+  public void setData(List<SBOM> data) {
+    this.data = data;
   }
 
-  public SBOMMetadata component(SBOMMetadataComponent component) {
-    this.component = component;
-    this.unparsed |= component.unparsed;
+  public ListAssetsSBOMsResponse links(Links links) {
+    this.links = links;
+    this.unparsed |= links.unparsed;
     return this;
   }
 
   /**
-   * The component that the BOM describes.
+   * The JSON:API links related to pagination.
    *
-   * @return component
+   * @return links
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPONENT)
+  @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SBOMMetadataComponent getComponent() {
-    return component;
+  public Links getLinks() {
+    return links;
   }
 
-  public void setComponent(SBOMMetadataComponent component) {
-    this.component = component;
+  public void setLinks(Links links) {
+    this.links = links;
   }
 
-  public SBOMMetadata timestamp(String timestamp) {
-    this.timestamp = timestamp;
+  public ListAssetsSBOMsResponse meta(Metadata meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
     return this;
   }
 
   /**
-   * The timestamp of the SBOM creation.
+   * The metadata related to this request.
    *
-   * @return timestamp
+   * @return meta
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTimestamp() {
-    return timestamp;
+  public Metadata getMeta() {
+    return meta;
   }
 
-  public void setTimestamp(String timestamp) {
-    this.timestamp = timestamp;
+  public void setMeta(Metadata meta) {
+    this.meta = meta;
   }
 
   /**
@@ -125,10 +131,10 @@ public class SBOMMetadata {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SBOMMetadata
+   * @return ListAssetsSBOMsResponse
    */
   @JsonAnySetter
-  public SBOMMetadata putAdditionalProperty(String key, Object value) {
+  public ListAssetsSBOMsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -159,7 +165,7 @@ public class SBOMMetadata {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SBOMMetadata object is equal to o. */
+  /** Return true if this ListAssetsSBOMsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -168,25 +174,25 @@ public class SBOMMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SBOMMetadata sbomMetadata = (SBOMMetadata) o;
-    return Objects.equals(this.authors, sbomMetadata.authors)
-        && Objects.equals(this.component, sbomMetadata.component)
-        && Objects.equals(this.timestamp, sbomMetadata.timestamp)
-        && Objects.equals(this.additionalProperties, sbomMetadata.additionalProperties);
+    ListAssetsSBOMsResponse listAssetsSboMsResponse = (ListAssetsSBOMsResponse) o;
+    return Objects.equals(this.data, listAssetsSboMsResponse.data)
+        && Objects.equals(this.links, listAssetsSboMsResponse.links)
+        && Objects.equals(this.meta, listAssetsSboMsResponse.meta)
+        && Objects.equals(this.additionalProperties, listAssetsSboMsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authors, component, timestamp, additionalProperties);
+    return Objects.hash(data, links, meta, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SBOMMetadata {\n");
-    sb.append("    authors: ").append(toIndentedString(authors)).append("\n");
-    sb.append("    component: ").append(toIndentedString(component)).append("\n");
-    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("class ListAssetsSBOMsResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

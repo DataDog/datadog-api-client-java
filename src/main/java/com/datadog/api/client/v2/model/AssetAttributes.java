@@ -26,6 +26,7 @@ import java.util.Objects;
   AssetAttributes.JSON_PROPERTY_NAME,
   AssetAttributes.JSON_PROPERTY_OPERATING_SYSTEM,
   AssetAttributes.JSON_PROPERTY_RISKS,
+  AssetAttributes.JSON_PROPERTY_TEAMS,
   AssetAttributes.JSON_PROPERTY_TYPE,
   AssetAttributes.JSON_PROPERTY_VERSION
 })
@@ -47,6 +48,9 @@ public class AssetAttributes {
 
   public static final String JSON_PROPERTY_RISKS = "risks";
   private AssetRisks risks;
+
+  public static final String JSON_PROPERTY_TEAMS = "teams";
+  private List<String> teams = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private AssetType type;
@@ -179,6 +183,35 @@ public class AssetAttributes {
     this.risks = risks;
   }
 
+  public AssetAttributes teams(List<String> teams) {
+    this.teams = teams;
+    return this;
+  }
+
+  public AssetAttributes addTeamsItem(String teamsItem) {
+    if (this.teams == null) {
+      this.teams = new ArrayList<>();
+    }
+    this.teams.add(teamsItem);
+    return this;
+  }
+
+  /**
+   * List of teams that own the asset.
+   *
+   * @return teams
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTeams() {
+    return teams;
+  }
+
+  public void setTeams(List<String> teams) {
+    this.teams = teams;
+  }
+
   public AssetAttributes type(AssetType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -286,6 +319,7 @@ public class AssetAttributes {
         && Objects.equals(this.name, assetAttributes.name)
         && Objects.equals(this.operatingSystem, assetAttributes.operatingSystem)
         && Objects.equals(this.risks, assetAttributes.risks)
+        && Objects.equals(this.teams, assetAttributes.teams)
         && Objects.equals(this.type, assetAttributes.type)
         && Objects.equals(this.version, assetAttributes.version)
         && Objects.equals(this.additionalProperties, assetAttributes.additionalProperties);
@@ -294,7 +328,15 @@ public class AssetAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        arch, environments, name, operatingSystem, risks, type, version, additionalProperties);
+        arch,
+        environments,
+        name,
+        operatingSystem,
+        risks,
+        teams,
+        type,
+        version,
+        additionalProperties);
   }
 
   @Override
@@ -306,6 +348,7 @@ public class AssetAttributes {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    operatingSystem: ").append(toIndentedString(operatingSystem)).append("\n");
     sb.append("    risks: ").append(toIndentedString(risks)).append("\n");
+    sb.append("    teams: ").append(toIndentedString(teams)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
