@@ -86,6 +86,10 @@ public class EventsApi {
   /**
    * This endpoint allows you to publish events.
    *
+   * <p><strong>Note:</strong> To utilize this endpoint with our client libraries, please ensure you
+   * are using the latest version released on or after July 1, 2025. Earlier versions do not support
+   * this functionality.
+   *
    * <p>✅ <strong>Only events with the <code>change</code> or <code>alert</code> category</strong>
    * are in General Availability. For change events, see <a
    * href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for more details.
