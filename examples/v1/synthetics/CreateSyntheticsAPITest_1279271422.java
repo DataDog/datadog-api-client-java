@@ -148,6 +148,7 @@ public class Example {
                                     .request(
                                         new SyntheticsTestRequest()
                                             .checkCertificateRevocation(true)
+                                            .disableAiaIntermediateFetching(true)
                                             .host("example.org")
                                             .port(new SyntheticsTestRequestPort(443L)))),
                             new SyntheticsAPIStep(
