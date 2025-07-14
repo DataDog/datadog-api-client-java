@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 2.40.0/2025-07-14
+
+### Added
+* Add Datasets API to Open API Spec  [#2992](https://github.com/DataDog/datadog-api-client-java/pull/2992)
+* Add support for vulnerability management - GetSBOMsList new endpoint and update existing ones [#2991](https://github.com/DataDog/datadog-api-client-java/pull/2991)
+* Add spreadsheet to restriction_policy specs [#2985](https://github.com/DataDog/datadog-api-client-java/pull/2985)
+* Add API spec for AWS Integrations IAM permissions [#2961](https://github.com/DataDog/datadog-api-client-java/pull/2961)
+* New keys added for multiple products [#2959](https://github.com/DataDog/datadog-api-client-java/pull/2959)
+* Add support for `Array Processor` in `Logs Pipelines` [#2952](https://github.com/DataDog/datadog-api-client-java/pull/2952)
+
+### Changed
+* Add support for vulnerability management - GetSBOMsList new endpoint and update existing ones [#2991](https://github.com/DataDog/datadog-api-client-java/pull/2991)
+
 ## 2.39.0/2025-07-02
 
 ### Added
