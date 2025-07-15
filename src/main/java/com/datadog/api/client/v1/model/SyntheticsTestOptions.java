@@ -25,6 +25,7 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION,
   SyntheticsTestOptions.JSON_PROPERTY_CI,
   SyntheticsTestOptions.JSON_PROPERTY_DEVICE_IDS,
+  SyntheticsTestOptions.JSON_PROPERTY_DISABLE_AIA_INTERMEDIATE_FETCHING,
   SyntheticsTestOptions.JSON_PROPERTY_DISABLE_CORS,
   SyntheticsTestOptions.JSON_PROPERTY_DISABLE_CSP,
   SyntheticsTestOptions.JSON_PROPERTY_ENABLE_PROFILING,
@@ -64,6 +65,10 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
   private List<String> deviceIds = null;
+
+  public static final String JSON_PROPERTY_DISABLE_AIA_INTERMEDIATE_FETCHING =
+      "disableAiaIntermediateFetching";
+  private Boolean disableAiaIntermediateFetching;
 
   public static final String JSON_PROPERTY_DISABLE_CORS = "disableCors";
   private Boolean disableCors;
@@ -129,7 +134,7 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * For SSL test, whether or not the test should allow self signed certificates.
+   * For SSL tests, whether or not the test should allow self signed certificates.
    *
    * @return acceptSelfSigned
    */
@@ -171,7 +176,7 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+   * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
    *
    * @return checkCertificateRevocation
    */
@@ -235,6 +240,29 @@ public class SyntheticsTestOptions {
 
   public void setDeviceIds(List<String> deviceIds) {
     this.deviceIds = deviceIds;
+  }
+
+  public SyntheticsTestOptions disableAiaIntermediateFetching(
+      Boolean disableAiaIntermediateFetching) {
+    this.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
+    return this;
+  }
+
+  /**
+   * For SSL tests, whether or not the test should disable fetching intermediate certificates from
+   * AIA.
+   *
+   * @return disableAiaIntermediateFetching
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISABLE_AIA_INTERMEDIATE_FETCHING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDisableAiaIntermediateFetching() {
+    return disableAiaIntermediateFetching;
+  }
+
+  public void setDisableAiaIntermediateFetching(Boolean disableAiaIntermediateFetching) {
+    this.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
   }
 
   public SyntheticsTestOptions disableCors(Boolean disableCors) {
@@ -730,6 +758,9 @@ public class SyntheticsTestOptions {
             this.checkCertificateRevocation, syntheticsTestOptions.checkCertificateRevocation)
         && Objects.equals(this.ci, syntheticsTestOptions.ci)
         && Objects.equals(this.deviceIds, syntheticsTestOptions.deviceIds)
+        && Objects.equals(
+            this.disableAiaIntermediateFetching,
+            syntheticsTestOptions.disableAiaIntermediateFetching)
         && Objects.equals(this.disableCors, syntheticsTestOptions.disableCors)
         && Objects.equals(this.disableCsp, syntheticsTestOptions.disableCsp)
         && Objects.equals(this.enableProfiling, syntheticsTestOptions.enableProfiling)
@@ -762,6 +793,7 @@ public class SyntheticsTestOptions {
         checkCertificateRevocation,
         ci,
         deviceIds,
+        disableAiaIntermediateFetching,
         disableCors,
         disableCsp,
         enableProfiling,
@@ -795,6 +827,9 @@ public class SyntheticsTestOptions {
         .append("\n");
     sb.append("    ci: ").append(toIndentedString(ci)).append("\n");
     sb.append("    deviceIds: ").append(toIndentedString(deviceIds)).append("\n");
+    sb.append("    disableAiaIntermediateFetching: ")
+        .append(toIndentedString(disableAiaIntermediateFetching))
+        .append("\n");
     sb.append("    disableCors: ").append(toIndentedString(disableCors)).append("\n");
     sb.append("    disableCsp: ").append(toIndentedString(disableCsp)).append("\n");
     sb.append("    enableProfiling: ").append(toIndentedString(enableProfiling)).append("\n");
