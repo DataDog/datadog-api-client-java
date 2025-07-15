@@ -30,6 +30,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION,
   SyntheticsTestRequest.JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR,
   SyntheticsTestRequest.JSON_PROPERTY_COMPRESSED_PROTO_FILE,
+  SyntheticsTestRequest.JSON_PROPERTY_DISABLE_AIA_INTERMEDIATE_FETCHING,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER_PORT,
   SyntheticsTestRequest.JSON_PROPERTY_FILES,
@@ -88,6 +89,10 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_COMPRESSED_PROTO_FILE = "compressedProtoFile";
   private String compressedProtoFile;
+
+  public static final String JSON_PROPERTY_DISABLE_AIA_INTERMEDIATE_FETCHING =
+      "disableAiaIntermediateFetching";
+  private Boolean disableAiaIntermediateFetching;
 
   public static final String JSON_PROPERTY_DNS_SERVER = "dnsServer";
   private String dnsServer;
@@ -386,6 +391,28 @@ public class SyntheticsTestRequest {
 
   public void setCompressedProtoFile(String compressedProtoFile) {
     this.compressedProtoFile = compressedProtoFile;
+  }
+
+  public SyntheticsTestRequest disableAiaIntermediateFetching(
+      Boolean disableAiaIntermediateFetching) {
+    this.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
+    return this;
+  }
+
+  /**
+   * Disable fetching intermediate certificates from AIA.
+   *
+   * @return disableAiaIntermediateFetching
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISABLE_AIA_INTERMEDIATE_FETCHING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDisableAiaIntermediateFetching() {
+    return disableAiaIntermediateFetching;
+  }
+
+  public void setDisableAiaIntermediateFetching(Boolean disableAiaIntermediateFetching) {
+    this.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
   }
 
   public SyntheticsTestRequest dnsServer(String dnsServer) {
@@ -988,6 +1015,9 @@ public class SyntheticsTestRequest {
         && Objects.equals(
             this.compressedJsonDescriptor, syntheticsTestRequest.compressedJsonDescriptor)
         && Objects.equals(this.compressedProtoFile, syntheticsTestRequest.compressedProtoFile)
+        && Objects.equals(
+            this.disableAiaIntermediateFetching,
+            syntheticsTestRequest.disableAiaIntermediateFetching)
         && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer)
         && Objects.equals(this.dnsServerPort, syntheticsTestRequest.dnsServerPort)
         && Objects.equals(this.files, syntheticsTestRequest.files)
@@ -1027,6 +1057,7 @@ public class SyntheticsTestRequest {
         checkCertificateRevocation,
         compressedJsonDescriptor,
         compressedProtoFile,
+        disableAiaIntermediateFetching,
         dnsServer,
         dnsServerPort,
         files,
@@ -1072,6 +1103,9 @@ public class SyntheticsTestRequest {
         .append("\n");
     sb.append("    compressedProtoFile: ")
         .append(toIndentedString(compressedProtoFile))
+        .append("\n");
+    sb.append("    disableAiaIntermediateFetching: ")
+        .append(toIndentedString(disableAiaIntermediateFetching))
         .append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
     sb.append("    dnsServerPort: ").append(toIndentedString(dnsServerPort)).append("\n");
