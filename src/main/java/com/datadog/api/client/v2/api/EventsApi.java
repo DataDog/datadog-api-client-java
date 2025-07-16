@@ -100,9 +100,6 @@ public class EventsApi {
    * <p>❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint
    * for notification functionality.
    *
-   * <p>❌ This endpoint is not available for the Government (US1-FED) site. Contact your account
-   * representative for more information.
-   *
    * @param body Event creation request payload. (required)
    * @return ApiResponse&lt;EventCreateResponsePayload&gt;
    * @throws ApiException if fails to make API call
