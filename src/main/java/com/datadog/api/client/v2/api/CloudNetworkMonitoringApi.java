@@ -105,7 +105,7 @@ public class CloudNetworkMonitoringApi {
     /**
      * Set limit.
      *
-     * @param limit The number of connections to be returned. The maximum value is 5000. (optional,
+     * @param limit The number of connections to be returned. The maximum value is 7500. (optional,
      *     default to 100)
      * @return GetAggregatedConnectionsOptionalParameters
      */
