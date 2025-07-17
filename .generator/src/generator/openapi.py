@@ -589,6 +589,18 @@ def get_container_type(operation, attribute_path, stop=None):
     return type_to_java(parameter)
 
 
+def get_security_names(security):
+    if security is None:
+        return []
+
+    auth_names = set()
+    for auth in security:
+        for key in auth.keys() if isinstance(auth, dict) else [auth]:
+            auth_names.add(key)
+
+    return list(auth_names)
+
+
 class Operation:
     def __init__(self, name, spec, method, path):
         self.name = name
