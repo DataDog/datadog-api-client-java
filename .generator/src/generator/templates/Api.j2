@@ -463,7 +463,7 @@ public class {{ name }} {
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("{{ version }}.{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- for mediaType in operation|accept_headers %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %} }, new String[] { {% for authMethod in authMethods|reverse %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %} });
+      builder = apiClient.createBuilder("{{ version }}.{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- for mediaType in operation|accept_headers %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %} }, new String[] { {% for name in get_security_names(authMethods)|sort %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %} });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

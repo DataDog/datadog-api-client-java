@@ -1281,7 +1281,7 @@ public class MetricsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MetricAssetsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1424,7 +1424,7 @@ public class MetricsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
           new CompletableFuture<>();
@@ -1823,7 +1823,7 @@ public class MetricsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MetricsAndMetricTagConfigurationsResponse>> result =
           new CompletableFuture<>();
@@ -1963,7 +1963,7 @@ public class MetricsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MetricAllTagsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -2240,7 +2240,7 @@ public class MetricsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ScalarFormulaQueryResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -2376,7 +2376,7 @@ public class MetricsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>> result =
           new CompletableFuture<>();

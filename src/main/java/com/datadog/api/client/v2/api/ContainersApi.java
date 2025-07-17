@@ -316,7 +316,7 @@ public class ContainersApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ContainersResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

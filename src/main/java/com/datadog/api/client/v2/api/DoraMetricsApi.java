@@ -586,7 +586,7 @@ public class DoraMetricsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"appKeyAuth", "apiKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DORAFetchResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -721,7 +721,7 @@ public class DoraMetricsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"appKeyAuth", "apiKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DORAFetchResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

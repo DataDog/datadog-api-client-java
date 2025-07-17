@@ -136,7 +136,7 @@ public class DomainAllowlistApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DomainAllowlistResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -267,7 +267,7 @@ public class DomainAllowlistApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DomainAllowlistResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

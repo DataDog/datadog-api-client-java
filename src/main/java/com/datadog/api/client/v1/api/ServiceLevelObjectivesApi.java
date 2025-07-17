@@ -182,7 +182,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CheckCanDeleteSLOResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -311,7 +311,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLOListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -508,7 +508,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLODeleteResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -645,7 +645,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLOBulkDeleteResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -838,7 +838,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLOResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -974,7 +974,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLOCorrectionListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1247,7 +1247,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLOHistoryResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1550,7 +1550,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLOListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1771,7 +1771,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SearchSLOResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1923,7 +1923,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLOListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
