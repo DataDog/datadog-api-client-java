@@ -536,7 +536,7 @@ public class DoraMetricsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"appKeyAuth", "apiKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -672,7 +672,7 @@ public class DoraMetricsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"appKeyAuth", "apiKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,

@@ -543,7 +543,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -793,7 +793,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1015,7 +1015,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1596,7 +1596,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -2163,7 +2163,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -2377,7 +2377,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -2584,7 +2584,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -2792,7 +2792,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -3022,7 +3022,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -3245,7 +3245,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -3462,7 +3462,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -3681,7 +3681,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -3898,7 +3898,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -4121,7 +4121,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -4344,7 +4344,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -4562,7 +4562,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -4779,7 +4779,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -4999,7 +4999,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -5224,7 +5224,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -5451,7 +5451,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -5675,7 +5675,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -5899,7 +5899,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -6118,7 +6118,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -6356,7 +6356,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -6578,7 +6578,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -6795,7 +6795,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -7012,7 +7012,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -7251,7 +7251,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -7475,7 +7475,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -7700,7 +7700,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -7925,7 +7925,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -8150,7 +8150,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -8399,7 +8399,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "GET",
         builder,
