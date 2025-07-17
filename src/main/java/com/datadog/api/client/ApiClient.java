@@ -433,6 +433,7 @@ public class ApiClient {
                                       "navy.oncall.datadoghq.com",
                                       new HashSet<String>(
                                           Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
                                               "saffron.oncall.datadoghq.com",
                                               "navy.oncall.datadoghq.com",
                                               "coral.oncall.datadoghq.com",
@@ -494,6 +495,7 @@ public class ApiClient {
                                       "navy.oncall.datadoghq.com",
                                       new HashSet<String>(
                                           Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
                                               "saffron.oncall.datadoghq.com",
                                               "navy.oncall.datadoghq.com",
                                               "coral.oncall.datadoghq.com",
@@ -555,6 +557,7 @@ public class ApiClient {
                                       "navy.oncall.datadoghq.com",
                                       new HashSet<String>(
                                           Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
                                               "saffron.oncall.datadoghq.com",
                                               "navy.oncall.datadoghq.com",
                                               "coral.oncall.datadoghq.com",
@@ -616,6 +619,7 @@ public class ApiClient {
                                       "navy.oncall.datadoghq.com",
                                       new HashSet<String>(
                                           Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
                                               "saffron.oncall.datadoghq.com",
                                               "navy.oncall.datadoghq.com",
                                               "coral.oncall.datadoghq.com",
