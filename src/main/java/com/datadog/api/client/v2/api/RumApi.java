@@ -126,7 +126,7 @@ public class RumApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -174,7 +174,7 @@ public class RumApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<RUMAnalyticsAggregateResponse>> result =
           new CompletableFuture<>();
@@ -936,7 +936,7 @@ public class RumApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -988,7 +988,7 @@ public class RumApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<RUMEventsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1120,7 +1120,7 @@ public class RumApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1167,7 +1167,7 @@ public class RumApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<RUMEventsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

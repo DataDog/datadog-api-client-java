@@ -625,7 +625,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<HourlyUsageAttributionResponse>> result =
           new CompletableFuture<>();
@@ -851,7 +851,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageIncidentManagementResponse>> result =
           new CompletableFuture<>();
@@ -1072,7 +1072,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageIngestedSpansResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1685,7 +1685,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MonthlyUsageAttributionResponse>> result =
           new CompletableFuture<>();
@@ -2220,7 +2220,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageAnalyzedLogsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -2433,7 +2433,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageAuditLogsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -2630,7 +2630,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageBillableSummaryResponse>> result =
           new CompletableFuture<>();
@@ -2848,7 +2848,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCIVisibilityResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3083,7 +3083,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCloudSecurityPostureManagementResponse>> result =
           new CompletableFuture<>();
@@ -3301,7 +3301,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCWSResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3518,7 +3518,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageDBMResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3737,7 +3737,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageFargateResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3954,7 +3954,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageHostsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -4178,7 +4178,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageIndexedSpansResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -4401,7 +4401,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageIoTResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -4618,7 +4618,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageLambdaResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -4835,7 +4835,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageLogsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -5056,7 +5056,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageLogsByIndexResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -5283,7 +5283,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageLogsByRetentionResponse>> result =
           new CompletableFuture<>();
@@ -5508,7 +5508,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageNetworkFlowsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -5732,7 +5732,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageNetworkHostsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -5956,7 +5956,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageOnlineArchiveResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -6174,7 +6174,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageProfilingResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -6415,7 +6415,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageRumSessionsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -6634,7 +6634,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageRumUnitsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -6851,7 +6851,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSDSResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -7068,7 +7068,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSNMPResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -7311,7 +7311,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSummaryResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -7532,7 +7532,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSyntheticsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -7757,7 +7757,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSyntheticsAPIResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -7984,7 +7984,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSyntheticsBrowserResponse>> result =
           new CompletableFuture<>();
@@ -8207,7 +8207,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageTimeseriesResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -8449,7 +8449,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageTopAvgMetricsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

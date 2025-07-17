@@ -187,7 +187,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsGlobalVariable>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -321,7 +321,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsPrivateLocationCreationResponse>> result =
           new CompletableFuture<>();
@@ -454,7 +454,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsAPITest>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -589,7 +589,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsBrowserTest>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -724,7 +724,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsMobileTest>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -861,7 +861,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -997,7 +997,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1130,7 +1130,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsDeleteTestsResponse>> result =
           new CompletableFuture<>();
@@ -1289,7 +1289,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsGlobalVariable>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1421,7 +1421,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<List<SyntheticsTestUptime>>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1556,7 +1556,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsAPITest>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1790,7 +1790,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsGetAPITestLatestResultsResponse>> result =
           new CompletableFuture<>();
@@ -1951,7 +1951,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsAPITestResultFull>> result =
           new CompletableFuture<>();
@@ -2087,7 +2087,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsBrowserTest>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -2328,7 +2328,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse>> result =
           new CompletableFuture<>();
@@ -2493,7 +2493,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsBrowserTestResultFull>> result =
           new CompletableFuture<>();
@@ -2631,7 +2631,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsGlobalVariable>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -2766,7 +2766,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsMobileTest>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -2902,7 +2902,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsPrivateLocation>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3036,7 +3036,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsBatchDetails>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3278,7 +3278,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsTestDetails>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3389,7 +3389,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsListGlobalVariablesResponse>> result =
           new CompletableFuture<>();
@@ -3499,7 +3499,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsLocations>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3739,7 +3739,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsListTestsResponse>> result =
           new CompletableFuture<>();
@@ -3899,7 +3899,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsTestDetails>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3984,8 +3984,8 @@ public class SyntheticsApi {
     /**
      * Set sort.
      *
-     * @param sort The sort order for the results (e.g., 'name,asc' or 'name,desc'). (optional,
-     *     default to "name,asc")
+     * @param sort The sort order for the results (e.g., <code>name,asc</code> or <code>name,desc
+     *     </code>). (optional, default to "name,asc")
      * @return SearchTestsOptionalParameters
      */
     public SearchTestsOptionalParameters sort(String sort) {
@@ -4152,7 +4152,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsListTestsResponse>> result =
           new CompletableFuture<>();
@@ -4286,7 +4286,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsTriggerCITestsResponse>> result =
           new CompletableFuture<>();
@@ -4419,7 +4419,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsTriggerCITestsResponse>> result =
           new CompletableFuture<>();
@@ -4577,7 +4577,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsAPITest>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -4734,7 +4734,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsBrowserTest>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -4891,7 +4891,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsMobileTest>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -5049,7 +5049,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SyntheticsPrivateLocation>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -5206,7 +5206,7 @@ public class SyntheticsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Boolean>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

@@ -608,7 +608,7 @@ public class LogsIndexesApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -644,7 +644,7 @@ public class LogsIndexesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<LogsIndexListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
