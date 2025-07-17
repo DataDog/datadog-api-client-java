@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseAction;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseActionOptions;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseActionOptionsFlaggedIPType;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseActionType;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseCreate;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
@@ -55,7 +56,14 @@ public class Example {
                                         .type(SecurityMonitoringRuleCaseActionType.USER_BEHAVIOR)
                                         .options(
                                             new SecurityMonitoringRuleCaseActionOptions()
-                                                .userBehaviorName("behavior"))))))
+                                                .userBehaviorName("behavior")),
+                                    new SecurityMonitoringRuleCaseAction()
+                                        .type(SecurityMonitoringRuleCaseActionType.FLAG_IP)
+                                        .options(
+                                            new SecurityMonitoringRuleCaseActionOptions()
+                                                .flaggedIpType(
+                                                    SecurityMonitoringRuleCaseActionOptionsFlaggedIPType
+                                                        .FLAGGED))))))
                 .options(
                     new SecurityMonitoringRuleOptions()
                         .keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)
