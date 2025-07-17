@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.EventsListRequest;
 import com.datadog.api.client.v2.model.EventsListResponse;
 import com.datadog.api.client.v2.model.EventsRequestPage;
 import com.datadog.api.client.v2.model.EventsSort;
+import com.datadog.api.client.v2.model.V2EventResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -195,6 +196,139 @@ public class EventsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<EventCreateResponsePayload>() {});
+  }
+
+  /**
+   * Get an event.
+   *
+   * <p>See {@link #getEventWithHttpInfo}.
+   *
+   * @param eventId The UID of the event. (required)
+   * @return V2EventResponse
+   * @throws ApiException if fails to make API call
+   */
+  public V2EventResponse getEvent(String eventId) throws ApiException {
+    return getEventWithHttpInfo(eventId).getData();
+  }
+
+  /**
+   * Get an event.
+   *
+   * <p>See {@link #getEventWithHttpInfoAsync}.
+   *
+   * @param eventId The UID of the event. (required)
+   * @return CompletableFuture&lt;V2EventResponse&gt;
+   */
+  public CompletableFuture<V2EventResponse> getEventAsync(String eventId) {
+    return getEventWithHttpInfoAsync(eventId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of an event by <code>event_id</code>.
+   *
+   * @param eventId The UID of the event. (required)
+   * @return ApiResponse&lt;V2EventResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<V2EventResponse> getEventWithHttpInfo(String eventId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'eventId' is set
+    if (eventId == null) {
+      throw new ApiException(400, "Missing the required parameter 'eventId' when calling getEvent");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/events/{event_id}"
+            .replaceAll("\\{" + "event_id" + "\\}", apiClient.escapeString(eventId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.EventsApi.getEvent",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<V2EventResponse>() {});
+  }
+
+  /**
+   * Get an event.
+   *
+   * <p>See {@link #getEventWithHttpInfo}.
+   *
+   * @param eventId The UID of the event. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;V2EventResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<V2EventResponse>> getEventWithHttpInfoAsync(String eventId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'eventId' is set
+    if (eventId == null) {
+      CompletableFuture<ApiResponse<V2EventResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'eventId' when calling getEvent"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/events/{event_id}"
+            .replaceAll("\\{" + "event_id" + "\\}", apiClient.escapeString(eventId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.EventsApi.getEvent",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<V2EventResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<V2EventResponse>() {});
   }
 
   /** Manage optional parameters to listEvents. */
