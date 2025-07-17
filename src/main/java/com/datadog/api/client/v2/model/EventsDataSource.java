@@ -23,10 +23,11 @@ import java.util.Set;
 public class EventsDataSource extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("logs", "rum"));
+      new HashSet<String>(Arrays.asList("logs", "rum", "dora"));
 
   public static final EventsDataSource LOGS = new EventsDataSource("logs");
   public static final EventsDataSource RUM = new EventsDataSource("rum");
+  public static final EventsDataSource DORA = new EventsDataSource("dora");
 
   EventsDataSource(String value) {
     super(value, allowedValues);
