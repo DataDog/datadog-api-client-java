@@ -902,6 +902,57 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             e);
       }
 
+      // deserialize ObservabilityPipelineDatadogTagsProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineDatadogTagsProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineDatadogTagsProcessor.class.equals(Long.class)
+            || ObservabilityPipelineDatadogTagsProcessor.class.equals(Float.class)
+            || ObservabilityPipelineDatadogTagsProcessor.class.equals(Double.class)
+            || ObservabilityPipelineDatadogTagsProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineDatadogTagsProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineDatadogTagsProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineDatadogTagsProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineDatadogTagsProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineDatadogTagsProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineDatadogTagsProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineDatadogTagsProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineDatadogTagsProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineDatadogTagsProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ObservabilityPipelineDatadogTagsProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineDatadogTagsProcessor'",
+            e);
+      }
+
       ObservabilityPipelineConfigProcessorItem ret = new ObservabilityPipelineConfigProcessorItem();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -1013,6 +1064,11 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineDatadogTagsProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "ObservabilityPipelineFilterProcessor",
@@ -1062,6 +1118,9 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     schemas.put(
         "ObservabilityPipelineThrottleProcessor",
         new GenericType<ObservabilityPipelineThrottleProcessor>() {});
+    schemas.put(
+        "ObservabilityPipelineDatadogTagsProcessor",
+        new GenericType<ObservabilityPipelineDatadogTagsProcessor>() {});
     JSON.registerDescendants(
         ObservabilityPipelineConfigProcessorItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -1081,7 +1140,7 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineOcsfMapperProcessor,
    * ObservabilityPipelineAddEnvVarsProcessor, ObservabilityPipelineDedupeProcessor,
    * ObservabilityPipelineEnrichmentTableProcessor, ObservabilityPipelineReduceProcessor,
-   * ObservabilityPipelineThrottleProcessor
+   * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineDatadogTagsProcessor
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1170,6 +1229,11 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineDatadogTagsProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -1187,7 +1251,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             + " ObservabilityPipelineOcsfMapperProcessor, ObservabilityPipelineAddEnvVarsProcessor,"
             + " ObservabilityPipelineDedupeProcessor,"
             + " ObservabilityPipelineEnrichmentTableProcessor,"
-            + " ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor");
+            + " ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor,"
+            + " ObservabilityPipelineDatadogTagsProcessor");
   }
 
   /**
@@ -1199,7 +1264,7 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineOcsfMapperProcessor,
    * ObservabilityPipelineAddEnvVarsProcessor, ObservabilityPipelineDedupeProcessor,
    * ObservabilityPipelineEnrichmentTableProcessor, ObservabilityPipelineReduceProcessor,
-   * ObservabilityPipelineThrottleProcessor
+   * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineDatadogTagsProcessor
    *
    * @return The actual instance (ObservabilityPipelineFilterProcessor,
    *     ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineQuotaProcessor,
@@ -1209,7 +1274,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    *     ObservabilityPipelineSensitiveDataScannerProcessor,
    *     ObservabilityPipelineOcsfMapperProcessor, ObservabilityPipelineAddEnvVarsProcessor,
    *     ObservabilityPipelineDedupeProcessor, ObservabilityPipelineEnrichmentTableProcessor,
-   *     ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor)
+   *     ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor,
+   *     ObservabilityPipelineDatadogTagsProcessor)
    */
   @Override
   public Object getActualInstance() {
@@ -1412,5 +1478,17 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
   public ObservabilityPipelineThrottleProcessor getObservabilityPipelineThrottleProcessor()
       throws ClassCastException {
     return (ObservabilityPipelineThrottleProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineDatadogTagsProcessor`. If the actual instance
+   * is not `ObservabilityPipelineDatadogTagsProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineDatadogTagsProcessor`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineDatadogTagsProcessor`
+   */
+  public ObservabilityPipelineDatadogTagsProcessor getObservabilityPipelineDatadogTagsProcessor()
+      throws ClassCastException {
+    return (ObservabilityPipelineDatadogTagsProcessor) super.getActualInstance();
   }
 }
