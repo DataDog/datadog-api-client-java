@@ -124,6 +124,50 @@ public class ActionConnectionIntegration extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'AWSIntegration'", e);
       }
 
+      // deserialize DatadogIntegration
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (DatadogIntegration.class.equals(Integer.class)
+            || DatadogIntegration.class.equals(Long.class)
+            || DatadogIntegration.class.equals(Float.class)
+            || DatadogIntegration.class.equals(Double.class)
+            || DatadogIntegration.class.equals(Boolean.class)
+            || DatadogIntegration.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((DatadogIntegration.class.equals(Integer.class)
+                        || DatadogIntegration.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((DatadogIntegration.class.equals(Float.class)
+                        || DatadogIntegration.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (DatadogIntegration.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (DatadogIntegration.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(DatadogIntegration.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((DatadogIntegration) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'DatadogIntegration'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'DatadogIntegration'", e);
+      }
+
       // deserialize HTTPIntegration
       try {
         boolean attemptParsing = true;
@@ -203,6 +247,11 @@ public class ActionConnectionIntegration extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public ActionConnectionIntegration(DatadogIntegration o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public ActionConnectionIntegration(HTTPIntegration o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -210,6 +259,7 @@ public class ActionConnectionIntegration extends AbstractOpenApiSchema {
 
   static {
     schemas.put("AWSIntegration", new GenericType<AWSIntegration>() {});
+    schemas.put("DatadogIntegration", new GenericType<DatadogIntegration>() {});
     schemas.put("HTTPIntegration", new GenericType<HTTPIntegration>() {});
     JSON.registerDescendants(
         ActionConnectionIntegration.class, Collections.unmodifiableMap(schemas));
@@ -222,7 +272,7 @@ public class ActionConnectionIntegration extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: AWSIntegration, HTTPIntegration
+   * against the oneOf child schemas: AWSIntegration, DatadogIntegration, HTTPIntegration
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -230,6 +280,10 @@ public class ActionConnectionIntegration extends AbstractOpenApiSchema {
   @Override
   public void setActualInstance(Object instance) {
     if (JSON.isInstanceOf(AWSIntegration.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(DatadogIntegration.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -242,13 +296,15 @@ public class ActionConnectionIntegration extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be AWSIntegration, HTTPIntegration");
+    throw new RuntimeException(
+        "Invalid instance type. Must be AWSIntegration, DatadogIntegration, HTTPIntegration");
   }
 
   /**
-   * Get the actual instance, which can be the following: AWSIntegration, HTTPIntegration
+   * Get the actual instance, which can be the following: AWSIntegration, DatadogIntegration,
+   * HTTPIntegration
    *
-   * @return The actual instance (AWSIntegration, HTTPIntegration)
+   * @return The actual instance (AWSIntegration, DatadogIntegration, HTTPIntegration)
    */
   @Override
   public Object getActualInstance() {
@@ -264,6 +320,17 @@ public class ActionConnectionIntegration extends AbstractOpenApiSchema {
    */
   public AWSIntegration getAWSIntegration() throws ClassCastException {
     return (AWSIntegration) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `DatadogIntegration`. If the actual instance is not
+   * `DatadogIntegration`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `DatadogIntegration`
+   * @throws ClassCastException if the instance is not `DatadogIntegration`
+   */
+  public DatadogIntegration getDatadogIntegration() throws ClassCastException {
+    return (DatadogIntegration) super.getActualInstance();
   }
 
   /**

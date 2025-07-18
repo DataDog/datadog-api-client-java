@@ -128,6 +128,51 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'AWSIntegrationUpdate'", e);
       }
 
+      // deserialize DatadogIntegrationUpdate
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (DatadogIntegrationUpdate.class.equals(Integer.class)
+            || DatadogIntegrationUpdate.class.equals(Long.class)
+            || DatadogIntegrationUpdate.class.equals(Float.class)
+            || DatadogIntegrationUpdate.class.equals(Double.class)
+            || DatadogIntegrationUpdate.class.equals(Boolean.class)
+            || DatadogIntegrationUpdate.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((DatadogIntegrationUpdate.class.equals(Integer.class)
+                        || DatadogIntegrationUpdate.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((DatadogIntegrationUpdate.class.equals(Float.class)
+                        || DatadogIntegrationUpdate.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (DatadogIntegrationUpdate.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (DatadogIntegrationUpdate.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(DatadogIntegrationUpdate.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((DatadogIntegrationUpdate) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'DatadogIntegrationUpdate'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'DatadogIntegrationUpdate'", e);
+      }
+
       // deserialize HTTPIntegrationUpdate
       try {
         boolean attemptParsing = true;
@@ -208,6 +253,11 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public ActionConnectionIntegrationUpdate(DatadogIntegrationUpdate o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public ActionConnectionIntegrationUpdate(HTTPIntegrationUpdate o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -215,6 +265,7 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
 
   static {
     schemas.put("AWSIntegrationUpdate", new GenericType<AWSIntegrationUpdate>() {});
+    schemas.put("DatadogIntegrationUpdate", new GenericType<DatadogIntegrationUpdate>() {});
     schemas.put("HTTPIntegrationUpdate", new GenericType<HTTPIntegrationUpdate>() {});
     JSON.registerDescendants(
         ActionConnectionIntegrationUpdate.class, Collections.unmodifiableMap(schemas));
@@ -227,7 +278,8 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: AWSIntegrationUpdate, HTTPIntegrationUpdate
+   * against the oneOf child schemas: AWSIntegrationUpdate, DatadogIntegrationUpdate,
+   * HTTPIntegrationUpdate
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -235,6 +287,10 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
   @Override
   public void setActualInstance(Object instance) {
     if (JSON.isInstanceOf(AWSIntegrationUpdate.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(DatadogIntegrationUpdate.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -248,14 +304,16 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be AWSIntegrationUpdate, HTTPIntegrationUpdate");
+        "Invalid instance type. Must be AWSIntegrationUpdate, DatadogIntegrationUpdate,"
+            + " HTTPIntegrationUpdate");
   }
 
   /**
    * Get the actual instance, which can be the following: AWSIntegrationUpdate,
-   * HTTPIntegrationUpdate
+   * DatadogIntegrationUpdate, HTTPIntegrationUpdate
    *
-   * @return The actual instance (AWSIntegrationUpdate, HTTPIntegrationUpdate)
+   * @return The actual instance (AWSIntegrationUpdate, DatadogIntegrationUpdate,
+   *     HTTPIntegrationUpdate)
    */
   @Override
   public Object getActualInstance() {
@@ -271,6 +329,17 @@ public class ActionConnectionIntegrationUpdate extends AbstractOpenApiSchema {
    */
   public AWSIntegrationUpdate getAWSIntegrationUpdate() throws ClassCastException {
     return (AWSIntegrationUpdate) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `DatadogIntegrationUpdate`. If the actual instance is not
+   * `DatadogIntegrationUpdate`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `DatadogIntegrationUpdate`
+   * @throws ClassCastException if the instance is not `DatadogIntegrationUpdate`
+   */
+  public DatadogIntegrationUpdate getDatadogIntegrationUpdate() throws ClassCastException {
+    return (DatadogIntegrationUpdate) super.getActualInstance();
   }
 
   /**
