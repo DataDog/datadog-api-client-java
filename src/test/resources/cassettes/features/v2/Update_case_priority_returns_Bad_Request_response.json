@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"683c81be-fa27-42c8-957c-897923a2f660\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"created_at\":\"2024-02-14T18:55:18.846163387Z\",\"creation_source\":\"MANUAL\",\"description\":\"\",\"insights\":[],\"internal_id\":\"683c81be-fa27-42c8-957c-897923a2f660\",\"key\":\"DDFC-192\",\"priority\":\"P4\",\"public_id\":\"252\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"STANDARD\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\",\"attributes\":{\"email\":\"frog@datadoghq.com\",\"handle\":\"frog@datadoghq.com\",\"name\":\"\"}}]}",
+      "body": "{\"data\":{\"id\":\"57868e9a-2697-4384-b724-8e118b20a7f3\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"comment_count\":0,\"created_at\":\"2025-07-21T13:52:56.317328Z\",\"creation_source\":\"MANUAL\",\"custom_attributes\":{},\"description\":\"\",\"insights\":[],\"internal_id\":\"57868e9a-2697-4384-b724-8e118b20a7f3\",\"key\":\"DDFC-72329\",\"merge_status\":\"NOT_MERGED\",\"priority\":\"P4\",\"public_id\":\"72389\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"STANDARD\",\"type_id\":\"00000000-0000-0000-0000-000000000001\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\",\"attributes\":{\"active\":true,\"email\":\"frog@datadoghq.com\",\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"}}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0a6534d0-42f2-5075-64f8-7ab28f449a8e"
+    "id": "0a6534d0-42f2-5075-64f8-7ab28f449a90"
   },
   {
     "httpRequest": {
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/cases/683c81be-fa27-42c8-957c-897923a2f660/priority",
+      "path": "/api/v2/cases/57868e9a-2697-4384-b724-8e118b20a7f3/priority",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"invalid priority P1234. Must be one of P1, P2, P3, P4, P5, NOT_DEFINED\"}]}",
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"invalid priority P1234. Must be one of P2, P3, P4, P5, NOT_DEFINED, P1\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,6 +57,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "66ade7a1-8fcb-23e3-0477-becade8c4e94"
+    "id": "72df50c0-46cd-23a2-9858-a891311aeca1"
   }
 ]

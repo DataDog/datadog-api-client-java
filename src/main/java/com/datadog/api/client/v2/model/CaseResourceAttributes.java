@@ -14,31 +14,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Case attributes */
+/** Case resource attributes */
 @JsonPropertyOrder({
-  CaseAttributes.JSON_PROPERTY_ARCHIVED_AT,
-  CaseAttributes.JSON_PROPERTY_CLOSED_AT,
-  CaseAttributes.JSON_PROPERTY_CREATED_AT,
-  CaseAttributes.JSON_PROPERTY_DESCRIPTION,
-  CaseAttributes.JSON_PROPERTY_JIRA_ISSUE,
-  CaseAttributes.JSON_PROPERTY_KEY,
-  CaseAttributes.JSON_PROPERTY_MODIFIED_AT,
-  CaseAttributes.JSON_PROPERTY_PRIORITY,
-  CaseAttributes.JSON_PROPERTY_SERVICE_NOW_TICKET,
-  CaseAttributes.JSON_PROPERTY_STATUS,
-  CaseAttributes.JSON_PROPERTY_TITLE,
-  CaseAttributes.JSON_PROPERTY_TYPE
+  CaseResourceAttributes.JSON_PROPERTY_ARCHIVED_AT,
+  CaseResourceAttributes.JSON_PROPERTY_ATTRIBUTES,
+  CaseResourceAttributes.JSON_PROPERTY_CLOSED_AT,
+  CaseResourceAttributes.JSON_PROPERTY_CREATED_AT,
+  CaseResourceAttributes.JSON_PROPERTY_DESCRIPTION,
+  CaseResourceAttributes.JSON_PROPERTY_JIRA_ISSUE,
+  CaseResourceAttributes.JSON_PROPERTY_KEY,
+  CaseResourceAttributes.JSON_PROPERTY_MODIFIED_AT,
+  CaseResourceAttributes.JSON_PROPERTY_PRIORITY,
+  CaseResourceAttributes.JSON_PROPERTY_SERVICE_NOW_TICKET,
+  CaseResourceAttributes.JSON_PROPERTY_STATUS,
+  CaseResourceAttributes.JSON_PROPERTY_TITLE,
+  CaseResourceAttributes.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CaseAttributes {
+public class CaseResourceAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARCHIVED_AT = "archived_at";
   private JsonNullable<OffsetDateTime> archivedAt = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private Map<String, List<String>> attributes = null;
 
   public static final String JSON_PROPERTY_CLOSED_AT = "closed_at";
   private JsonNullable<OffsetDateTime> closedAt = JsonNullable.<OffsetDateTime>undefined();
@@ -100,6 +105,35 @@ public class CaseAttributes {
     this.archivedAt = archivedAt;
   }
 
+  public CaseResourceAttributes attributes(Map<String, List<String>> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public CaseResourceAttributes putAttributesItem(String key, List<String> attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
+    this.attributes.put(key, attributesItem);
+    return this;
+  }
+
+  /**
+   * The definition of <code>CaseAttributes</code> object.
+   *
+   * @return attributes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, List<String>> getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(Map<String, List<String>> attributes) {
+    this.attributes = attributes;
+  }
+
   /**
    * Timestamp of when the case was closed
    *
@@ -138,7 +172,7 @@ public class CaseAttributes {
     return createdAt;
   }
 
-  public CaseAttributes description(String description) {
+  public CaseResourceAttributes description(String description) {
     this.description = description;
     return this;
   }
@@ -185,7 +219,7 @@ public class CaseAttributes {
     this.jiraIssue = jiraIssue;
   }
 
-  public CaseAttributes key(String key) {
+  public CaseResourceAttributes key(String key) {
     this.key = key;
     return this;
   }
@@ -232,7 +266,7 @@ public class CaseAttributes {
     this.modifiedAt = modifiedAt;
   }
 
-  public CaseAttributes priority(CasePriority priority) {
+  public CaseResourceAttributes priority(CasePriority priority) {
     this.priority = priority;
     this.unparsed |= !priority.isValid();
     return this;
@@ -283,7 +317,7 @@ public class CaseAttributes {
     this.serviceNowTicket = serviceNowTicket;
   }
 
-  public CaseAttributes status(CaseStatus status) {
+  public CaseResourceAttributes status(CaseStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
     return this;
@@ -308,7 +342,7 @@ public class CaseAttributes {
     this.status = status;
   }
 
-  public CaseAttributes title(String title) {
+  public CaseResourceAttributes title(String title) {
     this.title = title;
     return this;
   }
@@ -329,7 +363,7 @@ public class CaseAttributes {
     this.title = title;
   }
 
-  public CaseAttributes type(CaseType type) {
+  public CaseResourceAttributes type(CaseType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -366,10 +400,10 @@ public class CaseAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CaseAttributes
+   * @return CaseResourceAttributes
    */
   @JsonAnySetter
-  public CaseAttributes putAdditionalProperty(String key, Object value) {
+  public CaseResourceAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -400,7 +434,7 @@ public class CaseAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CaseAttributes object is equal to o. */
+  /** Return true if this CaseResourceAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -409,26 +443,28 @@ public class CaseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CaseAttributes caseAttributes = (CaseAttributes) o;
-    return Objects.equals(this.archivedAt, caseAttributes.archivedAt)
-        && Objects.equals(this.closedAt, caseAttributes.closedAt)
-        && Objects.equals(this.createdAt, caseAttributes.createdAt)
-        && Objects.equals(this.description, caseAttributes.description)
-        && Objects.equals(this.jiraIssue, caseAttributes.jiraIssue)
-        && Objects.equals(this.key, caseAttributes.key)
-        && Objects.equals(this.modifiedAt, caseAttributes.modifiedAt)
-        && Objects.equals(this.priority, caseAttributes.priority)
-        && Objects.equals(this.serviceNowTicket, caseAttributes.serviceNowTicket)
-        && Objects.equals(this.status, caseAttributes.status)
-        && Objects.equals(this.title, caseAttributes.title)
-        && Objects.equals(this.type, caseAttributes.type)
-        && Objects.equals(this.additionalProperties, caseAttributes.additionalProperties);
+    CaseResourceAttributes caseResourceAttributes = (CaseResourceAttributes) o;
+    return Objects.equals(this.archivedAt, caseResourceAttributes.archivedAt)
+        && Objects.equals(this.attributes, caseResourceAttributes.attributes)
+        && Objects.equals(this.closedAt, caseResourceAttributes.closedAt)
+        && Objects.equals(this.createdAt, caseResourceAttributes.createdAt)
+        && Objects.equals(this.description, caseResourceAttributes.description)
+        && Objects.equals(this.jiraIssue, caseResourceAttributes.jiraIssue)
+        && Objects.equals(this.key, caseResourceAttributes.key)
+        && Objects.equals(this.modifiedAt, caseResourceAttributes.modifiedAt)
+        && Objects.equals(this.priority, caseResourceAttributes.priority)
+        && Objects.equals(this.serviceNowTicket, caseResourceAttributes.serviceNowTicket)
+        && Objects.equals(this.status, caseResourceAttributes.status)
+        && Objects.equals(this.title, caseResourceAttributes.title)
+        && Objects.equals(this.type, caseResourceAttributes.type)
+        && Objects.equals(this.additionalProperties, caseResourceAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         archivedAt,
+        attributes,
         closedAt,
         createdAt,
         description,
@@ -446,8 +482,9 @@ public class CaseAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CaseAttributes {\n");
+    sb.append("class CaseResourceAttributes {\n");
     sb.append("    archivedAt: ").append(toIndentedString(archivedAt)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    closedAt: ").append(toIndentedString(closedAt)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
