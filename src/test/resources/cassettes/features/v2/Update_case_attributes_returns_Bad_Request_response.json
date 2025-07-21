@@ -1,0 +1,62 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"priority\":\"P4\",\"title\":\"My new case\",\"type\":\"STANDARD\"},\"relationships\":{\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}},\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0fac8699-2b39-4acb-b290-05a0fd19eb95\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"comment_count\":0,\"created_at\":\"2025-07-21T08:23:42.090561Z\",\"creation_source\":\"MANUAL\",\"custom_attributes\":{},\"description\":\"\",\"insights\":[],\"internal_id\":\"0fac8699-2b39-4acb-b290-05a0fd19eb95\",\"key\":\"DDFC-72247\",\"merge_status\":\"NOT_MERGED\",\"priority\":\"P4\",\"public_id\":\"72307\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"STANDARD\",\"type_id\":\"00000000-0000-0000-0000-000000000001\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"type\":\"user\",\"attributes\":{\"active\":true,\"email\":\"team-intg-tools-libs-spam@datadoghq.com\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0a6534d0-42f2-5075-64f8-7ab28f449a8d"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"attributes\":{\"service\":\"web-store\"}},\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/0fac8699-2b39-4acb-b290-05a0fd19eb95/attributes",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"error decoding attribute \\\"attributes\\\": invalid type string\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0bf3a515-5901-049e-8314-032a401e4ad4"
+  }
+]
