@@ -20,6 +20,8 @@ import java.util.Objects;
 /** Response with properties for each aggregated usage type. */
 @JsonPropertyOrder({
   UsageBillableSummaryBody.JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE,
+  UsageBillableSummaryBody.JSON_PROPERTY_ACCOUNT_COMMITTED_USAGE,
+  UsageBillableSummaryBody.JSON_PROPERTY_ACCOUNT_ON_DEMAND_USAGE,
   UsageBillableSummaryBody.JSON_PROPERTY_ELAPSED_USAGE_HOURS,
   UsageBillableSummaryBody.JSON_PROPERTY_FIRST_BILLABLE_USAGE_HOUR,
   UsageBillableSummaryBody.JSON_PROPERTY_LAST_BILLABLE_USAGE_HOUR,
@@ -33,6 +35,12 @@ public class UsageBillableSummaryBody {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE = "account_billable_usage";
   private Long accountBillableUsage;
+
+  public static final String JSON_PROPERTY_ACCOUNT_COMMITTED_USAGE = "account_committed_usage";
+  private Long accountCommittedUsage;
+
+  public static final String JSON_PROPERTY_ACCOUNT_ON_DEMAND_USAGE = "account_on_demand_usage";
+  private Long accountOnDemandUsage;
 
   public static final String JSON_PROPERTY_ELAPSED_USAGE_HOURS = "elapsed_usage_hours";
   private Long elapsedUsageHours;
@@ -71,6 +79,48 @@ public class UsageBillableSummaryBody {
 
   public void setAccountBillableUsage(Long accountBillableUsage) {
     this.accountBillableUsage = accountBillableUsage;
+  }
+
+  public UsageBillableSummaryBody accountCommittedUsage(Long accountCommittedUsage) {
+    this.accountCommittedUsage = accountCommittedUsage;
+    return this;
+  }
+
+  /**
+   * The total account committed usage.
+   *
+   * @return accountCommittedUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_COMMITTED_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAccountCommittedUsage() {
+    return accountCommittedUsage;
+  }
+
+  public void setAccountCommittedUsage(Long accountCommittedUsage) {
+    this.accountCommittedUsage = accountCommittedUsage;
+  }
+
+  public UsageBillableSummaryBody accountOnDemandUsage(Long accountOnDemandUsage) {
+    this.accountOnDemandUsage = accountOnDemandUsage;
+    return this;
+  }
+
+  /**
+   * The total account on-demand usage.
+   *
+   * @return accountOnDemandUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ON_DEMAND_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAccountOnDemandUsage() {
+    return accountOnDemandUsage;
+  }
+
+  public void setAccountOnDemandUsage(Long accountOnDemandUsage) {
+    this.accountOnDemandUsage = accountOnDemandUsage;
   }
 
   public UsageBillableSummaryBody elapsedUsageHours(Long elapsedUsageHours) {
@@ -256,6 +306,9 @@ public class UsageBillableSummaryBody {
     }
     UsageBillableSummaryBody usageBillableSummaryBody = (UsageBillableSummaryBody) o;
     return Objects.equals(this.accountBillableUsage, usageBillableSummaryBody.accountBillableUsage)
+        && Objects.equals(
+            this.accountCommittedUsage, usageBillableSummaryBody.accountCommittedUsage)
+        && Objects.equals(this.accountOnDemandUsage, usageBillableSummaryBody.accountOnDemandUsage)
         && Objects.equals(this.elapsedUsageHours, usageBillableSummaryBody.elapsedUsageHours)
         && Objects.equals(
             this.firstBillableUsageHour, usageBillableSummaryBody.firstBillableUsageHour)
@@ -271,6 +324,8 @@ public class UsageBillableSummaryBody {
   public int hashCode() {
     return Objects.hash(
         accountBillableUsage,
+        accountCommittedUsage,
+        accountOnDemandUsage,
         elapsedUsageHours,
         firstBillableUsageHour,
         lastBillableUsageHour,
@@ -286,6 +341,12 @@ public class UsageBillableSummaryBody {
     sb.append("class UsageBillableSummaryBody {\n");
     sb.append("    accountBillableUsage: ")
         .append(toIndentedString(accountBillableUsage))
+        .append("\n");
+    sb.append("    accountCommittedUsage: ")
+        .append(toIndentedString(accountCommittedUsage))
+        .append("\n");
+    sb.append("    accountOnDemandUsage: ")
+        .append(toIndentedString(accountOnDemandUsage))
         .append("\n");
     sb.append("    elapsedUsageHours: ").append(toIndentedString(elapsedUsageHours)).append("\n");
     sb.append("    firstBillableUsageHour: ")
