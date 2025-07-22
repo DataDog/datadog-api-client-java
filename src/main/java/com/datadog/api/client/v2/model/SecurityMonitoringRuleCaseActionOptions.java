@@ -19,6 +19,7 @@ import java.util.Objects;
 /** Options for the rule action */
 @JsonPropertyOrder({
   SecurityMonitoringRuleCaseActionOptions.JSON_PROPERTY_DURATION,
+  SecurityMonitoringRuleCaseActionOptions.JSON_PROPERTY_FLAGGED_IP_TYPE,
   SecurityMonitoringRuleCaseActionOptions.JSON_PROPERTY_USER_BEHAVIOR_NAME
 })
 @jakarta.annotation.Generated(
@@ -27,6 +28,9 @@ public class SecurityMonitoringRuleCaseActionOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DURATION = "duration";
   private Long duration;
+
+  public static final String JSON_PROPERTY_FLAGGED_IP_TYPE = "flaggedIPType";
+  private SecurityMonitoringRuleCaseActionOptionsFlaggedIPType flaggedIpType;
 
   public static final String JSON_PROPERTY_USER_BEHAVIOR_NAME = "userBehaviorName";
   private String userBehaviorName;
@@ -50,6 +54,33 @@ public class SecurityMonitoringRuleCaseActionOptions {
 
   public void setDuration(Long duration) {
     this.duration = duration;
+  }
+
+  public SecurityMonitoringRuleCaseActionOptions flaggedIpType(
+      SecurityMonitoringRuleCaseActionOptionsFlaggedIPType flaggedIpType) {
+    this.flaggedIpType = flaggedIpType;
+    this.unparsed |= !flaggedIpType.isValid();
+    return this;
+  }
+
+  /**
+   * Used with the case action of type 'flag_ip'. The value specified in this field is applied as a
+   * flag to the IP addresses.
+   *
+   * @return flaggedIpType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLAGGED_IP_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleCaseActionOptionsFlaggedIPType getFlaggedIpType() {
+    return flaggedIpType;
+  }
+
+  public void setFlaggedIpType(SecurityMonitoringRuleCaseActionOptionsFlaggedIPType flaggedIpType) {
+    if (!flaggedIpType.isValid()) {
+      this.unparsed = true;
+    }
+    this.flaggedIpType = flaggedIpType;
   }
 
   public SecurityMonitoringRuleCaseActionOptions userBehaviorName(String userBehaviorName) {
@@ -132,6 +163,7 @@ public class SecurityMonitoringRuleCaseActionOptions {
     SecurityMonitoringRuleCaseActionOptions securityMonitoringRuleCaseActionOptions =
         (SecurityMonitoringRuleCaseActionOptions) o;
     return Objects.equals(this.duration, securityMonitoringRuleCaseActionOptions.duration)
+        && Objects.equals(this.flaggedIpType, securityMonitoringRuleCaseActionOptions.flaggedIpType)
         && Objects.equals(
             this.userBehaviorName, securityMonitoringRuleCaseActionOptions.userBehaviorName)
         && Objects.equals(
@@ -141,7 +173,7 @@ public class SecurityMonitoringRuleCaseActionOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, userBehaviorName, additionalProperties);
+    return Objects.hash(duration, flaggedIpType, userBehaviorName, additionalProperties);
   }
 
   @Override
@@ -149,6 +181,7 @@ public class SecurityMonitoringRuleCaseActionOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleCaseActionOptions {\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    flaggedIpType: ").append(toIndentedString(flaggedIpType)).append("\n");
     sb.append("    userBehaviorName: ").append(toIndentedString(userBehaviorName)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
