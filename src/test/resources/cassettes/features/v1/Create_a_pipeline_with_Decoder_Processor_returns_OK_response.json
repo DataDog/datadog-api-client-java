@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"query\":\"source:python\"},\"name\":\"testDecoderProcessor\",\"processors\":[{\"binary_to_text_encoding\":\"base16\",\"input_representation\":\"utf_8\",\"is_enabled\":true,\"name\":\"test_decoder\",\"source\":\"encoded.field\",\"target\":\"decoded.field\",\"type\":\"decoder-processor\"}],\"tags\":[]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/logs/config/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"BEg5CcvmSfyIGoMi9PWyTQ\",\"type\":\"pipeline\",\"name\":\"testDecoderProcessor\",\"is_enabled\":false,\"is_read_only\":false,\"filter\":{\"query\":\"source:python\"},\"processors\":[{\"name\":\"test_decoder\",\"is_enabled\":true,\"source\":\"encoded.field\",\"target\":\"decoded.field\",\"binary_to_text_encoding\":\"base16\",\"input_representation\":\"utf_8\",\"type\":\"decoder-processor\"}],\"tags\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "728a82ed-3e81-2a07-5bff-989367bf7d5f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/logs/config/pipelines/BEg5CcvmSfyIGoMi9PWyTQ",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "eb454a5f-3982-ee2a-befb-92c5980ba3f3"
+  }
+]
