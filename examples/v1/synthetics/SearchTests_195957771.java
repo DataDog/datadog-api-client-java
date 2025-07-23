@@ -15,6 +15,7 @@ public class Example {
       SyntheticsListTestsResponse result =
           apiInstance.searchTests(
               new SearchTestsOptionalParameters()
+                  .text("tag:value")
                   .includeFullConfig(true)
                   .searchSuites(true)
                   .facetsOnly(true)

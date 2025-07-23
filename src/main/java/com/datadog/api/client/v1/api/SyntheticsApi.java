@@ -3918,12 +3918,24 @@ public class SyntheticsApi {
 
   /** Manage optional parameters to searchTests. */
   public static class SearchTestsOptionalParameters {
+    private String text;
     private Boolean includeFullConfig;
     private Boolean searchSuites;
     private Boolean facetsOnly;
     private Long start;
     private Long count;
     private String sort;
+
+    /**
+     * Set text.
+     *
+     * @param text The search query. (optional)
+     * @return SearchTestsOptionalParameters
+     */
+    public SearchTestsOptionalParameters text(String text) {
+      this.text = text;
+      return this;
+    }
 
     /**
      * Set includeFullConfig.
@@ -4071,6 +4083,7 @@ public class SyntheticsApi {
   public ApiResponse<SyntheticsListTestsResponse> searchTestsWithHttpInfo(
       SearchTestsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    String text = parameters.text;
     Boolean includeFullConfig = parameters.includeFullConfig;
     Boolean searchSuites = parameters.searchSuites;
     Boolean facetsOnly = parameters.facetsOnly;
@@ -4083,6 +4096,7 @@ public class SyntheticsApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "text", text));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_full_config", includeFullConfig));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "search_suites", searchSuites));
@@ -4122,6 +4136,7 @@ public class SyntheticsApi {
   public CompletableFuture<ApiResponse<SyntheticsListTestsResponse>> searchTestsWithHttpInfoAsync(
       SearchTestsOptionalParameters parameters) {
     Object localVarPostBody = null;
+    String text = parameters.text;
     Boolean includeFullConfig = parameters.includeFullConfig;
     Boolean searchSuites = parameters.searchSuites;
     Boolean facetsOnly = parameters.facetsOnly;
@@ -4134,6 +4149,7 @@ public class SyntheticsApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "text", text));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_full_config", includeFullConfig));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "search_suites", searchSuites));

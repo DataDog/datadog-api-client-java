@@ -5,6 +5,9 @@
       "method": "GET",
       "path": "/api/v1/synthetics/tests/search",
       "queryStringParameters": {
+        "text": [
+          "tag:value"
+        ],
         "include_full_config": [
           "true"
         ],
@@ -43,6 +46,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1e11963d-2717-30b4-9395-3ca218c6dc16"
+    "id": "681b7431-11c5-f9b9-4b35-628f267b43d1"
   }
 ]
