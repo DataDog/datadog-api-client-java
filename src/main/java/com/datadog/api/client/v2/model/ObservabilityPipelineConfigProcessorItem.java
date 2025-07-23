@@ -902,6 +902,58 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             e);
       }
 
+      // deserialize ObservabilityPipelineCustomProcessorProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineCustomProcessorProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineCustomProcessorProcessor.class.equals(Long.class)
+            || ObservabilityPipelineCustomProcessorProcessor.class.equals(Float.class)
+            || ObservabilityPipelineCustomProcessorProcessor.class.equals(Double.class)
+            || ObservabilityPipelineCustomProcessorProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineCustomProcessorProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineCustomProcessorProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineCustomProcessorProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineCustomProcessorProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineCustomProcessorProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineCustomProcessorProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineCustomProcessorProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineCustomProcessorProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineCustomProcessorProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineCustomProcessorProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineCustomProcessorProcessor'",
+            e);
+      }
+
       ObservabilityPipelineConfigProcessorItem ret = new ObservabilityPipelineConfigProcessorItem();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -1013,6 +1065,11 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineCustomProcessorProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "ObservabilityPipelineFilterProcessor",
@@ -1062,6 +1119,9 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     schemas.put(
         "ObservabilityPipelineThrottleProcessor",
         new GenericType<ObservabilityPipelineThrottleProcessor>() {});
+    schemas.put(
+        "ObservabilityPipelineCustomProcessorProcessor",
+        new GenericType<ObservabilityPipelineCustomProcessorProcessor>() {});
     JSON.registerDescendants(
         ObservabilityPipelineConfigProcessorItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -1081,7 +1141,7 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineOcsfMapperProcessor,
    * ObservabilityPipelineAddEnvVarsProcessor, ObservabilityPipelineDedupeProcessor,
    * ObservabilityPipelineEnrichmentTableProcessor, ObservabilityPipelineReduceProcessor,
-   * ObservabilityPipelineThrottleProcessor
+   * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineCustomProcessorProcessor
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1170,6 +1230,11 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineCustomProcessorProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -1187,7 +1252,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             + " ObservabilityPipelineOcsfMapperProcessor, ObservabilityPipelineAddEnvVarsProcessor,"
             + " ObservabilityPipelineDedupeProcessor,"
             + " ObservabilityPipelineEnrichmentTableProcessor,"
-            + " ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor");
+            + " ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor,"
+            + " ObservabilityPipelineCustomProcessorProcessor");
   }
 
   /**
@@ -1199,7 +1265,7 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * ObservabilityPipelineSensitiveDataScannerProcessor, ObservabilityPipelineOcsfMapperProcessor,
    * ObservabilityPipelineAddEnvVarsProcessor, ObservabilityPipelineDedupeProcessor,
    * ObservabilityPipelineEnrichmentTableProcessor, ObservabilityPipelineReduceProcessor,
-   * ObservabilityPipelineThrottleProcessor
+   * ObservabilityPipelineThrottleProcessor, ObservabilityPipelineCustomProcessorProcessor
    *
    * @return The actual instance (ObservabilityPipelineFilterProcessor,
    *     ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineQuotaProcessor,
@@ -1209,7 +1275,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    *     ObservabilityPipelineSensitiveDataScannerProcessor,
    *     ObservabilityPipelineOcsfMapperProcessor, ObservabilityPipelineAddEnvVarsProcessor,
    *     ObservabilityPipelineDedupeProcessor, ObservabilityPipelineEnrichmentTableProcessor,
-   *     ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor)
+   *     ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor,
+   *     ObservabilityPipelineCustomProcessorProcessor)
    */
   @Override
   public Object getActualInstance() {
@@ -1412,5 +1479,19 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
   public ObservabilityPipelineThrottleProcessor getObservabilityPipelineThrottleProcessor()
       throws ClassCastException {
     return (ObservabilityPipelineThrottleProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineCustomProcessorProcessor`. If the actual
+   * instance is not `ObservabilityPipelineCustomProcessorProcessor`, the ClassCastException will be
+   * thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineCustomProcessorProcessor`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineCustomProcessorProcessor`
+   */
+  public ObservabilityPipelineCustomProcessorProcessor
+      getObservabilityPipelineCustomProcessorProcessor() throws ClassCastException {
+    return (ObservabilityPipelineCustomProcessorProcessor) super.getActualInstance();
   }
 }
