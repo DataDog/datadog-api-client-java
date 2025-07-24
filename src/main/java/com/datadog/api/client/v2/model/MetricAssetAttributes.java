@@ -12,12 +12,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Assets related to the object, including title and url. */
+/** Assets related to the object, including title, url, and tags. */
 @JsonPropertyOrder({
+  MetricAssetAttributes.JSON_PROPERTY_TAGS,
   MetricAssetAttributes.JSON_PROPERTY_TITLE,
   MetricAssetAttributes.JSON_PROPERTY_URL
 })
@@ -25,11 +28,43 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricAssetAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
+
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  public MetricAssetAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public MetricAssetAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * List of tag keys used in the asset.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
 
   public MetricAssetAttributes title(String title) {
     this.title = title;
@@ -129,20 +164,22 @@ public class MetricAssetAttributes {
       return false;
     }
     MetricAssetAttributes metricAssetAttributes = (MetricAssetAttributes) o;
-    return Objects.equals(this.title, metricAssetAttributes.title)
+    return Objects.equals(this.tags, metricAssetAttributes.tags)
+        && Objects.equals(this.title, metricAssetAttributes.title)
         && Objects.equals(this.url, metricAssetAttributes.url)
         && Objects.equals(this.additionalProperties, metricAssetAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, url, additionalProperties);
+    return Objects.hash(tags, title, url, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricAssetAttributes {\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    additionalProperties: ")
