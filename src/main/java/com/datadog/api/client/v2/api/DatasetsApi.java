@@ -7,6 +7,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.DatasetCreateRequest;
 import com.datadog.api.client.v2.model.DatasetResponseMulti;
 import com.datadog.api.client.v2.model.DatasetResponseSingle;
+import com.datadog.api.client.v2.model.DatasetUpdateRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -549,6 +550,163 @@ public class DatasetsApi {
         builder,
         localVarHeaderParams,
         new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DatasetResponseSingle>() {});
+  }
+
+  /**
+   * Edit a dataset.
+   *
+   * <p>See {@link #updateDatasetWithHttpInfo}.
+   *
+   * @param datasetId The ID of a defined dataset. (required)
+   * @param body Dataset payload (required)
+   * @return DatasetResponseSingle
+   * @throws ApiException if fails to make API call
+   */
+  public DatasetResponseSingle updateDataset(String datasetId, DatasetUpdateRequest body)
+      throws ApiException {
+    return updateDatasetWithHttpInfo(datasetId, body).getData();
+  }
+
+  /**
+   * Edit a dataset.
+   *
+   * <p>See {@link #updateDatasetWithHttpInfoAsync}.
+   *
+   * @param datasetId The ID of a defined dataset. (required)
+   * @param body Dataset payload (required)
+   * @return CompletableFuture&lt;DatasetResponseSingle&gt;
+   */
+  public CompletableFuture<DatasetResponseSingle> updateDatasetAsync(
+      String datasetId, DatasetUpdateRequest body) {
+    return updateDatasetWithHttpInfoAsync(datasetId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Edits the dataset associated with the ID.
+   *
+   * @param datasetId The ID of a defined dataset. (required)
+   * @param body Dataset payload (required)
+   * @return ApiResponse&lt;DatasetResponseSingle&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DatasetResponseSingle> updateDatasetWithHttpInfo(
+      String datasetId, DatasetUpdateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'datasetId' when calling updateDataset");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateDataset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/datasets/{dataset_id}"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.DatasetsApi.updateDataset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DatasetResponseSingle>() {});
+  }
+
+  /**
+   * Edit a dataset.
+   *
+   * <p>See {@link #updateDatasetWithHttpInfo}.
+   *
+   * @param datasetId The ID of a defined dataset. (required)
+   * @param body Dataset payload (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DatasetResponseSingle&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DatasetResponseSingle>> updateDatasetWithHttpInfoAsync(
+      String datasetId, DatasetUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      CompletableFuture<ApiResponse<DatasetResponseSingle>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'datasetId' when calling updateDataset"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DatasetResponseSingle>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateDataset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/datasets/{dataset_id}"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.DatasetsApi.updateDataset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DatasetResponseSingle>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,

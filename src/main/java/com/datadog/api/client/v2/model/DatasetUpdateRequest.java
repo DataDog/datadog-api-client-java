@@ -17,25 +17,25 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a single dataset object. */
-@JsonPropertyOrder({DatasetResponseSingle.JSON_PROPERTY_DATA})
+/** Edit request for a dataset. */
+@JsonPropertyOrder({DatasetUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DatasetResponseSingle {
+public class DatasetUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private Dataset data;
 
-  public DatasetResponseSingle() {}
+  public DatasetUpdateRequest() {}
 
   @JsonCreator
-  public DatasetResponseSingle(
+  public DatasetUpdateRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) Dataset data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public DatasetResponseSingle data(Dataset data) {
+  public DatasetUpdateRequest data(Dataset data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
@@ -87,10 +87,10 @@ public class DatasetResponseSingle {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DatasetResponseSingle
+   * @return DatasetUpdateRequest
    */
   @JsonAnySetter
-  public DatasetResponseSingle putAdditionalProperty(String key, Object value) {
+  public DatasetUpdateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -121,7 +121,7 @@ public class DatasetResponseSingle {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DatasetResponseSingle object is equal to o. */
+  /** Return true if this DatasetUpdateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,9 +130,9 @@ public class DatasetResponseSingle {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DatasetResponseSingle datasetResponseSingle = (DatasetResponseSingle) o;
-    return Objects.equals(this.data, datasetResponseSingle.data)
-        && Objects.equals(this.additionalProperties, datasetResponseSingle.additionalProperties);
+    DatasetUpdateRequest datasetUpdateRequest = (DatasetUpdateRequest) o;
+    return Objects.equals(this.data, datasetUpdateRequest.data)
+        && Objects.equals(this.additionalProperties, datasetUpdateRequest.additionalProperties);
   }
 
   @Override
@@ -143,7 +143,7 @@ public class DatasetResponseSingle {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DatasetResponseSingle {\n");
+    sb.append("class DatasetUpdateRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

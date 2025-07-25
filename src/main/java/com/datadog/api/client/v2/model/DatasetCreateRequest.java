@@ -44,6 +44,25 @@ public class DatasetCreateRequest {
   /**
    * Dataset object.
    *
+   * <h3>Datasets Constraints</h3>
+   *
+   * <ul>
+   *   <li><strong>Tag Limit per Dataset</strong>:
+   *   <li>
+   *       <p>Each restricted dataset supports a maximum of 10 key:value pairs per product.
+   *   <li>
+   *       <p><strong>Tag Key Rules per Telemetry Type</strong>:
+   *   <li>Only one tag key or attribute may be used to define access within a single telemetry
+   *       type.
+   *   <li>
+   *       <p>The same or different tag key may be used across different telemetry types.
+   *   <li>
+   *       <p><strong>Tag Value Uniqueness</strong>:
+   *   <li>Tag values must be unique within a single dataset.
+   *   <li>A tag value used in one dataset cannot be reused in another dataset of the same telemetry
+   *       type.
+   * </ul>
+   *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
