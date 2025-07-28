@@ -12,13 +12,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Attributes related to the dashboard, including title, popularity, and url. */
 @JsonPropertyOrder({
   MetricDashboardAttributes.JSON_PROPERTY_POPULARITY,
+  MetricDashboardAttributes.JSON_PROPERTY_TAGS,
   MetricDashboardAttributes.JSON_PROPERTY_TITLE,
   MetricDashboardAttributes.JSON_PROPERTY_URL
 })
@@ -28,6 +31,9 @@ public class MetricDashboardAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_POPULARITY = "popularity";
   private Double popularity;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -54,6 +60,35 @@ public class MetricDashboardAttributes {
 
   public void setPopularity(Double popularity) {
     this.popularity = popularity;
+  }
+
+  public MetricDashboardAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public MetricDashboardAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * List of tag keys used in the asset.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
   public MetricDashboardAttributes title(String title) {
@@ -155,6 +190,7 @@ public class MetricDashboardAttributes {
     }
     MetricDashboardAttributes metricDashboardAttributes = (MetricDashboardAttributes) o;
     return Objects.equals(this.popularity, metricDashboardAttributes.popularity)
+        && Objects.equals(this.tags, metricDashboardAttributes.tags)
         && Objects.equals(this.title, metricDashboardAttributes.title)
         && Objects.equals(this.url, metricDashboardAttributes.url)
         && Objects.equals(
@@ -163,7 +199,7 @@ public class MetricDashboardAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(popularity, title, url, additionalProperties);
+    return Objects.hash(popularity, tags, title, url, additionalProperties);
   }
 
   @Override
@@ -171,6 +207,7 @@ public class MetricDashboardAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricDashboardAttributes {\n");
     sb.append("    popularity: ").append(toIndentedString(popularity)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    additionalProperties: ")
