@@ -83,7 +83,8 @@ public class CloudNetworkMonitoringApi {
     /**
      * Set groupBy.
      *
-     * @param groupBy Comma-separated list of fields to group connections by. (optional)
+     * @param groupBy Comma-separated list of fields to group connections by. The maximum number of
+     *     group_by(s) is 10. (optional)
      * @return GetAggregatedConnectionsOptionalParameters
      */
     public GetAggregatedConnectionsOptionalParameters groupBy(String groupBy) {
