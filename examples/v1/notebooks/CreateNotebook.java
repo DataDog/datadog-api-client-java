@@ -55,7 +55,7 @@ public class Example {
                                                                 """
 ## Some test markdown
 
-```js
+```
 var x, y;
 x = 5;
 y = 6;
