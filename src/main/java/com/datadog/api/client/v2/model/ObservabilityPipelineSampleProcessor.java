@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The <code>sample</code> processor allows probabilistic sampling of logs at a fixed rate. */
 @JsonPropertyOrder({
+  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_GROUP_BY,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_INPUTS,
@@ -32,6 +33,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSampleProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_GROUP_BY = "group_by";
+  private List<String> groupBy = null;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -65,6 +69,35 @@ public class ObservabilityPipelineSampleProcessor {
     this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineSampleProcessor groupBy(List<String> groupBy) {
+    this.groupBy = groupBy;
+    return this;
+  }
+
+  public ObservabilityPipelineSampleProcessor addGroupByItem(String groupByItem) {
+    if (this.groupBy == null) {
+      this.groupBy = new ArrayList<>();
+    }
+    this.groupBy.add(groupByItem);
+    return this;
+  }
+
+  /**
+   * Optional list of fields to group events by. Each group will be sampled independently
+   *
+   * @return groupBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getGroupBy() {
+    return groupBy;
+  }
+
+  public void setGroupBy(List<String> groupBy) {
+    this.groupBy = groupBy;
   }
 
   public ObservabilityPipelineSampleProcessor id(String id) {
@@ -256,7 +289,8 @@ public class ObservabilityPipelineSampleProcessor {
     }
     ObservabilityPipelineSampleProcessor observabilityPipelineSampleProcessor =
         (ObservabilityPipelineSampleProcessor) o;
-    return Objects.equals(this.id, observabilityPipelineSampleProcessor.id)
+    return Objects.equals(this.groupBy, observabilityPipelineSampleProcessor.groupBy)
+        && Objects.equals(this.id, observabilityPipelineSampleProcessor.id)
         && Objects.equals(this.include, observabilityPipelineSampleProcessor.include)
         && Objects.equals(this.inputs, observabilityPipelineSampleProcessor.inputs)
         && Objects.equals(this.percentage, observabilityPipelineSampleProcessor.percentage)
@@ -268,13 +302,14 @@ public class ObservabilityPipelineSampleProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, include, inputs, percentage, rate, type, additionalProperties);
+    return Objects.hash(groupBy, id, include, inputs, percentage, rate, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSampleProcessor {\n");
+    sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
