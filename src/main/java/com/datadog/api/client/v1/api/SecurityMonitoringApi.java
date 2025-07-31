@@ -226,7 +226,9 @@ public class SecurityMonitoringApi {
    * @param body Attributes describing the signal update. (required)
    * @return SuccessfulSignalUpdateResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SuccessfulSignalUpdateResponse editSecurityMonitoringSignalAssignee(
       String signalId, SignalAssigneeUpdateRequest body) throws ApiException {
     return editSecurityMonitoringSignalAssigneeWithHttpInfo(signalId, body).getData();
@@ -240,7 +242,9 @@ public class SecurityMonitoringApi {
    * @param signalId The ID of the signal. (required)
    * @param body Attributes describing the signal update. (required)
    * @return CompletableFuture&lt;SuccessfulSignalUpdateResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<SuccessfulSignalUpdateResponse>
       editSecurityMonitoringSignalAssigneeAsync(String signalId, SignalAssigneeUpdateRequest body) {
     return editSecurityMonitoringSignalAssigneeWithHttpInfoAsync(signalId, body)
@@ -251,7 +255,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Modify the triage assignee of a security signal.
+   * This endpoint is deprecated - Modify the triage assignee of a security signal.
    *
    * @param signalId The ID of the signal. (required)
    * @param body Attributes describing the signal update. (required)
@@ -267,7 +271,10 @@ public class SecurityMonitoringApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SuccessfulSignalUpdateResponse>
       editSecurityMonitoringSignalAssigneeWithHttpInfo(
           String signalId, SignalAssigneeUpdateRequest body) throws ApiException {
@@ -323,7 +330,9 @@ public class SecurityMonitoringApi {
    * @param signalId The ID of the signal. (required)
    * @param body Attributes describing the signal update. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SuccessfulSignalUpdateResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<SuccessfulSignalUpdateResponse>>
       editSecurityMonitoringSignalAssigneeWithHttpInfoAsync(
           String signalId, SignalAssigneeUpdateRequest body) {
@@ -396,7 +405,9 @@ public class SecurityMonitoringApi {
    * @param body Attributes describing the signal update. (required)
    * @return SuccessfulSignalUpdateResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public SuccessfulSignalUpdateResponse editSecurityMonitoringSignalState(
       String signalId, SignalStateUpdateRequest body) throws ApiException {
     return editSecurityMonitoringSignalStateWithHttpInfo(signalId, body).getData();
@@ -410,7 +421,9 @@ public class SecurityMonitoringApi {
    * @param signalId The ID of the signal. (required)
    * @param body Attributes describing the signal update. (required)
    * @return CompletableFuture&lt;SuccessfulSignalUpdateResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<SuccessfulSignalUpdateResponse> editSecurityMonitoringSignalStateAsync(
       String signalId, SignalStateUpdateRequest body) {
     return editSecurityMonitoringSignalStateWithHttpInfoAsync(signalId, body)
@@ -421,7 +434,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Change the triage state of a security signal.
+   * This endpoint is deprecated - Change the triage state of a security signal.
    *
    * @param signalId The ID of the signal. (required)
    * @param body Attributes describing the signal update. (required)
@@ -437,7 +450,10 @@ public class SecurityMonitoringApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<SuccessfulSignalUpdateResponse> editSecurityMonitoringSignalStateWithHttpInfo(
       String signalId, SignalStateUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
@@ -491,7 +507,9 @@ public class SecurityMonitoringApi {
    * @param signalId The ID of the signal. (required)
    * @param body Attributes describing the signal update. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SuccessfulSignalUpdateResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<SuccessfulSignalUpdateResponse>>
       editSecurityMonitoringSignalStateWithHttpInfoAsync(
           String signalId, SignalStateUpdateRequest body) {
