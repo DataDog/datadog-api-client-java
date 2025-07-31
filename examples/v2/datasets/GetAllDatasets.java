@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.DatasetResponseMulti;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.getAllDatasets", true);
     DatasetsApi apiInstance = new DatasetsApi(defaultClient);
 
     try {

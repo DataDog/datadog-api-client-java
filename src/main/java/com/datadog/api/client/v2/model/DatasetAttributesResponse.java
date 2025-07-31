@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -24,15 +23,15 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Dataset metadata and configuration(s). */
 @JsonPropertyOrder({
-  DatasetAttributes.JSON_PROPERTY_CREATED_AT,
-  DatasetAttributes.JSON_PROPERTY_CREATED_BY,
-  DatasetAttributes.JSON_PROPERTY_NAME,
-  DatasetAttributes.JSON_PROPERTY_PRINCIPALS,
-  DatasetAttributes.JSON_PROPERTY_PRODUCT_FILTERS
+  DatasetAttributesResponse.JSON_PROPERTY_CREATED_AT,
+  DatasetAttributesResponse.JSON_PROPERTY_CREATED_BY,
+  DatasetAttributesResponse.JSON_PROPERTY_NAME,
+  DatasetAttributesResponse.JSON_PROPERTY_PRINCIPALS,
+  DatasetAttributesResponse.JSON_PROPERTY_PRODUCT_FILTERS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DatasetAttributes {
+public class DatasetAttributesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private JsonNullable<OffsetDateTime> createdAt = JsonNullable.<OffsetDateTime>undefined();
@@ -44,25 +43,12 @@ public class DatasetAttributes {
   private String name;
 
   public static final String JSON_PROPERTY_PRINCIPALS = "principals";
-  private List<String> principals = new ArrayList<>();
+  private List<String> principals = null;
 
   public static final String JSON_PROPERTY_PRODUCT_FILTERS = "product_filters";
-  private List<FiltersPerProduct> productFilters = new ArrayList<>();
+  private List<FiltersPerProduct> productFilters = null;
 
-  public DatasetAttributes() {}
-
-  @JsonCreator
-  public DatasetAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PRINCIPALS) List<String> principals,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PRODUCT_FILTERS)
-          List<FiltersPerProduct> productFilters) {
-    this.name = name;
-    this.principals = principals;
-    this.productFilters = productFilters;
-  }
-
-  public DatasetAttributes createdAt(OffsetDateTime createdAt) {
+  public DatasetAttributesResponse createdAt(OffsetDateTime createdAt) {
     this.createdAt = JsonNullable.<OffsetDateTime>of(createdAt);
     return this;
   }
@@ -93,7 +79,7 @@ public class DatasetAttributes {
     this.createdAt = JsonNullable.<OffsetDateTime>of(createdAt);
   }
 
-  public DatasetAttributes createdBy(UUID createdBy) {
+  public DatasetAttributesResponse createdBy(UUID createdBy) {
     this.createdBy = createdBy;
     return this;
   }
@@ -114,7 +100,7 @@ public class DatasetAttributes {
     this.createdBy = createdBy;
   }
 
-  public DatasetAttributes name(String name) {
+  public DatasetAttributesResponse name(String name) {
     this.name = name;
     return this;
   }
@@ -124,8 +110,9 @@ public class DatasetAttributes {
    *
    * @return name
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
     return name;
   }
@@ -134,12 +121,15 @@ public class DatasetAttributes {
     this.name = name;
   }
 
-  public DatasetAttributes principals(List<String> principals) {
+  public DatasetAttributesResponse principals(List<String> principals) {
     this.principals = principals;
     return this;
   }
 
-  public DatasetAttributes addPrincipalsItem(String principalsItem) {
+  public DatasetAttributesResponse addPrincipalsItem(String principalsItem) {
+    if (this.principals == null) {
+      this.principals = new ArrayList<>();
+    }
     this.principals.add(principalsItem);
     return this;
   }
@@ -150,8 +140,9 @@ public class DatasetAttributes {
    *
    * @return principals
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRINCIPALS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPrincipals() {
     return principals;
   }
@@ -160,7 +151,7 @@ public class DatasetAttributes {
     this.principals = principals;
   }
 
-  public DatasetAttributes productFilters(List<FiltersPerProduct> productFilters) {
+  public DatasetAttributesResponse productFilters(List<FiltersPerProduct> productFilters) {
     this.productFilters = productFilters;
     for (FiltersPerProduct item : productFilters) {
       this.unparsed |= item.unparsed;
@@ -168,7 +159,10 @@ public class DatasetAttributes {
     return this;
   }
 
-  public DatasetAttributes addProductFiltersItem(FiltersPerProduct productFiltersItem) {
+  public DatasetAttributesResponse addProductFiltersItem(FiltersPerProduct productFiltersItem) {
+    if (this.productFilters == null) {
+      this.productFilters = new ArrayList<>();
+    }
     this.productFilters.add(productFiltersItem);
     this.unparsed |= productFiltersItem.unparsed;
     return this;
@@ -179,8 +173,9 @@ public class DatasetAttributes {
    *
    * @return productFilters
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<FiltersPerProduct> getProductFilters() {
     return productFilters;
   }
@@ -201,10 +196,10 @@ public class DatasetAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DatasetAttributes
+   * @return DatasetAttributesResponse
    */
   @JsonAnySetter
-  public DatasetAttributes putAdditionalProperty(String key, Object value) {
+  public DatasetAttributesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -235,7 +230,7 @@ public class DatasetAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DatasetAttributes object is equal to o. */
+  /** Return true if this DatasetAttributesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -244,13 +239,14 @@ public class DatasetAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DatasetAttributes datasetAttributes = (DatasetAttributes) o;
-    return Objects.equals(this.createdAt, datasetAttributes.createdAt)
-        && Objects.equals(this.createdBy, datasetAttributes.createdBy)
-        && Objects.equals(this.name, datasetAttributes.name)
-        && Objects.equals(this.principals, datasetAttributes.principals)
-        && Objects.equals(this.productFilters, datasetAttributes.productFilters)
-        && Objects.equals(this.additionalProperties, datasetAttributes.additionalProperties);
+    DatasetAttributesResponse datasetAttributesResponse = (DatasetAttributesResponse) o;
+    return Objects.equals(this.createdAt, datasetAttributesResponse.createdAt)
+        && Objects.equals(this.createdBy, datasetAttributesResponse.createdBy)
+        && Objects.equals(this.name, datasetAttributesResponse.name)
+        && Objects.equals(this.principals, datasetAttributesResponse.principals)
+        && Objects.equals(this.productFilters, datasetAttributesResponse.productFilters)
+        && Objects.equals(
+            this.additionalProperties, datasetAttributesResponse.additionalProperties);
   }
 
   @Override
@@ -262,7 +258,7 @@ public class DatasetAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DatasetAttributes {\n");
+    sb.append("class DatasetAttributesResponse {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,16 +17,11 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Dataset object.
- *
- * <h3>Datasets Constraints</h3>
+ * <strong>Datasets Object Constraints</strong> - <strong>Tag Limit per Dataset</strong>: - Each
+ * restricted dataset supports a maximum of 10 key:value pairs per product.
  *
  * <ul>
- *   <li><strong>Tag Limit per Dataset</strong>:
- *   <li>
- *       <p>Each restricted dataset supports a maximum of 10 key:value pairs per product.
- *   <li>
- *       <p><strong>Tag Key Rules per Telemetry Type</strong>:
+ *   <li><strong>Tag Key Rules per Telemetry Type</strong>:
  *   <li>Only one tag key or attribute may be used to define access within a single telemetry type.
  *   <li>
  *       <p>The same or different tag key may be used across different telemetry types.
@@ -39,16 +33,16 @@ import java.util.Objects;
  * </ul>
  */
 @JsonPropertyOrder({
-  Dataset.JSON_PROPERTY_ATTRIBUTES,
-  Dataset.JSON_PROPERTY_ID,
-  Dataset.JSON_PROPERTY_TYPE
+  DatasetResponse.JSON_PROPERTY_ATTRIBUTES,
+  DatasetResponse.JSON_PROPERTY_ID,
+  DatasetResponse.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Dataset {
+public class DatasetResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private DatasetAttributes attributes;
+  private DatasetAttributesResponse attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -56,18 +50,7 @@ public class Dataset {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
-  public Dataset() {}
-
-  @JsonCreator
-  public Dataset(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES) DatasetAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.type = type;
-  }
-
-  public Dataset attributes(DatasetAttributes attributes) {
+  public DatasetResponse attributes(DatasetAttributesResponse attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
@@ -78,17 +61,18 @@ public class Dataset {
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DatasetAttributes getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DatasetAttributesResponse getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(DatasetAttributes attributes) {
+  public void setAttributes(DatasetAttributesResponse attributes) {
     this.attributes = attributes;
   }
 
-  public Dataset id(String id) {
+  public DatasetResponse id(String id) {
     this.id = id;
     return this;
   }
@@ -109,7 +93,7 @@ public class Dataset {
     this.id = id;
   }
 
-  public Dataset type(String type) {
+  public DatasetResponse type(String type) {
     this.type = type;
     return this;
   }
@@ -119,8 +103,9 @@ public class Dataset {
    *
    * @return type
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
     return type;
   }
@@ -141,10 +126,10 @@ public class Dataset {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return Dataset
+   * @return DatasetResponse
    */
   @JsonAnySetter
-  public Dataset putAdditionalProperty(String key, Object value) {
+  public DatasetResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -175,7 +160,7 @@ public class Dataset {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this Dataset object is equal to o. */
+  /** Return true if this DatasetResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -184,11 +169,11 @@ public class Dataset {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Dataset dataset = (Dataset) o;
-    return Objects.equals(this.attributes, dataset.attributes)
-        && Objects.equals(this.id, dataset.id)
-        && Objects.equals(this.type, dataset.type)
-        && Objects.equals(this.additionalProperties, dataset.additionalProperties);
+    DatasetResponse datasetResponse = (DatasetResponse) o;
+    return Objects.equals(this.attributes, datasetResponse.attributes)
+        && Objects.equals(this.id, datasetResponse.id)
+        && Objects.equals(this.type, datasetResponse.type)
+        && Objects.equals(this.additionalProperties, datasetResponse.additionalProperties);
   }
 
   @Override
@@ -199,7 +184,7 @@ public class Dataset {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Dataset {\n");
+    sb.append("class DatasetResponse {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
