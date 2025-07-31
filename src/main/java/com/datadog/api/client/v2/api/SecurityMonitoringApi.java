@@ -5675,6 +5675,7 @@ public class SecurityMonitoringApi {
     private String filterRuleId;
     private String filterRuleName;
     private String filterResourceType;
+    private String filterResourceId;
     private String filterDiscoveryTimestamp;
     private FindingEvaluation filterEvaluation;
     private FindingStatus filterStatus;
@@ -5782,6 +5783,17 @@ public class SecurityMonitoringApi {
      */
     public ListFindingsOptionalParameters filterResourceType(String filterResourceType) {
       this.filterResourceType = filterResourceType;
+      return this;
+    }
+
+    /**
+     * Set filterResourceId.
+     *
+     * @param filterResourceId Return only findings for the specified resource id. (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters filterResourceId(String filterResourceId) {
+      this.filterResourceId = filterResourceId;
       return this;
     }
 
@@ -6004,6 +6016,8 @@ public class SecurityMonitoringApi {
    * <p>The following fields are available for findings: - <code>external_id</code>: The resource
    * external ID related to the finding. - <code>description</code>: The description and remediation
    * steps for the finding. - <code>datadog_link</code>: The Datadog relative link for the finding.
+   * - <code>ip_addresses</code>: The list of private IP addresses for the resource related to the
+   * finding.
    *
    * <h3>Response</h3>
    *
@@ -6054,6 +6068,7 @@ public class SecurityMonitoringApi {
     String filterRuleId = parameters.filterRuleId;
     String filterRuleName = parameters.filterRuleName;
     String filterResourceType = parameters.filterResourceType;
+    String filterResourceId = parameters.filterResourceId;
     String filterDiscoveryTimestamp = parameters.filterDiscoveryTimestamp;
     FindingEvaluation filterEvaluation = parameters.filterEvaluation;
     FindingStatus filterStatus = parameters.filterStatus;
@@ -6077,6 +6092,8 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[rule_name]", filterRuleName));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[resource_type]", filterResourceType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[@resource_id]", filterResourceId));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[discovery_timestamp]", filterDiscoveryTimestamp));
     localVarQueryParams.addAll(
@@ -6137,6 +6154,7 @@ public class SecurityMonitoringApi {
     String filterRuleId = parameters.filterRuleId;
     String filterRuleName = parameters.filterRuleName;
     String filterResourceType = parameters.filterResourceType;
+    String filterResourceId = parameters.filterResourceId;
     String filterDiscoveryTimestamp = parameters.filterDiscoveryTimestamp;
     FindingEvaluation filterEvaluation = parameters.filterEvaluation;
     FindingStatus filterStatus = parameters.filterStatus;
@@ -6160,6 +6178,8 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[rule_name]", filterRuleName));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[resource_type]", filterResourceType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[@resource_id]", filterResourceId));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[discovery_timestamp]", filterDiscoveryTimestamp));
     localVarQueryParams.addAll(
