@@ -24,40 +24,35 @@ import java.util.Objects;
 public class DatasetUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private Dataset data;
+  private DatasetRequest data;
 
   public DatasetUpdateRequest() {}
 
   @JsonCreator
   public DatasetUpdateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) Dataset data) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) DatasetRequest data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public DatasetUpdateRequest data(Dataset data) {
+  public DatasetUpdateRequest data(DatasetRequest data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Dataset object.
-   *
-   * <h3>Datasets Constraints</h3>
+   * <strong>Datasets Object Constraints</strong> - <strong>Tag limit per dataset</strong>: - Each
+   * restricted dataset supports a maximum of 10 key:value pairs per product.
    *
    * <ul>
-   *   <li><strong>Tag Limit per Dataset</strong>:
-   *   <li>
-   *       <p>Each restricted dataset supports a maximum of 10 key:value pairs per product.
-   *   <li>
-   *       <p><strong>Tag Key Rules per Telemetry Type</strong>:
+   *   <li><strong>Tag key rules per telemetry type</strong>:
    *   <li>Only one tag key or attribute may be used to define access within a single telemetry
    *       type.
    *   <li>
    *       <p>The same or different tag key may be used across different telemetry types.
    *   <li>
-   *       <p><strong>Tag Value Uniqueness</strong>:
+   *       <p><strong>Tag value uniqueness</strong>:
    *   <li>Tag values must be unique within a single dataset.
    *   <li>A tag value used in one dataset cannot be reused in another dataset of the same telemetry
    *       type.
@@ -67,11 +62,11 @@ public class DatasetUpdateRequest {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Dataset getData() {
+  public DatasetRequest getData() {
     return data;
   }
 
-  public void setData(Dataset data) {
+  public void setData(DatasetRequest data) {
     this.data = data;
   }
 

@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -26,25 +25,20 @@ import java.util.Objects;
 public class DatasetResponseMulti {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<Dataset> data = new ArrayList<>();
+  private List<DatasetResponse> data = null;
 
-  public DatasetResponseMulti() {}
-
-  @JsonCreator
-  public DatasetResponseMulti(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<Dataset> data) {
+  public DatasetResponseMulti data(List<DatasetResponse> data) {
     this.data = data;
-  }
-
-  public DatasetResponseMulti data(List<Dataset> data) {
-    this.data = data;
-    for (Dataset item : data) {
+    for (DatasetResponse item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public DatasetResponseMulti addDataItem(Dataset dataItem) {
+  public DatasetResponseMulti addDataItem(DatasetResponse dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
     return this;
@@ -55,13 +49,14 @@ public class DatasetResponseMulti {
    *
    * @return data
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<Dataset> getData() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<DatasetResponse> getData() {
     return data;
   }
 
-  public void setData(List<Dataset> data) {
+  public void setData(List<DatasetResponse> data) {
     this.data = data;
   }
 

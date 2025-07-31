@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -24,34 +23,20 @@ import java.util.Objects;
 public class DatasetResponseSingle {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private Dataset data;
+  private DatasetResponse data;
 
-  public DatasetResponseSingle() {}
-
-  @JsonCreator
-  public DatasetResponseSingle(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) Dataset data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
-
-  public DatasetResponseSingle data(Dataset data) {
+  public DatasetResponseSingle data(DatasetResponse data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Dataset object.
-   *
-   * <h3>Datasets Constraints</h3>
+   * <strong>Datasets Object Constraints</strong> - <strong>Tag Limit per Dataset</strong>: - Each
+   * restricted dataset supports a maximum of 10 key:value pairs per product.
    *
    * <ul>
-   *   <li><strong>Tag Limit per Dataset</strong>:
-   *   <li>
-   *       <p>Each restricted dataset supports a maximum of 10 key:value pairs per product.
-   *   <li>
-   *       <p><strong>Tag Key Rules per Telemetry Type</strong>:
+   *   <li><strong>Tag Key Rules per Telemetry Type</strong>:
    *   <li>Only one tag key or attribute may be used to define access within a single telemetry
    *       type.
    *   <li>
@@ -65,13 +50,14 @@ public class DatasetResponseSingle {
    *
    * @return data
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Dataset getData() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DatasetResponse getData() {
     return data;
   }
 
-  public void setData(Dataset data) {
+  public void setData(DatasetResponse data) {
     this.data = data;
   }
 

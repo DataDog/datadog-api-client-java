@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Security Audit Dataset\",\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"],\"product_filters\":[{\"filters\":[\"@application.id:ABCD\"],\"product\":\"metrics\"}]},\"type\":\"dataset\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/datasets",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"dataset\",\"id\":\"2bf848a1-b18a-4602-8348-814a53862c52\",\"attributes\":{\"name\":\"Security Audit Dataset\",\"product_filters\":[{\"product\":\"metrics\",\"filters\":[\"@application.id:ABCD\"]}],\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"]}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "32c558cf-4a2e-f914-f443-ab94000addca"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Security Audit Dataset\",\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"],\"product_filters\":[{\"filters\":[\"@application.id:1234\"],\"product\":\"metrics\"}]},\"type\":\"dataset\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/datasets/2bf848a1-b18a-4602-8348-814a53862c52",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"dataset\",\"id\":\"2bf848a1-b18a-4602-8348-814a53862c52\",\"attributes\":{\"name\":\"Security Audit Dataset\",\"product_filters\":[{\"product\":\"metrics\",\"filters\":[\"@application.id:1234\"]}],\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"]}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3dd90d49-9042-50c7-d2c0-d10377768bbb"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/datasets/2bf848a1-b18a-4602-8348-814a53862c52",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "20213939-3ba1-8fe0-e52d-054b00f716c1"
+  }
+]

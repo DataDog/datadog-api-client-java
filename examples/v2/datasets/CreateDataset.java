@@ -3,9 +3,9 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.DatasetsApi;
-import com.datadog.api.client.v2.model.Dataset;
-import com.datadog.api.client.v2.model.DatasetAttributes;
+import com.datadog.api.client.v2.model.DatasetAttributesRequest;
 import com.datadog.api.client.v2.model.DatasetCreateRequest;
+import com.datadog.api.client.v2.model.DatasetRequest;
 import com.datadog.api.client.v2.model.DatasetResponseSingle;
 import com.datadog.api.client.v2.model.FiltersPerProduct;
 import java.util.Collections;
@@ -13,25 +13,24 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.createDataset", true);
     DatasetsApi apiInstance = new DatasetsApi(defaultClient);
 
     DatasetCreateRequest body =
         new DatasetCreateRequest()
             .data(
-                new Dataset()
+                new DatasetRequest()
                     .attributes(
-                        new DatasetAttributes()
-                            .createdAt(null)
+                        new DatasetAttributesRequest()
                             .name("Security Audit Dataset")
                             .principals(
                                 Collections.singletonList(
-                                    "role:86245fce-0a4e-11f0-92bd-da7ad0900002"))
+                                    "role:94172442-be03-11e9-a77a-3b7612558ac1"))
                             .productFilters(
                                 Collections.singletonList(
                                     new FiltersPerProduct()
                                         .filters(Collections.singletonList("@application.id:ABCD"))
-                                        .product("logs"))))
-                    .id("123e4567-e89b-12d3-a456-426614174000")
+                                        .product("metrics"))))
                     .type("dataset"));
 
     try {

@@ -17,57 +17,84 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Create request for a dataset. */
-@JsonPropertyOrder({DatasetCreateRequest.JSON_PROPERTY_DATA})
+/**
+ * <strong>Datasets Object Constraints</strong> - <strong>Tag limit per dataset</strong>: - Each
+ * restricted dataset supports a maximum of 10 key:value pairs per product.
+ *
+ * <ul>
+ *   <li><strong>Tag key rules per telemetry type</strong>:
+ *   <li>Only one tag key or attribute may be used to define access within a single telemetry type.
+ *   <li>
+ *       <p>The same or different tag key may be used across different telemetry types.
+ *   <li>
+ *       <p><strong>Tag value uniqueness</strong>:
+ *   <li>Tag values must be unique within a single dataset.
+ *   <li>A tag value used in one dataset cannot be reused in another dataset of the same telemetry
+ *       type.
+ * </ul>
+ */
+@JsonPropertyOrder({DatasetRequest.JSON_PROPERTY_ATTRIBUTES, DatasetRequest.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DatasetCreateRequest {
+public class DatasetRequest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private DatasetRequest data;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private DatasetAttributesRequest attributes;
 
-  public DatasetCreateRequest() {}
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type;
+
+  public DatasetRequest() {}
 
   @JsonCreator
-  public DatasetCreateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) DatasetRequest data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public DatasetRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          DatasetAttributesRequest attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.type = type;
   }
 
-  public DatasetCreateRequest data(DatasetRequest data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public DatasetRequest attributes(DatasetAttributesRequest attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * <strong>Datasets Object Constraints</strong> - <strong>Tag limit per dataset</strong>: - Each
-   * restricted dataset supports a maximum of 10 key:value pairs per product.
+   * Dataset metadata and configurations.
    *
-   * <ul>
-   *   <li><strong>Tag key rules per telemetry type</strong>:
-   *   <li>Only one tag key or attribute may be used to define access within a single telemetry
-   *       type.
-   *   <li>
-   *       <p>The same or different tag key may be used across different telemetry types.
-   *   <li>
-   *       <p><strong>Tag value uniqueness</strong>:
-   *   <li>Tag values must be unique within a single dataset.
-   *   <li>A tag value used in one dataset cannot be reused in another dataset of the same telemetry
-   *       type.
-   * </ul>
-   *
-   * @return data
+   * @return attributes
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DatasetRequest getData() {
-    return data;
+  public DatasetAttributesRequest getAttributes() {
+    return attributes;
   }
 
-  public void setData(DatasetRequest data) {
-    this.data = data;
+  public void setAttributes(DatasetAttributesRequest attributes) {
+    this.attributes = attributes;
+  }
+
+  public DatasetRequest type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Resource type, always "dataset".
+   *
+   * @return type
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
   /**
@@ -82,10 +109,10 @@ public class DatasetCreateRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DatasetCreateRequest
+   * @return DatasetRequest
    */
   @JsonAnySetter
-  public DatasetCreateRequest putAdditionalProperty(String key, Object value) {
+  public DatasetRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -116,7 +143,7 @@ public class DatasetCreateRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DatasetCreateRequest object is equal to o. */
+  /** Return true if this DatasetRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -125,21 +152,23 @@ public class DatasetCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DatasetCreateRequest datasetCreateRequest = (DatasetCreateRequest) o;
-    return Objects.equals(this.data, datasetCreateRequest.data)
-        && Objects.equals(this.additionalProperties, datasetCreateRequest.additionalProperties);
+    DatasetRequest datasetRequest = (DatasetRequest) o;
+    return Objects.equals(this.attributes, datasetRequest.attributes)
+        && Objects.equals(this.type, datasetRequest.type)
+        && Objects.equals(this.additionalProperties, datasetRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(attributes, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DatasetCreateRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class DatasetRequest {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
