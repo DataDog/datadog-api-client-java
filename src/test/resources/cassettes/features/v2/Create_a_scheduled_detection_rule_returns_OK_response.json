@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_scheduled_detection_rule_returns_OK_response-1753948107\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"index\":\"main\",\"query\":\"@test:true\"}],\"schedulingOptions\":{\"rrule\":\"FREQ=HOURLY;INTERVAL=2;\",\"start\":\"2025-06-18T12:00:00\",\"timezone\":\"Europe/Paris\"},\"tags\":[],\"type\":\"log_detection\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"name\":\"Test-Create_a_scheduled_detection_rule_returns_OK_response-1753948107\",\"createdAt\":1753948107557,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isBeta\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"dataSource\":\"logs\",\"index\":\"main\"}],\"options\":{\"evaluationWindow\":900,\"detectionMethod\":\"threshold\",\"maxSignalDuration\":86400,\"keepAlive\":3600},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a \\u003e 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[],\"version\":1,\"id\":\"8dd-els-oyn\",\"blocking\":false,\"metadata\":{\"entities\":null,\"sources\":null},\"creationAuthorId\":1445416,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"updater\":{\"handle\":\"\",\"name\":\"\"},\"schedulingOptions\":{\"rrule\":\"FREQ=HOURLY;INTERVAL=2;\",\"start\":\"2025-06-18T12:00:00\",\"timezone\":\"Europe/Paris\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "65e5fd9c-f3ea-d6c4-2b6c-2fecaf3465a1"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/rules/8dd-els-oyn",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9ba28a92-1a04-dada-8d9d-8beaa90e5bf7"
+  }
+]
