@@ -14,131 +14,51 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A case */
-@JsonPropertyOrder({
-  Case.JSON_PROPERTY_ATTRIBUTES,
-  Case.JSON_PROPERTY_ID,
-  Case.JSON_PROPERTY_RELATIONSHIPS,
-  Case.JSON_PROPERTY_TYPE
-})
+/** Case update attributes attributes */
+@JsonPropertyOrder({CaseUpdateAttributesAttributes.JSON_PROPERTY_ATTRIBUTES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Case {
+public class CaseUpdateAttributesAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private CaseAttributes attributes;
+  private Map<String, List<String>> attributes = new HashMap<String, List<String>>();
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private CaseRelationships relationships;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private CaseResourceType type = CaseResourceType.CASE;
-
-  public Case() {}
+  public CaseUpdateAttributesAttributes() {}
 
   @JsonCreator
-  public Case(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES) CaseAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CaseResourceType type) {
+  public CaseUpdateAttributesAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          Map<String, List<String>> attributes) {
     this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
   }
 
-  public Case attributes(CaseAttributes attributes) {
+  public CaseUpdateAttributesAttributes attributes(Map<String, List<String>> attributes) {
     this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+    return this;
+  }
+
+  public CaseUpdateAttributesAttributes putAttributesItem(String key, List<String> attributesItem) {
+    this.attributes.put(key, attributesItem);
     return this;
   }
 
   /**
-   * Case resource attributes
+   * The definition of <code>CaseObjectAttributes</code> object.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CaseAttributes getAttributes() {
+  public Map<String, List<String>> getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(CaseAttributes attributes) {
+  public void setAttributes(Map<String, List<String>> attributes) {
     this.attributes = attributes;
-  }
-
-  public Case id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Case's identifier
-   *
-   * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Case relationships(CaseRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
-  /**
-   * Resources related to a case
-   *
-   * @return relationships
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CaseRelationships getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(CaseRelationships relationships) {
-    this.relationships = relationships;
-  }
-
-  public Case type(CaseResourceType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Case resource type
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CaseResourceType getType() {
-    return type;
-  }
-
-  public void setType(CaseResourceType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
   }
 
   /**
@@ -153,10 +73,10 @@ public class Case {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return Case
+   * @return CaseUpdateAttributesAttributes
    */
   @JsonAnySetter
-  public Case putAdditionalProperty(String key, Object value) {
+  public CaseUpdateAttributesAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -187,7 +107,7 @@ public class Case {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this Case object is equal to o. */
+  /** Return true if this CaseUpdateAttributesAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -196,27 +116,23 @@ public class Case {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Case _case = (Case) o;
-    return Objects.equals(this.attributes, _case.attributes)
-        && Objects.equals(this.id, _case.id)
-        && Objects.equals(this.relationships, _case.relationships)
-        && Objects.equals(this.type, _case.type)
-        && Objects.equals(this.additionalProperties, _case.additionalProperties);
+    CaseUpdateAttributesAttributes caseUpdateAttributesAttributes =
+        (CaseUpdateAttributesAttributes) o;
+    return Objects.equals(this.attributes, caseUpdateAttributesAttributes.attributes)
+        && Objects.equals(
+            this.additionalProperties, caseUpdateAttributesAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(attributes, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Case {\n");
+    sb.append("class CaseUpdateAttributesAttributes {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -14,13 +14,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Case attributes */
+/** Case resource attributes */
 @JsonPropertyOrder({
   CaseAttributes.JSON_PROPERTY_ARCHIVED_AT,
+  CaseAttributes.JSON_PROPERTY_ATTRIBUTES,
   CaseAttributes.JSON_PROPERTY_CLOSED_AT,
   CaseAttributes.JSON_PROPERTY_CREATED_AT,
   CaseAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -39,6 +41,9 @@ public class CaseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARCHIVED_AT = "archived_at";
   private JsonNullable<OffsetDateTime> archivedAt = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private Map<String, List<String>> attributes = null;
 
   public static final String JSON_PROPERTY_CLOSED_AT = "closed_at";
   private JsonNullable<OffsetDateTime> closedAt = JsonNullable.<OffsetDateTime>undefined();
@@ -98,6 +103,35 @@ public class CaseAttributes {
   @JsonProperty(JSON_PROPERTY_ARCHIVED_AT)
   private void setArchivedAt_JsonNullable(JsonNullable<OffsetDateTime> archivedAt) {
     this.archivedAt = archivedAt;
+  }
+
+  public CaseAttributes attributes(Map<String, List<String>> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public CaseAttributes putAttributesItem(String key, List<String> attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
+    this.attributes.put(key, attributesItem);
+    return this;
+  }
+
+  /**
+   * The definition of <code>CaseObjectAttributes</code> object.
+   *
+   * @return attributes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, List<String>> getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(Map<String, List<String>> attributes) {
+    this.attributes = attributes;
   }
 
   /**
@@ -411,6 +445,7 @@ public class CaseAttributes {
     }
     CaseAttributes caseAttributes = (CaseAttributes) o;
     return Objects.equals(this.archivedAt, caseAttributes.archivedAt)
+        && Objects.equals(this.attributes, caseAttributes.attributes)
         && Objects.equals(this.closedAt, caseAttributes.closedAt)
         && Objects.equals(this.createdAt, caseAttributes.createdAt)
         && Objects.equals(this.description, caseAttributes.description)
@@ -429,6 +464,7 @@ public class CaseAttributes {
   public int hashCode() {
     return Objects.hash(
         archivedAt,
+        attributes,
         closedAt,
         createdAt,
         description,
@@ -448,6 +484,7 @@ public class CaseAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class CaseAttributes {\n");
     sb.append("    archivedAt: ").append(toIndentedString(archivedAt)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    closedAt: ").append(toIndentedString(closedAt)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
