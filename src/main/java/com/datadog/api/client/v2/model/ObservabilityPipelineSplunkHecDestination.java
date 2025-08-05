@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_AUTO_EXTRACT_TIMESTAMP,
+  ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_ENCODING,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_INDEX,
@@ -38,6 +39,9 @@ public class ObservabilityPipelineSplunkHecDestination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTO_EXTRACT_TIMESTAMP = "auto_extract_timestamp";
   private Boolean autoExtractTimestamp;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_ENCODING = "encoding";
   private ObservabilityPipelineSplunkHecDestinationEncoding encoding;
@@ -93,6 +97,29 @@ public class ObservabilityPipelineSplunkHecDestination {
 
   public void setAutoExtractTimestamp(Boolean autoExtractTimestamp) {
     this.autoExtractTimestamp = autoExtractTimestamp;
+  }
+
+  public ObservabilityPipelineSplunkHecDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineSplunkHecDestination encoding(
@@ -294,6 +321,7 @@ public class ObservabilityPipelineSplunkHecDestination {
     return Objects.equals(
             this.autoExtractTimestamp,
             observabilityPipelineSplunkHecDestination.autoExtractTimestamp)
+        && Objects.equals(this.buffer, observabilityPipelineSplunkHecDestination.buffer)
         && Objects.equals(this.encoding, observabilityPipelineSplunkHecDestination.encoding)
         && Objects.equals(this.id, observabilityPipelineSplunkHecDestination.id)
         && Objects.equals(this.index, observabilityPipelineSplunkHecDestination.index)
@@ -308,7 +336,15 @@ public class ObservabilityPipelineSplunkHecDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
-        autoExtractTimestamp, encoding, id, index, inputs, sourcetype, type, additionalProperties);
+        autoExtractTimestamp,
+        buffer,
+        encoding,
+        id,
+        index,
+        inputs,
+        sourcetype,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -318,6 +354,7 @@ public class ObservabilityPipelineSplunkHecDestination {
     sb.append("    autoExtractTimestamp: ")
         .append(toIndentedString(autoExtractTimestamp))
         .append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
