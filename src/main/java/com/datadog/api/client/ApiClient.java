@@ -753,6 +753,7 @@ public class ApiClient {
           put("v2.validateExistingMonitorUserTemplate", false);
           put("v2.validateMonitorUserTemplate", false);
           put("v2.getAggregatedConnections", false);
+          put("v2.getAggregatedDns", false);
           put("v2.createPipeline", false);
           put("v2.deletePipeline", false);
           put("v2.getPipeline", false);

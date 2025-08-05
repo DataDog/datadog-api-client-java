@@ -3,17 +3,17 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/network/connections/aggregate",
+      "path": "/api/v2/network/dns/aggregate",
       "queryStringParameters": {
-        "limit": [
-          "8000"
+        "group_by": [
+          "server_ungrouped,server_service"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Invalid limit\",\"detail\":\"Limit must meet requirements listed in https://docs.datadoghq.com/api/latest/cloud-network-monitoring/\"}]}",
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Cannot combine server_ungrouped with other server groupings or network.dns_query\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -28,6 +28,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b9f76d5f-0d44-17de-e8e4-e808d43efbd7"
+    "id": "ac2ab1d1-c240-e4f4-30ad-cfa916f88152"
   }
 ]
