@@ -107,6 +107,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_STARTER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG,
@@ -515,6 +516,10 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG =
       "flex_logs_compute_small_avg";
   private Long flexLogsComputeSmallAvg;
+
+  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG =
+      "flex_logs_compute_xlarge_avg";
+  private Long flexLogsComputeXlargeAvg;
 
   public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG =
       "flex_logs_compute_xsmall_avg";
@@ -2837,6 +2842,28 @@ public class UsageSummaryDateOrg {
     this.flexLogsComputeSmallAvg = flexLogsComputeSmallAvg;
   }
 
+  public UsageSummaryDateOrg flexLogsComputeXlargeAvg(Long flexLogsComputeXlargeAvg) {
+    this.flexLogsComputeXlargeAvg = flexLogsComputeXlargeAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average number of Flex Logs Compute Extra Large Instances over all hours in the
+   * current date for the given org.
+   *
+   * @return flexLogsComputeXlargeAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFlexLogsComputeXlargeAvg() {
+    return flexLogsComputeXlargeAvg;
+  }
+
+  public void setFlexLogsComputeXlargeAvg(Long flexLogsComputeXlargeAvg) {
+    this.flexLogsComputeXlargeAvg = flexLogsComputeXlargeAvg;
+  }
+
   public UsageSummaryDateOrg flexLogsComputeXsmallAvg(Long flexLogsComputeXsmallAvg) {
     this.flexLogsComputeXsmallAvg = flexLogsComputeXsmallAvg;
     return this;
@@ -5104,6 +5131,8 @@ public class UsageSummaryDateOrg {
             this.flexLogsComputeMediumAvg, usageSummaryDateOrg.flexLogsComputeMediumAvg)
         && Objects.equals(this.flexLogsComputeSmallAvg, usageSummaryDateOrg.flexLogsComputeSmallAvg)
         && Objects.equals(
+            this.flexLogsComputeXlargeAvg, usageSummaryDateOrg.flexLogsComputeXlargeAvg)
+        && Objects.equals(
             this.flexLogsComputeXsmallAvg, usageSummaryDateOrg.flexLogsComputeXsmallAvg)
         && Objects.equals(this.flexLogsStarterAvg, usageSummaryDateOrg.flexLogsStarterAvg)
         && Objects.equals(
@@ -5372,6 +5401,7 @@ public class UsageSummaryDateOrg {
         flexLogsComputeLargeAvg,
         flexLogsComputeMediumAvg,
         flexLogsComputeSmallAvg,
+        flexLogsComputeXlargeAvg,
         flexLogsComputeXsmallAvg,
         flexLogsStarterAvg,
         flexLogsStarterStorageIndexAvg,
@@ -5680,6 +5710,9 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    flexLogsComputeSmallAvg: ")
         .append(toIndentedString(flexLogsComputeSmallAvg))
+        .append("\n");
+    sb.append("    flexLogsComputeXlargeAvg: ")
+        .append(toIndentedString(flexLogsComputeXlargeAvg))
         .append("\n");
     sb.append("    flexLogsComputeXsmallAvg: ")
         .append(toIndentedString(flexLogsComputeXsmallAvg))
