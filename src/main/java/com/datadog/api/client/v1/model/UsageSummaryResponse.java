@@ -113,6 +113,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_STARTER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG_SUM,
@@ -545,6 +546,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG_SUM =
       "flex_logs_compute_small_avg_sum";
   private Long flexLogsComputeSmallAvgSum;
+
+  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG_SUM =
+      "flex_logs_compute_xlarge_avg_sum";
+  private Long flexLogsComputeXlargeAvgSum;
 
   public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG_SUM =
       "flex_logs_compute_xsmall_avg_sum";
@@ -2921,6 +2926,28 @@ public class UsageSummaryResponse {
 
   public void setFlexLogsComputeSmallAvgSum(Long flexLogsComputeSmallAvgSum) {
     this.flexLogsComputeSmallAvgSum = flexLogsComputeSmallAvgSum;
+  }
+
+  public UsageSummaryResponse flexLogsComputeXlargeAvgSum(Long flexLogsComputeXlargeAvgSum) {
+    this.flexLogsComputeXlargeAvgSum = flexLogsComputeXlargeAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average number of Flex Logs Compute Extra Large Instances over all hours in the
+   * current months for all organizations.
+   *
+   * @return flexLogsComputeXlargeAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_XLARGE_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFlexLogsComputeXlargeAvgSum() {
+    return flexLogsComputeXlargeAvgSum;
+  }
+
+  public void setFlexLogsComputeXlargeAvgSum(Long flexLogsComputeXlargeAvgSum) {
+    this.flexLogsComputeXlargeAvgSum = flexLogsComputeXlargeAvgSum;
   }
 
   public UsageSummaryResponse flexLogsComputeXsmallAvgSum(Long flexLogsComputeXsmallAvgSum) {
@@ -5383,6 +5410,8 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.flexLogsComputeSmallAvgSum, usageSummaryResponse.flexLogsComputeSmallAvgSum)
         && Objects.equals(
+            this.flexLogsComputeXlargeAvgSum, usageSummaryResponse.flexLogsComputeXlargeAvgSum)
+        && Objects.equals(
             this.flexLogsComputeXsmallAvgSum, usageSummaryResponse.flexLogsComputeXsmallAvgSum)
         && Objects.equals(this.flexLogsStarterAvgSum, usageSummaryResponse.flexLogsStarterAvgSum)
         && Objects.equals(
@@ -5688,6 +5717,7 @@ public class UsageSummaryResponse {
         flexLogsComputeLargeAvgSum,
         flexLogsComputeMediumAvgSum,
         flexLogsComputeSmallAvgSum,
+        flexLogsComputeXlargeAvgSum,
         flexLogsComputeXsmallAvgSum,
         flexLogsStarterAvgSum,
         flexLogsStarterStorageIndexAvgSum,
@@ -6027,6 +6057,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    flexLogsComputeSmallAvgSum: ")
         .append(toIndentedString(flexLogsComputeSmallAvgSum))
+        .append("\n");
+    sb.append("    flexLogsComputeXlargeAvgSum: ")
+        .append(toIndentedString(flexLogsComputeXlargeAvgSum))
         .append("\n");
     sb.append("    flexLogsComputeXsmallAvgSum: ")
         .append(toIndentedString(flexLogsComputeXsmallAvgSum))
