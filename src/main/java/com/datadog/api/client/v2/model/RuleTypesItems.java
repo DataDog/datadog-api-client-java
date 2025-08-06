@@ -24,7 +24,7 @@ import java.util.Set;
  * signal_correlation, cloud_configuration and infrastructure_configuration. Vulnerability-based
  * notification rules can filter vulnerabilities based on rule types application_code_vulnerability,
  * application_library_vulnerability, attack_path, container_image_vulnerability, identity_risk,
- * misconfiguration, and api_security.
+ * misconfiguration, api_security, host_vulnerability and iac_misconfiguration.
  */
 @JsonSerialize(using = RuleTypesItems.RuleTypesItemsSerializer.class)
 public class RuleTypesItems extends ModelEnum<String> {
@@ -44,7 +44,9 @@ public class RuleTypesItems extends ModelEnum<String> {
               "container_image_vulnerability",
               "identity_risk",
               "misconfiguration",
-              "api_security"));
+              "api_security",
+              "host_vulnerability",
+              "iac_misconfiguration"));
 
   public static final RuleTypesItems APPLICATION_SECURITY =
       new RuleTypesItems("application_security");
@@ -65,6 +67,9 @@ public class RuleTypesItems extends ModelEnum<String> {
   public static final RuleTypesItems IDENTITY_RISK = new RuleTypesItems("identity_risk");
   public static final RuleTypesItems MISCONFIGURATION = new RuleTypesItems("misconfiguration");
   public static final RuleTypesItems API_SECURITY = new RuleTypesItems("api_security");
+  public static final RuleTypesItems HOST_VULNERABILITY = new RuleTypesItems("host_vulnerability");
+  public static final RuleTypesItems IAC_MISCONFIGURATION =
+      new RuleTypesItems("iac_misconfiguration");
 
   RuleTypesItems(String value) {
     super(value, allowedValues);
