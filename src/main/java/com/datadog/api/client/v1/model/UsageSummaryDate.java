@@ -97,6 +97,9 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_EVENTS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_RELATED_EVENTS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_SUM,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
@@ -461,6 +464,19 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM =
       "error_tracking_rum_error_events_sum";
   private Long errorTrackingRumErrorEventsSum;
+
+  public static final String JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_EVENTS_SUM =
+      "event_management_correlation_correlated_events_sum";
+  private Long eventManagementCorrelationCorrelatedEventsSum;
+
+  public static final String
+      JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_RELATED_EVENTS_SUM =
+          "event_management_correlation_correlated_related_events_sum";
+  private Long eventManagementCorrelationCorrelatedRelatedEventsSum;
+
+  public static final String JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_SUM =
+      "event_management_correlation_sum";
+  private Long eventManagementCorrelationSum;
 
   public static final String JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG =
       "fargate_container_profiler_profiling_fargate_avg";
@@ -2502,6 +2518,80 @@ public class UsageSummaryDate {
 
   public void setErrorTrackingRumErrorEventsSum(Long errorTrackingRumErrorEventsSum) {
     this.errorTrackingRumErrorEventsSum = errorTrackingRumErrorEventsSum;
+  }
+
+  public UsageSummaryDate eventManagementCorrelationCorrelatedEventsSum(
+      Long eventManagementCorrelationCorrelatedEventsSum) {
+    this.eventManagementCorrelationCorrelatedEventsSum =
+        eventManagementCorrelationCorrelatedEventsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Event Management correlated events over all hours in the current date for
+   * all organizations.
+   *
+   * @return eventManagementCorrelationCorrelatedEventsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_EVENTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEventManagementCorrelationCorrelatedEventsSum() {
+    return eventManagementCorrelationCorrelatedEventsSum;
+  }
+
+  public void setEventManagementCorrelationCorrelatedEventsSum(
+      Long eventManagementCorrelationCorrelatedEventsSum) {
+    this.eventManagementCorrelationCorrelatedEventsSum =
+        eventManagementCorrelationCorrelatedEventsSum;
+  }
+
+  public UsageSummaryDate eventManagementCorrelationCorrelatedRelatedEventsSum(
+      Long eventManagementCorrelationCorrelatedRelatedEventsSum) {
+    this.eventManagementCorrelationCorrelatedRelatedEventsSum =
+        eventManagementCorrelationCorrelatedRelatedEventsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Event Management correlated related events over all hours in the current
+   * date for all organizations.
+   *
+   * @return eventManagementCorrelationCorrelatedRelatedEventsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_CORRELATED_RELATED_EVENTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEventManagementCorrelationCorrelatedRelatedEventsSum() {
+    return eventManagementCorrelationCorrelatedRelatedEventsSum;
+  }
+
+  public void setEventManagementCorrelationCorrelatedRelatedEventsSum(
+      Long eventManagementCorrelationCorrelatedRelatedEventsSum) {
+    this.eventManagementCorrelationCorrelatedRelatedEventsSum =
+        eventManagementCorrelationCorrelatedRelatedEventsSum;
+  }
+
+  public UsageSummaryDate eventManagementCorrelationSum(Long eventManagementCorrelationSum) {
+    this.eventManagementCorrelationSum = eventManagementCorrelationSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Event Management correlations over all hours in the current date for all
+   * organizations.
+   *
+   * @return eventManagementCorrelationSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENT_MANAGEMENT_CORRELATION_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEventManagementCorrelationSum() {
+    return eventManagementCorrelationSum;
+  }
+
+  public void setEventManagementCorrelationSum(Long eventManagementCorrelationSum) {
+    this.eventManagementCorrelationSum = eventManagementCorrelationSum;
   }
 
   public UsageSummaryDate fargateContainerProfilerProfilingFargateAvg(
@@ -4847,6 +4937,14 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.errorTrackingRumErrorEventsSum, usageSummaryDate.errorTrackingRumErrorEventsSum)
         && Objects.equals(
+            this.eventManagementCorrelationCorrelatedEventsSum,
+            usageSummaryDate.eventManagementCorrelationCorrelatedEventsSum)
+        && Objects.equals(
+            this.eventManagementCorrelationCorrelatedRelatedEventsSum,
+            usageSummaryDate.eventManagementCorrelationCorrelatedRelatedEventsSum)
+        && Objects.equals(
+            this.eventManagementCorrelationSum, usageSummaryDate.eventManagementCorrelationSum)
+        && Objects.equals(
             this.fargateContainerProfilerProfilingFargateAvg,
             usageSummaryDate.fargateContainerProfilerProfilingFargateAvg)
         && Objects.equals(
@@ -5098,6 +5196,9 @@ public class UsageSummaryDate {
         errorTrackingErrorEventsSum,
         errorTrackingEventsSum,
         errorTrackingRumErrorEventsSum,
+        eventManagementCorrelationCorrelatedEventsSum,
+        eventManagementCorrelationCorrelatedRelatedEventsSum,
+        eventManagementCorrelationSum,
         fargateContainerProfilerProfilingFargateAvg,
         fargateContainerProfilerProfilingFargateEksAvg,
         fargateTasksCountAvg,
@@ -5375,6 +5476,15 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    errorTrackingRumErrorEventsSum: ")
         .append(toIndentedString(errorTrackingRumErrorEventsSum))
+        .append("\n");
+    sb.append("    eventManagementCorrelationCorrelatedEventsSum: ")
+        .append(toIndentedString(eventManagementCorrelationCorrelatedEventsSum))
+        .append("\n");
+    sb.append("    eventManagementCorrelationCorrelatedRelatedEventsSum: ")
+        .append(toIndentedString(eventManagementCorrelationCorrelatedRelatedEventsSum))
+        .append("\n");
+    sb.append("    eventManagementCorrelationSum: ")
+        .append(toIndentedString(eventManagementCorrelationSum))
         .append("\n");
     sb.append("    fargateContainerProfilerProfilingFargateAvg: ")
         .append(toIndentedString(fargateContainerProfilerProfilingFargateAvg))
