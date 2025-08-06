@@ -8,7 +8,6 @@ import com.datadog.api.client.v2.model.SingleAggregatedConnectionResponseArray;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.getAggregatedConnections", true);
     CloudNetworkMonitoringApi apiInstance = new CloudNetworkMonitoringApi(defaultClient);
 
     try {
