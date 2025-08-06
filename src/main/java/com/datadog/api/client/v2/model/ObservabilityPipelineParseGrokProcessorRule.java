@@ -39,8 +39,7 @@ public class ObservabilityPipelineParseGrokProcessorRule {
   private String source;
 
   public static final String JSON_PROPERTY_SUPPORT_RULES = "support_rules";
-  private List<ObservabilityPipelineParseGrokProcessorRuleSupportRule> supportRules =
-      new ArrayList<>();
+  private List<ObservabilityPipelineParseGrokProcessorRuleSupportRule> supportRules = null;
 
   public ObservabilityPipelineParseGrokProcessorRule() {}
 
@@ -48,12 +47,9 @@ public class ObservabilityPipelineParseGrokProcessorRule {
   public ObservabilityPipelineParseGrokProcessorRule(
       @JsonProperty(required = true, value = JSON_PROPERTY_MATCH_RULES)
           List<ObservabilityPipelineParseGrokProcessorRuleMatchRule> matchRules,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE) String source,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SUPPORT_RULES)
-          List<ObservabilityPipelineParseGrokProcessorRuleSupportRule> supportRules) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE) String source) {
     this.matchRules = matchRules;
     this.source = source;
-    this.supportRules = supportRules;
   }
 
   public ObservabilityPipelineParseGrokProcessorRule matchRules(
@@ -119,6 +115,9 @@ public class ObservabilityPipelineParseGrokProcessorRule {
 
   public ObservabilityPipelineParseGrokProcessorRule addSupportRulesItem(
       ObservabilityPipelineParseGrokProcessorRuleSupportRule supportRulesItem) {
+    if (this.supportRules == null) {
+      this.supportRules = new ArrayList<>();
+    }
     this.supportRules.add(supportRulesItem);
     this.unparsed |= supportRulesItem.unparsed;
     return this;
@@ -129,8 +128,9 @@ public class ObservabilityPipelineParseGrokProcessorRule {
    *
    * @return supportRules
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUPPORT_RULES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ObservabilityPipelineParseGrokProcessorRuleSupportRule> getSupportRules() {
     return supportRules;
   }
