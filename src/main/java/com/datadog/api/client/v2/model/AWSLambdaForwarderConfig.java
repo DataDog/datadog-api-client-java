@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   AWSLambdaForwarderConfig.JSON_PROPERTY_LAMBDAS,
+  AWSLambdaForwarderConfig.JSON_PROPERTY_LOG_SOURCE_CONFIG,
   AWSLambdaForwarderConfig.JSON_PROPERTY_SOURCES
 })
 @jakarta.annotation.Generated(
@@ -33,6 +34,9 @@ public class AWSLambdaForwarderConfig {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LAMBDAS = "lambdas";
   private List<String> lambdas = null;
+
+  public static final String JSON_PROPERTY_LOG_SOURCE_CONFIG = "log_source_config";
+  private AWSLambdaForwarderConfigLogSourceConfig logSourceConfig;
 
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<String> sources = null;
@@ -64,6 +68,29 @@ public class AWSLambdaForwarderConfig {
 
   public void setLambdas(List<String> lambdas) {
     this.lambdas = lambdas;
+  }
+
+  public AWSLambdaForwarderConfig logSourceConfig(
+      AWSLambdaForwarderConfigLogSourceConfig logSourceConfig) {
+    this.logSourceConfig = logSourceConfig;
+    this.unparsed |= logSourceConfig.unparsed;
+    return this;
+  }
+
+  /**
+   * Log source configuration.
+   *
+   * @return logSourceConfig
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOG_SOURCE_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AWSLambdaForwarderConfigLogSourceConfig getLogSourceConfig() {
+    return logSourceConfig;
+  }
+
+  public void setLogSourceConfig(AWSLambdaForwarderConfigLogSourceConfig logSourceConfig) {
+    this.logSourceConfig = logSourceConfig;
   }
 
   public AWSLambdaForwarderConfig sources(List<String> sources) {
@@ -155,13 +182,14 @@ public class AWSLambdaForwarderConfig {
     }
     AWSLambdaForwarderConfig awsLambdaForwarderConfig = (AWSLambdaForwarderConfig) o;
     return Objects.equals(this.lambdas, awsLambdaForwarderConfig.lambdas)
+        && Objects.equals(this.logSourceConfig, awsLambdaForwarderConfig.logSourceConfig)
         && Objects.equals(this.sources, awsLambdaForwarderConfig.sources)
         && Objects.equals(this.additionalProperties, awsLambdaForwarderConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lambdas, sources, additionalProperties);
+    return Objects.hash(lambdas, logSourceConfig, sources, additionalProperties);
   }
 
   @Override
@@ -169,6 +197,7 @@ public class AWSLambdaForwarderConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class AWSLambdaForwarderConfig {\n");
     sb.append("    lambdas: ").append(toIndentedString(lambdas)).append("\n");
+    sb.append("    logSourceConfig: ").append(toIndentedString(logSourceConfig)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

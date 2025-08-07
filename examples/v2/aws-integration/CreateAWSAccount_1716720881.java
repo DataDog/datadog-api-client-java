@@ -12,6 +12,8 @@ import com.datadog.api.client.v2.model.AWSAccountType;
 import com.datadog.api.client.v2.model.AWSAuthConfig;
 import com.datadog.api.client.v2.model.AWSAuthConfigRole;
 import com.datadog.api.client.v2.model.AWSLambdaForwarderConfig;
+import com.datadog.api.client.v2.model.AWSLambdaForwarderConfigLogSourceConfig;
+import com.datadog.api.client.v2.model.AWSLogSourceTagFilter;
 import com.datadog.api.client.v2.model.AWSLogsConfig;
 import com.datadog.api.client.v2.model.AWSMetricsConfig;
 import com.datadog.api.client.v2.model.AWSNamespaceTagFilter;
@@ -44,6 +46,15 @@ public class Example {
                                             .lambdas(
                                                 Collections.singletonList(
                                                     "arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder"))
+                                            .logSourceConfig(
+                                                new AWSLambdaForwarderConfigLogSourceConfig()
+                                                    .tagFilters(
+                                                        Collections.singletonList(
+                                                            new AWSLogSourceTagFilter()
+                                                                .source("s3")
+                                                                .tags(
+                                                                    Collections.singletonList(
+                                                                        "test:test")))))
                                             .sources(Collections.singletonList("s3"))))
                             .metricsConfig(
                                 new AWSMetricsConfig()
