@@ -50,7 +50,7 @@ public class RelationshipToIncidentUserDefinedFieldData {
   }
 
   /**
-   * A unique identifier that represents the responder.
+   * A unique identifier that represents the user defined field.
    *
    * @return id
    */
