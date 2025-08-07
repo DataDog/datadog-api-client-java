@@ -195,13 +195,6 @@ public class CloudNetworkMonitoringApi {
    */
   public ApiResponse<SingleAggregatedConnectionResponseArray> getAggregatedConnectionsWithHttpInfo(
       GetAggregatedConnectionsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getAggregatedConnections";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     Long from = parameters.from;
     Long to = parameters.to;
@@ -251,17 +244,6 @@ public class CloudNetworkMonitoringApi {
   public CompletableFuture<ApiResponse<SingleAggregatedConnectionResponseArray>>
       getAggregatedConnectionsWithHttpInfoAsync(
           GetAggregatedConnectionsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getAggregatedConnections";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<SingleAggregatedConnectionResponseArray>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     Long from = parameters.from;
     Long to = parameters.to;
@@ -457,13 +439,6 @@ public class CloudNetworkMonitoringApi {
    */
   public ApiResponse<SingleAggregatedDnsResponseArray> getAggregatedDnsWithHttpInfo(
       GetAggregatedDnsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getAggregatedDns";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     Long from = parameters.from;
     Long to = parameters.to;
@@ -512,17 +487,6 @@ public class CloudNetworkMonitoringApi {
    */
   public CompletableFuture<ApiResponse<SingleAggregatedDnsResponseArray>>
       getAggregatedDnsWithHttpInfoAsync(GetAggregatedDnsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getAggregatedDns";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<SingleAggregatedDnsResponseArray>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     Long from = parameters.from;
     Long to = parameters.to;
