@@ -1,0 +1,205 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"\",\"name\":\"Test Datastore\",\"org_access\":\"contributor\",\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"c4158b35-f36b-4eb3-b016-f339f07f263f\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6574cf7e-1c55-24e1-45d2-b92f9fa74d38"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/c4158b35-f36b-4eb3-b016-f339f07f263f",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"c4158b35-f36b-4eb3-b016-f339f07f263f\",\"type\":\"datastores\",\"attributes\":{\"created_at\":\"2025-08-08T20:31:03.464736Z\",\"creator_user_id\":1445416,\"creator_user_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"\",\"modified_at\":\"2025-08-08T20:31:03.464736Z\",\"name\":\"Test Datastore\",\"org_id\":321813,\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b6eff34e-4fc9-42f7-64be-83c0f9900e54"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"value\":{\"data\":\"test-value\",\"id\":\"test-key\"}},\"id\":\"c4158b35-f36b-4eb3-b016-f339f07f263f\",\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores/c4158b35-f36b-4eb3-b016-f339f07f263f/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"d1242ae4-6143-4d1e-8089-59cfef052fe8\",\"type\":\"items\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "722dcf49-7566-c2dc-503e-2e2f34b85ba2"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/c4158b35-f36b-4eb3-b016-f339f07f263f/items",
+      "queryStringParameters": {
+        "itemKey": [
+          "test-key"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"d1242ae4-6143-4d1e-8089-59cfef052fe8\",\"type\":\"items\",\"attributes\":{\"created_at\":\"2025-08-08T20:31:03.783964Z\",\"modified_at\":\"2025-08-08T20:31:03.783964Z\",\"org_id\":321813,\"primary_column_name\":\"id\",\"signature\":\"{\\\"signature\\\":\\\"{\\\\\\\"version\\\\\\\":2,\\\\\\\"algorithm\\\\\\\":\\\\\\\"ecdsa-p384\\\\\\\",\\\\\\\"pubkey\\\\\\\":\\\\\\\"3Sh//jFQJZ+uhUOwvHL8krXnbOjEFxMZrYnngo8J/AY=\\\\\\\",\\\\\\\"timestamp\\\\\\\":1754685063,\\\\\\\"proof\\\\\\\":\\\\\\\"MGUCMQDmq2KOumQ01EINvcyf6vtvTEw1ii/pK2diZNwmVaFw7m2Hr6stCQ4JG0cCGH4gMqsCMATvPhMoHld3SMzWJeLmxmdCKYaO192ZWO4uNeez4+L+axiySv15d3hq6uafhgDDMA==\\\\\\\"}\\\",\\\"version\\\":1}\",\"store_id\":\"c4158b35-f36b-4eb3-b016-f339f07f263f\",\"value\":{\"data\":\"test-value\",\"id\":\"test-key\"}}}],\"meta\":{\"page\":{\"totalCount\":1,\"totalFilteredCount\":1,\"hasMore\":false},\"schema\":{\"primary_key\":\"id\",\"fields\":[{\"name\":\"id\",\"type\":\"STRING\"},{\"name\":\"data\",\"type\":\"JSON\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "71444e63-4b3d-7db5-080a-efab230c06dd"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"item_changes\":{\"new_data_key\":\"new_data_value\"},\"item_key\":\"test-key\"},\"id\":\"d1242ae4-6143-4d1e-8089-59cfef052fe8\",\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/actions-datastores/c4158b35-f36b-4eb3-b016-f339f07f263f/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"d1242ae4-6143-4d1e-8089-59cfef052fe8\",\"type\":\"items\",\"attributes\":{\"created_at\":\"2025-08-08T20:31:03.783964Z\",\"modified_at\":\"2025-08-08T20:31:04.109728Z\",\"org_id\":321813,\"primary_column_name\":\"id\",\"signature\":\"{\\\"signature\\\":\\\"{\\\\\\\"version\\\\\\\":2,\\\\\\\"algorithm\\\\\\\":\\\\\\\"ecdsa-p384\\\\\\\",\\\\\\\"pubkey\\\\\\\":\\\\\\\"3Sh//jFQJZ+uhUOwvHL8krXnbOjEFxMZrYnngo8J/AY=\\\\\\\",\\\\\\\"timestamp\\\\\\\":1754685064,\\\\\\\"proof\\\\\\\":\\\\\\\"MGUCMQCekGvCc8v4R3ZD4n0PrSYeUP6amjAOkn2xCnVecO+3lbpPq4eFtpAT0aNmm9PdTAwCMEO+8n/QPUo+FEeug7WW11iJO208NIcunRLZ0gu21gliXra36QJUcjF8eV3xOeQPUQ==\\\\\\\"}\\\",\\\"version\\\":1}\",\"store_id\":\"c4158b35-f36b-4eb3-b016-f339f07f263f\",\"value\":{\"data\":\"test-value\",\"id\":\"test-key\",\"new_data_key\":\"new_data_value\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5f9d5881-3532-8a3e-3436-09aa9c697e84"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"id\":\"c4158b35-f36b-4eb3-b016-f339f07f263f\",\"item_key\":\"test-key\"},\"id\":\"c4158b35-f36b-4eb3-b016-f339f07f263f\",\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/c4158b35-f36b-4eb3-b016-f339f07f263f/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"d1242ae4-6143-4d1e-8089-59cfef052fe8\",\"type\":\"items\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "17934bce-cda9-9659-6301-3da74da92e54"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/c4158b35-f36b-4eb3-b016-f339f07f263f",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"c4158b35-f36b-4eb3-b016-f339f07f263f\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "48022b4b-b5da-7297-71de-efe5921aea1d"
+  }
+]
