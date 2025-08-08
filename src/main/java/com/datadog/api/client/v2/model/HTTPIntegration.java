@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>HTTPIntegration</code> object. */
+/** The definition of the <code>HTTPIntegration</code> object. */
 @JsonPropertyOrder({
   HTTPIntegration.JSON_PROPERTY_BASE_URL,
   HTTPIntegration.JSON_PROPERTY_CREDENTIALS,
@@ -56,7 +56,7 @@ public class HTTPIntegration {
   }
 
   /**
-   * Base HTTP url for the integration
+   * Base HTTP url for the integration.
    *
    * @return baseUrl
    */
@@ -77,7 +77,7 @@ public class HTTPIntegration {
   }
 
   /**
-   * The definition of <code>HTTPCredentials</code> object.
+   * The definition of the <code>HTTPCredentials</code> object.
    *
    * @return credentials
    */
@@ -98,7 +98,7 @@ public class HTTPIntegration {
   }
 
   /**
-   * The definition of <code>HTTPIntegrationType</code> object.
+   * The definition of the <code>HTTPIntegrationType</code> object.
    *
    * @return type
    */
