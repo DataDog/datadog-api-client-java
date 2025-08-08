@@ -1,0 +1,201 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"\",\"name\":\"Test Datastore\",\"org_access\":\"contributor\",\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"2bc9e27b-251d-4393-9011-d1b4db5ac4c0\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6574cf7e-1c55-24e1-45d2-b92f9fa74d34"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/2bc9e27b-251d-4393-9011-d1b4db5ac4c0",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"2bc9e27b-251d-4393-9011-d1b4db5ac4c0\",\"type\":\"datastores\",\"attributes\":{\"created_at\":\"2025-08-08T20:31:00.026962Z\",\"creator_user_id\":1445416,\"creator_user_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"\",\"modified_at\":\"2025-08-08T20:31:00.026962Z\",\"name\":\"Test Datastore\",\"org_id\":321813,\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b9fa2342-f051-4926-36b1-e8230820ef5b"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"value\":{\"data\":\"test-value\",\"id\":\"test-key\"}},\"id\":\"2bc9e27b-251d-4393-9011-d1b4db5ac4c0\",\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores/2bc9e27b-251d-4393-9011-d1b4db5ac4c0/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"16d2b643-678f-4806-a7b2-57f6b297f08e\",\"type\":\"items\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1eaa2444-11a8-46b1-b8e8-ddf3675ea35b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/2bc9e27b-251d-4393-9011-d1b4db5ac4c0/items",
+      "queryStringParameters": {
+        "itemKey": [
+          "test-key"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"16d2b643-678f-4806-a7b2-57f6b297f08e\",\"type\":\"items\",\"attributes\":{\"created_at\":\"2025-08-08T20:31:00.372994Z\",\"modified_at\":\"2025-08-08T20:31:00.372994Z\",\"org_id\":321813,\"primary_column_name\":\"id\",\"signature\":\"{\\\"signature\\\":\\\"{\\\\\\\"version\\\\\\\":2,\\\\\\\"algorithm\\\\\\\":\\\\\\\"ecdsa-p384\\\\\\\",\\\\\\\"pubkey\\\\\\\":\\\\\\\"3Sh//jFQJZ+uhUOwvHL8krXnbOjEFxMZrYnngo8J/AY=\\\\\\\",\\\\\\\"timestamp\\\\\\\":1754685060,\\\\\\\"proof\\\\\\\":\\\\\\\"MGYCMQDhkQQ+0iJxTc0B7ZC6yA+TmpYGo9zI6bg1rp4MHgQka31HGhTZN4RaPXYg1lSZ4ccCMQDgYf6KCXQiuomWHsUOwc6k6HRpQWgFMbr7G5C7ZjPx2mvjfOMw+unOGPQIr7z8U8w=\\\\\\\"}\\\",\\\"version\\\":1}\",\"store_id\":\"2bc9e27b-251d-4393-9011-d1b4db5ac4c0\",\"value\":{\"data\":\"test-value\",\"id\":\"test-key\"}}}],\"meta\":{\"page\":{\"totalCount\":1,\"totalFilteredCount\":1,\"hasMore\":false},\"schema\":{\"primary_key\":\"id\",\"fields\":[{\"name\":\"id\",\"type\":\"STRING\"},{\"name\":\"data\",\"type\":\"JSON\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8724c531-7797-7c6b-940a-7ae2ece1275b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/2bc9e27b-251d-4393-9011-d1b4db5ac4c0/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"16d2b643-678f-4806-a7b2-57f6b297f08e\",\"type\":\"items\",\"attributes\":{\"created_at\":\"2025-08-08T20:31:00.372994Z\",\"modified_at\":\"2025-08-08T20:31:00.372994Z\",\"org_id\":321813,\"primary_column_name\":\"id\",\"signature\":\"{\\\"signature\\\":\\\"{\\\\\\\"version\\\\\\\":2,\\\\\\\"algorithm\\\\\\\":\\\\\\\"ecdsa-p384\\\\\\\",\\\\\\\"pubkey\\\\\\\":\\\\\\\"3Sh//jFQJZ+uhUOwvHL8krXnbOjEFxMZrYnngo8J/AY=\\\\\\\",\\\\\\\"timestamp\\\\\\\":1754685060,\\\\\\\"proof\\\\\\\":\\\\\\\"MGYCMQDhkQQ+0iJxTc0B7ZC6yA+TmpYGo9zI6bg1rp4MHgQka31HGhTZN4RaPXYg1lSZ4ccCMQDgYf6KCXQiuomWHsUOwc6k6HRpQWgFMbr7G5C7ZjPx2mvjfOMw+unOGPQIr7z8U8w=\\\\\\\"}\\\",\\\"version\\\":1}\",\"store_id\":\"2bc9e27b-251d-4393-9011-d1b4db5ac4c0\",\"value\":{\"data\":\"test-value\",\"id\":\"test-key\"}}}],\"meta\":{\"page\":{\"totalCount\":1,\"totalFilteredCount\":1,\"hasMore\":false},\"schema\":{\"primary_key\":\"id\",\"fields\":[{\"name\":\"id\",\"type\":\"STRING\"},{\"name\":\"data\",\"type\":\"JSON\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dd769889-bc7c-dbd5-705b-27f5a46cecce"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"id\":\"2bc9e27b-251d-4393-9011-d1b4db5ac4c0\",\"item_key\":\"test-key\"},\"id\":\"2bc9e27b-251d-4393-9011-d1b4db5ac4c0\",\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/2bc9e27b-251d-4393-9011-d1b4db5ac4c0/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"16d2b643-678f-4806-a7b2-57f6b297f08e\",\"type\":\"items\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "84913671-aa0d-50b5-d46d-cce4ea0c955e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/2bc9e27b-251d-4393-9011-d1b4db5ac4c0",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"2bc9e27b-251d-4393-9011-d1b4db5ac4c0\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0df8d5d1-1e1a-e724-74de-414682ca5f07"
+  }
+]

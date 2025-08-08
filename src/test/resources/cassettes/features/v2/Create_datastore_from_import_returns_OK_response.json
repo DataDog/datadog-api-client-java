@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"datastore-name\",\"primary_column_name\":\"primaryKey\",\"values\":[{\"primaryKey\":\"key1\",\"value\":{\"data\":\"example data 1\",\"key\":\"value\"}},{\"primaryKey\":\"key2\",\"value\":{\"data\":\"example data 2\",\"key\":\"value\"}}]},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores/import",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"27173b27-abde-46b7-afcf-98fc8c8a274c\",\"type\":\"datastores\",\"attributes\":{\"item_count\":2}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "587a4b2b-741c-ac8c-c044-6acb0434c6ec"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/27173b27-abde-46b7-afcf-98fc8c8a274c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"27173b27-abde-46b7-afcf-98fc8c8a274c\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "791dc456-671d-ac91-414e-769fa61abfff"
+  }
+]
