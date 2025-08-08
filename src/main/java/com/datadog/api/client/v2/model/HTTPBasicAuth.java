@@ -17,99 +17,100 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of the <code>HTTPIntegrationUpdate</code> object. */
+/** The definition of the <code>HTTPBasicAuth</code> object. */
 @JsonPropertyOrder({
-  HTTPIntegrationUpdate.JSON_PROPERTY_BASE_URL,
-  HTTPIntegrationUpdate.JSON_PROPERTY_CREDENTIALS,
-  HTTPIntegrationUpdate.JSON_PROPERTY_TYPE
+  HTTPBasicAuth.JSON_PROPERTY_PASSWORD,
+  HTTPBasicAuth.JSON_PROPERTY_TYPE,
+  HTTPBasicAuth.JSON_PROPERTY_USERNAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class HTTPIntegrationUpdate {
+public class HTTPBasicAuth {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_BASE_URL = "base_url";
-  private String baseUrl;
-
-  public static final String JSON_PROPERTY_CREDENTIALS = "credentials";
-  private HTTPCredentialsUpdate credentials;
+  public static final String JSON_PROPERTY_PASSWORD = "password";
+  private String password;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private HTTPIntegrationType type;
+  private HTTPBasicAuthType type;
 
-  public HTTPIntegrationUpdate() {}
+  public static final String JSON_PROPERTY_USERNAME = "username";
+  private String username;
+
+  public HTTPBasicAuth() {}
 
   @JsonCreator
-  public HTTPIntegrationUpdate(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HTTPIntegrationType type) {
+  public HTTPBasicAuth(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HTTPBasicAuthType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
+    this.password = password;
     this.type = type;
     this.unparsed |= !type.isValid();
+    this.username = username;
   }
 
-  public HTTPIntegrationUpdate baseUrl(String baseUrl) {
-    this.baseUrl = baseUrl;
+  public HTTPBasicAuth password(String password) {
+    this.password = password;
     return this;
   }
 
   /**
-   * Base HTTP url for the integration.
+   * Password used for authentication. Saved in a secret store
    *
-   * @return baseUrl
+   * @return password
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BASE_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getBaseUrl() {
-    return baseUrl;
+  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getPassword() {
+    return password;
   }
 
-  public void setBaseUrl(String baseUrl) {
-    this.baseUrl = baseUrl;
+  public void setPassword(String password) {
+    this.password = password;
   }
 
-  public HTTPIntegrationUpdate credentials(HTTPCredentialsUpdate credentials) {
-    this.credentials = credentials;
-    this.unparsed |= credentials.unparsed;
-    return this;
-  }
-
-  /**
-   * The definition of the <code>HTTPCredentialsUpdate</code> object.
-   *
-   * @return credentials
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREDENTIALS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HTTPCredentialsUpdate getCredentials() {
-    return credentials;
-  }
-
-  public void setCredentials(HTTPCredentialsUpdate credentials) {
-    this.credentials = credentials;
-  }
-
-  public HTTPIntegrationUpdate type(HTTPIntegrationType type) {
+  public HTTPBasicAuth type(HTTPBasicAuthType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of the <code>HTTPIntegrationType</code> object.
+   * The definition of the <code>HTTPBasicAuth</code> object.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public HTTPIntegrationType getType() {
+  public HTTPBasicAuthType getType() {
     return type;
   }
 
-  public void setType(HTTPIntegrationType type) {
+  public void setType(HTTPBasicAuthType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
     this.type = type;
+  }
+
+  public HTTPBasicAuth username(String username) {
+    this.username = username;
+    return this;
+  }
+
+  /**
+   * Username used for authentication.
+   *
+   * @return username
+   */
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   /**
@@ -124,10 +125,10 @@ public class HTTPIntegrationUpdate {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return HTTPIntegrationUpdate
+   * @return HTTPBasicAuth
    */
   @JsonAnySetter
-  public HTTPIntegrationUpdate putAdditionalProperty(String key, Object value) {
+  public HTTPBasicAuth putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -158,7 +159,7 @@ public class HTTPIntegrationUpdate {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HTTPIntegrationUpdate object is equal to o. */
+  /** Return true if this HTTPBasicAuth object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -167,25 +168,25 @@ public class HTTPIntegrationUpdate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HTTPIntegrationUpdate httpIntegrationUpdate = (HTTPIntegrationUpdate) o;
-    return Objects.equals(this.baseUrl, httpIntegrationUpdate.baseUrl)
-        && Objects.equals(this.credentials, httpIntegrationUpdate.credentials)
-        && Objects.equals(this.type, httpIntegrationUpdate.type)
-        && Objects.equals(this.additionalProperties, httpIntegrationUpdate.additionalProperties);
+    HTTPBasicAuth httpBasicAuth = (HTTPBasicAuth) o;
+    return Objects.equals(this.password, httpBasicAuth.password)
+        && Objects.equals(this.type, httpBasicAuth.type)
+        && Objects.equals(this.username, httpBasicAuth.username)
+        && Objects.equals(this.additionalProperties, httpBasicAuth.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseUrl, credentials, type, additionalProperties);
+    return Objects.hash(password, type, username, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HTTPIntegrationUpdate {\n");
-    sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
-    sb.append("    credentials: ").append(toIndentedString(credentials)).append("\n");
+    sb.append("class HTTPBasicAuth {\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The definition of <code>AWSAssumeRoleType</code> object. */
+/** The definition of the <code>AWSAssumeRole</code> object. */
 @JsonSerialize(using = AWSAssumeRoleType.AWSAssumeRoleTypeSerializer.class)
 public class AWSAssumeRoleType extends ModelEnum<String> {
 

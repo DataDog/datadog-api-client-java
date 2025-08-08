@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AWSAssumeRoleUpdate</code> object. */
+/** The definition of the <code>AWSAssumeRole</code> object. */
 @JsonPropertyOrder({
   AWSAssumeRoleUpdate.JSON_PROPERTY_ACCOUNT_ID,
   AWSAssumeRoleUpdate.JSON_PROPERTY_GENERATE_NEW_EXTERNAL_ID,
@@ -55,7 +55,7 @@ public class AWSAssumeRoleUpdate {
   }
 
   /**
-   * AWS account the connection is created for
+   * AWS account the connection is created for.
    *
    * @return accountId
    */
@@ -76,7 +76,7 @@ public class AWSAssumeRoleUpdate {
   }
 
   /**
-   * The <code>AWSAssumeRoleUpdate</code> <code>generate_new_external_id</code>.
+   * Pass true if the <code>external_id</code> should be regenerated.
    *
    * @return generateNewExternalId
    */
@@ -97,7 +97,7 @@ public class AWSAssumeRoleUpdate {
   }
 
   /**
-   * Role to assume
+   * Role to assume.
    *
    * @return role
    */
@@ -119,7 +119,7 @@ public class AWSAssumeRoleUpdate {
   }
 
   /**
-   * The definition of <code>AWSAssumeRoleType</code> object.
+   * The definition of the <code>AWSAssumeRole</code> object.
    *
    * @return type
    */
