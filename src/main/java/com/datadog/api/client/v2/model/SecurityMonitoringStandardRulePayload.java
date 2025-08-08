@@ -18,9 +18,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The payload of a rule. */
 @JsonPropertyOrder({
+  SecurityMonitoringStandardRulePayload.JSON_PROPERTY_CALCULATED_FIELDS,
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_CASES,
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_CUSTOM_MESSAGE,
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_CUSTOM_NAME,
@@ -33,6 +35,7 @@ import java.util.Objects;
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_QUERIES,
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_REFERENCE_TABLES,
+  SecurityMonitoringStandardRulePayload.JSON_PROPERTY_SCHEDULING_OPTIONS,
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_TAGS,
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_THIRD_PARTY_CASES,
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_TYPE
@@ -41,6 +44,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringStandardRulePayload {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CALCULATED_FIELDS = "calculatedFields";
+  private List<CalculatedField> calculatedFields = null;
+
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCaseCreate> cases = new ArrayList<>();
 
@@ -77,6 +83,10 @@ public class SecurityMonitoringStandardRulePayload {
   public static final String JSON_PROPERTY_REFERENCE_TABLES = "referenceTables";
   private List<SecurityMonitoringReferenceTable> referenceTables = null;
 
+  public static final String JSON_PROPERTY_SCHEDULING_OPTIONS = "schedulingOptions";
+  private JsonNullable<SecurityMonitoringSchedulingOptions> schedulingOptions =
+      JsonNullable.<SecurityMonitoringSchedulingOptions>undefined();
+
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
@@ -106,6 +116,42 @@ public class SecurityMonitoringStandardRulePayload {
     this.options = options;
     this.unparsed |= options.unparsed;
     this.queries = queries;
+  }
+
+  public SecurityMonitoringStandardRulePayload calculatedFields(
+      List<CalculatedField> calculatedFields) {
+    this.calculatedFields = calculatedFields;
+    for (CalculatedField item : calculatedFields) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SecurityMonitoringStandardRulePayload addCalculatedFieldsItem(
+      CalculatedField calculatedFieldsItem) {
+    if (this.calculatedFields == null) {
+      this.calculatedFields = new ArrayList<>();
+    }
+    this.calculatedFields.add(calculatedFieldsItem);
+    this.unparsed |= calculatedFieldsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Calculated fields. Only allowed for scheduled rules - in other words, when schedulingOptions is
+   * also defined.
+   *
+   * @return calculatedFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CALCULATED_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CalculatedField> getCalculatedFields() {
+    return calculatedFields;
+  }
+
+  public void setCalculatedFields(List<CalculatedField> calculatedFields) {
+    this.calculatedFields = calculatedFields;
   }
 
   public SecurityMonitoringStandardRulePayload cases(List<SecurityMonitoringRuleCaseCreate> cases) {
@@ -413,6 +459,42 @@ public class SecurityMonitoringStandardRulePayload {
     this.referenceTables = referenceTables;
   }
 
+  public SecurityMonitoringStandardRulePayload schedulingOptions(
+      SecurityMonitoringSchedulingOptions schedulingOptions) {
+    this.schedulingOptions =
+        JsonNullable.<SecurityMonitoringSchedulingOptions>of(schedulingOptions);
+    return this;
+  }
+
+  /**
+   * Options for scheduled rules. When this field is present, the rule runs based on the schedule.
+   * When absent, it runs real-time on ingested logs.
+   *
+   * @return schedulingOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public SecurityMonitoringSchedulingOptions getSchedulingOptions() {
+    return schedulingOptions.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCHEDULING_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<SecurityMonitoringSchedulingOptions> getSchedulingOptions_JsonNullable() {
+    return schedulingOptions;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCHEDULING_OPTIONS)
+  public void setSchedulingOptions_JsonNullable(
+      JsonNullable<SecurityMonitoringSchedulingOptions> schedulingOptions) {
+    this.schedulingOptions = schedulingOptions;
+  }
+
+  public void setSchedulingOptions(SecurityMonitoringSchedulingOptions schedulingOptions) {
+    this.schedulingOptions =
+        JsonNullable.<SecurityMonitoringSchedulingOptions>of(schedulingOptions);
+  }
+
   public SecurityMonitoringStandardRulePayload tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -559,7 +641,9 @@ public class SecurityMonitoringStandardRulePayload {
     }
     SecurityMonitoringStandardRulePayload securityMonitoringStandardRulePayload =
         (SecurityMonitoringStandardRulePayload) o;
-    return Objects.equals(this.cases, securityMonitoringStandardRulePayload.cases)
+    return Objects.equals(
+            this.calculatedFields, securityMonitoringStandardRulePayload.calculatedFields)
+        && Objects.equals(this.cases, securityMonitoringStandardRulePayload.cases)
         && Objects.equals(this.customMessage, securityMonitoringStandardRulePayload.customMessage)
         && Objects.equals(this.customName, securityMonitoringStandardRulePayload.customName)
         && Objects.equals(this.filters, securityMonitoringStandardRulePayload.filters)
@@ -573,6 +657,8 @@ public class SecurityMonitoringStandardRulePayload {
         && Objects.equals(this.queries, securityMonitoringStandardRulePayload.queries)
         && Objects.equals(
             this.referenceTables, securityMonitoringStandardRulePayload.referenceTables)
+        && Objects.equals(
+            this.schedulingOptions, securityMonitoringStandardRulePayload.schedulingOptions)
         && Objects.equals(this.tags, securityMonitoringStandardRulePayload.tags)
         && Objects.equals(
             this.thirdPartyCases, securityMonitoringStandardRulePayload.thirdPartyCases)
@@ -584,6 +670,7 @@ public class SecurityMonitoringStandardRulePayload {
   @Override
   public int hashCode() {
     return Objects.hash(
+        calculatedFields,
         cases,
         customMessage,
         customName,
@@ -596,6 +683,7 @@ public class SecurityMonitoringStandardRulePayload {
         options,
         queries,
         referenceTables,
+        schedulingOptions,
         tags,
         thirdPartyCases,
         type,
@@ -606,6 +694,7 @@ public class SecurityMonitoringStandardRulePayload {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringStandardRulePayload {\n");
+    sb.append("    calculatedFields: ").append(toIndentedString(calculatedFields)).append("\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
     sb.append("    customMessage: ").append(toIndentedString(customMessage)).append("\n");
     sb.append("    customName: ").append(toIndentedString(customName)).append("\n");
@@ -618,6 +707,7 @@ public class SecurityMonitoringStandardRulePayload {
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    referenceTables: ").append(toIndentedString(referenceTables)).append("\n");
+    sb.append("    schedulingOptions: ").append(toIndentedString(schedulingOptions)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    thirdPartyCases: ").append(toIndentedString(thirdPartyCases)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
