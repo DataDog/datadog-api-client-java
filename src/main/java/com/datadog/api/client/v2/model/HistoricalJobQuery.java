@@ -167,6 +167,11 @@ public class HistoricalJobQuery {
     this.groupByFields = groupByFields;
   }
 
+  public HistoricalJobQuery hasOptionalGroupByFields(Boolean hasOptionalGroupByFields) {
+    this.hasOptionalGroupByFields = hasOptionalGroupByFields;
+    return this;
+  }
+
   /**
    * When false, events without a group-by value are ignored by the query. When true, events with
    * missing group-by fields are processed with <code>N/A</code>, replacing the missing values.
@@ -178,6 +183,10 @@ public class HistoricalJobQuery {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasOptionalGroupByFields() {
     return hasOptionalGroupByFields;
+  }
+
+  public void setHasOptionalGroupByFields(Boolean hasOptionalGroupByFields) {
+    this.hasOptionalGroupByFields = hasOptionalGroupByFields;
   }
 
   public HistoricalJobQuery metrics(List<String> metrics) {
