@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 2.41.0/2025-08-12
+
+### Added
+* Add Flex_Logs_Compute_XL to API Spec [#3049](https://github.com/DataDog/datadog-api-client-java/pull/3049)
+* Support Host and IaC finding types in security notifications  [#3048](https://github.com/DataDog/datadog-api-client-java/pull/3048)
+* New keys for summary public endpoint for Event Management Correlation product [#3044](https://github.com/DataDog/datadog-api-client-java/pull/3044)
+* Add log autosubscription tag filters config to aws v2 API [#3040](https://github.com/DataDog/datadog-api-client-java/pull/3040)
+* Extended List Findings API to expose resource related Private IP Addresses to details [#3033](https://github.com/DataDog/datadog-api-client-java/pull/3033)
+* update metrics.yaml for ListMetricAssets and include Dashboard info [#3028](https://github.com/DataDog/datadog-api-client-java/pull/3028)
+* Support Cloud SIEM scheduled rules in API client [#3025](https://github.com/DataDog/datadog-api-client-java/pull/3025)
+* Uncomment edit dataset block, add dataset limitations into endpoint descriptions  [#3023](https://github.com/DataDog/datadog-api-client-java/pull/3023)
+* Add `text` field in synthetics search endpoint [#3022](https://github.com/DataDog/datadog-api-client-java/pull/3022)
+* Adding all action connection types to public API [#3021](https://github.com/DataDog/datadog-api-client-java/pull/3021)
+* Document case management attributes endpoints [#3019](https://github.com/DataDog/datadog-api-client-java/pull/3019)
+* add AP2 endpoint for On-Call Paging [#3016](https://github.com/DataDog/datadog-api-client-java/pull/3016)
+* Flag IP case action [#3014](https://github.com/DataDog/datadog-api-client-java/pull/3014)
+* Add DNS specs for Cloud Network Monitoring API [#3012](https://github.com/DataDog/datadog-api-client-java/pull/3012)
+* Adding Datadog Connection to Connection API [#3006](https://github.com/DataDog/datadog-api-client-java/pull/3006)
+
+### Fixed
+* Split Dataset into separate request and response objects, mark unstable [#3032](https://github.com/DataDog/datadog-api-client-java/pull/3032)
+* Disables some tests to avoid fails as the service is disabled [#3027](https://github.com/DataDog/datadog-api-client-java/pull/3027)
+* OP make 'support_rules' field in parse_grok processor optional [#3017](https://github.com/DataDog/datadog-api-client-java/pull/3017)
+
+### Deprecated
+* Deprecate signals triage v1 endpoints [#3029](https://github.com/DataDog/datadog-api-client-java/pull/3029)
+
 ## 2.40.0/2025-07-14
 
 ### Added
