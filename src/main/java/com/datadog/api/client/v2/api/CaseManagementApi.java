@@ -7,6 +7,7 @@ import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.Case;
 import com.datadog.api.client.v2.model.CaseAssignRequest;
+import com.datadog.api.client.v2.model.CaseCommentRequest;
 import com.datadog.api.client.v2.model.CaseCreateRequest;
 import com.datadog.api.client.v2.model.CaseEmptyRequest;
 import com.datadog.api.client.v2.model.CaseResponse;
@@ -18,6 +19,7 @@ import com.datadog.api.client.v2.model.CasesResponse;
 import com.datadog.api.client.v2.model.ProjectCreateRequest;
 import com.datadog.api.client.v2.model.ProjectResponse;
 import com.datadog.api.client.v2.model.ProjectsResponse;
+import com.datadog.api.client.v2.model.TimelineResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -363,6 +365,161 @@ public class CaseManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CaseResponse>() {});
+  }
+
+  /**
+   * Comment case.
+   *
+   * <p>See {@link #commentCaseWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Case comment payload (required)
+   * @return TimelineResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TimelineResponse commentCase(String caseId, CaseCommentRequest body) throws ApiException {
+    return commentCaseWithHttpInfo(caseId, body).getData();
+  }
+
+  /**
+   * Comment case.
+   *
+   * <p>See {@link #commentCaseWithHttpInfoAsync}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Case comment payload (required)
+   * @return CompletableFuture&lt;TimelineResponse&gt;
+   */
+  public CompletableFuture<TimelineResponse> commentCaseAsync(
+      String caseId, CaseCommentRequest body) {
+    return commentCaseWithHttpInfoAsync(caseId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Comment case
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Case comment payload (required)
+   * @return ApiResponse&lt;TimelineResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TimelineResponse> commentCaseWithHttpInfo(
+      String caseId, CaseCommentRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseId' when calling commentCase");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling commentCase");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/comment"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.commentCase",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TimelineResponse>() {});
+  }
+
+  /**
+   * Comment case.
+   *
+   * <p>See {@link #commentCaseWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Case comment payload (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TimelineResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TimelineResponse>> commentCaseWithHttpInfoAsync(
+      String caseId, CaseCommentRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<TimelineResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'caseId' when calling commentCase"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TimelineResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling commentCase"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/comment"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.commentCase",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TimelineResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TimelineResponse>() {});
   }
 
   /**
