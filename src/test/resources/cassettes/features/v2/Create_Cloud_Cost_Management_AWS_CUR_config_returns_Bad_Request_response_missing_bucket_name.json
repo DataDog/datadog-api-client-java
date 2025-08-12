@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"account_id\":\"123456789123\",\"bucket_region\":\"us-east-1\",\"report_name\":\"dd-report-name\",\"report_prefix\":\"dd-report-prefix\"},\"type\":\"aws_cur_config_post_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cost/aws_cur_config",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"attribute \\\"bucket_name\\\" is required\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "79cdd5b9-a4d8-9a9f-f548-d45b455125aa"
+  }
+]

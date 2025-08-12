@@ -11,7 +11,8 @@ public class Example {
     CloudCostManagementApi apiInstance = new CloudCostManagementApi(defaultClient);
 
     try {
-      CustomCostsFileGetResponse result = apiInstance.getCustomCostsFile("file_id");
+      CustomCostsFileGetResponse result =
+          apiInstance.getCustomCostsFile("9ed1a245-8291-44de-9f59-1dc87975ca4a");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CloudCostManagementApi#getCustomCostsFile");

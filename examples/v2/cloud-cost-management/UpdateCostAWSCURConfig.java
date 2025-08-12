@@ -22,7 +22,7 @@ public class Example {
                     .type(AwsCURConfigPatchRequestType.AWS_CUR_CONFIG_PATCH_REQUEST));
 
     try {
-      AwsCURConfigsResponse result = apiInstance.updateCostAWSCURConfig("100", body);
+      AwsCURConfigsResponse result = apiInstance.updateCostAWSCURConfig(100L, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CloudCostManagementApi#updateCostAWSCURConfig");

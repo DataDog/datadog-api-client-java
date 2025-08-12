@@ -10,7 +10,7 @@ public class Example {
     CloudCostManagementApi apiInstance = new CloudCostManagementApi(defaultClient);
 
     try {
-      apiInstance.deleteCustomCostsFile("file_id");
+      apiInstance.deleteCustomCostsFile("9ed1a245-8291-44de-9f59-1dc87975ca4a");
     } catch (ApiException e) {
       System.err.println("Exception when calling CloudCostManagementApi#deleteCustomCostsFile");
       System.err.println("Status code: " + e.getCode());

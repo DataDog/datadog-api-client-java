@@ -31,7 +31,7 @@ public class AzureUCConfigPair {
   private AzureUCConfigPairAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private Long id;
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private AzureUCConfigPairType type = AzureUCConfigPairType.AZURE_UC_CONFIGS;
@@ -70,7 +70,7 @@ public class AzureUCConfigPair {
     this.attributes = attributes;
   }
 
-  public AzureUCConfigPair id(Long id) {
+  public AzureUCConfigPair id(String id) {
     this.id = id;
     return this;
   }
@@ -83,11 +83,11 @@ public class AzureUCConfigPair {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 

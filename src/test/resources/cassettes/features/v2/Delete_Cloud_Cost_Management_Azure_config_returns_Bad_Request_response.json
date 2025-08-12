@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/cost/azure_uc_config/invalid",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Invalid Parameter\",\"detail\":\"invalid parameter \\\"cloudAccountId\\\" in \\\"path\\\"; expected type \\\"int64\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3e192cd5-5d01-0ab4-7e28-dba103ad6c24"
+  }
+]

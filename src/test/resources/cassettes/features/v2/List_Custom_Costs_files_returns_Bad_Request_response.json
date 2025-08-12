@@ -1,0 +1,33 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/cost/custom_costs",
+      "queryStringParameters": {
+        "filter[status]": [
+          "not_a_real_filter"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"unknown status, got not_a_real_filter\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c1da12ca-05c9-5f67-26df-25a18143ae33"
+  }
+]

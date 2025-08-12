@@ -1,13 +1,9 @@
 [
   {
     "httpRequest": {
-      "body": {
-        "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true},\"type\":\"gcp_uc_config_patch_request\"}}"
-      },
       "headers": {},
-      "method": "PATCH",
-      "path": "/api/v2/cost/gcp_uc_config/InvalidValue",
+      "method": "DELETE",
+      "path": "/api/v2/cost/aws_cur_config/invalid",
       "keepAlive": false,
       "secure": true
     },
@@ -27,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1da33032-125b-394a-c6d6-4d533fec7e00"
+    "id": "528ac716-3213-5313-b0cb-0e3f3c93bbe1"
   }
 ]

@@ -1,0 +1,39 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/cost/custom_costs",
+      "queryStringParameters": {
+        "page[number]": [
+          "1"
+        ],
+        "page[size]": [
+          "10"
+        ],
+        "sort": [
+          "-created_at"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[],\"meta\":{\"version\":\"1.0\",\"total_filtered_count\":1}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9343edab-63cf-7710-429a-f5ae177a13c2"
+  }
+]

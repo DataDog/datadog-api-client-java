@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "[]"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/cost/custom_costs",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"Custom cost file cannot be empty\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8a2e7b1d-7016-3f5c-b020-ac382bca9e9c"
+  }
+]

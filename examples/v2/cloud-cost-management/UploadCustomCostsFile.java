@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.model.CustomCostsFileLineItem;
 import com.datadog.api.client.v2.model.CustomCostsFileUploadResponse;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -16,11 +17,13 @@ public class Example {
     List<CustomCostsFileLineItem> body =
         Collections.singletonList(
             new CustomCostsFileLineItem()
-                .billedCost(100.5)
+                .providerName("my_provider")
+                .chargePeriodStart("2023-05-06")
+                .chargePeriodEnd("2023-06-06")
+                .chargeDescription("my_description")
+                .billedCost(250.0)
                 .billingCurrency("USD")
-                .chargeDescription("Monthly usage charge for my service")
-                .chargePeriodEnd("2023-02-28")
-                .chargePeriodStart("2023-02-01"));
+                .tags(Map.ofEntries(Map.entry("key", "value"))));
 
     try {
       CustomCostsFileUploadResponse result = apiInstance.uploadCustomCostsFile(body);

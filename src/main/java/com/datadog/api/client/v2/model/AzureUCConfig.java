@@ -63,7 +63,7 @@ public class AzureUCConfig {
   private String exportPath;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private Long id;
+  private String id;
 
   public static final String JSON_PROPERTY_MONTHS = "months";
   private Integer months;
@@ -261,7 +261,7 @@ public class AzureUCConfig {
     this.exportPath = exportPath;
   }
 
-  public AzureUCConfig id(Long id) {
+  public AzureUCConfig id(String id) {
     this.id = id;
     return this;
   }
@@ -274,11 +274,11 @@ public class AzureUCConfig {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
