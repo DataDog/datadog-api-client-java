@@ -25,7 +25,7 @@ public class Example {
     SecurityMonitoringRuleConvertPayload body =
         new SecurityMonitoringRuleConvertPayload(
             new SecurityMonitoringStandardRulePayload()
-                .name("Example-Security-Monitoring")
+                .name("_49768568946de993")
                 .queries(
                     Collections.singletonList(
                         new SecurityMonitoringStandardRuleQuery()

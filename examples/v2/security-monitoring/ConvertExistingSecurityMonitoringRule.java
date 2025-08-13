@@ -10,12 +10,12 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
-    // there is a valid "security_rule" in the system
-    String SECURITY_RULE_ID = System.getenv("SECURITY_RULE_ID");
+    // there is a valid "security_rule_hash" in the system
+    String SECURITY_RULE_HASH_ID = System.getenv("SECURITY_RULE_HASH_ID");
 
     try {
       SecurityMonitoringRuleConvertResponse result =
-          apiInstance.convertExistingSecurityMonitoringRule(SECURITY_RULE_ID);
+          apiInstance.convertExistingSecurityMonitoringRule(SECURITY_RULE_HASH_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
