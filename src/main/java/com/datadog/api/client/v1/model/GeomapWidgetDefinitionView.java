@@ -13,16 +13,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** The view of the world that the map should render. */
-@JsonPropertyOrder({GeomapWidgetDefinitionView.JSON_PROPERTY_FOCUS})
+@JsonPropertyOrder({
+  GeomapWidgetDefinitionView.JSON_PROPERTY_CUSTOM_EXTENT,
+  GeomapWidgetDefinitionView.JSON_PROPERTY_FOCUS
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GeomapWidgetDefinitionView {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CUSTOM_EXTENT = "custom_extent";
+  private List<Double> customExtent = null;
+
   public static final String JSON_PROPERTY_FOCUS = "focus";
   private String focus;
 
@@ -34,13 +42,44 @@ public class GeomapWidgetDefinitionView {
     this.focus = focus;
   }
 
+  public GeomapWidgetDefinitionView customExtent(List<Double> customExtent) {
+    this.customExtent = customExtent;
+    return this;
+  }
+
+  public GeomapWidgetDefinitionView addCustomExtentItem(Double customExtentItem) {
+    if (this.customExtent == null) {
+      this.customExtent = new ArrayList<>();
+    }
+    this.customExtent.add(customExtentItem);
+    return this;
+  }
+
+  /**
+   * A custom extent of the map defined by an array of four numbers in the order <code>
+   * [minLongitude, minLatitude, maxLongitude, maxLatitude]</code>.
+   *
+   * @return customExtent
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_EXTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Double> getCustomExtent() {
+    return customExtent;
+  }
+
+  public void setCustomExtent(List<Double> customExtent) {
+    this.customExtent = customExtent;
+  }
+
   public GeomapWidgetDefinitionView focus(String focus) {
     this.focus = focus;
     return this;
   }
 
   /**
-   * The 2-letter ISO code of a country to focus the map on. Or <code>WORLD</code>.
+   * The ISO code of a country, sub-division, or region to focus the map on. Or <code>WORLD</code>.
+   * Mutually exclusive with <code>custom_extent</code>.
    *
    * @return focus
    */
@@ -110,20 +149,22 @@ public class GeomapWidgetDefinitionView {
       return false;
     }
     GeomapWidgetDefinitionView geomapWidgetDefinitionView = (GeomapWidgetDefinitionView) o;
-    return Objects.equals(this.focus, geomapWidgetDefinitionView.focus)
+    return Objects.equals(this.customExtent, geomapWidgetDefinitionView.customExtent)
+        && Objects.equals(this.focus, geomapWidgetDefinitionView.focus)
         && Objects.equals(
             this.additionalProperties, geomapWidgetDefinitionView.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(focus, additionalProperties);
+    return Objects.hash(customExtent, focus, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GeomapWidgetDefinitionView {\n");
+    sb.append("    customExtent: ").append(toIndentedString(customExtent)).append("\n");
     sb.append("    focus: ").append(toIndentedString(focus)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
