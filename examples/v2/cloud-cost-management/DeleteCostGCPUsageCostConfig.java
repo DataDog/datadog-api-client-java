@@ -10,7 +10,7 @@ public class Example {
     CloudCostManagementApi apiInstance = new CloudCostManagementApi(defaultClient);
 
     try {
-      apiInstance.deleteCostGCPUsageCostConfig("100");
+      apiInstance.deleteCostGCPUsageCostConfig(100L);
     } catch (ApiException e) {
       System.err.println(
           "Exception when calling CloudCostManagementApi#deleteCostGCPUsageCostConfig");

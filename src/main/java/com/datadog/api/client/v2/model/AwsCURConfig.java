@@ -31,7 +31,7 @@ public class AwsCURConfig {
   private AwsCURConfigAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private Long id;
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private AwsCURConfigType type = AwsCURConfigType.AWS_CUR_CONFIG;
@@ -70,7 +70,7 @@ public class AwsCURConfig {
     this.attributes = attributes;
   }
 
-  public AwsCURConfig id(Long id) {
+  public AwsCURConfig id(String id) {
     this.id = id;
     return this;
   }
@@ -83,11 +83,11 @@ public class AwsCURConfig {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 

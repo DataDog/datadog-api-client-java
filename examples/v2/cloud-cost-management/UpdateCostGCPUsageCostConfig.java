@@ -22,7 +22,7 @@ public class Example {
                     .type(GCPUsageCostConfigPatchRequestType.GCP_USAGE_COST_CONFIG_PATCH_REQUEST));
 
     try {
-      GCPUsageCostConfigResponse result = apiInstance.updateCostGCPUsageCostConfig("100", body);
+      GCPUsageCostConfigResponse result = apiInstance.updateCostGCPUsageCostConfig(100L, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(

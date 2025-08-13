@@ -1,0 +1,33 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/cost/custom_costs",
+      "queryStringParameters": {
+        "filter[status]": [
+          "invalid_file_status"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"unknown status, got invalid_file_status\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "51d40637-9b18-33d9-ae29-a33072806a6f"
+  }
+]

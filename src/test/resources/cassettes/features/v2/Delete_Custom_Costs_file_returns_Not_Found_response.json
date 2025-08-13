@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/cost/custom_costs/00000000-0000-0000-0000-000000000000",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1ee89786-e779-c23b-74a0-8addd2bc3929"
+  }
+]

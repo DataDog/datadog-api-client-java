@@ -22,7 +22,7 @@ public class Example {
                     .type(AzureUCConfigPatchRequestType.AZURE_UC_CONFIG_PATCH_REQUEST));
 
     try {
-      AzureUCConfigPairsResponse result = apiInstance.updateCostAzureUCConfigs("100", body);
+      AzureUCConfigPairsResponse result = apiInstance.updateCostAzureUCConfigs(100L, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CloudCostManagementApi#updateCostAzureUCConfigs");
