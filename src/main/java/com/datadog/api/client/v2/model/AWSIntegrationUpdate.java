@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AWSIntegrationUpdate</code> object. */
+/** The definition of the <code>AWSIntegrationUpdate</code> object. */
 @JsonPropertyOrder({
   AWSIntegrationUpdate.JSON_PROPERTY_CREDENTIALS,
   AWSIntegrationUpdate.JSON_PROPERTY_TYPE
@@ -48,7 +48,7 @@ public class AWSIntegrationUpdate {
   }
 
   /**
-   * The definition of <code>AWSCredentialsUpdate</code> object.
+   * The definition of the <code>AWSCredentialsUpdate</code> object.
    *
    * @return credentials
    */
@@ -70,7 +70,7 @@ public class AWSIntegrationUpdate {
   }
 
   /**
-   * The definition of <code>AWSIntegrationType</code> object.
+   * The definition of the <code>AWSIntegrationType</code> object.
    *
    * @return type
    */

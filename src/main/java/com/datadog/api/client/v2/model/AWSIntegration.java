@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AWSIntegration</code> object. */
+/** The definition of the <code>AWSIntegration</code> object. */
 @JsonPropertyOrder({AWSIntegration.JSON_PROPERTY_CREDENTIALS, AWSIntegration.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -48,7 +48,7 @@ public class AWSIntegration {
   }
 
   /**
-   * The definition of <code>AWSCredentials</code> object.
+   * The definition of the <code>AWSCredentials</code> object.
    *
    * @return credentials
    */
@@ -69,7 +69,7 @@ public class AWSIntegration {
   }
 
   /**
-   * The definition of <code>AWSIntegrationType</code> object.
+   * The definition of the <code>AWSIntegrationType</code> object.
    *
    * @return type
    */

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The definition of <code>HTTPIntegrationType</code> object. */
+/** The definition of the <code>HTTPIntegrationType</code> object. */
 @JsonSerialize(using = HTTPIntegrationType.HTTPIntegrationTypeSerializer.class)
 public class HTTPIntegrationType extends ModelEnum<String> {
 

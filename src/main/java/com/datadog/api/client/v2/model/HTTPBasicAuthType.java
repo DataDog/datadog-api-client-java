@@ -18,36 +18,37 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The definition of the <code>AWSIntegrationType</code> object. */
-@JsonSerialize(using = AWSIntegrationType.AWSIntegrationTypeSerializer.class)
-public class AWSIntegrationType extends ModelEnum<String> {
+/** The definition of the <code>HTTPBasicAuth</code> object. */
+@JsonSerialize(using = HTTPBasicAuthType.HTTPBasicAuthTypeSerializer.class)
+public class HTTPBasicAuthType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("AWS"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("HTTPBasicAuth"));
 
-  public static final AWSIntegrationType AWS = new AWSIntegrationType("AWS");
+  public static final HTTPBasicAuthType HTTPBASICAUTH = new HTTPBasicAuthType("HTTPBasicAuth");
 
-  AWSIntegrationType(String value) {
+  HTTPBasicAuthType(String value) {
     super(value, allowedValues);
   }
 
-  public static class AWSIntegrationTypeSerializer extends StdSerializer<AWSIntegrationType> {
-    public AWSIntegrationTypeSerializer(Class<AWSIntegrationType> t) {
+  public static class HTTPBasicAuthTypeSerializer extends StdSerializer<HTTPBasicAuthType> {
+    public HTTPBasicAuthTypeSerializer(Class<HTTPBasicAuthType> t) {
       super(t);
     }
 
-    public AWSIntegrationTypeSerializer() {
+    public HTTPBasicAuthTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(AWSIntegrationType value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(HTTPBasicAuthType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static AWSIntegrationType fromValue(String value) {
-    return new AWSIntegrationType(value);
+  public static HTTPBasicAuthType fromValue(String value) {
+    return new HTTPBasicAuthType(value);
   }
 }

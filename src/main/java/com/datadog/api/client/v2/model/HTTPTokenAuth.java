@@ -150,7 +150,7 @@ public class HTTPTokenAuth {
   }
 
   /**
-   * The definition of <code>HTTPTokenAuthType</code> object.
+   * The definition of the <code>HTTPTokenAuth</code> object.
    *
    * @return type
    */

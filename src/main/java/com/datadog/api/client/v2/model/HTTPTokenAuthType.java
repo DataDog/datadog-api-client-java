@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The definition of <code>HTTPTokenAuthType</code> object. */
+/** The definition of the <code>HTTPTokenAuth</code> object. */
 @JsonSerialize(using = HTTPTokenAuthType.HTTPTokenAuthTypeSerializer.class)
 public class HTTPTokenAuthType extends ModelEnum<String> {
 

@@ -17,10 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AWSAssumeRole</code> object. */
+/** The definition of the <code>AWSAssumeRole</code> object. */
 @JsonPropertyOrder({
   AWSAssumeRole.JSON_PROPERTY_ACCOUNT_ID,
   AWSAssumeRole.JSON_PROPERTY_EXTERNAL_ID,
+  AWSAssumeRole.JSON_PROPERTY_GENERATE_NEW_EXTERNAL_ID,
   AWSAssumeRole.JSON_PROPERTY_PRINCIPAL_ID,
   AWSAssumeRole.JSON_PROPERTY_ROLE,
   AWSAssumeRole.JSON_PROPERTY_TYPE
@@ -34,6 +35,9 @@ public class AWSAssumeRole {
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "external_id";
   private String externalId;
+
+  public static final String JSON_PROPERTY_GENERATE_NEW_EXTERNAL_ID = "generate_new_external_id";
+  private Boolean generateNewExternalId;
 
   public static final String JSON_PROPERTY_PRINCIPAL_ID = "principal_id";
   private String principalId;
@@ -63,7 +67,7 @@ public class AWSAssumeRole {
   }
 
   /**
-   * AWS account the connection is created for
+   * AWS account the connection is created for.
    *
    * @return accountId
    */
@@ -78,7 +82,7 @@ public class AWSAssumeRole {
   }
 
   /**
-   * External ID used to scope which connection can be used to assume the role
+   * External ID used to scope which connection can be used to assume the role.
    *
    * @return externalId
    */
@@ -89,8 +93,29 @@ public class AWSAssumeRole {
     return externalId;
   }
 
+  public AWSAssumeRole generateNewExternalId(Boolean generateNewExternalId) {
+    this.generateNewExternalId = generateNewExternalId;
+    return this;
+  }
+
   /**
-   * AWS account that will assume the role
+   * Pass true if the <code>external_id</code> should be regenerated.
+   *
+   * @return generateNewExternalId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GENERATE_NEW_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getGenerateNewExternalId() {
+    return generateNewExternalId;
+  }
+
+  public void setGenerateNewExternalId(Boolean generateNewExternalId) {
+    this.generateNewExternalId = generateNewExternalId;
+  }
+
+  /**
+   * AWS account that will assume the role.
    *
    * @return principalId
    */
@@ -107,7 +132,7 @@ public class AWSAssumeRole {
   }
 
   /**
-   * Role to assume
+   * Role to assume.
    *
    * @return role
    */
@@ -128,7 +153,7 @@ public class AWSAssumeRole {
   }
 
   /**
-   * The definition of <code>AWSAssumeRoleType</code> object.
+   * The definition of the <code>AWSAssumeRole</code> object.
    *
    * @return type
    */
@@ -203,6 +228,7 @@ public class AWSAssumeRole {
     AWSAssumeRole awsAssumeRole = (AWSAssumeRole) o;
     return Objects.equals(this.accountId, awsAssumeRole.accountId)
         && Objects.equals(this.externalId, awsAssumeRole.externalId)
+        && Objects.equals(this.generateNewExternalId, awsAssumeRole.generateNewExternalId)
         && Objects.equals(this.principalId, awsAssumeRole.principalId)
         && Objects.equals(this.role, awsAssumeRole.role)
         && Objects.equals(this.type, awsAssumeRole.type)
@@ -211,7 +237,14 @@ public class AWSAssumeRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, externalId, principalId, role, type, additionalProperties);
+    return Objects.hash(
+        accountId,
+        externalId,
+        generateNewExternalId,
+        principalId,
+        role,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -220,6 +253,9 @@ public class AWSAssumeRole {
     sb.append("class AWSAssumeRole {\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    generateNewExternalId: ")
+        .append(toIndentedString(generateNewExternalId))
+        .append("\n");
     sb.append("    principalId: ").append(toIndentedString(principalId)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
