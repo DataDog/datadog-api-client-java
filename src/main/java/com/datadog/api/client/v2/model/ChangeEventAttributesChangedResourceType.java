@@ -26,12 +26,12 @@ import java.util.Set;
 public class ChangeEventAttributesChangedResourceType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("feature_flag", "configuration"));
+      new HashSet<String>(Arrays.asList("feature_flag", "metric_configuration"));
 
   public static final ChangeEventAttributesChangedResourceType FEATURE_FLAG =
       new ChangeEventAttributesChangedResourceType("feature_flag");
-  public static final ChangeEventAttributesChangedResourceType CONFIGURATION =
-      new ChangeEventAttributesChangedResourceType("configuration");
+  public static final ChangeEventAttributesChangedResourceType METRIC_CONFIGURATION =
+      new ChangeEventAttributesChangedResourceType("metric_configuration");
 
   ChangeEventAttributesChangedResourceType(String value) {
     super(value, allowedValues);
