@@ -123,6 +123,94 @@ public class HTTPCredentialsUpdate extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'HTTPTokenAuthUpdate'", e);
       }
 
+      // deserialize HTTPBasicAuthUpdate
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (HTTPBasicAuthUpdate.class.equals(Integer.class)
+            || HTTPBasicAuthUpdate.class.equals(Long.class)
+            || HTTPBasicAuthUpdate.class.equals(Float.class)
+            || HTTPBasicAuthUpdate.class.equals(Double.class)
+            || HTTPBasicAuthUpdate.class.equals(Boolean.class)
+            || HTTPBasicAuthUpdate.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((HTTPBasicAuthUpdate.class.equals(Integer.class)
+                        || HTTPBasicAuthUpdate.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((HTTPBasicAuthUpdate.class.equals(Float.class)
+                        || HTTPBasicAuthUpdate.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (HTTPBasicAuthUpdate.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (HTTPBasicAuthUpdate.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(HTTPBasicAuthUpdate.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((HTTPBasicAuthUpdate) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'HTTPBasicAuthUpdate'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'HTTPBasicAuthUpdate'", e);
+      }
+
+      // deserialize HTTPMtlsAuthUpdate
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (HTTPMtlsAuthUpdate.class.equals(Integer.class)
+            || HTTPMtlsAuthUpdate.class.equals(Long.class)
+            || HTTPMtlsAuthUpdate.class.equals(Float.class)
+            || HTTPMtlsAuthUpdate.class.equals(Double.class)
+            || HTTPMtlsAuthUpdate.class.equals(Boolean.class)
+            || HTTPMtlsAuthUpdate.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((HTTPMtlsAuthUpdate.class.equals(Integer.class)
+                        || HTTPMtlsAuthUpdate.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((HTTPMtlsAuthUpdate.class.equals(Float.class)
+                        || HTTPMtlsAuthUpdate.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (HTTPMtlsAuthUpdate.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (HTTPMtlsAuthUpdate.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(HTTPMtlsAuthUpdate.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((HTTPMtlsAuthUpdate) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'HTTPMtlsAuthUpdate'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'HTTPMtlsAuthUpdate'", e);
+      }
+
       HTTPCredentialsUpdate ret = new HTTPCredentialsUpdate();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -157,8 +245,20 @@ public class HTTPCredentialsUpdate extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public HTTPCredentialsUpdate(HTTPBasicAuthUpdate o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public HTTPCredentialsUpdate(HTTPMtlsAuthUpdate o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("HTTPTokenAuthUpdate", new GenericType<HTTPTokenAuthUpdate>() {});
+    schemas.put("HTTPBasicAuthUpdate", new GenericType<HTTPBasicAuthUpdate>() {});
+    schemas.put("HTTPMtlsAuthUpdate", new GenericType<HTTPMtlsAuthUpdate>() {});
     JSON.registerDescendants(HTTPCredentialsUpdate.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -169,7 +269,7 @@ public class HTTPCredentialsUpdate extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: HTTPTokenAuthUpdate
+   * against the oneOf child schemas: HTTPTokenAuthUpdate, HTTPBasicAuthUpdate, HTTPMtlsAuthUpdate
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -180,18 +280,29 @@ public class HTTPCredentialsUpdate extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(HTTPBasicAuthUpdate.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(HTTPMtlsAuthUpdate.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be HTTPTokenAuthUpdate");
+    throw new RuntimeException(
+        "Invalid instance type. Must be HTTPTokenAuthUpdate, HTTPBasicAuthUpdate,"
+            + " HTTPMtlsAuthUpdate");
   }
 
   /**
-   * Get the actual instance, which can be the following: HTTPTokenAuthUpdate
+   * Get the actual instance, which can be the following: HTTPTokenAuthUpdate, HTTPBasicAuthUpdate,
+   * HTTPMtlsAuthUpdate
    *
-   * @return The actual instance (HTTPTokenAuthUpdate)
+   * @return The actual instance (HTTPTokenAuthUpdate, HTTPBasicAuthUpdate, HTTPMtlsAuthUpdate)
    */
   @Override
   public Object getActualInstance() {
@@ -207,5 +318,27 @@ public class HTTPCredentialsUpdate extends AbstractOpenApiSchema {
    */
   public HTTPTokenAuthUpdate getHTTPTokenAuthUpdate() throws ClassCastException {
     return (HTTPTokenAuthUpdate) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `HTTPBasicAuthUpdate`. If the actual instance is not
+   * `HTTPBasicAuthUpdate`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `HTTPBasicAuthUpdate`
+   * @throws ClassCastException if the instance is not `HTTPBasicAuthUpdate`
+   */
+  public HTTPBasicAuthUpdate getHTTPBasicAuthUpdate() throws ClassCastException {
+    return (HTTPBasicAuthUpdate) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `HTTPMtlsAuthUpdate`. If the actual instance is not
+   * `HTTPMtlsAuthUpdate`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `HTTPMtlsAuthUpdate`
+   * @throws ClassCastException if the instance is not `HTTPMtlsAuthUpdate`
+   */
+  public HTTPMtlsAuthUpdate getHTTPMtlsAuthUpdate() throws ClassCastException {
+    return (HTTPMtlsAuthUpdate) super.getActualInstance();
   }
 }

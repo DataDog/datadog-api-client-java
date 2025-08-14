@@ -17,95 +17,94 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of the <code>HTTPIntegrationUpdate</code> object. */
+/** The definition of the <code>HTTPMtlsAuth</code> object. */
 @JsonPropertyOrder({
-  HTTPIntegrationUpdate.JSON_PROPERTY_BASE_URL,
-  HTTPIntegrationUpdate.JSON_PROPERTY_CREDENTIALS,
-  HTTPIntegrationUpdate.JSON_PROPERTY_TYPE
+  HTTPMtlsAuthUpdate.JSON_PROPERTY_CERTIFICATE,
+  HTTPMtlsAuthUpdate.JSON_PROPERTY_PRIVATE_KEY,
+  HTTPMtlsAuthUpdate.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class HTTPIntegrationUpdate {
+public class HTTPMtlsAuthUpdate {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_BASE_URL = "base_url";
-  private String baseUrl;
+  public static final String JSON_PROPERTY_CERTIFICATE = "certificate";
+  private String certificate;
 
-  public static final String JSON_PROPERTY_CREDENTIALS = "credentials";
-  private HTTPCredentialsUpdate credentials;
+  public static final String JSON_PROPERTY_PRIVATE_KEY = "private_key";
+  private String privateKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private HTTPIntegrationType type;
+  private HTTPMtlsAuthType type;
 
-  public HTTPIntegrationUpdate() {}
+  public HTTPMtlsAuthUpdate() {}
 
   @JsonCreator
-  public HTTPIntegrationUpdate(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HTTPIntegrationType type) {
+  public HTTPMtlsAuthUpdate(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HTTPMtlsAuthType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public HTTPIntegrationUpdate baseUrl(String baseUrl) {
-    this.baseUrl = baseUrl;
+  public HTTPMtlsAuthUpdate certificate(String certificate) {
+    this.certificate = certificate;
     return this;
   }
 
   /**
-   * Base HTTP url for the integration.
+   * Certificate of authority used to sign the request.
    *
-   * @return baseUrl
+   * @return certificate
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BASE_URL)
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getBaseUrl() {
-    return baseUrl;
+  public String getCertificate() {
+    return certificate;
   }
 
-  public void setBaseUrl(String baseUrl) {
-    this.baseUrl = baseUrl;
+  public void setCertificate(String certificate) {
+    this.certificate = certificate;
   }
 
-  public HTTPIntegrationUpdate credentials(HTTPCredentialsUpdate credentials) {
-    this.credentials = credentials;
-    this.unparsed |= credentials.unparsed;
+  public HTTPMtlsAuthUpdate privateKey(String privateKey) {
+    this.privateKey = privateKey;
     return this;
   }
 
   /**
-   * The definition of the <code>HTTPCredentialsUpdate</code> object.
+   * Private key used for the MTLS handshake
    *
-   * @return credentials
+   * @return privateKey
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREDENTIALS)
+  @JsonProperty(JSON_PROPERTY_PRIVATE_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HTTPCredentialsUpdate getCredentials() {
-    return credentials;
+  public String getPrivateKey() {
+    return privateKey;
   }
 
-  public void setCredentials(HTTPCredentialsUpdate credentials) {
-    this.credentials = credentials;
+  public void setPrivateKey(String privateKey) {
+    this.privateKey = privateKey;
   }
 
-  public HTTPIntegrationUpdate type(HTTPIntegrationType type) {
+  public HTTPMtlsAuthUpdate type(HTTPMtlsAuthType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of the <code>HTTPIntegrationType</code> object.
+   * The definition of the <code>HTTPMtlsAuth</code> object.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public HTTPIntegrationType getType() {
+  public HTTPMtlsAuthType getType() {
     return type;
   }
 
-  public void setType(HTTPIntegrationType type) {
+  public void setType(HTTPMtlsAuthType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -124,10 +123,10 @@ public class HTTPIntegrationUpdate {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return HTTPIntegrationUpdate
+   * @return HTTPMtlsAuthUpdate
    */
   @JsonAnySetter
-  public HTTPIntegrationUpdate putAdditionalProperty(String key, Object value) {
+  public HTTPMtlsAuthUpdate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -158,7 +157,7 @@ public class HTTPIntegrationUpdate {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HTTPIntegrationUpdate object is equal to o. */
+  /** Return true if this HTTPMtlsAuthUpdate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -167,24 +166,24 @@ public class HTTPIntegrationUpdate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HTTPIntegrationUpdate httpIntegrationUpdate = (HTTPIntegrationUpdate) o;
-    return Objects.equals(this.baseUrl, httpIntegrationUpdate.baseUrl)
-        && Objects.equals(this.credentials, httpIntegrationUpdate.credentials)
-        && Objects.equals(this.type, httpIntegrationUpdate.type)
-        && Objects.equals(this.additionalProperties, httpIntegrationUpdate.additionalProperties);
+    HTTPMtlsAuthUpdate httpMtlsAuthUpdate = (HTTPMtlsAuthUpdate) o;
+    return Objects.equals(this.certificate, httpMtlsAuthUpdate.certificate)
+        && Objects.equals(this.privateKey, httpMtlsAuthUpdate.privateKey)
+        && Objects.equals(this.type, httpMtlsAuthUpdate.type)
+        && Objects.equals(this.additionalProperties, httpMtlsAuthUpdate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseUrl, credentials, type, additionalProperties);
+    return Objects.hash(certificate, privateKey, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HTTPIntegrationUpdate {\n");
-    sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
-    sb.append("    credentials: ").append(toIndentedString(credentials)).append("\n");
+    sb.append("class HTTPMtlsAuthUpdate {\n");
+    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
+    sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
