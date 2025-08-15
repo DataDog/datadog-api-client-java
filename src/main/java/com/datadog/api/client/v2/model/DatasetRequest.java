@@ -42,7 +42,7 @@ public class DatasetRequest {
   private DatasetAttributesRequest attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private DatasetType type = DatasetType.DATASET;
 
   public DatasetRequest() {}
 
@@ -50,10 +50,11 @@ public class DatasetRequest {
   public DatasetRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           DatasetAttributesRequest attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DatasetType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public DatasetRequest attributes(DatasetAttributesRequest attributes) {
@@ -77,23 +78,27 @@ public class DatasetRequest {
     this.attributes = attributes;
   }
 
-  public DatasetRequest type(String type) {
+  public DatasetRequest type(DatasetType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Resource type, always "dataset".
+   * Resource type, always set to <code>dataset</code>.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getType() {
+  public DatasetType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(DatasetType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

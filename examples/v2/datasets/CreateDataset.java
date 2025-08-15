@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.model.DatasetAttributesRequest;
 import com.datadog.api.client.v2.model.DatasetCreateRequest;
 import com.datadog.api.client.v2.model.DatasetRequest;
 import com.datadog.api.client.v2.model.DatasetResponseSingle;
+import com.datadog.api.client.v2.model.DatasetType;
 import com.datadog.api.client.v2.model.FiltersPerProduct;
 import java.util.Collections;
 
@@ -31,7 +32,7 @@ public class Example {
                                     new FiltersPerProduct()
                                         .filters(Collections.singletonList("@application.id:ABCD"))
                                         .product("metrics"))))
-                    .type("dataset"));
+                    .type(DatasetType.DATASET));
 
     try {
       DatasetResponseSingle result = apiInstance.createDataset(body);
