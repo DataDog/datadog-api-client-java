@@ -1,0 +1,161 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"\",\"name\":\"Test Datastore\",\"org_access\":\"contributor\",\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"750ca6cd-e032-451f-91c5-be07a26ed420\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6574cf7e-1c55-24e1-45d2-b92f9fa74d33"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/750ca6cd-e032-451f-91c5-be07a26ed420",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"750ca6cd-e032-451f-91c5-be07a26ed420\",\"type\":\"datastores\",\"attributes\":{\"created_at\":\"2025-08-11T22:19:05.19296Z\",\"creator_user_id\":1445416,\"creator_user_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"\",\"modified_at\":\"2025-08-11T22:19:05.19296Z\",\"name\":\"Test Datastore\",\"org_id\":321813,\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6cd380d6-2247-f063-0a10-892abcb04a61"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"value\":{\"data\":\"test-value\",\"id\":\"test-key\"}},\"id\":\"750ca6cd-e032-451f-91c5-be07a26ed420\",\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores/750ca6cd-e032-451f-91c5-be07a26ed420/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"d88904ef-386c-4723-a3b9-4e0d4ed2ea95\",\"type\":\"items\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6a4f66b6-04ad-f47d-a927-13d7345c37aa"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/750ca6cd-e032-451f-91c5-be07a26ed420/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"d88904ef-386c-4723-a3b9-4e0d4ed2ea95\",\"type\":\"items\",\"attributes\":{\"created_at\":\"2025-08-11T22:19:05.581035Z\",\"modified_at\":\"2025-08-11T22:19:05.581035Z\",\"org_id\":321813,\"primary_column_name\":\"id\",\"signature\":\"{\\\"signature\\\":\\\"{\\\\\\\"version\\\\\\\":2,\\\\\\\"algorithm\\\\\\\":\\\\\\\"ecdsa-p384\\\\\\\",\\\\\\\"pubkey\\\\\\\":\\\\\\\"3Sh//jFQJZ+uhUOwvHL8krXnbOjEFxMZrYnngo8J/AY=\\\\\\\",\\\\\\\"timestamp\\\\\\\":1754950745,\\\\\\\"proof\\\\\\\":\\\\\\\"MGQCMH3EHN8dRcyYnlAGca1oavAiWREFIjqCYs26LJ0U7jnzVf3zNNzdnCHW+5p9CUoGKQIwMQ/hTuaHqQRKcaENqDr4tWhHbzTI+/KCW0ooyC8K1m6soAOZq1QHJi0b0BGbojPy\\\\\\\"}\\\",\\\"version\\\":1}\",\"store_id\":\"750ca6cd-e032-451f-91c5-be07a26ed420\",\"value\":{\"data\":\"test-value\",\"id\":\"test-key\"}}}],\"meta\":{\"page\":{\"totalCount\":1,\"totalFilteredCount\":1,\"hasMore\":false},\"schema\":{\"primary_key\":\"id\",\"fields\":[{\"name\":\"id\",\"type\":\"STRING\"},{\"name\":\"data\",\"type\":\"JSON\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "240c3092-47cf-e6f4-37df-070a88c3d6f5"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/750ca6cd-e032-451f-91c5-be07a26ed420/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"d88904ef-386c-4723-a3b9-4e0d4ed2ea95\",\"type\":\"items\",\"attributes\":{\"created_at\":\"2025-08-11T22:19:05.581035Z\",\"modified_at\":\"2025-08-11T22:19:05.581035Z\",\"org_id\":321813,\"primary_column_name\":\"id\",\"signature\":\"{\\\"signature\\\":\\\"{\\\\\\\"version\\\\\\\":2,\\\\\\\"algorithm\\\\\\\":\\\\\\\"ecdsa-p384\\\\\\\",\\\\\\\"pubkey\\\\\\\":\\\\\\\"3Sh//jFQJZ+uhUOwvHL8krXnbOjEFxMZrYnngo8J/AY=\\\\\\\",\\\\\\\"timestamp\\\\\\\":1754950745,\\\\\\\"proof\\\\\\\":\\\\\\\"MGQCMH3EHN8dRcyYnlAGca1oavAiWREFIjqCYs26LJ0U7jnzVf3zNNzdnCHW+5p9CUoGKQIwMQ/hTuaHqQRKcaENqDr4tWhHbzTI+/KCW0ooyC8K1m6soAOZq1QHJi0b0BGbojPy\\\\\\\"}\\\",\\\"version\\\":1}\",\"store_id\":\"750ca6cd-e032-451f-91c5-be07a26ed420\",\"value\":{\"data\":\"test-value\",\"id\":\"test-key\"}}}],\"meta\":{\"page\":{\"totalCount\":1,\"totalFilteredCount\":1,\"hasMore\":false},\"schema\":{\"primary_key\":\"id\",\"fields\":[{\"name\":\"id\",\"type\":\"STRING\"},{\"name\":\"data\",\"type\":\"JSON\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6abe1db2-c89a-3f5a-5af8-649d5fa1ed0e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/750ca6cd-e032-451f-91c5-be07a26ed420",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 200,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "251e87f6-eb2d-f683-ecbd-e62515dd4dba"
+  }
+]
