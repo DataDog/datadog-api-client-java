@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "[{\"BilledCost\":100.5,\"BillingCurrency\":\"USD\",\"ChargeDescription\":\"Monthly usage charge for my service\",\"ChargePeriodEnd\":\"2023-02-28\",\"ChargePeriodStart\":\"2023-02-01\"}]"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/cost/custom_costs",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"errors in object 0:\\nTags is a required field\\nProviderName is a required field\",\"meta\":{\"end\":167,\"obj\":0,\"start\":1}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "550f00ae-ab67-03fb-6721-8c5019fd48ea"
+  }
+]

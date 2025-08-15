@@ -23,7 +23,6 @@ import java.util.Objects;
   AwsCURConfigPostRequestAttributes.JSON_PROPERTY_ACCOUNT_ID,
   AwsCURConfigPostRequestAttributes.JSON_PROPERTY_BUCKET_NAME,
   AwsCURConfigPostRequestAttributes.JSON_PROPERTY_BUCKET_REGION,
-  AwsCURConfigPostRequestAttributes.JSON_PROPERTY_IS_ENABLED,
   AwsCURConfigPostRequestAttributes.JSON_PROPERTY_MONTHS,
   AwsCURConfigPostRequestAttributes.JSON_PROPERTY_REPORT_NAME,
   AwsCURConfigPostRequestAttributes.JSON_PROPERTY_REPORT_PREFIX
@@ -43,9 +42,6 @@ public class AwsCURConfigPostRequestAttributes {
 
   public static final String JSON_PROPERTY_BUCKET_REGION = "bucket_region";
   private String bucketRegion;
-
-  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_MONTHS = "months";
   private Integer months;
@@ -151,27 +147,6 @@ public class AwsCURConfigPostRequestAttributes {
 
   public void setBucketRegion(String bucketRegion) {
     this.bucketRegion = bucketRegion;
-  }
-
-  public AwsCURConfigPostRequestAttributes isEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
-    return this;
-  }
-
-  /**
-   * Whether or not the Cloud Cost Management account is enabled.
-   *
-   * @return isEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
-  public void setIsEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
   }
 
   public AwsCURConfigPostRequestAttributes months(Integer months) {
@@ -296,7 +271,6 @@ public class AwsCURConfigPostRequestAttributes {
         && Objects.equals(this.accountId, awsCurConfigPostRequestAttributes.accountId)
         && Objects.equals(this.bucketName, awsCurConfigPostRequestAttributes.bucketName)
         && Objects.equals(this.bucketRegion, awsCurConfigPostRequestAttributes.bucketRegion)
-        && Objects.equals(this.isEnabled, awsCurConfigPostRequestAttributes.isEnabled)
         && Objects.equals(this.months, awsCurConfigPostRequestAttributes.months)
         && Objects.equals(this.reportName, awsCurConfigPostRequestAttributes.reportName)
         && Objects.equals(this.reportPrefix, awsCurConfigPostRequestAttributes.reportPrefix)
@@ -311,7 +285,6 @@ public class AwsCURConfigPostRequestAttributes {
         accountId,
         bucketName,
         bucketRegion,
-        isEnabled,
         months,
         reportName,
         reportPrefix,
@@ -326,7 +299,6 @@ public class AwsCURConfigPostRequestAttributes {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
     sb.append("    bucketRegion: ").append(toIndentedString(bucketRegion)).append("\n");
-    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    months: ").append(toIndentedString(months)).append("\n");
     sb.append("    reportName: ").append(toIndentedString(reportName)).append("\n");
     sb.append("    reportPrefix: ").append(toIndentedString(reportPrefix)).append("\n");

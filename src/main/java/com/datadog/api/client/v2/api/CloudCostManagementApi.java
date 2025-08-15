@@ -600,7 +600,7 @@ public class CloudCostManagementApi {
    * @param cloudAccountId Cloud Account id. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteCostAWSCURConfig(String cloudAccountId) throws ApiException {
+  public void deleteCostAWSCURConfig(Long cloudAccountId) throws ApiException {
     deleteCostAWSCURConfigWithHttpInfo(cloudAccountId);
   }
 
@@ -612,7 +612,7 @@ public class CloudCostManagementApi {
    * @param cloudAccountId Cloud Account id. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> deleteCostAWSCURConfigAsync(String cloudAccountId) {
+  public CompletableFuture<Void> deleteCostAWSCURConfigAsync(Long cloudAccountId) {
     return deleteCostAWSCURConfigWithHttpInfoAsync(cloudAccountId)
         .thenApply(
             response -> {
@@ -636,7 +636,7 @@ public class CloudCostManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteCostAWSCURConfigWithHttpInfo(String cloudAccountId)
+  public ApiResponse<Void> deleteCostAWSCURConfigWithHttpInfo(Long cloudAccountId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -684,7 +684,7 @@ public class CloudCostManagementApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCostAWSCURConfigWithHttpInfoAsync(
-      String cloudAccountId) {
+      Long cloudAccountId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'cloudAccountId' is set
@@ -741,7 +741,7 @@ public class CloudCostManagementApi {
    * @param cloudAccountId Cloud Account id. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteCostAzureUCConfig(String cloudAccountId) throws ApiException {
+  public void deleteCostAzureUCConfig(Long cloudAccountId) throws ApiException {
     deleteCostAzureUCConfigWithHttpInfo(cloudAccountId);
   }
 
@@ -753,7 +753,7 @@ public class CloudCostManagementApi {
    * @param cloudAccountId Cloud Account id. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> deleteCostAzureUCConfigAsync(String cloudAccountId) {
+  public CompletableFuture<Void> deleteCostAzureUCConfigAsync(Long cloudAccountId) {
     return deleteCostAzureUCConfigWithHttpInfoAsync(cloudAccountId)
         .thenApply(
             response -> {
@@ -777,7 +777,7 @@ public class CloudCostManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteCostAzureUCConfigWithHttpInfo(String cloudAccountId)
+  public ApiResponse<Void> deleteCostAzureUCConfigWithHttpInfo(Long cloudAccountId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -825,7 +825,7 @@ public class CloudCostManagementApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCostAzureUCConfigWithHttpInfoAsync(
-      String cloudAccountId) {
+      Long cloudAccountId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'cloudAccountId' is set
@@ -882,7 +882,7 @@ public class CloudCostManagementApi {
    * @param cloudAccountId Cloud Account id. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteCostGCPUsageCostConfig(String cloudAccountId) throws ApiException {
+  public void deleteCostGCPUsageCostConfig(Long cloudAccountId) throws ApiException {
     deleteCostGCPUsageCostConfigWithHttpInfo(cloudAccountId);
   }
 
@@ -894,7 +894,7 @@ public class CloudCostManagementApi {
    * @param cloudAccountId Cloud Account id. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> deleteCostGCPUsageCostConfigAsync(String cloudAccountId) {
+  public CompletableFuture<Void> deleteCostGCPUsageCostConfigAsync(Long cloudAccountId) {
     return deleteCostGCPUsageCostConfigWithHttpInfoAsync(cloudAccountId)
         .thenApply(
             response -> {
@@ -918,7 +918,7 @@ public class CloudCostManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteCostGCPUsageCostConfigWithHttpInfo(String cloudAccountId)
+  public ApiResponse<Void> deleteCostGCPUsageCostConfigWithHttpInfo(Long cloudAccountId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -967,7 +967,7 @@ public class CloudCostManagementApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCostGCPUsageCostConfigWithHttpInfoAsync(
-      String cloudAccountId) {
+      Long cloudAccountId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'cloudAccountId' is set
@@ -1056,6 +1056,7 @@ public class CloudCostManagementApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -1323,6 +1324,7 @@ public class CloudCostManagementApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -1858,6 +1860,58 @@ public class CloudCostManagementApi {
         new GenericType<GCPUsageCostConfigsResponse>() {});
   }
 
+  /** Manage optional parameters to listCustomCostsFiles. */
+  public static class ListCustomCostsFilesOptionalParameters {
+    private Long pageNumber;
+    private Long pageSize;
+    private String filterStatus;
+    private String sort;
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Page number for pagination (optional)
+     * @return ListCustomCostsFilesOptionalParameters
+     */
+    public ListCustomCostsFilesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Page size for pagination (optional, default to 100)
+     * @return ListCustomCostsFilesOptionalParameters
+     */
+    public ListCustomCostsFilesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set filterStatus.
+     *
+     * @param filterStatus Filter by file status (optional)
+     * @return ListCustomCostsFilesOptionalParameters
+     */
+    public ListCustomCostsFilesOptionalParameters filterStatus(String filterStatus) {
+      this.filterStatus = filterStatus;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort key with optional descending prefix (optional, default to "created_at")
+     * @return ListCustomCostsFilesOptionalParameters
+     */
+    public ListCustomCostsFilesOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+  }
+
   /**
    * List Custom Costs files.
    *
@@ -1867,7 +1921,7 @@ public class CloudCostManagementApi {
    * @throws ApiException if fails to make API call
    */
   public CustomCostsFileListResponse listCustomCostsFiles() throws ApiException {
-    return listCustomCostsFilesWithHttpInfo().getData();
+    return listCustomCostsFilesWithHttpInfo(new ListCustomCostsFilesOptionalParameters()).getData();
   }
 
   /**
@@ -1878,7 +1932,38 @@ public class CloudCostManagementApi {
    * @return CompletableFuture&lt;CustomCostsFileListResponse&gt;
    */
   public CompletableFuture<CustomCostsFileListResponse> listCustomCostsFilesAsync() {
-    return listCustomCostsFilesWithHttpInfoAsync()
+    return listCustomCostsFilesWithHttpInfoAsync(new ListCustomCostsFilesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Custom Costs files.
+   *
+   * <p>See {@link #listCustomCostsFilesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CustomCostsFileListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CustomCostsFileListResponse listCustomCostsFiles(
+      ListCustomCostsFilesOptionalParameters parameters) throws ApiException {
+    return listCustomCostsFilesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List Custom Costs files.
+   *
+   * <p>See {@link #listCustomCostsFilesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CustomCostsFileListResponse&gt;
+   */
+  public CompletableFuture<CustomCostsFileListResponse> listCustomCostsFilesAsync(
+      ListCustomCostsFilesOptionalParameters parameters) {
+    return listCustomCostsFilesWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -1888,6 +1973,7 @@ public class CloudCostManagementApi {
   /**
    * List the Custom Costs files.
    *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CustomCostsFileListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1895,23 +1981,34 @@ public class CloudCostManagementApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CustomCostsFileListResponse> listCustomCostsFilesWithHttpInfo()
-      throws ApiException {
+  public ApiResponse<CustomCostsFileListResponse> listCustomCostsFilesWithHttpInfo(
+      ListCustomCostsFilesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String filterStatus = parameters.filterStatus;
+    String sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/cost/custom_costs";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.CloudCostManagementApi.listCustomCostsFiles",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -1932,15 +2029,26 @@ public class CloudCostManagementApi {
    *
    * <p>See {@link #listCustomCostsFilesWithHttpInfo}.
    *
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;CustomCostsFileListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CustomCostsFileListResponse>>
-      listCustomCostsFilesWithHttpInfoAsync() {
+      listCustomCostsFilesWithHttpInfoAsync(ListCustomCostsFilesOptionalParameters parameters) {
     Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String filterStatus = parameters.filterStatus;
+    String sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/cost/custom_costs";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
     Invocation.Builder builder;
     try {
@@ -1948,7 +2056,7 @@ public class CloudCostManagementApi {
           apiClient.createBuilder(
               "v2.CloudCostManagementApi.listCustomCostsFiles",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
@@ -1981,7 +2089,7 @@ public class CloudCostManagementApi {
    * @throws ApiException if fails to make API call
    */
   public AwsCURConfigsResponse updateCostAWSCURConfig(
-      String cloudAccountId, AwsCURConfigPatchRequest body) throws ApiException {
+      Long cloudAccountId, AwsCURConfigPatchRequest body) throws ApiException {
     return updateCostAWSCURConfigWithHttpInfo(cloudAccountId, body).getData();
   }
 
@@ -1995,7 +2103,7 @@ public class CloudCostManagementApi {
    * @return CompletableFuture&lt;AwsCURConfigsResponse&gt;
    */
   public CompletableFuture<AwsCURConfigsResponse> updateCostAWSCURConfigAsync(
-      String cloudAccountId, AwsCURConfigPatchRequest body) {
+      Long cloudAccountId, AwsCURConfigPatchRequest body) {
     return updateCostAWSCURConfigWithHttpInfoAsync(cloudAccountId, body)
         .thenApply(
             response -> {
@@ -2021,7 +2129,7 @@ public class CloudCostManagementApi {
    *     </table>
    */
   public ApiResponse<AwsCURConfigsResponse> updateCostAWSCURConfigWithHttpInfo(
-      String cloudAccountId, AwsCURConfigPatchRequest body) throws ApiException {
+      Long cloudAccountId, AwsCURConfigPatchRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'cloudAccountId' is set
@@ -2075,8 +2183,7 @@ public class CloudCostManagementApi {
    * @return CompletableFuture&lt;ApiResponse&lt;AwsCURConfigsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<AwsCURConfigsResponse>>
-      updateCostAWSCURConfigWithHttpInfoAsync(
-          String cloudAccountId, AwsCURConfigPatchRequest body) {
+      updateCostAWSCURConfigWithHttpInfoAsync(Long cloudAccountId, AwsCURConfigPatchRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'cloudAccountId' is set
@@ -2145,7 +2252,7 @@ public class CloudCostManagementApi {
    * @throws ApiException if fails to make API call
    */
   public AzureUCConfigPairsResponse updateCostAzureUCConfigs(
-      String cloudAccountId, AzureUCConfigPatchRequest body) throws ApiException {
+      Long cloudAccountId, AzureUCConfigPatchRequest body) throws ApiException {
     return updateCostAzureUCConfigsWithHttpInfo(cloudAccountId, body).getData();
   }
 
@@ -2159,7 +2266,7 @@ public class CloudCostManagementApi {
    * @return CompletableFuture&lt;AzureUCConfigPairsResponse&gt;
    */
   public CompletableFuture<AzureUCConfigPairsResponse> updateCostAzureUCConfigsAsync(
-      String cloudAccountId, AzureUCConfigPatchRequest body) {
+      Long cloudAccountId, AzureUCConfigPatchRequest body) {
     return updateCostAzureUCConfigsWithHttpInfoAsync(cloudAccountId, body)
         .thenApply(
             response -> {
@@ -2185,7 +2292,7 @@ public class CloudCostManagementApi {
    *     </table>
    */
   public ApiResponse<AzureUCConfigPairsResponse> updateCostAzureUCConfigsWithHttpInfo(
-      String cloudAccountId, AzureUCConfigPatchRequest body) throws ApiException {
+      Long cloudAccountId, AzureUCConfigPatchRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'cloudAccountId' is set
@@ -2240,7 +2347,7 @@ public class CloudCostManagementApi {
    */
   public CompletableFuture<ApiResponse<AzureUCConfigPairsResponse>>
       updateCostAzureUCConfigsWithHttpInfoAsync(
-          String cloudAccountId, AzureUCConfigPatchRequest body) {
+          Long cloudAccountId, AzureUCConfigPatchRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'cloudAccountId' is set
@@ -2309,7 +2416,7 @@ public class CloudCostManagementApi {
    * @throws ApiException if fails to make API call
    */
   public GCPUsageCostConfigResponse updateCostGCPUsageCostConfig(
-      String cloudAccountId, GCPUsageCostConfigPatchRequest body) throws ApiException {
+      Long cloudAccountId, GCPUsageCostConfigPatchRequest body) throws ApiException {
     return updateCostGCPUsageCostConfigWithHttpInfo(cloudAccountId, body).getData();
   }
 
@@ -2323,7 +2430,7 @@ public class CloudCostManagementApi {
    * @return CompletableFuture&lt;GCPUsageCostConfigResponse&gt;
    */
   public CompletableFuture<GCPUsageCostConfigResponse> updateCostGCPUsageCostConfigAsync(
-      String cloudAccountId, GCPUsageCostConfigPatchRequest body) {
+      Long cloudAccountId, GCPUsageCostConfigPatchRequest body) {
     return updateCostGCPUsageCostConfigWithHttpInfoAsync(cloudAccountId, body)
         .thenApply(
             response -> {
@@ -2350,7 +2457,7 @@ public class CloudCostManagementApi {
    *     </table>
    */
   public ApiResponse<GCPUsageCostConfigResponse> updateCostGCPUsageCostConfigWithHttpInfo(
-      String cloudAccountId, GCPUsageCostConfigPatchRequest body) throws ApiException {
+      Long cloudAccountId, GCPUsageCostConfigPatchRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'cloudAccountId' is set
@@ -2406,7 +2513,7 @@ public class CloudCostManagementApi {
    */
   public CompletableFuture<ApiResponse<GCPUsageCostConfigResponse>>
       updateCostGCPUsageCostConfigWithHttpInfoAsync(
-          String cloudAccountId, GCPUsageCostConfigPatchRequest body) {
+          Long cloudAccountId, GCPUsageCostConfigPatchRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'cloudAccountId' is set
@@ -2507,6 +2614,7 @@ public class CloudCostManagementApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
