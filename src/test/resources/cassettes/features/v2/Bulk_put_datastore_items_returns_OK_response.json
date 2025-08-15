@@ -1,0 +1,109 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"\",\"name\":\"Test Datastore\",\"org_access\":\"contributor\",\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"d0b1264c-fc7f-4b8c-855e-ef7c433efe6f\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6574cf7e-1c55-24e1-45d2-b92f9fa74d30"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/d0b1264c-fc7f-4b8c-855e-ef7c433efe6f",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"d0b1264c-fc7f-4b8c-855e-ef7c433efe6f\",\"type\":\"datastores\",\"attributes\":{\"created_at\":\"2025-08-11T22:19:00.513238Z\",\"creator_user_id\":1445416,\"creator_user_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"\",\"modified_at\":\"2025-08-11T22:19:00.513238Z\",\"name\":\"Test Datastore\",\"org_id\":321813,\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "50305dad-cf00-9139-4ac4-2bf6a389cc10"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"values\":[{\"id\":\"key1\",\"value\":{\"data\":\"example data 1\",\"key\":\"value\"}},{\"id\":\"key2\",\"value\":{\"data\":\"example data 2\",\"key\":\"value\"}}]},\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores/d0b1264c-fc7f-4b8c-855e-ef7c433efe6f/items/bulk",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"a74b5936-79bf-43b4-b319-1f28357e72df\",\"type\":\"items\"},{\"id\":\"cc12cffb-d035-4241-979a-e7ad9fe6b148\",\"type\":\"items\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ffa27a4e-0ef1-4c3d-0cd8-d89cfdc57a72"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/d0b1264c-fc7f-4b8c-855e-ef7c433efe6f",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 200,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "78686599-b545-47d7-7185-b8f4d9d8ec86"
+  }
+]

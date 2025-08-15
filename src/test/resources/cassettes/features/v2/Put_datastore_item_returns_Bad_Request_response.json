@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"\",\"name\":\"Test Datastore\",\"org_access\":\"contributor\",\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"5d430898-fa17-4fe6-aab0-75f1b2880b9c\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6574cf7e-1c55-24e1-45d2-b92f9fa74d34"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"value\":{\"missing\":\"item-key\"}},\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores/5d430898-fa17-4fe6-aab0-75f1b2880b9c/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"item key missing or invalid\",\"detail\":\"item at index 0: primary column \\\"id\\\" is missing\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "53e4e017-8bb7-41cc-d046-7d0dd405c6c3"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/5d430898-fa17-4fe6-aab0-75f1b2880b9c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 200,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b721c0c5-9e26-f936-82ff-5497284aa176"
+  }
+]
