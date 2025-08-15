@@ -1,0 +1,31 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"source\":\"github\",\"type\":\"link\"},\"type\":\"team_sync_bulk\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team/sync",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/plain"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "39416307-2f49-be15-7e10-9223981e6839"
+  }
+]

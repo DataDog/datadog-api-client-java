@@ -18,6 +18,7 @@ import com.datadog.api.client.v2.model.TeamPermissionSettingResponse;
 import com.datadog.api.client.v2.model.TeamPermissionSettingUpdateRequest;
 import com.datadog.api.client.v2.model.TeamPermissionSettingsResponse;
 import com.datadog.api.client.v2.model.TeamResponse;
+import com.datadog.api.client.v2.model.TeamSyncRequest;
 import com.datadog.api.client.v2.model.TeamUpdateRequest;
 import com.datadog.api.client.v2.model.TeamsField;
 import com.datadog.api.client.v2.model.TeamsResponse;
@@ -2911,6 +2912,161 @@ public class TeamsApi {
         builder,
         localVarHeaderParams,
         new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Link Teams with GitHub Teams.
+   *
+   * <p>See {@link #syncTeamsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void syncTeams(TeamSyncRequest body) throws ApiException {
+    syncTeamsWithHttpInfo(body);
+  }
+
+  /**
+   * Link Teams with GitHub Teams.
+   *
+   * <p>See {@link #syncTeamsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> syncTeamsAsync(TeamSyncRequest body) {
+    return syncTeamsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * This endpoint attempts to link your existing Datadog teams with GitHub teams by matching their
+   * names. It evaluates all current Datadog teams and compares them against teams in the GitHub
+   * organization connected to your Datadog account, based on Datadog Team handle and GitHub Team
+   * slug (lowercased and kebab-cased).
+   *
+   * <p>This operation is read-only on the GitHub side, no teams will be modified or created.
+   *
+   * <p><a href="https://docs.datadoghq.com/integrations/github/">A GitHub organization must be
+   * connected to your Datadog account</a>, and the GitHub App integrated with Datadog must have the
+   * <code>Members Read</code> permission. Matching is performed by comparing the Datadog team
+   * handle to the GitHub team slug using a normalized exact match; case is ignored and spaces are
+   * removed. No modifications are made to teams in GitHub. This will not create new Teams in
+   * Datadog.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error - Unexpected error during linking. </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> syncTeamsWithHttpInfo(TeamSyncRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "syncTeams";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling syncTeams");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/team/sync";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.syncTeams",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Link Teams with GitHub Teams.
+   *
+   * <p>See {@link #syncTeamsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> syncTeamsWithHttpInfoAsync(TeamSyncRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "syncTeams";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling syncTeams"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/team/sync";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.syncTeams",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
