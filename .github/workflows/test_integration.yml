@@ -44,29 +44,29 @@ jobs:
       - name: Get GitHub App token
         if: github.event_name == 'pull_request'
         id: get_token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1.12.0
         with:
           app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
           private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
           repositories: datadog-api-spec
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
       - name: Post pending status check
         if: github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')
-        uses: DataDog/github-actions/post-status-check@v2
+        uses: DataDog/github-actions/post-status-check@65b4875f33ad773d7ba4b005a2cb5f35020295f3 # v2.3.0
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
           status: pending
           context: integration
       - name: Install Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@17f84c3641ba7b8f6deff6309fc4c864478f5d62 # v3.14.1
         with:
           java-version: '16'
           distribution: 'temurin'
           cache: 'maven'
       - name: Configure Datadog Test Optimization
-        uses: datadog/test-visibility-github-action@v2
+        uses: datadog/test-visibility-github-action@4d09028b08a1f4431663b1de1550249cd4764051 # v2.4.1
         with:
           languages: java
           api_key: ${{ secrets.DD_API_KEY }}
@@ -86,7 +86,7 @@ jobs:
           SLEEP_AFTER_REQUEST: "${{ vars.SLEEP_AFTER_REQUEST }}"
       - name: Post failure status check
         if: failure() && github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')
-        uses: DataDog/github-actions/post-status-check@v2
+        uses: DataDog/github-actions/post-status-check@65b4875f33ad773d7ba4b005a2cb5f35020295f3 # v2.3.0
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
@@ -94,7 +94,7 @@ jobs:
           context: integration
       - name: Post success status check
         if: "!failure() && github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')"
-        uses: DataDog/github-actions/post-status-check@v2
+        uses: DataDog/github-actions/post-status-check@65b4875f33ad773d7ba4b005a2cb5f35020295f3 # v2.3.0
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
