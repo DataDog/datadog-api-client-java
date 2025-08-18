@@ -48,7 +48,7 @@ public class DatasetResponse {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private DatasetType type = DatasetType.DATASET;
 
   public DatasetResponse attributes(DatasetAttributesResponse attributes) {
     this.attributes = attributes;
@@ -93,24 +93,28 @@ public class DatasetResponse {
     this.id = id;
   }
 
-  public DatasetResponse type(String type) {
+  public DatasetResponse type(DatasetType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Resource type, always "dataset".
+   * Resource type, always set to <code>dataset</code>.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
+  public DatasetType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(DatasetType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
