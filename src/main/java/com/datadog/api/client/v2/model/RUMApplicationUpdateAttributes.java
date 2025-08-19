@@ -19,6 +19,8 @@ import java.util.Objects;
 /** RUM application update attributes. */
 @JsonPropertyOrder({
   RUMApplicationUpdateAttributes.JSON_PROPERTY_NAME,
+  RUMApplicationUpdateAttributes.JSON_PROPERTY_PRODUCT_ANALYTICS_RETENTION_STATE,
+  RUMApplicationUpdateAttributes.JSON_PROPERTY_RUM_EVENT_PROCESSING_STATE,
   RUMApplicationUpdateAttributes.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -27,6 +29,14 @@ public class RUMApplicationUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_PRODUCT_ANALYTICS_RETENTION_STATE =
+      "product_analytics_retention_state";
+  private RUMProductAnalyticsRetentionState productAnalyticsRetentionState;
+
+  public static final String JSON_PROPERTY_RUM_EVENT_PROCESSING_STATE =
+      "rum_event_processing_state";
+  private RUMEventProcessingState rumEventProcessingState;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -50,6 +60,59 @@ public class RUMApplicationUpdateAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public RUMApplicationUpdateAttributes productAnalyticsRetentionState(
+      RUMProductAnalyticsRetentionState productAnalyticsRetentionState) {
+    this.productAnalyticsRetentionState = productAnalyticsRetentionState;
+    this.unparsed |= !productAnalyticsRetentionState.isValid();
+    return this;
+  }
+
+  /**
+   * Controls the retention policy for Product Analytics data derived from RUM events.
+   *
+   * @return productAnalyticsRetentionState
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_RETENTION_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RUMProductAnalyticsRetentionState getProductAnalyticsRetentionState() {
+    return productAnalyticsRetentionState;
+  }
+
+  public void setProductAnalyticsRetentionState(
+      RUMProductAnalyticsRetentionState productAnalyticsRetentionState) {
+    if (!productAnalyticsRetentionState.isValid()) {
+      this.unparsed = true;
+    }
+    this.productAnalyticsRetentionState = productAnalyticsRetentionState;
+  }
+
+  public RUMApplicationUpdateAttributes rumEventProcessingState(
+      RUMEventProcessingState rumEventProcessingState) {
+    this.rumEventProcessingState = rumEventProcessingState;
+    this.unparsed |= !rumEventProcessingState.isValid();
+    return this;
+  }
+
+  /**
+   * Configures which RUM events are processed and stored for the application.
+   *
+   * @return rumEventProcessingState
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_EVENT_PROCESSING_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RUMEventProcessingState getRumEventProcessingState() {
+    return rumEventProcessingState;
+  }
+
+  public void setRumEventProcessingState(RUMEventProcessingState rumEventProcessingState) {
+    if (!rumEventProcessingState.isValid()) {
+      this.unparsed = true;
+    }
+    this.rumEventProcessingState = rumEventProcessingState;
   }
 
   public RUMApplicationUpdateAttributes type(String type) {
@@ -133,6 +196,11 @@ public class RUMApplicationUpdateAttributes {
     RUMApplicationUpdateAttributes rumApplicationUpdateAttributes =
         (RUMApplicationUpdateAttributes) o;
     return Objects.equals(this.name, rumApplicationUpdateAttributes.name)
+        && Objects.equals(
+            this.productAnalyticsRetentionState,
+            rumApplicationUpdateAttributes.productAnalyticsRetentionState)
+        && Objects.equals(
+            this.rumEventProcessingState, rumApplicationUpdateAttributes.rumEventProcessingState)
         && Objects.equals(this.type, rumApplicationUpdateAttributes.type)
         && Objects.equals(
             this.additionalProperties, rumApplicationUpdateAttributes.additionalProperties);
@@ -140,7 +208,8 @@ public class RUMApplicationUpdateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, additionalProperties);
+    return Objects.hash(
+        name, productAnalyticsRetentionState, rumEventProcessingState, type, additionalProperties);
   }
 
   @Override
@@ -148,6 +217,12 @@ public class RUMApplicationUpdateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class RUMApplicationUpdateAttributes {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productAnalyticsRetentionState: ")
+        .append(toIndentedString(productAnalyticsRetentionState))
+        .append("\n");
+    sb.append("    rumEventProcessingState: ")
+        .append(toIndentedString(rumEventProcessingState))
+        .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

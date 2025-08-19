@@ -26,6 +26,7 @@ import java.util.Objects;
   RUMApplicationListAttributes.JSON_PROPERTY_IS_ACTIVE,
   RUMApplicationListAttributes.JSON_PROPERTY_NAME,
   RUMApplicationListAttributes.JSON_PROPERTY_ORG_ID,
+  RUMApplicationListAttributes.JSON_PROPERTY_PRODUCT_SCALES,
   RUMApplicationListAttributes.JSON_PROPERTY_TYPE,
   RUMApplicationListAttributes.JSON_PROPERTY_UPDATED_AT,
   RUMApplicationListAttributes.JSON_PROPERTY_UPDATED_BY_HANDLE
@@ -54,6 +55,9 @@ public class RUMApplicationListAttributes {
 
   public static final String JSON_PROPERTY_ORG_ID = "org_id";
   private Integer orgId;
+
+  public static final String JSON_PROPERTY_PRODUCT_SCALES = "product_scales";
+  private RUMProductScales productScales;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -230,6 +234,28 @@ public class RUMApplicationListAttributes {
     this.orgId = orgId;
   }
 
+  public RUMApplicationListAttributes productScales(RUMProductScales productScales) {
+    this.productScales = productScales;
+    this.unparsed |= productScales.unparsed;
+    return this;
+  }
+
+  /**
+   * Product Scales configuration for the RUM application.
+   *
+   * @return productScales
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_SCALES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RUMProductScales getProductScales() {
+    return productScales;
+  }
+
+  public void setProductScales(RUMProductScales productScales) {
+    this.productScales = productScales;
+  }
+
   public RUMApplicationListAttributes type(String type) {
     this.type = type;
     return this;
@@ -355,6 +381,7 @@ public class RUMApplicationListAttributes {
         && Objects.equals(this.isActive, rumApplicationListAttributes.isActive)
         && Objects.equals(this.name, rumApplicationListAttributes.name)
         && Objects.equals(this.orgId, rumApplicationListAttributes.orgId)
+        && Objects.equals(this.productScales, rumApplicationListAttributes.productScales)
         && Objects.equals(this.type, rumApplicationListAttributes.type)
         && Objects.equals(this.updatedAt, rumApplicationListAttributes.updatedAt)
         && Objects.equals(this.updatedByHandle, rumApplicationListAttributes.updatedByHandle)
@@ -372,6 +399,7 @@ public class RUMApplicationListAttributes {
         isActive,
         name,
         orgId,
+        productScales,
         type,
         updatedAt,
         updatedByHandle,
@@ -389,6 +417,7 @@ public class RUMApplicationListAttributes {
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+    sb.append("    productScales: ").append(toIndentedString(productScales)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updatedByHandle: ").append(toIndentedString(updatedByHandle)).append("\n");

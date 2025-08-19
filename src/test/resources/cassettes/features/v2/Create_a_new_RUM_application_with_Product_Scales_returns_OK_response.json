@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"test-rum-with-product-scales-b91c7f54876a951d\",\"product_analytics_retention_state\":\"NONE\",\"rum_event_processing_state\":\"ERROR_FOCUSED_MODE\",\"type\":\"browser\"},\"type\":\"rum_application_create\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/rum/applications",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"rum_application\",\"id\":\"51419fd9-a73f-4508-9f74-ad07d6669a47\",\"attributes\":{\"hash\":\"pub6c464316cf5deccd2f56a23dbacd996e\",\"type\":\"browser\",\"org_id\":321813,\"updated_at\":1755612113258,\"name\":\"test-rum-with-product-scales-b91c7f54876a951d\",\"product_scales\":{\"product_analytics_retention_scale\":{\"state\":\"NONE\",\"last_modified_at\":1755612113258},\"rum_event_processing_scale\":{\"state\":\"ERROR_FOCUSED_MODE\",\"last_modified_at\":1755612113258}},\"created_at\":1755612113258,\"tags\":[],\"is_active\":false,\"updated_by_handle\":\"frog@datadoghq.com\",\"client_token\":\"pub6c464316cf5deccd2f56a23dbacd996e\",\"created_by_handle\":\"frog@datadoghq.com\",\"application_id\":\"51419fd9-a73f-4508-9f74-ad07d6669a47\",\"product_analytics_replay_sample_rate\":100}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8985cfde-a521-82e0-075e-b82e0a29194f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/rum/applications/51419fd9-a73f-4508-9f74-ad07d6669a47",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "abd64512-4f29-7a4c-7af9-c283c4e567c7"
+  }
+]
