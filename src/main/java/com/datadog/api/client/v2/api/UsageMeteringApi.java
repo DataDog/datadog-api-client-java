@@ -54,6 +54,23 @@ public class UsageMeteringApi {
     this.apiClient = apiClient;
   }
 
+  /** Manage optional parameters to getActiveBillingDimensions. */
+  public static class GetActiveBillingDimensionsOptionalParameters {
+    private OffsetDateTime month;
+
+    /**
+     * Set month.
+     *
+     * @param month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for billing
+     *     dimensions active this month. Defaults to the current month. (optional)
+     * @return GetActiveBillingDimensionsOptionalParameters
+     */
+    public GetActiveBillingDimensionsOptionalParameters month(OffsetDateTime month) {
+      this.month = month;
+      return this;
+    }
+  }
+
   /**
    * Get active billing dimensions for cost attribution.
    *
@@ -63,7 +80,9 @@ public class UsageMeteringApi {
    * @throws ApiException if fails to make API call
    */
   public ActiveBillingDimensionsResponse getActiveBillingDimensions() throws ApiException {
-    return getActiveBillingDimensionsWithHttpInfo().getData();
+    return getActiveBillingDimensionsWithHttpInfo(
+            new GetActiveBillingDimensionsOptionalParameters())
+        .getData();
   }
 
   /**
@@ -74,7 +93,8 @@ public class UsageMeteringApi {
    * @return CompletableFuture&lt;ActiveBillingDimensionsResponse&gt;
    */
   public CompletableFuture<ActiveBillingDimensionsResponse> getActiveBillingDimensionsAsync() {
-    return getActiveBillingDimensionsWithHttpInfoAsync()
+    return getActiveBillingDimensionsWithHttpInfoAsync(
+            new GetActiveBillingDimensionsOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -82,9 +102,43 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get active billing dimensions for cost attribution. Cost data for a given month becomes
-   * available no later than the 19th of the following month.
+   * Get active billing dimensions for cost attribution.
    *
+   * <p>See {@link #getActiveBillingDimensionsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ActiveBillingDimensionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ActiveBillingDimensionsResponse getActiveBillingDimensions(
+      GetActiveBillingDimensionsOptionalParameters parameters) throws ApiException {
+    return getActiveBillingDimensionsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get active billing dimensions for cost attribution.
+   *
+   * <p>See {@link #getActiveBillingDimensionsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ActiveBillingDimensionsResponse&gt;
+   */
+  public CompletableFuture<ActiveBillingDimensionsResponse> getActiveBillingDimensionsAsync(
+      GetActiveBillingDimensionsOptionalParameters parameters) {
+    return getActiveBillingDimensionsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get active billing dimensions for cost attribution in a given month. Note that billing
+   * dimensions active in a given month may not appear in the Monthly Cost Attribution API response
+   * until the 19th of the following month. For the most accurate results, request the same month
+   * for both endpoints.
+   *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ActiveBillingDimensionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -97,19 +151,23 @@ public class UsageMeteringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ActiveBillingDimensionsResponse> getActiveBillingDimensionsWithHttpInfo()
-      throws ApiException {
+  public ApiResponse<ActiveBillingDimensionsResponse> getActiveBillingDimensionsWithHttpInfo(
+      GetActiveBillingDimensionsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    OffsetDateTime month = parameters.month;
     // create path and map variables
     String localVarPath = "/api/v2/cost_by_tag/active_billing_dimensions";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.UsageMeteringApi.getActiveBillingDimensions",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
@@ -130,15 +188,21 @@ public class UsageMeteringApi {
    *
    * <p>See {@link #getActiveBillingDimensionsWithHttpInfo}.
    *
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ActiveBillingDimensionsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ActiveBillingDimensionsResponse>>
-      getActiveBillingDimensionsWithHttpInfoAsync() {
+      getActiveBillingDimensionsWithHttpInfoAsync(
+          GetActiveBillingDimensionsOptionalParameters parameters) {
     Object localVarPostBody = null;
+    OffsetDateTime month = parameters.month;
     // create path and map variables
     String localVarPath = "/api/v2/cost_by_tag/active_billing_dimensions";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
 
     Invocation.Builder builder;
     try {
@@ -146,7 +210,7 @@ public class UsageMeteringApi {
           apiClient.createBuilder(
               "v2.UsageMeteringApi.getActiveBillingDimensions",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
