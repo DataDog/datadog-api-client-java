@@ -19,9 +19,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The action to take when the quota is exceeded. Options: - <code>drop</code>: Drop the event. -
- * <code>no_action</code>: Let the event pass through. - <code>overflow_routing</code>: Route to an
- * overflow destination.
+ * The action to take when the quota or bucket limit is exceeded. Options: - <code>drop</code>: Drop
+ * the event. - <code>no_action</code>: Let the event pass through. - <code>overflow_routing</code>:
+ * Route to an overflow destination.
  */
 @JsonSerialize(
     using =

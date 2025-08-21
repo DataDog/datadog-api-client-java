@@ -26,6 +26,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_BUCKET,
+  ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_ID,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_KEY_PREFIX,
@@ -43,6 +44,9 @@ public class ObservabilityPipelineAmazonS3Destination {
 
   public static final String JSON_PROPERTY_BUCKET = "bucket";
   private String bucket;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -129,6 +133,29 @@ public class ObservabilityPipelineAmazonS3Destination {
 
   public void setBucket(String bucket) {
     this.bucket = bucket;
+  }
+
+  public ObservabilityPipelineAmazonS3Destination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineAmazonS3Destination id(String id) {
@@ -348,6 +375,7 @@ public class ObservabilityPipelineAmazonS3Destination {
         (ObservabilityPipelineAmazonS3Destination) o;
     return Objects.equals(this.auth, observabilityPipelineAmazonS3Destination.auth)
         && Objects.equals(this.bucket, observabilityPipelineAmazonS3Destination.bucket)
+        && Objects.equals(this.buffer, observabilityPipelineAmazonS3Destination.buffer)
         && Objects.equals(this.id, observabilityPipelineAmazonS3Destination.id)
         && Objects.equals(this.inputs, observabilityPipelineAmazonS3Destination.inputs)
         && Objects.equals(this.keyPrefix, observabilityPipelineAmazonS3Destination.keyPrefix)
@@ -363,7 +391,17 @@ public class ObservabilityPipelineAmazonS3Destination {
   @Override
   public int hashCode() {
     return Objects.hash(
-        auth, bucket, id, inputs, keyPrefix, region, storageClass, tls, type, additionalProperties);
+        auth,
+        bucket,
+        buffer,
+        id,
+        inputs,
+        keyPrefix,
+        region,
+        storageClass,
+        tls,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -372,6 +410,7 @@ public class ObservabilityPipelineAmazonS3Destination {
     sb.append("class ObservabilityPipelineAmazonS3Destination {\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    keyPrefix: ").append(toIndentedString(keyPrefix)).append("\n");
