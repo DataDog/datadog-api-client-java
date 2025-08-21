@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** IP allowlist Entry type. */
+/** IP allowlist entry type. */
 @JsonSerialize(using = IPAllowlistEntryType.IPAllowlistEntryTypeSerializer.class)
 public class IPAllowlistEntryType extends ModelEnum<String> {
 

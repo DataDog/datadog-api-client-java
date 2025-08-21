@@ -95,7 +95,7 @@ public class IPAllowlistEntryData {
   }
 
   /**
-   * IP allowlist Entry type.
+   * IP allowlist entry type.
    *
    * @return type
    */
