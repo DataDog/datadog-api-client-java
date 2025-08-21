@@ -24,6 +24,7 @@ import java.util.Objects;
  * over TCP or UDP using the syslog protocol.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineSyslogNgDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineSyslogNgDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineSyslogNgDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineSyslogNgDestination.JSON_PROPERTY_KEEPALIVE,
@@ -34,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSyslogNgDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -62,6 +66,29 @@ public class ObservabilityPipelineSyslogNgDestination {
     this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineSyslogNgDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineSyslogNgDestination id(String id) {
@@ -234,7 +261,8 @@ public class ObservabilityPipelineSyslogNgDestination {
     }
     ObservabilityPipelineSyslogNgDestination observabilityPipelineSyslogNgDestination =
         (ObservabilityPipelineSyslogNgDestination) o;
-    return Objects.equals(this.id, observabilityPipelineSyslogNgDestination.id)
+    return Objects.equals(this.buffer, observabilityPipelineSyslogNgDestination.buffer)
+        && Objects.equals(this.id, observabilityPipelineSyslogNgDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineSyslogNgDestination.inputs)
         && Objects.equals(this.keepalive, observabilityPipelineSyslogNgDestination.keepalive)
         && Objects.equals(this.tls, observabilityPipelineSyslogNgDestination.tls)
@@ -246,13 +274,14 @@ public class ObservabilityPipelineSyslogNgDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, inputs, keepalive, tls, type, additionalProperties);
+    return Objects.hash(buffer, id, inputs, keepalive, tls, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSyslogNgDestination {\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    keepalive: ").append(toIndentedString(keepalive)).append("\n");

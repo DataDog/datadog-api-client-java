@@ -34,6 +34,7 @@ import java.util.Objects;
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_OVERFLOW_ACTION,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_OVERRIDES,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_PARTITION_FIELDS,
+  ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_TOO_MANY_BUCKETS_ACTION,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -71,6 +72,9 @@ public class ObservabilityPipelineQuotaProcessor {
   public static final String JSON_PROPERTY_PARTITION_FIELDS = "partition_fields";
   private List<String> partitionFields = null;
 
+  public static final String JSON_PROPERTY_TOO_MANY_BUCKETS_ACTION = "too_many_buckets_action";
+  private ObservabilityPipelineQuotaProcessorOverflowAction tooManyBucketsAction;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineQuotaProcessorType type =
       ObservabilityPipelineQuotaProcessorType.QUOTA;
@@ -79,7 +83,6 @@ public class ObservabilityPipelineQuotaProcessor {
 
   @JsonCreator
   public ObservabilityPipelineQuotaProcessor(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DROP_EVENTS) Boolean dropEvents,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
       @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
@@ -88,7 +91,6 @@ public class ObservabilityPipelineQuotaProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineQuotaProcessorType type) {
-    this.dropEvents = dropEvents;
     this.id = id;
     this.include = include;
     this.inputs = inputs;
@@ -105,14 +107,16 @@ public class ObservabilityPipelineQuotaProcessor {
   }
 
   /**
-   * If set to <code>true</code>, logs that matched the quota filter and sent after the quota has
-   * been met are dropped; only logs that did not match the filter query continue through the
-   * pipeline.
+   * If set to <code>true</code>, logs that match the quota filter and are sent after the quota is
+   * exceeded are dropped. Logs that do not match the filter continue through the pipeline.
+   * <strong>Note</strong>: You can set either <code>drop_events</code> or <code>overflow_action
+   * </code>, but not both.
    *
    * @return dropEvents
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DROP_EVENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDropEvents() {
     return dropEvents;
   }
@@ -260,9 +264,9 @@ public class ObservabilityPipelineQuotaProcessor {
   }
 
   /**
-   * The action to take when the quota is exceeded. Options: - <code>drop</code>: Drop the event. -
-   * <code>no_action</code>: Let the event pass through. - <code>overflow_routing</code>: Route to
-   * an overflow destination.
+   * The action to take when the quota or bucket limit is exceeded. Options: - <code>drop</code>:
+   * Drop the event. - <code>no_action</code>: Let the event pass through. - <code>overflow_routing
+   * </code>: Route to an overflow destination.
    *
    * @return overflowAction
    */
@@ -344,6 +348,35 @@ public class ObservabilityPipelineQuotaProcessor {
 
   public void setPartitionFields(List<String> partitionFields) {
     this.partitionFields = partitionFields;
+  }
+
+  public ObservabilityPipelineQuotaProcessor tooManyBucketsAction(
+      ObservabilityPipelineQuotaProcessorOverflowAction tooManyBucketsAction) {
+    this.tooManyBucketsAction = tooManyBucketsAction;
+    this.unparsed |= !tooManyBucketsAction.isValid();
+    return this;
+  }
+
+  /**
+   * The action to take when the quota or bucket limit is exceeded. Options: - <code>drop</code>:
+   * Drop the event. - <code>no_action</code>: Let the event pass through. - <code>overflow_routing
+   * </code>: Route to an overflow destination.
+   *
+   * @return tooManyBucketsAction
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOO_MANY_BUCKETS_ACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineQuotaProcessorOverflowAction getTooManyBucketsAction() {
+    return tooManyBucketsAction;
+  }
+
+  public void setTooManyBucketsAction(
+      ObservabilityPipelineQuotaProcessorOverflowAction tooManyBucketsAction) {
+    if (!tooManyBucketsAction.isValid()) {
+      this.unparsed = true;
+    }
+    this.tooManyBucketsAction = tooManyBucketsAction;
   }
 
   public ObservabilityPipelineQuotaProcessor type(ObservabilityPipelineQuotaProcessorType type) {
@@ -439,6 +472,8 @@ public class ObservabilityPipelineQuotaProcessor {
         && Objects.equals(this.overflowAction, observabilityPipelineQuotaProcessor.overflowAction)
         && Objects.equals(this.overrides, observabilityPipelineQuotaProcessor.overrides)
         && Objects.equals(this.partitionFields, observabilityPipelineQuotaProcessor.partitionFields)
+        && Objects.equals(
+            this.tooManyBucketsAction, observabilityPipelineQuotaProcessor.tooManyBucketsAction)
         && Objects.equals(this.type, observabilityPipelineQuotaProcessor.type)
         && Objects.equals(
             this.additionalProperties, observabilityPipelineQuotaProcessor.additionalProperties);
@@ -457,6 +492,7 @@ public class ObservabilityPipelineQuotaProcessor {
         overflowAction,
         overrides,
         partitionFields,
+        tooManyBucketsAction,
         type,
         additionalProperties);
   }
@@ -477,6 +513,9 @@ public class ObservabilityPipelineQuotaProcessor {
     sb.append("    overflowAction: ").append(toIndentedString(overflowAction)).append("\n");
     sb.append("    overrides: ").append(toIndentedString(overrides)).append("\n");
     sb.append("    partitionFields: ").append(toIndentedString(partitionFields)).append("\n");
+    sb.append("    tooManyBucketsAction: ")
+        .append(toIndentedString(tooManyBucketsAction))
+        .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
