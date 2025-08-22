@@ -86,7 +86,7 @@ public class MicrosoftTeamsChannelInfoResponseData {
   }
 
   /**
-   * Channel info resource type.
+   * Microsoft Teams channel info resource type.
    *
    * @return type
    */
