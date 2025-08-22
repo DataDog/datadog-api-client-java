@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Channel info resource type. */
+/** Microsoft Teams channel info resource type. */
 @JsonSerialize(using = MicrosoftTeamsChannelInfoType.MicrosoftTeamsChannelInfoTypeSerializer.class)
 public class MicrosoftTeamsChannelInfoType extends ModelEnum<String> {
 
