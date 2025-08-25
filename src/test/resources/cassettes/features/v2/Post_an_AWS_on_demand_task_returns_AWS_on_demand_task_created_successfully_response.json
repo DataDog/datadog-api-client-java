@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"arn\":\"arn:aws:lambda:eu-west-3:376334461865:function:This-Is-An-Api-Spec-Test\"},\"type\":\"aws_resource\"}}"
+        "json": "{\"data\":{\"attributes\":{\"arn\":\"arn:aws:lambda:us-west-2:123456789012:function:my-function\"},\"type\":\"aws_resource\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"aaa12247-2b39-4b70-a2fd-a804840e17f5\",\"type\":\"aws_resource\",\"attributes\":{\"arn\":\"arn:aws:lambda:eu-west-3:376334461865:function:This-Is-An-Api-Spec-Test\",\"created_at\":\"2025-03-05T15:30:09.129732Z\",\"status\":\"QUEUED\"}}}",
+      "body": "{\"data\":{\"id\":\"20fa1c5c-0f03-4db7-b1d9-e360226bb786\",\"type\":\"aws_resource\",\"attributes\":{\"arn\":\"arn:aws:lambda:us-west-2:123456789012:function:my-function\",\"created_at\":\"2025-08-24T22:41:51.043274Z\",\"status\":\"QUEUED\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "00ab1d14-e325-68fb-f9c3-515f72084164"
+    "id": "22e692ec-0118-56ae-6a7b-e829dfef8419"
   }
 ]
