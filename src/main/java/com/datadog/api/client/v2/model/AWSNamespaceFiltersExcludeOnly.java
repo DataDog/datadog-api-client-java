@@ -21,9 +21,9 @@ import java.util.Objects;
 
 /**
  * Exclude only these namespaces from metrics collection. Defaults to <code>
- * ["AWS/SQS", "AWS/ElasticMapReduce"]</code>. <code>AWS/SQS</code> and <code>AWS/ElasticMapReduce
- * </code> are excluded by default to reduce your AWS CloudWatch costs from <code>GetMetricData
- * </code> API calls.
+ * ["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]</code>. <code>AWS/SQS</code>, <code>
+ * AWS/ElasticMapReduce</code>, and <code>AWS/Usage</code> are excluded by default to reduce your
+ * AWS CloudWatch costs from <code>GetMetricData</code> API calls.
  */
 @JsonPropertyOrder({AWSNamespaceFiltersExcludeOnly.JSON_PROPERTY_EXCLUDE_ONLY})
 @jakarta.annotation.Generated(
@@ -53,9 +53,9 @@ public class AWSNamespaceFiltersExcludeOnly {
 
   /**
    * Exclude only these namespaces from metrics collection. Defaults to <code>
-   * ["AWS/SQS", "AWS/ElasticMapReduce"]</code>. <code>AWS/SQS</code> and <code>AWS/ElasticMapReduce
-   * </code> are excluded by default to reduce your AWS CloudWatch costs from <code>GetMetricData
-   * </code> API calls.
+   * ["AWS/SQS", "AWS/ElasticMapReduce", "AWS/Usage"]</code>. <code>AWS/SQS</code>, <code>
+   * AWS/ElasticMapReduce</code>, and <code>AWS/Usage</code> are excluded by default to reduce your
+   * AWS CloudWatch costs from <code>GetMetricData</code> API calls.
    *
    * @return excludeOnly
    */
