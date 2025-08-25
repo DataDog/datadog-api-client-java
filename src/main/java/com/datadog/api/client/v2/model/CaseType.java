@@ -22,9 +22,11 @@ import java.util.Set;
 @JsonSerialize(using = CaseType.CaseTypeSerializer.class)
 public class CaseType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("STANDARD"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("STANDARD", "TUNKNOWN"));
 
   public static final CaseType STANDARD = new CaseType("STANDARD");
+  public static final CaseType TUNKNOWN = new CaseType("TUNKNOWN");
 
   CaseType(String value) {
     super(value, allowedValues);

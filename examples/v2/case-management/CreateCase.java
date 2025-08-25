@@ -10,7 +10,6 @@ import com.datadog.api.client.v2.model.CaseCreateRequest;
 import com.datadog.api.client.v2.model.CasePriority;
 import com.datadog.api.client.v2.model.CaseResourceType;
 import com.datadog.api.client.v2.model.CaseResponse;
-import com.datadog.api.client.v2.model.CaseType;
 import com.datadog.api.client.v2.model.NullableUserRelationship;
 import com.datadog.api.client.v2.model.NullableUserRelationshipData;
 import com.datadog.api.client.v2.model.ProjectRelationship;
@@ -34,7 +33,7 @@ public class Example {
                         new CaseCreateAttributes()
                             .priority(CasePriority.NOT_DEFINED)
                             .title("Security breach investigation in 0cfbc5cbc676ee71")
-                            .type(CaseType.STANDARD))
+                            .typeId("00000000-0000-0000-0000-000000000001"))
                     .relationships(
                         new CaseCreateRelationships()
                             .assignee(
