@@ -34,7 +34,8 @@ import java.util.Objects;
   SyntheticsCITest.JSON_PROPERTY_PUBLIC_ID,
   SyntheticsCITest.JSON_PROPERTY_RETRY,
   SyntheticsCITest.JSON_PROPERTY_START_URL,
-  SyntheticsCITest.JSON_PROPERTY_VARIABLES
+  SyntheticsCITest.JSON_PROPERTY_VARIABLES,
+  SyntheticsCITest.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -82,6 +83,9 @@ public class SyntheticsCITest {
 
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private Map<String, String> variables = null;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private Long version;
 
   public SyntheticsCITest() {}
 
@@ -419,6 +423,27 @@ public class SyntheticsCITest {
     this.variables = variables;
   }
 
+  public SyntheticsCITest version(Long version) {
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * The version number of the Synthetic test version to trigger.
+   *
+   * @return version
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getVersion() {
+    return version;
+  }
+
+  public void setVersion(Long version) {
+    this.version = version;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -490,6 +515,7 @@ public class SyntheticsCITest {
         && Objects.equals(this.retry, syntheticsCiTest.retry)
         && Objects.equals(this.startUrl, syntheticsCiTest.startUrl)
         && Objects.equals(this.variables, syntheticsCiTest.variables)
+        && Objects.equals(this.version, syntheticsCiTest.version)
         && Objects.equals(this.additionalProperties, syntheticsCiTest.additionalProperties);
   }
 
@@ -510,6 +536,7 @@ public class SyntheticsCITest {
         retry,
         startUrl,
         variables,
+        version,
         additionalProperties);
   }
 
@@ -533,6 +560,7 @@ public class SyntheticsCITest {
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    startUrl: ").append(toIndentedString(startUrl)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
