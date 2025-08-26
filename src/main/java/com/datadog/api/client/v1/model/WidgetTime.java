@@ -210,6 +210,51 @@ public class WidgetTime extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'WidgetNewFixedSpan'", e);
       }
 
+      // deserialize WidgetTimeHideIncompleteData
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (WidgetTimeHideIncompleteData.class.equals(Integer.class)
+            || WidgetTimeHideIncompleteData.class.equals(Long.class)
+            || WidgetTimeHideIncompleteData.class.equals(Float.class)
+            || WidgetTimeHideIncompleteData.class.equals(Double.class)
+            || WidgetTimeHideIncompleteData.class.equals(Boolean.class)
+            || WidgetTimeHideIncompleteData.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((WidgetTimeHideIncompleteData.class.equals(Integer.class)
+                        || WidgetTimeHideIncompleteData.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((WidgetTimeHideIncompleteData.class.equals(Float.class)
+                        || WidgetTimeHideIncompleteData.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (WidgetTimeHideIncompleteData.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (WidgetTimeHideIncompleteData.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(WidgetTimeHideIncompleteData.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((WidgetTimeHideIncompleteData) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'WidgetTimeHideIncompleteData'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'WidgetTimeHideIncompleteData'", e);
+      }
+
       WidgetTime ret = new WidgetTime();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -253,10 +298,16 @@ public class WidgetTime extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetTime(WidgetTimeHideIncompleteData o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("WidgetLegacyLiveSpan", new GenericType<WidgetLegacyLiveSpan>() {});
     schemas.put("WidgetNewLiveSpan", new GenericType<WidgetNewLiveSpan>() {});
     schemas.put("WidgetNewFixedSpan", new GenericType<WidgetNewFixedSpan>() {});
+    schemas.put("WidgetTimeHideIncompleteData", new GenericType<WidgetTimeHideIncompleteData>() {});
     JSON.registerDescendants(WidgetTime.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -267,7 +318,8 @@ public class WidgetTime extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: WidgetLegacyLiveSpan, WidgetNewLiveSpan, WidgetNewFixedSpan
+   * against the oneOf child schemas: WidgetLegacyLiveSpan, WidgetNewLiveSpan, WidgetNewFixedSpan,
+   * WidgetTimeHideIncompleteData
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -286,6 +338,10 @@ public class WidgetTime extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(WidgetTimeHideIncompleteData.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -293,14 +349,15 @@ public class WidgetTime extends AbstractOpenApiSchema {
     }
     throw new RuntimeException(
         "Invalid instance type. Must be WidgetLegacyLiveSpan, WidgetNewLiveSpan,"
-            + " WidgetNewFixedSpan");
+            + " WidgetNewFixedSpan, WidgetTimeHideIncompleteData");
   }
 
   /**
    * Get the actual instance, which can be the following: WidgetLegacyLiveSpan, WidgetNewLiveSpan,
-   * WidgetNewFixedSpan
+   * WidgetNewFixedSpan, WidgetTimeHideIncompleteData
    *
-   * @return The actual instance (WidgetLegacyLiveSpan, WidgetNewLiveSpan, WidgetNewFixedSpan)
+   * @return The actual instance (WidgetLegacyLiveSpan, WidgetNewLiveSpan, WidgetNewFixedSpan,
+   *     WidgetTimeHideIncompleteData)
    */
   @Override
   public Object getActualInstance() {
@@ -338,5 +395,16 @@ public class WidgetTime extends AbstractOpenApiSchema {
    */
   public WidgetNewFixedSpan getWidgetNewFixedSpan() throws ClassCastException {
     return (WidgetNewFixedSpan) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `WidgetTimeHideIncompleteData`. If the actual instance is not
+   * `WidgetTimeHideIncompleteData`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `WidgetTimeHideIncompleteData`
+   * @throws ClassCastException if the instance is not `WidgetTimeHideIncompleteData`
+   */
+  public WidgetTimeHideIncompleteData getWidgetTimeHideIncompleteData() throws ClassCastException {
+    return (WidgetTimeHideIncompleteData) super.getActualInstance();
   }
 }
