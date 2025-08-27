@@ -20,6 +20,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SensitiveDataScannerTextReplacement.JSON_PROPERTY_NUMBER_OF_CHARS,
   SensitiveDataScannerTextReplacement.JSON_PROPERTY_REPLACEMENT_STRING,
+  SensitiveDataScannerTextReplacement.JSON_PROPERTY_SHOULD_SAVE_MATCH,
   SensitiveDataScannerTextReplacement.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -31,6 +32,9 @@ public class SensitiveDataScannerTextReplacement {
 
   public static final String JSON_PROPERTY_REPLACEMENT_STRING = "replacement_string";
   private String replacementString;
+
+  public static final String JSON_PROPERTY_SHOULD_SAVE_MATCH = "should_save_match";
+  private Boolean shouldSaveMatch;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SensitiveDataScannerTextReplacementType type =
@@ -77,6 +81,29 @@ public class SensitiveDataScannerTextReplacement {
 
   public void setReplacementString(String replacementString) {
     this.replacementString = replacementString;
+  }
+
+  public SensitiveDataScannerTextReplacement shouldSaveMatch(Boolean shouldSaveMatch) {
+    this.shouldSaveMatch = shouldSaveMatch;
+    return this;
+  }
+
+  /**
+   * Only valid when type == <code>replacement_string</code>. When enabled, matches can be unmasked
+   * in logs by users with ‘Data Scanner Unmask’ permission. As a security best practice, avoid
+   * masking for highly-sensitive, long-lived data.
+   *
+   * @return shouldSaveMatch
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOULD_SAVE_MATCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShouldSaveMatch() {
+    return shouldSaveMatch;
+  }
+
+  public void setShouldSaveMatch(Boolean shouldSaveMatch) {
+    this.shouldSaveMatch = shouldSaveMatch;
   }
 
   public SensitiveDataScannerTextReplacement type(SensitiveDataScannerTextReplacementType type) {
@@ -168,6 +195,7 @@ public class SensitiveDataScannerTextReplacement {
     return Objects.equals(this.numberOfChars, sensitiveDataScannerTextReplacement.numberOfChars)
         && Objects.equals(
             this.replacementString, sensitiveDataScannerTextReplacement.replacementString)
+        && Objects.equals(this.shouldSaveMatch, sensitiveDataScannerTextReplacement.shouldSaveMatch)
         && Objects.equals(this.type, sensitiveDataScannerTextReplacement.type)
         && Objects.equals(
             this.additionalProperties, sensitiveDataScannerTextReplacement.additionalProperties);
@@ -175,7 +203,8 @@ public class SensitiveDataScannerTextReplacement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(numberOfChars, replacementString, type, additionalProperties);
+    return Objects.hash(
+        numberOfChars, replacementString, shouldSaveMatch, type, additionalProperties);
   }
 
   @Override
@@ -184,6 +213,7 @@ public class SensitiveDataScannerTextReplacement {
     sb.append("class SensitiveDataScannerTextReplacement {\n");
     sb.append("    numberOfChars: ").append(toIndentedString(numberOfChars)).append("\n");
     sb.append("    replacementString: ").append(toIndentedString(replacementString)).append("\n");
+    sb.append("    shouldSaveMatch: ").append(toIndentedString(shouldSaveMatch)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
