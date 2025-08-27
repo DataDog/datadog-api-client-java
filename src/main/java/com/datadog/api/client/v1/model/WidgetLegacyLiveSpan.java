@@ -13,13 +13,40 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /** Wrapper for live span */
-@JsonPropertyOrder({WidgetLegacyLiveSpan.JSON_PROPERTY_LIVE_SPAN})
+@JsonPropertyOrder({
+  WidgetLegacyLiveSpan.JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA,
+  WidgetLegacyLiveSpan.JSON_PROPERTY_LIVE_SPAN
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetLegacyLiveSpan {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA = "hide_incomplete_cost_data";
+  private Boolean hideIncompleteCostData;
+
   public static final String JSON_PROPERTY_LIVE_SPAN = "live_span";
   private WidgetLiveSpan liveSpan;
+
+  public WidgetLegacyLiveSpan hideIncompleteCostData(Boolean hideIncompleteCostData) {
+    this.hideIncompleteCostData = hideIncompleteCostData;
+    return this;
+  }
+
+  /**
+   * Whether to hide incomplete cost data in the widget.
+   *
+   * @return hideIncompleteCostData
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHideIncompleteCostData() {
+    return hideIncompleteCostData;
+  }
+
+  public void setHideIncompleteCostData(Boolean hideIncompleteCostData) {
+    this.hideIncompleteCostData = hideIncompleteCostData;
+  }
 
   public WidgetLegacyLiveSpan liveSpan(WidgetLiveSpan liveSpan) {
     this.liveSpan = liveSpan;
@@ -56,18 +83,22 @@ public class WidgetLegacyLiveSpan {
       return false;
     }
     WidgetLegacyLiveSpan widgetLegacyLiveSpan = (WidgetLegacyLiveSpan) o;
-    return Objects.equals(this.liveSpan, widgetLegacyLiveSpan.liveSpan);
+    return Objects.equals(this.hideIncompleteCostData, widgetLegacyLiveSpan.hideIncompleteCostData)
+        && Objects.equals(this.liveSpan, widgetLegacyLiveSpan.liveSpan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(liveSpan);
+    return Objects.hash(hideIncompleteCostData, liveSpan);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WidgetLegacyLiveSpan {\n");
+    sb.append("    hideIncompleteCostData: ")
+        .append(toIndentedString(hideIncompleteCostData))
+        .append("\n");
     sb.append("    liveSpan: ").append(toIndentedString(liveSpan)).append("\n");
     sb.append('}');
     return sb.toString();

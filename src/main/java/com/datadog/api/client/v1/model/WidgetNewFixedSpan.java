@@ -20,6 +20,7 @@ import java.util.Objects;
 /** Used for fixed span times, such as 'March 1 to March 7'. */
 @JsonPropertyOrder({
   WidgetNewFixedSpan.JSON_PROPERTY_FROM,
+  WidgetNewFixedSpan.JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA,
   WidgetNewFixedSpan.JSON_PROPERTY_TO,
   WidgetNewFixedSpan.JSON_PROPERTY_TYPE
 })
@@ -29,6 +30,9 @@ public class WidgetNewFixedSpan {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";
   private Long from;
+
+  public static final String JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA = "hide_incomplete_cost_data";
+  private Boolean hideIncompleteCostData;
 
   public static final String JSON_PROPERTY_TO = "to";
   private Long to;
@@ -67,6 +71,27 @@ public class WidgetNewFixedSpan {
 
   public void setFrom(Long from) {
     this.from = from;
+  }
+
+  public WidgetNewFixedSpan hideIncompleteCostData(Boolean hideIncompleteCostData) {
+    this.hideIncompleteCostData = hideIncompleteCostData;
+    return this;
+  }
+
+  /**
+   * Whether to hide incomplete cost data in the widget.
+   *
+   * @return hideIncompleteCostData
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHideIncompleteCostData() {
+    return hideIncompleteCostData;
+  }
+
+  public void setHideIncompleteCostData(Boolean hideIncompleteCostData) {
+    this.hideIncompleteCostData = hideIncompleteCostData;
   }
 
   public WidgetNewFixedSpan to(Long to) {
@@ -170,6 +195,7 @@ public class WidgetNewFixedSpan {
     }
     WidgetNewFixedSpan widgetNewFixedSpan = (WidgetNewFixedSpan) o;
     return Objects.equals(this.from, widgetNewFixedSpan.from)
+        && Objects.equals(this.hideIncompleteCostData, widgetNewFixedSpan.hideIncompleteCostData)
         && Objects.equals(this.to, widgetNewFixedSpan.to)
         && Objects.equals(this.type, widgetNewFixedSpan.type)
         && Objects.equals(this.additionalProperties, widgetNewFixedSpan.additionalProperties);
@@ -177,7 +203,7 @@ public class WidgetNewFixedSpan {
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, to, type, additionalProperties);
+    return Objects.hash(from, hideIncompleteCostData, to, type, additionalProperties);
   }
 
   @Override
@@ -185,6 +211,9 @@ public class WidgetNewFixedSpan {
     StringBuilder sb = new StringBuilder();
     sb.append("class WidgetNewFixedSpan {\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    hideIncompleteCostData: ")
+        .append(toIndentedString(hideIncompleteCostData))
+        .append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

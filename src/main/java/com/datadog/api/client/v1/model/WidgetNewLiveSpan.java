@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** Used for arbitrary live span times, such as 17 minutes or 6 hours. */
 @JsonPropertyOrder({
+  WidgetNewLiveSpan.JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA,
   WidgetNewLiveSpan.JSON_PROPERTY_TYPE,
   WidgetNewLiveSpan.JSON_PROPERTY_UNIT,
   WidgetNewLiveSpan.JSON_PROPERTY_VALUE
@@ -27,6 +28,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetNewLiveSpan {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA = "hide_incomplete_cost_data";
+  private Boolean hideIncompleteCostData;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private WidgetNewLiveSpanType type;
 
@@ -48,6 +52,27 @@ public class WidgetNewLiveSpan {
     this.unit = unit;
     this.unparsed |= !unit.isValid();
     this.value = value;
+  }
+
+  public WidgetNewLiveSpan hideIncompleteCostData(Boolean hideIncompleteCostData) {
+    this.hideIncompleteCostData = hideIncompleteCostData;
+    return this;
+  }
+
+  /**
+   * Whether to hide incomplete cost data in the widget.
+   *
+   * @return hideIncompleteCostData
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHideIncompleteCostData() {
+    return hideIncompleteCostData;
+  }
+
+  public void setHideIncompleteCostData(Boolean hideIncompleteCostData) {
+    this.hideIncompleteCostData = hideIncompleteCostData;
   }
 
   public WidgetNewLiveSpan type(WidgetNewLiveSpanType type) {
@@ -174,7 +199,8 @@ public class WidgetNewLiveSpan {
       return false;
     }
     WidgetNewLiveSpan widgetNewLiveSpan = (WidgetNewLiveSpan) o;
-    return Objects.equals(this.type, widgetNewLiveSpan.type)
+    return Objects.equals(this.hideIncompleteCostData, widgetNewLiveSpan.hideIncompleteCostData)
+        && Objects.equals(this.type, widgetNewLiveSpan.type)
         && Objects.equals(this.unit, widgetNewLiveSpan.unit)
         && Objects.equals(this.value, widgetNewLiveSpan.value)
         && Objects.equals(this.additionalProperties, widgetNewLiveSpan.additionalProperties);
@@ -182,13 +208,16 @@ public class WidgetNewLiveSpan {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, unit, value, additionalProperties);
+    return Objects.hash(hideIncompleteCostData, type, unit, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WidgetNewLiveSpan {\n");
+    sb.append("    hideIncompleteCostData: ")
+        .append(toIndentedString(hideIncompleteCostData))
+        .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

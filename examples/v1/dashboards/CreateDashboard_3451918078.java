@@ -60,7 +60,8 @@ public class Example {
                                             new WidgetNewFixedSpan()
                                                 .type(WidgetNewFixedSpanType.FIXED)
                                                 .from(1712080128L)
-                                                .to(1712083128L)))
+                                                .to(1712083128L)
+                                                .hideIncompleteCostData(true)))
                                     .type(TimeseriesWidgetDefinitionType.TIMESERIES)
                                     .requests(
                                         Collections.singletonList(
