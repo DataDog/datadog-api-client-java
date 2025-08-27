@@ -61,7 +61,8 @@ public class Example {
                                             new WidgetNewLiveSpan()
                                                 .type(WidgetNewLiveSpanType.LIVE)
                                                 .unit(WidgetLiveSpanUnit.MINUTE)
-                                                .value(8L)))
+                                                .value(8L)
+                                                .hideIncompleteCostData(true)))
                                     .type(TimeseriesWidgetDefinitionType.TIMESERIES)
                                     .requests(
                                         Collections.singletonList(

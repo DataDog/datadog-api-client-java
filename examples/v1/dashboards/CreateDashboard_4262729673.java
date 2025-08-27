@@ -58,7 +58,8 @@ public class Example {
                                     .time(
                                         new WidgetTime(
                                             new WidgetLegacyLiveSpan()
-                                                .liveSpan(WidgetLiveSpan.PAST_FIVE_MINUTES)))
+                                                .liveSpan(WidgetLiveSpan.PAST_FIVE_MINUTES)
+                                                .hideIncompleteCostData(true)))
                                     .type(TimeseriesWidgetDefinitionType.TIMESERIES)
                                     .requests(
                                         Collections.singletonList(
