@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Update_Scorecard_outcomes_asynchronously_returns_Bad_Request_response-1756219579\",\"owner\":\"Datadog\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"},\"type\":\"rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/scorecard/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"cyysw9dtqcu8zemc\",\"type\":\"rule\",\"attributes\":{\"category\":\"OpenAPI Spec Test Best Practices\",\"created_at\":\"2025-08-26T14:46:19.594805953Z\",\"custom\":true,\"enabled\":true,\"level\":3,\"modified_at\":\"2025-08-26T14:46:19.594805953Z\",\"name\":\"Test-Update_Scorecard_outcomes_asynchronously_returns_Bad_Request_response-1756219579\",\"owner\":\"Datadog\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"},\"relationships\":{\"scorecard\":{\"data\":{\"id\":\"qsxpoYRhU_yz\",\"type\":\"scorecard\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "098b052d-be3c-ee8e-a581-83a7581884e5"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"results\":[{\"entity_reference\":\"service:my-service\",\"rule_id\":\"cyysw9dtqcu8zemc\",\"state\":\"INVALID\"}]},\"type\":\"batched-outcome\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/scorecard/outcomes",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"attribute \\\"state\\\" must be one of \\\"pass fail skip\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "80191f8f-eb57-f2b9-81b5-25f9d805fd6d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/scorecard/rules/cyysw9dtqcu8zemc",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "45a36f57-c6a6-dbf2-e4ad-16596a20d9a7"
+  }
+]

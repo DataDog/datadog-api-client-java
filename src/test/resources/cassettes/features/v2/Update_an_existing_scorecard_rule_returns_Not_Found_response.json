@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"level\":2,\"name\":\"Team Defined\",\"scorecard_name\":\"Deployments automated via Deployment Trains\"},\"type\":\"rule\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/scorecard/rules/REPLACE.ME",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"rule not found: REPLACE.ME\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "49cbb9b3-42d5-00f7-2b79-a8fb13534ba0"
+  }
+]
