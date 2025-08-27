@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Attributes for creating a data deletion request. */
 @JsonPropertyOrder({
+  CreateDataDeletionRequestBodyAttributes.JSON_PROPERTY_DISPLAYED_TOTAL,
   CreateDataDeletionRequestBodyAttributes.JSON_PROPERTY_FROM,
   CreateDataDeletionRequestBodyAttributes.JSON_PROPERTY_INDEXES,
   CreateDataDeletionRequestBodyAttributes.JSON_PROPERTY_QUERY,
@@ -30,6 +31,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateDataDeletionRequestBodyAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISPLAYED_TOTAL = "displayed_total";
+  private Long displayedTotal;
+
   public static final String JSON_PROPERTY_FROM = "from";
   private Long from;
 
@@ -46,12 +50,34 @@ public class CreateDataDeletionRequestBodyAttributes {
 
   @JsonCreator
   public CreateDataDeletionRequestBodyAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DISPLAYED_TOTAL) Long displayedTotal,
       @JsonProperty(required = true, value = JSON_PROPERTY_FROM) Long from,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) Map<String, String> query,
       @JsonProperty(required = true, value = JSON_PROPERTY_TO) Long to) {
+    this.displayedTotal = displayedTotal;
     this.from = from;
     this.query = query;
     this.to = to;
+  }
+
+  public CreateDataDeletionRequestBodyAttributes displayedTotal(Long displayedTotal) {
+    this.displayedTotal = displayedTotal;
+    return this;
+  }
+
+  /**
+   * The total number of elements to be deleted that the UI shows to the user.
+   *
+   * @return displayedTotal
+   */
+  @JsonProperty(JSON_PROPERTY_DISPLAYED_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getDisplayedTotal() {
+    return displayedTotal;
+  }
+
+  public void setDisplayedTotal(Long displayedTotal) {
+    this.displayedTotal = displayedTotal;
   }
 
   public CreateDataDeletionRequestBodyAttributes from(Long from) {
@@ -205,7 +231,9 @@ public class CreateDataDeletionRequestBodyAttributes {
     }
     CreateDataDeletionRequestBodyAttributes createDataDeletionRequestBodyAttributes =
         (CreateDataDeletionRequestBodyAttributes) o;
-    return Objects.equals(this.from, createDataDeletionRequestBodyAttributes.from)
+    return Objects.equals(
+            this.displayedTotal, createDataDeletionRequestBodyAttributes.displayedTotal)
+        && Objects.equals(this.from, createDataDeletionRequestBodyAttributes.from)
         && Objects.equals(this.indexes, createDataDeletionRequestBodyAttributes.indexes)
         && Objects.equals(this.query, createDataDeletionRequestBodyAttributes.query)
         && Objects.equals(this.to, createDataDeletionRequestBodyAttributes.to)
@@ -216,13 +244,14 @@ public class CreateDataDeletionRequestBodyAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, indexes, query, to, additionalProperties);
+    return Objects.hash(displayedTotal, from, indexes, query, to, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDataDeletionRequestBodyAttributes {\n");
+    sb.append("    displayedTotal: ").append(toIndentedString(displayedTotal)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");

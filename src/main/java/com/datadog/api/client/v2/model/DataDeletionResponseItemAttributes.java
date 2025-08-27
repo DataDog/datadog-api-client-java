@@ -32,6 +32,7 @@ import java.util.Objects;
   DataDeletionResponseItemAttributes.JSON_PROPERTY_STARTING_AT,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_STATUS,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_TO_TIME,
+  DataDeletionResponseItemAttributes.JSON_PROPERTY_TOTAL_DISPLAYED,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_TOTAL_UNRESTRICTED,
   DataDeletionResponseItemAttributes.JSON_PROPERTY_UPDATED_AT
 })
@@ -72,6 +73,9 @@ public class DataDeletionResponseItemAttributes {
   public static final String JSON_PROPERTY_TO_TIME = "to_time";
   private Long toTime;
 
+  public static final String JSON_PROPERTY_TOTAL_DISPLAYED = "total_displayed";
+  private Long totalDisplayed;
+
   public static final String JSON_PROPERTY_TOTAL_UNRESTRICTED = "total_unrestricted";
   private Long totalUnrestricted;
 
@@ -92,6 +96,7 @@ public class DataDeletionResponseItemAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_STARTING_AT) String startingAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_STATUS) String status,
       @JsonProperty(required = true, value = JSON_PROPERTY_TO_TIME) Long toTime,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_DISPLAYED) Long totalDisplayed,
       @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_UNRESTRICTED)
           Long totalUnrestricted,
       @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) String updatedAt) {
@@ -105,6 +110,7 @@ public class DataDeletionResponseItemAttributes {
     this.startingAt = startingAt;
     this.status = status;
     this.toTime = toTime;
+    this.totalDisplayed = totalDisplayed;
     this.totalUnrestricted = totalUnrestricted;
     this.updatedAt = updatedAt;
   }
@@ -339,6 +345,26 @@ public class DataDeletionResponseItemAttributes {
     this.toTime = toTime;
   }
 
+  public DataDeletionResponseItemAttributes totalDisplayed(Long totalDisplayed) {
+    this.totalDisplayed = totalDisplayed;
+    return this;
+  }
+
+  /**
+   * Total number of elements to be deleted according to the UI.
+   *
+   * @return totalDisplayed
+   */
+  @JsonProperty(JSON_PROPERTY_TOTAL_DISPLAYED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getTotalDisplayed() {
+    return totalDisplayed;
+  }
+
+  public void setTotalDisplayed(Long totalDisplayed) {
+    this.totalDisplayed = totalDisplayed;
+  }
+
   public DataDeletionResponseItemAttributes totalUnrestricted(Long totalUnrestricted) {
     this.totalUnrestricted = totalUnrestricted;
     return this;
@@ -448,6 +474,7 @@ public class DataDeletionResponseItemAttributes {
         && Objects.equals(this.startingAt, dataDeletionResponseItemAttributes.startingAt)
         && Objects.equals(this.status, dataDeletionResponseItemAttributes.status)
         && Objects.equals(this.toTime, dataDeletionResponseItemAttributes.toTime)
+        && Objects.equals(this.totalDisplayed, dataDeletionResponseItemAttributes.totalDisplayed)
         && Objects.equals(
             this.totalUnrestricted, dataDeletionResponseItemAttributes.totalUnrestricted)
         && Objects.equals(this.updatedAt, dataDeletionResponseItemAttributes.updatedAt)
@@ -469,6 +496,7 @@ public class DataDeletionResponseItemAttributes {
         startingAt,
         status,
         toTime,
+        totalDisplayed,
         totalUnrestricted,
         updatedAt,
         additionalProperties);
@@ -489,6 +517,7 @@ public class DataDeletionResponseItemAttributes {
     sb.append("    startingAt: ").append(toIndentedString(startingAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    toTime: ").append(toIndentedString(toTime)).append("\n");
+    sb.append("    totalDisplayed: ").append(toIndentedString(totalDisplayed)).append("\n");
     sb.append("    totalUnrestricted: ").append(toIndentedString(totalUnrestricted)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    additionalProperties: ")

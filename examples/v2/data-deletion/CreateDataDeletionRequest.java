@@ -23,6 +23,7 @@ public class Example {
                 new CreateDataDeletionRequestBodyData()
                     .attributes(
                         new CreateDataDeletionRequestBodyAttributes()
+                            .displayedTotal(25000L)
                             .from(1672527600000L)
                             .indexes(Arrays.asList("test-index", "test-index-2"))
                             .query(
