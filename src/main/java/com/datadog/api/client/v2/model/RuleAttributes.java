@@ -24,6 +24,7 @@ import java.util.Objects;
   RuleAttributes.JSON_PROPERTY_CUSTOM,
   RuleAttributes.JSON_PROPERTY_DESCRIPTION,
   RuleAttributes.JSON_PROPERTY_ENABLED,
+  RuleAttributes.JSON_PROPERTY_LEVEL,
   RuleAttributes.JSON_PROPERTY_MODIFIED_AT,
   RuleAttributes.JSON_PROPERTY_NAME,
   RuleAttributes.JSON_PROPERTY_OWNER,
@@ -47,6 +48,9 @@ public class RuleAttributes {
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
+
+  public static final String JSON_PROPERTY_LEVEL = "level";
+  private Integer level;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
@@ -166,6 +170,27 @@ public class RuleAttributes {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public RuleAttributes level(Integer level) {
+    this.level = level;
+    return this;
+  }
+
+  /**
+   * The maturity level of the rule (1, 2, or 3). minimum: 1 maximum: 3
+   *
+   * @return level
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getLevel() {
+    return level;
+  }
+
+  public void setLevel(Integer level) {
+    this.level = level;
   }
 
   public RuleAttributes modifiedAt(OffsetDateTime modifiedAt) {
@@ -313,6 +338,7 @@ public class RuleAttributes {
         && Objects.equals(this.custom, ruleAttributes.custom)
         && Objects.equals(this.description, ruleAttributes.description)
         && Objects.equals(this.enabled, ruleAttributes.enabled)
+        && Objects.equals(this.level, ruleAttributes.level)
         && Objects.equals(this.modifiedAt, ruleAttributes.modifiedAt)
         && Objects.equals(this.name, ruleAttributes.name)
         && Objects.equals(this.owner, ruleAttributes.owner)
@@ -328,6 +354,7 @@ public class RuleAttributes {
         custom,
         description,
         enabled,
+        level,
         modifiedAt,
         name,
         owner,
@@ -344,6 +371,7 @@ public class RuleAttributes {
     sb.append("    custom: ").append(toIndentedString(custom)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
