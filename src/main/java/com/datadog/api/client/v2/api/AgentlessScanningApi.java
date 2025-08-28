@@ -588,6 +588,142 @@ public class AgentlessScanningApi {
   }
 
   /**
+   * Get AWS scan options.
+   *
+   * <p>See {@link #getAwsScanOptionsWithHttpInfo}.
+   *
+   * @param accountId The ID of an AWS account. (required)
+   * @return AwsScanOptionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AwsScanOptionsResponse getAwsScanOptions(String accountId) throws ApiException {
+    return getAwsScanOptionsWithHttpInfo(accountId).getData();
+  }
+
+  /**
+   * Get AWS scan options.
+   *
+   * <p>See {@link #getAwsScanOptionsWithHttpInfoAsync}.
+   *
+   * @param accountId The ID of an AWS account. (required)
+   * @return CompletableFuture&lt;AwsScanOptionsResponse&gt;
+   */
+  public CompletableFuture<AwsScanOptionsResponse> getAwsScanOptionsAsync(String accountId) {
+    return getAwsScanOptionsWithHttpInfoAsync(accountId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetches the Agentless scan options for an activated account.
+   *
+   * @param accountId The ID of an AWS account. (required)
+   * @return ApiResponse&lt;AwsScanOptionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AwsScanOptionsResponse> getAwsScanOptionsWithHttpInfo(String accountId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'accountId' when calling getAwsScanOptions");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/accounts/aws/{account_id}"
+            .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentlessScanningApi.getAwsScanOptions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AwsScanOptionsResponse>() {});
+  }
+
+  /**
+   * Get AWS scan options.
+   *
+   * <p>See {@link #getAwsScanOptionsWithHttpInfo}.
+   *
+   * @param accountId The ID of an AWS account. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AwsScanOptionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AwsScanOptionsResponse>> getAwsScanOptionsWithHttpInfoAsync(
+      String accountId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      CompletableFuture<ApiResponse<AwsScanOptionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'accountId' when calling getAwsScanOptions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/accounts/aws/{account_id}"
+            .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentlessScanningApi.getAwsScanOptions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AwsScanOptionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AwsScanOptionsResponse>() {});
+  }
+
+  /**
    * Get AWS On Demand tasks.
    *
    * <p>See {@link #listAwsOnDemandTasksWithHttpInfo}.
@@ -699,7 +835,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Get AWS Scan Options.
+   * List AWS Scan Options.
    *
    * <p>See {@link #listAwsScanOptionsWithHttpInfo}.
    *
@@ -711,7 +847,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Get AWS Scan Options.
+   * List AWS Scan Options.
    *
    * <p>See {@link #listAwsScanOptionsWithHttpInfoAsync}.
    *
@@ -768,7 +904,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Get AWS Scan Options.
+   * List AWS Scan Options.
    *
    * <p>See {@link #listAwsScanOptionsWithHttpInfo}.
    *
