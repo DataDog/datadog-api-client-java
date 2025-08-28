@@ -219,7 +219,9 @@ public class ActionConnectionApi {
   /**
    * Delete an existing Action Connection. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param connectionId The ID of the action connection (required)
    * @return ApiResponse&lt;Void&gt;
