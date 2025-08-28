@@ -88,7 +88,9 @@ public class AppBuilderApi {
   /**
    * Create a new app, returning the app ID. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param body (required)
    * @return ApiResponse&lt;CreateAppResponse&gt;
@@ -219,7 +221,9 @@ public class AppBuilderApi {
   /**
    * Delete a single app. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param appId The ID of the app to delete. (required)
    * @return ApiResponse&lt;DeleteAppResponse&gt;
@@ -354,7 +358,9 @@ public class AppBuilderApi {
   /**
    * Delete multiple apps in a single request from a list of app IDs. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param body (required)
    * @return ApiResponse&lt;DeleteAppsResponse&gt;
@@ -538,7 +544,9 @@ public class AppBuilderApi {
   /**
    * Get the full definition of an app. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param appId The ID of the app to retrieve. (required)
    * @param parameters Optional parameters for the request.
@@ -851,7 +859,9 @@ public class AppBuilderApi {
    * information such as the app ID, name, and description is returned by this endpoint. This API
    * requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListAppsResponse&gt;
@@ -1022,7 +1032,9 @@ public class AppBuilderApi {
    * href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policy</a> on
    * the app if a policy does not yet exist. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param appId The ID of the app to publish. (required)
    * @return ApiResponse&lt;PublishAppResponse&gt;
@@ -1160,7 +1172,9 @@ public class AppBuilderApi {
    * 00000000-0000-0000-0000-000000000000</code>). The app can still be updated and published again
    * in the future. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param appId The ID of the app to unpublish. (required)
    * @return ApiResponse&lt;UnpublishAppResponse&gt;
@@ -1300,7 +1314,9 @@ public class AppBuilderApi {
   /**
    * Update an existing app. This creates a new version of the app. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param appId The ID of the app to update. (required)
    * @param body (required)

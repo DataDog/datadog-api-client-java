@@ -89,7 +89,9 @@ public class WorkflowAutomationApi {
   /**
    * Cancels a specific execution of a given workflow. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param workflowId The ID of the workflow. (required)
    * @param instanceId The ID of the workflow instance. (required)
@@ -255,7 +257,9 @@ public class WorkflowAutomationApi {
   /**
    * Create a new workflow, returning the workflow ID. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param body (required)
    * @return ApiResponse&lt;CreateWorkflowResponse&gt;
@@ -392,7 +396,9 @@ public class WorkflowAutomationApi {
   /**
    * Execute the given workflow. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param workflowId The ID of the workflow. (required)
    * @param body (required)
@@ -552,7 +558,9 @@ public class WorkflowAutomationApi {
   /**
    * Delete a workflow by ID. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param workflowId The ID of the workflow. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -689,7 +697,9 @@ public class WorkflowAutomationApi {
   /**
    * Get a workflow by ID. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param workflowId The ID of the workflow. (required)
    * @return ApiResponse&lt;GetWorkflowResponse&gt;
@@ -833,7 +843,9 @@ public class WorkflowAutomationApi {
   /**
    * Get a specific execution of a given workflow. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param workflowId The ID of the workflow. (required)
    * @param instanceId The ID of the workflow instance. (required)
@@ -1064,7 +1076,9 @@ public class WorkflowAutomationApi {
   /**
    * List all instances of a given workflow. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param workflowId The ID of the workflow. (required)
    * @param parameters Optional parameters for the request.
@@ -1225,7 +1239,9 @@ public class WorkflowAutomationApi {
   /**
    * Update a workflow by ID. This API requires a <a
    * href="https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key">registered
-   * application key</a>.
+   * application key</a>. Alternatively, you can configure these permissions <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#actions-api-access">in the
+   * UI</a>.
    *
    * @param workflowId The ID of the workflow. (required)
    * @param body (required)
