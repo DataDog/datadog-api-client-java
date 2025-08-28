@@ -3,19 +3,19 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/agentless_scanning/accounts/aws",
+      "path": "/api/v2/agentless_scanning/accounts/aws/not-an-account-id",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"id\":\"000000000002\",\"type\":\"aws_scan_options\",\"attributes\":{\"lambda\":false,\"sensitive_data\":false,\"vuln_containers_os\":true,\"vuln_host_os\":true}}]}",
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"missing or invalid url parameter 'accountId', expected 12 digit format '123456789012'\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
         ]
       },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
     },
     "times": {
       "remainingTimes": 1
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2cb6ecfe-386c-3349-2689-26da480a6b5d"
+    "id": "e0c25b77-c229-53c7-0bed-a56c6aa3ad6a"
   }
 ]
