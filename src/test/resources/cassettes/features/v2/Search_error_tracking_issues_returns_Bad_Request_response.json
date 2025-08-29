@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"from\":1671612804000,\"query\":\"service:orders-* AND @language:go\",\"to\":1671620004000,\"track\":\"invalid-track\"},\"type\":\"search_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/error-tracking/issues/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"invalid json value for TrackType: invalid-track\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "473d324c-18e1-2196-062e-eaecfb529074"
+  }
+]
