@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"datastore-name\",\"primary_column_name\":\"primaryKey\",\"values\":[{\"primaryKey\":\"key1\",\"value\":\"Newton\"},{\"primaryKey\":\"key2\",\"value\":\"Leibniz\"}]},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores/import",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"20c0eef2-c999-4b9f-a0c0-e3aa2ee4e602\",\"type\":\"datastores\",\"attributes\":{\"item_count\":2}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2f26f558-bcc4-fc8b-9049-14a1b1112712"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/20c0eef2-c999-4b9f-a0c0-e3aa2ee4e602",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"20c0eef2-c999-4b9f-a0c0-e3aa2ee4e602\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c69ded84-53cf-8148-6010-b9ff9388caea"
+  }
+]

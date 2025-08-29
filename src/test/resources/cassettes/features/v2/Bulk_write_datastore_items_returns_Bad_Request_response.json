@@ -1,0 +1,88 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"\",\"name\":\"Test Datastore\",\"org_access\":\"contributor\",\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0897a535-85dd-4c5e-ab27-97ed4a8f54fd\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6574cf7e-1c55-24e1-45d2-b92f9fa74d32"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"values\":[{\"id\":\"cust_3141\",\"name\":\"Johnathan\"},{\"badPrimaryKey\":\"key2\",\"name\":\"Johnathan\"}]},\"id\":\"0897a535-85dd-4c5e-ab27-97ed4a8f54fd\",\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores/0897a535-85dd-4c5e-ab27-97ed4a8f54fd/items/bulk",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"id\":\"24f4ef0c-a849-41dd-8a0e-35338086172c\",\"title\":\"item key missing or invalid\",\"detail\":\"primary column \\\"id\\\" is missing\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9ed69b4c-6d92-88d6-a580-b5aec67e182d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/0897a535-85dd-4c5e-ab27-97ed4a8f54fd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0897a535-85dd-4c5e-ab27-97ed4a8f54fd\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9a66b7a9-d6e6-31b2-5df9-b58b5cf87968"
+  }
+]
