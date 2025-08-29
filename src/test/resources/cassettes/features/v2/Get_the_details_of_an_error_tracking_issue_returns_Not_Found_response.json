@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"from\":1755012813000,\"query\":\"service:synthetics-browser\",\"to\":1756308813000,\"track\":\"rum\"},\"type\":\"search_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/error-tracking/issues/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"5f8ebd5c-6dd9-11f0-8a28-da7ad0900002\",\"type\":\"error_tracking_search_result\",\"attributes\":{\"impacted_sessions\":1,\"total_count\":1},\"relationships\":{\"issue\":{\"data\":{\"id\":\"5f8ebd5c-6dd9-11f0-8a28-da7ad0900002\",\"type\":\"issue\"}}}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "16438026-1168-3bfa-3763-949697b01fe9"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/error-tracking/issues/67d80aa3-36ff-44b9-a694-c501a7591737",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"issue not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2f974d45-57e6-e947-cf7c-58467c80daf3"
+  }
+]
