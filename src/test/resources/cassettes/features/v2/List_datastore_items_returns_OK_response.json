@@ -1,0 +1,114 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"\",\"name\":\"Test Datastore\",\"org_access\":\"contributor\",\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ce9fa438-af5e-45da-8de1-d9a786bf28cd\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6574cf7e-1c55-24e1-45d2-b92f9fa74d33"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"value\":{\"data\":\"test-value\",\"id\":\"test-key\"}},\"id\":\"263cb32b-0e88-48d5-8b60-1e3b58d5a43d\",\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores/ce9fa438-af5e-45da-8de1-d9a786bf28cd/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"fe3c4075-7a0f-45ff-b4a5-2a0a64f1f721\",\"type\":\"items\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ded89804-0394-a466-561f-c548f9256f73"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/ce9fa438-af5e-45da-8de1-d9a786bf28cd/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"fe3c4075-7a0f-45ff-b4a5-2a0a64f1f721\",\"type\":\"items\",\"attributes\":{\"created_at\":\"2025-08-29T21:35:06.078802Z\",\"modified_at\":\"2025-08-29T21:35:06.078802Z\",\"org_id\":321813,\"primary_column_name\":\"id\",\"signature\":\"{\\\"signature\\\":\\\"{\\\\\\\"version\\\\\\\":2,\\\\\\\"algorithm\\\\\\\":\\\\\\\"ecdsa-p384\\\\\\\",\\\\\\\"pubkey\\\\\\\":\\\\\\\"3Sh//jFQJZ+uhUOwvHL8krXnbOjEFxMZrYnngo8J/AY=\\\\\\\",\\\\\\\"timestamp\\\\\\\":1756503306,\\\\\\\"proof\\\\\\\":\\\\\\\"MGQCMGyi06wRNayVzrvrR91VMeiIVi3WlRr5CIOHlCuPQZhdZ9xzEcDFEbY//WVikv5eTQIwQJF0SIq+f5j41UaMSpP48WyLBb6BNvv/M70UYVxTLAw1O4xkeroiVsNVNAeMPkLO\\\\\\\"}\\\",\\\"version\\\":1}\",\"store_id\":\"ce9fa438-af5e-45da-8de1-d9a786bf28cd\",\"value\":{\"data\":\"test-value\",\"id\":\"test-key\"}}}],\"meta\":{\"page\":{\"totalCount\":1,\"totalFilteredCount\":1,\"hasMore\":false},\"schema\":{\"primary_key\":\"id\",\"fields\":[{\"name\":\"id\",\"type\":\"STRING\"},{\"name\":\"data\",\"type\":\"JSON\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "77091f4b-dd93-ba76-6f40-cc1c0eb8097c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/ce9fa438-af5e-45da-8de1-d9a786bf28cd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ce9fa438-af5e-45da-8de1-d9a786bf28cd\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d206608c-2dad-cb64-3b69-3844ff4df1a6"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"datastore-name\",\"primary_column_name\":\"0invalid_name\",\"values\":[{\"primaryKey\":\"key1\",\"value\":{\"data\":\"example data 1\",\"key\":\"value\"}},{\"primaryKey\":\"key2\",\"value\":{\"data\":\"example data 2\",\"key\":\"value\"}}]},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores/import",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"id\":\"996818df-5080-4cfd-bd5a-44c995871c30\",\"title\":\"datastore configuration invalid\",\"detail\":\"column name '0invalid_name' does not start with a letter or an underscore\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3df0341d-8798-bab3-9ae2-013c0e55eb56"
+  }
+]
