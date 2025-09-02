@@ -5084,6 +5084,286 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get suppressions affecting future rule.
+   *
+   * <p>See {@link #getSuppressionsAffectingFutureRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringSuppressionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSuppressionsResponse getSuppressionsAffectingFutureRule(
+      SecurityMonitoringRuleCreatePayload body) throws ApiException {
+    return getSuppressionsAffectingFutureRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Get suppressions affecting future rule.
+   *
+   * <p>See {@link #getSuppressionsAffectingFutureRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSuppressionsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSuppressionsResponse>
+      getSuppressionsAffectingFutureRuleAsync(SecurityMonitoringRuleCreatePayload body) {
+    return getSuppressionsAffectingFutureRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of suppressions that would affect a rule.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringSuppressionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSuppressionsResponse>
+      getSuppressionsAffectingFutureRuleWithHttpInfo(SecurityMonitoringRuleCreatePayload body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling getSuppressionsAffectingFutureRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/suppressions/rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSuppressionsAffectingFutureRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionsResponse>() {});
+  }
+
+  /**
+   * Get suppressions affecting future rule.
+   *
+   * <p>See {@link #getSuppressionsAffectingFutureRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSuppressionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSuppressionsResponse>>
+      getSuppressionsAffectingFutureRuleWithHttpInfoAsync(
+          SecurityMonitoringRuleCreatePayload body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " getSuppressionsAffectingFutureRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/suppressions/rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSuppressionsAffectingFutureRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionsResponse>() {});
+  }
+
+  /**
+   * Get suppressions affecting a specific rule.
+   *
+   * <p>See {@link #getSuppressionsAffectingRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return SecurityMonitoringSuppressionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSuppressionsResponse getSuppressionsAffectingRule(String ruleId)
+      throws ApiException {
+    return getSuppressionsAffectingRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Get suppressions affecting a specific rule.
+   *
+   * <p>See {@link #getSuppressionsAffectingRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSuppressionsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSuppressionsResponse>
+      getSuppressionsAffectingRuleAsync(String ruleId) {
+    return getSuppressionsAffectingRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of suppressions that affect a specific existing rule by its ID.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return ApiResponse&lt;SecurityMonitoringSuppressionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSuppressionsResponse>
+      getSuppressionsAffectingRuleWithHttpInfo(String ruleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling getSuppressionsAffectingRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/suppressions/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSuppressionsAffectingRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionsResponse>() {});
+  }
+
+  /**
+   * Get suppressions affecting a specific rule.
+   *
+   * <p>See {@link #getSuppressionsAffectingRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSuppressionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSuppressionsResponse>>
+      getSuppressionsAffectingRuleWithHttpInfoAsync(String ruleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling getSuppressionsAffectingRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/suppressions/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSuppressionsAffectingRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionsResponse>() {});
+  }
+
+  /**
    * Get details of a vulnerability notification rule.
    *
    * <p>See {@link #getVulnerabilityNotificationRuleWithHttpInfo}.
