@@ -1,0 +1,27 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"data_exclusion_query\":\"source:cloudtrail account_id:12345\",\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"enabled\":true,\"name\":\"Custom suppression\",\"rule_query\":\"type:log_detection source:cloudtrail\"},\"type\":\"suppressions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/validation",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7fdeeb56-d69b-7809-c8f4-8bdeffca83e0"
+  }
+]
