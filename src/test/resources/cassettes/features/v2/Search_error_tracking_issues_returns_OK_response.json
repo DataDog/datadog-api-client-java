@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"from\":1671612804000,\"query\":\"service:orders-* AND @language:go\",\"to\":1671620004000,\"track\":\"trace\"},\"type\":\"search_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/error-tracking/issues/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f46fc451-b537-346f-3e77-8e7e2bc6d0c7"
+  }
+]
