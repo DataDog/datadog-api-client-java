@@ -4414,6 +4414,485 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get a hist signal&#39;s details.
+   *
+   * <p>See {@link #getSecurityMonitoringHistsignalWithHttpInfo}.
+   *
+   * @param histsignalId The ID of the historical signal. (required)
+   * @return SecurityMonitoringSignalResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalResponse getSecurityMonitoringHistsignal(String histsignalId)
+      throws ApiException {
+    return getSecurityMonitoringHistsignalWithHttpInfo(histsignalId).getData();
+  }
+
+  /**
+   * Get a hist signal&#39;s details.
+   *
+   * <p>See {@link #getSecurityMonitoringHistsignalWithHttpInfoAsync}.
+   *
+   * @param histsignalId The ID of the historical signal. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSignalResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalResponse> getSecurityMonitoringHistsignalAsync(
+      String histsignalId) {
+    return getSecurityMonitoringHistsignalWithHttpInfoAsync(histsignalId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a hist signal's details.
+   *
+   * @param histsignalId The ID of the historical signal. (required)
+   * @return ApiResponse&lt;SecurityMonitoringSignalResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalResponse> getSecurityMonitoringHistsignalWithHttpInfo(
+      String histsignalId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringHistsignal";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'histsignalId' is set
+    if (histsignalId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'histsignalId' when calling"
+              + " getSecurityMonitoringHistsignal");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/siem-historical-detections/histsignals/{histsignal_id}"
+            .replaceAll(
+                "\\{" + "histsignal_id" + "\\}", apiClient.escapeString(histsignalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityMonitoringHistsignal",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalResponse>() {});
+  }
+
+  /**
+   * Get a hist signal&#39;s details.
+   *
+   * <p>See {@link #getSecurityMonitoringHistsignalWithHttpInfo}.
+   *
+   * @param histsignalId The ID of the historical signal. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignalResponse>>
+      getSecurityMonitoringHistsignalWithHttpInfoAsync(String histsignalId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringHistsignal";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'histsignalId' is set
+    if (histsignalId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'histsignalId' when calling"
+                  + " getSecurityMonitoringHistsignal"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/siem-historical-detections/histsignals/{histsignal_id}"
+            .replaceAll(
+                "\\{" + "histsignal_id" + "\\}", apiClient.escapeString(histsignalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityMonitoringHistsignal",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalResponse>() {});
+  }
+
+  /** Manage optional parameters to getSecurityMonitoringHistsignalsByJobId. */
+  public static class GetSecurityMonitoringHistsignalsByJobIdOptionalParameters {
+    private String filterQuery;
+    private OffsetDateTime filterFrom;
+    private OffsetDateTime filterTo;
+    private SecurityMonitoringSignalsSort sort;
+    private String pageCursor;
+    private Integer pageLimit;
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery The search query for security signals. (optional)
+     * @return GetSecurityMonitoringHistsignalsByJobIdOptionalParameters
+     */
+    public GetSecurityMonitoringHistsignalsByJobIdOptionalParameters filterQuery(
+        String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+
+    /**
+     * Set filterFrom.
+     *
+     * @param filterFrom The minimum timestamp for requested security signals. (optional)
+     * @return GetSecurityMonitoringHistsignalsByJobIdOptionalParameters
+     */
+    public GetSecurityMonitoringHistsignalsByJobIdOptionalParameters filterFrom(
+        OffsetDateTime filterFrom) {
+      this.filterFrom = filterFrom;
+      return this;
+    }
+
+    /**
+     * Set filterTo.
+     *
+     * @param filterTo The maximum timestamp for requested security signals. (optional)
+     * @return GetSecurityMonitoringHistsignalsByJobIdOptionalParameters
+     */
+    public GetSecurityMonitoringHistsignalsByJobIdOptionalParameters filterTo(
+        OffsetDateTime filterTo) {
+      this.filterTo = filterTo;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort The order of the security signals in results. (optional)
+     * @return GetSecurityMonitoringHistsignalsByJobIdOptionalParameters
+     */
+    public GetSecurityMonitoringHistsignalsByJobIdOptionalParameters sort(
+        SecurityMonitoringSignalsSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor A list of results using the cursor provided in the previous query.
+     *     (optional)
+     * @return GetSecurityMonitoringHistsignalsByJobIdOptionalParameters
+     */
+    public GetSecurityMonitoringHistsignalsByJobIdOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit The maximum number of security signals in the response. (optional, default
+     *     to 10)
+     * @return GetSecurityMonitoringHistsignalsByJobIdOptionalParameters
+     */
+    public GetSecurityMonitoringHistsignalsByJobIdOptionalParameters pageLimit(Integer pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+  }
+
+  /**
+   * Get a job&#39;s hist signals.
+   *
+   * <p>See {@link #getSecurityMonitoringHistsignalsByJobIdWithHttpInfo}.
+   *
+   * @param jobId The ID of the job. (required)
+   * @return SecurityMonitoringSignalsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalsListResponse getSecurityMonitoringHistsignalsByJobId(String jobId)
+      throws ApiException {
+    return getSecurityMonitoringHistsignalsByJobIdWithHttpInfo(
+            jobId, new GetSecurityMonitoringHistsignalsByJobIdOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a job&#39;s hist signals.
+   *
+   * <p>See {@link #getSecurityMonitoringHistsignalsByJobIdWithHttpInfoAsync}.
+   *
+   * @param jobId The ID of the job. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSignalsListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalsListResponse>
+      getSecurityMonitoringHistsignalsByJobIdAsync(String jobId) {
+    return getSecurityMonitoringHistsignalsByJobIdWithHttpInfoAsync(
+            jobId, new GetSecurityMonitoringHistsignalsByJobIdOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a job&#39;s hist signals.
+   *
+   * <p>See {@link #getSecurityMonitoringHistsignalsByJobIdWithHttpInfo}.
+   *
+   * @param jobId The ID of the job. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringSignalsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalsListResponse getSecurityMonitoringHistsignalsByJobId(
+      String jobId, GetSecurityMonitoringHistsignalsByJobIdOptionalParameters parameters)
+      throws ApiException {
+    return getSecurityMonitoringHistsignalsByJobIdWithHttpInfo(jobId, parameters).getData();
+  }
+
+  /**
+   * Get a job&#39;s hist signals.
+   *
+   * <p>See {@link #getSecurityMonitoringHistsignalsByJobIdWithHttpInfoAsync}.
+   *
+   * @param jobId The ID of the job. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SecurityMonitoringSignalsListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalsListResponse>
+      getSecurityMonitoringHistsignalsByJobIdAsync(
+          String jobId, GetSecurityMonitoringHistsignalsByJobIdOptionalParameters parameters) {
+    return getSecurityMonitoringHistsignalsByJobIdWithHttpInfoAsync(jobId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a job's hist signals.
+   *
+   * @param jobId The ID of the job. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringSignalsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalsListResponse>
+      getSecurityMonitoringHistsignalsByJobIdWithHttpInfo(
+          String jobId, GetSecurityMonitoringHistsignalsByJobIdOptionalParameters parameters)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringHistsignalsByJobId";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'jobId' is set
+    if (jobId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'jobId' when calling"
+              + " getSecurityMonitoringHistsignalsByJobId");
+    }
+    String filterQuery = parameters.filterQuery;
+    OffsetDateTime filterFrom = parameters.filterFrom;
+    OffsetDateTime filterTo = parameters.filterTo;
+    SecurityMonitoringSignalsSort sort = parameters.sort;
+    String pageCursor = parameters.pageCursor;
+    Integer pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/siem-historical-detections/jobs/{job_id}/histsignals"
+            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityMonitoringHistsignalsByJobId",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalsListResponse>() {});
+  }
+
+  /**
+   * Get a job&#39;s hist signals.
+   *
+   * <p>See {@link #getSecurityMonitoringHistsignalsByJobIdWithHttpInfo}.
+   *
+   * @param jobId The ID of the job. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalsListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>>
+      getSecurityMonitoringHistsignalsByJobIdWithHttpInfoAsync(
+          String jobId, GetSecurityMonitoringHistsignalsByJobIdOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringHistsignalsByJobId";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'jobId' is set
+    if (jobId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'jobId' when calling"
+                  + " getSecurityMonitoringHistsignalsByJobId"));
+      return result;
+    }
+    String filterQuery = parameters.filterQuery;
+    OffsetDateTime filterFrom = parameters.filterFrom;
+    OffsetDateTime filterTo = parameters.filterTo;
+    SecurityMonitoringSignalsSort sort = parameters.sort;
+    String pageCursor = parameters.pageCursor;
+    Integer pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/siem-historical-detections/jobs/{job_id}/histsignals"
+            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityMonitoringHistsignalsByJobId",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalsListResponse>() {});
+  }
+
+  /**
    * Get a rule&#39;s details.
    *
    * <p>See {@link #getSecurityMonitoringRuleWithHttpInfo}.
@@ -6841,6 +7320,287 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityFiltersResponse>() {});
+  }
+
+  /** Manage optional parameters to listSecurityMonitoringHistsignals. */
+  public static class ListSecurityMonitoringHistsignalsOptionalParameters {
+    private String filterQuery;
+    private OffsetDateTime filterFrom;
+    private OffsetDateTime filterTo;
+    private SecurityMonitoringSignalsSort sort;
+    private String pageCursor;
+    private Integer pageLimit;
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery The search query for security signals. (optional)
+     * @return ListSecurityMonitoringHistsignalsOptionalParameters
+     */
+    public ListSecurityMonitoringHistsignalsOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+
+    /**
+     * Set filterFrom.
+     *
+     * @param filterFrom The minimum timestamp for requested security signals. (optional)
+     * @return ListSecurityMonitoringHistsignalsOptionalParameters
+     */
+    public ListSecurityMonitoringHistsignalsOptionalParameters filterFrom(
+        OffsetDateTime filterFrom) {
+      this.filterFrom = filterFrom;
+      return this;
+    }
+
+    /**
+     * Set filterTo.
+     *
+     * @param filterTo The maximum timestamp for requested security signals. (optional)
+     * @return ListSecurityMonitoringHistsignalsOptionalParameters
+     */
+    public ListSecurityMonitoringHistsignalsOptionalParameters filterTo(OffsetDateTime filterTo) {
+      this.filterTo = filterTo;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort The order of the security signals in results. (optional)
+     * @return ListSecurityMonitoringHistsignalsOptionalParameters
+     */
+    public ListSecurityMonitoringHistsignalsOptionalParameters sort(
+        SecurityMonitoringSignalsSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor A list of results using the cursor provided in the previous query.
+     *     (optional)
+     * @return ListSecurityMonitoringHistsignalsOptionalParameters
+     */
+    public ListSecurityMonitoringHistsignalsOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit The maximum number of security signals in the response. (optional, default
+     *     to 10)
+     * @return ListSecurityMonitoringHistsignalsOptionalParameters
+     */
+    public ListSecurityMonitoringHistsignalsOptionalParameters pageLimit(Integer pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+  }
+
+  /**
+   * List hist signals.
+   *
+   * <p>See {@link #listSecurityMonitoringHistsignalsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringSignalsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalsListResponse listSecurityMonitoringHistsignals()
+      throws ApiException {
+    return listSecurityMonitoringHistsignalsWithHttpInfo(
+            new ListSecurityMonitoringHistsignalsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List hist signals.
+   *
+   * <p>See {@link #listSecurityMonitoringHistsignalsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityMonitoringSignalsListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalsListResponse>
+      listSecurityMonitoringHistsignalsAsync() {
+    return listSecurityMonitoringHistsignalsWithHttpInfoAsync(
+            new ListSecurityMonitoringHistsignalsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List hist signals.
+   *
+   * <p>See {@link #listSecurityMonitoringHistsignalsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringSignalsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalsListResponse listSecurityMonitoringHistsignals(
+      ListSecurityMonitoringHistsignalsOptionalParameters parameters) throws ApiException {
+    return listSecurityMonitoringHistsignalsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List hist signals.
+   *
+   * <p>See {@link #listSecurityMonitoringHistsignalsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SecurityMonitoringSignalsListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalsListResponse>
+      listSecurityMonitoringHistsignalsAsync(
+          ListSecurityMonitoringHistsignalsOptionalParameters parameters) {
+    return listSecurityMonitoringHistsignalsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List hist signals.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringSignalsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalsListResponse>
+      listSecurityMonitoringHistsignalsWithHttpInfo(
+          ListSecurityMonitoringHistsignalsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringHistsignals";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String filterQuery = parameters.filterQuery;
+    OffsetDateTime filterFrom = parameters.filterFrom;
+    OffsetDateTime filterTo = parameters.filterTo;
+    SecurityMonitoringSignalsSort sort = parameters.sort;
+    String pageCursor = parameters.pageCursor;
+    Integer pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath = "/api/v2/siem-historical-detections/histsignals";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityMonitoringHistsignals",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalsListResponse>() {});
+  }
+
+  /**
+   * List hist signals.
+   *
+   * <p>See {@link #listSecurityMonitoringHistsignalsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalsListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>>
+      listSecurityMonitoringHistsignalsWithHttpInfoAsync(
+          ListSecurityMonitoringHistsignalsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringHistsignals";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String filterQuery = parameters.filterQuery;
+    OffsetDateTime filterFrom = parameters.filterFrom;
+    OffsetDateTime filterTo = parameters.filterTo;
+    SecurityMonitoringSignalsSort sort = parameters.sort;
+    String pageCursor = parameters.pageCursor;
+    Integer pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath = "/api/v2/siem-historical-detections/histsignals";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityMonitoringHistsignals",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalsListResponse>() {});
   }
 
   /** Manage optional parameters to listSecurityMonitoringRules. */
@@ -9713,6 +10473,196 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<JobCreateResponse>() {});
+  }
+
+  /** Manage optional parameters to searchSecurityMonitoringHistsignals. */
+  public static class SearchSecurityMonitoringHistsignalsOptionalParameters {
+    private SecurityMonitoringSignalListRequest body;
+
+    /**
+     * Set body.
+     *
+     * @param body (optional)
+     * @return SearchSecurityMonitoringHistsignalsOptionalParameters
+     */
+    public SearchSecurityMonitoringHistsignalsOptionalParameters body(
+        SecurityMonitoringSignalListRequest body) {
+      this.body = body;
+      return this;
+    }
+  }
+
+  /**
+   * Search hist signals.
+   *
+   * <p>See {@link #searchSecurityMonitoringHistsignalsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringSignalsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalsListResponse searchSecurityMonitoringHistsignals()
+      throws ApiException {
+    return searchSecurityMonitoringHistsignalsWithHttpInfo(
+            new SearchSecurityMonitoringHistsignalsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Search hist signals.
+   *
+   * <p>See {@link #searchSecurityMonitoringHistsignalsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityMonitoringSignalsListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalsListResponse>
+      searchSecurityMonitoringHistsignalsAsync() {
+    return searchSecurityMonitoringHistsignalsWithHttpInfoAsync(
+            new SearchSecurityMonitoringHistsignalsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search hist signals.
+   *
+   * <p>See {@link #searchSecurityMonitoringHistsignalsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringSignalsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalsListResponse searchSecurityMonitoringHistsignals(
+      SearchSecurityMonitoringHistsignalsOptionalParameters parameters) throws ApiException {
+    return searchSecurityMonitoringHistsignalsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Search hist signals.
+   *
+   * <p>See {@link #searchSecurityMonitoringHistsignalsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SecurityMonitoringSignalsListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalsListResponse>
+      searchSecurityMonitoringHistsignalsAsync(
+          SearchSecurityMonitoringHistsignalsOptionalParameters parameters) {
+    return searchSecurityMonitoringHistsignalsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search hist signals.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringSignalsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalsListResponse>
+      searchSecurityMonitoringHistsignalsWithHttpInfo(
+          SearchSecurityMonitoringHistsignalsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "searchSecurityMonitoringHistsignals";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = parameters.body;
+    // create path and map variables
+    String localVarPath = "/api/v2/siem-historical-detections/histsignals/search";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.searchSecurityMonitoringHistsignals",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalsListResponse>() {});
+  }
+
+  /**
+   * Search hist signals.
+   *
+   * <p>See {@link #searchSecurityMonitoringHistsignalsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalsListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>>
+      searchSecurityMonitoringHistsignalsWithHttpInfoAsync(
+          SearchSecurityMonitoringHistsignalsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "searchSecurityMonitoringHistsignals";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = parameters.body;
+    // create path and map variables
+    String localVarPath = "/api/v2/siem-historical-detections/histsignals/search";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.searchSecurityMonitoringHistsignals",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalsListResponse>() {});
   }
 
   /** Manage optional parameters to searchSecurityMonitoringSignals. */
