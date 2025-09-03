@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"data_exclusion_query\":\"not enough attributes\"},\"type\":\"suppressions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/validation",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"input_validation_error(Field 'data.attributes.rule_query' is invalid: field 'rule_query' is required)\",\"input_validation_error(Field 'data.attributes.name' is invalid: name cannot be empty)\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "703e6a45-408a-1cf4-017d-6f3d7e7b26c9"
+  }
+]
