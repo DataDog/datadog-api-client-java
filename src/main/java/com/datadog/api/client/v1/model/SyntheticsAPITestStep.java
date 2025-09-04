@@ -26,6 +26,7 @@ import java.util.Objects;
   SyntheticsAPITestStep.JSON_PROPERTY_EXIT_IF_SUCCEED,
   SyntheticsAPITestStep.JSON_PROPERTY_EXTRACTED_VALUES,
   SyntheticsAPITestStep.JSON_PROPERTY_EXTRACTED_VALUES_FROM_SCRIPT,
+  SyntheticsAPITestStep.JSON_PROPERTY_ID,
   SyntheticsAPITestStep.JSON_PROPERTY_IS_CRITICAL,
   SyntheticsAPITestStep.JSON_PROPERTY_NAME,
   SyntheticsAPITestStep.JSON_PROPERTY_REQUEST,
@@ -51,6 +52,9 @@ public class SyntheticsAPITestStep {
   public static final String JSON_PROPERTY_EXTRACTED_VALUES_FROM_SCRIPT =
       "extractedValuesFromScript";
   private String extractedValuesFromScript;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_IS_CRITICAL = "isCritical";
   private Boolean isCritical;
@@ -209,6 +213,18 @@ public class SyntheticsAPITestStep {
 
   public void setExtractedValuesFromScript(String extractedValuesFromScript) {
     this.extractedValuesFromScript = extractedValuesFromScript;
+  }
+
+  /**
+   * ID of the step.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
   }
 
   public SyntheticsAPITestStep isCritical(Boolean isCritical) {
@@ -382,6 +398,7 @@ public class SyntheticsAPITestStep {
         && Objects.equals(this.extractedValues, syntheticsApiTestStep.extractedValues)
         && Objects.equals(
             this.extractedValuesFromScript, syntheticsApiTestStep.extractedValuesFromScript)
+        && Objects.equals(this.id, syntheticsApiTestStep.id)
         && Objects.equals(this.isCritical, syntheticsApiTestStep.isCritical)
         && Objects.equals(this.name, syntheticsApiTestStep.name)
         && Objects.equals(this.request, syntheticsApiTestStep.request)
@@ -398,6 +415,7 @@ public class SyntheticsAPITestStep {
         exitIfSucceed,
         extractedValues,
         extractedValuesFromScript,
+        id,
         isCritical,
         name,
         request,
@@ -417,6 +435,7 @@ public class SyntheticsAPITestStep {
     sb.append("    extractedValuesFromScript: ")
         .append(toIndentedString(extractedValuesFromScript))
         .append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isCritical: ").append(toIndentedString(isCritical)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
