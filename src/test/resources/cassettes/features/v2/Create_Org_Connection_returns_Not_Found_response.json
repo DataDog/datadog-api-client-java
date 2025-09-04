@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"connection_types\":[\"logs\"]},\"relationships\":{\"sink_org\":{\"data\":{\"id\":\"nonexistent-org-id\",\"type\":\"orgs\"}}},\"type\":\"org_connection\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/org_connections",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Not found\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7f0e9dad-6b89-fbf4-0ba6-1c6424be2da7"
+  }
+]
