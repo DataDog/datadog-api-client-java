@@ -3,22 +3,22 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
+import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateAttributes;
+import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateData;
+import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionType;
-import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateAttributes;
-import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateData;
-import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateRequest;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
-    SecurityMonitoringSuppressionUpdateRequest body =
-        new SecurityMonitoringSuppressionUpdateRequest()
+    SecurityMonitoringSuppressionCreateRequest body =
+        new SecurityMonitoringSuppressionCreateRequest()
             .data(
-                new SecurityMonitoringSuppressionUpdateData()
+                new SecurityMonitoringSuppressionCreateData()
                     .attributes(
-                        new SecurityMonitoringSuppressionUpdateAttributes()
+                        new SecurityMonitoringSuppressionCreateAttributes()
                             .dataExclusionQuery("source:cloudtrail account_id:12345")
                             .description(
                                 "This rule suppresses low-severity signals in staging"
