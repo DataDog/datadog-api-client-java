@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"data_exclusion_query\":\"not enough attributes\"},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"data_exclusion_query\":\"not enough attributes\",\"enabled\":false,\"name\":\"cold_harbour\",\"rule_query\":\"rule:[A-Invalid\"},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"input_validation_error(Field 'data.attributes.rule_query' is invalid: field 'rule_query' is required)\",\"input_validation_error(Field 'data.attributes.name' is invalid: name cannot be empty)\"]}",
+      "body": "{\"errors\":[\"input_validation_error(Field 'data.attributes.rule_query' is invalid: rule query is invalid)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "703e6a45-408a-1cf4-017d-6f3d7e7b26c9"
+    "id": "075f4d7d-8168-bd20-ff83-cef03495b3c5"
   }
 ]

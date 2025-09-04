@@ -12179,7 +12179,7 @@ public class SecurityMonitoringApi {
    * @param body (required)
    * @throws ApiException if fails to make API call
    */
-  public void validateSecurityMonitoringSuppression(SecurityMonitoringSuppressionUpdateRequest body)
+  public void validateSecurityMonitoringSuppression(SecurityMonitoringSuppressionCreateRequest body)
       throws ApiException {
     validateSecurityMonitoringSuppressionWithHttpInfo(body);
   }
@@ -12193,7 +12193,7 @@ public class SecurityMonitoringApi {
    * @return CompletableFuture
    */
   public CompletableFuture<Void> validateSecurityMonitoringSuppressionAsync(
-      SecurityMonitoringSuppressionUpdateRequest body) {
+      SecurityMonitoringSuppressionCreateRequest body) {
     return validateSecurityMonitoringSuppressionWithHttpInfoAsync(body)
         .thenApply(
             response -> {
@@ -12218,7 +12218,7 @@ public class SecurityMonitoringApi {
    *     </table>
    */
   public ApiResponse<Void> validateSecurityMonitoringSuppressionWithHttpInfo(
-      SecurityMonitoringSuppressionUpdateRequest body) throws ApiException {
+      SecurityMonitoringSuppressionCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -12263,7 +12263,7 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<Void>>
       validateSecurityMonitoringSuppressionWithHttpInfoAsync(
-          SecurityMonitoringSuppressionUpdateRequest body) {
+          SecurityMonitoringSuppressionCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
