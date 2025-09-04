@@ -1,0 +1,88 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"connection_types\":[\"logs\"]},\"relationships\":{\"sink_org\":{\"data\":{\"id\":\"83999dcd-7f97-11f0-8de1-1ecf66f1aa85\",\"type\":\"orgs\"}}},\"type\":\"org_connection\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/org_connections",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"org_connection\",\"id\":\"76e1a71f-81e5-40c8-b8e0-1b98265d26fe\",\"attributes\":{\"created_at\":\"2025-08-26T20:19:37.335819+00:00\",\"connection_types\":[\"logs\"]},\"relationships\":{\"source_org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\",\"name\":\"DD Integration Tests (321813)\"}},\"sink_org\":{\"data\":{\"type\":\"orgs\",\"id\":\"83999dcd-7f97-11f0-8de1-1ecf66f1aa85\",\"name\":\"Cross-Org BDD Test Org\"}},\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"03e6bc43-7ecc-11f0-b50b-f28f2be41840\",\"name\":\"Amy Li\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "76efebf6-d204-c8e8-5a8c-bd11c0a4ae44"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"connection_types\":[\"logs\",\"logs\"]},\"id\":\"76e1a71f-81e5-40c8-b8e0-1b98265d26fe\",\"type\":\"org_connection\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/org_connections/76e1a71f-81e5-40c8-b8e0-1b98265d26fe",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Validation failed for input.\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0baa85f5-7971-d9e2-73f4-a6740ce0eb1b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/org_connections/76e1a71f-81e5-40c8-b8e0-1b98265d26fe",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d129ad25-cb8d-b0d8-b518-ebfda109c597"
+  }
+]
