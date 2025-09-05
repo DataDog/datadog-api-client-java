@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ShiftDataAttributes</code> object. */
+/** Attributes for an on-call shift. */
 @JsonPropertyOrder({ShiftDataAttributes.JSON_PROPERTY_END, ShiftDataAttributes.JSON_PROPERTY_START})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

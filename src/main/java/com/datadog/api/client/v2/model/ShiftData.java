@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ShiftData</code> object. */
+/** Data for an on-call shift. */
 @JsonPropertyOrder({
   ShiftData.JSON_PROPERTY_ATTRIBUTES,
   ShiftData.JSON_PROPERTY_ID,
@@ -55,7 +55,7 @@ public class ShiftData {
   }
 
   /**
-   * The definition of <code>ShiftDataAttributes</code> object.
+   * Attributes for an on-call shift.
    *
    * @return attributes
    */
@@ -98,7 +98,7 @@ public class ShiftData {
   }
 
   /**
-   * The definition of <code>ShiftDataRelationships</code> object.
+   * Relationships for an on-call shift.
    *
    * @return relationships
    */
