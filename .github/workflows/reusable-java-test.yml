@@ -1,0 +1,62 @@
+name: Reusable Java Testing Workflow
+
+on:
+  workflow_call:
+    inputs:
+      target-branch:
+        description: 'Branch to checkout and test (defaults to the calling branch)'
+        required: false
+        type: string
+        default: ''
+      java-versions:
+        description: 'JSON array of Java versions to test against'
+        required: false
+        type: string
+        default: '["8", "16", "18", "19"]'
+      platforms:
+        description: 'JSON array of platforms to run tests on'
+        required: false
+        type: string
+        default: '["ubuntu-latest"]'
+      test-script:
+        description: 'Test script to execute'
+        required: false
+        type: string
+        default: './run-tests.sh'
+    secrets:
+      PIPELINE_GITHUB_APP_ID:
+        required: false
+      PIPELINE_GITHUB_APP_PRIVATE_KEY:
+        required: false
+      DD_API_KEY:
+        required: false
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        java-version: ${{ fromJSON(inputs.java-versions) }}
+        platform: ${{ fromJSON(inputs.platforms) }}
+    runs-on: ${{ matrix.platform }}
+    if: (github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) || github.event_name == 'schedule'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          repository: DataDog/datadog-api-client-java
+          ref: ${{ inputs.target-branch || github.ref }}
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java-version }}
+          distribution: "temurin"
+          cache: "maven"
+      - name: Configure Datadog Test Optimization
+        uses: datadog/test-visibility-github-action@v2
+        with:
+          languages: java
+          api_key: ${{ secrets.DD_API_KEY }}
+      - name: Test
+        run: ${{ inputs.test-script }}
+        env:
+          DD_CIVISIBILITY_COMPILER_PLUGIN_AUTO_CONFIGURATION_ENABLED: "false"
