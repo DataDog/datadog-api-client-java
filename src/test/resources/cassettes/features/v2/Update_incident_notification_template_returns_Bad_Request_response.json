@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"category\":\"update\",\"content\":\"Incident Status Update: For more details, visit the incident page.\",\"name\":\"Update Template\",\"subject\":\"Incident Update\"},\"id\":\"00000000-0000-0000-0000-000000000001\",\"type\":\"invalid_type\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/incidents/config/notification-templates/00000000-1111-2222-3333-444444444444",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"got type \\\"invalid_type\\\" expected one of \\\"notification_templates\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7038fe00-fae7-bb0b-e89c-229934a1a6a2"
+  }
+]

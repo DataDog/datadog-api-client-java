@@ -1,0 +1,104 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"name\":\"Security Incident\"},\"type\":\"incident_types\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/incidents/config/types",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"943312c7-755d-4167-9bd4-bd87603c1784\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2025-09-05T02:18:47.87671627Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2025-09-05T02:18:47.876716352Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7bcfec66-5300-9891-51e5-e4d7e0833bd1"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"An incident has been declared.\\n\\nTitle: Sample Incident Title\\nSeverity: SEV-2\\nAffected Services: web-service, database-service\\nStatus: active\\n\\nPlease join the incident channel for updates.\",\"name\":\"Test-Create_incident_notification_template_returns_Created_response-1757038727\",\"subject\":\"SEV-2 Incident: Sample Incident Title\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"943312c7-755d-4167-9bd4-bd87603c1784\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/incidents/config/notification-templates",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ffbd2758-c695-4879-8355-07371b09aeea\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"An incident has been declared.\\n\\nTitle: Sample Incident Title\\nSeverity: SEV-2\\nAffected Services: web-service, database-service\\nStatus: active\\n\\nPlease join the incident channel for updates.\",\"created\":\"2025-09-05T02:18:48.112073Z\",\"modified\":\"2025-09-05T02:18:48.112073Z\",\"name\":\"Test-Create_incident_notification_template_returns_Created_response-1757038727\",\"subject\":\"SEV-2 Incident: Sample Incident Title\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"943312c7-755d-4167-9bd4-bd87603c1784\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d227954b-3a2d-fd42-2958-7303ffa1c9e4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/incidents/config/notification-templates/ffbd2758-c695-4879-8355-07371b09aeea",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cc62ba70-349d-2aa5-41ec-6d6952278a1a"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/incidents/config/types/943312c7-755d-4167-9bd4-bd87603c1784",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e4267e0a-de74-c014-f3ba-6c5a74687822"
+  }
+]
