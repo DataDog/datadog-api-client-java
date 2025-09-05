@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"category\":\"update\",\"content\":\"Incident Status Update: For more details, visit the incident page.\",\"name\":\"Updated Template Name\",\"subject\":\"Incident Update\"},\"id\":\"00000000-1111-2222-3333-444444444444\",\"type\":\"notification_templates\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/incidents/config/notification-templates/00000000-1111-2222-3333-444444444444",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "28f28077-c17e-6421-484c-a16d3a354df9"
+  }
+]

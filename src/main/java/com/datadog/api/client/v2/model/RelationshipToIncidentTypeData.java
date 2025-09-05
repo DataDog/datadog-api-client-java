@@ -17,33 +17,25 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Incident type response data. */
+/** Relationship to incident type object. */
 @JsonPropertyOrder({
-  IncidentTypeObject.JSON_PROPERTY_ATTRIBUTES,
-  IncidentTypeObject.JSON_PROPERTY_ID,
-  IncidentTypeObject.JSON_PROPERTY_RELATIONSHIPS,
-  IncidentTypeObject.JSON_PROPERTY_TYPE
+  RelationshipToIncidentTypeData.JSON_PROPERTY_ID,
+  RelationshipToIncidentTypeData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentTypeObject {
+public class RelationshipToIncidentTypeData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private IncidentTypeAttributes attributes;
-
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
-
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private IncidentTypeRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private IncidentTypeType type = IncidentTypeType.INCIDENT_TYPES;
 
-  public IncidentTypeObject() {}
+  public RelationshipToIncidentTypeData() {}
 
   @JsonCreator
-  public IncidentTypeObject(
+  public RelationshipToIncidentTypeData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentTypeType type) {
     this.id = id;
@@ -51,29 +43,7 @@ public class IncidentTypeObject {
     this.unparsed |= !type.isValid();
   }
 
-  public IncidentTypeObject attributes(IncidentTypeAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
-  }
-
-  /**
-   * Incident type's attributes.
-   *
-   * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentTypeAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(IncidentTypeAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public IncidentTypeObject id(String id) {
+  public RelationshipToIncidentTypeData id(String id) {
     this.id = id;
     return this;
   }
@@ -93,29 +63,7 @@ public class IncidentTypeObject {
     this.id = id;
   }
 
-  public IncidentTypeObject relationships(IncidentTypeRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
-  /**
-   * The incident type's resource relationships.
-   *
-   * @return relationships
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentTypeRelationships getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(IncidentTypeRelationships relationships) {
-    this.relationships = relationships;
-  }
-
-  public IncidentTypeObject type(IncidentTypeType type) {
+  public RelationshipToIncidentTypeData type(IncidentTypeType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -151,10 +99,10 @@ public class IncidentTypeObject {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentTypeObject
+   * @return RelationshipToIncidentTypeData
    */
   @JsonAnySetter
-  public IncidentTypeObject putAdditionalProperty(String key, Object value) {
+  public RelationshipToIncidentTypeData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -185,7 +133,7 @@ public class IncidentTypeObject {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentTypeObject object is equal to o. */
+  /** Return true if this RelationshipToIncidentTypeData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -194,26 +142,24 @@ public class IncidentTypeObject {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentTypeObject incidentTypeObject = (IncidentTypeObject) o;
-    return Objects.equals(this.attributes, incidentTypeObject.attributes)
-        && Objects.equals(this.id, incidentTypeObject.id)
-        && Objects.equals(this.relationships, incidentTypeObject.relationships)
-        && Objects.equals(this.type, incidentTypeObject.type)
-        && Objects.equals(this.additionalProperties, incidentTypeObject.additionalProperties);
+    RelationshipToIncidentTypeData relationshipToIncidentTypeData =
+        (RelationshipToIncidentTypeData) o;
+    return Objects.equals(this.id, relationshipToIncidentTypeData.id)
+        && Objects.equals(this.type, relationshipToIncidentTypeData.type)
+        && Objects.equals(
+            this.additionalProperties, relationshipToIncidentTypeData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentTypeObject {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class RelationshipToIncidentTypeData {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
