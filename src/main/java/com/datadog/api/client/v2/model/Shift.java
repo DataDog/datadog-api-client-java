@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>Shift</code> object. */
+/** An on-call shift with its associated data and relationships. */
 @JsonPropertyOrder({Shift.JSON_PROPERTY_DATA, Shift.JSON_PROPERTY_INCLUDED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -37,7 +37,7 @@ public class Shift {
   }
 
   /**
-   * The definition of <code>ShiftData</code> object.
+   * Data for an on-call shift.
    *
    * @return data
    */
