@@ -287,9 +287,10 @@ public class CustomAttributeValuesUnion extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public CustomAttributeValuesUnion(List<Double> o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
+  public static CustomAttributeValuesUnion fromListDouble(List<Double> o) {
+    CustomAttributeValuesUnion instance = new CustomAttributeValuesUnion();
+    instance.setActualInstance(o);
+    return instance;
   }
 
   static {
@@ -391,7 +392,7 @@ public class CustomAttributeValuesUnion extends AbstractOpenApiSchema {
    * @return The actual instance of `List&lt;Double&gt;`
    * @throws ClassCastException if the instance is not `List&lt;Double&gt;`
    */
-  public List<Double> getList() throws ClassCastException {
+  public List<Double> getListDouble() throws ClassCastException {
     return (List<Double>) super.getActualInstance();
   }
 }
