@@ -126,29 +126,11 @@ public class CustomAttributeValuesUnion extends AbstractOpenApiSchema {
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (List.class.equals(Integer.class)
-            || List.class.equals(Long.class)
-            || List.class.equals(Float.class)
-            || List.class.equals(Double.class)
-            || List.class.equals(Boolean.class)
-            || List.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((List.class.equals(Integer.class) || List.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((List.class.equals(Float.class) || List.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (List.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |= (List.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-          }
+        if (token != JsonToken.START_ARRAY) {
+          attemptParsing = false;
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(List.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<>() {});
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
@@ -207,29 +189,11 @@ public class CustomAttributeValuesUnion extends AbstractOpenApiSchema {
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (List.class.equals(Integer.class)
-            || List.class.equals(Long.class)
-            || List.class.equals(Float.class)
-            || List.class.equals(Double.class)
-            || List.class.equals(Boolean.class)
-            || List.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((List.class.equals(Integer.class) || List.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((List.class.equals(Float.class) || List.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (List.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |= (List.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-          }
+        if (token != JsonToken.START_ARRAY) {
+          attemptParsing = false;
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(List.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<>() {});
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
