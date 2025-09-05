@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"item_changes\":{},\"item_key\":\"itemKey\"},\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/actions-datastores/3cfdd0b8-c490-4969-8d51-69add64a70ea/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"id\":\"d0d6adeb-c5cf-4dce-98d9-532cbc386b09\",\"title\":\"datastore not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "eb4e6f96-0835-788b-946b-7bdecaa41629"
+  }
+]

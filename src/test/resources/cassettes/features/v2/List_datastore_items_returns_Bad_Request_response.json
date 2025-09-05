@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/invalid-uuid/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"id\":\"d41a11e1-5db7-47bf-a542-b469768194dd\",\"title\":\"invalid path parameter\",\"detail\":\"invalid datastoreId format in path\",\"source\":{\"parameter\":\"datastoreId\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "89734d04-9511-bd4e-2cfc-bdcea411cf1a"
+  }
+]
