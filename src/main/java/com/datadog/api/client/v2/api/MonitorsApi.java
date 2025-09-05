@@ -1252,7 +1252,62 @@ public class MonitorsApi {
 
   /** Manage optional parameters to getMonitorNotificationRules. */
   public static class GetMonitorNotificationRulesOptionalParameters {
+    private Integer page;
+    private Integer perPage;
+    private String sort;
+    private String filters;
     private String include;
+
+    /**
+     * Set page.
+     *
+     * @param page The page to start paginating from. If <code>page</code> is not specified, the
+     *     argument defaults to the first page. (optional)
+     * @return GetMonitorNotificationRulesOptionalParameters
+     */
+    public GetMonitorNotificationRulesOptionalParameters page(Integer page) {
+      this.page = page;
+      return this;
+    }
+
+    /**
+     * Set perPage.
+     *
+     * @param perPage The number of rules to return per page. If <code>per_page</code> is not
+     *     specified, the argument defaults to 100. (optional)
+     * @return GetMonitorNotificationRulesOptionalParameters
+     */
+    public GetMonitorNotificationRulesOptionalParameters perPage(Integer perPage) {
+      this.perPage = perPage;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort String for sort order, composed of field and sort order separated by a colon, for
+     *     example <code>name:asc</code>. Supported sort directions: <code>asc</code>, <code>desc
+     *     </code>. Supported fields: <code>name</code>, <code>created_at</code>. (optional)
+     * @return GetMonitorNotificationRulesOptionalParameters
+     */
+    public GetMonitorNotificationRulesOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set filters.
+     *
+     * @param filters JSON-encoded filter object. Supported keys: * <code>text</code>: Free-text
+     *     query matched against rule name, tags, and recipients. * <code>tags</code>: Array of
+     *     strings. Return rules that have any of these tags. * <code>recipients</code>: Array of
+     *     strings. Return rules that have any of these recipients. (optional)
+     * @return GetMonitorNotificationRulesOptionalParameters
+     */
+    public GetMonitorNotificationRulesOptionalParameters filters(String filters) {
+      this.filters = filters;
+      return this;
+    }
 
     /**
      * Set include.
@@ -1346,6 +1401,10 @@ public class MonitorsApi {
   public ApiResponse<MonitorNotificationRuleListResponse> getMonitorNotificationRulesWithHttpInfo(
       GetMonitorNotificationRulesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    Integer page = parameters.page;
+    Integer perPage = parameters.perPage;
+    String sort = parameters.sort;
+    String filters = parameters.filters;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/monitor/notification_rule";
@@ -1353,6 +1412,10 @@ public class MonitorsApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "per_page", perPage));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filters", filters));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder =
@@ -1387,6 +1450,10 @@ public class MonitorsApi {
       getMonitorNotificationRulesWithHttpInfoAsync(
           GetMonitorNotificationRulesOptionalParameters parameters) {
     Object localVarPostBody = null;
+    Integer page = parameters.page;
+    Integer perPage = parameters.perPage;
+    String sort = parameters.sort;
+    String filters = parameters.filters;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/monitor/notification_rule";
@@ -1394,6 +1461,10 @@ public class MonitorsApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "per_page", perPage));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filters", filters));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
