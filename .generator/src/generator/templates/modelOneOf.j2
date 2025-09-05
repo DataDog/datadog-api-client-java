@@ -144,7 +144,12 @@ public class {{ name }} extends AbstractOpenApiSchema {
     {%- set param_type = get_type(oneOf) %}
     {%- set unparam_type = param_type|un_parameterize_type %}
     {%- if unparam_type in constructor_sigs %}
+    {%- if param_type.startswith('List<') %}
+    {%- set inner_type = param_type[5:-1] %}
+    public static {{ name }} from{{ inner_type }}List({{ param_type }} o) {
+    {%- else %}
     public static {{ name }} from{{ param_type.replace('<', '').replace('>', '').replace(' ', '').replace(',', '') }}({{ param_type }} o) {
+    {%- endif %}
         {{ name }} instance = new {{ name }}();
         instance.setActualInstance(o);
         return instance;
@@ -216,16 +221,28 @@ public class {{ name }} extends AbstractOpenApiSchema {
         return super.getActualInstance();
     }
 
-    {%- set method_names = [] %}
+    {%- set unparam_types = [] %}
+    {%- for oneOf in model.oneOf %}
+    {%- set unparam_type = get_type(oneOf)|un_parameterize_type %}
+    {%- set _ = unparam_types.append(unparam_type) %}
+    {%- endfor %}
+    
     {%- for oneOf in model.oneOf %}
     {%- set dataType = get_type(oneOf) %}
     {%- set unParameterizedDataType = get_type(oneOf)|un_parameterize_type %}
-    {%- set method_name = "get" + unParameterizedDataType %}
-    {%- if method_name in method_names %}
+    {%- set base_method_name = "get" + unParameterizedDataType %}
+    
+    {%- if unparam_types.count(unParameterizedDataType) > 1 %}
+    {%- if dataType.startswith('List<') %}
+    {%- set inner_type = dataType[5:-1] %}
+    {%- set method_name = "get" + inner_type + "List" %}
+    {%- else %}
     {%- set safe_type = dataType.replace('<', '').replace('>', '').replace(' ', '').replace(',', '') %}
     {%- set method_name = "get" + safe_type %}
     {%- endif %}
-    {%- set _ = method_names.append(method_name) %}
+    {%- else %}
+    {%- set method_name = base_method_name %}
+    {%- endif %}
 
     /**
      * Get the actual instance of `{{ dataType|escape_html }}`. If the actual instance is not `{{ dataType|escape_html }}`,
