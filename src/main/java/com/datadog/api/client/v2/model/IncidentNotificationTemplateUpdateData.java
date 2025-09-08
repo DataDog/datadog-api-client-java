@@ -16,123 +16,100 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** Incident type response data. */
+/** Notification template data for an update request. */
 @JsonPropertyOrder({
-  IncidentTypeObject.JSON_PROPERTY_ATTRIBUTES,
-  IncidentTypeObject.JSON_PROPERTY_ID,
-  IncidentTypeObject.JSON_PROPERTY_RELATIONSHIPS,
-  IncidentTypeObject.JSON_PROPERTY_TYPE
+  IncidentNotificationTemplateUpdateData.JSON_PROPERTY_ATTRIBUTES,
+  IncidentNotificationTemplateUpdateData.JSON_PROPERTY_ID,
+  IncidentNotificationTemplateUpdateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentTypeObject {
+public class IncidentNotificationTemplateUpdateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private IncidentTypeAttributes attributes;
+  private IncidentNotificationTemplateUpdateAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private IncidentTypeRelationships relationships;
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private IncidentTypeType type = IncidentTypeType.INCIDENT_TYPES;
+  private IncidentNotificationTemplateType type;
 
-  public IncidentTypeObject() {}
+  public IncidentNotificationTemplateUpdateData() {}
 
   @JsonCreator
-  public IncidentTypeObject(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentTypeType type) {
+  public IncidentNotificationTemplateUpdateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          IncidentNotificationTemplateType type) {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public IncidentTypeObject attributes(IncidentTypeAttributes attributes) {
+  public IncidentNotificationTemplateUpdateData attributes(
+      IncidentNotificationTemplateUpdateAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Incident type's attributes.
+   * The attributes to update on a notification template.
    *
    * @return attributes
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentTypeAttributes getAttributes() {
+  public IncidentNotificationTemplateUpdateAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(IncidentTypeAttributes attributes) {
+  public void setAttributes(IncidentNotificationTemplateUpdateAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public IncidentTypeObject id(String id) {
+  public IncidentNotificationTemplateUpdateData id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The incident type's ID.
+   * The unique identifier of the notification template.
    *
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public IncidentTypeObject relationships(IncidentTypeRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
-  /**
-   * The incident type's resource relationships.
-   *
-   * @return relationships
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentTypeRelationships getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(IncidentTypeRelationships relationships) {
-    this.relationships = relationships;
-  }
-
-  public IncidentTypeObject type(IncidentTypeType type) {
+  public IncidentNotificationTemplateUpdateData type(IncidentNotificationTemplateType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Incident type resource type.
+   * Notification templates resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentTypeType getType() {
+  public IncidentNotificationTemplateType getType() {
     return type;
   }
 
-  public void setType(IncidentTypeType type) {
+  public void setType(IncidentNotificationTemplateType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -151,10 +128,10 @@ public class IncidentTypeObject {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentTypeObject
+   * @return IncidentNotificationTemplateUpdateData
    */
   @JsonAnySetter
-  public IncidentTypeObject putAdditionalProperty(String key, Object value) {
+  public IncidentNotificationTemplateUpdateData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -185,7 +162,7 @@ public class IncidentTypeObject {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentTypeObject object is equal to o. */
+  /** Return true if this IncidentNotificationTemplateUpdateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -194,26 +171,26 @@ public class IncidentTypeObject {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentTypeObject incidentTypeObject = (IncidentTypeObject) o;
-    return Objects.equals(this.attributes, incidentTypeObject.attributes)
-        && Objects.equals(this.id, incidentTypeObject.id)
-        && Objects.equals(this.relationships, incidentTypeObject.relationships)
-        && Objects.equals(this.type, incidentTypeObject.type)
-        && Objects.equals(this.additionalProperties, incidentTypeObject.additionalProperties);
+    IncidentNotificationTemplateUpdateData incidentNotificationTemplateUpdateData =
+        (IncidentNotificationTemplateUpdateData) o;
+    return Objects.equals(this.attributes, incidentNotificationTemplateUpdateData.attributes)
+        && Objects.equals(this.id, incidentNotificationTemplateUpdateData.id)
+        && Objects.equals(this.type, incidentNotificationTemplateUpdateData.type)
+        && Objects.equals(
+            this.additionalProperties, incidentNotificationTemplateUpdateData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentTypeObject {\n");
+    sb.append("class IncidentNotificationTemplateUpdateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

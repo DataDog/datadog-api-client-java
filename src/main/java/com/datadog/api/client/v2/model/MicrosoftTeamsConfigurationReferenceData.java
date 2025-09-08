@@ -17,69 +17,38 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Incident type response data. */
+/** The Microsoft Teams configuration relationship data object. */
 @JsonPropertyOrder({
-  IncidentTypeObject.JSON_PROPERTY_ATTRIBUTES,
-  IncidentTypeObject.JSON_PROPERTY_ID,
-  IncidentTypeObject.JSON_PROPERTY_RELATIONSHIPS,
-  IncidentTypeObject.JSON_PROPERTY_TYPE
+  MicrosoftTeamsConfigurationReferenceData.JSON_PROPERTY_ID,
+  MicrosoftTeamsConfigurationReferenceData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentTypeObject {
+public class MicrosoftTeamsConfigurationReferenceData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private IncidentTypeAttributes attributes;
-
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private IncidentTypeRelationships relationships;
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private IncidentTypeType type = IncidentTypeType.INCIDENT_TYPES;
+  private String type;
 
-  public IncidentTypeObject() {}
+  public MicrosoftTeamsConfigurationReferenceData() {}
 
   @JsonCreator
-  public IncidentTypeObject(
+  public MicrosoftTeamsConfigurationReferenceData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentTypeType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
     this.id = id;
     this.type = type;
-    this.unparsed |= !type.isValid();
   }
 
-  public IncidentTypeObject attributes(IncidentTypeAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
-  }
-
-  /**
-   * Incident type's attributes.
-   *
-   * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentTypeAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(IncidentTypeAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public IncidentTypeObject id(String id) {
+  public MicrosoftTeamsConfigurationReferenceData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The incident type's ID.
+   * The unique identifier of the Microsoft Teams configuration.
    *
    * @return id
    */
@@ -93,49 +62,23 @@ public class IncidentTypeObject {
     this.id = id;
   }
 
-  public IncidentTypeObject relationships(IncidentTypeRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
-  /**
-   * The incident type's resource relationships.
-   *
-   * @return relationships
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentTypeRelationships getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(IncidentTypeRelationships relationships) {
-    this.relationships = relationships;
-  }
-
-  public IncidentTypeObject type(IncidentTypeType type) {
+  public MicrosoftTeamsConfigurationReferenceData type(String type) {
     this.type = type;
-    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Incident type resource type.
+   * The type of the Microsoft Teams configuration.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentTypeType getType() {
+  public String getType() {
     return type;
   }
 
-  public void setType(IncidentTypeType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
+  public void setType(String type) {
     this.type = type;
   }
 
@@ -151,10 +94,10 @@ public class IncidentTypeObject {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentTypeObject
+   * @return MicrosoftTeamsConfigurationReferenceData
    */
   @JsonAnySetter
-  public IncidentTypeObject putAdditionalProperty(String key, Object value) {
+  public MicrosoftTeamsConfigurationReferenceData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -185,7 +128,7 @@ public class IncidentTypeObject {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentTypeObject object is equal to o. */
+  /** Return true if this MicrosoftTeamsConfigurationReferenceData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -194,26 +137,25 @@ public class IncidentTypeObject {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentTypeObject incidentTypeObject = (IncidentTypeObject) o;
-    return Objects.equals(this.attributes, incidentTypeObject.attributes)
-        && Objects.equals(this.id, incidentTypeObject.id)
-        && Objects.equals(this.relationships, incidentTypeObject.relationships)
-        && Objects.equals(this.type, incidentTypeObject.type)
-        && Objects.equals(this.additionalProperties, incidentTypeObject.additionalProperties);
+    MicrosoftTeamsConfigurationReferenceData microsoftTeamsConfigurationReferenceData =
+        (MicrosoftTeamsConfigurationReferenceData) o;
+    return Objects.equals(this.id, microsoftTeamsConfigurationReferenceData.id)
+        && Objects.equals(this.type, microsoftTeamsConfigurationReferenceData.type)
+        && Objects.equals(
+            this.additionalProperties,
+            microsoftTeamsConfigurationReferenceData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentTypeObject {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class MicrosoftTeamsConfigurationReferenceData {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
