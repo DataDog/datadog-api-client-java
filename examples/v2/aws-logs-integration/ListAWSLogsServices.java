@@ -8,7 +8,6 @@ import com.datadog.api.client.v2.model.AWSLogsServicesResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.listAWSLogsServices", true);
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
 
     try {
