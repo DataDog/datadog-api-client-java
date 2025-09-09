@@ -24,7 +24,6 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.updateAWSAccount", true);
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
 
     // there is a valid "aws_account_v2" in the system

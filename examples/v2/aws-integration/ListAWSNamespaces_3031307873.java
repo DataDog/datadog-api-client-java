@@ -8,7 +8,6 @@ import com.datadog.api.client.v2.model.AWSNamespacesResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.listAWSNamespaces", true);
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
 
     try {

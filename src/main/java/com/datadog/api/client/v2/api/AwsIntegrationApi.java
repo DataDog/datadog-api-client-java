@@ -98,13 +98,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<AWSAccountResponse> createAWSAccountWithHttpInfo(AWSAccountCreateRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -147,16 +140,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSAccountResponse>> createAWSAccountWithHttpInfoAsync(
       AWSAccountCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -242,13 +225,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<AWSNewExternalIDResponse> createNewAWSExternalIDWithHttpInfo()
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createNewAWSExternalID";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/generate_new_external_id";
@@ -284,16 +260,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSNewExternalIDResponse>>
       createNewAWSExternalIDWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "createNewAWSExternalID";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSNewExternalIDResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/generate_new_external_id";
@@ -383,13 +349,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<Void> deleteAWSAccountWithHttpInfo(String awsAccountConfigId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
@@ -439,16 +398,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteAWSAccountWithHttpInfoAsync(
       String awsAccountConfigId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
@@ -553,13 +502,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<AWSAccountResponse> getAWSAccountWithHttpInfo(String awsAccountConfigId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
@@ -609,16 +551,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSAccountResponse>> getAWSAccountWithHttpInfoAsync(
       String awsAccountConfigId) {
-    // Check if unstable operation is enabled
-    String operationId = "getAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
@@ -871,13 +803,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<AWSAccountsResponse> listAWSAccountsWithHttpInfo(
       ListAWSAccountsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listAWSAccounts";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     String awsAccountId = parameters.awsAccountId;
     // create path and map variables
@@ -918,16 +843,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSAccountsResponse>> listAWSAccountsWithHttpInfoAsync(
       ListAWSAccountsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listAWSAccounts";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSAccountsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     String awsAccountId = parameters.awsAccountId;
     // create path and map variables
@@ -1007,13 +922,6 @@ public class AwsIntegrationApi {
    *     </table>
    */
   public ApiResponse<AWSNamespacesResponse> listAWSNamespacesWithHttpInfo() throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listAWSNamespaces";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/available_namespaces";
@@ -1049,16 +957,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSNamespacesResponse>>
       listAWSNamespacesWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "listAWSNamespaces";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSNamespacesResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/available_namespaces";
@@ -1154,13 +1052,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<AWSAccountResponse> updateAWSAccountWithHttpInfo(
       String awsAccountConfigId, AWSAccountUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'awsAccountConfigId' is set
@@ -1217,16 +1108,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSAccountResponse>> updateAWSAccountWithHttpInfoAsync(
       String awsAccountConfigId, AWSAccountUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'awsAccountConfigId' is set
