@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.CreateIncidentNotificationTemplateRequest;
 import com.datadog.api.client.v2.model.IncidentAttachmentAttachmentType;
 import com.datadog.api.client.v2.model.IncidentAttachmentRelatedObject;
 import com.datadog.api.client.v2.model.IncidentAttachmentUpdateRequest;
@@ -15,6 +16,8 @@ import com.datadog.api.client.v2.model.IncidentIntegrationMetadataCreateRequest;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataListResponse;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataPatchRequest;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataResponse;
+import com.datadog.api.client.v2.model.IncidentNotificationTemplate;
+import com.datadog.api.client.v2.model.IncidentNotificationTemplateArray;
 import com.datadog.api.client.v2.model.IncidentRelatedObject;
 import com.datadog.api.client.v2.model.IncidentResponse;
 import com.datadog.api.client.v2.model.IncidentResponseData;
@@ -31,6 +34,7 @@ import com.datadog.api.client.v2.model.IncidentTypePatchRequest;
 import com.datadog.api.client.v2.model.IncidentTypeResponse;
 import com.datadog.api.client.v2.model.IncidentUpdateRequest;
 import com.datadog.api.client.v2.model.IncidentsResponse;
+import com.datadog.api.client.v2.model.PatchIncidentNotificationTemplateRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -38,6 +42,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -404,6 +409,165 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentIntegrationMetadataResponse>() {});
+  }
+
+  /**
+   * Create incident notification template.
+   *
+   * <p>See {@link #createIncidentNotificationTemplateWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return IncidentNotificationTemplate
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentNotificationTemplate createIncidentNotificationTemplate(
+      CreateIncidentNotificationTemplateRequest body) throws ApiException {
+    return createIncidentNotificationTemplateWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create incident notification template.
+   *
+   * <p>See {@link #createIncidentNotificationTemplateWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;IncidentNotificationTemplate&gt;
+   */
+  public CompletableFuture<IncidentNotificationTemplate> createIncidentNotificationTemplateAsync(
+      CreateIncidentNotificationTemplateRequest body) {
+    return createIncidentNotificationTemplateWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates a new notification template.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;IncidentNotificationTemplate&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentNotificationTemplate> createIncidentNotificationTemplateWithHttpInfo(
+      CreateIncidentNotificationTemplateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentNotificationTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createIncidentNotificationTemplate");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/notification-templates";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.createIncidentNotificationTemplate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentNotificationTemplate>() {});
+  }
+
+  /**
+   * Create incident notification template.
+   *
+   * <p>See {@link #createIncidentNotificationTemplateWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentNotificationTemplate&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentNotificationTemplate>>
+      createIncidentNotificationTemplateWithHttpInfoAsync(
+          CreateIncidentNotificationTemplateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentNotificationTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplate>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplate>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createIncidentNotificationTemplate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/notification-templates";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.createIncidentNotificationTemplate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplate>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentNotificationTemplate>() {});
   }
 
   /**
@@ -1057,6 +1221,226 @@ public class IncidentsApi {
               "v2.IncidentsApi.deleteIncidentIntegration",
               localVarPath,
               new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /** Manage optional parameters to deleteIncidentNotificationTemplate. */
+  public static class DeleteIncidentNotificationTemplateOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of relationships to include. Supported values: <code>
+     *     created_by_user</code>, <code>last_modified_by_user</code>, <code>incident_type</code>
+     *     (optional)
+     * @return DeleteIncidentNotificationTemplateOptionalParameters
+     */
+    public DeleteIncidentNotificationTemplateOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Delete a notification template.
+   *
+   * <p>See {@link #deleteIncidentNotificationTemplateWithHttpInfo}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteIncidentNotificationTemplate(UUID id) throws ApiException {
+    deleteIncidentNotificationTemplateWithHttpInfo(
+        id, new DeleteIncidentNotificationTemplateOptionalParameters());
+  }
+
+  /**
+   * Delete a notification template.
+   *
+   * <p>See {@link #deleteIncidentNotificationTemplateWithHttpInfoAsync}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteIncidentNotificationTemplateAsync(UUID id) {
+    return deleteIncidentNotificationTemplateWithHttpInfoAsync(
+            id, new DeleteIncidentNotificationTemplateOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a notification template.
+   *
+   * <p>See {@link #deleteIncidentNotificationTemplateWithHttpInfo}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param parameters Optional parameters for the request.
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteIncidentNotificationTemplate(
+      UUID id, DeleteIncidentNotificationTemplateOptionalParameters parameters)
+      throws ApiException {
+    deleteIncidentNotificationTemplateWithHttpInfo(id, parameters);
+  }
+
+  /**
+   * Delete a notification template.
+   *
+   * <p>See {@link #deleteIncidentNotificationTemplateWithHttpInfoAsync}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteIncidentNotificationTemplateAsync(
+      UUID id, DeleteIncidentNotificationTemplateOptionalParameters parameters) {
+    return deleteIncidentNotificationTemplateWithHttpInfoAsync(id, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Deletes a notification template by its ID.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteIncidentNotificationTemplateWithHttpInfo(
+      UUID id, DeleteIncidentNotificationTemplateOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentNotificationTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'id' when calling deleteIncidentNotificationTemplate");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/notification-templates/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.deleteIncidentNotificationTemplate",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a notification template.
+   *
+   * <p>See {@link #deleteIncidentNotificationTemplateWithHttpInfo}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteIncidentNotificationTemplateWithHttpInfoAsync(
+      UUID id, DeleteIncidentNotificationTemplateOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentNotificationTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling"
+                  + " deleteIncidentNotificationTemplate"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/notification-templates/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.deleteIncidentNotificationTemplate",
+              localVarPath,
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
@@ -1819,6 +2203,230 @@ public class IncidentsApi {
         new GenericType<IncidentIntegrationMetadataResponse>() {});
   }
 
+  /** Manage optional parameters to getIncidentNotificationTemplate. */
+  public static class GetIncidentNotificationTemplateOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of relationships to include. Supported values: <code>
+     *     created_by_user</code>, <code>last_modified_by_user</code>, <code>incident_type</code>
+     *     (optional)
+     * @return GetIncidentNotificationTemplateOptionalParameters
+     */
+    public GetIncidentNotificationTemplateOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get incident notification template.
+   *
+   * <p>See {@link #getIncidentNotificationTemplateWithHttpInfo}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @return IncidentNotificationTemplate
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentNotificationTemplate getIncidentNotificationTemplate(UUID id) throws ApiException {
+    return getIncidentNotificationTemplateWithHttpInfo(
+            id, new GetIncidentNotificationTemplateOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get incident notification template.
+   *
+   * <p>See {@link #getIncidentNotificationTemplateWithHttpInfoAsync}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @return CompletableFuture&lt;IncidentNotificationTemplate&gt;
+   */
+  public CompletableFuture<IncidentNotificationTemplate> getIncidentNotificationTemplateAsync(
+      UUID id) {
+    return getIncidentNotificationTemplateWithHttpInfoAsync(
+            id, new GetIncidentNotificationTemplateOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get incident notification template.
+   *
+   * <p>See {@link #getIncidentNotificationTemplateWithHttpInfo}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentNotificationTemplate
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentNotificationTemplate getIncidentNotificationTemplate(
+      UUID id, GetIncidentNotificationTemplateOptionalParameters parameters) throws ApiException {
+    return getIncidentNotificationTemplateWithHttpInfo(id, parameters).getData();
+  }
+
+  /**
+   * Get incident notification template.
+   *
+   * <p>See {@link #getIncidentNotificationTemplateWithHttpInfoAsync}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentNotificationTemplate&gt;
+   */
+  public CompletableFuture<IncidentNotificationTemplate> getIncidentNotificationTemplateAsync(
+      UUID id, GetIncidentNotificationTemplateOptionalParameters parameters) {
+    return getIncidentNotificationTemplateWithHttpInfoAsync(id, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieves a specific notification template by its ID.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentNotificationTemplate&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentNotificationTemplate> getIncidentNotificationTemplateWithHttpInfo(
+      UUID id, GetIncidentNotificationTemplateOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentNotificationTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling getIncidentNotificationTemplate");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/notification-templates/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.getIncidentNotificationTemplate",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentNotificationTemplate>() {});
+  }
+
+  /**
+   * Get incident notification template.
+   *
+   * <p>See {@link #getIncidentNotificationTemplateWithHttpInfo}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentNotificationTemplate&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentNotificationTemplate>>
+      getIncidentNotificationTemplateWithHttpInfoAsync(
+          UUID id, GetIncidentNotificationTemplateOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentNotificationTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplate>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplate>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling getIncidentNotificationTemplate"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/notification-templates/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.getIncidentNotificationTemplate",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplate>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentNotificationTemplate>() {});
+  }
+
   /**
    * Get incident todo details.
    *
@@ -2563,6 +3171,224 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentIntegrationMetadataListResponse>() {});
+  }
+
+  /** Manage optional parameters to listIncidentNotificationTemplates. */
+  public static class ListIncidentNotificationTemplatesOptionalParameters {
+    private UUID filterIncidentType;
+    private String include;
+
+    /**
+     * Set filterIncidentType.
+     *
+     * @param filterIncidentType Optional incident type ID filter. (optional)
+     * @return ListIncidentNotificationTemplatesOptionalParameters
+     */
+    public ListIncidentNotificationTemplatesOptionalParameters filterIncidentType(
+        UUID filterIncidentType) {
+      this.filterIncidentType = filterIncidentType;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of relationships to include. Supported values: <code>
+     *     created_by_user</code>, <code>last_modified_by_user</code>, <code>incident_type</code>
+     *     (optional)
+     * @return ListIncidentNotificationTemplatesOptionalParameters
+     */
+    public ListIncidentNotificationTemplatesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * List incident notification templates.
+   *
+   * <p>See {@link #listIncidentNotificationTemplatesWithHttpInfo}.
+   *
+   * @return IncidentNotificationTemplateArray
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentNotificationTemplateArray listIncidentNotificationTemplates() throws ApiException {
+    return listIncidentNotificationTemplatesWithHttpInfo(
+            new ListIncidentNotificationTemplatesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List incident notification templates.
+   *
+   * <p>See {@link #listIncidentNotificationTemplatesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;IncidentNotificationTemplateArray&gt;
+   */
+  public CompletableFuture<IncidentNotificationTemplateArray>
+      listIncidentNotificationTemplatesAsync() {
+    return listIncidentNotificationTemplatesWithHttpInfoAsync(
+            new ListIncidentNotificationTemplatesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List incident notification templates.
+   *
+   * <p>See {@link #listIncidentNotificationTemplatesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return IncidentNotificationTemplateArray
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentNotificationTemplateArray listIncidentNotificationTemplates(
+      ListIncidentNotificationTemplatesOptionalParameters parameters) throws ApiException {
+    return listIncidentNotificationTemplatesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List incident notification templates.
+   *
+   * <p>See {@link #listIncidentNotificationTemplatesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentNotificationTemplateArray&gt;
+   */
+  public CompletableFuture<IncidentNotificationTemplateArray>
+      listIncidentNotificationTemplatesAsync(
+          ListIncidentNotificationTemplatesOptionalParameters parameters) {
+    return listIncidentNotificationTemplatesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Lists all notification templates. Optionally filter by incident type.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentNotificationTemplateArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentNotificationTemplateArray>
+      listIncidentNotificationTemplatesWithHttpInfo(
+          ListIncidentNotificationTemplatesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentNotificationTemplates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    UUID filterIncidentType = parameters.filterIncidentType;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/notification-templates";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[incident-type]", filterIncidentType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.listIncidentNotificationTemplates",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentNotificationTemplateArray>() {});
+  }
+
+  /**
+   * List incident notification templates.
+   *
+   * <p>See {@link #listIncidentNotificationTemplatesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentNotificationTemplateArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentNotificationTemplateArray>>
+      listIncidentNotificationTemplatesWithHttpInfoAsync(
+          ListIncidentNotificationTemplatesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentNotificationTemplates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplateArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    UUID filterIncidentType = parameters.filterIncidentType;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/notification-templates";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[incident-type]", filterIncidentType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.listIncidentNotificationTemplates",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplateArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentNotificationTemplateArray>() {});
   }
 
   /** Manage optional parameters to listIncidents. */
@@ -4249,6 +5075,268 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentIntegrationMetadataResponse>() {});
+  }
+
+  /** Manage optional parameters to updateIncidentNotificationTemplate. */
+  public static class UpdateIncidentNotificationTemplateOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of relationships to include. Supported values: <code>
+     *     created_by_user</code>, <code>last_modified_by_user</code>, <code>incident_type</code>
+     *     (optional)
+     * @return UpdateIncidentNotificationTemplateOptionalParameters
+     */
+    public UpdateIncidentNotificationTemplateOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Update incident notification template.
+   *
+   * <p>See {@link #updateIncidentNotificationTemplateWithHttpInfo}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param body (required)
+   * @return IncidentNotificationTemplate
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentNotificationTemplate updateIncidentNotificationTemplate(
+      UUID id, PatchIncidentNotificationTemplateRequest body) throws ApiException {
+    return updateIncidentNotificationTemplateWithHttpInfo(
+            id, body, new UpdateIncidentNotificationTemplateOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Update incident notification template.
+   *
+   * <p>See {@link #updateIncidentNotificationTemplateWithHttpInfoAsync}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;IncidentNotificationTemplate&gt;
+   */
+  public CompletableFuture<IncidentNotificationTemplate> updateIncidentNotificationTemplateAsync(
+      UUID id, PatchIncidentNotificationTemplateRequest body) {
+    return updateIncidentNotificationTemplateWithHttpInfoAsync(
+            id, body, new UpdateIncidentNotificationTemplateOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update incident notification template.
+   *
+   * <p>See {@link #updateIncidentNotificationTemplateWithHttpInfo}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentNotificationTemplate
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentNotificationTemplate updateIncidentNotificationTemplate(
+      UUID id,
+      PatchIncidentNotificationTemplateRequest body,
+      UpdateIncidentNotificationTemplateOptionalParameters parameters)
+      throws ApiException {
+    return updateIncidentNotificationTemplateWithHttpInfo(id, body, parameters).getData();
+  }
+
+  /**
+   * Update incident notification template.
+   *
+   * <p>See {@link #updateIncidentNotificationTemplateWithHttpInfoAsync}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentNotificationTemplate&gt;
+   */
+  public CompletableFuture<IncidentNotificationTemplate> updateIncidentNotificationTemplateAsync(
+      UUID id,
+      PatchIncidentNotificationTemplateRequest body,
+      UpdateIncidentNotificationTemplateOptionalParameters parameters) {
+    return updateIncidentNotificationTemplateWithHttpInfoAsync(id, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates an existing notification template's attributes.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentNotificationTemplate&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentNotificationTemplate> updateIncidentNotificationTemplateWithHttpInfo(
+      UUID id,
+      PatchIncidentNotificationTemplateRequest body,
+      UpdateIncidentNotificationTemplateOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentNotificationTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'id' when calling updateIncidentNotificationTemplate");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling updateIncidentNotificationTemplate");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/notification-templates/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.updateIncidentNotificationTemplate",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentNotificationTemplate>() {});
+  }
+
+  /**
+   * Update incident notification template.
+   *
+   * <p>See {@link #updateIncidentNotificationTemplateWithHttpInfo}.
+   *
+   * @param id The ID of the notification template. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentNotificationTemplate&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentNotificationTemplate>>
+      updateIncidentNotificationTemplateWithHttpInfoAsync(
+          UUID id,
+          PatchIncidentNotificationTemplateRequest body,
+          UpdateIncidentNotificationTemplateOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentNotificationTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplate>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplate>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling"
+                  + " updateIncidentNotificationTemplate"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplate>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateIncidentNotificationTemplate"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/notification-templates/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.updateIncidentNotificationTemplate",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentNotificationTemplate>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentNotificationTemplate>() {});
   }
 
   /**

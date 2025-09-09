@@ -21,6 +21,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   IncidentTypeObject.JSON_PROPERTY_ATTRIBUTES,
   IncidentTypeObject.JSON_PROPERTY_ID,
+  IncidentTypeObject.JSON_PROPERTY_RELATIONSHIPS,
   IncidentTypeObject.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -32,6 +33,9 @@ public class IncidentTypeObject {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private IncidentTypeRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private IncidentTypeType type = IncidentTypeType.INCIDENT_TYPES;
@@ -87,6 +91,28 @@ public class IncidentTypeObject {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public IncidentTypeObject relationships(IncidentTypeRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * The incident type's resource relationships.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentTypeRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(IncidentTypeRelationships relationships) {
+    this.relationships = relationships;
   }
 
   public IncidentTypeObject type(IncidentTypeType type) {
@@ -171,13 +197,14 @@ public class IncidentTypeObject {
     IncidentTypeObject incidentTypeObject = (IncidentTypeObject) o;
     return Objects.equals(this.attributes, incidentTypeObject.attributes)
         && Objects.equals(this.id, incidentTypeObject.id)
+        && Objects.equals(this.relationships, incidentTypeObject.relationships)
         && Objects.equals(this.type, incidentTypeObject.type)
         && Objects.equals(this.additionalProperties, incidentTypeObject.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -186,6 +213,7 @@ public class IncidentTypeObject {
     sb.append("class IncidentTypeObject {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

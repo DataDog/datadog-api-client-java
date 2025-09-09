@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"An incident has been declared. Please join the incident channel for updates.\",\"name\":\"Incident Alert Template\",\"subject\":\"Incident Alert\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"00000000-1111-2222-3333-444444444444\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/incidents/config/notification-templates",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"incident type not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "764d22c7-24e8-d860-fbbf-dd0f436c6d9c"
+  }
+]

@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** The Wait step used in a Synthetic multi-step API test. */
 @JsonPropertyOrder({
+  SyntheticsAPIWaitStep.JSON_PROPERTY_ID,
   SyntheticsAPIWaitStep.JSON_PROPERTY_NAME,
   SyntheticsAPIWaitStep.JSON_PROPERTY_SUBTYPE,
   SyntheticsAPIWaitStep.JSON_PROPERTY_VALUE
@@ -27,6 +28,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPIWaitStep {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -48,6 +52,18 @@ public class SyntheticsAPIWaitStep {
     this.subtype = subtype;
     this.unparsed |= !subtype.isValid();
     this.value = value;
+  }
+
+  /**
+   * ID of the step.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
   }
 
   public SyntheticsAPIWaitStep name(String name) {
@@ -170,7 +186,8 @@ public class SyntheticsAPIWaitStep {
       return false;
     }
     SyntheticsAPIWaitStep syntheticsApiWaitStep = (SyntheticsAPIWaitStep) o;
-    return Objects.equals(this.name, syntheticsApiWaitStep.name)
+    return Objects.equals(this.id, syntheticsApiWaitStep.id)
+        && Objects.equals(this.name, syntheticsApiWaitStep.name)
         && Objects.equals(this.subtype, syntheticsApiWaitStep.subtype)
         && Objects.equals(this.value, syntheticsApiWaitStep.value)
         && Objects.equals(this.additionalProperties, syntheticsApiWaitStep.additionalProperties);
@@ -178,13 +195,14 @@ public class SyntheticsAPIWaitStep {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, subtype, value, additionalProperties);
+    return Objects.hash(id, name, subtype, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsAPIWaitStep {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

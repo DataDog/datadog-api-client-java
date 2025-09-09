@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ShiftDataRelationships</code> object. */
+/** Relationships for an on-call shift. */
 @JsonPropertyOrder({ShiftDataRelationships.JSON_PROPERTY_USER})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
