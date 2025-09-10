@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.model.CIAppCreatePipelineEventRequestAttributes
 import com.datadog.api.client.v2.model.CIAppCreatePipelineEventRequestAttributesResource;
 import com.datadog.api.client.v2.model.CIAppCreatePipelineEventRequestData;
 import com.datadog.api.client.v2.model.CIAppCreatePipelineEventRequestDataType;
+import com.datadog.api.client.v2.model.CIAppCreatePipelineEventRequestRootDataSingle;
 import com.datadog.api.client.v2.model.CIAppGitInfo;
 import com.datadog.api.client.v2.model.CIAppPipelineEventInProgressPipeline;
 import com.datadog.api.client.v2.model.CIAppPipelineEventPipeline;
@@ -20,31 +21,35 @@ public class Example {
     CiVisibilityPipelinesApi apiInstance = new CiVisibilityPipelinesApi(defaultClient);
 
     CIAppCreatePipelineEventRequest body =
-        new CIAppCreatePipelineEventRequest()
-            .data(
-                new CIAppCreatePipelineEventRequestData()
-                    .attributes(
-                        new CIAppCreatePipelineEventRequestAttributes()
-                            .resource(
-                                new CIAppCreatePipelineEventRequestAttributesResource(
-                                    new CIAppPipelineEventPipeline(
-                                        new CIAppPipelineEventInProgressPipeline()
-                                            .level(CIAppPipelineEventPipelineLevel.PIPELINE)
-                                            .uniqueId("3eacb6f3-ff04-4e10-8a9c-46e6d054024a")
-                                            .name("Deploy to AWS")
-                                            .url(
-                                                "https://my-ci-provider.example/pipelines/my-pipeline/run/1")
-                                            .start(OffsetDateTime.now().plusSeconds(-120))
-                                            .status(
-                                                CIAppPipelineEventPipelineInProgressStatus.RUNNING)
-                                            .partialRetry(false)
-                                            .git(
-                                                new CIAppGitInfo()
-                                                    .repositoryUrl(
-                                                        "https://github.com/DataDog/datadog-agent")
-                                                    .sha("7f263865994b76066c4612fd1965215e7dcb4cd2")
-                                                    .authorEmail("john.doe@email.com"))))))
-                    .type(CIAppCreatePipelineEventRequestDataType.CIPIPELINE_RESOURCE_REQUEST));
+        new CIAppCreatePipelineEventRequest(
+            new CIAppCreatePipelineEventRequestRootDataSingle()
+                .data(
+                    new CIAppCreatePipelineEventRequestData()
+                        .attributes(
+                            new CIAppCreatePipelineEventRequestAttributes()
+                                .resource(
+                                    new CIAppCreatePipelineEventRequestAttributesResource(
+                                        new CIAppPipelineEventPipeline(
+                                            new CIAppPipelineEventInProgressPipeline()
+                                                .level(CIAppPipelineEventPipelineLevel.PIPELINE)
+                                                .uniqueId("3eacb6f3-ff04-4e10-8a9c-46e6d054024a")
+                                                .name("Deploy to AWS")
+                                                .url(
+                                                    "https://my-ci-provider.example/pipelines/my-pipeline/run/1")
+                                                .start(OffsetDateTime.now().plusSeconds(-120))
+                                                .status(
+                                                    CIAppPipelineEventPipelineInProgressStatus
+                                                        .RUNNING)
+                                                .partialRetry(false)
+                                                .git(
+                                                    new CIAppGitInfo()
+                                                        .repositoryUrl(
+                                                            "https://github.com/DataDog/datadog-agent")
+                                                        .sha(
+                                                            "7f263865994b76066c4612fd1965215e7dcb4cd2")
+                                                        .authorEmail("john.doe@email.com"))))))
+                        .type(
+                            CIAppCreatePipelineEventRequestDataType.CIPIPELINE_RESOURCE_REQUEST)));
 
     try {
       apiInstance.createCIAppPipelineEvent(body);
