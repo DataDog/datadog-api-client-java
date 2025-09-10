@@ -25,6 +25,7 @@ import java.util.Objects;
  * advanced filtering capabilities.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineCustomProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineCustomProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineCustomProcessor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineCustomProcessor.JSON_PROPERTY_INPUTS,
@@ -35,6 +36,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineCustomProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -68,6 +72,28 @@ public class ObservabilityPipelineCustomProcessor {
     this.remaps = remaps;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineCustomProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * The processor passes through all events if it is set to <code>false</code>. Defaults to <code>
+   * true</code>.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineCustomProcessor id(String id) {
@@ -248,7 +274,8 @@ public class ObservabilityPipelineCustomProcessor {
     }
     ObservabilityPipelineCustomProcessor observabilityPipelineCustomProcessor =
         (ObservabilityPipelineCustomProcessor) o;
-    return Objects.equals(this.id, observabilityPipelineCustomProcessor.id)
+    return Objects.equals(this.enabled, observabilityPipelineCustomProcessor.enabled)
+        && Objects.equals(this.id, observabilityPipelineCustomProcessor.id)
         && Objects.equals(this.include, observabilityPipelineCustomProcessor.include)
         && Objects.equals(this.inputs, observabilityPipelineCustomProcessor.inputs)
         && Objects.equals(this.remaps, observabilityPipelineCustomProcessor.remaps)
@@ -259,13 +286,14 @@ public class ObservabilityPipelineCustomProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, include, inputs, remaps, type, additionalProperties);
+    return Objects.hash(enabled, id, include, inputs, remaps, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineCustomProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");

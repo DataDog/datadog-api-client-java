@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The <code>dedupe</code> processor removes duplicate fields in log events. */
 @JsonPropertyOrder({
+  ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_FIELDS,
   ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_INCLUDE,
@@ -32,6 +33,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineDedupeProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private List<String> fields = new ArrayList<>();
 
@@ -71,6 +75,28 @@ public class ObservabilityPipelineDedupeProcessor {
     this.unparsed |= !mode.isValid();
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineDedupeProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * The processor passes through all events if it is set to <code>false</code>. Defaults to <code>
+   * true</code>.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineDedupeProcessor fields(List<String> fields) {
@@ -268,7 +294,8 @@ public class ObservabilityPipelineDedupeProcessor {
     }
     ObservabilityPipelineDedupeProcessor observabilityPipelineDedupeProcessor =
         (ObservabilityPipelineDedupeProcessor) o;
-    return Objects.equals(this.fields, observabilityPipelineDedupeProcessor.fields)
+    return Objects.equals(this.enabled, observabilityPipelineDedupeProcessor.enabled)
+        && Objects.equals(this.fields, observabilityPipelineDedupeProcessor.fields)
         && Objects.equals(this.id, observabilityPipelineDedupeProcessor.id)
         && Objects.equals(this.include, observabilityPipelineDedupeProcessor.include)
         && Objects.equals(this.inputs, observabilityPipelineDedupeProcessor.inputs)
@@ -280,13 +307,14 @@ public class ObservabilityPipelineDedupeProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields, id, include, inputs, mode, type, additionalProperties);
+    return Objects.hash(enabled, fields, id, include, inputs, mode, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineDedupeProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");

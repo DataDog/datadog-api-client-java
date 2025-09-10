@@ -24,6 +24,7 @@ import java.util.Objects;
  * strategies.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineReduceProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineReduceProcessor.JSON_PROPERTY_GROUP_BY,
   ObservabilityPipelineReduceProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineReduceProcessor.JSON_PROPERTY_INCLUDE,
@@ -35,6 +36,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineReduceProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private List<String> groupBy = new ArrayList<>();
 
@@ -74,6 +78,28 @@ public class ObservabilityPipelineReduceProcessor {
     this.mergeStrategies = mergeStrategies;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineReduceProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * The processor passes through all events if it is set to <code>false</code>. Defaults to <code>
+   * true</code>.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineReduceProcessor groupBy(List<String> groupBy) {
@@ -279,7 +305,8 @@ public class ObservabilityPipelineReduceProcessor {
     }
     ObservabilityPipelineReduceProcessor observabilityPipelineReduceProcessor =
         (ObservabilityPipelineReduceProcessor) o;
-    return Objects.equals(this.groupBy, observabilityPipelineReduceProcessor.groupBy)
+    return Objects.equals(this.enabled, observabilityPipelineReduceProcessor.enabled)
+        && Objects.equals(this.groupBy, observabilityPipelineReduceProcessor.groupBy)
         && Objects.equals(this.id, observabilityPipelineReduceProcessor.id)
         && Objects.equals(this.include, observabilityPipelineReduceProcessor.include)
         && Objects.equals(this.inputs, observabilityPipelineReduceProcessor.inputs)
@@ -292,13 +319,15 @@ public class ObservabilityPipelineReduceProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupBy, id, include, inputs, mergeStrategies, type, additionalProperties);
+    return Objects.hash(
+        enabled, groupBy, id, include, inputs, mergeStrategies, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineReduceProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");

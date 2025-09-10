@@ -24,6 +24,7 @@ import java.util.Objects;
  * database.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_FILE,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_GEOIP,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_ID,
@@ -36,6 +37,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineEnrichmentTableProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_FILE = "file";
   private ObservabilityPipelineEnrichmentTableFile file;
 
@@ -74,6 +78,28 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
     this.target = target;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineEnrichmentTableProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * The processor passes through all events if it is set to <code>false</code>. Defaults to <code>
+   * true</code>.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineEnrichmentTableProcessor file(
@@ -290,7 +316,8 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
     }
     ObservabilityPipelineEnrichmentTableProcessor observabilityPipelineEnrichmentTableProcessor =
         (ObservabilityPipelineEnrichmentTableProcessor) o;
-    return Objects.equals(this.file, observabilityPipelineEnrichmentTableProcessor.file)
+    return Objects.equals(this.enabled, observabilityPipelineEnrichmentTableProcessor.enabled)
+        && Objects.equals(this.file, observabilityPipelineEnrichmentTableProcessor.file)
         && Objects.equals(this.geoip, observabilityPipelineEnrichmentTableProcessor.geoip)
         && Objects.equals(this.id, observabilityPipelineEnrichmentTableProcessor.id)
         && Objects.equals(this.include, observabilityPipelineEnrichmentTableProcessor.include)
@@ -304,13 +331,15 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(file, geoip, id, include, inputs, target, type, additionalProperties);
+    return Objects.hash(
+        enabled, file, geoip, id, include, inputs, target, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineEnrichmentTableProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("    geoip: ").append(toIndentedString(geoip)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

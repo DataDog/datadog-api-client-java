@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_DISABLE_LIBRARY_RULES,
+  ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_INPUTS,
@@ -37,6 +38,9 @@ public class ObservabilityPipelineParseGrokProcessor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISABLE_LIBRARY_RULES = "disable_library_rules";
   private Boolean disableLibraryRules = false;
+
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -92,6 +96,28 @@ public class ObservabilityPipelineParseGrokProcessor {
 
   public void setDisableLibraryRules(Boolean disableLibraryRules) {
     this.disableLibraryRules = disableLibraryRules;
+  }
+
+  public ObservabilityPipelineParseGrokProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * The processor passes through all events if it is set to <code>false</code>. Defaults to <code>
+   * true</code>.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineParseGrokProcessor id(String id) {
@@ -275,6 +301,7 @@ public class ObservabilityPipelineParseGrokProcessor {
         (ObservabilityPipelineParseGrokProcessor) o;
     return Objects.equals(
             this.disableLibraryRules, observabilityPipelineParseGrokProcessor.disableLibraryRules)
+        && Objects.equals(this.enabled, observabilityPipelineParseGrokProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineParseGrokProcessor.id)
         && Objects.equals(this.include, observabilityPipelineParseGrokProcessor.include)
         && Objects.equals(this.inputs, observabilityPipelineParseGrokProcessor.inputs)
@@ -288,7 +315,7 @@ public class ObservabilityPipelineParseGrokProcessor {
   @Override
   public int hashCode() {
     return Objects.hash(
-        disableLibraryRules, id, include, inputs, rules, type, additionalProperties);
+        disableLibraryRules, enabled, id, include, inputs, rules, type, additionalProperties);
   }
 
   @Override
@@ -298,6 +325,7 @@ public class ObservabilityPipelineParseGrokProcessor {
     sb.append("    disableLibraryRules: ")
         .append(toIndentedString(disableLibraryRules))
         .append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");

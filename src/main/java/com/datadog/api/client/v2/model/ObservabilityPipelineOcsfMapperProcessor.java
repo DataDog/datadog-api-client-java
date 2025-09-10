@@ -24,6 +24,7 @@ import java.util.Objects;
  * mapping configuration.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineOcsfMapperProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineOcsfMapperProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineOcsfMapperProcessor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineOcsfMapperProcessor.JSON_PROPERTY_INPUTS,
@@ -34,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineOcsfMapperProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -67,6 +71,28 @@ public class ObservabilityPipelineOcsfMapperProcessor {
     this.mappings = mappings;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineOcsfMapperProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * The processor passes through all events if it is set to <code>false</code>. Defaults to <code>
+   * true</code>.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineOcsfMapperProcessor id(String id) {
@@ -248,7 +274,8 @@ public class ObservabilityPipelineOcsfMapperProcessor {
     }
     ObservabilityPipelineOcsfMapperProcessor observabilityPipelineOcsfMapperProcessor =
         (ObservabilityPipelineOcsfMapperProcessor) o;
-    return Objects.equals(this.id, observabilityPipelineOcsfMapperProcessor.id)
+    return Objects.equals(this.enabled, observabilityPipelineOcsfMapperProcessor.enabled)
+        && Objects.equals(this.id, observabilityPipelineOcsfMapperProcessor.id)
         && Objects.equals(this.include, observabilityPipelineOcsfMapperProcessor.include)
         && Objects.equals(this.inputs, observabilityPipelineOcsfMapperProcessor.inputs)
         && Objects.equals(this.mappings, observabilityPipelineOcsfMapperProcessor.mappings)
@@ -260,13 +287,14 @@ public class ObservabilityPipelineOcsfMapperProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, include, inputs, mappings, type, additionalProperties);
+    return Objects.hash(enabled, id, include, inputs, mappings, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineOcsfMapperProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");

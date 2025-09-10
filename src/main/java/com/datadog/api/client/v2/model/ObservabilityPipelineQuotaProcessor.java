@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_DROP_EVENTS,
+  ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_IGNORE_WHEN_MISSING_PARTITIONS,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_INCLUDE,
@@ -42,6 +43,9 @@ public class ObservabilityPipelineQuotaProcessor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DROP_EVENTS = "drop_events";
   private Boolean dropEvents;
+
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -119,6 +123,28 @@ public class ObservabilityPipelineQuotaProcessor {
 
   public void setDropEvents(Boolean dropEvents) {
     this.dropEvents = dropEvents;
+  }
+
+  public ObservabilityPipelineQuotaProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * The processor passes through all events if it is set to <code>false</code>. Defaults to <code>
+   * true</code>.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineQuotaProcessor id(String id) {
@@ -428,6 +454,7 @@ public class ObservabilityPipelineQuotaProcessor {
     ObservabilityPipelineQuotaProcessor observabilityPipelineQuotaProcessor =
         (ObservabilityPipelineQuotaProcessor) o;
     return Objects.equals(this.dropEvents, observabilityPipelineQuotaProcessor.dropEvents)
+        && Objects.equals(this.enabled, observabilityPipelineQuotaProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineQuotaProcessor.id)
         && Objects.equals(
             this.ignoreWhenMissingPartitions,
@@ -448,6 +475,7 @@ public class ObservabilityPipelineQuotaProcessor {
   public int hashCode() {
     return Objects.hash(
         dropEvents,
+        enabled,
         id,
         ignoreWhenMissingPartitions,
         include,
@@ -466,6 +494,7 @@ public class ObservabilityPipelineQuotaProcessor {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineQuotaProcessor {\n");
     sb.append("    dropEvents: ").append(toIndentedString(dropEvents)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    ignoreWhenMissingPartitions: ")
         .append(toIndentedString(ignoreWhenMissingPartitions))

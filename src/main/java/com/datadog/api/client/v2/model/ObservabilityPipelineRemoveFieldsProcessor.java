@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The <code>remove_fields</code> processor deletes specified fields from logs. */
 @JsonPropertyOrder({
+  ObservabilityPipelineRemoveFieldsProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineRemoveFieldsProcessor.JSON_PROPERTY_FIELDS,
   ObservabilityPipelineRemoveFieldsProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineRemoveFieldsProcessor.JSON_PROPERTY_INCLUDE,
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineRemoveFieldsProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private List<String> fields = new ArrayList<>();
 
@@ -63,6 +67,28 @@ public class ObservabilityPipelineRemoveFieldsProcessor {
     this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineRemoveFieldsProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * The processor passes through all events if it is set to <code>false</code>. Defaults to <code>
+   * true</code>.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineRemoveFieldsProcessor fields(List<String> fields) {
@@ -239,7 +265,8 @@ public class ObservabilityPipelineRemoveFieldsProcessor {
     }
     ObservabilityPipelineRemoveFieldsProcessor observabilityPipelineRemoveFieldsProcessor =
         (ObservabilityPipelineRemoveFieldsProcessor) o;
-    return Objects.equals(this.fields, observabilityPipelineRemoveFieldsProcessor.fields)
+    return Objects.equals(this.enabled, observabilityPipelineRemoveFieldsProcessor.enabled)
+        && Objects.equals(this.fields, observabilityPipelineRemoveFieldsProcessor.fields)
         && Objects.equals(this.id, observabilityPipelineRemoveFieldsProcessor.id)
         && Objects.equals(this.include, observabilityPipelineRemoveFieldsProcessor.include)
         && Objects.equals(this.inputs, observabilityPipelineRemoveFieldsProcessor.inputs)
@@ -251,13 +278,14 @@ public class ObservabilityPipelineRemoveFieldsProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields, id, include, inputs, type, additionalProperties);
+    return Objects.hash(enabled, fields, id, include, inputs, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineRemoveFieldsProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
