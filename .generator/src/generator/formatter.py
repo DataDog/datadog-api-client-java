@@ -492,8 +492,8 @@ def format_data_with_schema_list(
                 continue
 
             if name:
-                one_of_imports.add(f"{default_name}")
-                value = f"new {default_name}({value})"
+                one_of_imports.add(f"{name}")
+                value = f"new {name}({value})"
             elif default_name:
                 one_of_imports.add(f"{default_name}Item")
                 value = f"new {default_name}Item({value})"
