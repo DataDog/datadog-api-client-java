@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"item_changes\":{},\"item_key\":\"\"},\"type\":\"items\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/actions-datastores/invalid-uuid/items",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"id\":\"f88d0b88-0d55-482b-9a90-3556ef7d6b4a\",\"title\":\"invalid path parameter\",\"detail\":\"invalid datastoreId format in path\",\"source\":{\"parameter\":\"datastoreId\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7de9857a-530e-8f79-0178-90e8415e029c"
+  }
+]
