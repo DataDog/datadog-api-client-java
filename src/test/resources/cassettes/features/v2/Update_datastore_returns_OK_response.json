@@ -1,0 +1,88 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"\",\"name\":\"Test Datastore\",\"org_access\":\"contributor\",\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"785f6031-19e8-4dda-8ccc-f4e700ae5c99\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6574cf7e-1c55-24e1-45d2-b92f9fa74d2f"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"updated name\"},\"id\":\"785f6031-19e8-4dda-8ccc-f4e700ae5c99\",\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/actions-datastores/785f6031-19e8-4dda-8ccc-f4e700ae5c99",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"785f6031-19e8-4dda-8ccc-f4e700ae5c99\",\"type\":\"datastores\",\"attributes\":{\"created_at\":\"2025-09-05T22:54:12.386695Z\",\"creator_user_id\":1445416,\"creator_user_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"\",\"modified_at\":\"2025-09-05T22:54:12.575024Z\",\"name\":\"updated name\",\"org_id\":321813,\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fb0181e7-c9a2-0aec-4f0d-5041e3f642d4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/785f6031-19e8-4dda-8ccc-f4e700ae5c99",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"785f6031-19e8-4dda-8ccc-f4e700ae5c99\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2cb79983-af8e-fb8e-8222-36088882310c"
+  }
+]
