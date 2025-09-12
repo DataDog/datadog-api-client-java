@@ -228,6 +228,8 @@ public class CiVisibilityPipelinesApi {
    * href="https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/">Pipeline
    * Data Model And Execution Types</a>.
    *
+   * <p>Multiple events can be sent in an array (up to 1000).
+   *
    * <p>Pipeline events can be submitted with a timestamp that is up to 18 hours in the past.
    *
    * @param body (required)
