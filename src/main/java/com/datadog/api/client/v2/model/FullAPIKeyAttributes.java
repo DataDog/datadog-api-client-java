@@ -16,11 +16,13 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of a full API key. */
 @JsonPropertyOrder({
   FullAPIKeyAttributes.JSON_PROPERTY_CATEGORY,
   FullAPIKeyAttributes.JSON_PROPERTY_CREATED_AT,
+  FullAPIKeyAttributes.JSON_PROPERTY_DATE_LAST_USED,
   FullAPIKeyAttributes.JSON_PROPERTY_KEY,
   FullAPIKeyAttributes.JSON_PROPERTY_LAST4,
   FullAPIKeyAttributes.JSON_PROPERTY_MODIFIED_AT,
@@ -36,6 +38,9 @@ public class FullAPIKeyAttributes {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_DATE_LAST_USED = "date_last_used";
+  private JsonNullable<OffsetDateTime> dateLastUsed = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
@@ -84,6 +89,32 @@ public class FullAPIKeyAttributes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
+  }
+
+  /**
+   * Date the API Key was last used
+   *
+   * @return dateLastUsed
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getDateLastUsed() {
+
+    if (dateLastUsed == null) {
+      dateLastUsed = JsonNullable.<OffsetDateTime>undefined();
+    }
+    return dateLastUsed.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DATE_LAST_USED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<OffsetDateTime> getDateLastUsed_JsonNullable() {
+    return dateLastUsed;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DATE_LAST_USED)
+  private void setDateLastUsed_JsonNullable(JsonNullable<OffsetDateTime> dateLastUsed) {
+    this.dateLastUsed = dateLastUsed;
   }
 
   /**
@@ -222,6 +253,7 @@ public class FullAPIKeyAttributes {
     FullAPIKeyAttributes fullApiKeyAttributes = (FullAPIKeyAttributes) o;
     return Objects.equals(this.category, fullApiKeyAttributes.category)
         && Objects.equals(this.createdAt, fullApiKeyAttributes.createdAt)
+        && Objects.equals(this.dateLastUsed, fullApiKeyAttributes.dateLastUsed)
         && Objects.equals(this.key, fullApiKeyAttributes.key)
         && Objects.equals(this.last4, fullApiKeyAttributes.last4)
         && Objects.equals(this.modifiedAt, fullApiKeyAttributes.modifiedAt)
@@ -236,6 +268,7 @@ public class FullAPIKeyAttributes {
     return Objects.hash(
         category,
         createdAt,
+        dateLastUsed,
         key,
         last4,
         modifiedAt,
@@ -250,6 +283,7 @@ public class FullAPIKeyAttributes {
     sb.append("class FullAPIKeyAttributes {\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    dateLastUsed: ").append(toIndentedString(dateLastUsed)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
