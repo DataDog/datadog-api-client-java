@@ -23,27 +23,28 @@ import java.util.Objects;
 public class CIAppCreatePipelineEventRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private CIAppCreatePipelineEventRequestData data;
+  private CIAppCreatePipelineEventRequestDataSingleOrArray data;
 
-  public CIAppCreatePipelineEventRequest data(CIAppCreatePipelineEventRequestData data) {
+  public CIAppCreatePipelineEventRequest data(
+      CIAppCreatePipelineEventRequestDataSingleOrArray data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Data of the pipeline event to create.
+   * Data of the pipeline events to create.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CIAppCreatePipelineEventRequestData getData() {
+  public CIAppCreatePipelineEventRequestDataSingleOrArray getData() {
     return data;
   }
 
-  public void setData(CIAppCreatePipelineEventRequestData data) {
+  public void setData(CIAppCreatePipelineEventRequestDataSingleOrArray data) {
     this.data = data;
   }
 
