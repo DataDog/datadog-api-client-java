@@ -33,7 +33,8 @@ public class SecurityMonitoringRuleDetectionMethod extends ModelEnum<String> {
               "impossible_travel",
               "hardcoded",
               "third_party",
-              "anomaly_threshold"));
+              "anomaly_threshold",
+              "sequence_detection"));
 
   public static final SecurityMonitoringRuleDetectionMethod THRESHOLD =
       new SecurityMonitoringRuleDetectionMethod("threshold");
@@ -49,6 +50,8 @@ public class SecurityMonitoringRuleDetectionMethod extends ModelEnum<String> {
       new SecurityMonitoringRuleDetectionMethod("third_party");
   public static final SecurityMonitoringRuleDetectionMethod ANOMALY_THRESHOLD =
       new SecurityMonitoringRuleDetectionMethod("anomaly_threshold");
+  public static final SecurityMonitoringRuleDetectionMethod SEQUENCE_DETECTION =
+      new SecurityMonitoringRuleDetectionMethod("sequence_detection");
 
   SecurityMonitoringRuleDetectionMethod(String value) {
     super(value, allowedValues);
