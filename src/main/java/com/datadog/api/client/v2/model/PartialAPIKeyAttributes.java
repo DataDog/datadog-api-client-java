@@ -12,14 +12,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of a partial API key. */
 @JsonPropertyOrder({
   PartialAPIKeyAttributes.JSON_PROPERTY_CATEGORY,
   PartialAPIKeyAttributes.JSON_PROPERTY_CREATED_AT,
+  PartialAPIKeyAttributes.JSON_PROPERTY_DATE_LAST_USED,
   PartialAPIKeyAttributes.JSON_PROPERTY_LAST4,
   PartialAPIKeyAttributes.JSON_PROPERTY_MODIFIED_AT,
   PartialAPIKeyAttributes.JSON_PROPERTY_NAME,
@@ -34,6 +37,9 @@ public class PartialAPIKeyAttributes {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private String createdAt;
+
+  public static final String JSON_PROPERTY_DATE_LAST_USED = "date_last_used";
+  private JsonNullable<OffsetDateTime> dateLastUsed = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_LAST4 = "last4";
   private String last4;
@@ -79,6 +85,32 @@ public class PartialAPIKeyAttributes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreatedAt() {
     return createdAt;
+  }
+
+  /**
+   * Date the API Key was last used.
+   *
+   * @return dateLastUsed
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getDateLastUsed() {
+
+    if (dateLastUsed == null) {
+      dateLastUsed = JsonNullable.<OffsetDateTime>undefined();
+    }
+    return dateLastUsed.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DATE_LAST_USED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<OffsetDateTime> getDateLastUsed_JsonNullable() {
+    return dateLastUsed;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DATE_LAST_USED)
+  private void setDateLastUsed_JsonNullable(JsonNullable<OffsetDateTime> dateLastUsed) {
+    this.dateLastUsed = dateLastUsed;
   }
 
   /**
@@ -205,6 +237,7 @@ public class PartialAPIKeyAttributes {
     PartialAPIKeyAttributes partialApiKeyAttributes = (PartialAPIKeyAttributes) o;
     return Objects.equals(this.category, partialApiKeyAttributes.category)
         && Objects.equals(this.createdAt, partialApiKeyAttributes.createdAt)
+        && Objects.equals(this.dateLastUsed, partialApiKeyAttributes.dateLastUsed)
         && Objects.equals(this.last4, partialApiKeyAttributes.last4)
         && Objects.equals(this.modifiedAt, partialApiKeyAttributes.modifiedAt)
         && Objects.equals(this.name, partialApiKeyAttributes.name)
@@ -218,6 +251,7 @@ public class PartialAPIKeyAttributes {
     return Objects.hash(
         category,
         createdAt,
+        dateLastUsed,
         last4,
         modifiedAt,
         name,
@@ -231,6 +265,7 @@ public class PartialAPIKeyAttributes {
     sb.append("class PartialAPIKeyAttributes {\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    dateLastUsed: ").append(toIndentedString(dateLastUsed)).append("\n");
     sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

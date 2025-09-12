@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_one_application_key_owned_by_current_user_returns_OK_response-1757540407\"},\"type\":\"application_keys\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/current_user/application_keys",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"1c6c0fa5-6608-4e3f-8ce0-2b861590fecd\",\"attributes\":{\"name\":\"Test-Get_one_application_key_owned_by_current_user_returns_OK_response-1757540407\",\"created_at\":\"2025-09-10T21:40:08.244976+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}},\"leak_information\":{\"data\":null}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dd1df6a9-4e66-b38a-5130-e89bee7bfd65"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/current_user/application_keys/1c6c0fa5-6608-4e3f-8ce0-2b861590fecd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"1c6c0fa5-6608-4e3f-8ce0-2b861590fecd\",\"attributes\":{\"name\":\"Test-Get_one_application_key_owned_by_current_user_returns_OK_response-1757540407\",\"created_at\":\"2025-09-10T21:40:08.244977+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null,\"last_used_at\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}},\"leak_information\":{\"data\":null}}},\"included\":[{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"attributes\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"created_at\":\"2020-12-29T22:58:44.733921+00:00\",\"modified_at\":\"2021-04-27T13:54:01.547888+00:00\",\"email\":\"team-intg-tools-libs-spam@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/b7c189b5b4c2c429d7c1e0bc3749330e?s=48&d=retro\",\"title\":null,\"verified\":true,\"service_account\":true,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Active\"},\"relationships\":{\"roles\":{\"data\":[{\"type\":\"roles\",\"id\":\"94172442-be03-11e9-a77a-3b7612558ac1\"}]}}},{\"type\":\"roles\",\"id\":\"94172442-be03-11e9-a77a-3b7612558ac1\",\"attributes\":{\"name\":\"Datadog Admin Role\",\"managed\":true,\"created_at\":\"2019-08-13T19:50:19.022791+00:00\",\"modified_at\":\"2019-08-13T19:50:19.022791+00:00\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ab412b3b-3371-7105-f9a1-b5261b041a52"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/current_user/application_keys/1c6c0fa5-6608-4e3f-8ce0-2b861590fecd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f9d1e7b8-628d-1a4e-775e-964ad5437e7b"
+  }
+]
