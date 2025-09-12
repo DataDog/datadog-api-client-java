@@ -12,6 +12,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
@@ -321,6 +322,58 @@ public class OrgConnectionsApi {
         null);
   }
 
+  /** Manage optional parameters to listOrgConnections. */
+  public static class ListOrgConnectionsOptionalParameters {
+    private String sinkOrgId;
+    private String sourceOrgId;
+    private Long limit;
+    private Long offset;
+
+    /**
+     * Set sinkOrgId.
+     *
+     * @param sinkOrgId The Org ID of the sink org. (optional)
+     * @return ListOrgConnectionsOptionalParameters
+     */
+    public ListOrgConnectionsOptionalParameters sinkOrgId(String sinkOrgId) {
+      this.sinkOrgId = sinkOrgId;
+      return this;
+    }
+
+    /**
+     * Set sourceOrgId.
+     *
+     * @param sourceOrgId The Org ID of the source org. (optional)
+     * @return ListOrgConnectionsOptionalParameters
+     */
+    public ListOrgConnectionsOptionalParameters sourceOrgId(String sourceOrgId) {
+      this.sourceOrgId = sourceOrgId;
+      return this;
+    }
+
+    /**
+     * Set limit.
+     *
+     * @param limit The limit of number of entries you want to return. Default is 1000. (optional)
+     * @return ListOrgConnectionsOptionalParameters
+     */
+    public ListOrgConnectionsOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /**
+     * Set offset.
+     *
+     * @param offset The pagination offset which you want to query from. Default is 0. (optional)
+     * @return ListOrgConnectionsOptionalParameters
+     */
+    public ListOrgConnectionsOptionalParameters offset(Long offset) {
+      this.offset = offset;
+      return this;
+    }
+  }
+
   /**
    * List Org Connections.
    *
@@ -330,7 +383,7 @@ public class OrgConnectionsApi {
    * @throws ApiException if fails to make API call
    */
   public OrgConnectionListResponse listOrgConnections() throws ApiException {
-    return listOrgConnectionsWithHttpInfo().getData();
+    return listOrgConnectionsWithHttpInfo(new ListOrgConnectionsOptionalParameters()).getData();
   }
 
   /**
@@ -341,7 +394,38 @@ public class OrgConnectionsApi {
    * @return CompletableFuture&lt;OrgConnectionListResponse&gt;
    */
   public CompletableFuture<OrgConnectionListResponse> listOrgConnectionsAsync() {
-    return listOrgConnectionsWithHttpInfoAsync()
+    return listOrgConnectionsWithHttpInfoAsync(new ListOrgConnectionsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List Org Connections.
+   *
+   * <p>See {@link #listOrgConnectionsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return OrgConnectionListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OrgConnectionListResponse listOrgConnections(
+      ListOrgConnectionsOptionalParameters parameters) throws ApiException {
+    return listOrgConnectionsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List Org Connections.
+   *
+   * <p>See {@link #listOrgConnectionsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;OrgConnectionListResponse&gt;
+   */
+  public CompletableFuture<OrgConnectionListResponse> listOrgConnectionsAsync(
+      ListOrgConnectionsOptionalParameters parameters) {
+    return listOrgConnectionsWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -351,6 +435,7 @@ public class OrgConnectionsApi {
   /**
    * Returns a list of org connections.
    *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;OrgConnectionListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -363,19 +448,29 @@ public class OrgConnectionsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<OrgConnectionListResponse> listOrgConnectionsWithHttpInfo()
-      throws ApiException {
+  public ApiResponse<OrgConnectionListResponse> listOrgConnectionsWithHttpInfo(
+      ListOrgConnectionsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    String sinkOrgId = parameters.sinkOrgId;
+    String sourceOrgId = parameters.sourceOrgId;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
     // create path and map variables
     String localVarPath = "/api/v2/org_connections";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sink_org_id", sinkOrgId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "source_org_id", sourceOrgId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.OrgConnectionsApi.listOrgConnections",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -396,15 +491,26 @@ public class OrgConnectionsApi {
    *
    * <p>See {@link #listOrgConnectionsWithHttpInfo}.
    *
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;OrgConnectionListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<OrgConnectionListResponse>>
-      listOrgConnectionsWithHttpInfoAsync() {
+      listOrgConnectionsWithHttpInfoAsync(ListOrgConnectionsOptionalParameters parameters) {
     Object localVarPostBody = null;
+    String sinkOrgId = parameters.sinkOrgId;
+    String sourceOrgId = parameters.sourceOrgId;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
     // create path and map variables
     String localVarPath = "/api/v2/org_connections";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sink_org_id", sinkOrgId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "source_org_id", sourceOrgId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
 
     Invocation.Builder builder;
     try {
@@ -412,7 +518,7 @@ public class OrgConnectionsApi {
           apiClient.createBuilder(
               "v2.OrgConnectionsApi.listOrgConnections",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
