@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,7 +26,15 @@ import java.util.Objects;
 public class AwsCURConfigsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<AwsCURConfig> data = null;
+  private List<AwsCURConfig> data = new ArrayList<>();
+
+  public AwsCURConfigsResponse() {}
+
+  @JsonCreator
+  public AwsCURConfigsResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AwsCURConfig> data) {
+    this.data = data;
+  }
 
   public AwsCURConfigsResponse data(List<AwsCURConfig> data) {
     this.data = data;
@@ -36,9 +45,6 @@ public class AwsCURConfigsResponse {
   }
 
   public AwsCURConfigsResponse addDataItem(AwsCURConfig dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
     return this;
@@ -49,9 +55,8 @@ public class AwsCURConfigsResponse {
    *
    * @return data
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<AwsCURConfig> getData() {
     return data;
   }

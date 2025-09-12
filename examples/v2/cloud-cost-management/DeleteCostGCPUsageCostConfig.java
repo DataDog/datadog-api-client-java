@@ -1,4 +1,4 @@
-// Delete Cloud Cost Management GCP Usage Cost config returns "No Content" response
+// Delete Google Cloud Usage Cost config returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

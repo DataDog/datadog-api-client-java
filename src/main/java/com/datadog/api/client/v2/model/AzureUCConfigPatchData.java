@@ -37,12 +37,8 @@ public class AzureUCConfigPatchData {
 
   @JsonCreator
   public AzureUCConfigPatchData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          AzureUCConfigPatchRequestAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           AzureUCConfigPatchRequestType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -58,8 +54,9 @@ public class AzureUCConfigPatchData {
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AzureUCConfigPatchRequestAttributes getAttributes() {
     return attributes;
   }

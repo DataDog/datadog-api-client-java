@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for a GCP Usage Cost config. */
+/** Attributes for a Google Cloud Usage Cost config. */
 @JsonPropertyOrder({
   GCPUsageCostConfigAttributes.JSON_PROPERTY_ACCOUNT_ID,
   GCPUsageCostConfigAttributes.JSON_PROPERTY_BUCKET_NAME,
@@ -106,7 +106,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The GCP account ID.
+   * The Google Cloud account ID.
    *
    * @return accountId
    */
@@ -126,7 +126,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The GCP bucket name used to store the Usage Cost export.
+   * The Google Cloud bucket name used to store the Usage Cost export.
    *
    * @return bucketName
    */
@@ -146,7 +146,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The timestamp when the GCP Usage Cost config was created.
+   * The timestamp when the Google Cloud Usage Cost config was created.
    *
    * @return createdAt
    */
@@ -167,7 +167,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The export dataset name used for the GCP Usage Cost Report.
+   * The export dataset name used for the Google Cloud Usage Cost Report.
    *
    * @return dataset
    */
@@ -199,7 +199,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The error messages for the GCP Usage Cost config.
+   * The error messages for the Google Cloud Usage Cost config.
    *
    * @return errorMessages
    */
@@ -230,7 +230,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The export prefix used for the GCP Usage Cost Report.
+   * The export prefix used for the Google Cloud Usage Cost Report.
    *
    * @return exportPrefix
    */
@@ -250,7 +250,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The name of the GCP Usage Cost Report.
+   * The name of the Google Cloud Usage Cost Report.
    *
    * @return exportProjectName
    */
@@ -294,7 +294,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The <code>project_id</code> of the GCP Usage Cost report.
+   * The <code>project_id</code> of the Google Cloud Usage Cost report.
    *
    * @return projectId
    */
@@ -315,7 +315,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The unique GCP service account email.
+   * The unique Google Cloud service account email.
    *
    * @return serviceAccount
    */
@@ -335,7 +335,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The status of the GCP Usage Cost config.
+   * The status of the Google Cloud Usage Cost config.
    *
    * @return status
    */
@@ -355,7 +355,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The timestamp when the GCP Usage Cost config status was updated.
+   * The timestamp when the Google Cloud Usage Cost config status was updated.
    *
    * @return statusUpdatedAt
    */
@@ -376,7 +376,7 @@ public class GCPUsageCostConfigAttributes {
   }
 
   /**
-   * The timestamp when the GCP Usage Cost config status was updated.
+   * The timestamp when the Google Cloud Usage Cost config status was updated.
    *
    * @return updatedAt
    */

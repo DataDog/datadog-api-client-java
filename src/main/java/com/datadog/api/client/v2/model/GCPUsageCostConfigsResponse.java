@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,14 +19,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** List of GCP Usage Cost configs. */
+/** List of Google Cloud Usage Cost configs. */
 @JsonPropertyOrder({GCPUsageCostConfigsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GCPUsageCostConfigsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<GCPUsageCostConfig> data = null;
+  private List<GCPUsageCostConfig> data = new ArrayList<>();
+
+  public GCPUsageCostConfigsResponse() {}
+
+  @JsonCreator
+  public GCPUsageCostConfigsResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<GCPUsageCostConfig> data) {
+    this.data = data;
+  }
 
   public GCPUsageCostConfigsResponse data(List<GCPUsageCostConfig> data) {
     this.data = data;
@@ -36,22 +45,18 @@ public class GCPUsageCostConfigsResponse {
   }
 
   public GCPUsageCostConfigsResponse addDataItem(GCPUsageCostConfig dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * A GCP Usage Cost config.
+   * A Google Cloud Usage Cost config.
    *
    * @return data
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<GCPUsageCostConfig> getData() {
     return data;
   }

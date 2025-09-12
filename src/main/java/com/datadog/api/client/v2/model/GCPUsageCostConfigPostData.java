@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** GCP Usage Cost config post data. */
+/** Google Cloud Usage Cost config post data. */
 @JsonPropertyOrder({
   GCPUsageCostConfigPostData.JSON_PROPERTY_ATTRIBUTES,
   GCPUsageCostConfigPostData.JSON_PROPERTY_TYPE
@@ -37,12 +37,8 @@ public class GCPUsageCostConfigPostData {
 
   @JsonCreator
   public GCPUsageCostConfigPostData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          GCPUsageCostConfigPostRequestAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           GCPUsageCostConfigPostRequestType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -54,12 +50,13 @@ public class GCPUsageCostConfigPostData {
   }
 
   /**
-   * Attributes for GCP Usage Cost config post request.
+   * Attributes for Google Cloud Usage Cost config post request.
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GCPUsageCostConfigPostRequestAttributes getAttributes() {
     return attributes;
   }
@@ -75,7 +72,7 @@ public class GCPUsageCostConfigPostData {
   }
 
   /**
-   * Type of GCP Usage Cost config post request.
+   * Type of Google Cloud Usage Cost config post request.
    *
    * @return type
    */

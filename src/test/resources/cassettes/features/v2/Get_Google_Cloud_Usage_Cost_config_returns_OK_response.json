@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/cost/gcp_uc_config/123456",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"123456\",\"type\":\"gcp_uc_config\",\"attributes\":{\"account_id\":\"123456_ABCDEF_123ABC\",\"bucket_name\":\"test-bucket-name\",\"created_at\":\"2024-04-29T13:10:37.516579\",\"dataset\":\"test-dataset\",\"error_messages\":null,\"export_prefix\":\"datadog_cloud_cost_detailed_usage_export\",\"export_project_name\":\"test-export-project-name\",\"months\":15,\"project_id\":\"\",\"service_account\":\"dd-ccm-gcp-test-integration@some-test-project.iam.gserviceaccount.com\",\"status\":\"active\",\"status_updated_at\":\"2025-08-02T14:23:19.542138\",\"updated_at\":\"2024-04-29T13:10:37.516579\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fab34dd8-e867-d50d-2d06-5c346b29d250"
+  }
+]
