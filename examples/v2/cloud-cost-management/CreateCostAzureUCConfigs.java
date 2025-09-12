@@ -35,7 +35,6 @@ public class Example {
                                     .storageAccount("dd-storage-account")
                                     .storageContainer("dd-storage-container"))
                             .clientId("1234abcd-1234-abcd-1234-1234abcd1234")
-                            .isEnabled(true)
                             .scope("subscriptions/1234abcd-1234-abcd-1234-1234abcd1234"))
                     .type(AzureUCConfigPostRequestType.AZURE_UC_CONFIG_POST_REQUEST));
 

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** GCP Usage Cost config patch data. */
+/** Google Cloud Usage Cost config patch data. */
 @JsonPropertyOrder({
   GCPUsageCostConfigPatchData.JSON_PROPERTY_ATTRIBUTES,
   GCPUsageCostConfigPatchData.JSON_PROPERTY_TYPE
@@ -55,7 +55,7 @@ public class GCPUsageCostConfigPatchData {
   }
 
   /**
-   * Attributes for GCP Usage Cost config patch request.
+   * Attributes for Google Cloud Usage Cost config patch request.
    *
    * @return attributes
    */
@@ -76,7 +76,7 @@ public class GCPUsageCostConfigPatchData {
   }
 
   /**
-   * Type of GCP Usage Cost config patch request.
+   * Type of Google Cloud Usage Cost config patch request.
    *
    * @return type
    */

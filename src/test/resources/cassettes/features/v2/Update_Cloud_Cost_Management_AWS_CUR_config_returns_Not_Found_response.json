@@ -7,12 +7,12 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/cost/aws_cur_config/12345678",
+      "path": "/api/v2/cost/aws_cur_config/123456",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Cloud account not found\",\"detail\":\"Cloud account with ID 12345678 was not found\"}]}",
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Cloud account not found\",\"detail\":\"Cloud account with ID 123456 was not found\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8c65e0d7-a670-e21d-106e-88f4d15c774b"
+    "id": "4486dad6-8272-ae86-5f98-9ed368f5d916"
   }
 ]
