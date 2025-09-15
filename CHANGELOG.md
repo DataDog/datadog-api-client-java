@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 2.43.0/2025-09-15
+
+### Added
+* Add Query Parameters to ListOrgConnections Endpoint [#3130](https://github.com/DataDog/datadog-api-client-java/pull/3130)
+* Add Incident Notification Rules Public Spec [#3123](https://github.com/DataDog/datadog-api-client-java/pull/3123)
+* Update v1 and v2 GCP API specs to support `monitored_resource_configs` [#3121](https://github.com/DataDog/datadog-api-client-java/pull/3121)
+* Add action datastore API [#3101](https://github.com/DataDog/datadog-api-client-java/pull/3101)
+* Security Monitoring - Make hasOptionalGroupByFields updatable [#3058](https://github.com/DataDog/datadog-api-client-java/pull/3058)
+
+### Deprecated
+* Promote unstable aws v2 APIs and deprecate v1 [#3120](https://github.com/DataDog/datadog-api-client-java/pull/3120)
+
+### Changed
+* Allow to send batches of events in pipelines API [#3104](https://github.com/DataDog/datadog-api-client-java/pull/3104)
+
 ## 2.42.0/2025-09-09
 
 ### Added
