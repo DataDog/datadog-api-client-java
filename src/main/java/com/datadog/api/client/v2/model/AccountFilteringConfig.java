@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The account filtering configuration. */
+/** The account filtering configuration object. */
 @JsonPropertyOrder({
   AccountFilteringConfig.JSON_PROPERTY_EXCLUDED_ACCOUNTS,
   AccountFilteringConfig.JSON_PROPERTY_INCLUDE_NEW_ACCOUNTS,

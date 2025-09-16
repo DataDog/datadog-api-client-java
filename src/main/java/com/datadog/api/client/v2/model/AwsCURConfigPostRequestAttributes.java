@@ -73,7 +73,7 @@ public class AwsCURConfigPostRequestAttributes {
   }
 
   /**
-   * The account filtering configuration.
+   * The account filtering configuration object.
    *
    * @return accountFilters
    */

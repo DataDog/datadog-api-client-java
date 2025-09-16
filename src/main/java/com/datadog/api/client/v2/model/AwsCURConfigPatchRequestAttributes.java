@@ -38,7 +38,7 @@ public class AwsCURConfigPatchRequestAttributes {
   }
 
   /**
-   * The account filtering configuration.
+   * The account filtering configuration object.
    *
    * @return accountFilters
    */
