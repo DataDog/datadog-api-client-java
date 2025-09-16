@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Worldwide case type\",\"emoji\":\"\ud83c\udf0d\",\"name\":\"World\"},\"type\":\"case_type\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/types",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"8fa9005a-76e7-4742-ab6c-b68b1b9f036b\",\"type\":\"case_type\",\"attributes\":{\"description\":\"Worldwide case type\",\"emoji\":\"\ud83c\udf0d\",\"name\":\"World\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dc45fc73-0f09-c12d-941b-eaf799af6467"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/cases/types/8fa9005a-76e7-4742-ab6c-b68b1b9f036b/custom_attributes/not-an-uuid",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Invalid Parameter\",\"detail\":\"invalid parameter \\\"CustomAttributeId\\\" in \\\"path\\\"; expected type \\\"uuid\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "aec51226-41c0-97df-e1b7-7d05bc5b22be"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/cases/types/8fa9005a-76e7-4742-ab6c-b68b1b9f036b",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0efbb1d9-e2f4-2063-e886-8d1c87f3bca3"
+  }
+]

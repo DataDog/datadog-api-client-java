@@ -75,6 +75,11 @@ public class {{ name }} extends AbstractOpenApiSchema {
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
+                {%- if unParameterizedDataType == "List" %}
+                if (token != JsonToken.START_ARRAY) {
+                    attemptParsing = false;
+                }
+                {%- else %}
                 if ({{ unParameterizedDataType }}.class.equals(Integer.class) || {{ unParameterizedDataType }}.class.equals(Long.class) || {{ unParameterizedDataType }}.class.equals(Float.class) || {{ unParameterizedDataType }}.class.equals(Double.class) || {{ unParameterizedDataType }}.class.equals(Boolean.class) || {{ unParameterizedDataType }}.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
@@ -87,8 +92,13 @@ public class {{ name }} extends AbstractOpenApiSchema {
                         {%- endif %}
                     }
                 }
+                {%- endif %}
                 if (attemptParsing) {
+                    {%- if unParameterizedDataType == "List" %}
+                    tmp = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<{{ dataType }}>() {});
+                    {%- else %}
                     tmp = tree.traverse(jp.getCodec()).readValueAs({{ unParameterizedDataType }}.class);
+                    {%- endif %}
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -139,11 +149,28 @@ public class {{ name }} extends AbstractOpenApiSchema {
         super("oneOf", Boolean.{{ "TRUE" if model.nullable else "FALSE" }});
     }
 
+    {%- set constructor_sigs = [] %}
     {%- for oneOf in model.oneOf %}
-    public {{ name }}({{ get_type(oneOf) }} o) {
+    {%- set param_type = get_type(oneOf) %}
+    {%- set unparam_type = param_type|un_parameterize_type %}
+    {%- if unparam_type in constructor_sigs %}
+    {%- if param_type.startswith('List<') %}
+    {%- set inner_type = param_type[5:-1] %}
+    public static {{ name }} from{{ inner_type }}List({{ param_type }} o) {
+    {%- else %}
+    public static {{ name }} from{{ param_type.replace('<', '').replace('>', '').replace(' ', '').replace(',', '') }}({{ param_type }} o) {
+    {%- endif %}
+        {{ name }} instance = new {{ name }}();
+        instance.setActualInstance(o);
+        return instance;
+    }
+    {%- else %}
+    {%- set _ = constructor_sigs.append(unparam_type) %}
+    public {{ name }}({{ param_type }} o) {
         super("oneOf", Boolean.{{ "TRUE" if model.nullable else "FALSE" }});
         setActualInstance(o);
     }
+    {%- endif %}
     {%- endfor  %}
 
     static {
@@ -204,9 +231,28 @@ public class {{ name }} extends AbstractOpenApiSchema {
         return super.getActualInstance();
     }
 
+    {%- set unparam_types = [] %}
+    {%- for oneOf in model.oneOf %}
+    {%- set unparam_type = get_type(oneOf)|un_parameterize_type %}
+    {%- set _ = unparam_types.append(unparam_type) %}
+    {%- endfor %}
+    
     {%- for oneOf in model.oneOf %}
     {%- set dataType = get_type(oneOf) %}
     {%- set unParameterizedDataType = get_type(oneOf)|un_parameterize_type %}
+    {%- set base_method_name = "get" + unParameterizedDataType %}
+    
+    {%- if unparam_types.count(unParameterizedDataType) > 1 %}
+    {%- if dataType.startswith('List<') %}
+    {%- set inner_type = dataType[5:-1] %}
+    {%- set method_name = "get" + inner_type + "List" %}
+    {%- else %}
+    {%- set safe_type = dataType.replace('<', '').replace('>', '').replace(' ', '').replace(',', '') %}
+    {%- set method_name = "get" + safe_type %}
+    {%- endif %}
+    {%- else %}
+    {%- set method_name = base_method_name %}
+    {%- endif %}
 
     /**
      * Get the actual instance of `{{ dataType|escape_html }}`. If the actual instance is not `{{ dataType|escape_html }}`,
@@ -215,7 +261,7 @@ public class {{ name }} extends AbstractOpenApiSchema {
      * @return The actual instance of `{{ dataType|escape_html }}`
      * @throws ClassCastException if the instance is not `{{ dataType|escape_html }}`
      */
-    public {{ dataType }} get{{ unParameterizedDataType }}() throws ClassCastException {
+    public {{ dataType }} {{ method_name }}() throws ClassCastException {
         return ({{ dataType }})super.getActualInstance();
     }
 

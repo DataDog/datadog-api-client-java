@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Investigations done in case management\",\"emoji\":\"\ud83d\udc51\",\"name\":\"Investigation\"},\"type\":\"case_type\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/types",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"fd1c8062-ecc0-4b79-b466-3ab057b54018\",\"type\":\"case_type\",\"attributes\":{\"description\":\"Investigations done in case management\",\"emoji\":\"\ud83d\udc51\",\"name\":\"Investigation\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "28a9041b-1142-bed5-dadf-ea904b8411ae"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/cases/types/fd1c8062-ecc0-4b79-b466-3ab057b54018",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d408fa90-0380-096b-8351-ba53760df976"
+  }
+]

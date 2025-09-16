@@ -1,0 +1,62 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"priority\":\"P4\",\"title\":\"My new case\",\"type_id\":\"00000000-0000-0000-0000-000000000001\"},\"relationships\":{\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}},\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"11e8d302-1fcd-42f4-a2b3-068369d9b57b\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"comment_count\":0,\"created_at\":\"2025-09-04T09:11:20.84912Z\",\"creation_source\":\"MANUAL\",\"custom_attributes\":{},\"description\":\"\",\"insights\":[],\"internal_id\":\"11e8d302-1fcd-42f4-a2b3-068369d9b57b\",\"key\":\"DDFC-79577\",\"merge_status\":\"NOT_MERGED\",\"priority\":\"P4\",\"public_id\":\"79664\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"STANDARD\",\"type_id\":\"00000000-0000-0000-0000-000000000001\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\",\"attributes\":{\"active\":true,\"email\":\"frog@datadoghq.com\",\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "79babc38-7a70-5347-c8a6-73b0e70145fd"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"comment\":\"Hello World !\"},\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/11e8d302-1fcd-42f4-a2b3-068369d9b57b/comment",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"5d1fb1c1-9ee1-4110-8771-e6a01f4737ab\",\"type\":\"timeline_cell\",\"attributes\":{\"author\":{\"type\":\"USER\",\"content\":{\"ID\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"name\":\"frog\",\"email\":\"frog@datadoghq.com\",\"handle\":\"frog@datadoghq.com\",\"active\":true}},\"cell_content\":{\"message\":\"Hello World !\"},\"content\":\"{\\\"message\\\":\\\"Hello World !\\\"}\",\"created_at\":\"2025-09-04T09:11:21.264914024Z\",\"type\":\"COMMENT\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c610f86b-e26c-6131-e4d9-4af0db55fdcd"
+  }
+]

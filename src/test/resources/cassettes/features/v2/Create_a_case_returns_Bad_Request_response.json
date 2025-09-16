@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"priority\":\"NOT_DEFINED\",\"title\":\"Security breach investigation\",\"type\":\"STANDARD\"},\"relationships\":{\"assignee\":{\"data\":{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"userx\"}},\"project\":{\"data\":{\"id\":\"e555e290-ed65-49bd-ae18-8acbfcf18db7\",\"type\":\"project\"}}},\"type\":\"case\"}}"
+        "json": "{\"data\":{\"attributes\":{\"priority\":\"NOT_DEFINED\",\"title\":\"Security breach investigation\",\"type_id\":\"00000000-0000-0000-0000-000000000001\"},\"relationships\":{\"assignee\":{\"data\":{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"userx\"}},\"project\":{\"data\":{\"id\":\"e555e290-ed65-49bd-ae18-8acbfcf18db7\",\"type\":\"project\"}}},\"type\":\"case\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c53a0d91-6308-6fd6-b142-d95814505a59"
+    "id": "b714f7be-4f02-fd0b-ca99-211aecb702f1"
   }
 ]
