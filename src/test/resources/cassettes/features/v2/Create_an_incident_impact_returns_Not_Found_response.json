@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Service was unavailable for external users\",\"end_at\":\"2025-08-29T13:17:00Z\",\"fields\":{\"customers_impacted\":\"all\",\"products_impacted\":[\"shopping\",\"marketing\"]},\"start_at\":\"2025-08-28T13:17:00Z\"},\"type\":\"incident_impacts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/incidents/00000000-0000-0000-0000-000000000001/impacts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"rpc error: code = NotFound desc = incident not found: failed to get incident: incident not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "83334db7-2687-7d4b-12bd-05d082969661"
+  }
+]

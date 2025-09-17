@@ -31,6 +31,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_START,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACTED,
+  IncidentResponseAttributes.JSON_PROPERTY_DECLARED,
+  IncidentResponseAttributes.JSON_PROPERTY_DECLARED_BY,
+  IncidentResponseAttributes.JSON_PROPERTY_DECLARED_BY_UUID,
   IncidentResponseAttributes.JSON_PROPERTY_DETECTED,
   IncidentResponseAttributes.JSON_PROPERTY_FIELDS,
   IncidentResponseAttributes.JSON_PROPERTY_INCIDENT_TYPE_UUID,
@@ -77,6 +80,16 @@ public class IncidentResponseAttributes {
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACTED = "customer_impacted";
   private Boolean customerImpacted;
+
+  public static final String JSON_PROPERTY_DECLARED = "declared";
+  private OffsetDateTime declared;
+
+  public static final String JSON_PROPERTY_DECLARED_BY = "declared_by";
+  private JsonNullable<IncidentNonDatadogCreator> declaredBy =
+      JsonNullable.<IncidentNonDatadogCreator>undefined();
+
+  public static final String JSON_PROPERTY_DECLARED_BY_UUID = "declared_by_uuid";
+  private JsonNullable<String> declaredByUuid = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DETECTED = "detected";
   private JsonNullable<OffsetDateTime> detected = JsonNullable.<OffsetDateTime>undefined();
@@ -334,6 +347,80 @@ public class IncidentResponseAttributes {
 
   public void setCustomerImpacted(Boolean customerImpacted) {
     this.customerImpacted = customerImpacted;
+  }
+
+  /**
+   * Timestamp when the incident was declared.
+   *
+   * @return declared
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DECLARED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getDeclared() {
+    return declared;
+  }
+
+  public IncidentResponseAttributes declaredBy(IncidentNonDatadogCreator declaredBy) {
+    this.declaredBy = JsonNullable.<IncidentNonDatadogCreator>of(declaredBy);
+    return this;
+  }
+
+  /**
+   * Incident's non Datadog creator.
+   *
+   * @return declaredBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public IncidentNonDatadogCreator getDeclaredBy() {
+    return declaredBy.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DECLARED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<IncidentNonDatadogCreator> getDeclaredBy_JsonNullable() {
+    return declaredBy;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DECLARED_BY)
+  public void setDeclaredBy_JsonNullable(JsonNullable<IncidentNonDatadogCreator> declaredBy) {
+    this.declaredBy = declaredBy;
+  }
+
+  public void setDeclaredBy(IncidentNonDatadogCreator declaredBy) {
+    this.declaredBy = JsonNullable.<IncidentNonDatadogCreator>of(declaredBy);
+  }
+
+  public IncidentResponseAttributes declaredByUuid(String declaredByUuid) {
+    this.declaredByUuid = JsonNullable.<String>of(declaredByUuid);
+    return this;
+  }
+
+  /**
+   * UUID of the user who declared the incident.
+   *
+   * @return declaredByUuid
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getDeclaredByUuid() {
+    return declaredByUuid.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DECLARED_BY_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getDeclaredByUuid_JsonNullable() {
+    return declaredByUuid;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DECLARED_BY_UUID)
+  public void setDeclaredByUuid_JsonNullable(JsonNullable<String> declaredByUuid) {
+    this.declaredByUuid = declaredByUuid;
+  }
+
+  public void setDeclaredByUuid(String declaredByUuid) {
+    this.declaredByUuid = JsonNullable.<String>of(declaredByUuid);
   }
 
   public IncidentResponseAttributes detected(OffsetDateTime detected) {
@@ -808,6 +895,9 @@ public class IncidentResponseAttributes {
         && Objects.equals(this.customerImpactScope, incidentResponseAttributes.customerImpactScope)
         && Objects.equals(this.customerImpactStart, incidentResponseAttributes.customerImpactStart)
         && Objects.equals(this.customerImpacted, incidentResponseAttributes.customerImpacted)
+        && Objects.equals(this.declared, incidentResponseAttributes.declared)
+        && Objects.equals(this.declaredBy, incidentResponseAttributes.declaredBy)
+        && Objects.equals(this.declaredByUuid, incidentResponseAttributes.declaredByUuid)
         && Objects.equals(this.detected, incidentResponseAttributes.detected)
         && Objects.equals(this.fields, incidentResponseAttributes.fields)
         && Objects.equals(this.incidentTypeUuid, incidentResponseAttributes.incidentTypeUuid)
@@ -841,6 +931,9 @@ public class IncidentResponseAttributes {
         customerImpactScope,
         customerImpactStart,
         customerImpacted,
+        declared,
+        declaredBy,
+        declaredByUuid,
         detected,
         fields,
         incidentTypeUuid,
@@ -879,6 +972,9 @@ public class IncidentResponseAttributes {
         .append(toIndentedString(customerImpactStart))
         .append("\n");
     sb.append("    customerImpacted: ").append(toIndentedString(customerImpacted)).append("\n");
+    sb.append("    declared: ").append(toIndentedString(declared)).append("\n");
+    sb.append("    declaredBy: ").append(toIndentedString(declaredBy)).append("\n");
+    sb.append("    declaredByUuid: ").append(toIndentedString(declaredByUuid)).append("\n");
     sb.append("    detected: ").append(toIndentedString(detected)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    incidentTypeUuid: ").append(toIndentedString(incidentTypeUuid)).append("\n");
