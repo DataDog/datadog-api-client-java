@@ -385,8 +385,8 @@ public class NetworkDeviceMonitoringApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Size for a given page. The maximum allowed value is 100. Test change to
+     *     trigger client generation. (optional, default to 10)
      * @return ListDevicesOptionalParameters
      */
     public ListDevicesOptionalParameters pageSize(Long pageSize) {
