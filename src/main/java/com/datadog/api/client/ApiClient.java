@@ -719,12 +719,14 @@ public class ApiClient {
           put("v2.createDataDeletionRequest", false);
           put("v2.getDataDeletionRequests", false);
           put("v2.createIncident", false);
+          put("v2.createIncidentImpact", false);
           put("v2.createIncidentIntegration", false);
           put("v2.createIncidentNotificationRule", false);
           put("v2.createIncidentNotificationTemplate", false);
           put("v2.createIncidentTodo", false);
           put("v2.createIncidentType", false);
           put("v2.deleteIncident", false);
+          put("v2.deleteIncidentImpact", false);
           put("v2.deleteIncidentIntegration", false);
           put("v2.deleteIncidentNotificationRule", false);
           put("v2.deleteIncidentNotificationTemplate", false);
@@ -737,6 +739,7 @@ public class ApiClient {
           put("v2.getIncidentTodo", false);
           put("v2.getIncidentType", false);
           put("v2.listIncidentAttachments", false);
+          put("v2.listIncidentImpacts", false);
           put("v2.listIncidentIntegrations", false);
           put("v2.listIncidentNotificationRules", false);
           put("v2.listIncidentNotificationTemplates", false);
