@@ -23,7 +23,6 @@ import java.util.Objects;
   AzureUCConfigPostRequestAttributes.JSON_PROPERTY_ACTUAL_BILL_CONFIG,
   AzureUCConfigPostRequestAttributes.JSON_PROPERTY_AMORTIZED_BILL_CONFIG,
   AzureUCConfigPostRequestAttributes.JSON_PROPERTY_CLIENT_ID,
-  AzureUCConfigPostRequestAttributes.JSON_PROPERTY_IS_ENABLED,
   AzureUCConfigPostRequestAttributes.JSON_PROPERTY_SCOPE
 })
 @jakarta.annotation.Generated(
@@ -41,9 +40,6 @@ public class AzureUCConfigPostRequestAttributes {
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
-
-  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
@@ -74,7 +70,7 @@ public class AzureUCConfigPostRequestAttributes {
   }
 
   /**
-   * The tenant ID of the azure account.
+   * The tenant ID of the Azure account.
    *
    * @return accountId
    */
@@ -136,7 +132,7 @@ public class AzureUCConfigPostRequestAttributes {
   }
 
   /**
-   * The client ID of the azure account.
+   * The client ID of the Azure account.
    *
    * @return clientId
    */
@@ -148,27 +144,6 @@ public class AzureUCConfigPostRequestAttributes {
 
   public void setClientId(String clientId) {
     this.clientId = clientId;
-  }
-
-  public AzureUCConfigPostRequestAttributes isEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
-    return this;
-  }
-
-  /**
-   * Whether or not the Cloud Cost Management account is enabled.
-   *
-   * @return isEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
-  public void setIsEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
   }
 
   public AzureUCConfigPostRequestAttributes scope(String scope) {
@@ -254,7 +229,6 @@ public class AzureUCConfigPostRequestAttributes {
         && Objects.equals(
             this.amortizedBillConfig, azureUcConfigPostRequestAttributes.amortizedBillConfig)
         && Objects.equals(this.clientId, azureUcConfigPostRequestAttributes.clientId)
-        && Objects.equals(this.isEnabled, azureUcConfigPostRequestAttributes.isEnabled)
         && Objects.equals(this.scope, azureUcConfigPostRequestAttributes.scope)
         && Objects.equals(
             this.additionalProperties, azureUcConfigPostRequestAttributes.additionalProperties);
@@ -263,13 +237,7 @@ public class AzureUCConfigPostRequestAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        accountId,
-        actualBillConfig,
-        amortizedBillConfig,
-        clientId,
-        isEnabled,
-        scope,
-        additionalProperties);
+        accountId, actualBillConfig, amortizedBillConfig, clientId, scope, additionalProperties);
   }
 
   @Override
@@ -282,7 +250,6 @@ public class AzureUCConfigPostRequestAttributes {
         .append(toIndentedString(amortizedBillConfig))
         .append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

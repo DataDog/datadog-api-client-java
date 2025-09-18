@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"Query\":\"example:query AND test:true\"},\"type\":\"validate_query\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/tags/enrichment/validate-query",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"6a2cddcf-8498-469f-8da1-7b8fb597868d\",\"type\":\"validate_response\",\"attributes\":{\"Canonical\":\"example:query AND test:true\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "311a4e4f-8d21-3b90-8e67-fa7d2b0e2d7c"
+  }
+]

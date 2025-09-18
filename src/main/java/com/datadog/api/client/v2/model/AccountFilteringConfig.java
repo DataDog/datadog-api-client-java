@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The account filtering configuration. */
 @JsonPropertyOrder({
@@ -32,7 +33,7 @@ public class AccountFilteringConfig {
   private List<String> excludedAccounts = null;
 
   public static final String JSON_PROPERTY_INCLUDE_NEW_ACCOUNTS = "include_new_accounts";
-  private Boolean includeNewAccounts;
+  private JsonNullable<Boolean> includeNewAccounts = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_INCLUDED_ACCOUNTS = "included_accounts";
   private List<String> includedAccounts = null;
@@ -68,7 +69,7 @@ public class AccountFilteringConfig {
   }
 
   public AccountFilteringConfig includeNewAccounts(Boolean includeNewAccounts) {
-    this.includeNewAccounts = includeNewAccounts;
+    this.includeNewAccounts = JsonNullable.<Boolean>of(includeNewAccounts);
     return this;
   }
 
@@ -78,14 +79,24 @@ public class AccountFilteringConfig {
    * @return includeNewAccounts
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Boolean getIncludeNewAccounts() {
+    return includeNewAccounts.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_INCLUDE_NEW_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIncludeNewAccounts() {
+  public JsonNullable<Boolean> getIncludeNewAccounts_JsonNullable() {
     return includeNewAccounts;
   }
 
-  public void setIncludeNewAccounts(Boolean includeNewAccounts) {
+  @JsonProperty(JSON_PROPERTY_INCLUDE_NEW_ACCOUNTS)
+  public void setIncludeNewAccounts_JsonNullable(JsonNullable<Boolean> includeNewAccounts) {
     this.includeNewAccounts = includeNewAccounts;
+  }
+
+  public void setIncludeNewAccounts(Boolean includeNewAccounts) {
+    this.includeNewAccounts = JsonNullable.<Boolean>of(includeNewAccounts);
   }
 
   public AccountFilteringConfig includedAccounts(List<String> includedAccounts) {

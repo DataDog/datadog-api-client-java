@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** GCP Usage Cost config. */
+/** Google Cloud Usage Cost config. */
 @JsonPropertyOrder({
   GCPUsageCostConfig.JSON_PROPERTY_ATTRIBUTES,
   GCPUsageCostConfig.JSON_PROPERTY_ID,
@@ -56,7 +56,7 @@ public class GCPUsageCostConfig {
   }
 
   /**
-   * Attributes for a GCP Usage Cost config.
+   * Attributes for a Google Cloud Usage Cost config.
    *
    * @return attributes
    */
@@ -76,7 +76,7 @@ public class GCPUsageCostConfig {
   }
 
   /**
-   * The ID of the GCP Usage Cost config.
+   * The ID of the Google Cloud Usage Cost config.
    *
    * @return id
    */
@@ -98,7 +98,7 @@ public class GCPUsageCostConfig {
   }
 
   /**
-   * Type of GCP Usage Cost config.
+   * Type of Google Cloud Usage Cost config.
    *
    * @return type
    */

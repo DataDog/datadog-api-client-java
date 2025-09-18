@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for GCP Usage Cost config post request. */
+/** Attributes for Google Cloud Usage Cost config post request. */
 @JsonPropertyOrder({
   GCPUsageCostConfigPostRequestAttributes.JSON_PROPERTY_BILLING_ACCOUNT_ID,
   GCPUsageCostConfigPostRequestAttributes.JSON_PROPERTY_BUCKET_NAME,
@@ -73,7 +73,7 @@ public class GCPUsageCostConfigPostRequestAttributes {
   }
 
   /**
-   * The GCP account ID.
+   * The Google Cloud account ID.
    *
    * @return billingAccountId
    */
@@ -93,7 +93,7 @@ public class GCPUsageCostConfigPostRequestAttributes {
   }
 
   /**
-   * The GCP bucket name used to store the Usage Cost export.
+   * The Google Cloud bucket name used to store the Usage Cost export.
    *
    * @return bucketName
    */
@@ -113,7 +113,7 @@ public class GCPUsageCostConfigPostRequestAttributes {
   }
 
   /**
-   * The export dataset name used for the GCP Usage Cost report.
+   * The export dataset name used for the Google Cloud Usage Cost report.
    *
    * @return exportDatasetName
    */
@@ -133,7 +133,7 @@ public class GCPUsageCostConfigPostRequestAttributes {
   }
 
   /**
-   * The export prefix used for the GCP Usage Cost report.
+   * The export prefix used for the Google Cloud Usage Cost report.
    *
    * @return exportPrefix
    */
@@ -154,7 +154,7 @@ public class GCPUsageCostConfigPostRequestAttributes {
   }
 
   /**
-   * The name of the GCP Usage Cost report.
+   * The name of the Google Cloud Usage Cost report.
    *
    * @return exportProjectName
    */
@@ -174,7 +174,7 @@ public class GCPUsageCostConfigPostRequestAttributes {
   }
 
   /**
-   * The unique GCP service account email.
+   * The unique Google Cloud service account email.
    *
    * @return serviceAccount
    */

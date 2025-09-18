@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Azure config. */
 @JsonPropertyOrder({
@@ -54,7 +55,7 @@ public class AzureUCConfig {
   private String datasetType;
 
   public static final String JSON_PROPERTY_ERROR_MESSAGES = "error_messages";
-  private List<String> errorMessages = null;
+  private JsonNullable<List<String>> errorMessages = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_EXPORT_NAME = "export_name";
   private String exportName;
@@ -117,7 +118,7 @@ public class AzureUCConfig {
   }
 
   /**
-   * The tenant ID of the azure account.
+   * The tenant ID of the Azure account.
    *
    * @return accountId
    */
@@ -193,15 +194,19 @@ public class AzureUCConfig {
   }
 
   public AzureUCConfig errorMessages(List<String> errorMessages) {
-    this.errorMessages = errorMessages;
+    this.errorMessages = JsonNullable.<List<String>>of(errorMessages);
     return this;
   }
 
   public AzureUCConfig addErrorMessagesItem(String errorMessagesItem) {
-    if (this.errorMessages == null) {
-      this.errorMessages = new ArrayList<>();
+    if (this.errorMessages == null || !this.errorMessages.isPresent()) {
+      this.errorMessages = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.errorMessages.add(errorMessagesItem);
+    try {
+      this.errorMessages.get().add(errorMessagesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -211,14 +216,24 @@ public class AzureUCConfig {
    * @return errorMessages
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getErrorMessages() {
+    return errorMessages.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getErrorMessages() {
+  public JsonNullable<List<String>> getErrorMessages_JsonNullable() {
     return errorMessages;
   }
 
-  public void setErrorMessages(List<String> errorMessages) {
+  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGES)
+  public void setErrorMessages_JsonNullable(JsonNullable<List<String>> errorMessages) {
     this.errorMessages = errorMessages;
+  }
+
+  public void setErrorMessages(List<String> errorMessages) {
+    this.errorMessages = JsonNullable.<List<String>>of(errorMessages);
   }
 
   public AzureUCConfig exportName(String exportName) {

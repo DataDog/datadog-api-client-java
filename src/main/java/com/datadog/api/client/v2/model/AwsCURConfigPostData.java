@@ -37,11 +37,7 @@ public class AwsCURConfigPostData {
 
   @JsonCreator
   public AwsCURConfigPostData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          AwsCURConfigPostRequestAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AwsCURConfigPostRequestType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -57,8 +53,9 @@ public class AwsCURConfigPostData {
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AwsCURConfigPostRequestAttributes getAttributes() {
     return attributes;
   }

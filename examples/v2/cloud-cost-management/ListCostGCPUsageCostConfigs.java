@@ -1,4 +1,4 @@
-// List Cloud Cost Management GCP Usage Cost configs returns "OK" response
+// List Google Cloud Usage Cost configs returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

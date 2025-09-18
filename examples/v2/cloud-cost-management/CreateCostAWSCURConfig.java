@@ -7,7 +7,7 @@ import com.datadog.api.client.v2.model.AwsCURConfigPostData;
 import com.datadog.api.client.v2.model.AwsCURConfigPostRequest;
 import com.datadog.api.client.v2.model.AwsCURConfigPostRequestAttributes;
 import com.datadog.api.client.v2.model.AwsCURConfigPostRequestType;
-import com.datadog.api.client.v2.model.AwsCURConfigResponse;
+import com.datadog.api.client.v2.model.AwsCurConfigResponse;
 
 public class Example {
   public static void main(String[] args) {
@@ -28,7 +28,7 @@ public class Example {
                     .type(AwsCURConfigPostRequestType.AWS_CUR_CONFIG_POST_REQUEST));
 
     try {
-      AwsCURConfigResponse result = apiInstance.createCostAWSCURConfig(body);
+      AwsCurConfigResponse result = apiInstance.createCostAWSCURConfig(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CloudCostManagementApi#createCostAWSCURConfig");
