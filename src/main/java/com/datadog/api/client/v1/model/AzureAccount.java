@@ -100,8 +100,9 @@ public class AzureAccount {
   }
 
   /**
-   * Limit the Azure app service plans that are pulled into Datadog using tags. Only app service
-   * plans that match one of the defined tags are imported into Datadog.
+   * Limit the App Service Plans, Web Apps, Function Apps, and other resources under the Azure App
+   * Services (Microsoft.Web) resource provider. Filtering an App Service Plan applies to all Apps
+   * running on that plan.
    *
    * @return appServicePlanFilters
    */
