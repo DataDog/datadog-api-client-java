@@ -23,6 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   PartialApplicationKeyAttributes.JSON_PROPERTY_CREATED_AT,
   PartialApplicationKeyAttributes.JSON_PROPERTY_LAST4,
+  PartialApplicationKeyAttributes.JSON_PROPERTY_LAST_USED_AT,
   PartialApplicationKeyAttributes.JSON_PROPERTY_NAME,
   PartialApplicationKeyAttributes.JSON_PROPERTY_SCOPES
 })
@@ -35,6 +36,9 @@ public class PartialApplicationKeyAttributes {
 
   public static final String JSON_PROPERTY_LAST4 = "last4";
   private String last4;
+
+  public static final String JSON_PROPERTY_LAST_USED_AT = "last_used_at";
+  private JsonNullable<String> lastUsedAt = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -64,6 +68,32 @@ public class PartialApplicationKeyAttributes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLast4() {
     return last4;
+  }
+
+  /**
+   * Last usage timestamp of the application key.
+   *
+   * @return lastUsedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getLastUsedAt() {
+
+    if (lastUsedAt == null) {
+      lastUsedAt = JsonNullable.<String>undefined();
+    }
+    return lastUsedAt.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_USED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getLastUsedAt_JsonNullable() {
+    return lastUsedAt;
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_USED_AT)
+  private void setLastUsedAt_JsonNullable(JsonNullable<String> lastUsedAt) {
+    this.lastUsedAt = lastUsedAt;
   }
 
   public PartialApplicationKeyAttributes name(String name) {
@@ -189,6 +219,7 @@ public class PartialApplicationKeyAttributes {
         (PartialApplicationKeyAttributes) o;
     return Objects.equals(this.createdAt, partialApplicationKeyAttributes.createdAt)
         && Objects.equals(this.last4, partialApplicationKeyAttributes.last4)
+        && Objects.equals(this.lastUsedAt, partialApplicationKeyAttributes.lastUsedAt)
         && Objects.equals(this.name, partialApplicationKeyAttributes.name)
         && Objects.equals(this.scopes, partialApplicationKeyAttributes.scopes)
         && Objects.equals(
@@ -197,7 +228,7 @@ public class PartialApplicationKeyAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, last4, name, scopes, additionalProperties);
+    return Objects.hash(createdAt, last4, lastUsedAt, name, scopes, additionalProperties);
   }
 
   @Override
@@ -206,6 +237,7 @@ public class PartialApplicationKeyAttributes {
     sb.append("class PartialApplicationKeyAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
+    sb.append("    lastUsedAt: ").append(toIndentedString(lastUsedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
     sb.append("    additionalProperties: ")

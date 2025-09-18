@@ -10,8 +10,12 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
 
+    // there is a valid "application_key" in the system
+    String APPLICATION_KEY_DATA_ID = System.getenv("APPLICATION_KEY_DATA_ID");
+
     try {
-      ApplicationKeyResponse result = apiInstance.getCurrentUserApplicationKey("app_key_id");
+      ApplicationKeyResponse result =
+          apiInstance.getCurrentUserApplicationKey(APPLICATION_KEY_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling KeyManagementApi#getCurrentUserApplicationKey");
