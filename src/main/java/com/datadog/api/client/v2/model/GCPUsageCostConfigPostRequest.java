@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** GCP Usage Cost config post request. */
+/** Google Cloud Usage Cost config post request. */
 @JsonPropertyOrder({GCPUsageCostConfigPostRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class GCPUsageCostConfigPostRequest {
   }
 
   /**
-   * GCP Usage Cost config post data.
+   * Google Cloud Usage Cost config post data.
    *
    * @return data
    */

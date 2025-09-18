@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,35 +17,69 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response of AWS CUR config. */
-@JsonPropertyOrder({AwsCURConfigResponse.JSON_PROPERTY_DATA})
+/** The definition of <code>RulesetRespDataAttributesRulesItemsQueryAddition</code> object. */
+@JsonPropertyOrder({
+  RulesetRespDataAttributesRulesItemsQueryAddition.JSON_PROPERTY_KEY,
+  RulesetRespDataAttributesRulesItemsQueryAddition.JSON_PROPERTY_VALUE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AwsCURConfigResponse {
+public class RulesetRespDataAttributesRulesItemsQueryAddition {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private AwsCURConfig data;
+  public static final String JSON_PROPERTY_KEY = "key";
+  private String key;
 
-  public AwsCURConfigResponse data(AwsCURConfig data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private String value;
+
+  public RulesetRespDataAttributesRulesItemsQueryAddition() {}
+
+  @JsonCreator
+  public RulesetRespDataAttributesRulesItemsQueryAddition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_KEY) String key,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
+    this.key = key;
+    this.value = value;
+  }
+
+  public RulesetRespDataAttributesRulesItemsQueryAddition key(String key) {
+    this.key = key;
     return this;
   }
 
   /**
-   * AWS CUR config.
+   * The <code>addition</code> <code>key</code>.
    *
-   * @return data
+   * @return key
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AwsCURConfig getData() {
-    return data;
+  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getKey() {
+    return key;
   }
 
-  public void setData(AwsCURConfig data) {
-    this.data = data;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public RulesetRespDataAttributesRulesItemsQueryAddition value(String value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * The <code>addition</code> <code>value</code>.
+   *
+   * @return value
+   */
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
   /**
@@ -59,10 +94,11 @@ public class AwsCURConfigResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AwsCURConfigResponse
+   * @return RulesetRespDataAttributesRulesItemsQueryAddition
    */
   @JsonAnySetter
-  public AwsCURConfigResponse putAdditionalProperty(String key, Object value) {
+  public RulesetRespDataAttributesRulesItemsQueryAddition putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +129,7 @@ public class AwsCURConfigResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AwsCURConfigResponse object is equal to o. */
+  /** Return true if this RulesetRespDataAttributesRulesItemsQueryAddition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,21 +138,27 @@ public class AwsCURConfigResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AwsCURConfigResponse awsCurConfigResponse = (AwsCURConfigResponse) o;
-    return Objects.equals(this.data, awsCurConfigResponse.data)
-        && Objects.equals(this.additionalProperties, awsCurConfigResponse.additionalProperties);
+    RulesetRespDataAttributesRulesItemsQueryAddition
+        rulesetRespDataAttributesRulesItemsQueryAddition =
+            (RulesetRespDataAttributesRulesItemsQueryAddition) o;
+    return Objects.equals(this.key, rulesetRespDataAttributesRulesItemsQueryAddition.key)
+        && Objects.equals(this.value, rulesetRespDataAttributesRulesItemsQueryAddition.value)
+        && Objects.equals(
+            this.additionalProperties,
+            rulesetRespDataAttributesRulesItemsQueryAddition.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(key, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AwsCURConfigResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class RulesetRespDataAttributesRulesItemsQueryAddition {\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

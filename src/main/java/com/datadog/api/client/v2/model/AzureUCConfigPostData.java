@@ -37,12 +37,8 @@ public class AzureUCConfigPostData {
 
   @JsonCreator
   public AzureUCConfigPostData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          AzureUCConfigPostRequestAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           AzureUCConfigPostRequestType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -58,8 +54,9 @@ public class AzureUCConfigPostData {
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AzureUCConfigPostRequestAttributes getAttributes() {
     return attributes;
   }

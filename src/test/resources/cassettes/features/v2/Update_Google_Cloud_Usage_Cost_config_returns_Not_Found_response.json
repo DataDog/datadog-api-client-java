@@ -7,7 +7,7 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/cost/gcp_uc_config/12345678",
+      "path": "/api/v2/cost/gcp_uc_config/123456",
       "keepAlive": false,
       "secure": true
     },
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cc4c02b9-729a-6fdb-16b1-91ab02851fb7"
+    "id": "a30cbb00-f615-5499-5b0d-588c3aca794d"
   }
 ]

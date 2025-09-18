@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/tags/enrichment/da0e30e2-615d-4dae-9a22-38cf86a87dde",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"da0e30e2-615d-4dae-9a22-38cf86a87dde\",\"type\":\"ruleset\",\"attributes\":{\"created\":{\"seconds\":1757616255,\"nanos\":64603000},\"enabled\":true,\"last_modified_user_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modified\":{\"seconds\":1757616255,\"nanos\":64603000},\"name\":\"New Ruleset\",\"position\":1,\"rules\":[{\"name\":\"Add Cost Center Tag\",\"enabled\":true,\"query\":{\"query\":\"account_id:\\\"123456789\\\" AND service:\\\"web-api\\\"\",\"addition\":{\"key\":\"cost_center\",\"value\":\"engineering\"},\"if_not_exists\":true,\"case_insensitivity\":false},\"mapping\":null,\"reference_table\":null,\"metadata\":null}],\"version\":3601897}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0231df81-f41f-2201-958d-0ae49fd6ffab"
+  }
+]
