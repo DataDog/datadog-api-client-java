@@ -27,6 +27,7 @@ import java.util.Objects;
   SecurityMonitoringRuleOptions.JSON_PROPERTY_KEEP_ALIVE,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_SEQUENCE_DETECTION_OPTIONS,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS
 })
 @jakarta.annotation.Generated(
@@ -60,6 +61,9 @@ public class SecurityMonitoringRuleOptions {
 
   public static final String JSON_PROPERTY_NEW_VALUE_OPTIONS = "newValueOptions";
   private SecurityMonitoringRuleNewValueOptions newValueOptions;
+
+  public static final String JSON_PROPERTY_SEQUENCE_DETECTION_OPTIONS = "sequenceDetectionOptions";
+  private SecurityMonitoringRuleSequenceDetectionOptions sequenceDetectionOptions;
 
   public static final String JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS = "thirdPartyRuleOptions";
   private SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions;
@@ -297,6 +301,30 @@ public class SecurityMonitoringRuleOptions {
     this.newValueOptions = newValueOptions;
   }
 
+  public SecurityMonitoringRuleOptions sequenceDetectionOptions(
+      SecurityMonitoringRuleSequenceDetectionOptions sequenceDetectionOptions) {
+    this.sequenceDetectionOptions = sequenceDetectionOptions;
+    this.unparsed |= sequenceDetectionOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Options on sequence detection method.
+   *
+   * @return sequenceDetectionOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEQUENCE_DETECTION_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleSequenceDetectionOptions getSequenceDetectionOptions() {
+    return sequenceDetectionOptions;
+  }
+
+  public void setSequenceDetectionOptions(
+      SecurityMonitoringRuleSequenceDetectionOptions sequenceDetectionOptions) {
+    this.sequenceDetectionOptions = sequenceDetectionOptions;
+  }
+
   public SecurityMonitoringRuleOptions thirdPartyRuleOptions(
       SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions) {
     this.thirdPartyRuleOptions = thirdPartyRuleOptions;
@@ -392,6 +420,8 @@ public class SecurityMonitoringRuleOptions {
         && Objects.equals(this.maxSignalDuration, securityMonitoringRuleOptions.maxSignalDuration)
         && Objects.equals(this.newValueOptions, securityMonitoringRuleOptions.newValueOptions)
         && Objects.equals(
+            this.sequenceDetectionOptions, securityMonitoringRuleOptions.sequenceDetectionOptions)
+        && Objects.equals(
             this.thirdPartyRuleOptions, securityMonitoringRuleOptions.thirdPartyRuleOptions)
         && Objects.equals(
             this.additionalProperties, securityMonitoringRuleOptions.additionalProperties);
@@ -409,6 +439,7 @@ public class SecurityMonitoringRuleOptions {
         keepAlive,
         maxSignalDuration,
         newValueOptions,
+        sequenceDetectionOptions,
         thirdPartyRuleOptions,
         additionalProperties);
   }
@@ -434,6 +465,9 @@ public class SecurityMonitoringRuleOptions {
     sb.append("    keepAlive: ").append(toIndentedString(keepAlive)).append("\n");
     sb.append("    maxSignalDuration: ").append(toIndentedString(maxSignalDuration)).append("\n");
     sb.append("    newValueOptions: ").append(toIndentedString(newValueOptions)).append("\n");
+    sb.append("    sequenceDetectionOptions: ")
+        .append(toIndentedString(sequenceDetectionOptions))
+        .append("\n");
     sb.append("    thirdPartyRuleOptions: ")
         .append(toIndentedString(thirdPartyRuleOptions))
         .append("\n");

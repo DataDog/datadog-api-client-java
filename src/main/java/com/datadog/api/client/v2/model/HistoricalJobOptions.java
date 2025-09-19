@@ -24,6 +24,7 @@ import java.util.Objects;
   HistoricalJobOptions.JSON_PROPERTY_KEEP_ALIVE,
   HistoricalJobOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
   HistoricalJobOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS,
+  HistoricalJobOptions.JSON_PROPERTY_SEQUENCE_DETECTION_OPTIONS,
   HistoricalJobOptions.JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS
 })
 @jakarta.annotation.Generated(
@@ -47,6 +48,9 @@ public class HistoricalJobOptions {
 
   public static final String JSON_PROPERTY_NEW_VALUE_OPTIONS = "newValueOptions";
   private SecurityMonitoringRuleNewValueOptions newValueOptions;
+
+  public static final String JSON_PROPERTY_SEQUENCE_DETECTION_OPTIONS = "sequenceDetectionOptions";
+  private SecurityMonitoringRuleSequenceDetectionOptions sequenceDetectionOptions;
 
   public static final String JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS = "thirdPartyRuleOptions";
   private SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions;
@@ -205,6 +209,30 @@ public class HistoricalJobOptions {
     this.newValueOptions = newValueOptions;
   }
 
+  public HistoricalJobOptions sequenceDetectionOptions(
+      SecurityMonitoringRuleSequenceDetectionOptions sequenceDetectionOptions) {
+    this.sequenceDetectionOptions = sequenceDetectionOptions;
+    this.unparsed |= sequenceDetectionOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Options on sequence detection method.
+   *
+   * @return sequenceDetectionOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEQUENCE_DETECTION_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleSequenceDetectionOptions getSequenceDetectionOptions() {
+    return sequenceDetectionOptions;
+  }
+
+  public void setSequenceDetectionOptions(
+      SecurityMonitoringRuleSequenceDetectionOptions sequenceDetectionOptions) {
+    this.sequenceDetectionOptions = sequenceDetectionOptions;
+  }
+
   public HistoricalJobOptions thirdPartyRuleOptions(
       SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions) {
     this.thirdPartyRuleOptions = thirdPartyRuleOptions;
@@ -292,6 +320,8 @@ public class HistoricalJobOptions {
         && Objects.equals(this.keepAlive, historicalJobOptions.keepAlive)
         && Objects.equals(this.maxSignalDuration, historicalJobOptions.maxSignalDuration)
         && Objects.equals(this.newValueOptions, historicalJobOptions.newValueOptions)
+        && Objects.equals(
+            this.sequenceDetectionOptions, historicalJobOptions.sequenceDetectionOptions)
         && Objects.equals(this.thirdPartyRuleOptions, historicalJobOptions.thirdPartyRuleOptions)
         && Objects.equals(this.additionalProperties, historicalJobOptions.additionalProperties);
   }
@@ -305,6 +335,7 @@ public class HistoricalJobOptions {
         keepAlive,
         maxSignalDuration,
         newValueOptions,
+        sequenceDetectionOptions,
         thirdPartyRuleOptions,
         additionalProperties);
   }
@@ -321,6 +352,9 @@ public class HistoricalJobOptions {
     sb.append("    keepAlive: ").append(toIndentedString(keepAlive)).append("\n");
     sb.append("    maxSignalDuration: ").append(toIndentedString(maxSignalDuration)).append("\n");
     sb.append("    newValueOptions: ").append(toIndentedString(newValueOptions)).append("\n");
+    sb.append("    sequenceDetectionOptions: ")
+        .append(toIndentedString(sequenceDetectionOptions))
+        .append("\n");
     sb.append("    thirdPartyRuleOptions: ")
         .append(toIndentedString(thirdPartyRuleOptions))
         .append("\n");
