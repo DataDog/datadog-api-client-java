@@ -467,6 +467,275 @@ public class DoraMetricsApi {
   }
 
   /**
+   * Delete a deployment event.
+   *
+   * <p>See {@link #deleteDORADeploymentWithHttpInfo}.
+   *
+   * @param deploymentId The ID of the deployment event to delete. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteDORADeployment(String deploymentId) throws ApiException {
+    deleteDORADeploymentWithHttpInfo(deploymentId);
+  }
+
+  /**
+   * Delete a deployment event.
+   *
+   * <p>See {@link #deleteDORADeploymentWithHttpInfoAsync}.
+   *
+   * @param deploymentId The ID of the deployment event to delete. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteDORADeploymentAsync(String deploymentId) {
+    return deleteDORADeploymentWithHttpInfoAsync(deploymentId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Use this API endpoint to delete a deployment event.
+   *
+   * @param deploymentId The ID of the deployment event to delete. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteDORADeploymentWithHttpInfo(String deploymentId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'deploymentId' is set
+    if (deploymentId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'deploymentId' when calling deleteDORADeployment");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/dora/deployment/{deployment_id}"
+            .replaceAll(
+                "\\{" + "deployment_id" + "\\}", apiClient.escapeString(deploymentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.DoraMetricsApi.deleteDORADeployment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a deployment event.
+   *
+   * <p>See {@link #deleteDORADeploymentWithHttpInfo}.
+   *
+   * @param deploymentId The ID of the deployment event to delete. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteDORADeploymentWithHttpInfoAsync(
+      String deploymentId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'deploymentId' is set
+    if (deploymentId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'deploymentId' when calling deleteDORADeployment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/dora/deployment/{deployment_id}"
+            .replaceAll(
+                "\\{" + "deployment_id" + "\\}", apiClient.escapeString(deploymentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.DoraMetricsApi.deleteDORADeployment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a failure event.
+   *
+   * <p>See {@link #deleteDORAFailureWithHttpInfo}.
+   *
+   * @param failureId The ID of the failure event to delete. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteDORAFailure(String failureId) throws ApiException {
+    deleteDORAFailureWithHttpInfo(failureId);
+  }
+
+  /**
+   * Delete a failure event.
+   *
+   * <p>See {@link #deleteDORAFailureWithHttpInfoAsync}.
+   *
+   * @param failureId The ID of the failure event to delete. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteDORAFailureAsync(String failureId) {
+    return deleteDORAFailureWithHttpInfoAsync(failureId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Use this API endpoint to delete a failure event.
+   *
+   * @param failureId The ID of the failure event to delete. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteDORAFailureWithHttpInfo(String failureId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'failureId' is set
+    if (failureId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'failureId' when calling deleteDORAFailure");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/dora/failure/{failure_id}"
+            .replaceAll("\\{" + "failure_id" + "\\}", apiClient.escapeString(failureId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.DoraMetricsApi.deleteDORAFailure",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a failure event.
+   *
+   * <p>See {@link #deleteDORAFailureWithHttpInfo}.
+   *
+   * @param failureId The ID of the failure event to delete. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteDORAFailureWithHttpInfoAsync(String failureId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'failureId' is set
+    if (failureId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'failureId' when calling deleteDORAFailure"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/dora/failure/{failure_id}"
+            .replaceAll("\\{" + "failure_id" + "\\}", apiClient.escapeString(failureId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.DoraMetricsApi.deleteDORAFailure",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Get a deployment event.
    *
    * <p>See {@link #getDORADeploymentWithHttpInfo}.
