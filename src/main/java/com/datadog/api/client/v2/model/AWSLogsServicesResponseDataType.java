@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The <code>AWSLogsServicesResponseData</code> <code>type</code>. */
+/**
+ * The <code>AWSLogsServicesResponseData</code> <code>type</code>. Test to trigger client
+ * generation.
+ */
 @JsonSerialize(
     using = AWSLogsServicesResponseDataType.AWSLogsServicesResponseDataTypeSerializer.class)
 public class AWSLogsServicesResponseDataType extends ModelEnum<String> {
