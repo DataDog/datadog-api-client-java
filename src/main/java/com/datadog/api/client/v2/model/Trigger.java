@@ -300,6 +300,51 @@ public class Trigger extends AbstractOpenApiSchema {
             Level.FINER, "Input data does not match schema 'DatabaseMonitoringTriggerWrapper'", e);
       }
 
+      // deserialize DatastoreTriggerWrapper
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (DatastoreTriggerWrapper.class.equals(Integer.class)
+            || DatastoreTriggerWrapper.class.equals(Long.class)
+            || DatastoreTriggerWrapper.class.equals(Float.class)
+            || DatastoreTriggerWrapper.class.equals(Double.class)
+            || DatastoreTriggerWrapper.class.equals(Boolean.class)
+            || DatastoreTriggerWrapper.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((DatastoreTriggerWrapper.class.equals(Integer.class)
+                        || DatastoreTriggerWrapper.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((DatastoreTriggerWrapper.class.equals(Float.class)
+                        || DatastoreTriggerWrapper.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (DatastoreTriggerWrapper.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (DatastoreTriggerWrapper.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(DatastoreTriggerWrapper.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((DatastoreTriggerWrapper) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'DatastoreTriggerWrapper'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'DatastoreTriggerWrapper'", e);
+      }
+
       // deserialize DashboardTriggerWrapper
       try {
         boolean attemptParsing = true;
@@ -847,6 +892,11 @@ public class Trigger extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public Trigger(DatastoreTriggerWrapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public Trigger(DashboardTriggerWrapper o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -909,6 +959,7 @@ public class Trigger extends AbstractOpenApiSchema {
     schemas.put("ChangeEventTriggerWrapper", new GenericType<ChangeEventTriggerWrapper>() {});
     schemas.put(
         "DatabaseMonitoringTriggerWrapper", new GenericType<DatabaseMonitoringTriggerWrapper>() {});
+    schemas.put("DatastoreTriggerWrapper", new GenericType<DatastoreTriggerWrapper>() {});
     schemas.put("DashboardTriggerWrapper", new GenericType<DashboardTriggerWrapper>() {});
     schemas.put("GithubWebhookTriggerWrapper", new GenericType<GithubWebhookTriggerWrapper>() {});
     schemas.put("IncidentTriggerWrapper", new GenericType<IncidentTriggerWrapper>() {});
@@ -932,9 +983,9 @@ public class Trigger extends AbstractOpenApiSchema {
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: APITriggerWrapper, AppTriggerWrapper, CaseTriggerWrapper,
-   * ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper, DashboardTriggerWrapper,
-   * GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,
-   * NotebookTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
+   * ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper, DatastoreTriggerWrapper,
+   * DashboardTriggerWrapper, GithubWebhookTriggerWrapper, IncidentTriggerWrapper,
+   * MonitorTriggerWrapper, NotebookTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
    * SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
    * WorkflowTriggerWrapper
    *
@@ -961,6 +1012,10 @@ public class Trigger extends AbstractOpenApiSchema {
     }
     if (JSON.isInstanceOf(
         DatabaseMonitoringTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(DatastoreTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1016,26 +1071,26 @@ public class Trigger extends AbstractOpenApiSchema {
     throw new RuntimeException(
         "Invalid instance type. Must be APITriggerWrapper, AppTriggerWrapper, CaseTriggerWrapper,"
             + " ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,"
-            + " DashboardTriggerWrapper, GithubWebhookTriggerWrapper, IncidentTriggerWrapper,"
-            + " MonitorTriggerWrapper, NotebookTriggerWrapper, ScheduleTriggerWrapper,"
-            + " SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,"
-            + " SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper");
+            + " DatastoreTriggerWrapper, DashboardTriggerWrapper, GithubWebhookTriggerWrapper,"
+            + " IncidentTriggerWrapper, MonitorTriggerWrapper, NotebookTriggerWrapper,"
+            + " ScheduleTriggerWrapper, SecurityTriggerWrapper, SelfServiceTriggerWrapper,"
+            + " SlackTriggerWrapper, SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper");
   }
 
   /**
    * Get the actual instance, which can be the following: APITriggerWrapper, AppTriggerWrapper,
    * CaseTriggerWrapper, ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,
-   * DashboardTriggerWrapper, GithubWebhookTriggerWrapper, IncidentTriggerWrapper,
-   * MonitorTriggerWrapper, NotebookTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
-   * SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
-   * WorkflowTriggerWrapper
+   * DatastoreTriggerWrapper, DashboardTriggerWrapper, GithubWebhookTriggerWrapper,
+   * IncidentTriggerWrapper, MonitorTriggerWrapper, NotebookTriggerWrapper, ScheduleTriggerWrapper,
+   * SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
+   * SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper
    *
    * @return The actual instance (APITriggerWrapper, AppTriggerWrapper, CaseTriggerWrapper,
-   *     ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper, DashboardTriggerWrapper,
-   *     GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,
-   *     NotebookTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
-   *     SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
-   *     WorkflowTriggerWrapper)
+   *     ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper, DatastoreTriggerWrapper,
+   *     DashboardTriggerWrapper, GithubWebhookTriggerWrapper, IncidentTriggerWrapper,
+   *     MonitorTriggerWrapper, NotebookTriggerWrapper, ScheduleTriggerWrapper,
+   *     SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
+   *     SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper)
    */
   @Override
   public Object getActualInstance() {
@@ -1096,6 +1151,17 @@ public class Trigger extends AbstractOpenApiSchema {
   public DatabaseMonitoringTriggerWrapper getDatabaseMonitoringTriggerWrapper()
       throws ClassCastException {
     return (DatabaseMonitoringTriggerWrapper) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `DatastoreTriggerWrapper`. If the actual instance is not
+   * `DatastoreTriggerWrapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `DatastoreTriggerWrapper`
+   * @throws ClassCastException if the instance is not `DatastoreTriggerWrapper`
+   */
+  public DatastoreTriggerWrapper getDatastoreTriggerWrapper() throws ClassCastException {
+    return (DatastoreTriggerWrapper) super.getActualInstance();
   }
 
   /**
