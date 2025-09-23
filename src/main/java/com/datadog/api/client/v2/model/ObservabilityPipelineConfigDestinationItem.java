@@ -1015,6 +1015,58 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             e);
       }
 
+      // deserialize ObservabilityPipelineGooglePubSubDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineGooglePubSubDestination.class.equals(Integer.class)
+            || ObservabilityPipelineGooglePubSubDestination.class.equals(Long.class)
+            || ObservabilityPipelineGooglePubSubDestination.class.equals(Float.class)
+            || ObservabilityPipelineGooglePubSubDestination.class.equals(Double.class)
+            || ObservabilityPipelineGooglePubSubDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineGooglePubSubDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineGooglePubSubDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineGooglePubSubDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineGooglePubSubDestination.class.equals(Float.class)
+                        || ObservabilityPipelineGooglePubSubDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineGooglePubSubDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineGooglePubSubDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineGooglePubSubDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineGooglePubSubDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineGooglePubSubDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineGooglePubSubDestination'",
+            e);
+      }
+
       ObservabilityPipelineConfigDestinationItem ret =
           new ObservabilityPipelineConfigDestinationItem();
       if (match == 1) {
@@ -1142,6 +1194,12 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigDestinationItem(
+      ObservabilityPipelineGooglePubSubDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "ObservabilityPipelineDatadogLogsDestination",
@@ -1193,6 +1251,9 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
     schemas.put(
         "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
         new GenericType<ObservabilityPipelineCrowdStrikeNextGenSiemDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineGooglePubSubDestination",
+        new GenericType<ObservabilityPipelineGooglePubSubDestination>() {});
     JSON.registerDescendants(
         ObservabilityPipelineConfigDestinationItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -1213,7 +1274,8 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    * ObservabilityPipelineNewRelicDestination, ObservabilityPipelineSentinelOneDestination,
    * ObservabilityPipelineOpenSearchDestination, ObservabilityPipelineAmazonOpenSearchDestination,
    * ObservabilityPipelineSocketDestination, ObservabilityPipelineAmazonSecurityLakeDestination,
-   * ObservabilityPipelineCrowdStrikeNextGenSiemDestination
+   * ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
+   * ObservabilityPipelineGooglePubSubDestination
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1316,6 +1378,11 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineGooglePubSubDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -1337,7 +1404,8 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             + " ObservabilityPipelineAmazonOpenSearchDestination,"
             + " ObservabilityPipelineSocketDestination,"
             + " ObservabilityPipelineAmazonSecurityLakeDestination,"
-            + " ObservabilityPipelineCrowdStrikeNextGenSiemDestination");
+            + " ObservabilityPipelineCrowdStrikeNextGenSiemDestination,"
+            + " ObservabilityPipelineGooglePubSubDestination");
   }
 
   /**
@@ -1351,7 +1419,8 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    * ObservabilityPipelineSentinelOneDestination, ObservabilityPipelineOpenSearchDestination,
    * ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineSocketDestination,
    * ObservabilityPipelineAmazonSecurityLakeDestination,
-   * ObservabilityPipelineCrowdStrikeNextGenSiemDestination
+   * ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
+   * ObservabilityPipelineGooglePubSubDestination
    *
    * @return The actual instance (ObservabilityPipelineDatadogLogsDestination,
    *     ObservabilityPipelineAmazonS3Destination,
@@ -1364,7 +1433,8 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    *     ObservabilityPipelineOpenSearchDestination,
    *     ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineSocketDestination,
    *     ObservabilityPipelineAmazonSecurityLakeDestination,
-   *     ObservabilityPipelineCrowdStrikeNextGenSiemDestination)
+   *     ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
+   *     ObservabilityPipelineGooglePubSubDestination)
    */
   @Override
   public Object getActualInstance() {
@@ -1597,5 +1667,19 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   public ObservabilityPipelineCrowdStrikeNextGenSiemDestination
       getObservabilityPipelineCrowdStrikeNextGenSiemDestination() throws ClassCastException {
     return (ObservabilityPipelineCrowdStrikeNextGenSiemDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineGooglePubSubDestination`. If the actual
+   * instance is not `ObservabilityPipelineGooglePubSubDestination`, the ClassCastException will be
+   * thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineGooglePubSubDestination`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineGooglePubSubDestination`
+   */
+  public ObservabilityPipelineGooglePubSubDestination
+      getObservabilityPipelineGooglePubSubDestination() throws ClassCastException {
+    return (ObservabilityPipelineGooglePubSubDestination) super.getActualInstance();
   }
 }
