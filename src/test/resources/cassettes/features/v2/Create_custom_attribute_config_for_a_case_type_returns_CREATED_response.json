@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Worldwide case type\",\"emoji\":\"\ud83c\udf0d\",\"name\":\"World\"},\"type\":\"case_type\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/types",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"1fab87e4-341d-4a79-a294-171b4e2c22f8\",\"type\":\"case_type\",\"attributes\":{\"description\":\"Worldwide case type\",\"emoji\":\"\ud83c\udf0d\",\"name\":\"World\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dc45fc73-0f09-c12d-941b-eaf799af6466"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"display_name\":\"AWS Region 17569771-0000-0000-0000-175697711500\",\"is_multi\":true,\"key\":\"region_eaa423ff52828a39\",\"type\":\"NUMBER\"},\"type\":\"custom_attribute\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/types/1fab87e4-341d-4a79-a294-171b4e2c22f8/custom_attributes",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0dc4a14f-f96b-4a27-893a-72341da7ce1d\",\"type\":\"custom_attribute\",\"attributes\":{\"case_type\":\"TUNKNOWN\",\"case_type_id\":\"1fab87e4-341d-4a79-a294-171b4e2c22f8\",\"display_name\":\"AWS Region 17569771-0000-0000-0000-175697711500\",\"is_multi\":true,\"key\":\"region_eaa423ff52828a39\",\"type\":\"NUMBER\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c3baaaf3-41aa-cb8b-01db-d18b2d3f1ebe"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/cases/types/1fab87e4-341d-4a79-a294-171b4e2c22f8",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a7adf5a8-92fe-b414-81d6-140b3be18a43"
+  }
+]
