@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** RUM application attributes. */
 @JsonPropertyOrder({
+  RUMApplicationAttributes.JSON_PROPERTY_API_KEY_ID,
   RUMApplicationAttributes.JSON_PROPERTY_APPLICATION_ID,
   RUMApplicationAttributes.JSON_PROPERTY_CLIENT_TOKEN,
   RUMApplicationAttributes.JSON_PROPERTY_CREATED_AT,
@@ -36,6 +37,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMApplicationAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_API_KEY_ID = "api_key_id";
+  private Integer apiKeyId;
+
   public static final String JSON_PROPERTY_APPLICATION_ID = "application_id";
   private String applicationId;
 
@@ -96,6 +100,27 @@ public class RUMApplicationAttributes {
     this.type = type;
     this.updatedAt = updatedAt;
     this.updatedByHandle = updatedByHandle;
+  }
+
+  public RUMApplicationAttributes apiKeyId(Integer apiKeyId) {
+    this.apiKeyId = apiKeyId;
+    return this;
+  }
+
+  /**
+   * ID of the API key associated with the application. maximum: 2147483647
+   *
+   * @return apiKeyId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_API_KEY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getApiKeyId() {
+    return apiKeyId;
+  }
+
+  public void setApiKeyId(Integer apiKeyId) {
+    this.apiKeyId = apiKeyId;
   }
 
   public RUMApplicationAttributes applicationId(String applicationId) {
@@ -400,7 +425,8 @@ public class RUMApplicationAttributes {
       return false;
     }
     RUMApplicationAttributes rumApplicationAttributes = (RUMApplicationAttributes) o;
-    return Objects.equals(this.applicationId, rumApplicationAttributes.applicationId)
+    return Objects.equals(this.apiKeyId, rumApplicationAttributes.apiKeyId)
+        && Objects.equals(this.applicationId, rumApplicationAttributes.applicationId)
         && Objects.equals(this.clientToken, rumApplicationAttributes.clientToken)
         && Objects.equals(this.createdAt, rumApplicationAttributes.createdAt)
         && Objects.equals(this.createdByHandle, rumApplicationAttributes.createdByHandle)
@@ -418,6 +444,7 @@ public class RUMApplicationAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        apiKeyId,
         applicationId,
         clientToken,
         createdAt,
@@ -437,6 +464,7 @@ public class RUMApplicationAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RUMApplicationAttributes {\n");
+    sb.append("    apiKeyId: ").append(toIndentedString(apiKeyId)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
