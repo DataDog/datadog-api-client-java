@@ -97,7 +97,8 @@ public class AWSLogsServicesResponseData {
   }
 
   /**
-   * The <code>AWSLogsServicesResponseData</code> <code>type</code>.
+   * The <code>AWSLogsServicesResponseData</code> <code>type</code>. Test to trigger client
+   * generation.
    *
    * @return type
    */
