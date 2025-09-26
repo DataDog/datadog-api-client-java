@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Attributes of the monitor notification rule. */
 @JsonPropertyOrder({
+  MonitorNotificationRuleResponseAttributes.JSON_PROPERTY_CONDITIONAL_RECIPIENTS,
   MonitorNotificationRuleResponseAttributes.JSON_PROPERTY_CREATED,
   MonitorNotificationRuleResponseAttributes.JSON_PROPERTY_FILTER,
   MonitorNotificationRuleResponseAttributes.JSON_PROPERTY_MODIFIED,
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorNotificationRuleResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONDITIONAL_RECIPIENTS = "conditional_recipients";
+  private MonitorNotificationRuleConditionalRecipients conditionalRecipients;
+
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
 
@@ -45,6 +49,30 @@ public class MonitorNotificationRuleResponseAttributes {
 
   public static final String JSON_PROPERTY_RECIPIENTS = "recipients";
   private List<String> recipients = null;
+
+  public MonitorNotificationRuleResponseAttributes conditionalRecipients(
+      MonitorNotificationRuleConditionalRecipients conditionalRecipients) {
+    this.conditionalRecipients = conditionalRecipients;
+    this.unparsed |= conditionalRecipients.unparsed;
+    return this;
+  }
+
+  /**
+   * Use conditional recipients to define different recipients for different situations.
+   *
+   * @return conditionalRecipients
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONDITIONAL_RECIPIENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorNotificationRuleConditionalRecipients getConditionalRecipients() {
+    return conditionalRecipients;
+  }
+
+  public void setConditionalRecipients(
+      MonitorNotificationRuleConditionalRecipients conditionalRecipients) {
+    this.conditionalRecipients = conditionalRecipients;
+  }
 
   public MonitorNotificationRuleResponseAttributes created(OffsetDateTime created) {
     this.created = created;
@@ -218,7 +246,10 @@ public class MonitorNotificationRuleResponseAttributes {
     }
     MonitorNotificationRuleResponseAttributes monitorNotificationRuleResponseAttributes =
         (MonitorNotificationRuleResponseAttributes) o;
-    return Objects.equals(this.created, monitorNotificationRuleResponseAttributes.created)
+    return Objects.equals(
+            this.conditionalRecipients,
+            monitorNotificationRuleResponseAttributes.conditionalRecipients)
+        && Objects.equals(this.created, monitorNotificationRuleResponseAttributes.created)
         && Objects.equals(this.filter, monitorNotificationRuleResponseAttributes.filter)
         && Objects.equals(this.modified, monitorNotificationRuleResponseAttributes.modified)
         && Objects.equals(this.name, monitorNotificationRuleResponseAttributes.name)
@@ -230,13 +261,17 @@ public class MonitorNotificationRuleResponseAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, filter, modified, name, recipients, additionalProperties);
+    return Objects.hash(
+        conditionalRecipients, created, filter, modified, name, recipients, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MonitorNotificationRuleResponseAttributes {\n");
+    sb.append("    conditionalRecipients: ")
+        .append(toIndentedString(conditionalRecipients))
+        .append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");

@@ -17,6 +17,7 @@ import java.util.Objects;
 
 /** Attributes of the monitor notification rule. */
 @JsonPropertyOrder({
+  MonitorNotificationRuleAttributes.JSON_PROPERTY_CONDITIONAL_RECIPIENTS,
   MonitorNotificationRuleAttributes.JSON_PROPERTY_FILTER,
   MonitorNotificationRuleAttributes.JSON_PROPERTY_NAME,
   MonitorNotificationRuleAttributes.JSON_PROPERTY_RECIPIENTS
@@ -25,6 +26,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorNotificationRuleAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONDITIONAL_RECIPIENTS = "conditional_recipients";
+  private MonitorNotificationRuleConditionalRecipients conditionalRecipients;
+
   public static final String JSON_PROPERTY_FILTER = "filter";
   private MonitorNotificationRuleFilter filter;
 
@@ -32,16 +36,38 @@ public class MonitorNotificationRuleAttributes {
   private String name;
 
   public static final String JSON_PROPERTY_RECIPIENTS = "recipients";
-  private List<String> recipients = new ArrayList<>();
+  private List<String> recipients = null;
 
   public MonitorNotificationRuleAttributes() {}
 
   @JsonCreator
   public MonitorNotificationRuleAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RECIPIENTS) List<String> recipients) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
-    this.recipients = recipients;
+  }
+
+  public MonitorNotificationRuleAttributes conditionalRecipients(
+      MonitorNotificationRuleConditionalRecipients conditionalRecipients) {
+    this.conditionalRecipients = conditionalRecipients;
+    this.unparsed |= conditionalRecipients.unparsed;
+    return this;
+  }
+
+  /**
+   * Use conditional recipients to define different recipients for different situations.
+   *
+   * @return conditionalRecipients
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONDITIONAL_RECIPIENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorNotificationRuleConditionalRecipients getConditionalRecipients() {
+    return conditionalRecipients;
+  }
+
+  public void setConditionalRecipients(
+      MonitorNotificationRuleConditionalRecipients conditionalRecipients) {
+    this.conditionalRecipients = conditionalRecipients;
   }
 
   public MonitorNotificationRuleAttributes filter(MonitorNotificationRuleFilter filter) {
@@ -92,6 +118,9 @@ public class MonitorNotificationRuleAttributes {
   }
 
   public MonitorNotificationRuleAttributes addRecipientsItem(String recipientsItem) {
+    if (this.recipients == null) {
+      this.recipients = new ArrayList<>();
+    }
     this.recipients.add(recipientsItem);
     return this;
   }
@@ -102,8 +131,9 @@ public class MonitorNotificationRuleAttributes {
    *
    * @return recipients
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RECIPIENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRecipients() {
     return recipients;
   }
@@ -123,20 +153,25 @@ public class MonitorNotificationRuleAttributes {
     }
     MonitorNotificationRuleAttributes monitorNotificationRuleAttributes =
         (MonitorNotificationRuleAttributes) o;
-    return Objects.equals(this.filter, monitorNotificationRuleAttributes.filter)
+    return Objects.equals(
+            this.conditionalRecipients, monitorNotificationRuleAttributes.conditionalRecipients)
+        && Objects.equals(this.filter, monitorNotificationRuleAttributes.filter)
         && Objects.equals(this.name, monitorNotificationRuleAttributes.name)
         && Objects.equals(this.recipients, monitorNotificationRuleAttributes.recipients);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, name, recipients);
+    return Objects.hash(conditionalRecipients, filter, name, recipients);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MonitorNotificationRuleAttributes {\n");
+    sb.append("    conditionalRecipients: ")
+        .append(toIndentedString(conditionalRecipients))
+        .append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
