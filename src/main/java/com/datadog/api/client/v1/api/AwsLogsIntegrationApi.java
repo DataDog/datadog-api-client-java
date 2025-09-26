@@ -606,7 +606,9 @@ public class AwsLogsIntegrationApi {
    * @param body Enable AWS Log Services request body. (required)
    * @return Object
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Object enableAWSLogServices(AWSLogsServicesRequest body) throws ApiException {
     return enableAWSLogServicesWithHttpInfo(body).getData();
   }
@@ -618,7 +620,9 @@ public class AwsLogsIntegrationApi {
    *
    * @param body Enable AWS Log Services request body. (required)
    * @return CompletableFuture&lt;Object&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Object> enableAWSLogServicesAsync(AWSLogsServicesRequest body) {
     return enableAWSLogServicesWithHttpInfoAsync(body)
         .thenApply(
@@ -643,7 +647,10 @@ public class AwsLogsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Object> enableAWSLogServicesWithHttpInfo(AWSLogsServicesRequest body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -685,7 +692,9 @@ public class AwsLogsIntegrationApi {
    *
    * @param body Enable AWS Log Services request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Object>> enableAWSLogServicesWithHttpInfoAsync(
       AWSLogsServicesRequest body) {
     Object localVarPostBody = body;
@@ -737,7 +746,9 @@ public class AwsLogsIntegrationApi {
    *
    * @return List&lt;AWSLogsListResponse&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public List<AWSLogsListResponse> listAWSLogsIntegrations() throws ApiException {
     return listAWSLogsIntegrationsWithHttpInfo().getData();
   }
@@ -748,7 +759,9 @@ public class AwsLogsIntegrationApi {
    * <p>See {@link #listAWSLogsIntegrationsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;List&lt;AWSLogsListResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<List<AWSLogsListResponse>> listAWSLogsIntegrationsAsync() {
     return listAWSLogsIntegrationsWithHttpInfoAsync()
         .thenApply(
@@ -771,7 +784,10 @@ public class AwsLogsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<List<AWSLogsListResponse>> listAWSLogsIntegrationsWithHttpInfo()
       throws ApiException {
     Object localVarPostBody = null;
@@ -806,7 +822,9 @@ public class AwsLogsIntegrationApi {
    * <p>See {@link #listAWSLogsIntegrationsWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;List&lt;AWSLogsListResponse&gt;&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<List<AWSLogsListResponse>>>
       listAWSLogsIntegrationsWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -849,7 +867,9 @@ public class AwsLogsIntegrationApi {
    *
    * @return List&lt;AWSLogsListServicesResponse&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public List<AWSLogsListServicesResponse> listAWSLogsServices() throws ApiException {
     return listAWSLogsServicesWithHttpInfo().getData();
   }
@@ -860,7 +880,9 @@ public class AwsLogsIntegrationApi {
    * <p>See {@link #listAWSLogsServicesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;List&lt;AWSLogsListServicesResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<List<AWSLogsListServicesResponse>> listAWSLogsServicesAsync() {
     return listAWSLogsServicesWithHttpInfoAsync()
         .thenApply(
@@ -884,7 +906,10 @@ public class AwsLogsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<List<AWSLogsListServicesResponse>> listAWSLogsServicesWithHttpInfo()
       throws ApiException {
     Object localVarPostBody = null;
@@ -919,7 +944,9 @@ public class AwsLogsIntegrationApi {
    * <p>See {@link #listAWSLogsServicesWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;List&lt;AWSLogsListServicesResponse&gt;&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<List<AWSLogsListServicesResponse>>>
       listAWSLogsServicesWithHttpInfoAsync() {
     Object localVarPostBody = null;

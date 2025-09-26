@@ -36,7 +36,8 @@ public class FormulaAndFunctionEventsDataSource extends ModelEnum<String> {
               "events",
               "ci_tests",
               "ci_pipelines",
-              "incident_analytics"));
+              "incident_analytics",
+              "product_analytics"));
 
   public static final FormulaAndFunctionEventsDataSource LOGS =
       new FormulaAndFunctionEventsDataSource("logs");
@@ -60,6 +61,8 @@ public class FormulaAndFunctionEventsDataSource extends ModelEnum<String> {
       new FormulaAndFunctionEventsDataSource("ci_pipelines");
   public static final FormulaAndFunctionEventsDataSource INCIDENT_ANALYTICS =
       new FormulaAndFunctionEventsDataSource("incident_analytics");
+  public static final FormulaAndFunctionEventsDataSource PRODUCT_ANALYTICS =
+      new FormulaAndFunctionEventsDataSource("product_analytics");
 
   FormulaAndFunctionEventsDataSource(String value) {
     super(value, allowedValues);

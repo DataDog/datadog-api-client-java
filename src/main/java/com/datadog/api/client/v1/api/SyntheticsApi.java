@@ -3920,7 +3920,6 @@ public class SyntheticsApi {
   public static class SearchTestsOptionalParameters {
     private String text;
     private Boolean includeFullConfig;
-    private Boolean searchSuites;
     private Boolean facetsOnly;
     private Long start;
     private Long count;
@@ -3946,17 +3945,6 @@ public class SyntheticsApi {
      */
     public SearchTestsOptionalParameters includeFullConfig(Boolean includeFullConfig) {
       this.includeFullConfig = includeFullConfig;
-      return this;
-    }
-
-    /**
-     * Set searchSuites.
-     *
-     * @param searchSuites If true, returns suites instead of tests. (optional)
-     * @return SearchTestsOptionalParameters
-     */
-    public SearchTestsOptionalParameters searchSuites(Boolean searchSuites) {
-      this.searchSuites = searchSuites;
       return this;
     }
 
@@ -4065,7 +4053,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search for Synthetic tests and Test Suites.
+   * Search for Synthetic tests.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SyntheticsListTestsResponse&gt;
@@ -4085,7 +4073,6 @@ public class SyntheticsApi {
     Object localVarPostBody = null;
     String text = parameters.text;
     Boolean includeFullConfig = parameters.includeFullConfig;
-    Boolean searchSuites = parameters.searchSuites;
     Boolean facetsOnly = parameters.facetsOnly;
     Long start = parameters.start;
     Long count = parameters.count;
@@ -4099,7 +4086,6 @@ public class SyntheticsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "text", text));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_full_config", includeFullConfig));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search_suites", searchSuites));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "facets_only", facetsOnly));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
@@ -4138,7 +4124,6 @@ public class SyntheticsApi {
     Object localVarPostBody = null;
     String text = parameters.text;
     Boolean includeFullConfig = parameters.includeFullConfig;
-    Boolean searchSuites = parameters.searchSuites;
     Boolean facetsOnly = parameters.facetsOnly;
     Long start = parameters.start;
     Long count = parameters.count;
@@ -4152,7 +4137,6 @@ public class SyntheticsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "text", text));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_full_config", includeFullConfig));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search_suites", searchSuites));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "facets_only", facetsOnly));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));

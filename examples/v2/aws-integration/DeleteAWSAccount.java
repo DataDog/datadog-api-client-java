@@ -7,7 +7,6 @@ import com.datadog.api.client.v2.api.AwsIntegrationApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.deleteAWSAccount", true);
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
 
     // there is a valid "aws_account_v2" in the system

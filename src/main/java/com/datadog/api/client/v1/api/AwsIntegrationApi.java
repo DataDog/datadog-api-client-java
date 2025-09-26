@@ -63,7 +63,9 @@ public class AwsIntegrationApi {
    * @param body AWS Request Object (required)
    * @return AWSAccountCreateResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSAccountCreateResponse createAWSAccount(AWSAccount body) throws ApiException {
     return createAWSAccountWithHttpInfo(body).getData();
   }
@@ -75,7 +77,9 @@ public class AwsIntegrationApi {
    *
    * @param body AWS Request Object (required)
    * @return CompletableFuture&lt;AWSAccountCreateResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSAccountCreateResponse> createAWSAccountAsync(AWSAccount body) {
     return createAWSAccountWithHttpInfoAsync(body)
         .thenApply(
@@ -102,7 +106,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAccount body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -144,7 +151,9 @@ public class AwsIntegrationApi {
    *
    * @param body AWS Request Object (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountCreateResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSAccountCreateResponse>> createAWSAccountWithHttpInfoAsync(
       AWSAccount body) {
     Object localVarPostBody = body;
@@ -340,7 +349,9 @@ public class AwsIntegrationApi {
    *     </code>, and <code>custom</code>. (required)
    * @return Object
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Object createAWSTagFilter(AWSTagFilterCreateRequest body) throws ApiException {
     return createAWSTagFilterWithHttpInfo(body).getData();
   }
@@ -355,7 +366,9 @@ public class AwsIntegrationApi {
    *     elb</code>, <code>lambda</code>, <code>network_elb</code>, <code>rds</code>, <code>sqs
    *     </code>, and <code>custom</code>. (required)
    * @return CompletableFuture&lt;Object&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Object> createAWSTagFilterAsync(AWSTagFilterCreateRequest body) {
     return createAWSTagFilterWithHttpInfoAsync(body)
         .thenApply(
@@ -382,7 +395,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Object> createAWSTagFilterWithHttpInfo(AWSTagFilterCreateRequest body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -427,7 +443,9 @@ public class AwsIntegrationApi {
    *     elb</code>, <code>lambda</code>, <code>network_elb</code>, <code>rds</code>, <code>sqs
    *     </code>, and <code>custom</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Object>> createAWSTagFilterWithHttpInfoAsync(
       AWSTagFilterCreateRequest body) {
     Object localVarPostBody = body;
@@ -483,7 +501,9 @@ public class AwsIntegrationApi {
    *     integration configuration info</a>. (required)
    * @return AWSAccountCreateResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSAccountCreateResponse createNewAWSExternalID(AWSAccount body) throws ApiException {
     return createNewAWSExternalIDWithHttpInfo(body).getData();
   }
@@ -498,7 +518,9 @@ public class AwsIntegrationApi {
    *     href="https://docs.datadoghq.com/integrations/amazon_web_services/#setup">Datadog AWS
    *     integration configuration info</a>. (required)
    * @return CompletableFuture&lt;AWSAccountCreateResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSAccountCreateResponse> createNewAWSExternalIDAsync(AWSAccount body) {
     return createNewAWSExternalIDWithHttpInfoAsync(body)
         .thenApply(
@@ -525,7 +547,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo(AWSAccount body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -570,7 +595,9 @@ public class AwsIntegrationApi {
    *     href="https://docs.datadoghq.com/integrations/amazon_web_services/#setup">Datadog AWS
    *     integration configuration info</a>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountCreateResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSAccountCreateResponse>>
       createNewAWSExternalIDWithHttpInfoAsync(AWSAccount body) {
     Object localVarPostBody = body;
@@ -623,7 +650,9 @@ public class AwsIntegrationApi {
    * @param body AWS request object (required)
    * @return Object
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Object deleteAWSAccount(AWSAccountDeleteRequest body) throws ApiException {
     return deleteAWSAccountWithHttpInfo(body).getData();
   }
@@ -635,7 +664,9 @@ public class AwsIntegrationApi {
    *
    * @param body AWS request object (required)
    * @return CompletableFuture&lt;Object&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Object> deleteAWSAccountAsync(AWSAccountDeleteRequest body) {
     return deleteAWSAccountWithHttpInfoAsync(body)
         .thenApply(
@@ -661,7 +692,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccountDeleteRequest body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -703,7 +737,9 @@ public class AwsIntegrationApi {
    *
    * @param body AWS request object (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Object>> deleteAWSAccountWithHttpInfoAsync(
       AWSAccountDeleteRequest body) {
     Object localVarPostBody = body;
@@ -897,7 +933,9 @@ public class AwsIntegrationApi {
    *     namespace. (required)
    * @return Object
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Object deleteAWSTagFilter(AWSTagFilterDeleteRequest body) throws ApiException {
     return deleteAWSTagFilterWithHttpInfo(body).getData();
   }
@@ -910,7 +948,9 @@ public class AwsIntegrationApi {
    * @param body Delete a tag filtering entry for a given AWS account and <code>dd-aws</code>
    *     namespace. (required)
    * @return CompletableFuture&lt;Object&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Object> deleteAWSTagFilterAsync(AWSTagFilterDeleteRequest body) {
     return deleteAWSTagFilterWithHttpInfoAsync(body)
         .thenApply(
@@ -935,7 +975,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Object> deleteAWSTagFilterWithHttpInfo(AWSTagFilterDeleteRequest body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -978,7 +1021,9 @@ public class AwsIntegrationApi {
    * @param body Delete a tag filtering entry for a given AWS account and <code>dd-aws</code>
    *     namespace. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Object>> deleteAWSTagFilterWithHttpInfoAsync(
       AWSTagFilterDeleteRequest body) {
     Object localVarPostBody = body;
@@ -1030,7 +1075,9 @@ public class AwsIntegrationApi {
    *
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public List<String> listAvailableAWSNamespaces() throws ApiException {
     return listAvailableAWSNamespacesWithHttpInfo().getData();
   }
@@ -1041,7 +1088,9 @@ public class AwsIntegrationApi {
    * <p>See {@link #listAvailableAWSNamespacesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;List&lt;String&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<List<String>> listAvailableAWSNamespacesAsync() {
     return listAvailableAWSNamespacesWithHttpInfoAsync()
         .thenApply(
@@ -1063,7 +1112,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
@@ -1097,7 +1149,9 @@ public class AwsIntegrationApi {
    * <p>See {@link #listAvailableAWSNamespacesWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;List&lt;String&gt;&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<List<String>>>
       listAvailableAWSNamespacesWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -1182,7 +1236,9 @@ public class AwsIntegrationApi {
    *
    * @return AWSAccountListResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSAccountListResponse listAWSAccounts() throws ApiException {
     return listAWSAccountsWithHttpInfo(new ListAWSAccountsOptionalParameters()).getData();
   }
@@ -1193,7 +1249,9 @@ public class AwsIntegrationApi {
    * <p>See {@link #listAWSAccountsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;AWSAccountListResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSAccountListResponse> listAWSAccountsAsync() {
     return listAWSAccountsWithHttpInfoAsync(new ListAWSAccountsOptionalParameters())
         .thenApply(
@@ -1210,7 +1268,9 @@ public class AwsIntegrationApi {
    * @param parameters Optional parameters for the request.
    * @return AWSAccountListResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSAccountListResponse listAWSAccounts(ListAWSAccountsOptionalParameters parameters)
       throws ApiException {
     return listAWSAccountsWithHttpInfo(parameters).getData();
@@ -1223,7 +1283,9 @@ public class AwsIntegrationApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;AWSAccountListResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSAccountListResponse> listAWSAccountsAsync(
       ListAWSAccountsOptionalParameters parameters) {
     return listAWSAccountsWithHttpInfoAsync(parameters)
@@ -1248,7 +1310,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(
       ListAWSAccountsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
@@ -1292,7 +1357,9 @@ public class AwsIntegrationApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountListResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSAccountListResponse>> listAWSAccountsWithHttpInfoAsync(
       ListAWSAccountsOptionalParameters parameters) {
     Object localVarPostBody = null;
@@ -1456,7 +1523,9 @@ public class AwsIntegrationApi {
    * @param accountId Only return AWS filters that matches this <code>account_id</code>. (required)
    * @return AWSTagFilterListResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSTagFilterListResponse listAWSTagFilters(String accountId) throws ApiException {
     return listAWSTagFiltersWithHttpInfo(accountId).getData();
   }
@@ -1468,7 +1537,9 @@ public class AwsIntegrationApi {
    *
    * @param accountId Only return AWS filters that matches this <code>account_id</code>. (required)
    * @return CompletableFuture&lt;AWSTagFilterListResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSTagFilterListResponse> listAWSTagFiltersAsync(String accountId) {
     return listAWSTagFiltersWithHttpInfoAsync(accountId)
         .thenApply(
@@ -1492,7 +1563,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSTagFilterListResponse> listAWSTagFiltersWithHttpInfo(String accountId)
       throws ApiException {
     Object localVarPostBody = null;
@@ -1537,7 +1611,9 @@ public class AwsIntegrationApi {
    *
    * @param accountId Only return AWS filters that matches this <code>account_id</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSTagFilterListResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSTagFilterListResponse>>
       listAWSTagFiltersWithHttpInfoAsync(String accountId) {
     Object localVarPostBody = null;
@@ -1636,7 +1712,9 @@ public class AwsIntegrationApi {
    * @param body AWS request object (required)
    * @return Object
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Object updateAWSAccount(AWSAccount body) throws ApiException {
     return updateAWSAccountWithHttpInfo(body, new UpdateAWSAccountOptionalParameters()).getData();
   }
@@ -1648,7 +1726,9 @@ public class AwsIntegrationApi {
    *
    * @param body AWS request object (required)
    * @return CompletableFuture&lt;Object&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Object> updateAWSAccountAsync(AWSAccount body) {
     return updateAWSAccountWithHttpInfoAsync(body, new UpdateAWSAccountOptionalParameters())
         .thenApply(
@@ -1666,7 +1746,9 @@ public class AwsIntegrationApi {
    * @param parameters Optional parameters for the request.
    * @return Object
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Object updateAWSAccount(AWSAccount body, UpdateAWSAccountOptionalParameters parameters)
       throws ApiException {
     return updateAWSAccountWithHttpInfo(body, parameters).getData();
@@ -1680,7 +1762,9 @@ public class AwsIntegrationApi {
    * @param body AWS request object (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;Object&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Object> updateAWSAccountAsync(
       AWSAccount body, UpdateAWSAccountOptionalParameters parameters) {
     return updateAWSAccountWithHttpInfoAsync(body, parameters)
@@ -1707,7 +1791,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Object> updateAWSAccountWithHttpInfo(
       AWSAccount body, UpdateAWSAccountOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
@@ -1758,7 +1845,9 @@ public class AwsIntegrationApi {
    * @param body AWS request object (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Object>> updateAWSAccountWithHttpInfoAsync(
       AWSAccount body, UpdateAWSAccountOptionalParameters parameters) {
     Object localVarPostBody = body;

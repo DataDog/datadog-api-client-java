@@ -98,13 +98,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<AWSAccountResponse> createAWSAccountWithHttpInfo(AWSAccountCreateRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -147,16 +140,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSAccountResponse>> createAWSAccountWithHttpInfoAsync(
       AWSAccountCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -242,13 +225,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<AWSNewExternalIDResponse> createNewAWSExternalIDWithHttpInfo()
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createNewAWSExternalID";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/generate_new_external_id";
@@ -284,16 +260,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSNewExternalIDResponse>>
       createNewAWSExternalIDWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "createNewAWSExternalID";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSNewExternalIDResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/generate_new_external_id";
@@ -383,13 +349,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<Void> deleteAWSAccountWithHttpInfo(String awsAccountConfigId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
@@ -439,16 +398,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteAWSAccountWithHttpInfoAsync(
       String awsAccountConfigId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
@@ -553,13 +502,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<AWSAccountResponse> getAWSAccountWithHttpInfo(String awsAccountConfigId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
@@ -609,16 +551,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSAccountResponse>> getAWSAccountWithHttpInfoAsync(
       String awsAccountConfigId) {
-    // Check if unstable operation is enabled
-    String operationId = "getAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'awsAccountConfigId' is set
@@ -779,6 +711,232 @@ public class AwsIntegrationApi {
         new GenericType<AWSIntegrationIamPermissionsResponse>() {});
   }
 
+  /**
+   * Get resource collection IAM permissions.
+   *
+   * <p>See {@link #getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfo}.
+   *
+   * @return AWSIntegrationIamPermissionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSIntegrationIamPermissionsResponse getAWSIntegrationIAMPermissionsResourceCollection()
+      throws ApiException {
+    return getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfo().getData();
+  }
+
+  /**
+   * Get resource collection IAM permissions.
+   *
+   * <p>See {@link #getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AWSIntegrationIamPermissionsResponse&gt;
+   */
+  public CompletableFuture<AWSIntegrationIamPermissionsResponse>
+      getAWSIntegrationIAMPermissionsResourceCollectionAsync() {
+    return getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all resource collection AWS IAM permissions required for the AWS integration.
+   *
+   * @return ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> AWS integration resource collection IAM permissions. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSIntegrationIamPermissionsResponse>
+      getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/aws/iam_permissions/resource_collection";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsResourceCollection",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
+  }
+
+  /**
+   * Get resource collection IAM permissions.
+   *
+   * <p>See {@link #getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>>
+      getAWSIntegrationIAMPermissionsResourceCollectionWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/aws/iam_permissions/resource_collection";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsResourceCollection",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
+  }
+
+  /**
+   * Get AWS integration standard IAM permissions.
+   *
+   * <p>See {@link #getAWSIntegrationIAMPermissionsStandardWithHttpInfo}.
+   *
+   * @return AWSIntegrationIamPermissionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSIntegrationIamPermissionsResponse getAWSIntegrationIAMPermissionsStandard()
+      throws ApiException {
+    return getAWSIntegrationIAMPermissionsStandardWithHttpInfo().getData();
+  }
+
+  /**
+   * Get AWS integration standard IAM permissions.
+   *
+   * <p>See {@link #getAWSIntegrationIAMPermissionsStandardWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AWSIntegrationIamPermissionsResponse&gt;
+   */
+  public CompletableFuture<AWSIntegrationIamPermissionsResponse>
+      getAWSIntegrationIAMPermissionsStandardAsync() {
+    return getAWSIntegrationIAMPermissionsStandardWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all standard AWS IAM permissions required for the AWS integration.
+   *
+   * @return ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> AWS integration standard IAM permissions. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSIntegrationIamPermissionsResponse>
+      getAWSIntegrationIAMPermissionsStandardWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/aws/iam_permissions/standard";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsStandard",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
+  }
+
+  /**
+   * Get AWS integration standard IAM permissions.
+   *
+   * <p>See {@link #getAWSIntegrationIAMPermissionsStandardWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSIntegrationIamPermissionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>>
+      getAWSIntegrationIAMPermissionsStandardWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/aws/iam_permissions/standard";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AwsIntegrationApi.getAWSIntegrationIAMPermissionsStandard",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSIntegrationIamPermissionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSIntegrationIamPermissionsResponse>() {});
+  }
+
   /** Manage optional parameters to listAWSAccounts. */
   public static class ListAWSAccountsOptionalParameters {
     private String awsAccountId;
@@ -871,13 +1029,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<AWSAccountsResponse> listAWSAccountsWithHttpInfo(
       ListAWSAccountsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listAWSAccounts";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     String awsAccountId = parameters.awsAccountId;
     // create path and map variables
@@ -918,16 +1069,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSAccountsResponse>> listAWSAccountsWithHttpInfoAsync(
       ListAWSAccountsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listAWSAccounts";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSAccountsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     String awsAccountId = parameters.awsAccountId;
     // create path and map variables
@@ -1007,13 +1148,6 @@ public class AwsIntegrationApi {
    *     </table>
    */
   public ApiResponse<AWSNamespacesResponse> listAWSNamespacesWithHttpInfo() throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listAWSNamespaces";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/available_namespaces";
@@ -1049,16 +1183,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSNamespacesResponse>>
       listAWSNamespacesWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "listAWSNamespaces";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSNamespacesResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/aws/available_namespaces";
@@ -1154,13 +1278,6 @@ public class AwsIntegrationApi {
    */
   public ApiResponse<AWSAccountResponse> updateAWSAccountWithHttpInfo(
       String awsAccountConfigId, AWSAccountUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'awsAccountConfigId' is set
@@ -1217,16 +1334,6 @@ public class AwsIntegrationApi {
    */
   public CompletableFuture<ApiResponse<AWSAccountResponse>> updateAWSAccountWithHttpInfoAsync(
       String awsAccountConfigId, AWSAccountUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateAWSAccount";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<AWSAccountResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'awsAccountConfigId' is set

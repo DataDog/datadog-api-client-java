@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Type of GCP Usage Cost config post request. */
+/** Type of Google Cloud Usage Cost config post request. */
 @JsonSerialize(
     using = GCPUsageCostConfigPostRequestType.GCPUsageCostConfigPostRequestTypeSerializer.class)
 public class GCPUsageCostConfigPostRequestType extends ModelEnum<String> {

@@ -8108,6 +8108,22 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityMonitoringSignalsListResponse>() {});
   }
 
+  /** Manage optional parameters to listSecurityMonitoringSuppressions. */
+  public static class ListSecurityMonitoringSuppressionsOptionalParameters {
+    private String query;
+
+    /**
+     * Set query.
+     *
+     * @param query Query string. (optional)
+     * @return ListSecurityMonitoringSuppressionsOptionalParameters
+     */
+    public ListSecurityMonitoringSuppressionsOptionalParameters query(String query) {
+      this.query = query;
+      return this;
+    }
+  }
+
   /**
    * Get all suppression rules.
    *
@@ -8118,7 +8134,9 @@ public class SecurityMonitoringApi {
    */
   public SecurityMonitoringSuppressionsResponse listSecurityMonitoringSuppressions()
       throws ApiException {
-    return listSecurityMonitoringSuppressionsWithHttpInfo().getData();
+    return listSecurityMonitoringSuppressionsWithHttpInfo(
+            new ListSecurityMonitoringSuppressionsOptionalParameters())
+        .getData();
   }
 
   /**
@@ -8130,7 +8148,40 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<SecurityMonitoringSuppressionsResponse>
       listSecurityMonitoringSuppressionsAsync() {
-    return listSecurityMonitoringSuppressionsWithHttpInfoAsync()
+    return listSecurityMonitoringSuppressionsWithHttpInfoAsync(
+            new ListSecurityMonitoringSuppressionsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all suppression rules.
+   *
+   * <p>See {@link #listSecurityMonitoringSuppressionsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringSuppressionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSuppressionsResponse listSecurityMonitoringSuppressions(
+      ListSecurityMonitoringSuppressionsOptionalParameters parameters) throws ApiException {
+    return listSecurityMonitoringSuppressionsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all suppression rules.
+   *
+   * <p>See {@link #listSecurityMonitoringSuppressionsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SecurityMonitoringSuppressionsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSuppressionsResponse>
+      listSecurityMonitoringSuppressionsAsync(
+          ListSecurityMonitoringSuppressionsOptionalParameters parameters) {
+    return listSecurityMonitoringSuppressionsWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -8140,6 +8191,7 @@ public class SecurityMonitoringApi {
   /**
    * Get the list of all suppression rules.
    *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SecurityMonitoringSuppressionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -8152,18 +8204,23 @@ public class SecurityMonitoringApi {
    *     </table>
    */
   public ApiResponse<SecurityMonitoringSuppressionsResponse>
-      listSecurityMonitoringSuppressionsWithHttpInfo() throws ApiException {
+      listSecurityMonitoringSuppressionsWithHttpInfo(
+          ListSecurityMonitoringSuppressionsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    String query = parameters.query;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/configuration/suppressions";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.SecurityMonitoringApi.listSecurityMonitoringSuppressions",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -8184,15 +8241,21 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #listSecurityMonitoringSuppressionsWithHttpInfo}.
    *
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSuppressionsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SecurityMonitoringSuppressionsResponse>>
-      listSecurityMonitoringSuppressionsWithHttpInfoAsync() {
+      listSecurityMonitoringSuppressionsWithHttpInfoAsync(
+          ListSecurityMonitoringSuppressionsOptionalParameters parameters) {
     Object localVarPostBody = null;
+    String query = parameters.query;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/configuration/suppressions";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
 
     Invocation.Builder builder;
     try {
@@ -8200,7 +8263,7 @@ public class SecurityMonitoringApi {
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.listSecurityMonitoringSuppressions",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},

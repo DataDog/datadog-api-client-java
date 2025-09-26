@@ -150,8 +150,7 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds,
-   * and it should not be older than 1 hour.
+   * Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds.
    *
    * @return finishedAt
    */

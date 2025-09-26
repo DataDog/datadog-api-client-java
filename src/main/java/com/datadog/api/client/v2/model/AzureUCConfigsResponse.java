@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,7 +26,15 @@ import java.util.Objects;
 public class AzureUCConfigsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<AzureUCConfigPair> data = null;
+  private List<AzureUCConfigPair> data = new ArrayList<>();
+
+  public AzureUCConfigsResponse() {}
+
+  @JsonCreator
+  public AzureUCConfigsResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<AzureUCConfigPair> data) {
+    this.data = data;
+  }
 
   public AzureUCConfigsResponse data(List<AzureUCConfigPair> data) {
     this.data = data;
@@ -36,9 +45,6 @@ public class AzureUCConfigsResponse {
   }
 
   public AzureUCConfigsResponse addDataItem(AzureUCConfigPair dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
     return this;
@@ -49,9 +55,8 @@ public class AzureUCConfigsResponse {
    *
    * @return data
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<AzureUCConfigPair> getData() {
     return data;
   }

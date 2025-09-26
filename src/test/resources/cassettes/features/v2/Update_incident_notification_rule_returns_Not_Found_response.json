@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"conditions\":[{\"field\":\"severity\",\"values\":[\"SEV-1\"]}],\"enabled\":false,\"handles\":[\"@test-email@company.com\"],\"trigger\":\"incident_created_trigger\"},\"id\":\"00000000-0000-0000-0000-000000000001\",\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"00000000-0000-0000-0000-000000000001\",\"type\":\"incident_types\"}}},\"type\":\"incident_notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/incidents/config/notification-rules/00000000-0000-0000-0000-000000000001",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"incident type doesn't exist\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "22f89f86-c1f6-8868-f119-51a2b4696b45"
+  }
+]

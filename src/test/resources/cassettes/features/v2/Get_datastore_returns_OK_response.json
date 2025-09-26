@@ -1,0 +1,84 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"\",\"name\":\"Test Datastore\",\"org_access\":\"contributor\",\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"},\"type\":\"datastores\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions-datastores",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"b06309e7-b4e9-4edb-a494-e5dd27d9525f\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6574cf7e-1c55-24e1-45d2-b92f9fa74d33"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/actions-datastores/b06309e7-b4e9-4edb-a494-e5dd27d9525f",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"b06309e7-b4e9-4edb-a494-e5dd27d9525f\",\"type\":\"datastores\",\"attributes\":{\"created_at\":\"2025-09-05T22:54:09.545626Z\",\"creator_user_id\":1445416,\"creator_user_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"\",\"modified_at\":\"2025-09-05T22:54:09.545626Z\",\"name\":\"Test Datastore\",\"org_id\":321813,\"primary_column_name\":\"id\",\"primary_key_generation_strategy\":\"none\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b914379f-fa05-9b66-217a-cbab33dc1bfe"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/b06309e7-b4e9-4edb-a494-e5dd27d9525f",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"b06309e7-b4e9-4edb-a494-e5dd27d9525f\",\"type\":\"datastores\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7b9a1ad2-07e3-b69c-0ff3-81241c4d5d66"
+  }
+]

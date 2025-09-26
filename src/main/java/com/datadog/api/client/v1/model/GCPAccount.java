@@ -32,6 +32,7 @@ import java.util.Objects;
   GCPAccount.JSON_PROPERTY_IS_CSPM_ENABLED,
   GCPAccount.JSON_PROPERTY_IS_RESOURCE_CHANGE_COLLECTION_ENABLED,
   GCPAccount.JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED,
+  GCPAccount.JSON_PROPERTY_MONITORED_RESOURCE_CONFIGS,
   GCPAccount.JSON_PROPERTY_PRIVATE_KEY,
   GCPAccount.JSON_PROPERTY_PRIVATE_KEY_ID,
   GCPAccount.JSON_PROPERTY_PROJECT_ID,
@@ -82,6 +83,10 @@ public class GCPAccount {
   public static final String JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED =
       "is_security_command_center_enabled";
   private Boolean isSecurityCommandCenterEnabled = false;
+
+  public static final String JSON_PROPERTY_MONITORED_RESOURCE_CONFIGS =
+      "monitored_resource_configs";
+  private List<GCPMonitoredResourceConfig> monitoredResourceConfigs = null;
 
   public static final String JSON_PROPERTY_PRIVATE_KEY = "private_key";
   private String privateKey;
@@ -243,11 +248,15 @@ public class GCPAccount {
   }
 
   /**
-   * Limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run
-   * revision resources that apply to specified filters are imported into Datadog.
+   * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags.
+   * Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+   * <strong>Note:</strong> This field is deprecated. Instead, use <code>monitored_resource_configs
+   * </code> with <code>type=cloud_run_revision</code>
    *
    * @return cloudRunRevisionFilters
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,6 +264,7 @@ public class GCPAccount {
     return cloudRunRevisionFilters;
   }
 
+  @Deprecated
   public void setCloudRunRevisionFilters(List<String> cloudRunRevisionFilters) {
     this.cloudRunRevisionFilters = cloudRunRevisionFilters;
   }
@@ -294,11 +304,15 @@ public class GCPAccount {
   }
 
   /**
-   * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one
-   * of the defined tags are imported into Datadog.
+   * A comma-separated list of filters to limit the VM instances that are pulled into Datadog by
+   * using tags. Only VM instance resources that apply to specified filters are imported into
+   * Datadog. <strong>Note:</strong> This field is deprecated. Instead, use <code>
+   * monitored_resource_configs</code> with <code>type=gce_instance</code>
    *
    * @return hostFilters
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,6 +320,7 @@ public class GCPAccount {
     return hostFilters;
   }
 
+  @Deprecated
   public void setHostFilters(String hostFilters) {
     this.hostFilters = hostFilters;
   }
@@ -373,6 +388,42 @@ public class GCPAccount {
 
   public void setIsSecurityCommandCenterEnabled(Boolean isSecurityCommandCenterEnabled) {
     this.isSecurityCommandCenterEnabled = isSecurityCommandCenterEnabled;
+  }
+
+  public GCPAccount monitoredResourceConfigs(
+      List<GCPMonitoredResourceConfig> monitoredResourceConfigs) {
+    this.monitoredResourceConfigs = monitoredResourceConfigs;
+    for (GCPMonitoredResourceConfig item : monitoredResourceConfigs) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public GCPAccount addMonitoredResourceConfigsItem(
+      GCPMonitoredResourceConfig monitoredResourceConfigsItem) {
+    if (this.monitoredResourceConfigs == null) {
+      this.monitoredResourceConfigs = new ArrayList<>();
+    }
+    this.monitoredResourceConfigs.add(monitoredResourceConfigsItem);
+    this.unparsed |= monitoredResourceConfigsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Configurations for GCP monitored resources.
+   *
+   * @return monitoredResourceConfigs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONITORED_RESOURCE_CONFIGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<GCPMonitoredResourceConfig> getMonitoredResourceConfigs() {
+    return monitoredResourceConfigs;
+  }
+
+  public void setMonitoredResourceConfigs(
+      List<GCPMonitoredResourceConfig> monitoredResourceConfigs) {
+    this.monitoredResourceConfigs = monitoredResourceConfigs;
   }
 
   public GCPAccount privateKey(String privateKey) {
@@ -571,6 +622,7 @@ public class GCPAccount {
             this.isResourceChangeCollectionEnabled, gcpAccount.isResourceChangeCollectionEnabled)
         && Objects.equals(
             this.isSecurityCommandCenterEnabled, gcpAccount.isSecurityCommandCenterEnabled)
+        && Objects.equals(this.monitoredResourceConfigs, gcpAccount.monitoredResourceConfigs)
         && Objects.equals(this.privateKey, gcpAccount.privateKey)
         && Objects.equals(this.privateKeyId, gcpAccount.privateKeyId)
         && Objects.equals(this.projectId, gcpAccount.projectId)
@@ -595,6 +647,7 @@ public class GCPAccount {
         isCspmEnabled,
         isResourceChangeCollectionEnabled,
         isSecurityCommandCenterEnabled,
+        monitoredResourceConfigs,
         privateKey,
         privateKeyId,
         projectId,
@@ -627,6 +680,9 @@ public class GCPAccount {
         .append("\n");
     sb.append("    isSecurityCommandCenterEnabled: ")
         .append(toIndentedString(isSecurityCommandCenterEnabled))
+        .append("\n");
+    sb.append("    monitoredResourceConfigs: ")
+        .append(toIndentedString(monitoredResourceConfigs))
         .append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    privateKeyId: ").append(toIndentedString(privateKeyId)).append("\n");

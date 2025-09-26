@@ -17,13 +17,40 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Result of the convert rule request containing Terraform content. */
-@JsonPropertyOrder({SecurityMonitoringRuleConvertResponse.JSON_PROPERTY_TERRAFORM_CONTENT})
+@JsonPropertyOrder({
+  SecurityMonitoringRuleConvertResponse.JSON_PROPERTY_RULE_ID,
+  SecurityMonitoringRuleConvertResponse.JSON_PROPERTY_TERRAFORM_CONTENT
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleConvertResponse {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_RULE_ID = "ruleId";
+  private String ruleId;
+
   public static final String JSON_PROPERTY_TERRAFORM_CONTENT = "terraformContent";
   private String terraformContent;
+
+  public SecurityMonitoringRuleConvertResponse ruleId(String ruleId) {
+    this.ruleId = ruleId;
+    return this;
+  }
+
+  /**
+   * the ID of the rule.
+   *
+   * @return ruleId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RULE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRuleId() {
+    return ruleId;
+  }
+
+  public void setRuleId(String ruleId) {
+    this.ruleId = ruleId;
+  }
 
   public SecurityMonitoringRuleConvertResponse terraformContent(String terraformContent) {
     this.terraformContent = terraformContent;
@@ -103,7 +130,8 @@ public class SecurityMonitoringRuleConvertResponse {
     }
     SecurityMonitoringRuleConvertResponse securityMonitoringRuleConvertResponse =
         (SecurityMonitoringRuleConvertResponse) o;
-    return Objects.equals(
+    return Objects.equals(this.ruleId, securityMonitoringRuleConvertResponse.ruleId)
+        && Objects.equals(
             this.terraformContent, securityMonitoringRuleConvertResponse.terraformContent)
         && Objects.equals(
             this.additionalProperties, securityMonitoringRuleConvertResponse.additionalProperties);
@@ -111,13 +139,14 @@ public class SecurityMonitoringRuleConvertResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(terraformContent, additionalProperties);
+    return Objects.hash(ruleId, terraformContent, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleConvertResponse {\n");
+    sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    terraformContent: ").append(toIndentedString(terraformContent)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

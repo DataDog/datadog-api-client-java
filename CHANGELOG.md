@@ -1,5 +1,49 @@
 # CHANGELOG
 
+## 2.43.0/2025-09-15
+
+### Added
+* Add Query Parameters to ListOrgConnections Endpoint [#3130](https://github.com/DataDog/datadog-api-client-java/pull/3130)
+* Add Incident Notification Rules Public Spec [#3123](https://github.com/DataDog/datadog-api-client-java/pull/3123)
+* Update v1 and v2 GCP API specs to support `monitored_resource_configs` [#3121](https://github.com/DataDog/datadog-api-client-java/pull/3121)
+* Add action datastore API [#3101](https://github.com/DataDog/datadog-api-client-java/pull/3101)
+* Security Monitoring - Make hasOptionalGroupByFields updatable [#3058](https://github.com/DataDog/datadog-api-client-java/pull/3058)
+
+### Deprecated
+* Promote unstable aws v2 APIs and deprecate v1 [#3120](https://github.com/DataDog/datadog-api-client-java/pull/3120)
+
+### Changed
+* Allow to send batches of events in pipelines API [#3104](https://github.com/DataDog/datadog-api-client-java/pull/3104)
+
+## 2.42.0/2025-09-09
+
+### Added
+* Add Incident Notification Template Public Docs [#3116](https://github.com/DataDog/datadog-api-client-java/pull/3116)
+* Add Cross Org API to Open API specs [#3115](https://github.com/DataDog/datadog-api-client-java/pull/3115)
+* Add readonly ID of synthetics test steps [#3111](https://github.com/DataDog/datadog-api-client-java/pull/3111)
+* Create Cloud SIEM histsignals endpoints [#3110](https://github.com/DataDog/datadog-api-client-java/pull/3110)
+* Security Monitoring - Validation Endpoint for Suppressions [#3107](https://github.com/DataDog/datadog-api-client-java/pull/3107)
+* Update Get All Notification Rules API docs to include pagination, sorting, and filtering params [#3105](https://github.com/DataDog/datadog-api-client-java/pull/3105)
+* Security Monitoring - Related Suppressions for a Rule [#3103](https://github.com/DataDog/datadog-api-client-java/pull/3103)
+* Extend Widget time schema with support for hide_incomplete_cost_data [#3091](https://github.com/DataDog/datadog-api-client-java/pull/3091)
+* Add SDS rule `should_save_match` field [#3089](https://github.com/DataDog/datadog-api-client-java/pull/3089)
+* Add spec for Agentless GetAwsScanOptions [#3086](https://github.com/DataDog/datadog-api-client-java/pull/3086)
+* Add Cross Org API to Open API specs [#3084](https://github.com/DataDog/datadog-api-client-java/pull/3084)
+* Add DNAP Spark Pod Autosizing service to API client [#3080](https://github.com/DataDog/datadog-api-client-java/pull/3080)
+* Add version parameter to synthetic test trigger ci endpoint [#3079](https://github.com/DataDog/datadog-api-client-java/pull/3079)
+* Document Error Tracking public APIs [#3076](https://github.com/DataDog/datadog-api-client-java/pull/3076)
+* Add docs for 404 not found error in cost-onboarding-api [#3071](https://github.com/DataDog/datadog-api-client-java/pull/3071)
+* Adds async Scorecard outcomes batch update endpoint [#3061](https://github.com/DataDog/datadog-api-client-java/pull/3061)
+
+### Fixed
+* Security Monitoring - Fix payload of Validation Endpoint for Suppressions [#3112](https://github.com/DataDog/datadog-api-client-java/pull/3112)
+* [CCA-938][CCC-883] Audit existing CCM endpoints in OpenAPI spec [#3067](https://github.com/DataDog/datadog-api-client-java/pull/3067)
+* Add enum Dataset type to Dataset API spec [#3065](https://github.com/DataDog/datadog-api-client-java/pull/3065)
+
+### Changed
+* Update public cost permissions [#3088](https://github.com/DataDog/datadog-api-client-java/pull/3088)
+* Add Product Scales support to RUM v2 Applications API [#3069](https://github.com/DataDog/datadog-api-client-java/pull/3069)
+
 ## 2.41.0/2025-08-12
 
 ### Added

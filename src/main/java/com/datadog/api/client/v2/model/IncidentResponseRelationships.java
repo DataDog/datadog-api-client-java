@@ -22,6 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentResponseRelationships.JSON_PROPERTY_ATTACHMENTS,
   IncidentResponseRelationships.JSON_PROPERTY_COMMANDER_USER,
   IncidentResponseRelationships.JSON_PROPERTY_CREATED_BY_USER,
+  IncidentResponseRelationships.JSON_PROPERTY_DECLARED_BY_USER,
   IncidentResponseRelationships.JSON_PROPERTY_IMPACTS,
   IncidentResponseRelationships.JSON_PROPERTY_INTEGRATIONS,
   IncidentResponseRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER,
@@ -41,6 +42,9 @@ public class IncidentResponseRelationships {
 
   public static final String JSON_PROPERTY_CREATED_BY_USER = "created_by_user";
   private RelationshipToUser createdByUser;
+
+  public static final String JSON_PROPERTY_DECLARED_BY_USER = "declared_by_user";
+  private RelationshipToUser declaredByUser;
 
   public static final String JSON_PROPERTY_IMPACTS = "impacts";
   private RelationshipToIncidentImpacts impacts;
@@ -131,6 +135,28 @@ public class IncidentResponseRelationships {
 
   public void setCreatedByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
+  }
+
+  public IncidentResponseRelationships declaredByUser(RelationshipToUser declaredByUser) {
+    this.declaredByUser = declaredByUser;
+    this.unparsed |= declaredByUser.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship to user.
+   *
+   * @return declaredByUser
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DECLARED_BY_USER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToUser getDeclaredByUser() {
+    return declaredByUser;
+  }
+
+  public void setDeclaredByUser(RelationshipToUser declaredByUser) {
+    this.declaredByUser = declaredByUser;
   }
 
   public IncidentResponseRelationships impacts(RelationshipToIncidentImpacts impacts) {
@@ -304,6 +330,7 @@ public class IncidentResponseRelationships {
     return Objects.equals(this.attachments, incidentResponseRelationships.attachments)
         && Objects.equals(this.commanderUser, incidentResponseRelationships.commanderUser)
         && Objects.equals(this.createdByUser, incidentResponseRelationships.createdByUser)
+        && Objects.equals(this.declaredByUser, incidentResponseRelationships.declaredByUser)
         && Objects.equals(this.impacts, incidentResponseRelationships.impacts)
         && Objects.equals(this.integrations, incidentResponseRelationships.integrations)
         && Objects.equals(this.lastModifiedByUser, incidentResponseRelationships.lastModifiedByUser)
@@ -319,6 +346,7 @@ public class IncidentResponseRelationships {
         attachments,
         commanderUser,
         createdByUser,
+        declaredByUser,
         impacts,
         integrations,
         lastModifiedByUser,
@@ -334,6 +362,7 @@ public class IncidentResponseRelationships {
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    commanderUser: ").append(toIndentedString(commanderUser)).append("\n");
     sb.append("    createdByUser: ").append(toIndentedString(createdByUser)).append("\n");
+    sb.append("    declaredByUser: ").append(toIndentedString(declaredByUser)).append("\n");
     sb.append("    impacts: ").append(toIndentedString(impacts)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
     sb.append("    lastModifiedByUser: ").append(toIndentedString(lastModifiedByUser)).append("\n");

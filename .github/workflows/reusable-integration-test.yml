@@ -1,0 +1,146 @@
+name: Reusable Integration Test Workflow
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+      - synchronize
+      - labeled
+      - unlabeled
+    branches:
+      - master
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_call:
+    inputs:
+      target-branch:
+        description: 'Branch to checkout and test (defaults to the calling branch)'
+        required: false
+        type: string
+        default: ''
+      enable-status-reporting:
+        description: 'Whether to post status checks to datadog-api-spec repo'
+        required: false
+        type: boolean
+        default: false
+      status-context:
+        description: 'Context for status checks'
+        required: false
+        type: string
+        default: 'integration'
+      target-repo:
+        description: 'Repository to post status to'
+        required: false
+        type: string
+        default: 'datadog-api-spec'
+      has-integration-label:
+        description: 'Whether the calling PR has ci/integrations label'
+        required: false
+        type: boolean
+        default: false
+    secrets:
+      PIPELINE_GITHUB_APP_ID:
+        required: false
+      PIPELINE_GITHUB_APP_PRIVATE_KEY:
+        required: false
+      DD_API_KEY:
+        required: true
+      DD_CLIENT_API_KEY:
+        required: true
+      DD_CLIENT_APP_KEY:
+        required: true
+      SLEEP_AFTER_REQUEST:
+        required: false
+
+concurrency:
+  group: integration-java-${{ inputs.target-branch || github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  test_integration:
+    runs-on: ubuntu-latest
+    if: >
+      (github.event_name == 'pull_request' &&
+      github.event.pull_request.draft == false &&
+      !contains(github.event.pull_request.labels.*.name, 'ci/skip') &&
+      !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/') &&
+      contains(github.event.pull_request.labels.*.name, 'ci/integrations')) ||
+      github.event_name == 'schedule' ||
+      (github.event_name == 'workflow_call' && inputs.has-integration-label)
+    services:
+      datadog-agent:
+        image: gcr.io/datadoghq/agent:latest
+        ports:
+          - 8126:8126
+        env:
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
+          DD_HOSTNAME: "none"
+          DD_INSIDE_CI: "true"
+    steps:
+      - name: Get GitHub App token
+        if: github.event_name == 'pull_request'
+        id: get_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
+          private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
+          repositories: ${{ inputs.target-repo || 'datadog-api-spec' }}
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          repository: DataDog/datadog-api-client-java
+          ref: ${{ inputs.target-branch || github.ref }}
+      - name: Post pending status check
+        if: github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/') && (inputs.enable-status-reporting || github.event_name != 'workflow_call')
+        uses: DataDog/github-actions/post-status-check@v2
+        with:
+          github-token: ${{ steps.get_token.outputs.token }}
+          repo: ${{ inputs.target-repo || 'datadog-api-spec' }}
+          status: pending
+          context: ${{ inputs.status-context || 'integration' }}
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '16'
+          distribution: 'temurin'
+          cache: 'maven'
+      - name: Configure Datadog Test Optimization
+        uses: datadog/test-visibility-github-action@v2
+        with:
+          languages: java
+          api_key: ${{ secrets.DD_API_KEY }}
+      - name: Run integration tests
+        run: ./run-tests.sh
+        env:
+          CI: "true"
+          DD_ENV: prod
+          DD_HTTP_CLIENT_ERROR_STATUSES: "500-599"
+          DD_CIVISIBILITY_COMPILER_PLUGIN_AUTO_CONFIGURATION_ENABLED: "false"
+          DD_SERVICE: datadog-api-client-java
+          DD_TAGS: "team:integrations-tools-and-libraries"
+          DD_TEST_CLIENT_API_KEY: ${{ secrets.DD_CLIENT_API_KEY }}
+          DD_TEST_CLIENT_APP_KEY: ${{ secrets.DD_CLIENT_APP_KEY }}
+          DD_TRACE_ANALYTICS_ENABLED: "true"
+          RECORD: "none"
+          SLEEP_AFTER_REQUEST: "${{ vars.SLEEP_AFTER_REQUEST }}"
+      - name: Post failure status check
+        if: failure() && github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/') && (inputs.enable-status-reporting || github.event_name != 'workflow_call')
+        uses: DataDog/github-actions/post-status-check@v2
+        with:
+          github-token: ${{ steps.get_token.outputs.token }}
+          repo: ${{ inputs.target-repo || 'datadog-api-spec' }}
+          status: failure
+          context: ${{ inputs.status-context || 'integration' }}
+      - name: Post success status check
+        if: "!failure() && github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/') && (inputs.enable-status-reporting || github.event_name != 'workflow_call')"
+        uses: DataDog/github-actions/post-status-check@v2
+        with:
+          github-token: ${{ steps.get_token.outputs.token }}
+          repo: ${{ inputs.target-repo || 'datadog-api-spec' }}
+          status: success
+          context: ${{ inputs.status-context || 'integration' }}

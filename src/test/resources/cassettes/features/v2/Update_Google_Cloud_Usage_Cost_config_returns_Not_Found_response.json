@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true},\"type\":\"gcp_uc_config_patch_request\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/cost/gcp_uc_config/123456",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"rpc error: code = NotFound desc = cloud account '\ufffd' not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a30cbb00-f615-5499-5b0d-588c3aca794d"
+  }
+]

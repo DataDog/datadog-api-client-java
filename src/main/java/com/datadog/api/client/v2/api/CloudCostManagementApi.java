@@ -4,16 +4,20 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.ArbitraryCostUpsertRequest;
+import com.datadog.api.client.v2.model.ArbitraryRuleResponse;
+import com.datadog.api.client.v2.model.ArbitraryRuleResponseArray;
 import com.datadog.api.client.v2.model.AwsCURConfigPatchRequest;
 import com.datadog.api.client.v2.model.AwsCURConfigPostRequest;
-import com.datadog.api.client.v2.model.AwsCURConfigResponse;
 import com.datadog.api.client.v2.model.AwsCURConfigsResponse;
+import com.datadog.api.client.v2.model.AwsCurConfigResponse;
 import com.datadog.api.client.v2.model.AzureUCConfigPairsResponse;
 import com.datadog.api.client.v2.model.AzureUCConfigPatchRequest;
 import com.datadog.api.client.v2.model.AzureUCConfigPostRequest;
 import com.datadog.api.client.v2.model.AzureUCConfigsResponse;
 import com.datadog.api.client.v2.model.BudgetArray;
 import com.datadog.api.client.v2.model.BudgetWithEntries;
+import com.datadog.api.client.v2.model.CreateRulesetRequest;
 import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
 import com.datadog.api.client.v2.model.CustomCostsFileLineItem;
 import com.datadog.api.client.v2.model.CustomCostsFileListResponse;
@@ -22,6 +26,15 @@ import com.datadog.api.client.v2.model.GCPUsageCostConfigPatchRequest;
 import com.datadog.api.client.v2.model.GCPUsageCostConfigPostRequest;
 import com.datadog.api.client.v2.model.GCPUsageCostConfigResponse;
 import com.datadog.api.client.v2.model.GCPUsageCostConfigsResponse;
+import com.datadog.api.client.v2.model.GcpUcConfigResponse;
+import com.datadog.api.client.v2.model.ReorderRuleResourceArray;
+import com.datadog.api.client.v2.model.ReorderRulesetResourceArray;
+import com.datadog.api.client.v2.model.RulesValidateQueryRequest;
+import com.datadog.api.client.v2.model.RulesValidateQueryResponse;
+import com.datadog.api.client.v2.model.RulesetResp;
+import com.datadog.api.client.v2.model.RulesetRespArray;
+import com.datadog.api.client.v2.model.UCConfigPair;
+import com.datadog.api.client.v2.model.UpdateRulesetRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -62,15 +75,162 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * Create arbitrary cost rule.
+   *
+   * <p>See {@link #createArbitraryCostRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ArbitraryRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ArbitraryRuleResponse createArbitraryCostRule(ArbitraryCostUpsertRequest body)
+      throws ApiException {
+    return createArbitraryCostRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create arbitrary cost rule.
+   *
+   * <p>See {@link #createArbitraryCostRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ArbitraryRuleResponse&gt;
+   */
+  public CompletableFuture<ArbitraryRuleResponse> createArbitraryCostRuleAsync(
+      ArbitraryCostUpsertRequest body) {
+    return createArbitraryCostRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new arbitrary cost rule with the specified filters and allocation strategy.
+   *
+   * <p><strong>Strategy Methods:</strong> - <strong>PROPORTIONAL/EVEN</strong>: Allocates costs
+   * proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys.
+   * Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys,
+   * evaluate_grouped_by_filters. - <strong>PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES</strong>:
+   * Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional:
+   * evaluate_grouped_by_tag_keys. - <strong>PERCENT</strong>: Allocates fixed percentages to
+   * specific tags. Requires: allocated_by (array of percentage allocations).
+   *
+   * <p><strong>Filter Conditions:</strong> - Use <strong>value</strong> for single-value
+   * conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is
+   * all values", "is untagged" - Use <strong>values</strong> for multi-value conditions: "in", "not
+   * in" - Cannot use both value and values simultaneously.
+   *
+   * <p><strong>Supported operators</strong>: is, is not, is all values, is untagged, contains, does
+   * not contain, in, not in, =, !=, like, not like
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ArbitraryRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ArbitraryRuleResponse> createArbitraryCostRuleWithHttpInfo(
+      ArbitraryCostUpsertRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createArbitraryCostRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/arbitrary_rule";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.createArbitraryCostRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArbitraryRuleResponse>() {});
+  }
+
+  /**
+   * Create arbitrary cost rule.
+   *
+   * <p>See {@link #createArbitraryCostRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ArbitraryRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ArbitraryRuleResponse>>
+      createArbitraryCostRuleWithHttpInfoAsync(ArbitraryCostUpsertRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ArbitraryRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createArbitraryCostRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/arbitrary_rule";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.createArbitraryCostRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ArbitraryRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArbitraryRuleResponse>() {});
+  }
+
+  /**
    * Create Cloud Cost Management AWS CUR config.
    *
    * <p>See {@link #createCostAWSCURConfigWithHttpInfo}.
    *
    * @param body (required)
-   * @return AwsCURConfigResponse
+   * @return AwsCurConfigResponse
    * @throws ApiException if fails to make API call
    */
-  public AwsCURConfigResponse createCostAWSCURConfig(AwsCURConfigPostRequest body)
+  public AwsCurConfigResponse createCostAWSCURConfig(AwsCURConfigPostRequest body)
       throws ApiException {
     return createCostAWSCURConfigWithHttpInfo(body).getData();
   }
@@ -81,9 +241,9 @@ public class CloudCostManagementApi {
    * <p>See {@link #createCostAWSCURConfigWithHttpInfoAsync}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;AwsCURConfigResponse&gt;
+   * @return CompletableFuture&lt;AwsCurConfigResponse&gt;
    */
-  public CompletableFuture<AwsCURConfigResponse> createCostAWSCURConfigAsync(
+  public CompletableFuture<AwsCurConfigResponse> createCostAWSCURConfigAsync(
       AwsCURConfigPostRequest body) {
     return createCostAWSCURConfigWithHttpInfoAsync(body)
         .thenApply(
@@ -96,7 +256,7 @@ public class CloudCostManagementApi {
    * Create a Cloud Cost Management account for an AWS CUR config.
    *
    * @param body (required)
-   * @return ApiResponse&lt;AwsCURConfigResponse&gt;
+   * @return ApiResponse&lt;AwsCurConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -108,7 +268,7 @@ public class CloudCostManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<AwsCURConfigResponse> createCostAWSCURConfigWithHttpInfo(
+  public ApiResponse<AwsCurConfigResponse> createCostAWSCURConfigWithHttpInfo(
       AwsCURConfigPostRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -139,7 +299,7 @@ public class CloudCostManagementApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<AwsCURConfigResponse>() {});
+        new GenericType<AwsCurConfigResponse>() {});
   }
 
   /**
@@ -148,15 +308,15 @@ public class CloudCostManagementApi {
    * <p>See {@link #createCostAWSCURConfigWithHttpInfo}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;AwsCURConfigResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;AwsCurConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<AwsCURConfigResponse>>
+  public CompletableFuture<ApiResponse<AwsCurConfigResponse>>
       createCostAWSCURConfigWithHttpInfoAsync(AwsCURConfigPostRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<AwsCURConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<AwsCurConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'body' when calling createCostAWSCURConfig"));
@@ -179,7 +339,7 @@ public class CloudCostManagementApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<AwsCURConfigResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<AwsCurConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -191,7 +351,7 @@ public class CloudCostManagementApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<AwsCURConfigResponse>() {});
+        new GenericType<AwsCurConfigResponse>() {});
   }
 
   /**
@@ -328,7 +488,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Create Cloud Cost Management GCP Usage Cost config.
+   * Create Google Cloud Usage Cost config.
    *
    * <p>See {@link #createCostGCPUsageCostConfigWithHttpInfo}.
    *
@@ -342,7 +502,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Create Cloud Cost Management GCP Usage Cost config.
+   * Create Google Cloud Usage Cost config.
    *
    * <p>See {@link #createCostGCPUsageCostConfigWithHttpInfoAsync}.
    *
@@ -359,7 +519,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Create a Cloud Cost Management account for an GCP Usage Cost config.
+   * Create a Cloud Cost Management account for an Google Cloud Usage Cost config.
    *
    * @param body (required)
    * @return ApiResponse&lt;GCPUsageCostConfigResponse&gt;
@@ -409,7 +569,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Create Cloud Cost Management GCP Usage Cost config.
+   * Create Google Cloud Usage Cost config.
    *
    * <p>See {@link #createCostGCPUsageCostConfigWithHttpInfo}.
    *
@@ -459,6 +619,266 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GCPUsageCostConfigResponse>() {});
+  }
+
+  /**
+   * Create ruleset.
+   *
+   * <p>See {@link #createRulesetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return RulesetResp
+   * @throws ApiException if fails to make API call
+   */
+  public RulesetResp createRuleset(CreateRulesetRequest body) throws ApiException {
+    return createRulesetWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create ruleset.
+   *
+   * <p>See {@link #createRulesetWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;RulesetResp&gt;
+   */
+  public CompletableFuture<RulesetResp> createRulesetAsync(CreateRulesetRequest body) {
+    return createRulesetWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new tag pipeline ruleset with the specified rules and configuration
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;RulesetResp&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RulesetResp> createRulesetWithHttpInfo(CreateRulesetRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createRuleset");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.createRuleset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesetResp>() {});
+  }
+
+  /**
+   * Create ruleset.
+   *
+   * <p>See {@link #createRulesetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RulesetResp&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RulesetResp>> createRulesetWithHttpInfoAsync(
+      CreateRulesetRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<RulesetResp>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createRuleset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.createRuleset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RulesetResp>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesetResp>() {});
+  }
+
+  /**
+   * Delete arbitrary cost rule.
+   *
+   * <p>See {@link #deleteArbitraryCostRuleWithHttpInfo}.
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteArbitraryCostRule(Long ruleId) throws ApiException {
+    deleteArbitraryCostRuleWithHttpInfo(ruleId);
+  }
+
+  /**
+   * Delete arbitrary cost rule.
+   *
+   * <p>See {@link #deleteArbitraryCostRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteArbitraryCostRuleAsync(Long ruleId) {
+    return deleteArbitraryCostRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an arbitrary cost rule - Delete an existing arbitrary cost rule by its ID
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteArbitraryCostRuleWithHttpInfo(Long ruleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling deleteArbitraryCostRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/arbitrary_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.deleteArbitraryCostRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete arbitrary cost rule.
+   *
+   * <p>See {@link #deleteArbitraryCostRuleWithHttpInfo}.
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteArbitraryCostRuleWithHttpInfoAsync(
+      Long ruleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'ruleId' when calling deleteArbitraryCostRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/arbitrary_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.deleteArbitraryCostRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -875,7 +1295,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Delete Cloud Cost Management GCP Usage Cost config.
+   * Delete Google Cloud Usage Cost config.
    *
    * <p>See {@link #deleteCostGCPUsageCostConfigWithHttpInfo}.
    *
@@ -887,7 +1307,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Delete Cloud Cost Management GCP Usage Cost config.
+   * Delete Google Cloud Usage Cost config.
    *
    * <p>See {@link #deleteCostGCPUsageCostConfigWithHttpInfoAsync}.
    *
@@ -959,7 +1379,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Delete Cloud Cost Management GCP Usage Cost config.
+   * Delete Google Cloud Usage Cost config.
    *
    * <p>See {@link #deleteCostGCPUsageCostConfigWithHttpInfo}.
    *
@@ -1150,6 +1570,269 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * Delete ruleset.
+   *
+   * <p>See {@link #deleteRulesetWithHttpInfo}.
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteRuleset(String rulesetId) throws ApiException {
+    deleteRulesetWithHttpInfo(rulesetId);
+  }
+
+  /**
+   * Delete ruleset.
+   *
+   * <p>See {@link #deleteRulesetWithHttpInfoAsync}.
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteRulesetAsync(String rulesetId) {
+    return deleteRulesetWithHttpInfoAsync(rulesetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a tag pipeline ruleset - Delete an existing tag pipeline ruleset by its ID
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteRulesetWithHttpInfo(String rulesetId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetId' is set
+    if (rulesetId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'rulesetId' when calling deleteRuleset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/tags/enrichment/{ruleset_id}"
+            .replaceAll("\\{" + "ruleset_id" + "\\}", apiClient.escapeString(rulesetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.deleteRuleset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete ruleset.
+   *
+   * <p>See {@link #deleteRulesetWithHttpInfo}.
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteRulesetWithHttpInfoAsync(String rulesetId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetId' is set
+    if (rulesetId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'rulesetId' when calling deleteRuleset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/tags/enrichment/{ruleset_id}"
+            .replaceAll("\\{" + "ruleset_id" + "\\}", apiClient.escapeString(rulesetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.deleteRuleset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Get arbitrary cost rule.
+   *
+   * <p>See {@link #getArbitraryCostRuleWithHttpInfo}.
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @return ArbitraryRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ArbitraryRuleResponse getArbitraryCostRule(Long ruleId) throws ApiException {
+    return getArbitraryCostRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Get arbitrary cost rule.
+   *
+   * <p>See {@link #getArbitraryCostRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @return CompletableFuture&lt;ArbitraryRuleResponse&gt;
+   */
+  public CompletableFuture<ArbitraryRuleResponse> getArbitraryCostRuleAsync(Long ruleId) {
+    return getArbitraryCostRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific arbitrary cost rule - Retrieve a specific arbitrary cost rule by its ID
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @return ApiResponse&lt;ArbitraryRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ArbitraryRuleResponse> getArbitraryCostRuleWithHttpInfo(Long ruleId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling getArbitraryCostRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/arbitrary_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getArbitraryCostRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArbitraryRuleResponse>() {});
+  }
+
+  /**
+   * Get arbitrary cost rule.
+   *
+   * <p>See {@link #getArbitraryCostRuleWithHttpInfo}.
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ArbitraryRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ArbitraryRuleResponse>>
+      getArbitraryCostRuleWithHttpInfoAsync(Long ruleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<ArbitraryRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'ruleId' when calling getArbitraryCostRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/arbitrary_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getArbitraryCostRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ArbitraryRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArbitraryRuleResponse>() {});
+  }
+
+  /**
    * Get a budget.
    *
    * <p>See {@link #getBudgetWithHttpInfo}.
@@ -1281,6 +1964,423 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<BudgetWithEntries>() {});
+  }
+
+  /**
+   * Get cost AWS CUR config.
+   *
+   * <p>See {@link #getCostAWSCURConfigWithHttpInfo}.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return AwsCurConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AwsCurConfigResponse getCostAWSCURConfig(Long cloudAccountId) throws ApiException {
+    return getCostAWSCURConfigWithHttpInfo(cloudAccountId).getData();
+  }
+
+  /**
+   * Get cost AWS CUR config.
+   *
+   * <p>See {@link #getCostAWSCURConfigWithHttpInfoAsync}.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return CompletableFuture&lt;AwsCurConfigResponse&gt;
+   */
+  public CompletableFuture<AwsCurConfigResponse> getCostAWSCURConfigAsync(Long cloudAccountId) {
+    return getCostAWSCURConfigWithHttpInfoAsync(cloudAccountId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific AWS CUR config.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return ApiResponse&lt;AwsCurConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AwsCurConfigResponse> getCostAWSCURConfigWithHttpInfo(Long cloudAccountId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'cloudAccountId' when calling getCostAWSCURConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/aws_cur_config/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostAWSCURConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AwsCurConfigResponse>() {});
+  }
+
+  /**
+   * Get cost AWS CUR config.
+   *
+   * <p>See {@link #getCostAWSCURConfigWithHttpInfo}.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AwsCurConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AwsCurConfigResponse>> getCostAWSCURConfigWithHttpInfoAsync(
+      Long cloudAccountId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      CompletableFuture<ApiResponse<AwsCurConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'cloudAccountId' when calling getCostAWSCURConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/aws_cur_config/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostAWSCURConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AwsCurConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AwsCurConfigResponse>() {});
+  }
+
+  /**
+   * Get cost Azure UC config.
+   *
+   * <p>See {@link #getCostAzureUCConfigWithHttpInfo}.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return UCConfigPair
+   * @throws ApiException if fails to make API call
+   */
+  public UCConfigPair getCostAzureUCConfig(Long cloudAccountId) throws ApiException {
+    return getCostAzureUCConfigWithHttpInfo(cloudAccountId).getData();
+  }
+
+  /**
+   * Get cost Azure UC config.
+   *
+   * <p>See {@link #getCostAzureUCConfigWithHttpInfoAsync}.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return CompletableFuture&lt;UCConfigPair&gt;
+   */
+  public CompletableFuture<UCConfigPair> getCostAzureUCConfigAsync(Long cloudAccountId) {
+    return getCostAzureUCConfigWithHttpInfoAsync(cloudAccountId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific Azure config.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return ApiResponse&lt;UCConfigPair&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UCConfigPair> getCostAzureUCConfigWithHttpInfo(Long cloudAccountId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'cloudAccountId' when calling getCostAzureUCConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/azure_uc_config/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostAzureUCConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UCConfigPair>() {});
+  }
+
+  /**
+   * Get cost Azure UC config.
+   *
+   * <p>See {@link #getCostAzureUCConfigWithHttpInfo}.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UCConfigPair&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UCConfigPair>> getCostAzureUCConfigWithHttpInfoAsync(
+      Long cloudAccountId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      CompletableFuture<ApiResponse<UCConfigPair>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'cloudAccountId' when calling getCostAzureUCConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/azure_uc_config/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostAzureUCConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UCConfigPair>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UCConfigPair>() {});
+  }
+
+  /**
+   * Get Google Cloud Usage Cost config.
+   *
+   * <p>See {@link #getCostGCPUsageCostConfigWithHttpInfo}.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return GcpUcConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GcpUcConfigResponse getCostGCPUsageCostConfig(Long cloudAccountId) throws ApiException {
+    return getCostGCPUsageCostConfigWithHttpInfo(cloudAccountId).getData();
+  }
+
+  /**
+   * Get Google Cloud Usage Cost config.
+   *
+   * <p>See {@link #getCostGCPUsageCostConfigWithHttpInfoAsync}.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return CompletableFuture&lt;GcpUcConfigResponse&gt;
+   */
+  public CompletableFuture<GcpUcConfigResponse> getCostGCPUsageCostConfigAsync(
+      Long cloudAccountId) {
+    return getCostGCPUsageCostConfigWithHttpInfoAsync(cloudAccountId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific Google Cloud Usage Cost config.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return ApiResponse&lt;GcpUcConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GcpUcConfigResponse> getCostGCPUsageCostConfigWithHttpInfo(Long cloudAccountId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'cloudAccountId' when calling getCostGCPUsageCostConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/gcp_uc_config/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCostGCPUsageCostConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GcpUcConfigResponse>() {});
+  }
+
+  /**
+   * Get Google Cloud Usage Cost config.
+   *
+   * <p>See {@link #getCostGCPUsageCostConfigWithHttpInfo}.
+   *
+   * @param cloudAccountId The unique identifier of the cloud account (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GcpUcConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GcpUcConfigResponse>>
+      getCostGCPUsageCostConfigWithHttpInfoAsync(Long cloudAccountId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      CompletableFuture<ApiResponse<GcpUcConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'cloudAccountId' when calling"
+                  + " getCostGCPUsageCostConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/gcp_uc_config/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCostGCPUsageCostConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GcpUcConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GcpUcConfigResponse>() {});
   }
 
   /**
@@ -1416,6 +2516,248 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CustomCostsFileGetResponse>() {});
+  }
+
+  /**
+   * Get ruleset.
+   *
+   * <p>See {@link #getRulesetWithHttpInfo}.
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @return RulesetResp
+   * @throws ApiException if fails to make API call
+   */
+  public RulesetResp getRuleset(String rulesetId) throws ApiException {
+    return getRulesetWithHttpInfo(rulesetId).getData();
+  }
+
+  /**
+   * Get ruleset.
+   *
+   * <p>See {@link #getRulesetWithHttpInfoAsync}.
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @return CompletableFuture&lt;RulesetResp&gt;
+   */
+  public CompletableFuture<RulesetResp> getRulesetAsync(String rulesetId) {
+    return getRulesetWithHttpInfoAsync(rulesetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific tag pipeline ruleset - Retrieve a specific tag pipeline ruleset by its ID
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @return ApiResponse&lt;RulesetResp&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RulesetResp> getRulesetWithHttpInfo(String rulesetId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetId' is set
+    if (rulesetId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'rulesetId' when calling getRuleset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/tags/enrichment/{ruleset_id}"
+            .replaceAll("\\{" + "ruleset_id" + "\\}", apiClient.escapeString(rulesetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getRuleset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesetResp>() {});
+  }
+
+  /**
+   * Get ruleset.
+   *
+   * <p>See {@link #getRulesetWithHttpInfo}.
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RulesetResp&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RulesetResp>> getRulesetWithHttpInfoAsync(String rulesetId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'rulesetId' is set
+    if (rulesetId == null) {
+      CompletableFuture<ApiResponse<RulesetResp>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'rulesetId' when calling getRuleset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/tags/enrichment/{ruleset_id}"
+            .replaceAll("\\{" + "ruleset_id" + "\\}", apiClient.escapeString(rulesetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getRuleset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RulesetResp>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesetResp>() {});
+  }
+
+  /**
+   * List arbitrary cost rules.
+   *
+   * <p>See {@link #listArbitraryCostRulesWithHttpInfo}.
+   *
+   * @return ArbitraryRuleResponseArray
+   * @throws ApiException if fails to make API call
+   */
+  public ArbitraryRuleResponseArray listArbitraryCostRules() throws ApiException {
+    return listArbitraryCostRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * List arbitrary cost rules.
+   *
+   * <p>See {@link #listArbitraryCostRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ArbitraryRuleResponseArray&gt;
+   */
+  public CompletableFuture<ArbitraryRuleResponseArray> listArbitraryCostRulesAsync() {
+    return listArbitraryCostRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all arbitrary cost rules - Retrieve a list of all arbitrary cost rules for the
+   * organization
+   *
+   * @return ApiResponse&lt;ArbitraryRuleResponseArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ArbitraryRuleResponseArray> listArbitraryCostRulesWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/arbitrary_rule";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listArbitraryCostRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArbitraryRuleResponseArray>() {});
+  }
+
+  /**
+   * List arbitrary cost rules.
+   *
+   * <p>See {@link #listArbitraryCostRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;ArbitraryRuleResponseArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ArbitraryRuleResponseArray>>
+      listArbitraryCostRulesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/arbitrary_rule";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listArbitraryCostRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ArbitraryRuleResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArbitraryRuleResponseArray>() {});
   }
 
   /**
@@ -1749,7 +3091,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * List Cloud Cost Management GCP Usage Cost configs.
+   * List Google Cloud Usage Cost configs.
    *
    * <p>See {@link #listCostGCPUsageCostConfigsWithHttpInfo}.
    *
@@ -1761,7 +3103,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * List Cloud Cost Management GCP Usage Cost configs.
+   * List Google Cloud Usage Cost configs.
    *
    * <p>See {@link #listCostGCPUsageCostConfigsWithHttpInfoAsync}.
    *
@@ -1776,7 +3118,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * List the GCP Usage Cost configs.
+   * List the Google Cloud Usage Cost configs.
    *
    * @return ApiResponse&lt;GCPUsageCostConfigsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1818,7 +3160,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * List Cloud Cost Management GCP Usage Cost configs.
+   * List Google Cloud Usage Cost configs.
    *
    * <p>See {@link #listCostGCPUsageCostConfigsWithHttpInfo}.
    *
@@ -2076,6 +3418,552 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CustomCostsFileListResponse>() {});
+  }
+
+  /**
+   * List rulesets.
+   *
+   * <p>See {@link #listRulesetsWithHttpInfo}.
+   *
+   * @return RulesetRespArray
+   * @throws ApiException if fails to make API call
+   */
+  public RulesetRespArray listRulesets() throws ApiException {
+    return listRulesetsWithHttpInfo().getData();
+  }
+
+  /**
+   * List rulesets.
+   *
+   * <p>See {@link #listRulesetsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;RulesetRespArray&gt;
+   */
+  public CompletableFuture<RulesetRespArray> listRulesetsAsync() {
+    return listRulesetsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all tag pipeline rulesets - Retrieve a list of all tag pipeline rulesets for the
+   * organization
+   *
+   * @return ApiResponse&lt;RulesetRespArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RulesetRespArray> listRulesetsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listRulesets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesetRespArray>() {});
+  }
+
+  /**
+   * List rulesets.
+   *
+   * <p>See {@link #listRulesetsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;RulesetRespArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RulesetRespArray>> listRulesetsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listRulesets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RulesetRespArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesetRespArray>() {});
+  }
+
+  /**
+   * Reorder arbitrary cost rules.
+   *
+   * <p>See {@link #reorderArbitraryCostRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void reorderArbitraryCostRules(ReorderRuleResourceArray body) throws ApiException {
+    reorderArbitraryCostRulesWithHttpInfo(body);
+  }
+
+  /**
+   * Reorder arbitrary cost rules.
+   *
+   * <p>See {@link #reorderArbitraryCostRulesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> reorderArbitraryCostRulesAsync(ReorderRuleResourceArray body) {
+    return reorderArbitraryCostRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Reorder arbitrary cost rules - Change the execution order of arbitrary cost rules.
+   *
+   * <p><strong>Important</strong>: You must provide the <strong>complete list</strong> of all rule
+   * IDs in the desired execution order. The API will reorder ALL rules according to the provided
+   * sequence.
+   *
+   * <p>Rules are executed in the order specified, with lower indices (earlier in the array) having
+   * higher priority.
+   *
+   * <p><strong>Example</strong>: If you have rules with IDs [123, 456, 789] and want to change
+   * order from 123→456→789 to 456→123→789, send: [{"id": "456"}, {"id": "123"}, {"id": "789"}]
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Successfully reordered rules </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> reorderArbitraryCostRulesWithHttpInfo(ReorderRuleResourceArray body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling reorderArbitraryCostRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/arbitrary_rule/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.reorderArbitraryCostRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Reorder arbitrary cost rules.
+   *
+   * <p>See {@link #reorderArbitraryCostRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> reorderArbitraryCostRulesWithHttpInfoAsync(
+      ReorderRuleResourceArray body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling reorderArbitraryCostRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/arbitrary_rule/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.reorderArbitraryCostRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Reorder rulesets.
+   *
+   * <p>See {@link #reorderRulesetsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void reorderRulesets(ReorderRulesetResourceArray body) throws ApiException {
+    reorderRulesetsWithHttpInfo(body);
+  }
+
+  /**
+   * Reorder rulesets.
+   *
+   * <p>See {@link #reorderRulesetsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> reorderRulesetsAsync(ReorderRulesetResourceArray body) {
+    return reorderRulesetsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Reorder tag pipeline rulesets - Change the execution order of tag pipeline rulesets
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Successfully reordered rulesets </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> reorderRulesetsWithHttpInfo(ReorderRulesetResourceArray body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling reorderRulesets");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.reorderRulesets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Reorder rulesets.
+   *
+   * <p>See {@link #reorderRulesetsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> reorderRulesetsWithHttpInfoAsync(
+      ReorderRulesetResourceArray body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling reorderRulesets"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.reorderRulesets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update arbitrary cost rule.
+   *
+   * <p>See {@link #updateArbitraryCostRuleWithHttpInfo}.
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @param body (required)
+   * @return ArbitraryRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ArbitraryRuleResponse updateArbitraryCostRule(Long ruleId, ArbitraryCostUpsertRequest body)
+      throws ApiException {
+    return updateArbitraryCostRuleWithHttpInfo(ruleId, body).getData();
+  }
+
+  /**
+   * Update arbitrary cost rule.
+   *
+   * <p>See {@link #updateArbitraryCostRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ArbitraryRuleResponse&gt;
+   */
+  public CompletableFuture<ArbitraryRuleResponse> updateArbitraryCostRuleAsync(
+      Long ruleId, ArbitraryCostUpsertRequest body) {
+    return updateArbitraryCostRuleWithHttpInfoAsync(ruleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing arbitrary cost rule with new filters and allocation strategy.
+   *
+   * <p><strong>Strategy Methods:</strong> - <strong>PROPORTIONAL/EVEN</strong>: Allocates costs
+   * proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys.
+   * Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys,
+   * evaluate_grouped_by_filters. - <strong>PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES</strong>:
+   * Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional:
+   * evaluate_grouped_by_tag_keys. - <strong>PERCENT</strong>: Allocates fixed percentages to
+   * specific tags. Requires: allocated_by (array of percentage allocations). -
+   * <strong>USAGE_METRIC</strong>: Allocates based on usage metrics (implementation varies).
+   *
+   * <p><strong>Filter Conditions:</strong> - Use <strong>value</strong> for single-value
+   * conditions: "is", "is not", "contains", "does not contain", "=", "!=", "like", "not like", "is
+   * all values", "is untagged" - Use <strong>values</strong> for multi-value conditions: "in", "not
+   * in" - Cannot use both value and values simultaneously.
+   *
+   * <p><strong>Supported operators</strong>: is, is not, is all values, is untagged, contains, does
+   * not contain, in, not in, =, !=, like, not like
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @param body (required)
+   * @return ApiResponse&lt;ArbitraryRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ArbitraryRuleResponse> updateArbitraryCostRuleWithHttpInfo(
+      Long ruleId, ArbitraryCostUpsertRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling updateArbitraryCostRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateArbitraryCostRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/arbitrary_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.updateArbitraryCostRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArbitraryRuleResponse>() {});
+  }
+
+  /**
+   * Update arbitrary cost rule.
+   *
+   * <p>See {@link #updateArbitraryCostRuleWithHttpInfo}.
+   *
+   * @param ruleId The unique identifier of the arbitrary cost rule (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ArbitraryRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ArbitraryRuleResponse>>
+      updateArbitraryCostRuleWithHttpInfoAsync(Long ruleId, ArbitraryCostUpsertRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<ArbitraryRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'ruleId' when calling updateArbitraryCostRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ArbitraryRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateArbitraryCostRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/arbitrary_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.updateArbitraryCostRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ArbitraryRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ArbitraryRuleResponse>() {});
   }
 
   /**
@@ -2408,7 +4296,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Update Cloud Cost Management GCP Usage Cost config.
+   * Update Google Cloud Usage Cost config.
    *
    * <p>See {@link #updateCostGCPUsageCostConfigWithHttpInfo}.
    *
@@ -2423,7 +4311,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Update Cloud Cost Management GCP Usage Cost config.
+   * Update Google Cloud Usage Cost config.
    *
    * <p>See {@link #updateCostGCPUsageCostConfigWithHttpInfoAsync}.
    *
@@ -2441,7 +4329,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Update the status of an GCP Usage Cost config (active/archived).
+   * Update the status of an Google Cloud Usage Cost config (active/archived).
    *
    * @param cloudAccountId Cloud Account id. (required)
    * @param body (required)
@@ -2505,7 +4393,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Update Cloud Cost Management GCP Usage Cost config.
+   * Update Google Cloud Usage Cost config.
    *
    * <p>See {@link #updateCostGCPUsageCostConfigWithHttpInfo}.
    *
@@ -2572,6 +4460,161 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GCPUsageCostConfigResponse>() {});
+  }
+
+  /**
+   * Update ruleset.
+   *
+   * <p>See {@link #updateRulesetWithHttpInfo}.
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @param body (required)
+   * @return RulesetResp
+   * @throws ApiException if fails to make API call
+   */
+  public RulesetResp updateRuleset(String rulesetId, UpdateRulesetRequest body)
+      throws ApiException {
+    return updateRulesetWithHttpInfo(rulesetId, body).getData();
+  }
+
+  /**
+   * Update ruleset.
+   *
+   * <p>See {@link #updateRulesetWithHttpInfoAsync}.
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;RulesetResp&gt;
+   */
+  public CompletableFuture<RulesetResp> updateRulesetAsync(
+      String rulesetId, UpdateRulesetRequest body) {
+    return updateRulesetWithHttpInfoAsync(rulesetId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a tag pipeline ruleset - Update an existing tag pipeline ruleset with new rules and
+   * configuration
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @param body (required)
+   * @return ApiResponse&lt;RulesetResp&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RulesetResp> updateRulesetWithHttpInfo(
+      String rulesetId, UpdateRulesetRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'rulesetId' is set
+    if (rulesetId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'rulesetId' when calling updateRuleset");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateRuleset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/tags/enrichment/{ruleset_id}"
+            .replaceAll("\\{" + "ruleset_id" + "\\}", apiClient.escapeString(rulesetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.updateRuleset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesetResp>() {});
+  }
+
+  /**
+   * Update ruleset.
+   *
+   * <p>See {@link #updateRulesetWithHttpInfo}.
+   *
+   * @param rulesetId The unique identifier of the ruleset (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RulesetResp&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RulesetResp>> updateRulesetWithHttpInfoAsync(
+      String rulesetId, UpdateRulesetRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'rulesetId' is set
+    if (rulesetId == null) {
+      CompletableFuture<ApiResponse<RulesetResp>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'rulesetId' when calling updateRuleset"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<RulesetResp>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateRuleset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/tags/enrichment/{ruleset_id}"
+            .replaceAll("\\{" + "ruleset_id" + "\\}", apiClient.escapeString(rulesetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.updateRuleset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RulesetResp>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesetResp>() {});
   }
 
   /**
@@ -2837,5 +4880,136 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<BudgetWithEntries>() {});
+  }
+
+  /**
+   * Validate query.
+   *
+   * <p>See {@link #validateQueryWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return RulesValidateQueryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RulesValidateQueryResponse validateQuery(RulesValidateQueryRequest body)
+      throws ApiException {
+    return validateQueryWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Validate query.
+   *
+   * <p>See {@link #validateQueryWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;RulesValidateQueryResponse&gt;
+   */
+  public CompletableFuture<RulesValidateQueryResponse> validateQueryAsync(
+      RulesValidateQueryRequest body) {
+    return validateQueryWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Validate a tag pipeline query - Validate the syntax and structure of a tag pipeline query
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;RulesValidateQueryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RulesValidateQueryResponse> validateQueryWithHttpInfo(
+      RulesValidateQueryRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling validateQuery");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment/validate-query";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.validateQuery",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesValidateQueryResponse>() {});
+  }
+
+  /**
+   * Validate query.
+   *
+   * <p>See {@link #validateQueryWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RulesValidateQueryResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RulesValidateQueryResponse>> validateQueryWithHttpInfoAsync(
+      RulesValidateQueryRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<RulesValidateQueryResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling validateQuery"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/tags/enrichment/validate-query";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.validateQuery",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RulesValidateQueryResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RulesValidateQueryResponse>() {});
   }
 }

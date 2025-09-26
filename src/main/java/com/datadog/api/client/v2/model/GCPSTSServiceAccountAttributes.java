@@ -30,6 +30,7 @@ import java.util.Objects;
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_RESOURCE_CHANGE_COLLECTION_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_METRIC_NAMESPACE_CONFIGS,
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_MONITORED_RESOURCE_CONFIGS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED
 })
 @jakarta.annotation.Generated(
@@ -69,6 +70,10 @@ public class GCPSTSServiceAccountAttributes {
 
   public static final String JSON_PROPERTY_METRIC_NAMESPACE_CONFIGS = "metric_namespace_configs";
   private List<GCPMetricNamespaceConfig> metricNamespaceConfigs = null;
+
+  public static final String JSON_PROPERTY_MONITORED_RESOURCE_CONFIGS =
+      "monitored_resource_configs";
+  private List<GCPMonitoredResourceConfig> monitoredResourceConfigs = null;
 
   public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED =
       "resource_collection_enabled";
@@ -163,9 +168,13 @@ public class GCPSTSServiceAccountAttributes {
   /**
    * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags.
    * Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+   * <strong>Note:</strong> This field is deprecated. Instead, use <code>monitored_resource_configs
+   * </code> with <code>type=cloud_run_revision</code>
    *
    * @return cloudRunRevisionFilters
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,6 +182,7 @@ public class GCPSTSServiceAccountAttributes {
     return cloudRunRevisionFilters;
   }
 
+  @Deprecated
   public void setCloudRunRevisionFilters(List<String> cloudRunRevisionFilters) {
     this.cloudRunRevisionFilters = cloudRunRevisionFilters;
   }
@@ -191,10 +201,15 @@ public class GCPSTSServiceAccountAttributes {
   }
 
   /**
-   * Your Host Filters.
+   * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM
+   * instance resources that apply to specified filters are imported into Datadog.
+   * <strong>Note:</strong> This field is deprecated. Instead, use <code>monitored_resource_configs
+   * </code> with <code>type=gce_instance</code>
    *
    * @return hostFilters
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,6 +217,7 @@ public class GCPSTSServiceAccountAttributes {
     return hostFilters;
   }
 
+  @Deprecated
   public void setHostFilters(List<String> hostFilters) {
     this.hostFilters = hostFilters;
   }
@@ -331,6 +347,42 @@ public class GCPSTSServiceAccountAttributes {
     this.metricNamespaceConfigs = metricNamespaceConfigs;
   }
 
+  public GCPSTSServiceAccountAttributes monitoredResourceConfigs(
+      List<GCPMonitoredResourceConfig> monitoredResourceConfigs) {
+    this.monitoredResourceConfigs = monitoredResourceConfigs;
+    for (GCPMonitoredResourceConfig item : monitoredResourceConfigs) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public GCPSTSServiceAccountAttributes addMonitoredResourceConfigsItem(
+      GCPMonitoredResourceConfig monitoredResourceConfigsItem) {
+    if (this.monitoredResourceConfigs == null) {
+      this.monitoredResourceConfigs = new ArrayList<>();
+    }
+    this.monitoredResourceConfigs.add(monitoredResourceConfigsItem);
+    this.unparsed |= monitoredResourceConfigsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Configurations for GCP monitored resources.
+   *
+   * @return monitoredResourceConfigs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONITORED_RESOURCE_CONFIGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<GCPMonitoredResourceConfig> getMonitoredResourceConfigs() {
+    return monitoredResourceConfigs;
+  }
+
+  public void setMonitoredResourceConfigs(
+      List<GCPMonitoredResourceConfig> monitoredResourceConfigs) {
+    this.monitoredResourceConfigs = monitoredResourceConfigs;
+  }
+
   public GCPSTSServiceAccountAttributes resourceCollectionEnabled(
       Boolean resourceCollectionEnabled) {
     this.resourceCollectionEnabled = resourceCollectionEnabled;
@@ -428,6 +480,8 @@ public class GCPSTSServiceAccountAttributes {
         && Objects.equals(
             this.metricNamespaceConfigs, gcpstsServiceAccountAttributes.metricNamespaceConfigs)
         && Objects.equals(
+            this.monitoredResourceConfigs, gcpstsServiceAccountAttributes.monitoredResourceConfigs)
+        && Objects.equals(
             this.resourceCollectionEnabled,
             gcpstsServiceAccountAttributes.resourceCollectionEnabled)
         && Objects.equals(
@@ -447,6 +501,7 @@ public class GCPSTSServiceAccountAttributes {
         isResourceChangeCollectionEnabled,
         isSecurityCommandCenterEnabled,
         metricNamespaceConfigs,
+        monitoredResourceConfigs,
         resourceCollectionEnabled,
         additionalProperties);
   }
@@ -474,6 +529,9 @@ public class GCPSTSServiceAccountAttributes {
         .append("\n");
     sb.append("    metricNamespaceConfigs: ")
         .append(toIndentedString(metricNamespaceConfigs))
+        .append("\n");
+    sb.append("    monitoredResourceConfigs: ")
+        .append(toIndentedString(monitoredResourceConfigs))
         .append("\n");
     sb.append("    resourceCollectionEnabled: ")
         .append(toIndentedString(resourceCollectionEnabled))

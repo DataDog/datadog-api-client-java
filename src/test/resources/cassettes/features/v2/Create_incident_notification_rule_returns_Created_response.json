@@ -1,0 +1,104 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"name\":\"Security Incident\"},\"type\":\"incident_types\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/incidents/config/types",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"107e7ed1-ec07-483f-a723-882ce86702ba\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2025-09-09T18:32:09.112896114Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2025-09-09T18:32:09.112896213Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7bcfec66-5300-9891-51e5-e4d7e0833bd6"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"conditions\":[{\"field\":\"severity\",\"values\":[\"SEV-1\",\"SEV-2\"]}],\"enabled\":true,\"handles\":[\"@test-email@company.com\"],\"trigger\":\"incident_created_trigger\",\"visibility\":\"organization\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"107e7ed1-ec07-483f-a723-882ce86702ba\",\"type\":\"incident_types\"}}},\"type\":\"incident_notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/incidents/config/notification-rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"93dada9a-d032-49a4-b445-0673aaebb888\",\"type\":\"incident_notification_rules\",\"attributes\":{\"conditions\":[{\"field\":\"severity\",\"values\":[\"SEV-1\",\"SEV-2\"]}],\"created\":\"2025-09-09T18:32:09.321517146Z\",\"enabled\":true,\"handles\":[\"@test-email@company.com\"],\"modified\":\"2025-09-09T18:32:09.321517146Z\",\"renotify_on\":[],\"trigger\":\"incident_created_trigger\",\"visibility\":\"organization\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"107e7ed1-ec07-483f-a723-882ce86702ba\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "be87f38a-377c-6052-443e-2c757f463a06"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/incidents/config/notification-rules/93dada9a-d032-49a4-b445-0673aaebb888",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5b2dfde4-6563-2fbf-7f92-ee21c6225cc6"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/incidents/config/types/107e7ed1-ec07-483f-a723-882ce86702ba",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1aaaa50c-7ce4-b368-0dca-3b808825cc48"
+  }
+]
