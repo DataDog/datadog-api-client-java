@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 2.44.0/2025-09-30
+
+### Added
+* Add API Key ID to rum application response [#3157](https://github.com/DataDog/datadog-api-client-java/pull/3157)
+* Add suppression list query string parameter [#3156](https://github.com/DataDog/datadog-api-client-java/pull/3156)
+* Add datastore trigger to workflows public API  [#3153](https://github.com/DataDog/datadog-api-client-java/pull/3153)
+* Add Google PubSub destination to the Observability Pipelines API [#3144](https://github.com/DataDog/datadog-api-client-java/pull/3144)
+* Add API spec for AWS Integrations standard and resource collection IAM permissions [#3142](https://github.com/DataDog/datadog-api-client-java/pull/3142)
+* Publish new incident impact APIs [#3138](https://github.com/DataDog/datadog-api-client-java/pull/3138)
+* Add product analytics to FormulaAndFunctionEventsDataSource [#3137](https://github.com/DataDog/datadog-api-client-java/pull/3137)
+* Add sequence detection to security monitoring rules [#3132](https://github.com/DataDog/datadog-api-client-java/pull/3132)
+* Add Public Delete Dora Events Endpoints [#3114](https://github.com/DataDog/datadog-api-client-java/pull/3114)
+
+### Fixed
+* Remove any references to synthetics test suites [#3148](https://github.com/DataDog/datadog-api-client-java/pull/3148)
+
+### Changed
+* Add tag pipeline, custom allocation rule and get cloud account by id for AWS/Azure/GCP configs APIs [#3131](https://github.com/DataDog/datadog-api-client-java/pull/3131)
+
 ## 2.43.0/2025-09-15
 
 ### Added
