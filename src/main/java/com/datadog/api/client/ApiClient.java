@@ -725,6 +725,7 @@ public class ApiClient {
           put("v2.createIncidentNotificationTemplate", false);
           put("v2.createIncidentTodo", false);
           put("v2.createIncidentType", false);
+          put("v2.createPageFromIncident", false);
           put("v2.deleteIncident", false);
           put("v2.deleteIncidentImpact", false);
           put("v2.deleteIncidentIntegration", false);
