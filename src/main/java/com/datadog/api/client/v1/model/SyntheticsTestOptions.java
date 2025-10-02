@@ -22,6 +22,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SyntheticsTestOptions.JSON_PROPERTY_ACCEPT_SELF_SIGNED,
   SyntheticsTestOptions.JSON_PROPERTY_ALLOW_INSECURE,
+  SyntheticsTestOptions.JSON_PROPERTY_BLOCKED_REQUEST_PATTERNS,
   SyntheticsTestOptions.JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION,
   SyntheticsTestOptions.JSON_PROPERTY_CI,
   SyntheticsTestOptions.JSON_PROPERTY_DEVICE_IDS,
@@ -55,6 +56,9 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_ALLOW_INSECURE = "allow_insecure";
   private Boolean allowInsecure;
+
+  public static final String JSON_PROPERTY_BLOCKED_REQUEST_PATTERNS = "blockedRequestPatterns";
+  private List<String> blockedRequestPatterns = null;
 
   public static final String JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION =
       "checkCertificateRevocation";
@@ -168,6 +172,35 @@ public class SyntheticsTestOptions {
 
   public void setAllowInsecure(Boolean allowInsecure) {
     this.allowInsecure = allowInsecure;
+  }
+
+  public SyntheticsTestOptions blockedRequestPatterns(List<String> blockedRequestPatterns) {
+    this.blockedRequestPatterns = blockedRequestPatterns;
+    return this;
+  }
+
+  public SyntheticsTestOptions addBlockedRequestPatternsItem(String blockedRequestPatternsItem) {
+    if (this.blockedRequestPatterns == null) {
+      this.blockedRequestPatterns = new ArrayList<>();
+    }
+    this.blockedRequestPatterns.add(blockedRequestPatternsItem);
+    return this;
+  }
+
+  /**
+   * Array of URL patterns to block.
+   *
+   * @return blockedRequestPatterns
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BLOCKED_REQUEST_PATTERNS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getBlockedRequestPatterns() {
+    return blockedRequestPatterns;
+  }
+
+  public void setBlockedRequestPatterns(List<String> blockedRequestPatterns) {
+    this.blockedRequestPatterns = blockedRequestPatterns;
   }
 
   public SyntheticsTestOptions checkCertificateRevocation(Boolean checkCertificateRevocation) {
@@ -754,6 +787,7 @@ public class SyntheticsTestOptions {
     SyntheticsTestOptions syntheticsTestOptions = (SyntheticsTestOptions) o;
     return Objects.equals(this.acceptSelfSigned, syntheticsTestOptions.acceptSelfSigned)
         && Objects.equals(this.allowInsecure, syntheticsTestOptions.allowInsecure)
+        && Objects.equals(this.blockedRequestPatterns, syntheticsTestOptions.blockedRequestPatterns)
         && Objects.equals(
             this.checkCertificateRevocation, syntheticsTestOptions.checkCertificateRevocation)
         && Objects.equals(this.ci, syntheticsTestOptions.ci)
@@ -790,6 +824,7 @@ public class SyntheticsTestOptions {
     return Objects.hash(
         acceptSelfSigned,
         allowInsecure,
+        blockedRequestPatterns,
         checkCertificateRevocation,
         ci,
         deviceIds,
@@ -822,6 +857,9 @@ public class SyntheticsTestOptions {
     sb.append("class SyntheticsTestOptions {\n");
     sb.append("    acceptSelfSigned: ").append(toIndentedString(acceptSelfSigned)).append("\n");
     sb.append("    allowInsecure: ").append(toIndentedString(allowInsecure)).append("\n");
+    sb.append("    blockedRequestPatterns: ")
+        .append(toIndentedString(blockedRequestPatterns))
+        .append("\n");
     sb.append("    checkCertificateRevocation: ")
         .append(toIndentedString(checkCertificateRevocation))
         .append("\n");
