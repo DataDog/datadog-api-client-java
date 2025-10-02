@@ -11,6 +11,7 @@ import com.datadog.api.client.v2.model.RoleCloneRequest;
 import com.datadog.api.client.v2.model.RoleCreateRequest;
 import com.datadog.api.client.v2.model.RoleCreateResponse;
 import com.datadog.api.client.v2.model.RoleResponse;
+import com.datadog.api.client.v2.model.RoleTemplateArray;
 import com.datadog.api.client.v2.model.RoleUpdateRequest;
 import com.datadog.api.client.v2.model.RoleUpdateResponse;
 import com.datadog.api.client.v2.model.RolesResponse;
@@ -1387,6 +1388,131 @@ public class RolesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<RolesResponse>() {});
+  }
+
+  /**
+   * List role templates.
+   *
+   * <p>See {@link #listRoleTemplatesWithHttpInfo}.
+   *
+   * @return RoleTemplateArray
+   * @throws ApiException if fails to make API call
+   */
+  public RoleTemplateArray listRoleTemplates() throws ApiException {
+    return listRoleTemplatesWithHttpInfo().getData();
+  }
+
+  /**
+   * List role templates.
+   *
+   * <p>See {@link #listRoleTemplatesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;RoleTemplateArray&gt;
+   */
+  public CompletableFuture<RoleTemplateArray> listRoleTemplatesAsync() {
+    return listRoleTemplatesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all role templates
+   *
+   * @return ApiResponse&lt;RoleTemplateArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RoleTemplateArray> listRoleTemplatesWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listRoleTemplates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/roles/templates";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.RolesApi.listRoleTemplates",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RoleTemplateArray>() {});
+  }
+
+  /**
+   * List role templates.
+   *
+   * <p>See {@link #listRoleTemplatesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;RoleTemplateArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RoleTemplateArray>> listRoleTemplatesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listRoleTemplates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<RoleTemplateArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/roles/templates";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.RolesApi.listRoleTemplates",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RoleTemplateArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RoleTemplateArray>() {});
   }
 
   /** Manage optional parameters to listRoleUsers. */
