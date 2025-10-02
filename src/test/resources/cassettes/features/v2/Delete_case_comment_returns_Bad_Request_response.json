@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"priority\":\"P4\",\"title\":\"My new case\",\"type_id\":\"00000000-0000-0000-0000-000000000001\"},\"relationships\":{\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}},\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"b17ef97a-c38f-4b67-91a6-546a0a3da4d3\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"comment_count\":0,\"created_at\":\"2025-08-21T12:21:39.002325Z\",\"creation_source\":\"MANUAL\",\"custom_attributes\":{},\"description\":\"\",\"insights\":[],\"internal_id\":\"b17ef97a-c38f-4b67-91a6-546a0a3da4d3\",\"key\":\"DDFC-77682\",\"merge_status\":\"NOT_MERGED\",\"priority\":\"P4\",\"public_id\":\"77765\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"STANDARD\",\"type_id\":\"00000000-0000-0000-0000-000000000001\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\",\"attributes\":{\"active\":true,\"email\":\"frog@datadoghq.com\",\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "79babc38-7a70-5347-c8a6-73b0e70145ff"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/cases/b17ef97a-c38f-4b67-91a6-546a0a3da4d3/comment/not-an-uuid",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Invalid Parameter\",\"detail\":\"invalid parameter \\\"CommentID\\\" in \\\"path\\\"; expected type \\\"uuid\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0d109e78-76b0-a1bd-29e9-91aec50d6e3b"
+  }
+]

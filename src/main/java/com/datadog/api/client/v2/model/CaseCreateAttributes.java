@@ -22,7 +22,7 @@ import java.util.Objects;
   CaseCreateAttributes.JSON_PROPERTY_DESCRIPTION,
   CaseCreateAttributes.JSON_PROPERTY_PRIORITY,
   CaseCreateAttributes.JSON_PROPERTY_TITLE,
-  CaseCreateAttributes.JSON_PROPERTY_TYPE
+  CaseCreateAttributes.JSON_PROPERTY_TYPE_ID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -37,18 +37,17 @@ public class CaseCreateAttributes {
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private CaseType type;
+  public static final String JSON_PROPERTY_TYPE_ID = "type_id";
+  private String typeId;
 
   public CaseCreateAttributes() {}
 
   @JsonCreator
   public CaseCreateAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CaseType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE_ID) String typeId) {
     this.title = title;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+    this.typeId = typeId;
   }
 
   public CaseCreateAttributes description(String description) {
@@ -117,28 +116,24 @@ public class CaseCreateAttributes {
     this.title = title;
   }
 
-  public CaseCreateAttributes type(CaseType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public CaseCreateAttributes typeId(String typeId) {
+    this.typeId = typeId;
     return this;
   }
 
   /**
-   * Case type
+   * Case type UUID
    *
-   * @return type
+   * @return typeId
    */
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_TYPE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CaseType getType() {
-    return type;
+  public String getTypeId() {
+    return typeId;
   }
 
-  public void setType(CaseType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setTypeId(String typeId) {
+    this.typeId = typeId;
   }
 
   /**
@@ -200,13 +195,13 @@ public class CaseCreateAttributes {
     return Objects.equals(this.description, caseCreateAttributes.description)
         && Objects.equals(this.priority, caseCreateAttributes.priority)
         && Objects.equals(this.title, caseCreateAttributes.title)
-        && Objects.equals(this.type, caseCreateAttributes.type)
+        && Objects.equals(this.typeId, caseCreateAttributes.typeId)
         && Objects.equals(this.additionalProperties, caseCreateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, priority, title, type, additionalProperties);
+    return Objects.hash(description, priority, title, typeId, additionalProperties);
   }
 
   @Override
@@ -216,7 +211,7 @@ public class CaseCreateAttributes {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    typeId: ").append(toIndentedString(typeId)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
