@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"6c0dbbfd-a905-4f79-9c2f-16cb4d9a56a7\",\"type\":\"datastores\"}}",
+      "body": "{\"data\":{\"id\":\"2b088869-d596-4103-9cff-038b5f81fc0c\",\"type\":\"datastores\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,29 +27,29 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6574cf7e-1c55-24e1-45d2-b92f9fa74d2f"
+    "id": "6574cf7e-1c55-24e1-45d2-b92f9fa74d31"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"values\":[{\"id\":\"cust_3141\",\"name\":\"Johnathan\"},{\"id\":\"cust_3142\",\"name\":\"Mary\"}]},\"type\":\"items\"}}"
+        "json": "{\"data\":{\"attributes\":{\"item_keys\":[]},\"type\":\"items\"}}"
       },
       "headers": {},
-      "method": "POST",
-      "path": "/api/v2/actions-datastores/6c0dbbfd-a905-4f79-9c2f-16cb4d9a56a7/items/bulk",
+      "method": "DELETE",
+      "path": "/api/v2/actions-datastores/2b088869-d596-4103-9cff-038b5f81fc0c/items/bulk",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"id\":\"8c6bba37-01d4-4b49-9d90-4ac909aa8c9f\",\"type\":\"items\"},{\"id\":\"285244c6-b07f-4502-928b-2444c1de31e7\",\"type\":\"items\"}]}",
+      "body": "{\"errors\":[{\"status\":\"400\",\"id\":\"61325aff-aaa7-4571-80e2-e87ed8ffb103\",\"title\":\"missing required field\",\"detail\":\"at least one item key is required\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
         ]
       },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
     },
     "times": {
       "remainingTimes": 1
@@ -57,18 +57,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5477242a-47dc-c0d1-6fce-5b4819e0a568"
+    "id": "250acdec-c02d-6e90-debb-4e7c003fc3d3"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/actions-datastores/6c0dbbfd-a905-4f79-9c2f-16cb4d9a56a7",
+      "path": "/api/v2/actions-datastores/2b088869-d596-4103-9cff-038b5f81fc0c",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"6c0dbbfd-a905-4f79-9c2f-16cb4d9a56a7\",\"type\":\"datastores\"}}",
+      "body": "{\"data\":{\"id\":\"2b088869-d596-4103-9cff-038b5f81fc0c\",\"type\":\"datastores\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -83,6 +83,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3c420a7a-f3c7-f72b-55ac-8dacb96c3a45"
+    "id": "510e9832-93e0-8107-932c-e07babeb6246"
   }
 ]
