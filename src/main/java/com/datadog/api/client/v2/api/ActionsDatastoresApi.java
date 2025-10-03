@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.BulkDeleteAppsDatastoreItemsRequest;
 import com.datadog.api.client.v2.model.BulkPutAppsDatastoreItemsRequest;
 import com.datadog.api.client.v2.model.CreateAppsDatastoreRequest;
 import com.datadog.api.client.v2.model.CreateAppsDatastoreResponse;
@@ -11,6 +12,7 @@ import com.datadog.api.client.v2.model.Datastore;
 import com.datadog.api.client.v2.model.DatastoreArray;
 import com.datadog.api.client.v2.model.DeleteAppsDatastoreItemRequest;
 import com.datadog.api.client.v2.model.DeleteAppsDatastoreItemResponse;
+import com.datadog.api.client.v2.model.DeleteAppsDatastoreItemResponseArray;
 import com.datadog.api.client.v2.model.ItemApiPayload;
 import com.datadog.api.client.v2.model.ItemApiPayloadArray;
 import com.datadog.api.client.v2.model.PutAppsDatastoreItemResponseArray;
@@ -53,6 +55,172 @@ public class ActionsDatastoresApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Bulk delete datastore items.
+   *
+   * <p>See {@link #bulkDeleteDatastoreItemsWithHttpInfo}.
+   *
+   * @param datastoreId The ID of the datastore. (required)
+   * @param body (required)
+   * @return DeleteAppsDatastoreItemResponseArray
+   * @throws ApiException if fails to make API call
+   */
+  public DeleteAppsDatastoreItemResponseArray bulkDeleteDatastoreItems(
+      String datastoreId, BulkDeleteAppsDatastoreItemsRequest body) throws ApiException {
+    return bulkDeleteDatastoreItemsWithHttpInfo(datastoreId, body).getData();
+  }
+
+  /**
+   * Bulk delete datastore items.
+   *
+   * <p>See {@link #bulkDeleteDatastoreItemsWithHttpInfoAsync}.
+   *
+   * @param datastoreId The ID of the datastore. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;DeleteAppsDatastoreItemResponseArray&gt;
+   */
+  public CompletableFuture<DeleteAppsDatastoreItemResponseArray> bulkDeleteDatastoreItemsAsync(
+      String datastoreId, BulkDeleteAppsDatastoreItemsRequest body) {
+    return bulkDeleteDatastoreItemsWithHttpInfoAsync(datastoreId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Deletes multiple items from a datastore by their keys in a single operation.
+   *
+   * @param datastoreId The ID of the datastore. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;DeleteAppsDatastoreItemResponseArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DeleteAppsDatastoreItemResponseArray> bulkDeleteDatastoreItemsWithHttpInfo(
+      String datastoreId, BulkDeleteAppsDatastoreItemsRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'datastoreId' is set
+    if (datastoreId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'datastoreId' when calling bulkDeleteDatastoreItems");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling bulkDeleteDatastoreItems");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/actions-datastores/{datastore_id}/items/bulk"
+            .replaceAll(
+                "\\{" + "datastore_id" + "\\}", apiClient.escapeString(datastoreId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ActionsDatastoresApi.bulkDeleteDatastoreItems",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeleteAppsDatastoreItemResponseArray>() {});
+  }
+
+  /**
+   * Bulk delete datastore items.
+   *
+   * <p>See {@link #bulkDeleteDatastoreItemsWithHttpInfo}.
+   *
+   * @param datastoreId The ID of the datastore. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DeleteAppsDatastoreItemResponseArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DeleteAppsDatastoreItemResponseArray>>
+      bulkDeleteDatastoreItemsWithHttpInfoAsync(
+          String datastoreId, BulkDeleteAppsDatastoreItemsRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'datastoreId' is set
+    if (datastoreId == null) {
+      CompletableFuture<ApiResponse<DeleteAppsDatastoreItemResponseArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'datastoreId' when calling"
+                  + " bulkDeleteDatastoreItems"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DeleteAppsDatastoreItemResponseArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling bulkDeleteDatastoreItems"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/actions-datastores/{datastore_id}/items/bulk"
+            .replaceAll(
+                "\\{" + "datastore_id" + "\\}", apiClient.escapeString(datastoreId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ActionsDatastoresApi.bulkDeleteDatastoreItems",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DeleteAppsDatastoreItemResponseArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeleteAppsDatastoreItemResponseArray>() {});
   }
 
   /**
