@@ -29,12 +29,10 @@ public class Example {
                                     .matchRules("""
 rule_name_1 foo
 rule_name_2 bar
-
 """)
                                     .supportRules("""
 rule_name_1 foo
 rule_name_2 bar
-
 """))
                             .isEnabled(false)
                             .source("message")
