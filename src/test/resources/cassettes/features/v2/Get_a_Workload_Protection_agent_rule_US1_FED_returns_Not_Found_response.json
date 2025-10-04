@@ -3,12 +3,12 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/non-existent-rule-id",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/abc-def-ghi",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Not found\"]}\n",
+      "body": "{\"errors\":[\"not_found(Agent rule not found: agentRuleId=abc-def-ghi)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "58b0e427-8b1a-941f-4374-0f548704a50d"
+    "id": "446cf99d-3b06-e9d4-debf-ef1f66672880"
   }
 ]
