@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"display_name\":\"AWS Region 79eef6c4d883c2c5\",\"is_multi\":true,\"key\":\"region_79eef6c4d883c2c5\",\"type\":\"NUMBER\"},\"type\":\"custom_attribute\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/types/9fd476d7-a955-454a-851d-980c655c02d3/custom_attributes",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"code\":\"resource_not_found\",\"title\":\"case_type not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d7bfcfc8-6553-57fd-dded-441b6392e705"
+  }
+]
