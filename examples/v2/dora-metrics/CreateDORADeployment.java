@@ -1,4 +1,4 @@
-// Send a deployment event for DORA Metrics returns "OK" response
+// Send a deployment event returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

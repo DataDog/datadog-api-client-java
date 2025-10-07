@@ -1,4 +1,4 @@
-// Send an incident event for DORA Metrics returns "OK" response
+// Send an incident event returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
