@@ -51,7 +51,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send a deployment event for DORA Metrics.
+   * Send a deployment event.
    *
    * <p>See {@link #createDORADeploymentWithHttpInfo}.
    *
@@ -65,7 +65,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send a deployment event for DORA Metrics.
+   * Send a deployment event.
    *
    * <p>See {@link #createDORADeploymentWithHttpInfoAsync}.
    *
@@ -82,7 +82,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Use this API endpoint to provide data about deployments for DORA metrics.
+   * Use this API endpoint to provide deployment data.
    *
    * <p>This is necessary for: - Deployment Frequency - Change Lead Time - Change Failure Rate
    *
@@ -135,7 +135,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send a deployment event for DORA Metrics.
+   * Send a deployment event.
    *
    * <p>See {@link #createDORADeploymentWithHttpInfo}.
    *
@@ -187,7 +187,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send a failure event for DORA Metrics.
+   * Send a failure event.
    *
    * <p>See {@link #createDORAFailureWithHttpInfo}.
    *
@@ -200,7 +200,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send a failure event for DORA Metrics.
+   * Send a failure event.
    *
    * <p>See {@link #createDORAFailureWithHttpInfoAsync}.
    *
@@ -216,7 +216,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Use this API endpoint to provide failure data for DORA metrics.
+   * Use this API endpoint to provide failure data.
    *
    * <p>This is necessary for: - Change Failure Rate - Time to Restore
    *
@@ -269,7 +269,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send a failure event for DORA Metrics.
+   * Send a failure event.
    *
    * <p>See {@link #createDORAFailureWithHttpInfo}.
    *
@@ -321,7 +321,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send an incident event for DORA Metrics.
+   * Send an incident event.
    *
    * <p>See {@link #createDORAIncidentWithHttpInfo}.
    *
@@ -336,7 +336,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send an incident event for DORA Metrics.
+   * Send an incident event.
    *
    * <p>See {@link #createDORAIncidentWithHttpInfoAsync}.
    *
@@ -357,7 +357,7 @@ public class DoraMetricsApi {
    * <strong>Note</strong>: This endpoint is deprecated. Please use <code>/api/v2/dora/failure
    * </code> instead.
    *
-   * <p>Use this API endpoint to provide failure data for DORA metrics.
+   * <p>Use this API endpoint to provide failure data.
    *
    * <p>This is necessary for: - Change Failure Rate - Time to Restore
    *
@@ -413,7 +413,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send an incident event for DORA Metrics.
+   * Send an incident event.
    *
    * <p>See {@link #createDORAIncidentWithHttpInfo}.
    *

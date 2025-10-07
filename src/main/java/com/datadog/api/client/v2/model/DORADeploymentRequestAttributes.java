@@ -147,7 +147,7 @@ public class DORADeploymentRequestAttributes {
 
   /**
    * Unix timestamp when the deployment finished. It must be in nanoseconds, milliseconds, or
-   * seconds, and it should not be older than 1 hour.
+   * seconds.
    *
    * @return finishedAt
    */
