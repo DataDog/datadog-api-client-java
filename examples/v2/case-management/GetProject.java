@@ -11,7 +11,7 @@ public class Example {
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
     try {
-      ProjectResponse result = apiInstance.getProject("project_id");
+      ProjectResponse result = apiInstance.getProject("e555e290-ed65-49bd-ae18-8acbfcf18db7");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CaseManagementApi#getProject");

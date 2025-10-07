@@ -10,7 +10,7 @@ public class Example {
     AgentlessScanningApi apiInstance = new AgentlessScanningApi(defaultClient);
 
     try {
-      apiInstance.deleteAwsScanOptions("account_id");
+      apiInstance.deleteAwsScanOptions("123456789012");
     } catch (ApiException e) {
       System.err.println("Exception when calling AgentlessScanningApi#deleteAwsScanOptions");
       System.err.println("Status code: " + e.getCode());

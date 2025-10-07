@@ -12,7 +12,7 @@ public class Example {
 
     try {
       ApplicationSecurityWafCustomRuleResponse result =
-          apiInstance.getApplicationSecurityWafCustomRule("custom_rule_id");
+          apiInstance.getApplicationSecurityWafCustomRule("3b5-v82-ns6");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(

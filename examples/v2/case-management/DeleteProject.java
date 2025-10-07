@@ -10,7 +10,7 @@ public class Example {
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
     try {
-      apiInstance.deleteProject("project_id");
+      apiInstance.deleteProject("e555e290-ed65-49bd-ae18-8acbfcf18db7");
     } catch (ApiException e) {
       System.err.println("Exception when calling CaseManagementApi#deleteProject");
       System.err.println("Status code: " + e.getCode());

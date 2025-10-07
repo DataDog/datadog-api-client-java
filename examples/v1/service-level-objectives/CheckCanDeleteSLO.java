@@ -11,7 +11,7 @@ public class Example {
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
 
     try {
-      CheckCanDeleteSLOResponse result = apiInstance.checkCanDeleteSLO("ids");
+      CheckCanDeleteSLOResponse result = apiInstance.checkCanDeleteSLO("id1, id2, id3");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceLevelObjectivesApi#checkCanDeleteSLO");
