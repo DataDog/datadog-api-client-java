@@ -370,7 +370,7 @@ def request_parameter(context, operation_id, api_version, operation_specs, name,
                             None: 1,
                         },
                         "array": {
-                            None: [],
+                            None: [name],
                         },
                     }[type_][format_]
                 break
