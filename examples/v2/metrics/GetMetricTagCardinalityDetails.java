@@ -12,7 +12,7 @@ public class Example {
 
     try {
       MetricTagCardinalitiesResponse result =
-          apiInstance.getMetricTagCardinalityDetails("metric_name");
+          apiInstance.getMetricTagCardinalityDetails("dist.http.endpoint.request");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#getMetricTagCardinalityDetails");

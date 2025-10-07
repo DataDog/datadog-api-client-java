@@ -355,11 +355,9 @@ def request_parameter(context, operation_id, api_version, operation_specs, name,
         for parameter in parameters:
             if parameter["name"] == name:
                 schema = parameter.get("schema", {})
-                value = schema.get("example", schema.get("default"))
+                value = schema.get("example", schema.get("default", parameter.get("example")))
                 if value is None:
-                    type_ = schema.get("type")
-                    format_ = schema.get("format")
-                    value = {
+                    primitive_lookup = {
                         "string": {
                             "date-time": "2021-11-11T11:11:11.111+00:00",
                             None: name,
@@ -369,10 +367,20 @@ def request_parameter(context, operation_id, api_version, operation_specs, name,
                             "int64": 9223372036854775807,
                             None: 1,
                         },
-                        "array": {
-                            None: [],
+                        "boolean": {
+                            None: True,
                         },
-                    }[type_][format_]
+                    }
+
+                    if schema.get("type") == "array":
+                        type_ = schema.get("items", {}).get("type")
+                        items_format_ = schema.get("items", {}).get("format")
+                        value = [primitive_lookup[type_][items_format_]]
+                    else:
+                        type_ = schema.get("type")
+                        format_ = schema.get("format")
+                        value = primitive_lookup[type_][format_]
+
                 break
 
     context["api_request"]["kwargs"][name] = {

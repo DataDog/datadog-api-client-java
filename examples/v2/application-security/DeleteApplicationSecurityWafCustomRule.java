@@ -10,7 +10,7 @@ public class Example {
     ApplicationSecurityApi apiInstance = new ApplicationSecurityApi(defaultClient);
 
     try {
-      apiInstance.deleteApplicationSecurityWafCustomRule("custom_rule_id");
+      apiInstance.deleteApplicationSecurityWafCustomRule("3b5-v82-ns6");
     } catch (ApiException e) {
       System.err.println(
           "Exception when calling ApplicationSecurityApi#deleteApplicationSecurityWafCustomRule");
