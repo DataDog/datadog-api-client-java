@@ -68,6 +68,7 @@ def cli(specs, output):
     env.globals["get_default"] = openapi.get_default
     env.globals["get_container_type"] = openapi.get_container_type
     env.globals["get_security_names"] = openapi.get_security_names
+    env.globals["prepare_oneof_methods"] = formatter.prepare_oneof_methods
 
     api_j2 = env.get_template("Api.j2")
     model_j2 = env.get_template("model.j2")

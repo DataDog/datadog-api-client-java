@@ -139,11 +139,20 @@ public class {{ name }} extends AbstractOpenApiSchema {
         super("oneOf", Boolean.{{ "TRUE" if model.nullable else "FALSE" }});
     }
 
-    {%- for oneOf in model.oneOf %}
-    public {{ name }}({{ get_type(oneOf) }} o) {
+    {%- set oneof_methods = prepare_oneof_methods(model, get_type) %}
+    {%- for method_info in oneof_methods %}
+    {%- if method_info.use_factory %}
+    public static {{ name }} {{ method_info.constructor_name }}({{ method_info.param_type }} o) {
+        {{ name }} instance = new {{ name }}();
+        instance.setActualInstance(o);
+        return instance;
+    }
+    {%- else %}
+    public {{ name }}({{ method_info.param_type }} o) {
         super("oneOf", Boolean.{{ "TRUE" if model.nullable else "FALSE" }});
         setActualInstance(o);
     }
+    {%- endif %}
     {%- endfor  %}
 
     static {
@@ -204,19 +213,18 @@ public class {{ name }} extends AbstractOpenApiSchema {
         return super.getActualInstance();
     }
 
-    {%- for oneOf in model.oneOf %}
-    {%- set dataType = get_type(oneOf) %}
-    {%- set unParameterizedDataType = get_type(oneOf)|un_parameterize_type %}
+    {%- set oneof_methods = prepare_oneof_methods(model, get_type) %}
+    {%- for method_info in oneof_methods %}
 
     /**
-     * Get the actual instance of `{{ dataType|escape_html }}`. If the actual instance is not `{{ dataType|escape_html }}`,
+     * Get the actual instance of `{{ method_info.param_type|escape_html }}`. If the actual instance is not `{{ method_info.param_type|escape_html }}`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `{{ dataType|escape_html }}`
-     * @throws ClassCastException if the instance is not `{{ dataType|escape_html }}`
+     * @return The actual instance of `{{ method_info.param_type|escape_html }}`
+     * @throws ClassCastException if the instance is not `{{ method_info.param_type|escape_html }}`
      */
-    public {{ dataType }} get{{ unParameterizedDataType }}() throws ClassCastException {
-        return ({{ dataType }})super.getActualInstance();
+    public {{ method_info.param_type }} {{ method_info.getter_name }}() throws ClassCastException {
+        return ({{ method_info.param_type }})super.getActualInstance();
     }
 
     {%- endfor %}
