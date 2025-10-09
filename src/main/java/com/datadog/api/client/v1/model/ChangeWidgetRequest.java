@@ -26,6 +26,7 @@ import java.util.Objects;
   ChangeWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_FORMULAS,
   ChangeWidgetRequest.JSON_PROPERTY_INCREASE_GOOD,
+  ChangeWidgetRequest.JSON_PROPERTY_LIMIT,
   ChangeWidgetRequest.JSON_PROPERTY_LOG_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_ORDER_BY,
@@ -60,6 +61,9 @@ public class ChangeWidgetRequest {
 
   public static final String JSON_PROPERTY_INCREASE_GOOD = "increase_good";
   private Boolean increaseGood;
+
+  public static final String JSON_PROPERTY_LIMIT = "limit";
+  private Long limit;
 
   public static final String JSON_PROPERTY_LOG_QUERY = "log_query";
   private LogQueryDefinition logQuery;
@@ -243,6 +247,27 @@ public class ChangeWidgetRequest {
 
   public void setIncreaseGood(Boolean increaseGood) {
     this.increaseGood = increaseGood;
+  }
+
+  public ChangeWidgetRequest limit(Long limit) {
+    this.limit = limit;
+    return this;
+  }
+
+  /**
+   * The number of items to show.
+   *
+   * @return limit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLimit() {
+    return limit;
+  }
+
+  public void setLimit(Long limit) {
+    this.limit = limit;
   }
 
   public ChangeWidgetRequest logQuery(LogQueryDefinition logQuery) {
@@ -590,6 +615,7 @@ public class ChangeWidgetRequest {
         && Objects.equals(this.eventQuery, changeWidgetRequest.eventQuery)
         && Objects.equals(this.formulas, changeWidgetRequest.formulas)
         && Objects.equals(this.increaseGood, changeWidgetRequest.increaseGood)
+        && Objects.equals(this.limit, changeWidgetRequest.limit)
         && Objects.equals(this.logQuery, changeWidgetRequest.logQuery)
         && Objects.equals(this.networkQuery, changeWidgetRequest.networkQuery)
         && Objects.equals(this.orderBy, changeWidgetRequest.orderBy)
@@ -614,6 +640,7 @@ public class ChangeWidgetRequest {
         eventQuery,
         formulas,
         increaseGood,
+        limit,
         logQuery,
         networkQuery,
         orderBy,
@@ -639,6 +666,7 @@ public class ChangeWidgetRequest {
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
     sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
     sb.append("    increaseGood: ").append(toIndentedString(increaseGood)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
