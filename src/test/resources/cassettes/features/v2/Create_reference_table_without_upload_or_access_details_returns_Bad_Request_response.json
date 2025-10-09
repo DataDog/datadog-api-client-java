@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test reference table without upload or access details\",\"schema\":{\"fields\":[{\"name\":\"id\",\"type\":\"STRING\"}],\"primary_keys\":[\"id\"]},\"source\":\"LOCAL_FILE\",\"table_name\":\"test_invalid_table_Test-Create_reference_table_without_upload_or_access_details_returns_Bad_Request_response-1759351883\",\"tags\":[\"test_tag\"]},\"type\":\"reference_table\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/reference-tables/tables",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"upload_id is required for tables with 'LOCAL_FILE' source\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b227430e-09ea-cae9-d1cd-62ee343d2443"
+  }
+]
