@@ -25,6 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UserAttributes.JSON_PROPERTY_EMAIL,
   UserAttributes.JSON_PROPERTY_HANDLE,
   UserAttributes.JSON_PROPERTY_ICON,
+  UserAttributes.JSON_PROPERTY_LAST_LOGIN_TIME,
   UserAttributes.JSON_PROPERTY_MFA_ENABLED,
   UserAttributes.JSON_PROPERTY_MODIFIED_AT,
   UserAttributes.JSON_PROPERTY_NAME,
@@ -51,6 +52,9 @@ public class UserAttributes {
 
   public static final String JSON_PROPERTY_ICON = "icon";
   private String icon;
+
+  public static final String JSON_PROPERTY_LAST_LOGIN_TIME = "last_login_time";
+  private JsonNullable<OffsetDateTime> lastLoginTime = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_MFA_ENABLED = "mfa_enabled";
   private Boolean mfaEnabled;
@@ -176,6 +180,32 @@ public class UserAttributes {
 
   public void setIcon(String icon) {
     this.icon = icon;
+  }
+
+  /**
+   * The last time the user logged in.
+   *
+   * @return lastLoginTime
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getLastLoginTime() {
+
+    if (lastLoginTime == null) {
+      lastLoginTime = JsonNullable.<OffsetDateTime>undefined();
+    }
+    return lastLoginTime.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_LOGIN_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<OffsetDateTime> getLastLoginTime_JsonNullable() {
+    return lastLoginTime;
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_LOGIN_TIME)
+  private void setLastLoginTime_JsonNullable(JsonNullable<OffsetDateTime> lastLoginTime) {
+    this.lastLoginTime = lastLoginTime;
   }
 
   /**
@@ -397,6 +427,7 @@ public class UserAttributes {
         && Objects.equals(this.email, userAttributes.email)
         && Objects.equals(this.handle, userAttributes.handle)
         && Objects.equals(this.icon, userAttributes.icon)
+        && Objects.equals(this.lastLoginTime, userAttributes.lastLoginTime)
         && Objects.equals(this.mfaEnabled, userAttributes.mfaEnabled)
         && Objects.equals(this.modifiedAt, userAttributes.modifiedAt)
         && Objects.equals(this.name, userAttributes.name)
@@ -415,6 +446,7 @@ public class UserAttributes {
         email,
         handle,
         icon,
+        lastLoginTime,
         mfaEnabled,
         modifiedAt,
         name,
@@ -434,6 +466,7 @@ public class UserAttributes {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
+    sb.append("    lastLoginTime: ").append(toIndentedString(lastLoginTime)).append("\n");
     sb.append("    mfaEnabled: ").append(toIndentedString(mfaEnabled)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
