@@ -27,6 +27,7 @@ import java.util.Objects;
   RulesetRespDataAttributes.JSON_PROPERTY_MODIFIED,
   RulesetRespDataAttributes.JSON_PROPERTY_NAME,
   RulesetRespDataAttributes.JSON_PROPERTY_POSITION,
+  RulesetRespDataAttributes.JSON_PROPERTY_PROCESSING_STATUS,
   RulesetRespDataAttributes.JSON_PROPERTY_RULES,
   RulesetRespDataAttributes.JSON_PROPERTY_VERSION
 })
@@ -51,6 +52,9 @@ public class RulesetRespDataAttributes {
 
   public static final String JSON_PROPERTY_POSITION = "position";
   private Integer position;
+
+  public static final String JSON_PROPERTY_PROCESSING_STATUS = "processing_status";
+  private String processingStatus;
 
   public static final String JSON_PROPERTY_RULES = "rules";
   private List<RulesetRespDataAttributesRulesItems> rules = new ArrayList<>();
@@ -208,6 +212,27 @@ public class RulesetRespDataAttributes {
     this.position = position;
   }
 
+  public RulesetRespDataAttributes processingStatus(String processingStatus) {
+    this.processingStatus = processingStatus;
+    return this;
+  }
+
+  /**
+   * The <code>attributes</code> <code>processing_status</code>.
+   *
+   * @return processingStatus
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROCESSING_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProcessingStatus() {
+    return processingStatus;
+  }
+
+  public void setProcessingStatus(String processingStatus) {
+    this.processingStatus = processingStatus;
+  }
+
   public RulesetRespDataAttributes rules(List<RulesetRespDataAttributesRulesItems> rules) {
     this.rules = rules;
     for (RulesetRespDataAttributesRulesItems item : rules) {
@@ -319,6 +344,7 @@ public class RulesetRespDataAttributes {
         && Objects.equals(this.modified, rulesetRespDataAttributes.modified)
         && Objects.equals(this.name, rulesetRespDataAttributes.name)
         && Objects.equals(this.position, rulesetRespDataAttributes.position)
+        && Objects.equals(this.processingStatus, rulesetRespDataAttributes.processingStatus)
         && Objects.equals(this.rules, rulesetRespDataAttributes.rules)
         && Objects.equals(this.version, rulesetRespDataAttributes.version)
         && Objects.equals(
@@ -334,6 +360,7 @@ public class RulesetRespDataAttributes {
         modified,
         name,
         position,
+        processingStatus,
         rules,
         version,
         additionalProperties);
@@ -351,6 +378,7 @@ public class RulesetRespDataAttributes {
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
+    sb.append("    processingStatus: ").append(toIndentedString(processingStatus)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")

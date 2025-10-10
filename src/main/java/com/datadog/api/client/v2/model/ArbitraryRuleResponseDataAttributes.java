@@ -27,6 +27,7 @@ import java.util.Objects;
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_ENABLED,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_LAST_MODIFIED_USER_UUID,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_ORDER_ID,
+  ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_PROCESSING_STATUS,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_PROVIDER,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_REJECTED,
   ArbitraryRuleResponseDataAttributes.JSON_PROPERTY_RULE_NAME,
@@ -54,6 +55,9 @@ public class ArbitraryRuleResponseDataAttributes {
 
   public static final String JSON_PROPERTY_ORDER_ID = "order_id";
   private Long orderId;
+
+  public static final String JSON_PROPERTY_PROCESSING_STATUS = "processing_status";
+  private String processingStatus;
 
   public static final String JSON_PROPERTY_PROVIDER = "provider";
   private List<String> provider = new ArrayList<>();
@@ -218,6 +222,27 @@ public class ArbitraryRuleResponseDataAttributes {
 
   public void setOrderId(Long orderId) {
     this.orderId = orderId;
+  }
+
+  public ArbitraryRuleResponseDataAttributes processingStatus(String processingStatus) {
+    this.processingStatus = processingStatus;
+    return this;
+  }
+
+  /**
+   * The <code>attributes</code> <code>processing_status</code>.
+   *
+   * @return processingStatus
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROCESSING_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProcessingStatus() {
+    return processingStatus;
+  }
+
+  public void setProcessingStatus(String processingStatus) {
+    this.processingStatus = processingStatus;
   }
 
   public ArbitraryRuleResponseDataAttributes provider(List<String> provider) {
@@ -431,6 +456,8 @@ public class ArbitraryRuleResponseDataAttributes {
         && Objects.equals(
             this.lastModifiedUserUuid, arbitraryRuleResponseDataAttributes.lastModifiedUserUuid)
         && Objects.equals(this.orderId, arbitraryRuleResponseDataAttributes.orderId)
+        && Objects.equals(
+            this.processingStatus, arbitraryRuleResponseDataAttributes.processingStatus)
         && Objects.equals(this.provider, arbitraryRuleResponseDataAttributes.provider)
         && Objects.equals(this.rejected, arbitraryRuleResponseDataAttributes.rejected)
         && Objects.equals(this.ruleName, arbitraryRuleResponseDataAttributes.ruleName)
@@ -450,6 +477,7 @@ public class ArbitraryRuleResponseDataAttributes {
         enabled,
         lastModifiedUserUuid,
         orderId,
+        processingStatus,
         provider,
         rejected,
         ruleName,
@@ -471,6 +499,7 @@ public class ArbitraryRuleResponseDataAttributes {
         .append(toIndentedString(lastModifiedUserUuid))
         .append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    sb.append("    processingStatus: ").append(toIndentedString(processingStatus)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    rejected: ").append(toIndentedString(rejected)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
