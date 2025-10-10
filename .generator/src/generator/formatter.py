@@ -650,3 +650,76 @@ def get_response_type(schema, version):
 
 def attribute_path(attribute):
     return ".".join(attribute_name(a) for a in attribute.split("."))
+
+
+def prepare_oneof_methods(model, get_type_func):
+    """
+    Pre-compute method information for oneOf types to handle erasure collisions.
+
+    Returns a list of dicts with:
+    - schema: the original oneOf schema
+    - param_type: full parameterized type (e.g., "List<String>")
+    - unparam_type: unparameterized type (e.g., "List")
+    - use_factory: True if factory method needed (collision detected)
+    - constructor_name: name for constructor/factory method
+    - getter_name: name for getter method
+    """
+    # Handle both dict-style and object-style access
+    if isinstance(model, dict):
+        one_of = model.get('oneOf', [])
+    elif hasattr(model, 'oneOf'):
+        one_of = model.oneOf
+    elif hasattr(model, 'get'):
+        one_of = model.get('oneOf', [])
+    else:
+        return []
+
+    if not one_of:
+        return []
+
+    # First pass: count unparameterized types
+    unparam_counts = {}
+    for oneOf in one_of:
+        param_type = get_type_func(oneOf)
+        unparam_type = un_parameterize_type(param_type)
+        unparam_counts[unparam_type] = unparam_counts.get(unparam_type, 0) + 1
+
+    # Second pass: compute method names
+    result = []
+    for oneOf in one_of:
+        param_type = get_type_func(oneOf)
+        unparam_type = un_parameterize_type(param_type)
+        has_collision = unparam_counts[unparam_type] > 1
+
+        # Compute constructor/factory method name
+        if has_collision:
+            if param_type.startswith('List<'):
+                inner_type = param_type[5:-1]
+                constructor_name = f"from{inner_type}List"
+            else:
+                safe_type = param_type.replace('<', '').replace('>', '').replace(' ', '').replace(',', '')
+                constructor_name = f"from{safe_type}"
+        else:
+            constructor_name = None  # Regular constructor
+
+        # Compute getter method name
+        if has_collision:
+            if param_type.startswith('List<'):
+                inner_type = param_type[5:-1]
+                getter_name = f"get{inner_type}List"
+            else:
+                safe_type = param_type.replace('<', '').replace('>', '').replace(' ', '').replace(',', '')
+                getter_name = f"get{safe_type}"
+        else:
+            getter_name = f"get{unparam_type}"
+
+        result.append({
+            'schema': oneOf,
+            'param_type': param_type,
+            'unparam_type': unparam_type,
+            'use_factory': has_collision,
+            'constructor_name': constructor_name,
+            'getter_name': getter_name,
+        })
+
+    return result
