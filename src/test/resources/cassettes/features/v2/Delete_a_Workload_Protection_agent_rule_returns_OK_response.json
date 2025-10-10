@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1749827803\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1760109657\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"tn0-tjy-vwh\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1749827803\",\"policyVersion\":\"1\",\"priority\":1000000013,\"ruleCount\":226,\"updateDate\":1749827803539,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"xm5-r6n-xej\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:staging\"]],\"monitoringRulesCount\":7,\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1760109657\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760109657799,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f5263bd7-a7e1-425a-b112-3cab47f353c2"
+    "id": "07d04524-e719-9bb0-c2e0-70df47a1df0d"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"scope\":\"process\",\"value\":\"test_value\"}},{\"hash\":{}}],\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1749827803\",\"policy_id\":\"tn0-tjy-vwh\",\"product_tags\":[\"security:attack\",\"technique:T1059\"]},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"scope\":\"process\",\"value\":\"test_value\"}},{\"hash\":{}}],\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1760109657\",\"policy_id\":\"xm5-r6n-xej\",\"product_tags\":[\"security:attack\",\"technique:T1059\"]},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"hm0-n7p-hq7\",\"type\":\"agent_rule\",\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"value\":\"test_value\",\"scope\":\"process\"},\"disabled\":false},{\"hash\":{},\"disabled\":false}],\"category\":\"Process Activity\",\"creationDate\":1749827804150,\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"monitoring\":[\"tn0-tjy-vwh\"],\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1749827803\",\"product_tags\":[\"security:attack\",\"technique:T1059\"],\"updateDate\":1749827804150,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"tpa-28k-utt\",\"type\":\"agent_rule\",\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"value\":\"test_value\",\"scope\":\"process\",\"inherited\":false},\"disabled\":false},{\"hash\":{},\"disabled\":false}],\"category\":\"Process Activity\",\"creationDate\":1760109658753,\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"monitoring\":[\"xm5-r6n-xej\"],\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1760109657\",\"product_tags\":[\"security:attack\",\"technique:T1059\"],\"updateDate\":1760109658753,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,16 +57,16 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "77fdc0ba-cd06-5c8b-d115-0767402fb565"
+    "id": "c51a1f05-9552-b3bf-5605-2b8e160538d0"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/hm0-n7p-hq7",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/tpa-28k-utt",
       "queryStringParameters": {
         "policy_id": [
-          "tn0-tjy-vwh"
+          "xm5-r6n-xej"
         ]
       },
       "keepAlive": false,
@@ -87,13 +87,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "102a27ad-c486-6948-f39a-3ac93ef7120f"
+    "id": "dcbbdf77-372b-cefb-a9ec-ee7d58be98b8"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/hm0-n7p-hq7",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/tpa-28k-utt",
       "keepAlive": false,
       "secure": true
     },
@@ -113,13 +113,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "071c70f0-e64c-9b29-92b1-d30b8ae116a8"
+    "id": "10229f44-9e9c-9aae-e93f-d931988dec62"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/tn0-tjy-vwh",
+      "path": "/api/v2/remote_config/products/cws/policy/xm5-r6n-xej",
       "keepAlive": false,
       "secure": true
     },
@@ -138,6 +138,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "df9f53da-3e41-888c-18aa-2a10201ae88e"
+    "id": "fd029db4-c8a5-504b-52ce-b03f9053bb73"
   }
 ]

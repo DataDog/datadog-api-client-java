@@ -19,7 +19,10 @@ import java.util.Objects;
 /** The set action applied on the scope matching the rule */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_APPEND,
+  CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_DEFAULT_VALUE,
+  CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_EXPRESSION,
   CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_FIELD,
+  CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_INHERITED,
   CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_NAME,
   CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_SCOPE,
   CloudWorkloadSecurityAgentRuleActionSet.JSON_PROPERTY_SIZE,
@@ -33,8 +36,17 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
   public static final String JSON_PROPERTY_APPEND = "append";
   private Boolean append;
 
+  public static final String JSON_PROPERTY_DEFAULT_VALUE = "default_value";
+  private String defaultValue;
+
+  public static final String JSON_PROPERTY_EXPRESSION = "expression";
+  private String expression;
+
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
+
+  public static final String JSON_PROPERTY_INHERITED = "inherited";
+  private Boolean inherited;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -57,7 +69,7 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
   }
 
   /**
-   * Whether the value should be appended to the field
+   * Whether the value should be appended to the field.
    *
    * @return append
    */
@@ -70,6 +82,48 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
 
   public void setAppend(Boolean append) {
     this.append = append;
+  }
+
+  public CloudWorkloadSecurityAgentRuleActionSet defaultValue(String defaultValue) {
+    this.defaultValue = defaultValue;
+    return this;
+  }
+
+  /**
+   * The default value of the set action
+   *
+   * @return defaultValue
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDefaultValue() {
+    return defaultValue;
+  }
+
+  public void setDefaultValue(String defaultValue) {
+    this.defaultValue = defaultValue;
+  }
+
+  public CloudWorkloadSecurityAgentRuleActionSet expression(String expression) {
+    this.expression = expression;
+    return this;
+  }
+
+  /**
+   * The expression of the set action.
+   *
+   * @return expression
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getExpression() {
+    return expression;
+  }
+
+  public void setExpression(String expression) {
+    this.expression = expression;
   }
 
   public CloudWorkloadSecurityAgentRuleActionSet field(String field) {
@@ -91,6 +145,27 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
 
   public void setField(String field) {
     this.field = field;
+  }
+
+  public CloudWorkloadSecurityAgentRuleActionSet inherited(Boolean inherited) {
+    this.inherited = inherited;
+    return this;
+  }
+
+  /**
+   * Whether the value should be inherited.
+   *
+   * @return inherited
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INHERITED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getInherited() {
+    return inherited;
+  }
+
+  public void setInherited(Boolean inherited) {
+    this.inherited = inherited;
   }
 
   public CloudWorkloadSecurityAgentRuleActionSet name(String name) {
@@ -120,7 +195,7 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
   }
 
   /**
-   * The scope of the set action
+   * The scope of the set action.
    *
    * @return scope
    */
@@ -141,7 +216,7 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
   }
 
   /**
-   * The size of the set action
+   * The size of the set action.
    *
    * @return size
    */
@@ -162,7 +237,7 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
   }
 
   /**
-   * The time to live of the set action
+   * The time to live of the set action.
    *
    * @return ttl
    */
@@ -256,7 +331,10 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
     CloudWorkloadSecurityAgentRuleActionSet cloudWorkloadSecurityAgentRuleActionSet =
         (CloudWorkloadSecurityAgentRuleActionSet) o;
     return Objects.equals(this.append, cloudWorkloadSecurityAgentRuleActionSet.append)
+        && Objects.equals(this.defaultValue, cloudWorkloadSecurityAgentRuleActionSet.defaultValue)
+        && Objects.equals(this.expression, cloudWorkloadSecurityAgentRuleActionSet.expression)
         && Objects.equals(this.field, cloudWorkloadSecurityAgentRuleActionSet.field)
+        && Objects.equals(this.inherited, cloudWorkloadSecurityAgentRuleActionSet.inherited)
         && Objects.equals(this.name, cloudWorkloadSecurityAgentRuleActionSet.name)
         && Objects.equals(this.scope, cloudWorkloadSecurityAgentRuleActionSet.scope)
         && Objects.equals(this.size, cloudWorkloadSecurityAgentRuleActionSet.size)
@@ -269,7 +347,18 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
 
   @Override
   public int hashCode() {
-    return Objects.hash(append, field, name, scope, size, ttl, value, additionalProperties);
+    return Objects.hash(
+        append,
+        defaultValue,
+        expression,
+        field,
+        inherited,
+        name,
+        scope,
+        size,
+        ttl,
+        value,
+        additionalProperties);
   }
 
   @Override
@@ -277,7 +366,10 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudWorkloadSecurityAgentRuleActionSet {\n");
     sb.append("    append: ").append(toIndentedString(append)).append("\n");
+    sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
+    sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    inherited: ").append(toIndentedString(inherited)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
