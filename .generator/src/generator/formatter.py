@@ -320,6 +320,7 @@ def get_name_and_imports(schema):
 
 def _format_oneof(schema, data, name, default_name, replace_values, imports):
     matched = 0
+    matched_sub_schema = None
     extra_imports = one_of_imports = set()
     for sub_schema in schema["oneOf"]:
         try:
@@ -341,6 +342,7 @@ def _format_oneof(schema, data, name, default_name, replace_values, imports):
                 # parameters += formatted
                 parameters = value
                 extra_imports = one_of_imports
+                matched_sub_schema = sub_schema
             matched += 1
         except (KeyError, ValueError, TypeError) as e:
             print(f"{e}")
@@ -349,7 +351,24 @@ def _format_oneof(schema, data, name, default_name, replace_values, imports):
         raise ValueError(f"[{matched}] {data} is not valid for schema {name}")
 
     imports |= extra_imports
+
+    # Detect if we need to use factory method due to type erasure collision
     if name:
+        # Use prepare_oneof_methods to detect collisions
+        from . import openapi
+        methods_info = prepare_oneof_methods(schema, openapi.type_to_java)
+
+        # Find the method info for the matched sub_schema
+        for method_info in methods_info:
+            if method_info['schema'] == matched_sub_schema:
+                if method_info['use_factory']:
+                    # Use static factory method
+                    return name, f"{name}.{method_info['constructor_name']}(\n{parameters})", imports
+                else:
+                    # Use regular constructor
+                    return name, f"new {name}(\n{parameters})", imports
+
+        # Fallback to regular constructor if no match found
         return name, f"new {name}(\n{parameters})", imports
     elif "oneOf" in schema and default_name:
         imports.add(f"{default_name}Item")
@@ -480,6 +499,7 @@ def format_data_with_schema_list(
     name, imports = get_name_and_imports(schema)
 
     if "oneOf" in schema:
+        matched_sub_schema = None
         for sub_schema in schema["oneOf"]:
             try:
                 named, value, one_of_imports = format_data_with_schema(
@@ -488,12 +508,29 @@ def format_data_with_schema_list(
                     default_name=default_name,
                     replace_values=replace_values,
                 )
+                matched_sub_schema = sub_schema
             except (KeyError, ValueError):
                 continue
 
             if name:
                 one_of_imports.add(f"{name}")
-                value = f"new {name}({value})"
+                # Detect if we need to use factory method due to type erasure collision
+                from . import openapi
+                methods_info = prepare_oneof_methods(schema, openapi.type_to_java)
+
+                # Find the method info for the matched sub_schema
+                for method_info in methods_info:
+                    if method_info['schema'] == matched_sub_schema:
+                        if method_info['use_factory']:
+                            # Use static factory method
+                            value = f"{name}.{method_info['constructor_name']}({value})"
+                        else:
+                            # Use regular constructor
+                            value = f"new {name}({value})"
+                        break
+                else:
+                    # Fallback to regular constructor if no match found
+                    value = f"new {name}({value})"
             elif default_name:
                 one_of_imports.add(f"{default_name}Item")
                 value = f"new {default_name}Item({value})"
