@@ -8,90 +8,42 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ArbitraryRuleResponseArray</code> object. */
-@JsonPropertyOrder({
-  ArbitraryRuleResponseArray.JSON_PROPERTY_DATA,
-  ArbitraryRuleResponseArray.JSON_PROPERTY_META
-})
+/** The <code>ArbitraryRuleResponseArray</code> <code>meta</code>. */
+@JsonPropertyOrder({ArbitraryRuleResponseArrayMeta.JSON_PROPERTY_TOTAL_COUNT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ArbitraryRuleResponseArray {
+public class ArbitraryRuleResponseArrayMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<ArbitraryRuleResponseData> data = new ArrayList<>();
+  public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";
+  private Long totalCount;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private ArbitraryRuleResponseArrayMeta meta;
-
-  public ArbitraryRuleResponseArray() {}
-
-  @JsonCreator
-  public ArbitraryRuleResponseArray(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<ArbitraryRuleResponseData> data) {
-    this.data = data;
-  }
-
-  public ArbitraryRuleResponseArray data(List<ArbitraryRuleResponseData> data) {
-    this.data = data;
-    for (ArbitraryRuleResponseData item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public ArbitraryRuleResponseArray addDataItem(ArbitraryRuleResponseData dataItem) {
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+  public ArbitraryRuleResponseArrayMeta totalCount(Long totalCount) {
+    this.totalCount = totalCount;
     return this;
   }
 
   /**
-   * The <code>ArbitraryRuleResponseArray</code> <code>data</code>.
+   * The <code>meta</code> <code>total_count</code>.
    *
-   * @return data
-   */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<ArbitraryRuleResponseData> getData() {
-    return data;
-  }
-
-  public void setData(List<ArbitraryRuleResponseData> data) {
-    this.data = data;
-  }
-
-  public ArbitraryRuleResponseArray meta(ArbitraryRuleResponseArrayMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * The <code>ArbitraryRuleResponseArray</code> <code>meta</code>.
-   *
-   * @return meta
+   * @return totalCount
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
+  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ArbitraryRuleResponseArrayMeta getMeta() {
-    return meta;
+  public Long getTotalCount() {
+    return totalCount;
   }
 
-  public void setMeta(ArbitraryRuleResponseArrayMeta meta) {
-    this.meta = meta;
+  public void setTotalCount(Long totalCount) {
+    this.totalCount = totalCount;
   }
 
   /**
@@ -106,10 +58,10 @@ public class ArbitraryRuleResponseArray {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ArbitraryRuleResponseArray
+   * @return ArbitraryRuleResponseArrayMeta
    */
   @JsonAnySetter
-  public ArbitraryRuleResponseArray putAdditionalProperty(String key, Object value) {
+  public ArbitraryRuleResponseArrayMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -140,7 +92,7 @@ public class ArbitraryRuleResponseArray {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ArbitraryRuleResponseArray object is equal to o. */
+  /** Return true if this ArbitraryRuleResponseArrayMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,24 +101,23 @@ public class ArbitraryRuleResponseArray {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ArbitraryRuleResponseArray arbitraryRuleResponseArray = (ArbitraryRuleResponseArray) o;
-    return Objects.equals(this.data, arbitraryRuleResponseArray.data)
-        && Objects.equals(this.meta, arbitraryRuleResponseArray.meta)
+    ArbitraryRuleResponseArrayMeta arbitraryRuleResponseArrayMeta =
+        (ArbitraryRuleResponseArrayMeta) o;
+    return Objects.equals(this.totalCount, arbitraryRuleResponseArrayMeta.totalCount)
         && Objects.equals(
-            this.additionalProperties, arbitraryRuleResponseArray.additionalProperties);
+            this.additionalProperties, arbitraryRuleResponseArrayMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(totalCount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ArbitraryRuleResponseArray {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("class ArbitraryRuleResponseArrayMeta {\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
