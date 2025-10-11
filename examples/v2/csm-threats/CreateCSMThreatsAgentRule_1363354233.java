@@ -1,13 +1,16 @@
-// Create a Workload Protection agent rule returns "OK" response
+// Create a Workload Protection agent rule with set action with expression returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CsmThreatsApi;
+import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleAction;
+import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleActionSet;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateAttributes;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateData;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateRequest;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleType;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -23,14 +26,22 @@ public class Example {
                 new CloudWorkloadSecurityAgentRuleCreateData()
                     .attributes(
                         new CloudWorkloadSecurityAgentRuleCreateAttributes()
-                            .description("My Agent rule")
+                            .description("My Agent rule with set action with expression")
                             .enabled(true)
                             .expression("""
 exec.file.name == "sh"
 """)
-                            .agentVersion("> 7.60")
                             .name("examplecsmthreat")
-                            .policyId(POLICY_DATA_ID))
+                            .policyId(POLICY_DATA_ID)
+                            .actions(
+                                Collections.singletonList(
+                                    new CloudWorkloadSecurityAgentRuleAction()
+                                        .set(
+                                            new CloudWorkloadSecurityAgentRuleActionSet()
+                                                .name("test_set")
+                                                .expression("open.file.path")
+                                                .defaultValue("/dev/null")
+                                                .scope("process")))))
                     .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
 
     try {

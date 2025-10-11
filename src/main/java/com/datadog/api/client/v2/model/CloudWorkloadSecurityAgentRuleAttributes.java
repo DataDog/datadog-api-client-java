@@ -37,6 +37,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_MONITORING,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_NAME,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_PRODUCT_TAGS,
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_SILENT,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATE_AUTHOR_UU_ID,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATE_DATE,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATED_AT,
@@ -95,6 +96,9 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public static final String JSON_PROPERTY_PRODUCT_TAGS = "product_tags";
   private List<String> productTags = null;
+
+  public static final String JSON_PROPERTY_SILENT = "silent";
+  private Boolean silent;
 
   public static final String JSON_PROPERTY_UPDATE_AUTHOR_UU_ID = "updateAuthorUuId";
   private String updateAuthorUuId;
@@ -514,6 +518,27 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     this.productTags = productTags;
   }
 
+  public CloudWorkloadSecurityAgentRuleAttributes silent(Boolean silent) {
+    this.silent = silent;
+    return this;
+  }
+
+  /**
+   * Whether the rule is silent.
+   *
+   * @return silent
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SILENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSilent() {
+    return silent;
+  }
+
+  public void setSilent(Boolean silent) {
+    this.silent = silent;
+  }
+
   public CloudWorkloadSecurityAgentRuleAttributes updateAuthorUuId(String updateAuthorUuId) {
     this.updateAuthorUuId = updateAuthorUuId;
     return this;
@@ -696,6 +721,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
         && Objects.equals(this.monitoring, cloudWorkloadSecurityAgentRuleAttributes.monitoring)
         && Objects.equals(this.name, cloudWorkloadSecurityAgentRuleAttributes.name)
         && Objects.equals(this.productTags, cloudWorkloadSecurityAgentRuleAttributes.productTags)
+        && Objects.equals(this.silent, cloudWorkloadSecurityAgentRuleAttributes.silent)
         && Objects.equals(
             this.updateAuthorUuId, cloudWorkloadSecurityAgentRuleAttributes.updateAuthorUuId)
         && Objects.equals(this.updateDate, cloudWorkloadSecurityAgentRuleAttributes.updateDate)
@@ -726,6 +752,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
         monitoring,
         name,
         productTags,
+        silent,
         updateAuthorUuId,
         updateDate,
         updatedAt,
@@ -754,6 +781,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     sb.append("    monitoring: ").append(toIndentedString(monitoring)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    productTags: ").append(toIndentedString(productTags)).append("\n");
+    sb.append("    silent: ").append(toIndentedString(silent)).append("\n");
     sb.append("    updateAuthorUuId: ").append(toIndentedString(updateAuthorUuId)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
