@@ -699,11 +699,13 @@ public class ApiClient {
           put("v2.getHistoricalJob", false);
           put("v2.getRuleVersionHistory", false);
           put("v2.getSBOM", false);
+          put("v2.getSecretsRules", false);
           put("v2.getSecurityMonitoringHistsignal", false);
           put("v2.getSecurityMonitoringHistsignalsByJobId", false);
           put("v2.listAssetsSBOMs", false);
           put("v2.listFindings", false);
           put("v2.listHistoricalJobs", false);
+          put("v2.listMultipleRulesets", false);
           put("v2.listSecurityMonitoringHistsignals", false);
           put("v2.listVulnerabilities", false);
           put("v2.listVulnerableAssets", false);
