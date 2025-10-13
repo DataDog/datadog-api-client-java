@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AzureScanOptionsData</code> object. */
+/** Single Azure scan options entry. */
 @JsonPropertyOrder({
   AzureScanOptionsData.JSON_PROPERTY_ATTRIBUTES,
   AzureScanOptionsData.JSON_PROPERTY_ID,
@@ -54,7 +54,7 @@ public class AzureScanOptionsData {
   }
 
   /**
-   * The definition of <code>AzureScanOptionsDataAttributes</code> object.
+   * Attributes for Azure scan options configuration.
    *
    * @return attributes
    */
@@ -75,7 +75,7 @@ public class AzureScanOptionsData {
   }
 
   /**
-   * The <code>AzureScanOptionsData</code> <code>id</code>.
+   * The Azure subscription ID.
    *
    * @return id
    */

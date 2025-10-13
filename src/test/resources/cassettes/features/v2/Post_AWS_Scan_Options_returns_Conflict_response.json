@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"409\",\"detail\":\"aws scan options already exist for subscription 000000000002\"}]}",
+      "body": "{\"errors\":[{\"status\":\"409\",\"detail\":\"aws scan options already exist for account 000000000002\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"

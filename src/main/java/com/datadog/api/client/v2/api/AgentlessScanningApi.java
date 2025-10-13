@@ -14,6 +14,9 @@ import com.datadog.api.client.v2.model.AwsScanOptionsUpdateRequest;
 import com.datadog.api.client.v2.model.AzureScanOptions;
 import com.datadog.api.client.v2.model.AzureScanOptionsArray;
 import com.datadog.api.client.v2.model.AzureScanOptionsInputUpdate;
+import com.datadog.api.client.v2.model.GcpScanOptions;
+import com.datadog.api.client.v2.model.GcpScanOptionsArray;
+import com.datadog.api.client.v2.model.GcpScanOptionsInputUpdate;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -450,6 +453,138 @@ public class AgentlessScanningApi {
   }
 
   /**
+   * Post GCP Scan Options.
+   *
+   * <p>See {@link #createGcpScanOptionsWithHttpInfo}.
+   *
+   * @param body The definition of the new scan options. (required)
+   * @return GcpScanOptions
+   * @throws ApiException if fails to make API call
+   */
+  public GcpScanOptions createGcpScanOptions(GcpScanOptions body) throws ApiException {
+    return createGcpScanOptionsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Post GCP Scan Options.
+   *
+   * <p>See {@link #createGcpScanOptionsWithHttpInfoAsync}.
+   *
+   * @param body The definition of the new scan options. (required)
+   * @return CompletableFuture&lt;GcpScanOptions&gt;
+   */
+  public CompletableFuture<GcpScanOptions> createGcpScanOptionsAsync(GcpScanOptions body) {
+    return createGcpScanOptionsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Activate Agentless scan options for a GCP project.
+   *
+   * @param body The definition of the new scan options. (required)
+   * @return ApiResponse&lt;GcpScanOptions&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Agentless scan options enabled successfully. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GcpScanOptions> createGcpScanOptionsWithHttpInfo(GcpScanOptions body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createGcpScanOptions");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/agentless_scanning/accounts/gcp";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentlessScanningApi.createGcpScanOptions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GcpScanOptions>() {});
+  }
+
+  /**
+   * Post GCP Scan Options.
+   *
+   * <p>See {@link #createGcpScanOptionsWithHttpInfo}.
+   *
+   * @param body The definition of the new scan options. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GcpScanOptions&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GcpScanOptions>> createGcpScanOptionsWithHttpInfoAsync(
+      GcpScanOptions body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<GcpScanOptions>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createGcpScanOptions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/agentless_scanning/accounts/gcp";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentlessScanningApi.createGcpScanOptions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GcpScanOptions>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GcpScanOptions>() {});
+  }
+
+  /**
    * Delete AWS Scan Options.
    *
    * <p>See {@link #deleteAwsScanOptionsWithHttpInfo}.
@@ -700,6 +835,140 @@ public class AgentlessScanningApi {
       builder =
           apiClient.createBuilder(
               "v2.AgentlessScanningApi.deleteAzureScanOptions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete GCP Scan Options.
+   *
+   * <p>See {@link #deleteGcpScanOptionsWithHttpInfo}.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteGcpScanOptions(String projectId) throws ApiException {
+    deleteGcpScanOptionsWithHttpInfo(projectId);
+  }
+
+  /**
+   * Delete GCP Scan Options.
+   *
+   * <p>See {@link #deleteGcpScanOptionsWithHttpInfoAsync}.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteGcpScanOptionsAsync(String projectId) {
+    return deleteGcpScanOptionsWithHttpInfoAsync(projectId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete Agentless scan options for a GCP project.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteGcpScanOptionsWithHttpInfo(String projectId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'projectId' when calling deleteGcpScanOptions");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/accounts/gcp/{project_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentlessScanningApi.deleteGcpScanOptions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete GCP Scan Options.
+   *
+   * <p>See {@link #deleteGcpScanOptionsWithHttpInfo}.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteGcpScanOptionsWithHttpInfoAsync(
+      String projectId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'projectId' when calling deleteGcpScanOptions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/accounts/gcp/{project_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentlessScanningApi.deleteGcpScanOptions",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -992,6 +1261,283 @@ public class AgentlessScanningApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AwsScanOptionsResponse>() {});
+  }
+
+  /**
+   * Get Azure scan options.
+   *
+   * <p>See {@link #getAzureScanOptionsWithHttpInfo}.
+   *
+   * @param subscriptionId The Azure subscription ID. (required)
+   * @return AzureScanOptions
+   * @throws ApiException if fails to make API call
+   */
+  public AzureScanOptions getAzureScanOptions(String subscriptionId) throws ApiException {
+    return getAzureScanOptionsWithHttpInfo(subscriptionId).getData();
+  }
+
+  /**
+   * Get Azure scan options.
+   *
+   * <p>See {@link #getAzureScanOptionsWithHttpInfoAsync}.
+   *
+   * @param subscriptionId The Azure subscription ID. (required)
+   * @return CompletableFuture&lt;AzureScanOptions&gt;
+   */
+  public CompletableFuture<AzureScanOptions> getAzureScanOptionsAsync(String subscriptionId) {
+    return getAzureScanOptionsWithHttpInfoAsync(subscriptionId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetches the Agentless scan options for an activated subscription.
+   *
+   * @param subscriptionId The Azure subscription ID. (required)
+   * @return ApiResponse&lt;AzureScanOptions&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AzureScanOptions> getAzureScanOptionsWithHttpInfo(String subscriptionId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'subscriptionId' is set
+    if (subscriptionId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'subscriptionId' when calling getAzureScanOptions");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/accounts/azure/{subscription_id}"
+            .replaceAll(
+                "\\{" + "subscription_id" + "\\}",
+                apiClient.escapeString(subscriptionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentlessScanningApi.getAzureScanOptions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AzureScanOptions>() {});
+  }
+
+  /**
+   * Get Azure scan options.
+   *
+   * <p>See {@link #getAzureScanOptionsWithHttpInfo}.
+   *
+   * @param subscriptionId The Azure subscription ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AzureScanOptions&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AzureScanOptions>> getAzureScanOptionsWithHttpInfoAsync(
+      String subscriptionId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'subscriptionId' is set
+    if (subscriptionId == null) {
+      CompletableFuture<ApiResponse<AzureScanOptions>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'subscriptionId' when calling getAzureScanOptions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/accounts/azure/{subscription_id}"
+            .replaceAll(
+                "\\{" + "subscription_id" + "\\}",
+                apiClient.escapeString(subscriptionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentlessScanningApi.getAzureScanOptions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AzureScanOptions>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AzureScanOptions>() {});
+  }
+
+  /**
+   * Get GCP scan options.
+   *
+   * <p>See {@link #getGcpScanOptionsWithHttpInfo}.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @return GcpScanOptions
+   * @throws ApiException if fails to make API call
+   */
+  public GcpScanOptions getGcpScanOptions(String projectId) throws ApiException {
+    return getGcpScanOptionsWithHttpInfo(projectId).getData();
+  }
+
+  /**
+   * Get GCP scan options.
+   *
+   * <p>See {@link #getGcpScanOptionsWithHttpInfoAsync}.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @return CompletableFuture&lt;GcpScanOptions&gt;
+   */
+  public CompletableFuture<GcpScanOptions> getGcpScanOptionsAsync(String projectId) {
+    return getGcpScanOptionsWithHttpInfoAsync(projectId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetches the Agentless scan options for an activated GCP project.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @return ApiResponse&lt;GcpScanOptions&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GcpScanOptions> getGcpScanOptionsWithHttpInfo(String projectId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'projectId' when calling getGcpScanOptions");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/accounts/gcp/{project_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentlessScanningApi.getGcpScanOptions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GcpScanOptions>() {});
+  }
+
+  /**
+   * Get GCP scan options.
+   *
+   * <p>See {@link #getGcpScanOptionsWithHttpInfo}.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GcpScanOptions&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GcpScanOptions>> getGcpScanOptionsWithHttpInfoAsync(
+      String projectId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<GcpScanOptions>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'projectId' when calling getGcpScanOptions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/accounts/gcp/{project_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentlessScanningApi.getGcpScanOptions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GcpScanOptions>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GcpScanOptions>() {});
   }
 
   /**
@@ -1326,6 +1872,115 @@ public class AgentlessScanningApi {
   }
 
   /**
+   * List GCP Scan Options.
+   *
+   * <p>See {@link #listGcpScanOptionsWithHttpInfo}.
+   *
+   * @return GcpScanOptionsArray
+   * @throws ApiException if fails to make API call
+   */
+  public GcpScanOptionsArray listGcpScanOptions() throws ApiException {
+    return listGcpScanOptionsWithHttpInfo().getData();
+  }
+
+  /**
+   * List GCP Scan Options.
+   *
+   * <p>See {@link #listGcpScanOptionsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;GcpScanOptionsArray&gt;
+   */
+  public CompletableFuture<GcpScanOptionsArray> listGcpScanOptionsAsync() {
+    return listGcpScanOptionsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetches the scan options configured for all GCP projects.
+   *
+   * @return ApiResponse&lt;GcpScanOptionsArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GcpScanOptionsArray> listGcpScanOptionsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/agentless_scanning/accounts/gcp";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentlessScanningApi.listGcpScanOptions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GcpScanOptionsArray>() {});
+  }
+
+  /**
+   * List GCP Scan Options.
+   *
+   * <p>See {@link #listGcpScanOptionsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;GcpScanOptionsArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GcpScanOptionsArray>> listGcpScanOptionsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/agentless_scanning/accounts/gcp";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentlessScanningApi.listGcpScanOptions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GcpScanOptionsArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GcpScanOptionsArray>() {});
+  }
+
+  /**
    * Patch AWS Scan Options.
    *
    * <p>See {@link #updateAwsScanOptionsWithHttpInfo}.
@@ -1640,5 +2295,162 @@ public class AgentlessScanningApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AzureScanOptions>() {});
+  }
+
+  /**
+   * Patch GCP Scan Options.
+   *
+   * <p>See {@link #updateGcpScanOptionsWithHttpInfo}.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @param body New definition of the scan options. (required)
+   * @return GcpScanOptions
+   * @throws ApiException if fails to make API call
+   */
+  public GcpScanOptions updateGcpScanOptions(String projectId, GcpScanOptionsInputUpdate body)
+      throws ApiException {
+    return updateGcpScanOptionsWithHttpInfo(projectId, body).getData();
+  }
+
+  /**
+   * Patch GCP Scan Options.
+   *
+   * <p>See {@link #updateGcpScanOptionsWithHttpInfoAsync}.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @param body New definition of the scan options. (required)
+   * @return CompletableFuture&lt;GcpScanOptions&gt;
+   */
+  public CompletableFuture<GcpScanOptions> updateGcpScanOptionsAsync(
+      String projectId, GcpScanOptionsInputUpdate body) {
+    return updateGcpScanOptionsWithHttpInfoAsync(projectId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the Agentless scan options for an activated GCP project.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @param body New definition of the scan options. (required)
+   * @return ApiResponse&lt;GcpScanOptions&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GcpScanOptions> updateGcpScanOptionsWithHttpInfo(
+      String projectId, GcpScanOptionsInputUpdate body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'projectId' when calling updateGcpScanOptions");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateGcpScanOptions");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/accounts/gcp/{project_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentlessScanningApi.updateGcpScanOptions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GcpScanOptions>() {});
+  }
+
+  /**
+   * Patch GCP Scan Options.
+   *
+   * <p>See {@link #updateGcpScanOptionsWithHttpInfo}.
+   *
+   * @param projectId The GCP project ID. (required)
+   * @param body New definition of the scan options. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GcpScanOptions&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GcpScanOptions>> updateGcpScanOptionsWithHttpInfoAsync(
+      String projectId, GcpScanOptionsInputUpdate body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<GcpScanOptions>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'projectId' when calling updateGcpScanOptions"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<GcpScanOptions>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateGcpScanOptions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/accounts/gcp/{project_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentlessScanningApi.updateGcpScanOptions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GcpScanOptions>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GcpScanOptions>() {});
   }
 }
