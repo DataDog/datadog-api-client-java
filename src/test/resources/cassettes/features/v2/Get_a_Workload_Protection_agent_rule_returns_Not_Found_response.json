@@ -3,7 +3,7 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/non-existent-rule-id",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/abc-def-ghi",
       "keepAlive": false,
       "secure": true
     },
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e22ee5d8-7a99-d8d5-1774-a5113be6b1d8"
+    "id": "ae320517-228c-28f1-da5c-3d55176d9631"
   }
 ]

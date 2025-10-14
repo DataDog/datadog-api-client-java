@@ -29,12 +29,14 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_HOST_TAGS_LISTS,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_MONITORING_RULES_COUNT,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_NAME,
+  CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_PINNED,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_POLICY_VERSION,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_PRIORITY,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_RULE_COUNT,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_UPDATE_DATE,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_UPDATED_AT,
-  CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_UPDATER
+  CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_UPDATER,
+  CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_VERSIONS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -67,6 +69,9 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_PINNED = "pinned";
+  private Boolean pinned;
+
   public static final String JSON_PROPERTY_POLICY_VERSION = "policyVersion";
   private String policyVersion;
 
@@ -84,6 +89,9 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
 
   public static final String JSON_PROPERTY_UPDATER = "updater";
   private CloudWorkloadSecurityAgentPolicyUpdaterAttributes updater;
+
+  public static final String JSON_PROPERTY_VERSIONS = "versions";
+  private List<CloudWorkloadSecurityAgentPolicyVersion> versions = null;
 
   public CloudWorkloadSecurityAgentPolicyAttributes blockingRulesCount(Integer blockingRulesCount) {
     this.blockingRulesCount = blockingRulesCount;
@@ -294,6 +302,27 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
     this.name = name;
   }
 
+  public CloudWorkloadSecurityAgentPolicyAttributes pinned(Boolean pinned) {
+    this.pinned = pinned;
+    return this;
+  }
+
+  /**
+   * Whether the policy is pinned
+   *
+   * @return pinned
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PINNED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getPinned() {
+    return pinned;
+  }
+
+  public void setPinned(Boolean pinned) {
+    this.pinned = pinned;
+  }
+
   public CloudWorkloadSecurityAgentPolicyAttributes policyVersion(String policyVersion) {
     this.policyVersion = policyVersion;
     return this;
@@ -422,6 +451,41 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
     this.updater = updater;
   }
 
+  public CloudWorkloadSecurityAgentPolicyAttributes versions(
+      List<CloudWorkloadSecurityAgentPolicyVersion> versions) {
+    this.versions = versions;
+    for (CloudWorkloadSecurityAgentPolicyVersion item : versions) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentPolicyAttributes addVersionsItem(
+      CloudWorkloadSecurityAgentPolicyVersion versionsItem) {
+    if (this.versions == null) {
+      this.versions = new ArrayList<>();
+    }
+    this.versions.add(versionsItem);
+    this.unparsed |= versionsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * The versions of the policy
+   *
+   * @return versions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CloudWorkloadSecurityAgentPolicyVersion> getVersions() {
+    return versions;
+  }
+
+  public void setVersions(List<CloudWorkloadSecurityAgentPolicyVersion> versions) {
+    this.versions = versions;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -495,6 +559,7 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
             this.monitoringRulesCount,
             cloudWorkloadSecurityAgentPolicyAttributes.monitoringRulesCount)
         && Objects.equals(this.name, cloudWorkloadSecurityAgentPolicyAttributes.name)
+        && Objects.equals(this.pinned, cloudWorkloadSecurityAgentPolicyAttributes.pinned)
         && Objects.equals(
             this.policyVersion, cloudWorkloadSecurityAgentPolicyAttributes.policyVersion)
         && Objects.equals(this.priority, cloudWorkloadSecurityAgentPolicyAttributes.priority)
@@ -502,6 +567,7 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
         && Objects.equals(this.updateDate, cloudWorkloadSecurityAgentPolicyAttributes.updateDate)
         && Objects.equals(this.updatedAt, cloudWorkloadSecurityAgentPolicyAttributes.updatedAt)
         && Objects.equals(this.updater, cloudWorkloadSecurityAgentPolicyAttributes.updater)
+        && Objects.equals(this.versions, cloudWorkloadSecurityAgentPolicyAttributes.versions)
         && Objects.equals(
             this.additionalProperties,
             cloudWorkloadSecurityAgentPolicyAttributes.additionalProperties);
@@ -519,12 +585,14 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
         hostTagsLists,
         monitoringRulesCount,
         name,
+        pinned,
         policyVersion,
         priority,
         ruleCount,
         updateDate,
         updatedAt,
         updater,
+        versions,
         additionalProperties);
   }
 
@@ -543,12 +611,14 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
         .append(toIndentedString(monitoringRulesCount))
         .append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    pinned: ").append(toIndentedString(pinned)).append("\n");
     sb.append("    policyVersion: ").append(toIndentedString(policyVersion)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    ruleCount: ").append(toIndentedString(ruleCount)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updater: ").append(toIndentedString(updater)).append("\n");
+    sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
