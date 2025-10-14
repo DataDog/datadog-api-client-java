@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AzureScanOptions</code> object. */
+/** Response object containing Azure scan options for a single subscription. */
 @JsonPropertyOrder({AzureScanOptions.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class AzureScanOptions {
   }
 
   /**
-   * The definition of <code>AzureScanOptionsData</code> object.
+   * Single Azure scan options entry.
    *
    * @return data
    */

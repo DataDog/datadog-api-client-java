@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AzureScanOptionsInputUpdate</code> object. */
+/** Request object for updating Azure scan options. */
 @JsonPropertyOrder({AzureScanOptionsInputUpdate.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class AzureScanOptionsInputUpdate {
   }
 
   /**
-   * The definition of <code>AzureScanOptionsInputUpdateData</code> object.
+   * Data object for updating the scan options of a single Azure subscription.
    *
    * @return data
    */

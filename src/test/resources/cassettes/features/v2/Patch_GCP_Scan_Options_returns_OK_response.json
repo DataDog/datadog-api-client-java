@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"vuln_containers_os\":false},\"id\":\"api-spec-test\",\"type\":\"gcp_scan_options\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/agentless_scanning/accounts/gcp/api-spec-test",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"api-spec-test\",\"type\":\"gcp_scan_options\",\"attributes\":{\"vuln_containers_os\":false,\"vuln_host_os\":true}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b0e82961-e316-45f9-b544-8011dda3dd98"
+  }
+]

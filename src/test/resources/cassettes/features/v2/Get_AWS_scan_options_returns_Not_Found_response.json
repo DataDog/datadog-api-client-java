@@ -8,7 +8,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"404\",\"detail\":\"no aws scan options found for subscription 404404404404\"}]}",
+      "body": "{\"errors\":[{\"status\":\"404\",\"detail\":\"no aws scan options found for account 404404404404\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
