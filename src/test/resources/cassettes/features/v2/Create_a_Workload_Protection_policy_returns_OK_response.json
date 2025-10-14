@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"name\":\"my_agent_policy\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"name\":\"my_agent_policy_2\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"sw9-gtj-ll2\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"monitoringRulesCount\":225,\"name\":\"my_agent_policy\",\"policyVersion\":\"1\",\"priority\":1000000011,\"ruleCount\":226,\"updateDate\":1748341500859,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"fwg-18e-cfb\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"monitoringRulesCount\":7,\"name\":\"my_agent_policy_2\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760109655264,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f10f3f68-64cc-08b4-9f4e-80d366a5862f"
+    "id": "2c2242c5-6c99-0c19-9d82-af5c78541c7d"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/sw9-gtj-ll2",
+      "path": "/api/v2/remote_config/products/cws/policy/fwg-18e-cfb",
       "keepAlive": false,
       "secure": true
     },
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "45410945-1fda-9ba6-dc0a-f650e4a3c0e9"
+    "id": "11bc60c1-34cf-24c9-bd0f-1f701b478b33"
   }
 ]

@@ -22,6 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Update an existing Cloud Workload Security Agent rule */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_ACTIONS,
+  CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_AGENT_VERSION,
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_BLOCKING,
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_DESCRIPTION,
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_DISABLED,
@@ -29,7 +30,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_EXPRESSION,
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_MONITORING,
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_POLICY_ID,
-  CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_PRODUCT_TAGS
+  CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_PRODUCT_TAGS,
+  CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_SILENT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -38,6 +40,9 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
   public static final String JSON_PROPERTY_ACTIONS = "actions";
   private JsonNullable<List<CloudWorkloadSecurityAgentRuleAction>> actions =
       JsonNullable.<List<CloudWorkloadSecurityAgentRuleAction>>undefined();
+
+  public static final String JSON_PROPERTY_AGENT_VERSION = "agent_version";
+  private String agentVersion;
 
   public static final String JSON_PROPERTY_BLOCKING = "blocking";
   private List<String> blocking = null;
@@ -62,6 +67,9 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
 
   public static final String JSON_PROPERTY_PRODUCT_TAGS = "product_tags";
   private List<String> productTags = null;
+
+  public static final String JSON_PROPERTY_SILENT = "silent";
+  private Boolean silent;
 
   public CloudWorkloadSecurityAgentRuleUpdateAttributes actions(
       List<CloudWorkloadSecurityAgentRuleAction> actions) {
@@ -107,6 +115,27 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
 
   public void setActions(List<CloudWorkloadSecurityAgentRuleAction> actions) {
     this.actions = JsonNullable.<List<CloudWorkloadSecurityAgentRuleAction>>of(actions);
+  }
+
+  public CloudWorkloadSecurityAgentRuleUpdateAttributes agentVersion(String agentVersion) {
+    this.agentVersion = agentVersion;
+    return this;
+  }
+
+  /**
+   * Constrain the rule to specific versions of the Datadog Agent
+   *
+   * @return agentVersion
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AGENT_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAgentVersion() {
+    return agentVersion;
+  }
+
+  public void setAgentVersion(String agentVersion) {
+    this.agentVersion = agentVersion;
   }
 
   public CloudWorkloadSecurityAgentRuleUpdateAttributes blocking(List<String> blocking) {
@@ -309,6 +338,27 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
     this.productTags = productTags;
   }
 
+  public CloudWorkloadSecurityAgentRuleUpdateAttributes silent(Boolean silent) {
+    this.silent = silent;
+    return this;
+  }
+
+  /**
+   * Whether the rule is silent.
+   *
+   * @return silent
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SILENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSilent() {
+    return silent;
+  }
+
+  public void setSilent(Boolean silent) {
+    this.silent = silent;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -368,6 +418,8 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
     CloudWorkloadSecurityAgentRuleUpdateAttributes cloudWorkloadSecurityAgentRuleUpdateAttributes =
         (CloudWorkloadSecurityAgentRuleUpdateAttributes) o;
     return Objects.equals(this.actions, cloudWorkloadSecurityAgentRuleUpdateAttributes.actions)
+        && Objects.equals(
+            this.agentVersion, cloudWorkloadSecurityAgentRuleUpdateAttributes.agentVersion)
         && Objects.equals(this.blocking, cloudWorkloadSecurityAgentRuleUpdateAttributes.blocking)
         && Objects.equals(
             this.description, cloudWorkloadSecurityAgentRuleUpdateAttributes.description)
@@ -380,6 +432,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
         && Objects.equals(this.policyId, cloudWorkloadSecurityAgentRuleUpdateAttributes.policyId)
         && Objects.equals(
             this.productTags, cloudWorkloadSecurityAgentRuleUpdateAttributes.productTags)
+        && Objects.equals(this.silent, cloudWorkloadSecurityAgentRuleUpdateAttributes.silent)
         && Objects.equals(
             this.additionalProperties,
             cloudWorkloadSecurityAgentRuleUpdateAttributes.additionalProperties);
@@ -389,6 +442,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
   public int hashCode() {
     return Objects.hash(
         actions,
+        agentVersion,
         blocking,
         description,
         disabled,
@@ -397,6 +451,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
         monitoring,
         policyId,
         productTags,
+        silent,
         additionalProperties);
   }
 
@@ -405,6 +460,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudWorkloadSecurityAgentRuleUpdateAttributes {\n");
     sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
+    sb.append("    agentVersion: ").append(toIndentedString(agentVersion)).append("\n");
     sb.append("    blocking: ").append(toIndentedString(blocking)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
@@ -413,6 +469,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
     sb.append("    monitoring: ").append(toIndentedString(monitoring)).append("\n");
     sb.append("    policyId: ").append(toIndentedString(policyId)).append("\n");
     sb.append("    productTags: ").append(toIndentedString(productTags)).append("\n");
+    sb.append("    silent: ").append(toIndentedString(silent)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

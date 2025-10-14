@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionreturnsokresponse1749827818\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionreturnsokresponse1760109646\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"alt-4q4-baa\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionreturnsokresponse1749827818\",\"policyVersion\":\"1\",\"priority\":1000000013,\"ruleCount\":226,\"updateDate\":1749827818428,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"c85-dqa-6no\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:staging\"]],\"monitoringRulesCount\":7,\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionreturnsokresponse1760109646\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760109646385,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "258766a3-d0c8-5c2b-27cf-0f2ddc6a4c23"
+    "id": "6e9f87ed-e74d-d527-6cd3-023ce1c976ca"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"scope\":\"process\",\"value\":\"test_value\"}},{\"hash\":{}}],\"description\":\"My Agent rule with set action\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionreturnsokresponse1749827818\",\"policy_id\":\"alt-4q4-baa\",\"product_tags\":[]},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"actions\":[{\"set\":{\"inherited\":true,\"name\":\"test_set\",\"scope\":\"process\",\"value\":\"test_value\"}},{\"hash\":{}}],\"description\":\"My Agent rule with set action\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionreturnsokresponse1760109646\",\"policy_id\":\"c85-dqa-6no\",\"product_tags\":[]},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ps3-64e-shx\",\"type\":\"agent_rule\",\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"value\":\"test_value\",\"scope\":\"process\"},\"disabled\":false},{\"hash\":{},\"disabled\":false}],\"category\":\"Process Activity\",\"creationDate\":1749827819065,\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule with set action\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"monitoring\":[\"alt-4q4-baa\"],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionreturnsokresponse1749827818\",\"product_tags\":[],\"updateDate\":1749827819065,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"ak5-bk0-dxq\",\"type\":\"agent_rule\",\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"value\":\"test_value\",\"scope\":\"process\",\"inherited\":true},\"disabled\":false},{\"hash\":{},\"disabled\":false}],\"category\":\"Process Activity\",\"creationDate\":1760109647450,\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule with set action\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"monitoring\":[\"c85-dqa-6no\"],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionreturnsokresponse1760109646\",\"product_tags\":[],\"updateDate\":1760109647450,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b8d1628e-7339-06f6-38f5-374d03cf338b"
+    "id": "a8cc8839-a78f-2504-3e92-4a21771a23b9"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/ps3-64e-shx",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/ak5-bk0-dxq",
       "keepAlive": false,
       "secure": true
     },
@@ -82,13 +82,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2e30739b-44e5-f2cd-6998-ce6f2d27a7b6"
+    "id": "3bd6341a-006f-a9dc-621f-b233e8d7089b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/alt-4q4-baa",
+      "path": "/api/v2/remote_config/products/cws/policy/c85-dqa-6no",
       "keepAlive": false,
       "secure": true
     },
@@ -107,6 +107,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8c258b51-4925-24fa-c829-d30a4be958c3"
+    "id": "38330c52-3cba-d8d7-6f4c-8620d18e1cb5"
   }
 ]

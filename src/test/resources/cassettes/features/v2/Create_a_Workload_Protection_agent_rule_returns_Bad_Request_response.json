@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateaworkloadprotectionagentrulereturnsbadrequestresponse1748341492\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateaworkloadprotectionagentrulereturnsbadrequestresponse1760109639\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"wqi-kze-rt7\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testcreateaworkloadprotectionagentrulereturnsbadrequestresponse1748341492\",\"policyVersion\":\"1\",\"priority\":1000000011,\"ruleCount\":226,\"updateDate\":1748341492528,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"sr5-i0h-lty\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:staging\"]],\"monitoringRulesCount\":7,\"name\":\"testcreateaworkloadprotectionagentrulereturnsbadrequestresponse1760109639\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760109639958,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "182e29cd-0f93-3ff5-c558-8f4ce6215a21"
+    "id": "396b2fca-731e-d8ac-1168-76592ae9c6ea"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name\",\"filters\":[],\"name\":\"my_agent_rule\",\"policy_id\":\"wqi-kze-rt7\",\"product_tags\":[]},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name\",\"filters\":[],\"name\":\"my_agent_rule\",\"policy_id\":\"sr5-i0h-lty\",\"product_tags\":[]},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `my_agent_rule` error: rule syntax error: bool expected: 1:1: exec.file.name\\n^)\"]}",
+      "body": "{\"errors\":[\"input_validation_error(Field 'name' is invalid: the name 'my_agent_rule' is already used by a custom rule)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d7f17e68-d7f3-cfd4-5191-d2db96081e72"
+    "id": "c96671f6-8a37-c051-f820-b4c05a204de7"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/wqi-kze-rt7",
+      "path": "/api/v2/remote_config/products/cws/policy/sr5-i0h-lty",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4d3f95b1-80cb-6f4b-566b-a489d950e4bf"
+    "id": "033f489d-6cfa-ff7b-ecf8-fafbf0d27dcc"
   }
 ]

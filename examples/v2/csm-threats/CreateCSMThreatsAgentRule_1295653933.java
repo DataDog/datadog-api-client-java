@@ -41,7 +41,8 @@ exec.file.name == "sh"
                                             new CloudWorkloadSecurityAgentRuleActionSet()
                                                 .name("test_set")
                                                 .value("test_value")
-                                                .scope("process")),
+                                                .scope("process")
+                                                .inherited(true)),
                                     new CloudWorkloadSecurityAgentRuleAction()
                                         .hash(Map.ofEntries()))))
                     .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
