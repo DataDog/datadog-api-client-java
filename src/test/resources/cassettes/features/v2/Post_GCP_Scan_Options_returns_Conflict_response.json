@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"vuln_containers_os\":true,\"vuln_host_os\":true},\"id\":\"api-spec-test\",\"type\":\"gcp_scan_options\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/agentless_scanning/accounts/gcp",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"409\",\"detail\":\"gcp scan options already exist for project api-spec-test\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 409,
+      "reasonPhrase": "Conflict"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e60f404e-4f1f-e719-af9d-8d61a2bd95be"
+  }
+]

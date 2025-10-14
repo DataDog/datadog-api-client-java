@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"id\":\"different-project-id\",\"type\":\"gcp_scan_options\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/agentless_scanning/accounts/gcp/no",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"project_id 'no' is too short: must be at least 6 characters (current: 2)\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c2c329a8-5875-126a-1858-e7c00b5af113"
+  }
+]

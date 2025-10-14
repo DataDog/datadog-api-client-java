@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AzureScanOptionsDataAttributes</code> object. */
+/** Attributes for Azure scan options configuration. */
 @JsonPropertyOrder({
   AzureScanOptionsDataAttributes.JSON_PROPERTY_VULN_CONTAINERS_OS,
   AzureScanOptionsDataAttributes.JSON_PROPERTY_VULN_HOST_OS
@@ -37,7 +37,7 @@ public class AzureScanOptionsDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>vuln_containers_os</code>.
+   * Indicates if scanning for vulnerabilities in containers is enabled.
    *
    * @return vulnContainersOs
    */
@@ -58,7 +58,7 @@ public class AzureScanOptionsDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>vuln_host_os</code>.
+   * Indicates if scanning for vulnerabilities in hosts is enabled.
    *
    * @return vulnHostOs
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AzureScanOptionsInputUpdateData</code> object. */
+/** Data object for updating the scan options of a single Azure subscription. */
 @JsonPropertyOrder({
   AzureScanOptionsInputUpdateData.JSON_PROPERTY_ATTRIBUTES,
   AzureScanOptionsInputUpdateData.JSON_PROPERTY_ID,
@@ -57,7 +57,7 @@ public class AzureScanOptionsInputUpdateData {
   }
 
   /**
-   * The definition of <code>AzureScanOptionsInputUpdateDataAttributes</code> object.
+   * Attributes for updating Azure scan options configuration.
    *
    * @return attributes
    */
@@ -78,7 +78,7 @@ public class AzureScanOptionsInputUpdateData {
   }
 
   /**
-   * The <code>AzureScanOptionsInputUpdateData</code> <code>id</code>.
+   * The Azure subscription ID.
    *
    * @return id
    */

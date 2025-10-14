@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"vuln_containers_os\":true,\"vuln_host_os\":true},\"id\":\"nonexistent-project-id\",\"type\":\"gcp_scan_options\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/agentless_scanning/accounts/gcp/nonexistent-project-id",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"detail\":\"no gcp scan options found for project nonexistent-project-id\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0a6c2650-313c-cd4a-4230-f1a883526455"
+  }
+]
