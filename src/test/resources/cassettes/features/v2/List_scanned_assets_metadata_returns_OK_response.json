@@ -3,18 +3,7 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security/vulnerable-assets",
-      "queryStringParameters": {
-        "filter[type]": [
-          "Host"
-        ],
-        "filter[repository_url]": [
-          "github.com/datadog/dd-go"
-        ],
-        "filter[risks.in_production]": [
-          "true"
-        ]
-      },
+      "path": "/api/v2/security/scanned-assets-metadata",
       "keepAlive": false,
       "secure": true
     },
@@ -34,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e8a64c25-6dc3-4b44-16b3-c26a580df140"
+    "id": "df97e37b-ed67-9b44-c331-0ea3c5e9a0bf"
   }
 ]

@@ -704,6 +704,7 @@ public class ApiClient {
           put("v2.listAssetsSBOMs", false);
           put("v2.listFindings", false);
           put("v2.listHistoricalJobs", false);
+          put("v2.listScannedAssetsMetadata", false);
           put("v2.listSecurityMonitoringHistsignals", false);
           put("v2.listVulnerabilities", false);
           put("v2.listVulnerableAssets", false);

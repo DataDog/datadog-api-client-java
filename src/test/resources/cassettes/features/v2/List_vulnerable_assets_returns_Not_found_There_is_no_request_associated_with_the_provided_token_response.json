@@ -3,7 +3,7 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security/assets",
+      "path": "/api/v2/security/vulnerable-assets",
       "queryStringParameters": {
         "page[token]": [
           "unknown"
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"rpc error: code = Internal desc = no cached result set found for queryID: unknown\"}]}",
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Unexpected internal error\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c6d229b3-cd79-6e5e-593c-6ebc987186ec"
+    "id": "9910b6cc-2c33-c037-1794-ef62062d3ec2"
   }
 ]
