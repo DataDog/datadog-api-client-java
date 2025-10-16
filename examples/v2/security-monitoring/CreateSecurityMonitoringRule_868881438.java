@@ -32,7 +32,7 @@ public class Example {
                         new SecurityMonitoringStandardRuleQuery()
                             .query("@test:true")
                             .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
-                            .index("main")))
+                            .indexes(Collections.singletonList("main"))))
                 .cases(
                     Collections.singletonList(
                         new SecurityMonitoringRuleCaseCreate()

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_scheduled_rule_without_rrule_returns_Bad_Request_response-1753948154\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"index\":\"main\",\"query\":\"@test:true\"}],\"schedulingOptions\":{\"start\":\"2025-06-18T12:00:00\",\"timezone\":\"Europe/Paris\"},\"tags\":[],\"type\":\"log_detection\"}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_scheduled_rule_without_rrule_returns_Bad_Request_response-1760389966\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"indexes\":[\"main\"],\"query\":\"@test:true\"}],\"schedulingOptions\":{\"start\":\"2025-06-18T12:00:00\",\"timezone\":\"Europe/Paris\"},\"tags\":[],\"type\":\"log_detection\"}"
       },
       "headers": {},
       "method": "POST",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d9e00af4-d106-73ad-b787-bc97f2c88023"
+    "id": "cbbd6e4e-af0e-9a07-6e70-f2b3e17abe21"
   }
 ]
