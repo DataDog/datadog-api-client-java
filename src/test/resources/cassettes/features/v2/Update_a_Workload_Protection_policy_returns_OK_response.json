@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateaworkloadprotectionpolicyreturnsokresponse1760109695\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateaworkloadprotectionpolicyreturnsokresponse1760630605\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"cqp-anw-jba\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:staging\"]],\"monitoringRulesCount\":7,\"name\":\"testupdateaworkloadprotectionpolicyreturnsokresponse1760109695\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760109695685,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"xar-g8b-3tf\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:staging\"]],\"monitoringRulesCount\":7,\"name\":\"testupdateaworkloadprotectionpolicyreturnsokresponse1760630605\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760630606149,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "038d4386-83d6-30a4-b084-0f7a3ad7b2ec"
+    "id": "3896f841-fdfe-6125-6703-91582c72e1bb"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Updated agent policy\",\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"name\":\"updated_agent_policy\"},\"id\":\"cqp-anw-jba\",\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Updated agent policy\",\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"name\":\"updated_agent_policy\"},\"id\":\"xar-g8b-3tf\",\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/remote_config/products/cws/policy/cqp-anw-jba",
+      "path": "/api/v2/remote_config/products/cws/policy/xar-g8b-3tf",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"cqp-anw-jba\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"Updated agent policy\",\"disabledRulesCount\":0,\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"monitoringRulesCount\":0,\"name\":\"updated_agent_policy\",\"pinned\":false,\"policyVersion\":\"2\",\"ruleCount\":0,\"updateDate\":1760109696865,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"xar-g8b-3tf\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"Updated agent policy\",\"disabledRulesCount\":0,\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"monitoringRulesCount\":0,\"name\":\"updated_agent_policy\",\"pinned\":false,\"policyVersion\":\"2\",\"ruleCount\":0,\"updateDate\":1760630607043,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7e2c65a9-60c3-91df-db67-aeb31e327028"
+    "id": "a9cce142-74e7-314b-b720-d37671325d44"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/cqp-anw-jba",
+      "path": "/api/v2/remote_config/products/cws/policy/xar-g8b-3tf",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b308e285-cf65-4564-3ec5-f311850bf5dc"
+    "id": "551c53b2-f111-0eaf-6090-6214e367a460"
   }
 ]
