@@ -3,30 +3,27 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security/vulnerable-assets",
+      "path": "/api/v2/security/scanned-assets-metadata",
       "queryStringParameters": {
-        "filter[type]": [
-          "Host"
+        "page[token]": [
+          "unknown"
         ],
-        "filter[repository_url]": [
-          "github.com/datadog/dd-go"
-        ],
-        "filter[risks.in_production]": [
-          "true"
+        "page[number]": [
+          "1"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[]}",
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Unexpected internal error\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
         ]
       },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
     },
     "times": {
       "remainingTimes": 1
@@ -34,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e8a64c25-6dc3-4b44-16b3-c26a580df140"
+    "id": "62e25434-3c98-aa74-afed-678d589a7636"
   }
 ]

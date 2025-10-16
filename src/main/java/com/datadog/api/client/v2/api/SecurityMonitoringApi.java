@@ -8,6 +8,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.AssetType;
 import com.datadog.api.client.v2.model.BulkMuteFindingsRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsResponse;
+import com.datadog.api.client.v2.model.CloudAssetType;
 import com.datadog.api.client.v2.model.ConvertJobResultsToSignalsRequest;
 import com.datadog.api.client.v2.model.CreateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.CreateCustomFrameworkResponse;
@@ -33,6 +34,8 @@ import com.datadog.api.client.v2.model.NotificationRuleResponse;
 import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
 import com.datadog.api.client.v2.model.SBOMComponentLicenseType;
+import com.datadog.api.client.v2.model.SBOMFormat;
+import com.datadog.api.client.v2.model.ScannedAssetsMetadata;
 import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
 import com.datadog.api.client.v2.model.SecurityFilterUpdateRequest;
@@ -4029,6 +4032,7 @@ public class SecurityMonitoringApi {
   /** Manage optional parameters to getSBOM. */
   public static class GetSBOMOptionalParameters {
     private String filterRepoDigest;
+    private SBOMFormat extFormat;
 
     /**
      * Set filterRepoDigest.
@@ -4039,6 +4043,17 @@ public class SecurityMonitoringApi {
      */
     public GetSBOMOptionalParameters filterRepoDigest(String filterRepoDigest) {
       this.filterRepoDigest = filterRepoDigest;
+      return this;
+    }
+
+    /**
+     * Set extFormat.
+     *
+     * @param extFormat The standard of the SBOM. (optional)
+     * @return GetSBOMOptionalParameters
+     */
+    public GetSBOMOptionalParameters extFormat(SBOMFormat extFormat) {
+      this.extFormat = extFormat;
       return this;
     }
   }
@@ -4155,6 +4170,7 @@ public class SecurityMonitoringApi {
           400, "Missing the required parameter 'filterAssetName' when calling getSBOM");
     }
     String filterRepoDigest = parameters.filterRepoDigest;
+    SBOMFormat extFormat = parameters.extFormat;
     // create path and map variables
     String localVarPath =
         "/api/v2/security/sboms/{asset_type}"
@@ -4167,6 +4183,7 @@ public class SecurityMonitoringApi {
         apiClient.parameterToPairs("", "filter[asset_name]", filterAssetName));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[repo_digest]", filterRepoDigest));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ext:format", extFormat));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -4229,6 +4246,7 @@ public class SecurityMonitoringApi {
       return result;
     }
     String filterRepoDigest = parameters.filterRepoDigest;
+    SBOMFormat extFormat = parameters.extFormat;
     // create path and map variables
     String localVarPath =
         "/api/v2/security/sboms/{asset_type}"
@@ -4241,6 +4259,7 @@ public class SecurityMonitoringApi {
         apiClient.parameterToPairs("", "filter[asset_name]", filterAssetName));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[repo_digest]", filterRepoDigest));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ext:format", extFormat));
 
     Invocation.Builder builder;
     try {
@@ -7211,6 +7230,340 @@ public class SecurityMonitoringApi {
         new GenericType<ListHistoricalJobsResponse>() {});
   }
 
+  /** Manage optional parameters to listScannedAssetsMetadata. */
+  public static class ListScannedAssetsMetadataOptionalParameters {
+    private String pageToken;
+    private Long pageNumber;
+    private CloudAssetType filterAssetType;
+    private String filterAssetName;
+    private String filterLastSuccessOrigin;
+    private String filterLastSuccessEnv;
+
+    /**
+     * Set pageToken.
+     *
+     * @param pageToken Its value must come from the <code>links</code> section of the response of
+     *     the first request. Do not manually edit it. (optional)
+     * @return ListScannedAssetsMetadataOptionalParameters
+     */
+    public ListScannedAssetsMetadataOptionalParameters pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber The page number to be retrieved. It should be equal to or greater than 1.
+     *     (optional)
+     * @return ListScannedAssetsMetadataOptionalParameters
+     */
+    public ListScannedAssetsMetadataOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set filterAssetType.
+     *
+     * @param filterAssetType The type of the scanned asset. (optional)
+     * @return ListScannedAssetsMetadataOptionalParameters
+     */
+    public ListScannedAssetsMetadataOptionalParameters filterAssetType(
+        CloudAssetType filterAssetType) {
+      this.filterAssetType = filterAssetType;
+      return this;
+    }
+
+    /**
+     * Set filterAssetName.
+     *
+     * @param filterAssetName The name of the scanned asset. (optional)
+     * @return ListScannedAssetsMetadataOptionalParameters
+     */
+    public ListScannedAssetsMetadataOptionalParameters filterAssetName(String filterAssetName) {
+      this.filterAssetName = filterAssetName;
+      return this;
+    }
+
+    /**
+     * Set filterLastSuccessOrigin.
+     *
+     * @param filterLastSuccessOrigin The origin of last success scan. (optional)
+     * @return ListScannedAssetsMetadataOptionalParameters
+     */
+    public ListScannedAssetsMetadataOptionalParameters filterLastSuccessOrigin(
+        String filterLastSuccessOrigin) {
+      this.filterLastSuccessOrigin = filterLastSuccessOrigin;
+      return this;
+    }
+
+    /**
+     * Set filterLastSuccessEnv.
+     *
+     * @param filterLastSuccessEnv The environment of last success scan. (optional)
+     * @return ListScannedAssetsMetadataOptionalParameters
+     */
+    public ListScannedAssetsMetadataOptionalParameters filterLastSuccessEnv(
+        String filterLastSuccessEnv) {
+      this.filterLastSuccessEnv = filterLastSuccessEnv;
+      return this;
+    }
+  }
+
+  /**
+   * List scanned assets metadata.
+   *
+   * <p>See {@link #listScannedAssetsMetadataWithHttpInfo}.
+   *
+   * @return ScannedAssetsMetadata
+   * @throws ApiException if fails to make API call
+   */
+  public ScannedAssetsMetadata listScannedAssetsMetadata() throws ApiException {
+    return listScannedAssetsMetadataWithHttpInfo(new ListScannedAssetsMetadataOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List scanned assets metadata.
+   *
+   * <p>See {@link #listScannedAssetsMetadataWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ScannedAssetsMetadata&gt;
+   */
+  public CompletableFuture<ScannedAssetsMetadata> listScannedAssetsMetadataAsync() {
+    return listScannedAssetsMetadataWithHttpInfoAsync(
+            new ListScannedAssetsMetadataOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List scanned assets metadata.
+   *
+   * <p>See {@link #listScannedAssetsMetadataWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ScannedAssetsMetadata
+   * @throws ApiException if fails to make API call
+   */
+  public ScannedAssetsMetadata listScannedAssetsMetadata(
+      ListScannedAssetsMetadataOptionalParameters parameters) throws ApiException {
+    return listScannedAssetsMetadataWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List scanned assets metadata.
+   *
+   * <p>See {@link #listScannedAssetsMetadataWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ScannedAssetsMetadata&gt;
+   */
+  public CompletableFuture<ScannedAssetsMetadata> listScannedAssetsMetadataAsync(
+      ListScannedAssetsMetadataOptionalParameters parameters) {
+    return listScannedAssetsMetadataWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of security scanned assets metadata for an organization.
+   *
+   * <h3>Pagination</h3>
+   *
+   * <p>For the "List Vulnerabilities" endpoint, see the <a href="#pagination">Pagination
+   * section</a>.
+   *
+   * <h3>Filtering</h3>
+   *
+   * <p>For the "List Vulnerabilities" endpoint, see the <a href="#filtering">Filtering section</a>.
+   *
+   * <h3>Metadata</h3>
+   *
+   * <p>For the "List Vulnerabilities" endpoint, see the <a href="#metadata">Metadata section</a>.
+   *
+   * <h3>Related endpoints</h3>
+   *
+   * <p>This endpoint returns additional metadata for cloud resources that is not available from the
+   * standard resource endpoints. To access a richer dataset, call this endpoint together with the
+   * relevant resource endpoint(s) and merge (join) their results using the resource identifier.
+   *
+   * <p><strong>Hosts</strong>
+   *
+   * <p>To enrich host data, join the response from the <a
+   * href="https://docs.datadoghq.com/api/latest/hosts/">Hosts</a> endpoint with the response from
+   * the scanned-assets-metadata endpoint on the following key fields:
+   *
+   * <p>| ENDPOINT | JOIN KEY | TYPE | | --- | --- | --- | | <a
+   * href="https://docs.datadoghq.com/api/latest/hosts/">/api/v1/hosts</a> | host_list.host_name |
+   * string | | /api/v2/security/scanned-assets-metadata | data.attributes.asset.name | string |
+   *
+   * <p><strong>Host Images</strong>
+   *
+   * <p>To enrich host image data, join the response from the <a
+   * href="https://docs.datadoghq.com/api/latest/hosts/">Hosts</a> endpoint with the response from
+   * the scanned-assets-metadata endpoint on the following key fields:
+   *
+   * <p>| ENDPOINT | JOIN KEY | TYPE | | --- | --- | --- | | <a
+   * href="https://docs.datadoghq.com/api/latest/hosts/">/api/v1/hosts</a> |
+   * host_list.tags_by_source["Amazon Web Services"]["image"] | string | |
+   * /api/v2/security/scanned-assets-metadata | data.attributes.asset.name | string |
+   *
+   * <p><strong>Container Images</strong>
+   *
+   * <p>To enrich container image data, join the response from the <a
+   * href="https://docs.datadoghq.com/api/latest/container-images/">Container Images</a> endpoint
+   * with the response from the scanned-assets-metadata endpoint on the following key fields:
+   *
+   * <p>| ENDPOINT | JOIN KEY | TYPE | | --- | --- | --- | | <a
+   * href="https://docs.datadoghq.com/api/latest/container-images/">/api/v2/container_images</a> |
+   * <code>data.attributes.name</code>@<code>data.attributes.repo_digest</code> | string | |
+   * /api/v2/security/scanned-assets-metadata | data.attributes.asset.name | string |
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ScannedAssetsMetadata&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found: asset not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ScannedAssetsMetadata> listScannedAssetsMetadataWithHttpInfo(
+      ListScannedAssetsMetadataOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listScannedAssetsMetadata";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String pageToken = parameters.pageToken;
+    Long pageNumber = parameters.pageNumber;
+    CloudAssetType filterAssetType = parameters.filterAssetType;
+    String filterAssetName = parameters.filterAssetName;
+    String filterLastSuccessOrigin = parameters.filterLastSuccessOrigin;
+    String filterLastSuccessEnv = parameters.filterLastSuccessEnv;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/scanned-assets-metadata";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[token]", pageToken));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.type]", filterAssetType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.name]", filterAssetName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[last_success.origin]", filterLastSuccessOrigin));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[last_success.env]", filterLastSuccessEnv));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listScannedAssetsMetadata",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ScannedAssetsMetadata>() {});
+  }
+
+  /**
+   * List scanned assets metadata.
+   *
+   * <p>See {@link #listScannedAssetsMetadataWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ScannedAssetsMetadata&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ScannedAssetsMetadata>>
+      listScannedAssetsMetadataWithHttpInfoAsync(
+          ListScannedAssetsMetadataOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listScannedAssetsMetadata";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ScannedAssetsMetadata>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String pageToken = parameters.pageToken;
+    Long pageNumber = parameters.pageNumber;
+    CloudAssetType filterAssetType = parameters.filterAssetType;
+    String filterAssetName = parameters.filterAssetName;
+    String filterLastSuccessOrigin = parameters.filterLastSuccessOrigin;
+    String filterLastSuccessEnv = parameters.filterLastSuccessEnv;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/scanned-assets-metadata";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[token]", pageToken));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.type]", filterAssetType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.name]", filterAssetName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[last_success.origin]", filterLastSuccessOrigin));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[last_success.env]", filterLastSuccessEnv));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listScannedAssetsMetadata",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ScannedAssetsMetadata>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ScannedAssetsMetadata>() {});
+  }
+
   /**
    * Get all security filters.
    *
@@ -8650,7 +9003,8 @@ public class SecurityMonitoringApi {
     /**
      * Set filterAssetName.
      *
-     * @param filterAssetName Filter by asset name. (optional)
+     * @param filterAssetName Filter by asset name. This field supports the usage of wildcards (*).
+     *     (optional)
      * @return ListVulnerabilitiesOptionalParameters
      */
     public ListVulnerabilitiesOptionalParameters filterAssetName(String filterAssetName) {
@@ -8938,6 +9292,8 @@ public class SecurityMonitoringApi {
    *
    * <p>This token can then be used in the subsequent paginated requests.
    *
+   * <p><em>Note: The first request may take longer to complete than subsequent requests.</em>
+   *
    * <h3>Subsequent requests</h3>
    *
    * <p>Any request containing valid <code>page[token]</code> and <code>page[number]</code>
@@ -8946,6 +9302,10 @@ public class SecurityMonitoringApi {
    * <p>If the <code>token</code> is invalid, a <code>404</code> response will be returned.
    *
    * <p>If the page <code>number</code> is invalid, a <code>400</code> response will be returned.
+   *
+   * <p>The returned <code>token</code> is valid for all requests in the pagination sequence. To
+   * send paginated requests in parallel, reuse the same <code>token</code> and change only the
+   * <code>page[number]</code> parameter.
    *
    * <h3>Filtering</h3>
    *
@@ -8988,6 +9348,15 @@ public class SecurityMonitoringApi {
    *   },
    *   "links": {...}
    * }</code>
+   *
+   * <h3>Extensions</h3>
+   *
+   * <p>Requests may include extensions to modify the behavior of the requested endpoint. The filter
+   * parameters follow the <a href="https://jsonapi.org/extensions/#extensions">JSON:API format</a>
+   * format: <code>ext:$extension_name</code>, where <code>extension_name</code> is the name of the
+   * modifier that is being applied.
+   *
+   * <p>Extensions can only include one value: <code>ext:modifier=value</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListVulnerabilitiesResponse&gt;
@@ -9085,7 +9454,7 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[library.version]", filterLibraryVersion));
     localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[advisory_id]", filterAdvisoryId));
+        apiClient.parameterToPairs("", "filter[advisory.id]", filterAdvisoryId));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs(
             "", "filter[risks.exploitation_probability]", filterRisksExploitationProbability));
@@ -9271,7 +9640,7 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[library.version]", filterLibraryVersion));
     localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[advisory_id]", filterAdvisoryId));
+        apiClient.parameterToPairs("", "filter[advisory.id]", filterAdvisoryId));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs(
             "", "filter[risks.exploitation_probability]", filterRisksExploitationProbability));
@@ -9418,7 +9787,7 @@ public class SecurityMonitoringApi {
     /**
      * Set filterName.
      *
-     * @param filterName Filter by name. (optional)
+     * @param filterName Filter by name. This field supports the usage of wildcards (*). (optional)
      * @return ListVulnerableAssetsOptionalParameters
      */
     public ListVulnerableAssetsOptionalParameters filterName(String filterName) {
@@ -9711,7 +10080,7 @@ public class SecurityMonitoringApi {
     String filterOperatingSystemName = parameters.filterOperatingSystemName;
     String filterOperatingSystemVersion = parameters.filterOperatingSystemVersion;
     // create path and map variables
-    String localVarPath = "/api/v2/security/assets";
+    String localVarPath = "/api/v2/security/vulnerable-assets";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -9809,7 +10178,7 @@ public class SecurityMonitoringApi {
     String filterOperatingSystemName = parameters.filterOperatingSystemName;
     String filterOperatingSystemVersion = parameters.filterOperatingSystemVersion;
     // create path and map variables
-    String localVarPath = "/api/v2/security/assets";
+    String localVarPath = "/api/v2/security/vulnerable-assets";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
