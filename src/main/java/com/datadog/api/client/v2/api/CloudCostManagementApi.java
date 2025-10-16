@@ -2524,7 +2524,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Get ruleset.
+   * Get a tag pipeline ruleset.
    *
    * <p>See {@link #getTagPipelinesRulesetWithHttpInfo}.
    *
@@ -2537,7 +2537,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Get ruleset.
+   * Get a tag pipeline ruleset.
    *
    * <p>See {@link #getTagPipelinesRulesetWithHttpInfoAsync}.
    *
@@ -2603,7 +2603,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Get ruleset.
+   * Get a tag pipeline ruleset.
    *
    * <p>See {@link #getTagPipelinesRulesetWithHttpInfo}.
    *

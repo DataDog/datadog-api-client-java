@@ -1,4 +1,4 @@
-// Get ruleset returns "OK" response
+// Get a tag pipeline ruleset returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -11,7 +11,8 @@ public class Example {
     CloudCostManagementApi apiInstance = new CloudCostManagementApi(defaultClient);
 
     try {
-      RulesetResp result = apiInstance.getTagPipelinesRuleset("ruleset_id");
+      RulesetResp result =
+          apiInstance.getTagPipelinesRuleset("a1e9de9b-b88e-41c6-a0cd-cc0ebd7092de");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CloudCostManagementApi#getTagPipelinesRuleset");
