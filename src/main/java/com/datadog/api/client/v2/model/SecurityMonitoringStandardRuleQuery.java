@@ -27,6 +27,7 @@ import java.util.Objects;
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_INDEX,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_INDEXES,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_METRIC,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_METRICS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_NAME,
@@ -58,6 +59,9 @@ public class SecurityMonitoringStandardRuleQuery {
 
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
+
+  public static final String JSON_PROPERTY_INDEXES = "indexes";
+  private List<String> indexes = null;
 
   public static final String JSON_PROPERTY_METRIC = "metric";
   private String metric;
@@ -249,6 +253,37 @@ public class SecurityMonitoringStandardRuleQuery {
     this.index = index;
   }
 
+  public SecurityMonitoringStandardRuleQuery indexes(List<String> indexes) {
+    this.indexes = indexes;
+    return this;
+  }
+
+  public SecurityMonitoringStandardRuleQuery addIndexesItem(String indexesItem) {
+    if (this.indexes == null) {
+      this.indexes = new ArrayList<>();
+    }
+    this.indexes.add(indexesItem);
+    return this;
+  }
+
+  /**
+   * List of indexes to query when the <code>dataSource</code> is <code>logs</code>. Only used for
+   * scheduled rules, such as when the <code>schedulingOptions</code> field is present in the rule
+   * payload.
+   *
+   * @return indexes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIndexes() {
+    return indexes;
+  }
+
+  public void setIndexes(List<String> indexes) {
+    this.indexes = indexes;
+  }
+
   public SecurityMonitoringStandardRuleQuery metric(String metric) {
     this.metric = metric;
     return this;
@@ -414,6 +449,7 @@ public class SecurityMonitoringStandardRuleQuery {
             this.hasOptionalGroupByFields,
             securityMonitoringStandardRuleQuery.hasOptionalGroupByFields)
         && Objects.equals(this.index, securityMonitoringStandardRuleQuery.index)
+        && Objects.equals(this.indexes, securityMonitoringStandardRuleQuery.indexes)
         && Objects.equals(this.metric, securityMonitoringStandardRuleQuery.metric)
         && Objects.equals(this.metrics, securityMonitoringStandardRuleQuery.metrics)
         && Objects.equals(this.name, securityMonitoringStandardRuleQuery.name)
@@ -432,6 +468,7 @@ public class SecurityMonitoringStandardRuleQuery {
         groupByFields,
         hasOptionalGroupByFields,
         index,
+        indexes,
         metric,
         metrics,
         name,
@@ -454,6 +491,7 @@ public class SecurityMonitoringStandardRuleQuery {
         .append(toIndentedString(hasOptionalGroupByFields))
         .append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

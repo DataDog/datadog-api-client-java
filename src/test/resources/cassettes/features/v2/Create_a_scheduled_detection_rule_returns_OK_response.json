@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_scheduled_detection_rule_returns_OK_response-1753948107\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"index\":\"main\",\"query\":\"@test:true\"}],\"schedulingOptions\":{\"rrule\":\"FREQ=HOURLY;INTERVAL=2;\",\"start\":\"2025-06-18T12:00:00\",\"timezone\":\"Europe/Paris\"},\"tags\":[],\"type\":\"log_detection\"}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_scheduled_detection_rule_returns_OK_response-1760389905\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"indexes\":[\"main\"],\"query\":\"@test:true\"}],\"schedulingOptions\":{\"rrule\":\"FREQ=HOURLY;INTERVAL=2;\",\"start\":\"2025-06-18T12:00:00\",\"timezone\":\"Europe/Paris\"},\"tags\":[],\"type\":\"log_detection\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"name\":\"Test-Create_a_scheduled_detection_rule_returns_OK_response-1753948107\",\"createdAt\":1753948107557,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isBeta\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"dataSource\":\"logs\",\"index\":\"main\"}],\"options\":{\"evaluationWindow\":900,\"detectionMethod\":\"threshold\",\"maxSignalDuration\":86400,\"keepAlive\":3600},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a \\u003e 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[],\"version\":1,\"id\":\"8dd-els-oyn\",\"blocking\":false,\"metadata\":{\"entities\":null,\"sources\":null},\"creationAuthorId\":1445416,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"updater\":{\"handle\":\"\",\"name\":\"\"},\"schedulingOptions\":{\"rrule\":\"FREQ=HOURLY;INTERVAL=2;\",\"start\":\"2025-06-18T12:00:00\",\"timezone\":\"Europe/Paris\"}}",
+      "body": "{\"name\":\"Test-Create_a_scheduled_detection_rule_returns_OK_response-1760389905\",\"createdAt\":1760389906051,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isBeta\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"dataSource\":\"logs\",\"index\":\"main\",\"indexes\":[\"main\"]}],\"options\":{\"evaluationWindow\":900,\"detectionMethod\":\"threshold\",\"maxSignalDuration\":86400,\"keepAlive\":3600},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a \\u003e 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[],\"version\":1,\"id\":\"vgs-rrg-orf\",\"blocking\":false,\"metadata\":{\"entities\":null,\"sources\":null},\"creationAuthorId\":1445416,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"updater\":{\"handle\":\"\",\"name\":\"\"},\"schedulingOptions\":{\"rrule\":\"FREQ=HOURLY;INTERVAL=2;\",\"start\":\"2025-06-18T12:00:00\",\"timezone\":\"Europe/Paris\"}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "65e5fd9c-f3ea-d6c4-2b6c-2fecaf3465a1"
+    "id": "9e554439-1b54-c57a-6309-6e4100546bfd"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/8dd-els-oyn",
+      "path": "/api/v2/security_monitoring/rules/vgs-rrg-orf",
       "keepAlive": false,
       "secure": true
     },
@@ -48,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9ba28a92-1a04-dada-8d9d-8beaa90e5bf7"
+    "id": "3f90a9ee-1856-1d23-8f2f-54a61f8a9e13"
   }
 ]
