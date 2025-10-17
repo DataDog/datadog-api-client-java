@@ -25,6 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   CaseAttributes.JSON_PROPERTY_ATTRIBUTES,
   CaseAttributes.JSON_PROPERTY_CLOSED_AT,
   CaseAttributes.JSON_PROPERTY_CREATED_AT,
+  CaseAttributes.JSON_PROPERTY_CUSTOM_ATTRIBUTES,
   CaseAttributes.JSON_PROPERTY_DESCRIPTION,
   CaseAttributes.JSON_PROPERTY_JIRA_ISSUE,
   CaseAttributes.JSON_PROPERTY_KEY,
@@ -33,7 +34,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   CaseAttributes.JSON_PROPERTY_SERVICE_NOW_TICKET,
   CaseAttributes.JSON_PROPERTY_STATUS,
   CaseAttributes.JSON_PROPERTY_TITLE,
-  CaseAttributes.JSON_PROPERTY_TYPE
+  CaseAttributes.JSON_PROPERTY_TYPE,
+  CaseAttributes.JSON_PROPERTY_TYPE_ID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -50,6 +52,9 @@ public class CaseAttributes {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTES = "custom_attributes";
+  private Map<String, CustomAttributeValue> customAttributes = null;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -78,6 +83,9 @@ public class CaseAttributes {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private CaseType type;
+
+  public static final String JSON_PROPERTY_TYPE_ID = "type_id";
+  private String typeId;
 
   /**
    * Timestamp of when the case was archived
@@ -170,6 +178,36 @@ public class CaseAttributes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
+  }
+
+  public CaseAttributes customAttributes(Map<String, CustomAttributeValue> customAttributes) {
+    this.customAttributes = customAttributes;
+    return this;
+  }
+
+  public CaseAttributes putCustomAttributesItem(
+      String key, CustomAttributeValue customAttributesItem) {
+    if (this.customAttributes == null) {
+      this.customAttributes = new HashMap<>();
+    }
+    this.customAttributes.put(key, customAttributesItem);
+    return this;
+  }
+
+  /**
+   * Case custom attributes
+   *
+   * @return customAttributes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, CustomAttributeValue> getCustomAttributes() {
+    return customAttributes;
+  }
+
+  public void setCustomAttributes(Map<String, CustomAttributeValue> customAttributes) {
+    this.customAttributes = customAttributes;
   }
 
   public CaseAttributes description(String description) {
@@ -373,7 +411,9 @@ public class CaseAttributes {
    * Case type
    *
    * @return type
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -381,11 +421,33 @@ public class CaseAttributes {
     return type;
   }
 
+  @Deprecated
   public void setType(CaseType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
     this.type = type;
+  }
+
+  public CaseAttributes typeId(String typeId) {
+    this.typeId = typeId;
+    return this;
+  }
+
+  /**
+   * Case type UUID
+   *
+   * @return typeId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTypeId() {
+    return typeId;
+  }
+
+  public void setTypeId(String typeId) {
+    this.typeId = typeId;
   }
 
   /**
@@ -448,6 +510,7 @@ public class CaseAttributes {
         && Objects.equals(this.attributes, caseAttributes.attributes)
         && Objects.equals(this.closedAt, caseAttributes.closedAt)
         && Objects.equals(this.createdAt, caseAttributes.createdAt)
+        && Objects.equals(this.customAttributes, caseAttributes.customAttributes)
         && Objects.equals(this.description, caseAttributes.description)
         && Objects.equals(this.jiraIssue, caseAttributes.jiraIssue)
         && Objects.equals(this.key, caseAttributes.key)
@@ -457,6 +520,7 @@ public class CaseAttributes {
         && Objects.equals(this.status, caseAttributes.status)
         && Objects.equals(this.title, caseAttributes.title)
         && Objects.equals(this.type, caseAttributes.type)
+        && Objects.equals(this.typeId, caseAttributes.typeId)
         && Objects.equals(this.additionalProperties, caseAttributes.additionalProperties);
   }
 
@@ -467,6 +531,7 @@ public class CaseAttributes {
         attributes,
         closedAt,
         createdAt,
+        customAttributes,
         description,
         jiraIssue,
         key,
@@ -476,6 +541,7 @@ public class CaseAttributes {
         status,
         title,
         type,
+        typeId,
         additionalProperties);
   }
 
@@ -487,6 +553,7 @@ public class CaseAttributes {
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    closedAt: ").append(toIndentedString(closedAt)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    jiraIssue: ").append(toIndentedString(jiraIssue)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
@@ -496,6 +563,7 @@ public class CaseAttributes {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    typeId: ").append(toIndentedString(typeId)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

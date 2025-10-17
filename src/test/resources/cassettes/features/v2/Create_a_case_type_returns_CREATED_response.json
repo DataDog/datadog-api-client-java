@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Investigations done in case management\",\"emoji\":\"\ud83d\udc51\",\"name\":\"Investigation\"},\"type\":\"case_type\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/types",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"e3cb41d0-cd05-4c9d-8158-fc044587487f\",\"type\":\"case_type\",\"attributes\":{\"description\":\"Investigations done in case management\",\"emoji\":\"\ud83d\udc51\",\"internal\":false,\"name\":\"Investigation\",\"statuses_config\":{\"open\":{\"status_options\":[{\"name\":\"Open\"}],\"default\":\"Open\"},\"in_progress\":{\"status_options\":[{\"name\":\"In Progress\"}],\"default\":\"In Progress\"},\"closed\":{\"status_options\":[{\"name\":\"Closed\"}],\"default\":\"Closed\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "28a9041b-1142-bed5-dadf-ea904b8411ae"
+  }
+]
