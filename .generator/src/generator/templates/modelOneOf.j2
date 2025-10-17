@@ -70,8 +70,10 @@ public class {{ name }} extends AbstractOpenApiSchema {
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
             {%- for oneOf in model.oneOf %}
-            {%- set unParameterizedDataType = get_type(oneOf)|un_parameterize_type %}
-            // deserialize {{ unParameterizedDataType }}
+            {%- set parameterizedDataType = get_type(oneOf) %}
+            {%- set unParameterizedDataType = parameterizedDataType|un_parameterize_type %}
+            {%- set isParameterized = parameterizedDataType|is_parameterized_type %}
+            // deserialize {{ parameterizedDataType }}
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
@@ -88,7 +90,11 @@ public class {{ name }} extends AbstractOpenApiSchema {
                     }
                 }
                 if (attemptParsing) {
+                    {%- if isParameterized %}
+                    tmp = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<{{ parameterizedDataType }}>() {});
+                    {%- else %}
                     tmp = tree.traverse(jp.getCodec()).readValueAs({{ unParameterizedDataType }}.class);
+                    {%- endif %}
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -101,11 +107,11 @@ public class {{ name }} extends AbstractOpenApiSchema {
                     deserialized = tmp;
                     match++;
                     {% endif %}
-                    log.log(Level.FINER, "Input data matches schema '{{ unParameterizedDataType }}'");
+                    log.log(Level.FINER, "Input data matches schema '{{ parameterizedDataType }}'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema '{{ unParameterizedDataType }}'", e);
+                log.log(Level.FINER, "Input data does not match schema '{{ parameterizedDataType }}'", e);
             }
             {#  #}
             {%- endfor %}

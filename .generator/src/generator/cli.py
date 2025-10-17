@@ -52,6 +52,7 @@ def cli(specs, output):
     env.filters["docstring"] = formatter.docstring
     env.filters["inline_docstring"] = formatter.inline_docstring
     env.filters["un_parameterize_type"] = formatter.un_parameterize_type
+    env.filters["is_parameterized_type"] = formatter.is_parameterized_type
 
     env.globals["enumerate"] = enumerate
     env.globals["get_name"] = openapi.get_name

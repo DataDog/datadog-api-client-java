@@ -120,7 +120,7 @@ public class ActionQuerySpecInputs extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'String'", e);
       }
 
-      // deserialize Map
+      // deserialize Map<String, Object>
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
@@ -146,18 +146,19 @@ public class ActionQuerySpecInputs extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(Map.class);
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Map<String, Object>>() {});
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
           deserialized = tmp;
           match++;
 
-          log.log(Level.FINER, "Input data matches schema 'Map'");
+          log.log(Level.FINER, "Input data matches schema 'Map<String, Object>'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'Map'", e);
+        log.log(Level.FINER, "Input data does not match schema 'Map<String, Object>'", e);
       }
 
       ActionQuerySpecInputs ret = new ActionQuerySpecInputs();
