@@ -1,0 +1,62 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Worldwide case type\",\"emoji\":\"\ud83c\udf0d\",\"name\":\"World\"},\"type\":\"case_type\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/types",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"a52ea7e5-7cdf-4414-a585-63e58d3dc7a0\",\"type\":\"case_type\",\"attributes\":{\"description\":\"Worldwide case type\",\"emoji\":\"\ud83c\udf0d\",\"internal\":false,\"name\":\"World\",\"statuses_config\":{\"open\":{\"status_options\":[{\"name\":\"Open\"}],\"default\":\"Open\"},\"in_progress\":{\"status_options\":[{\"name\":\"In Progress\"}],\"default\":\"In Progress\"},\"closed\":{\"status_options\":[{\"name\":\"Closed\"}],\"default\":\"Closed\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dc45fc73-0f09-c12d-941b-eaf799af6466"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"display_name\":\"AWS Region 17593230-0000-0000-0000-175932301100\",\"is_multi\":true,\"key\":\"region_4fd8eeb20ad8f927\",\"type\":\"FLOAT\"},\"type\":\"custom_attribute\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/types/a52ea7e5-7cdf-4414-a585-63e58d3dc7a0/custom_attributes",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4126a24e-c727-68f9-00a4-f66380b3d6e0"
+  }
+]

@@ -1,0 +1,139 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Worldwide case type\",\"emoji\":\"\ud83c\udf0d\",\"name\":\"World\"},\"type\":\"case_type\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/types",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"3dd78296-b989-466d-97ef-428517d851ee\",\"type\":\"case_type\",\"attributes\":{\"description\":\"Worldwide case type\",\"emoji\":\"\ud83c\udf0d\",\"name\":\"World\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dc45fc73-0f09-c12d-941b-eaf799af6463"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"And its brand new description\",\"display_name\":\"Attribute 17557789-0000-0000-0000-175577890200\",\"is_multi\":true,\"key\":\"attribute_08d279361f9bcdbb\",\"type\":\"TEXT\"},\"type\":\"custom_attribute\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/types/3dd78296-b989-466d-97ef-428517d851ee/custom_attributes",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"c18c3669-9507-4293-ac56-08711b1e16a6\",\"type\":\"custom_attribute\",\"attributes\":{\"case_type\":\"TUNKNOWN\",\"case_type_id\":\"3dd78296-b989-466d-97ef-428517d851ee\",\"description\":\"And its brand new description\",\"display_name\":\"Attribute 17557789-0000-0000-0000-175577890200\",\"is_multi\":true,\"key\":\"attribute_08d279361f9bcdbb\",\"type\":\"TEXT\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "eed2101f-c442-228b-8e95-d4e94cd0ee5f"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"priority\":\"P4\",\"title\":\"My new case\",\"type_id\":\"3dd78296-b989-466d-97ef-428517d851ee\"},\"relationships\":{\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}},\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"15f17d2e-4972-44d9-9f31-684f2d19a16c\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"comment_count\":0,\"created_at\":\"2025-08-21T12:21:43.791404Z\",\"creation_source\":\"MANUAL\",\"custom_attributes\":{},\"description\":\"\",\"insights\":[],\"internal_id\":\"15f17d2e-4972-44d9-9f31-684f2d19a16c\",\"key\":\"DDFC-77686\",\"merge_status\":\"NOT_MERGED\",\"priority\":\"P4\",\"public_id\":\"77769\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"TUNKNOWN\",\"type_id\":\"3dd78296-b989-466d-97ef-428517d851ee\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\",\"attributes\":{\"active\":true,\"email\":\"frog@datadoghq.com\",\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2006258b-82c5-50f4-4e19-b5b4f4ca3f5c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/cases/15f17d2e-4972-44d9-9f31-684f2d19a16c/custom_attributes/attribute_08d279361f9bcdbb",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"15f17d2e-4972-44d9-9f31-684f2d19a16c\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"comment_count\":0,\"created_at\":\"2025-08-21T12:21:43.791404Z\",\"creation_source\":\"MANUAL\",\"custom_attributes\":{},\"description\":\"\",\"insights\":[],\"internal_id\":\"15f17d2e-4972-44d9-9f31-684f2d19a16c\",\"key\":\"DDFC-77686\",\"merge_status\":\"NOT_MERGED\",\"priority\":\"P4\",\"public_id\":\"77769\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"TUNKNOWN\",\"type_id\":\"3dd78296-b989-466d-97ef-428517d851ee\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\",\"attributes\":{\"active\":true,\"email\":\"frog@datadoghq.com\",\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cc204f00-01c7-9cb8-606a-150e24c6ab29"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/cases/types/3dd78296-b989-466d-97ef-428517d851ee",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c1761595-88eb-1b82-8849-239e3345d4ae"
+  }
+]

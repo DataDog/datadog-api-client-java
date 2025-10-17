@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"priority\":\"NOT_DEFINED\",\"title\":\"Security breach investigation\",\"type_id\":\"00000000-0000-0000-0000-000000000001\"},\"relationships\":{\"assignee\":{\"data\":{\"id\":\"721074c8-63df-4d8f-a43d-ab41dd24ec35\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"721074c8-63df-4d8f-a43d-ab41dd24ec35\",\"type\":\"project\"}}},\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"code\":\"resource_not_found\",\"title\":\"project not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "592a4a0e-3f30-cc8a-ae6f-a53a79b0595a"
+  }
+]
