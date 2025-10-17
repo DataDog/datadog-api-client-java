@@ -223,7 +223,10 @@ public class ContainerImagesApi {
   }
 
   /**
-   * Get all Container Images for your organization.
+   * Get all Container Images for your organization. <strong>Note</strong>: To enrich the data
+   * returned by this endpoint with security scans, see the new <a
+   * href="https://docs.datadoghq.com/api/latest/security-monitoring/#list-scanned-assets-metadata">api/v2/security/scanned-assets-metadata</a>
+   * endpoint.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ContainerImagesResponse&gt;
