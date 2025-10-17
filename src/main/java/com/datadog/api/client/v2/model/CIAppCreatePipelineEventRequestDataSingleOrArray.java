@@ -139,7 +139,7 @@ public class CIAppCreatePipelineEventRequestDataSingleOrArray extends AbstractOp
             e);
       }
 
-      // deserialize List
+      // deserialize List<CIAppCreatePipelineEventRequestData>
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
@@ -165,18 +165,24 @@ public class CIAppCreatePipelineEventRequestDataSingleOrArray extends AbstractOp
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(List.class);
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(new TypeReference<List<CIAppCreatePipelineEventRequestData>>() {});
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
           deserialized = tmp;
           match++;
 
-          log.log(Level.FINER, "Input data matches schema 'List'");
+          log.log(
+              Level.FINER, "Input data matches schema 'List<CIAppCreatePipelineEventRequestData>'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'List'", e);
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'List<CIAppCreatePipelineEventRequestData>'",
+            e);
       }
 
       CIAppCreatePipelineEventRequestDataSingleOrArray ret =

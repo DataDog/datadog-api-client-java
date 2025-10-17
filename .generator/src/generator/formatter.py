@@ -157,6 +157,11 @@ def un_parameterize_type(type):
     return UN_PARAMETERIZE.sub("", type)
 
 
+def is_parameterized_type(type):
+    """Check if a type has generic parameters (e.g., List<String>)."""
+    return '<' in type and '>' in type
+
+
 def format_value(value, quotes='"', schema=None, default_value=False, type_=None):
     if schema:
         if "enum" in schema and default_value:

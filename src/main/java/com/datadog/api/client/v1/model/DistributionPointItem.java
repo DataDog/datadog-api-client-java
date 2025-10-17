@@ -121,7 +121,7 @@ public class DistributionPointItem extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'Double'", e);
       }
 
-      // deserialize List
+      // deserialize List<Double>
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
@@ -147,18 +147,18 @@ public class DistributionPointItem extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(List.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<List<Double>>() {});
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
           deserialized = tmp;
           match++;
 
-          log.log(Level.FINER, "Input data matches schema 'List'");
+          log.log(Level.FINER, "Input data matches schema 'List<Double>'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'List'", e);
+        log.log(Level.FINER, "Input data does not match schema 'List<Double>'", e);
       }
 
       DistributionPointItem ret = new DistributionPointItem();

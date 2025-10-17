@@ -127,7 +127,7 @@ public class SharedDashboardInvitesData extends AbstractOpenApiSchema {
             Level.FINER, "Input data does not match schema 'SharedDashboardInvitesDataObject'", e);
       }
 
-      // deserialize List
+      // deserialize List<SharedDashboardInvitesDataObject>
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
@@ -153,18 +153,24 @@ public class SharedDashboardInvitesData extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(List.class);
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(new TypeReference<List<SharedDashboardInvitesDataObject>>() {});
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
           deserialized = tmp;
           match++;
 
-          log.log(Level.FINER, "Input data matches schema 'List'");
+          log.log(
+              Level.FINER, "Input data matches schema 'List<SharedDashboardInvitesDataObject>'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'List'", e);
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'List<SharedDashboardInvitesDataObject>'",
+            e);
       }
 
       SharedDashboardInvitesData ret = new SharedDashboardInvitesData();
