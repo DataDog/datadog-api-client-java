@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"name\":\"my_agent_policy_2\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"name\":\"testcreateaworkloadprotectionpolicyreturnsokresponse1760630575\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"fwg-18e-cfb\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"monitoringRulesCount\":7,\"name\":\"my_agent_policy_2\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760109655264,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"dkt-nw6-1fd\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"monitoringRulesCount\":7,\"name\":\"testcreateaworkloadprotectionpolicyreturnsokresponse1760630575\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760630575680,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2c2242c5-6c99-0c19-9d82-af5c78541c7d"
+    "id": "3bf09540-e490-bcc6-dc81-3d43e96346f3"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/fwg-18e-cfb",
+      "path": "/api/v2/remote_config/products/cws/policy/dkt-nw6-1fd",
       "keepAlive": false,
       "secure": true
     },
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "11bc60c1-34cf-24c9-bd0f-1f701b478b33"
+    "id": "d1444ade-5dbb-eb18-0d17-60f6dc74954f"
   }
 ]

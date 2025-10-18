@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateaworkloadprotectionpolicyreturnsbadrequestresponse1760109691\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateaworkloadprotectionpolicyreturnsbadrequestresponse1760630602\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"wun-ynf-q3m\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:staging\"]],\"monitoringRulesCount\":7,\"name\":\"testupdateaworkloadprotectionpolicyreturnsbadrequestresponse1760109691\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760109692276,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"hen-r9f-dcm\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:staging\"]],\"monitoringRulesCount\":7,\"name\":\"testupdateaworkloadprotectionpolicyreturnsbadrequestresponse1760630602\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760630603377,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,17 +27,17 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9fcf4287-4dbd-b918-f728-7d0834cd3ef6"
+    "id": "4545d882-1eb4-721f-6c77-981926f477ff"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:test\"],\"hostTagsLists\":[[\"env:test\"]],\"name\":\"\"},\"id\":\"wun-ynf-q3m\",\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:test\"],\"hostTagsLists\":[[\"env:test\"]],\"name\":\"\"},\"id\":\"hen-r9f-dcm\",\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/remote_config/products/cws/policy/wun-ynf-q3m",
+      "path": "/api/v2/remote_config/products/cws/policy/hen-r9f-dcm",
       "keepAlive": false,
       "secure": true
     },
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1b9f137d-7874-e725-f546-65d35fb63509"
+    "id": "924a0c9b-5e5c-7a83-41f9-5b29fd64035a"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/wun-ynf-q3m",
+      "path": "/api/v2/remote_config/products/cws/policy/hen-r9f-dcm",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7309b8fe-e432-824d-6fa4-0106bd7d3650"
+    "id": "89dfd957-7a03-9068-9d5e-7019c63bc22b"
   }
 ]

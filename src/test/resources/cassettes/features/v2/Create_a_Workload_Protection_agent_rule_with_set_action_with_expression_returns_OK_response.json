@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760109650\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760630572\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"lrl-nbx-opl\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:staging\"]],\"monitoringRulesCount\":7,\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760109650\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760109650938,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"4p0-bn9-wus\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:staging\"]],\"monitoringRulesCount\":7,\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760630572\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760630572852,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "04316f91-4d99-3019-7eb0-6227d51cac46"
+    "id": "33da6106-566c-d6eb-b3b1-c67b494fa153"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"actions\":[{\"set\":{\"default_value\":\"/dev/null\",\"expression\":\"open.file.path\",\"name\":\"test_set\",\"scope\":\"process\"}}],\"description\":\"My Agent rule with set action with expression\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760109650\",\"policy_id\":\"lrl-nbx-opl\",\"product_tags\":[]},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"actions\":[{\"set\":{\"default_value\":\"/dev/null\",\"expression\":\"open.file.path\",\"name\":\"test_set\",\"scope\":\"process\"}}],\"description\":\"My Agent rule with set action with expression\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760630572\",\"policy_id\":\"4p0-bn9-wus\",\"product_tags\":[]},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ye3-8k9-6ut\",\"type\":\"agent_rule\",\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"default_value\":\"/dev/null\",\"scope\":\"process\",\"expression\":\"open.file.path\",\"inherited\":false},\"disabled\":false}],\"category\":\"Process Activity\",\"creationDate\":1760109651835,\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule with set action with expression\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"monitoring\":[\"lrl-nbx-opl\"],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760109650\",\"product_tags\":[],\"updateDate\":1760109651835,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"pmh-h1z-xw6\",\"type\":\"agent_rule\",\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"default_value\":\"/dev/null\",\"scope\":\"process\",\"expression\":\"open.file.path\",\"inherited\":false},\"disabled\":false}],\"category\":\"Process Activity\",\"creationDate\":1760630573667,\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule with set action with expression\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"monitoring\":[\"4p0-bn9-wus\"],\"name\":\"testcreateaworkloadprotectionagentrulewithsetactionwithexpressionreturnsokresponse1760630572\",\"product_tags\":[],\"updateDate\":1760630573667,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6744d196-2b2e-ed10-e09e-8ba63fa6664b"
+    "id": "95be416a-7b81-92d2-6fc1-b6d857bac907"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/ye3-8k9-6ut",
+      "path": "/api/v2/remote_config/products/cws/policy/4p0-bn9-wus",
       "keepAlive": false,
       "secure": true
     },
@@ -82,31 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d117fe65-997b-1f97-f7d1-ace92ab91666"
-  },
-  {
-    "httpRequest": {
-      "headers": {},
-      "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/lrl-nbx-opl",
-      "keepAlive": false,
-      "secure": true
-    },
-    "httpResponse": {
-      "headers": {
-        "Content-Type": [
-          "application/json"
-        ]
-      },
-      "statusCode": 204,
-      "reasonPhrase": "No Content"
-    },
-    "times": {
-      "remainingTimes": 1
-    },
-    "timeToLive": {
-      "unlimited": true
-    },
-    "id": "7fd0e277-29dc-65d5-ec41-778c05a7bb74"
+    "id": "5824d5f0-9be9-af3f-37b2-2de3f8314f89"
   }
 ]

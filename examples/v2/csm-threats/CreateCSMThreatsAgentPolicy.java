@@ -25,7 +25,7 @@ public class Example {
                             .enabled(true)
                             .hostTagsLists(
                                 Collections.singletonList(Collections.singletonList("env:test")))
-                            .name("my_agent_policy_2"))
+                            .name("examplecsmthreat"))
                     .type(CloudWorkloadSecurityAgentPolicyType.POLICY));
 
     try {
