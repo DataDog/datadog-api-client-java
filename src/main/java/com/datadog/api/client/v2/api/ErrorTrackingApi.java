@@ -50,6 +50,140 @@ public class ErrorTrackingApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Remove the assignee of an issue.
+   *
+   * <p>See {@link #deleteIssueAssigneeWithHttpInfo}.
+   *
+   * @param issueId The identifier of the issue. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteIssueAssignee(String issueId) throws ApiException {
+    deleteIssueAssigneeWithHttpInfo(issueId);
+  }
+
+  /**
+   * Remove the assignee of an issue.
+   *
+   * <p>See {@link #deleteIssueAssigneeWithHttpInfoAsync}.
+   *
+   * @param issueId The identifier of the issue. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteIssueAssigneeAsync(String issueId) {
+    return deleteIssueAssigneeWithHttpInfoAsync(issueId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove the assignee of an issue by <code>issue_id</code>.
+   *
+   * @param issueId The identifier of the issue. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteIssueAssigneeWithHttpInfo(String issueId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'issueId' is set
+    if (issueId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'issueId' when calling deleteIssueAssignee");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/error-tracking/issues/{issue_id}/assignee"
+            .replaceAll("\\{" + "issue_id" + "\\}", apiClient.escapeString(issueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ErrorTrackingApi.deleteIssueAssignee",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove the assignee of an issue.
+   *
+   * <p>See {@link #deleteIssueAssigneeWithHttpInfo}.
+   *
+   * @param issueId The identifier of the issue. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteIssueAssigneeWithHttpInfoAsync(String issueId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'issueId' is set
+    if (issueId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'issueId' when calling deleteIssueAssignee"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/error-tracking/issues/{issue_id}/assignee"
+            .replaceAll("\\{" + "issue_id" + "\\}", apiClient.escapeString(issueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ErrorTrackingApi.deleteIssueAssignee",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
   /** Manage optional parameters to getIssue. */
   public static class GetIssueOptionalParameters {
     private List<GetIssueIncludeQueryParameterItem> include;
