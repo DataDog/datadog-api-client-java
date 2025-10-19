@@ -312,7 +312,6 @@
                             <include>org.glassfish.hk2:hk2-api</include>
                             <include>org.glassfish.hk2:hk2-utils</include>
                             <include>org.glassfish.jersey.media:jersey-media-multipart</include>
-                            <include>org.glassfish.jersey.media:jersey-media-json-jackson</include>
                             <include>org.glassfish.jersey.ext:jersey-entity-filtering</include>
                             <include>com.fasterxml.jackson.module:jackson-module-jaxb-annotations</include>
                             <include>com.fasterxml.jackson.core:jackson-core</include>
@@ -446,12 +445,6 @@
             <artifactId>jersey-media-multipart</artifactId>
             <version>${jersey-version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <version>${jersey-version}</version>
-        </dependency>
-
         <!-- JSON processing: jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -594,8 +587,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey-version>3.0.8</jersey-version>
-        <jackson-version>2.13.2</jackson-version>
-        <jackson-databind-version>2.13.4.2</jackson-databind-version>
+        <jackson-version>2.19.1</jackson-version>
+        <jackson-databind-version>2.11.1</jackson-databind-version>
         <jackson-databind-nullable-version>0.2.3</jackson-databind-nullable-version>
         <jakarta-annotation-version>2.1.0</jakarta-annotation-version>
         <scribejava-version>8.3.1</scribejava-version>
