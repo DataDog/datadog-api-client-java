@@ -892,9 +892,9 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Get the list of current AWS services that Datadog offers automatic log collection. Use returned
-   * service IDs with the services parameter for the Enable an AWS service log collection API
-   * endpoint.
+   * <strong>This endpoint is deprecated - use the V2 endpoint instead.</strong> Get the list of
+   * current AWS services that Datadog offers automatic log collection. Use returned service IDs
+   * with the services parameter for the Enable an AWS service log collection API endpoint.
    *
    * @return ApiResponse&lt;List&lt;AWSLogsListServicesResponse&gt;&gt;
    * @throws ApiException if fails to make API call
