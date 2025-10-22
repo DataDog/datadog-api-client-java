@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"from\":1759416220000,\"query\":\"service:synthetics-browser\",\"to\":1760712220000,\"track\":\"rum\"},\"type\":\"search_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/error-tracking/issues/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"d3ab59c6-84ee-11f0-87bb-da7ad0900002\",\"type\":\"error_tracking_search_result\",\"attributes\":{\"impacted_sessions\":4316,\"total_count\":8640},\"relationships\":{\"issue\":{\"data\":{\"id\":\"d3ab59c6-84ee-11f0-87bb-da7ad0900002\",\"type\":\"issue\"}}}},{\"id\":\"a5bb2896-a4d0-11f0-bd76-da7ad0900002\",\"type\":\"error_tracking_search_result\",\"attributes\":{\"impacted_sessions\":280,\"total_count\":272},\"relationships\":{\"issue\":{\"data\":{\"id\":\"a5bb2896-a4d0-11f0-bd76-da7ad0900002\",\"type\":\"issue\"}}}},{\"id\":\"e2a89d14-6f07-11f0-8a88-da7ad0900002\",\"type\":\"error_tracking_search_result\",\"attributes\":{\"impacted_sessions\":1,\"total_count\":4},\"relationships\":{\"issue\":{\"data\":{\"id\":\"e2a89d14-6f07-11f0-8a88-da7ad0900002\",\"type\":\"issue\"}}}},{\"id\":\"5f8ebd5c-6dd9-11f0-8a28-da7ad0900002\",\"type\":\"error_tracking_search_result\",\"attributes\":{\"impacted_sessions\":1,\"total_count\":1},\"relationships\":{\"issue\":{\"data\":{\"id\":\"5f8ebd5c-6dd9-11f0-8a28-da7ad0900002\",\"type\":\"issue\"}}}},{\"id\":\"e2a89134-6f07-11f0-8d36-da7ad0900002\",\"type\":\"error_tracking_search_result\",\"attributes\":{\"impacted_sessions\":1,\"total_count\":1},\"relationships\":{\"issue\":{\"data\":{\"id\":\"e2a89134-6f07-11f0-8d36-da7ad0900002\",\"type\":\"issue\"}}}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e395b278-a94e-06dd-7640-8834367dc3b0"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/error-tracking/issues/d3ab59c6-84ee-11f0-87bb-da7ad0900002/assignee",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "91bc6635-f1b8-69a9-caed-406220eadaf0"
+  }
+]
