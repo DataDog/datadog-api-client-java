@@ -687,6 +687,10 @@ public class ApiClient {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
+          put("v2.cancelFleetDeployment", false);
+          put("v2.createFleetDeploymentConfigure", false);
+          put("v2.getFleetDeployment", false);
+          put("v2.listFleetDeployments", false);
           put("v2.createOpenAPI", false);
           put("v2.deleteOpenAPI", false);
           put("v2.getOpenAPI", false);
