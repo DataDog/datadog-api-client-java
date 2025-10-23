@@ -921,6 +921,50 @@ public class LogsProcessor extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'LogsDecoderProcessor'", e);
       }
 
+      // deserialize LogsSchemaProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (LogsSchemaProcessor.class.equals(Integer.class)
+            || LogsSchemaProcessor.class.equals(Long.class)
+            || LogsSchemaProcessor.class.equals(Float.class)
+            || LogsSchemaProcessor.class.equals(Double.class)
+            || LogsSchemaProcessor.class.equals(Boolean.class)
+            || LogsSchemaProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((LogsSchemaProcessor.class.equals(Integer.class)
+                        || LogsSchemaProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((LogsSchemaProcessor.class.equals(Float.class)
+                        || LogsSchemaProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (LogsSchemaProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (LogsSchemaProcessor.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(LogsSchemaProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((LogsSchemaProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'LogsSchemaProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'LogsSchemaProcessor'", e);
+      }
+
       LogsProcessor ret = new LogsProcessor();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -1044,6 +1088,11 @@ public class LogsProcessor extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public LogsProcessor(LogsSchemaProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("LogsGrokParser", new GenericType<LogsGrokParser>() {});
     schemas.put("LogsDateRemapper", new GenericType<LogsDateRemapper>() {});
@@ -1066,6 +1115,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
     schemas.put("LogsSpanRemapper", new GenericType<LogsSpanRemapper>() {});
     schemas.put("LogsArrayProcessor", new GenericType<LogsArrayProcessor>() {});
     schemas.put("LogsDecoderProcessor", new GenericType<LogsDecoderProcessor>() {});
+    schemas.put("LogsSchemaProcessor", new GenericType<LogsSchemaProcessor>() {});
     JSON.registerDescendants(LogsProcessor.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -1081,7 +1131,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
    * LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,
    * LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser, LogsLookupProcessor,
    * ReferenceTableLogsLookupProcessor, LogsTraceRemapper, LogsSpanRemapper, LogsArrayProcessor,
-   * LogsDecoderProcessor
+   * LogsDecoderProcessor, LogsSchemaProcessor
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1165,6 +1215,10 @@ public class LogsProcessor extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(LogsSchemaProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -1176,7 +1230,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             + " LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,"
             + " LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser,"
             + " LogsLookupProcessor, ReferenceTableLogsLookupProcessor, LogsTraceRemapper,"
-            + " LogsSpanRemapper, LogsArrayProcessor, LogsDecoderProcessor");
+            + " LogsSpanRemapper, LogsArrayProcessor, LogsDecoderProcessor, LogsSchemaProcessor");
   }
 
   /**
@@ -1185,14 +1239,14 @@ public class LogsProcessor extends AbstractOpenApiSchema {
    * LogsURLParser, LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,
    * LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser, LogsLookupProcessor,
    * ReferenceTableLogsLookupProcessor, LogsTraceRemapper, LogsSpanRemapper, LogsArrayProcessor,
-   * LogsDecoderProcessor
+   * LogsDecoderProcessor, LogsSchemaProcessor
    *
    * @return The actual instance (LogsGrokParser, LogsDateRemapper, LogsStatusRemapper,
    *     LogsServiceRemapper, LogsMessageRemapper, LogsAttributeRemapper, LogsURLParser,
    *     LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,
    *     LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser, LogsLookupProcessor,
    *     ReferenceTableLogsLookupProcessor, LogsTraceRemapper, LogsSpanRemapper, LogsArrayProcessor,
-   *     LogsDecoderProcessor)
+   *     LogsDecoderProcessor, LogsSchemaProcessor)
    */
   @Override
   public Object getActualInstance() {
@@ -1407,5 +1461,16 @@ public class LogsProcessor extends AbstractOpenApiSchema {
    */
   public LogsDecoderProcessor getLogsDecoderProcessor() throws ClassCastException {
     return (LogsDecoderProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LogsSchemaProcessor`. If the actual instance is not
+   * `LogsSchemaProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LogsSchemaProcessor`
+   * @throws ClassCastException if the instance is not `LogsSchemaProcessor`
+   */
+  public LogsSchemaProcessor getLogsSchemaProcessor() throws ClassCastException {
+    return (LogsSchemaProcessor) super.getActualInstance();
   }
 }
