@@ -3,7 +3,7 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/siem-historical-detections/jobs/8e2a37fb-b0c8-4761-a7f0-0a8d6a98ba93",
+      "path": "/api/v2/siem-threat-hunting/jobs/8e2a37fb-b0c8-4761-a7f0-0a8d6a98ba93",
       "keepAlive": false,
       "secure": true
     },
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "30d26c2a-6439-71ca-9721-8f20041d2227"
+    "id": "5374e38c-5542-5a83-f75d-7f135c065277"
   }
 ]

@@ -18,18 +18,18 @@ import java.util.Objects;
 
 /** Job options. */
 @JsonPropertyOrder({
-  HistoricalJobOptions.JSON_PROPERTY_DETECTION_METHOD,
-  HistoricalJobOptions.JSON_PROPERTY_EVALUATION_WINDOW,
-  HistoricalJobOptions.JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS,
-  HistoricalJobOptions.JSON_PROPERTY_KEEP_ALIVE,
-  HistoricalJobOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
-  HistoricalJobOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS,
-  HistoricalJobOptions.JSON_PROPERTY_SEQUENCE_DETECTION_OPTIONS,
-  HistoricalJobOptions.JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS
+  ThreatHuntingJobOptions.JSON_PROPERTY_DETECTION_METHOD,
+  ThreatHuntingJobOptions.JSON_PROPERTY_EVALUATION_WINDOW,
+  ThreatHuntingJobOptions.JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS,
+  ThreatHuntingJobOptions.JSON_PROPERTY_KEEP_ALIVE,
+  ThreatHuntingJobOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
+  ThreatHuntingJobOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS,
+  ThreatHuntingJobOptions.JSON_PROPERTY_SEQUENCE_DETECTION_OPTIONS,
+  ThreatHuntingJobOptions.JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class HistoricalJobOptions {
+public class ThreatHuntingJobOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DETECTION_METHOD = "detectionMethod";
   private SecurityMonitoringRuleDetectionMethod detectionMethod;
@@ -55,7 +55,7 @@ public class HistoricalJobOptions {
   public static final String JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS = "thirdPartyRuleOptions";
   private SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions;
 
-  public HistoricalJobOptions detectionMethod(
+  public ThreatHuntingJobOptions detectionMethod(
       SecurityMonitoringRuleDetectionMethod detectionMethod) {
     this.detectionMethod = detectionMethod;
     this.unparsed |= !detectionMethod.isValid();
@@ -81,7 +81,7 @@ public class HistoricalJobOptions {
     this.detectionMethod = detectionMethod;
   }
 
-  public HistoricalJobOptions evaluationWindow(
+  public ThreatHuntingJobOptions evaluationWindow(
       SecurityMonitoringRuleEvaluationWindow evaluationWindow) {
     this.evaluationWindow = evaluationWindow;
     this.unparsed |= !evaluationWindow.isValid();
@@ -109,7 +109,7 @@ public class HistoricalJobOptions {
     this.evaluationWindow = evaluationWindow;
   }
 
-  public HistoricalJobOptions impossibleTravelOptions(
+  public ThreatHuntingJobOptions impossibleTravelOptions(
       SecurityMonitoringRuleImpossibleTravelOptions impossibleTravelOptions) {
     this.impossibleTravelOptions = impossibleTravelOptions;
     this.unparsed |= impossibleTravelOptions.unparsed;
@@ -133,7 +133,7 @@ public class HistoricalJobOptions {
     this.impossibleTravelOptions = impossibleTravelOptions;
   }
 
-  public HistoricalJobOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
+  public ThreatHuntingJobOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
     this.keepAlive = keepAlive;
     this.unparsed |= !keepAlive.isValid();
     return this;
@@ -159,7 +159,7 @@ public class HistoricalJobOptions {
     this.keepAlive = keepAlive;
   }
 
-  public HistoricalJobOptions maxSignalDuration(
+  public ThreatHuntingJobOptions maxSignalDuration(
       SecurityMonitoringRuleMaxSignalDuration maxSignalDuration) {
     this.maxSignalDuration = maxSignalDuration;
     this.unparsed |= !maxSignalDuration.isValid();
@@ -186,7 +186,7 @@ public class HistoricalJobOptions {
     this.maxSignalDuration = maxSignalDuration;
   }
 
-  public HistoricalJobOptions newValueOptions(
+  public ThreatHuntingJobOptions newValueOptions(
       SecurityMonitoringRuleNewValueOptions newValueOptions) {
     this.newValueOptions = newValueOptions;
     this.unparsed |= newValueOptions.unparsed;
@@ -209,7 +209,7 @@ public class HistoricalJobOptions {
     this.newValueOptions = newValueOptions;
   }
 
-  public HistoricalJobOptions sequenceDetectionOptions(
+  public ThreatHuntingJobOptions sequenceDetectionOptions(
       SecurityMonitoringRuleSequenceDetectionOptions sequenceDetectionOptions) {
     this.sequenceDetectionOptions = sequenceDetectionOptions;
     this.unparsed |= sequenceDetectionOptions.unparsed;
@@ -233,7 +233,7 @@ public class HistoricalJobOptions {
     this.sequenceDetectionOptions = sequenceDetectionOptions;
   }
 
-  public HistoricalJobOptions thirdPartyRuleOptions(
+  public ThreatHuntingJobOptions thirdPartyRuleOptions(
       SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions) {
     this.thirdPartyRuleOptions = thirdPartyRuleOptions;
     this.unparsed |= thirdPartyRuleOptions.unparsed;
@@ -269,10 +269,10 @@ public class HistoricalJobOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return HistoricalJobOptions
+   * @return ThreatHuntingJobOptions
    */
   @JsonAnySetter
-  public HistoricalJobOptions putAdditionalProperty(String key, Object value) {
+  public ThreatHuntingJobOptions putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -303,7 +303,7 @@ public class HistoricalJobOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HistoricalJobOptions object is equal to o. */
+  /** Return true if this ThreatHuntingJobOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -312,18 +312,18 @@ public class HistoricalJobOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HistoricalJobOptions historicalJobOptions = (HistoricalJobOptions) o;
-    return Objects.equals(this.detectionMethod, historicalJobOptions.detectionMethod)
-        && Objects.equals(this.evaluationWindow, historicalJobOptions.evaluationWindow)
+    ThreatHuntingJobOptions threatHuntingJobOptions = (ThreatHuntingJobOptions) o;
+    return Objects.equals(this.detectionMethod, threatHuntingJobOptions.detectionMethod)
+        && Objects.equals(this.evaluationWindow, threatHuntingJobOptions.evaluationWindow)
         && Objects.equals(
-            this.impossibleTravelOptions, historicalJobOptions.impossibleTravelOptions)
-        && Objects.equals(this.keepAlive, historicalJobOptions.keepAlive)
-        && Objects.equals(this.maxSignalDuration, historicalJobOptions.maxSignalDuration)
-        && Objects.equals(this.newValueOptions, historicalJobOptions.newValueOptions)
+            this.impossibleTravelOptions, threatHuntingJobOptions.impossibleTravelOptions)
+        && Objects.equals(this.keepAlive, threatHuntingJobOptions.keepAlive)
+        && Objects.equals(this.maxSignalDuration, threatHuntingJobOptions.maxSignalDuration)
+        && Objects.equals(this.newValueOptions, threatHuntingJobOptions.newValueOptions)
         && Objects.equals(
-            this.sequenceDetectionOptions, historicalJobOptions.sequenceDetectionOptions)
-        && Objects.equals(this.thirdPartyRuleOptions, historicalJobOptions.thirdPartyRuleOptions)
-        && Objects.equals(this.additionalProperties, historicalJobOptions.additionalProperties);
+            this.sequenceDetectionOptions, threatHuntingJobOptions.sequenceDetectionOptions)
+        && Objects.equals(this.thirdPartyRuleOptions, threatHuntingJobOptions.thirdPartyRuleOptions)
+        && Objects.equals(this.additionalProperties, threatHuntingJobOptions.additionalProperties);
   }
 
   @Override
@@ -343,7 +343,7 @@ public class HistoricalJobOptions {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HistoricalJobOptions {\n");
+    sb.append("class ThreatHuntingJobOptions {\n");
     sb.append("    detectionMethod: ").append(toIndentedString(detectionMethod)).append("\n");
     sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
     sb.append("    impossibleTravelOptions: ")

@@ -16,54 +16,54 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Run a historical job request. */
+/** Threat hunting job response data. */
 @JsonPropertyOrder({
-  RunHistoricalJobRequestAttributes.JSON_PROPERTY_FROM_RULE,
-  RunHistoricalJobRequestAttributes.JSON_PROPERTY_ID,
-  RunHistoricalJobRequestAttributes.JSON_PROPERTY_JOB_DEFINITION
+  ThreatHuntingJobResponseData.JSON_PROPERTY_ATTRIBUTES,
+  ThreatHuntingJobResponseData.JSON_PROPERTY_ID,
+  ThreatHuntingJobResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RunHistoricalJobRequestAttributes {
+public class ThreatHuntingJobResponseData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_FROM_RULE = "fromRule";
-  private JobDefinitionFromRule fromRule;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private ThreatHuntingJobResponseAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_JOB_DEFINITION = "jobDefinition";
-  private JobDefinition jobDefinition;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private ThreatHuntingJobDataType type;
 
-  public RunHistoricalJobRequestAttributes fromRule(JobDefinitionFromRule fromRule) {
-    this.fromRule = fromRule;
-    this.unparsed |= fromRule.unparsed;
+  public ThreatHuntingJobResponseData attributes(ThreatHuntingJobResponseAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Definition of a historical job based on a security monitoring rule.
+   * Threat hunting job attributes.
    *
-   * @return fromRule
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FROM_RULE)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JobDefinitionFromRule getFromRule() {
-    return fromRule;
+  public ThreatHuntingJobResponseAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setFromRule(JobDefinitionFromRule fromRule) {
-    this.fromRule = fromRule;
+  public void setAttributes(ThreatHuntingJobResponseAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public RunHistoricalJobRequestAttributes id(String id) {
+  public ThreatHuntingJobResponseData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Request ID.
+   * ID of the job.
    *
    * @return id
    */
@@ -78,26 +78,29 @@ public class RunHistoricalJobRequestAttributes {
     this.id = id;
   }
 
-  public RunHistoricalJobRequestAttributes jobDefinition(JobDefinition jobDefinition) {
-    this.jobDefinition = jobDefinition;
-    this.unparsed |= jobDefinition.unparsed;
+  public ThreatHuntingJobResponseData type(ThreatHuntingJobDataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Definition of a historical job.
+   * Type of payload.
    *
-   * @return jobDefinition
+   * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_JOB_DEFINITION)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JobDefinition getJobDefinition() {
-    return jobDefinition;
+  public ThreatHuntingJobDataType getType() {
+    return type;
   }
 
-  public void setJobDefinition(JobDefinition jobDefinition) {
-    this.jobDefinition = jobDefinition;
+  public void setType(ThreatHuntingJobDataType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -112,10 +115,10 @@ public class RunHistoricalJobRequestAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RunHistoricalJobRequestAttributes
+   * @return ThreatHuntingJobResponseData
    */
   @JsonAnySetter
-  public RunHistoricalJobRequestAttributes putAdditionalProperty(String key, Object value) {
+  public ThreatHuntingJobResponseData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -146,7 +149,7 @@ public class RunHistoricalJobRequestAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RunHistoricalJobRequestAttributes object is equal to o. */
+  /** Return true if this ThreatHuntingJobResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -155,27 +158,26 @@ public class RunHistoricalJobRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RunHistoricalJobRequestAttributes runHistoricalJobRequestAttributes =
-        (RunHistoricalJobRequestAttributes) o;
-    return Objects.equals(this.fromRule, runHistoricalJobRequestAttributes.fromRule)
-        && Objects.equals(this.id, runHistoricalJobRequestAttributes.id)
-        && Objects.equals(this.jobDefinition, runHistoricalJobRequestAttributes.jobDefinition)
+    ThreatHuntingJobResponseData threatHuntingJobResponseData = (ThreatHuntingJobResponseData) o;
+    return Objects.equals(this.attributes, threatHuntingJobResponseData.attributes)
+        && Objects.equals(this.id, threatHuntingJobResponseData.id)
+        && Objects.equals(this.type, threatHuntingJobResponseData.type)
         && Objects.equals(
-            this.additionalProperties, runHistoricalJobRequestAttributes.additionalProperties);
+            this.additionalProperties, threatHuntingJobResponseData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fromRule, id, jobDefinition, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RunHistoricalJobRequestAttributes {\n");
-    sb.append("    fromRule: ").append(toIndentedString(fromRule)).append("\n");
+    sb.append("class ThreatHuntingJobResponseData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    jobDefinition: ").append(toIndentedString(jobDefinition)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

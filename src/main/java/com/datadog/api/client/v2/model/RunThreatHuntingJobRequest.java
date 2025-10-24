@@ -16,34 +16,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Historical job response. */
-@JsonPropertyOrder({HistoricalJobResponse.JSON_PROPERTY_DATA})
+/** Run a threat hunting job request. */
+@JsonPropertyOrder({RunThreatHuntingJobRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class HistoricalJobResponse {
+public class RunThreatHuntingJobRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private HistoricalJobResponseData data;
+  private RunThreatHuntingJobRequestData data;
 
-  public HistoricalJobResponse data(HistoricalJobResponseData data) {
+  public RunThreatHuntingJobRequest data(RunThreatHuntingJobRequestData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Historical job response data.
+   * Data for running a threat hunting job request.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HistoricalJobResponseData getData() {
+  public RunThreatHuntingJobRequestData getData() {
     return data;
   }
 
-  public void setData(HistoricalJobResponseData data) {
+  public void setData(RunThreatHuntingJobRequestData data) {
     this.data = data;
   }
 
@@ -59,10 +59,10 @@ public class HistoricalJobResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return HistoricalJobResponse
+   * @return RunThreatHuntingJobRequest
    */
   @JsonAnySetter
-  public HistoricalJobResponse putAdditionalProperty(String key, Object value) {
+  public RunThreatHuntingJobRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +93,7 @@ public class HistoricalJobResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HistoricalJobResponse object is equal to o. */
+  /** Return true if this RunThreatHuntingJobRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,9 +102,10 @@ public class HistoricalJobResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HistoricalJobResponse historicalJobResponse = (HistoricalJobResponse) o;
-    return Objects.equals(this.data, historicalJobResponse.data)
-        && Objects.equals(this.additionalProperties, historicalJobResponse.additionalProperties);
+    RunThreatHuntingJobRequest runThreatHuntingJobRequest = (RunThreatHuntingJobRequest) o;
+    return Objects.equals(this.data, runThreatHuntingJobRequest.data)
+        && Objects.equals(
+            this.additionalProperties, runThreatHuntingJobRequest.additionalProperties);
   }
 
   @Override
@@ -115,7 +116,7 @@ public class HistoricalJobResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HistoricalJobResponse {\n");
+    sb.append("class RunThreatHuntingJobRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

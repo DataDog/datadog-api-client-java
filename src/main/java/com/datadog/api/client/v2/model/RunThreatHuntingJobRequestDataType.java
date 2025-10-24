@@ -18,39 +18,42 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Type of payload. */
-@JsonSerialize(using = HistoricalJobDataType.HistoricalJobDataTypeSerializer.class)
-public class HistoricalJobDataType extends ModelEnum<String> {
+/** Type of data. */
+@JsonSerialize(
+    using = RunThreatHuntingJobRequestDataType.RunThreatHuntingJobRequestDataTypeSerializer.class)
+public class RunThreatHuntingJobRequestDataType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("historicalDetectionsJob"));
+      new HashSet<String>(Arrays.asList("historicalDetectionsJobCreate"));
 
-  public static final HistoricalJobDataType HISTORICALDETECTIONSJOB =
-      new HistoricalJobDataType("historicalDetectionsJob");
+  public static final RunThreatHuntingJobRequestDataType HISTORICALDETECTIONSJOBCREATE =
+      new RunThreatHuntingJobRequestDataType("historicalDetectionsJobCreate");
 
-  HistoricalJobDataType(String value) {
+  RunThreatHuntingJobRequestDataType(String value) {
     super(value, allowedValues);
   }
 
-  public static class HistoricalJobDataTypeSerializer extends StdSerializer<HistoricalJobDataType> {
-    public HistoricalJobDataTypeSerializer(Class<HistoricalJobDataType> t) {
+  public static class RunThreatHuntingJobRequestDataTypeSerializer
+      extends StdSerializer<RunThreatHuntingJobRequestDataType> {
+    public RunThreatHuntingJobRequestDataTypeSerializer(
+        Class<RunThreatHuntingJobRequestDataType> t) {
       super(t);
     }
 
-    public HistoricalJobDataTypeSerializer() {
+    public RunThreatHuntingJobRequestDataTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        HistoricalJobDataType value, JsonGenerator jgen, SerializerProvider provider)
+        RunThreatHuntingJobRequestDataType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static HistoricalJobDataType fromValue(String value) {
-    return new HistoricalJobDataType(value);
+  public static RunThreatHuntingJobRequestDataType fromValue(String value) {
+    return new RunThreatHuntingJobRequestDataType(value);
   }
 }
