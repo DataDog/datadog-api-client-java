@@ -1,4 +1,4 @@
-// Post AWS Scan Options returns "Agentless scan options enabled successfully." response
+// Create AWS scan options returns "Agentless scan options enabled successfully." response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

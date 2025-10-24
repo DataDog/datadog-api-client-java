@@ -1,4 +1,4 @@
-// Update azure scan options returns "OK" response
+// Update Azure scan options returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

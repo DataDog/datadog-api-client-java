@@ -1,4 +1,4 @@
-// Delete azure scan options returns "No Content" response
+// Delete Azure scan options returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

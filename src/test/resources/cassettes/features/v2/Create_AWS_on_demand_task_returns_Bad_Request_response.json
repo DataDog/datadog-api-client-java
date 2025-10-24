@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"arn\":\"invalid-arn\"},\"type\":\"aws_resource\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/agentless_scanning/ondemand/aws",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"invalid aws arn\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ddc95453-e78c-c1f7-f3a9-441d29765f2f"
+  }
+]

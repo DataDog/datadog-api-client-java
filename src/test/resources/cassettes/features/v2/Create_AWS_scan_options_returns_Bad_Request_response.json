@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"lambda\":true,\"sensitive_data\":false,\"vuln_containers_os\":true,\"vuln_host_os\":true},\"id\":\"123\",\"type\":\"aws_scan_options\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/agentless_scanning/accounts/aws",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"the provided Aws account id is not valid\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e2891484-5e4d-166a-c2fe-dce7aead5f70"
+  }
+]

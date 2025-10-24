@@ -1,4 +1,4 @@
-// Delete GCP Scan Options returns "No Content" response
+// Delete GCP scan options returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
