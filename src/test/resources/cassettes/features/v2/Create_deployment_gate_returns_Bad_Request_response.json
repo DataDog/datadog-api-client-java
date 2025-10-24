@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"env\":\"\",\"identifier\":\"my-gate\",\"service\":\"test-service\"},\"type\":\"deployment_gate\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/deployment_gates",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"attribute \\\"env\\\" is required\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6d773a52-8027-f1e4-6c21-9fb0abee8579"
+  }
+]

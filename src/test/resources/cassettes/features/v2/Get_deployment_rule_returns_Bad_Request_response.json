@@ -1,0 +1,130 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate\",\"service\":\"my-service\"},\"type\":\"deployment_gate\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/deployment_gates",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"77f93166-2bf5-40c9-a9cb-fb4155595f99\",\"type\":\"deployment_gate\",\"attributes\":{\"created_at\":\"2025-10-24T09:11:36.349398Z\",\"created_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate\",\"service\":\"my-service\",\"updated_at\":\"2025-10-24T09:11:36.349398Z\",\"updated_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "70acb264-a190-c950-4530-585b68c408be"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"dry_run\":false,\"name\":\"My deployment rule\",\"options\":{\"excluded_resources\":[]},\"type\":\"faulty_deployment_detection\"},\"type\":\"deployment_rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/deployment_gates/77f93166-2bf5-40c9-a9cb-fb4155595f99/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"a897eb5d-4a29-48b9-8f5b-ffc8150a9a88\",\"type\":\"deployment_rule\",\"attributes\":{\"created_at\":\"2025-10-24T09:11:36.623875Z\",\"created_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"dry_run\":false,\"gate_id\":\"77f93166-2bf5-40c9-a9cb-fb4155595f99\",\"name\":\"My deployment rule\",\"options\":{},\"type\":\"faulty_deployment_detection\",\"updated_at\":\"2025-10-24T09:11:36.623875Z\",\"updated_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9e9be4d9-2bde-585f-da5a-9a1ae4e95795"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/deployment_gates/invalid-gate-id/rules/invalid-rule-id",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"attribute \\\"gate_id\\\" Invalid id\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fb33a6dc-801c-60ad-beed-de2e3d4a63f4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/deployment_gates/77f93166-2bf5-40c9-a9cb-fb4155595f99/rules/a897eb5d-4a29-48b9-8f5b-ffc8150a9a88",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bc2e509a-2496-62c7-2a2a-e41415a96929"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/deployment_gates/77f93166-2bf5-40c9-a9cb-fb4155595f99",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ec870ad8-b858-a7dd-6181-d300803fdd71"
+  }
+]
