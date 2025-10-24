@@ -723,6 +723,10 @@ public class ApiClient {
           put("v2.cancelDataDeletionRequest", false);
           put("v2.createDataDeletionRequest", false);
           put("v2.getDataDeletionRequests", false);
+          put("v2.createEventEmailAddress", false);
+          put("v2.createOnCallEventEmailAddress", false);
+          put("v2.getOnCallEventEmailAddress", false);
+          put("v2.listEventEmailAddresses", false);
           put("v2.createIncident", false);
           put("v2.createIncidentImpact", false);
           put("v2.createIncidentIntegration", false);

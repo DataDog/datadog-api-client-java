@@ -5,8 +5,12 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.CreateEventEmailAddressRequest;
+import com.datadog.api.client.v2.model.CreateOnCallEventEmailAddressRequest;
 import com.datadog.api.client.v2.model.EventCreateRequestPayload;
 import com.datadog.api.client.v2.model.EventCreateResponsePayload;
+import com.datadog.api.client.v2.model.EventEmailAddressResponse;
+import com.datadog.api.client.v2.model.EventEmailAddressResponseArray;
 import com.datadog.api.client.v2.model.EventResponse;
 import com.datadog.api.client.v2.model.EventsListRequest;
 import com.datadog.api.client.v2.model.EventsListResponse;
@@ -199,6 +203,299 @@ public class EventsApi {
   }
 
   /**
+   * Create event email address.
+   *
+   * <p>See {@link #createEventEmailAddressWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return EventEmailAddressResponse
+   * @throws ApiException if fails to make API call
+   */
+  public EventEmailAddressResponse createEventEmailAddress(CreateEventEmailAddressRequest body)
+      throws ApiException {
+    return createEventEmailAddressWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create event email address.
+   *
+   * <p>See {@link #createEventEmailAddressWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;EventEmailAddressResponse&gt;
+   */
+  public CompletableFuture<EventEmailAddressResponse> createEventEmailAddressAsync(
+      CreateEventEmailAddressRequest body) {
+    return createEventEmailAddressWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param body (required)
+   * @return ApiResponse&lt;EventEmailAddressResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EventEmailAddressResponse> createEventEmailAddressWithHttpInfo(
+      CreateEventEmailAddressRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createEventEmailAddress";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createEventEmailAddress");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/events/mail";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.EventsApi.createEventEmailAddress",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EventEmailAddressResponse>() {});
+  }
+
+  /**
+   * Create event email address.
+   *
+   * <p>See {@link #createEventEmailAddressWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;EventEmailAddressResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EventEmailAddressResponse>>
+      createEventEmailAddressWithHttpInfoAsync(CreateEventEmailAddressRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createEventEmailAddress";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<EventEmailAddressResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<EventEmailAddressResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createEventEmailAddress"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/events/mail";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.EventsApi.createEventEmailAddress",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<EventEmailAddressResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EventEmailAddressResponse>() {});
+  }
+
+  /**
+   * Create on-call event email address.
+   *
+   * <p>See {@link #createOnCallEventEmailAddressWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return EventEmailAddressResponse
+   * @throws ApiException if fails to make API call
+   */
+  public EventEmailAddressResponse createOnCallEventEmailAddress(
+      CreateOnCallEventEmailAddressRequest body) throws ApiException {
+    return createOnCallEventEmailAddressWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create on-call event email address.
+   *
+   * <p>See {@link #createOnCallEventEmailAddressWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;EventEmailAddressResponse&gt;
+   */
+  public CompletableFuture<EventEmailAddressResponse> createOnCallEventEmailAddressAsync(
+      CreateOnCallEventEmailAddressRequest body) {
+    return createOnCallEventEmailAddressWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param body (required)
+   * @return ApiResponse&lt;EventEmailAddressResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EventEmailAddressResponse> createOnCallEventEmailAddressWithHttpInfo(
+      CreateOnCallEventEmailAddressRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createOnCallEventEmailAddress";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createOnCallEventEmailAddress");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/events/mail/on-call";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.EventsApi.createOnCallEventEmailAddress",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EventEmailAddressResponse>() {});
+  }
+
+  /**
+   * Create on-call event email address.
+   *
+   * <p>See {@link #createOnCallEventEmailAddressWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;EventEmailAddressResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EventEmailAddressResponse>>
+      createOnCallEventEmailAddressWithHttpInfoAsync(CreateOnCallEventEmailAddressRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createOnCallEventEmailAddress";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<EventEmailAddressResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<EventEmailAddressResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createOnCallEventEmailAddress"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/events/mail/on-call";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.EventsApi.createOnCallEventEmailAddress",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<EventEmailAddressResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EventEmailAddressResponse>() {});
+  }
+
+  /**
    * Get an event.
    *
    * <p>See {@link #getEventWithHttpInfo}.
@@ -329,6 +626,260 @@ public class EventsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<V2EventResponse>() {});
+  }
+
+  /**
+   * Get on-call event email address.
+   *
+   * <p>See {@link #getOnCallEventEmailAddressWithHttpInfo}.
+   *
+   * @return EventEmailAddressResponseArray
+   * @throws ApiException if fails to make API call
+   */
+  public EventEmailAddressResponseArray getOnCallEventEmailAddress() throws ApiException {
+    return getOnCallEventEmailAddressWithHttpInfo().getData();
+  }
+
+  /**
+   * Get on-call event email address.
+   *
+   * <p>See {@link #getOnCallEventEmailAddressWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;EventEmailAddressResponseArray&gt;
+   */
+  public CompletableFuture<EventEmailAddressResponseArray> getOnCallEventEmailAddressAsync() {
+    return getOnCallEventEmailAddressWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @return ApiResponse&lt;EventEmailAddressResponseArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EventEmailAddressResponseArray> getOnCallEventEmailAddressWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getOnCallEventEmailAddress";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/events/mail/on-call";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.EventsApi.getOnCallEventEmailAddress",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EventEmailAddressResponseArray>() {});
+  }
+
+  /**
+   * Get on-call event email address.
+   *
+   * <p>See {@link #getOnCallEventEmailAddressWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;EventEmailAddressResponseArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EventEmailAddressResponseArray>>
+      getOnCallEventEmailAddressWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getOnCallEventEmailAddress";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<EventEmailAddressResponseArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/events/mail/on-call";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.EventsApi.getOnCallEventEmailAddress",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<EventEmailAddressResponseArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EventEmailAddressResponseArray>() {});
+  }
+
+  /**
+   * List event email addresses.
+   *
+   * <p>See {@link #listEventEmailAddressesWithHttpInfo}.
+   *
+   * @return EventEmailAddressResponseArray
+   * @throws ApiException if fails to make API call
+   */
+  public EventEmailAddressResponseArray listEventEmailAddresses() throws ApiException {
+    return listEventEmailAddressesWithHttpInfo().getData();
+  }
+
+  /**
+   * List event email addresses.
+   *
+   * <p>See {@link #listEventEmailAddressesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;EventEmailAddressResponseArray&gt;
+   */
+  public CompletableFuture<EventEmailAddressResponseArray> listEventEmailAddressesAsync() {
+    return listEventEmailAddressesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @return ApiResponse&lt;EventEmailAddressResponseArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EventEmailAddressResponseArray> listEventEmailAddressesWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listEventEmailAddresses";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/events/mail";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.EventsApi.listEventEmailAddresses",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EventEmailAddressResponseArray>() {});
+  }
+
+  /**
+   * List event email addresses.
+   *
+   * <p>See {@link #listEventEmailAddressesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;EventEmailAddressResponseArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EventEmailAddressResponseArray>>
+      listEventEmailAddressesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listEventEmailAddresses";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<EventEmailAddressResponseArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/events/mail";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.EventsApi.listEventEmailAddresses",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<EventEmailAddressResponseArray>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EventEmailAddressResponseArray>() {});
   }
 
   /** Manage optional parameters to listEvents. */
