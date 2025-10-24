@@ -1,4 +1,4 @@
-// List GCP Scan Options returns "OK" response
+// List GCP scan options returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

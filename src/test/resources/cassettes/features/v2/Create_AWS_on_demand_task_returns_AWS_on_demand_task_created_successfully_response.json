@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"arn\":\"arn:aws:lambda:us-west-2:123456789012:function:my-function\"},\"type\":\"aws_resource\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/agentless_scanning/ondemand/aws",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"438046ce-01cd-4ae5-b117-ff971e6fa449\",\"type\":\"aws_resource\",\"attributes\":{\"arn\":\"arn:aws:lambda:us-west-2:123456789012:function:my-function\",\"created_at\":\"2025-10-23T22:21:53.957627Z\",\"status\":\"QUEUED\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "22e692ec-0118-56ae-6a7b-e829dfef841a"
+  }
+]

@@ -1,4 +1,4 @@
-// Get AWS On Demand tasks returns "OK" response
+// List AWS on demand tasks returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

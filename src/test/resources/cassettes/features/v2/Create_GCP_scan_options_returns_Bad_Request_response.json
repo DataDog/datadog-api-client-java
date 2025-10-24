@@ -3,16 +3,16 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"lambda\":true,\"sensitive_data\":false,\"vuln_containers_os\":true,\"vuln_host_os\":true},\"id\":\"184366314700\",\"type\":\"incorrect_type\"}}"
+        "json": "{\"data\":{\"attributes\":{\"vuln_containers_os\":true,\"vuln_host_os\":true},\"id\":\"no\",\"type\":\"gcp_scan_options\"}}"
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/agentless_scanning/accounts/aws",
+      "path": "/api/v2/agentless_scanning/accounts/gcp",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"got type \\\"incorrect_type\\\" expected one of \\\"aws_scan_options\\\"\"}]}",
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"project id must be 6-30 characters, got 2\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cda83741-6ea8-52c8-0a5c-04b219ec4b12"
+    "id": "88bc6eec-07d7-cb8c-599b-ab5a96b05cc6"
   }
 ]

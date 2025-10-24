@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"lambda\":false,\"sensitive_data\":false,\"vuln_containers_os\":true,\"vuln_host_os\":true},\"id\":\"000000000002\",\"type\":\"aws_scan_options\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/agentless_scanning/accounts/aws",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"409\",\"detail\":\"aws scan options already exist for account 000000000002\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 409,
+      "reasonPhrase": "Conflict"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f65bb980-57f2-5b92-482f-54c273127342"
+  }
+]

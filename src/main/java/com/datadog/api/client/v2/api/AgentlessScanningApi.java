@@ -56,7 +56,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Post an AWS on demand task.
+   * Create AWS on demand task.
    *
    * <p>See {@link #createAwsOnDemandTaskWithHttpInfo}.
    *
@@ -70,7 +70,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Post an AWS on demand task.
+   * Create AWS on demand task.
    *
    * <p>See {@link #createAwsOnDemandTaskWithHttpInfoAsync}.
    *
@@ -138,7 +138,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Post an AWS on demand task.
+   * Create AWS on demand task.
    *
    * <p>See {@link #createAwsOnDemandTaskWithHttpInfo}.
    *
@@ -190,7 +190,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Post AWS Scan Options.
+   * Create AWS scan options.
    *
    * <p>See {@link #createAwsScanOptionsWithHttpInfo}.
    *
@@ -204,7 +204,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Post AWS Scan Options.
+   * Create AWS scan options.
    *
    * <p>See {@link #createAwsScanOptionsWithHttpInfoAsync}.
    *
@@ -272,7 +272,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Post AWS Scan Options.
+   * Create AWS scan options.
    *
    * <p>See {@link #createAwsScanOptionsWithHttpInfo}.
    *
@@ -324,7 +324,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Create azure scan options.
+   * Create Azure scan options.
    *
    * <p>See {@link #createAzureScanOptionsWithHttpInfo}.
    *
@@ -337,7 +337,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Create azure scan options.
+   * Create Azure scan options.
    *
    * <p>See {@link #createAzureScanOptionsWithHttpInfoAsync}.
    *
@@ -401,7 +401,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Create azure scan options.
+   * Create Azure scan options.
    *
    * <p>See {@link #createAzureScanOptionsWithHttpInfo}.
    *
@@ -453,7 +453,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Post GCP Scan Options.
+   * Create GCP scan options.
    *
    * <p>See {@link #createGcpScanOptionsWithHttpInfo}.
    *
@@ -466,7 +466,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Post GCP Scan Options.
+   * Create GCP scan options.
    *
    * <p>See {@link #createGcpScanOptionsWithHttpInfoAsync}.
    *
@@ -533,7 +533,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Post GCP Scan Options.
+   * Create GCP scan options.
    *
    * <p>See {@link #createGcpScanOptionsWithHttpInfo}.
    *
@@ -585,7 +585,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Delete AWS Scan Options.
+   * Delete AWS scan options.
    *
    * <p>See {@link #deleteAwsScanOptionsWithHttpInfo}.
    *
@@ -597,7 +597,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Delete AWS Scan Options.
+   * Delete AWS scan options.
    *
    * <p>See {@link #deleteAwsScanOptionsWithHttpInfoAsync}.
    *
@@ -665,7 +665,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Delete AWS Scan Options.
+   * Delete AWS scan options.
    *
    * <p>See {@link #deleteAwsScanOptionsWithHttpInfo}.
    *
@@ -719,7 +719,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Delete azure scan options.
+   * Delete Azure scan options.
    *
    * <p>See {@link #deleteAzureScanOptionsWithHttpInfo}.
    *
@@ -731,7 +731,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Delete azure scan options.
+   * Delete Azure scan options.
    *
    * <p>See {@link #deleteAzureScanOptionsWithHttpInfoAsync}.
    *
@@ -800,7 +800,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Delete azure scan options.
+   * Delete Azure scan options.
    *
    * <p>See {@link #deleteAzureScanOptionsWithHttpInfo}.
    *
@@ -858,7 +858,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Delete GCP Scan Options.
+   * Delete GCP scan options.
    *
    * <p>See {@link #deleteGcpScanOptionsWithHttpInfo}.
    *
@@ -870,7 +870,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Delete GCP Scan Options.
+   * Delete GCP scan options.
    *
    * <p>See {@link #deleteGcpScanOptionsWithHttpInfoAsync}.
    *
@@ -938,7 +938,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Delete GCP Scan Options.
+   * Delete GCP scan options.
    *
    * <p>See {@link #deleteGcpScanOptionsWithHttpInfo}.
    *
@@ -992,7 +992,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Get AWS On Demand task by id.
+   * Get AWS on demand task.
    *
    * <p>See {@link #getAwsOnDemandTaskWithHttpInfo}.
    *
@@ -1005,7 +1005,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Get AWS On Demand task by id.
+   * Get AWS on demand task.
    *
    * <p>See {@link #getAwsOnDemandTaskWithHttpInfoAsync}.
    *
@@ -1074,7 +1074,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Get AWS On Demand task by id.
+   * Get AWS on demand task.
    *
    * <p>See {@link #getAwsOnDemandTaskWithHttpInfo}.
    *
@@ -1541,7 +1541,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Get AWS On Demand tasks.
+   * List AWS on demand tasks.
    *
    * <p>See {@link #listAwsOnDemandTasksWithHttpInfo}.
    *
@@ -1553,7 +1553,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Get AWS On Demand tasks.
+   * List AWS on demand tasks.
    *
    * <p>See {@link #listAwsOnDemandTasksWithHttpInfoAsync}.
    *
@@ -1610,7 +1610,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Get AWS On Demand tasks.
+   * List AWS on demand tasks.
    *
    * <p>See {@link #listAwsOnDemandTasksWithHttpInfo}.
    *
@@ -1652,7 +1652,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * List AWS Scan Options.
+   * List AWS scan options.
    *
    * <p>See {@link #listAwsScanOptionsWithHttpInfo}.
    *
@@ -1664,7 +1664,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * List AWS Scan Options.
+   * List AWS scan options.
    *
    * <p>See {@link #listAwsScanOptionsWithHttpInfoAsync}.
    *
@@ -1721,7 +1721,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * List AWS Scan Options.
+   * List AWS scan options.
    *
    * <p>See {@link #listAwsScanOptionsWithHttpInfo}.
    *
@@ -1763,7 +1763,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * List azure scan options.
+   * List Azure scan options.
    *
    * <p>See {@link #listAzureScanOptionsWithHttpInfo}.
    *
@@ -1775,7 +1775,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * List azure scan options.
+   * List Azure scan options.
    *
    * <p>See {@link #listAzureScanOptionsWithHttpInfoAsync}.
    *
@@ -1830,7 +1830,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * List azure scan options.
+   * List Azure scan options.
    *
    * <p>See {@link #listAzureScanOptionsWithHttpInfo}.
    *
@@ -1872,7 +1872,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * List GCP Scan Options.
+   * List GCP scan options.
    *
    * <p>See {@link #listGcpScanOptionsWithHttpInfo}.
    *
@@ -1884,7 +1884,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * List GCP Scan Options.
+   * List GCP scan options.
    *
    * <p>See {@link #listGcpScanOptionsWithHttpInfoAsync}.
    *
@@ -1940,7 +1940,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * List GCP Scan Options.
+   * List GCP scan options.
    *
    * <p>See {@link #listGcpScanOptionsWithHttpInfo}.
    *
@@ -1981,7 +1981,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Patch AWS Scan Options.
+   * Update AWS scan options.
    *
    * <p>See {@link #updateAwsScanOptionsWithHttpInfo}.
    *
@@ -1995,7 +1995,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Patch AWS Scan Options.
+   * Update AWS scan options.
    *
    * <p>See {@link #updateAwsScanOptionsWithHttpInfoAsync}.
    *
@@ -2073,7 +2073,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Patch AWS Scan Options.
+   * Update AWS scan options.
    *
    * <p>See {@link #updateAwsScanOptionsWithHttpInfo}.
    *
@@ -2137,7 +2137,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Update azure scan options.
+   * Update Azure scan options.
    *
    * <p>See {@link #updateAzureScanOptionsWithHttpInfo}.
    *
@@ -2152,7 +2152,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Update azure scan options.
+   * Update Azure scan options.
    *
    * <p>See {@link #updateAzureScanOptionsWithHttpInfoAsync}.
    *
@@ -2230,7 +2230,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Update azure scan options.
+   * Update Azure scan options.
    *
    * <p>See {@link #updateAzureScanOptionsWithHttpInfo}.
    *
@@ -2298,7 +2298,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Patch GCP Scan Options.
+   * Update GCP scan options.
    *
    * <p>See {@link #updateGcpScanOptionsWithHttpInfo}.
    *
@@ -2313,7 +2313,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Patch GCP Scan Options.
+   * Update GCP scan options.
    *
    * <p>See {@link #updateGcpScanOptionsWithHttpInfoAsync}.
    *
@@ -2391,7 +2391,7 @@ public class AgentlessScanningApi {
   }
 
   /**
-   * Patch GCP Scan Options.
+   * Update GCP scan options.
    *
    * <p>See {@link #updateGcpScanOptionsWithHttpInfo}.
    *

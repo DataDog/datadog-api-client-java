@@ -1,4 +1,4 @@
-// List azure scan options returns "OK" response
+// List Azure scan options returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

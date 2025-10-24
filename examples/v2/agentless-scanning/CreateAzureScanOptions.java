@@ -1,4 +1,4 @@
-// Create azure scan options returns "Created" response
+// Create Azure scan options returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
