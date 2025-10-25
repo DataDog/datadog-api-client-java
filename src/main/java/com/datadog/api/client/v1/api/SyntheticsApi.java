@@ -3962,7 +3962,8 @@ public class SyntheticsApi {
     /**
      * Set start.
      *
-     * @param start The offset from which to start returning results. (optional, default to 0)
+     * @param start (Only available on legacy search backend. Contact support for more info.) The
+     *     offset from which to start returning results. (optional, default to 0)
      * @return SearchTestsOptionalParameters
      */
     public SearchTestsOptionalParameters start(Long start) {
