@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate\",\"service\":\"my-service\"},\"type\":\"deployment_gate\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/deployment_gates",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"dbac5c0d-3d81-487c-91c8-5490701314b0\",\"type\":\"deployment_gate\",\"attributes\":{\"created_at\":\"2025-10-24T09:11:30.314277Z\",\"created_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate\",\"service\":\"my-service\",\"updated_at\":\"2025-10-24T09:11:30.314277Z\",\"updated_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "70acb264-a190-c950-4530-585b68c408c6"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"dry_run\":false,\"name\":\"test\",\"options\":{\"excluded_resources\":[]},\"type\":\"fdd\"},\"type\":\"deployment_rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/deployment_gates/dbac5c0d-3d81-487c-91c8-5490701314b0/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"attribute \\\"type\\\" must be one of \\\"monitor faulty_deployment_detection\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1231cbc5-837c-436d-6df1-365cfe881742"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/deployment_gates/dbac5c0d-3d81-487c-91c8-5490701314b0",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "35c23271-28e4-3189-6de1-339e54a8c933"
+  }
+]
