@@ -24,8 +24,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * resource tags (in the form <code>key:value</code>) defines a filter that Datadog uses when
  * collecting metrics from a specified service. Wildcards, such as <code>?</code> (match a single
  * character) and <code>*</code> (match multiple characters), and exclusion using <code>!</code>
- * before the tag are supported. For EC2, only hosts that match one of the defined tags will be
- * imported into Datadog. The rest will be ignored. For example, <code>
+ * before the tag are supported. For EC2, only hosts that match one of the defined tags are imported
+ * into Datadog. The rest are ignored. For example, <code>
  * env:production,instance-type:c?.*,!region:us-east-1</code>.
  */
 @JsonPropertyOrder({

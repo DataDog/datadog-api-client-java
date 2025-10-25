@@ -207,7 +207,9 @@ public class AwsIntegrationApi {
    *     region. (required)
    * @return AWSEventBridgeCreateResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSEventBridgeCreateResponse createAWSEventBridgeSource(AWSEventBridgeCreateRequest body)
       throws ApiException {
     return createAWSEventBridgeSourceWithHttpInfo(body).getData();
@@ -221,7 +223,9 @@ public class AwsIntegrationApi {
    * @param body Create an Amazon EventBridge source for an AWS account with a given name and
    *     region. (required)
    * @return CompletableFuture&lt;AWSEventBridgeCreateResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSEventBridgeCreateResponse> createAWSEventBridgeSourceAsync(
       AWSEventBridgeCreateRequest body) {
     return createAWSEventBridgeSourceWithHttpInfoAsync(body)
@@ -247,7 +251,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSEventBridgeCreateResponse> createAWSEventBridgeSourceWithHttpInfo(
       AWSEventBridgeCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
@@ -290,7 +297,9 @@ public class AwsIntegrationApi {
    * @param body Create an Amazon EventBridge source for an AWS account with a given name and
    *     region. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSEventBridgeCreateResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSEventBridgeCreateResponse>>
       createAWSEventBridgeSourceWithHttpInfoAsync(AWSEventBridgeCreateRequest body) {
     Object localVarPostBody = body;
@@ -793,7 +802,9 @@ public class AwsIntegrationApi {
    *     AWS account. (required)
    * @return AWSEventBridgeDeleteResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSEventBridgeDeleteResponse deleteAWSEventBridgeSource(AWSEventBridgeDeleteRequest body)
       throws ApiException {
     return deleteAWSEventBridgeSourceWithHttpInfo(body).getData();
@@ -807,7 +818,9 @@ public class AwsIntegrationApi {
    * @param body Delete the Amazon EventBridge source with the given name, region, and associated
    *     AWS account. (required)
    * @return CompletableFuture&lt;AWSEventBridgeDeleteResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSEventBridgeDeleteResponse> deleteAWSEventBridgeSourceAsync(
       AWSEventBridgeDeleteRequest body) {
     return deleteAWSEventBridgeSourceWithHttpInfoAsync(body)
@@ -833,7 +846,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSEventBridgeDeleteResponse> deleteAWSEventBridgeSourceWithHttpInfo(
       AWSEventBridgeDeleteRequest body) throws ApiException {
     Object localVarPostBody = body;
@@ -876,7 +892,9 @@ public class AwsIntegrationApi {
    * @param body Delete the Amazon EventBridge source with the given name, region, and associated
    *     AWS account. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSEventBridgeDeleteResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSEventBridgeDeleteResponse>>
       deleteAWSEventBridgeSourceWithHttpInfoAsync(AWSEventBridgeDeleteRequest body) {
     Object localVarPostBody = body;
@@ -1410,7 +1428,9 @@ public class AwsIntegrationApi {
    *
    * @return AWSEventBridgeListResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSEventBridgeListResponse listAWSEventBridgeSources() throws ApiException {
     return listAWSEventBridgeSourcesWithHttpInfo().getData();
   }
@@ -1421,7 +1441,9 @@ public class AwsIntegrationApi {
    * <p>See {@link #listAWSEventBridgeSourcesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;AWSEventBridgeListResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSEventBridgeListResponse> listAWSEventBridgeSourcesAsync() {
     return listAWSEventBridgeSourcesWithHttpInfoAsync()
         .thenApply(
@@ -1444,7 +1466,10 @@ public class AwsIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSEventBridgeListResponse> listAWSEventBridgeSourcesWithHttpInfo()
       throws ApiException {
     Object localVarPostBody = null;
@@ -1479,7 +1504,9 @@ public class AwsIntegrationApi {
    * <p>See {@link #listAWSEventBridgeSourcesWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;AWSEventBridgeListResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSEventBridgeListResponse>>
       listAWSEventBridgeSourcesWithHttpInfoAsync() {
     Object localVarPostBody = null;
