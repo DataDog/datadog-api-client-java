@@ -32,7 +32,7 @@ public class CloudWorkloadSecurityAgentRuleAction {
   private String filter;
 
   public static final String JSON_PROPERTY_HASH = "hash";
-  private Map<String, Object> hash = null;
+  private CloudWorkloadSecurityAgentRuleActionHash hash;
 
   public static final String JSON_PROPERTY_KILL = "kill";
   private CloudWorkloadSecurityAgentRuleKill kill;
@@ -64,16 +64,9 @@ public class CloudWorkloadSecurityAgentRuleAction {
     this.filter = filter;
   }
 
-  public CloudWorkloadSecurityAgentRuleAction hash(Map<String, Object> hash) {
+  public CloudWorkloadSecurityAgentRuleAction hash(CloudWorkloadSecurityAgentRuleActionHash hash) {
     this.hash = hash;
-    return this;
-  }
-
-  public CloudWorkloadSecurityAgentRuleAction putHashItem(String key, Object hashItem) {
-    if (this.hash == null) {
-      this.hash = new HashMap<>();
-    }
-    this.hash.put(key, hashItem);
+    this.unparsed |= hash.unparsed;
     return this;
   }
 
@@ -85,11 +78,11 @@ public class CloudWorkloadSecurityAgentRuleAction {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HASH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getHash() {
+  public CloudWorkloadSecurityAgentRuleActionHash getHash() {
     return hash;
   }
 
-  public void setHash(Map<String, Object> hash) {
+  public void setHash(CloudWorkloadSecurityAgentRuleActionHash hash) {
     this.hash = hash;
   }
 
