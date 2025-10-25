@@ -1,44 +1,44 @@
-// Run a historical job returns "Status created" response
+// Run a threat hunting job returns "Status created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
-import com.datadog.api.client.v2.model.HistoricalJobOptions;
-import com.datadog.api.client.v2.model.HistoricalJobQuery;
 import com.datadog.api.client.v2.model.JobCreateResponse;
 import com.datadog.api.client.v2.model.JobDefinition;
-import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
-import com.datadog.api.client.v2.model.RunHistoricalJobRequestAttributes;
-import com.datadog.api.client.v2.model.RunHistoricalJobRequestData;
-import com.datadog.api.client.v2.model.RunHistoricalJobRequestDataType;
+import com.datadog.api.client.v2.model.RunThreatHuntingJobRequest;
+import com.datadog.api.client.v2.model.RunThreatHuntingJobRequestAttributes;
+import com.datadog.api.client.v2.model.RunThreatHuntingJobRequestData;
+import com.datadog.api.client.v2.model.RunThreatHuntingJobRequestDataType;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseCreate;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleEvaluationWindow;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleKeepAlive;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleMaxSignalDuration;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryAggregation;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
+import com.datadog.api.client.v2.model.ThreatHuntingJobOptions;
+import com.datadog.api.client.v2.model.ThreatHuntingJobQuery;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.runHistoricalJob", true);
+    defaultClient.setUnstableOperationEnabled("v2.runThreatHuntingJob", true);
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
-    RunHistoricalJobRequest body =
-        new RunHistoricalJobRequest()
+    RunThreatHuntingJobRequest body =
+        new RunThreatHuntingJobRequest()
             .data(
-                new RunHistoricalJobRequestData()
-                    .type(RunHistoricalJobRequestDataType.HISTORICALDETECTIONSJOBCREATE)
+                new RunThreatHuntingJobRequestData()
+                    .type(RunThreatHuntingJobRequestDataType.HISTORICALDETECTIONSJOBCREATE)
                     .attributes(
-                        new RunHistoricalJobRequestAttributes()
+                        new RunThreatHuntingJobRequestAttributes()
                             .jobDefinition(
                                 new JobDefinition()
                                     .type("log_detection")
                                     .name("Excessive number of failed attempts.")
                                     .queries(
                                         Collections.singletonList(
-                                            new HistoricalJobQuery()
+                                            new ThreatHuntingJobQuery()
                                                 .query("source:non_existing_src_weekend")
                                                 .aggregation(
                                                     SecurityMonitoringRuleQueryAggregation.COUNT)))
@@ -49,7 +49,7 @@ public class Example {
                                                 .status(SecurityMonitoringRuleSeverity.INFO)
                                                 .condition("a > 1")))
                                     .options(
-                                        new HistoricalJobOptions()
+                                        new ThreatHuntingJobOptions()
                                             .keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)
                                             .maxSignalDuration(
                                                 SecurityMonitoringRuleMaxSignalDuration.ONE_DAY)
@@ -62,10 +62,10 @@ public class Example {
                                     .index("main"))));
 
     try {
-      JobCreateResponse result = apiInstance.runHistoricalJob(body);
+      JobCreateResponse result = apiInstance.runThreatHuntingJob(body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SecurityMonitoringApi#runHistoricalJob");
+      System.err.println("Exception when calling SecurityMonitoringApi#runThreatHuntingJob");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

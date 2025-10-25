@@ -3,7 +3,7 @@
     "httpRequest": {
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/siem-historical-detections/jobs/inva-lid/cancel",
+      "path": "/api/v2/siem-threat-hunting/jobs/inva-lid/cancel",
       "keepAlive": false,
       "secure": true
     },
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9ee0d12d-c2a7-6c2c-4cd5-598af0680035"
+    "id": "e4257625-4269-56fb-c2c7-16c61d098a68"
   }
 ]

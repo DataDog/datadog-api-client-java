@@ -7,12 +7,12 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/siem-historical-detections/jobs",
+      "path": "/api/v2/siem-threat-hunting/jobs",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"e332b07e-d573-45fa-b2df-9a1bcc27f17e\",\"type\":\"historicalDetectionsJob\"}}",
+      "body": "{\"data\":{\"id\":\"cafe565c-106b-486e-ad21-a712656723b4\",\"type\":\"historicalDetectionsJob\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6bb82102-e994-f0d1-ee96-e1e3f1d80ffd"
+    "id": "4c138fa0-d834-5972-8bd7-894a659525ac"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/siem-historical-detections/jobs/e332b07e-d573-45fa-b2df-9a1bcc27f17e/cancel",
+      "path": "/api/v2/siem-threat-hunting/jobs/cafe565c-106b-486e-ad21-a712656723b4/cancel",
       "keepAlive": false,
       "secure": true
     },
@@ -48,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "43cd9ba3-ae67-113c-4ab1-7f57b600ac37"
+    "id": "260d5e64-4c21-4178-5468-0ac43b40d556"
   }
 ]

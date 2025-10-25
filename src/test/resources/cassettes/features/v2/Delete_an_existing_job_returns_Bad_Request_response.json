@@ -3,7 +3,7 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/siem-historical-detections/jobs/inva-lid",
+      "path": "/api/v2/siem-threat-hunting/jobs/inva-lid",
       "keepAlive": false,
       "secure": true
     },
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "74a52942-ee00-2479-0dc5-b284709530a7"
+    "id": "75c431a7-6ec2-040e-5a4c-0f15acc3ea11"
   }
 ]
