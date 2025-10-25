@@ -12,13 +12,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Configuration for a GCP metric namespace. */
 @JsonPropertyOrder({
   GCPMetricNamespaceConfig.JSON_PROPERTY_DISABLED,
+  GCPMetricNamespaceConfig.JSON_PROPERTY_FILTERS,
   GCPMetricNamespaceConfig.JSON_PROPERTY_ID
 })
 @jakarta.annotation.Generated(
@@ -27,6 +30,9 @@ public class GCPMetricNamespaceConfig {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled = false;
+
+  public static final String JSON_PROPERTY_FILTERS = "filters";
+  private List<String> filters = null;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -50,6 +56,37 @@ public class GCPMetricNamespaceConfig {
 
   public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
+  }
+
+  public GCPMetricNamespaceConfig filters(List<String> filters) {
+    this.filters = filters;
+    return this;
+  }
+
+  public GCPMetricNamespaceConfig addFiltersItem(String filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<>();
+    }
+    this.filters.add(filtersItem);
+    return this;
+  }
+
+  /**
+   * When enabled, Datadog applies these additional filters to limit metric collection. A metric is
+   * collected only if it does not match all exclusion filters and matches at least one allow
+   * filter.
+   *
+   * @return filters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getFilters() {
+    return filters;
+  }
+
+  public void setFilters(List<String> filters) {
+    this.filters = filters;
   }
 
   public GCPMetricNamespaceConfig id(String id) {
@@ -130,13 +167,14 @@ public class GCPMetricNamespaceConfig {
     }
     GCPMetricNamespaceConfig gcpMetricNamespaceConfig = (GCPMetricNamespaceConfig) o;
     return Objects.equals(this.disabled, gcpMetricNamespaceConfig.disabled)
+        && Objects.equals(this.filters, gcpMetricNamespaceConfig.filters)
         && Objects.equals(this.id, gcpMetricNamespaceConfig.id)
         && Objects.equals(this.additionalProperties, gcpMetricNamespaceConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(disabled, id, additionalProperties);
+    return Objects.hash(disabled, filters, id, additionalProperties);
   }
 
   @Override
@@ -144,6 +182,7 @@ public class GCPMetricNamespaceConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class GCPMetricNamespaceConfig {\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
