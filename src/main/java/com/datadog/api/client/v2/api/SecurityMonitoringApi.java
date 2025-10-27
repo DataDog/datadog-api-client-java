@@ -20,6 +20,8 @@ import com.datadog.api.client.v2.model.FindingStatus;
 import com.datadog.api.client.v2.model.FindingVulnerabilityType;
 import com.datadog.api.client.v2.model.GetCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.GetFindingResponse;
+import com.datadog.api.client.v2.model.GetMultipleRulesetsRequest;
+import com.datadog.api.client.v2.model.GetMultipleRulesetsResponse;
 import com.datadog.api.client.v2.model.GetResourceEvaluationFiltersResponse;
 import com.datadog.api.client.v2.model.GetRuleVersionHistoryResponse;
 import com.datadog.api.client.v2.model.GetSBOMResponse;
@@ -35,6 +37,7 @@ import com.datadog.api.client.v2.model.RunThreatHuntingJobRequest;
 import com.datadog.api.client.v2.model.SBOMComponentLicenseType;
 import com.datadog.api.client.v2.model.SBOMFormat;
 import com.datadog.api.client.v2.model.ScannedAssetsMetadata;
+import com.datadog.api.client.v2.model.SecretRuleArray;
 import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
 import com.datadog.api.client.v2.model.SecurityFilterUpdateRequest;
@@ -4138,6 +4141,131 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Returns list of Secrets rules.
+   *
+   * <p>See {@link #getSecretsRulesWithHttpInfo}.
+   *
+   * @return SecretRuleArray
+   * @throws ApiException if fails to make API call
+   */
+  public SecretRuleArray getSecretsRules() throws ApiException {
+    return getSecretsRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * Returns list of Secrets rules.
+   *
+   * <p>See {@link #getSecretsRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecretRuleArray&gt;
+   */
+  public CompletableFuture<SecretRuleArray> getSecretsRulesAsync() {
+    return getSecretsRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns list of Secrets rules with ID, Pattern, Description, Priority, and SDS ID
+   *
+   * @return ApiResponse&lt;SecretRuleArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecretRuleArray> getSecretsRulesWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecretsRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/secrets/rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecretsRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecretRuleArray>() {});
+  }
+
+  /**
+   * Returns list of Secrets rules.
+   *
+   * <p>See {@link #getSecretsRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;SecretRuleArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecretRuleArray>> getSecretsRulesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getSecretsRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecretRuleArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/secrets/rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecretsRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecretRuleArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecretRuleArray>() {});
+  }
+
+  /**
    * Get a security filter.
    *
    * <p>See {@link #getSecurityFilterWithHttpInfo}.
@@ -6995,6 +7123,157 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListFindingsResponse>() {});
+  }
+
+  /**
+   * Ruleset get multiple.
+   *
+   * <p>See {@link #listMultipleRulesetsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return GetMultipleRulesetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetMultipleRulesetsResponse listMultipleRulesets(GetMultipleRulesetsRequest body)
+      throws ApiException {
+    return listMultipleRulesetsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Ruleset get multiple.
+   *
+   * <p>See {@link #listMultipleRulesetsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;GetMultipleRulesetsResponse&gt;
+   */
+  public CompletableFuture<GetMultipleRulesetsResponse> listMultipleRulesetsAsync(
+      GetMultipleRulesetsRequest body) {
+    return listMultipleRulesetsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get rules for multiple rulesets in batch.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;GetMultipleRulesetsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetMultipleRulesetsResponse> listMultipleRulesetsWithHttpInfo(
+      GetMultipleRulesetsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listMultipleRulesets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling listMultipleRulesets");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/rulesets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listMultipleRulesets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetMultipleRulesetsResponse>() {});
+  }
+
+  /**
+   * Ruleset get multiple.
+   *
+   * <p>See {@link #listMultipleRulesetsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GetMultipleRulesetsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetMultipleRulesetsResponse>>
+      listMultipleRulesetsWithHttpInfoAsync(GetMultipleRulesetsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "listMultipleRulesets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<GetMultipleRulesetsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<GetMultipleRulesetsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling listMultipleRulesets"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis/rulesets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listMultipleRulesets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetMultipleRulesetsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetMultipleRulesetsResponse>() {});
   }
 
   /** Manage optional parameters to listScannedAssetsMetadata. */
