@@ -31,6 +31,8 @@ public class SecurityMonitoringSignalArchiveReason extends ModelEnum<String> {
               "false_positive",
               "testing_or_maintenance",
               "investigated_case_opened",
+              "true_positive_benign",
+              "true_positive_malicious",
               "other"));
 
   public static final SecurityMonitoringSignalArchiveReason NONE =
@@ -41,6 +43,10 @@ public class SecurityMonitoringSignalArchiveReason extends ModelEnum<String> {
       new SecurityMonitoringSignalArchiveReason("testing_or_maintenance");
   public static final SecurityMonitoringSignalArchiveReason INVESTIGATED_CASE_OPENED =
       new SecurityMonitoringSignalArchiveReason("investigated_case_opened");
+  public static final SecurityMonitoringSignalArchiveReason TRUE_POSITIVE_BENIGN =
+      new SecurityMonitoringSignalArchiveReason("true_positive_benign");
+  public static final SecurityMonitoringSignalArchiveReason TRUE_POSITIVE_MALICIOUS =
+      new SecurityMonitoringSignalArchiveReason("true_positive_malicious");
   public static final SecurityMonitoringSignalArchiveReason OTHER =
       new SecurityMonitoringSignalArchiveReason("other");
 
