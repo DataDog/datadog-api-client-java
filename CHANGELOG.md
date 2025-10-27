@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## 2.45.0/2025-10-27
+
+### Added
+* Add endpoints for Software Composition Analysis [#3214](https://github.com/DataDog/datadog-api-client-java/pull/3214)
+* Add support for `Schema Processor` in `Logs Pipelines` [#3192](https://github.com/DataDog/datadog-api-client-java/pull/3192)
+* Add new DeleteAssignee endpoint to Error Tracking APIs [#3187](https://github.com/DataDog/datadog-api-client-java/pull/3187)
+* document agentless GCP scan options CRUD endpoints [#3183](https://github.com/DataDog/datadog-api-client-java/pull/3183)
+* Document `/api/v2/roles/templates`  [#3170](https://github.com/DataDog/datadog-api-client-java/pull/3170)
+* Add Reference Tables API spec [#3169](https://github.com/DataDog/datadog-api-client-java/pull/3169)
+* Add blockedRequestPatterns to synthetics browser test options [#3163](https://github.com/DataDog/datadog-api-client-java/pull/3163)
+* Add `BulkDeleteDatastoreItems` to Datastore API spec [#3162](https://github.com/DataDog/datadog-api-client-java/pull/3162)
+* Add some missing Workload Protection agent rule fields [#3161](https://github.com/DataDog/datadog-api-client-java/pull/3161)
+* Add AzureScanOptions to agentless scanning API [#3159](https://github.com/DataDog/datadog-api-client-java/pull/3159)
+
+### Changed
+* Include mention to new scanned-assets-metadata endpoint on container images v2 endpoint [#3191](https://github.com/DataDog/datadog-api-client-java/pull/3191)
+* Include mention to new scanned-assets-metadata endpoint on hosts v1 endpoint [#3190](https://github.com/DataDog/datadog-api-client-java/pull/3190)
+* security_monitoring - Add indexes to deprecate index in ruleQuery [#3184](https://github.com/DataDog/datadog-api-client-java/pull/3184)
+* Add support for vulnerability management - Add ListScannedAssetsMetadata new endpoint and update existing ones [#3182](https://github.com/DataDog/datadog-api-client-java/pull/3182)
+* Update description, operationId and examples for tag pipeline and custom allocation rules [#3178](https://github.com/DataDog/datadog-api-client-java/pull/3178)
+
+### Fixed
+* Update the summary name for get a tag pipeline ruleset. [#3188](https://github.com/DataDog/datadog-api-client-java/pull/3188)
+
 ## 2.44.0/2025-09-30
 
 ### Added
