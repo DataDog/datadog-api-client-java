@@ -23,16 +23,15 @@ import com.datadog.api.client.v2.model.GetFindingResponse;
 import com.datadog.api.client.v2.model.GetResourceEvaluationFiltersResponse;
 import com.datadog.api.client.v2.model.GetRuleVersionHistoryResponse;
 import com.datadog.api.client.v2.model.GetSBOMResponse;
-import com.datadog.api.client.v2.model.HistoricalJobResponse;
 import com.datadog.api.client.v2.model.JobCreateResponse;
 import com.datadog.api.client.v2.model.ListAssetsSBOMsResponse;
 import com.datadog.api.client.v2.model.ListFindingsResponse;
-import com.datadog.api.client.v2.model.ListHistoricalJobsResponse;
+import com.datadog.api.client.v2.model.ListThreatHuntingJobsResponse;
 import com.datadog.api.client.v2.model.ListVulnerabilitiesResponse;
 import com.datadog.api.client.v2.model.ListVulnerableAssetsResponse;
 import com.datadog.api.client.v2.model.NotificationRuleResponse;
 import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
-import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
+import com.datadog.api.client.v2.model.RunThreatHuntingJobRequest;
 import com.datadog.api.client.v2.model.SBOMComponentLicenseType;
 import com.datadog.api.client.v2.model.SBOMFormat;
 import com.datadog.api.client.v2.model.ScannedAssetsMetadata;
@@ -63,6 +62,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateReques
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionsResponse;
+import com.datadog.api.client.v2.model.ThreatHuntingJobResponse;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.UpdateResourceEvaluationFiltersRequest;
@@ -114,27 +114,27 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Cancel a historical job.
+   * Cancel a threat hunting job.
    *
-   * <p>See {@link #cancelHistoricalJobWithHttpInfo}.
+   * <p>See {@link #cancelThreatHuntingJobWithHttpInfo}.
    *
    * @param jobId The ID of the job. (required)
    * @throws ApiException if fails to make API call
    */
-  public void cancelHistoricalJob(String jobId) throws ApiException {
-    cancelHistoricalJobWithHttpInfo(jobId);
+  public void cancelThreatHuntingJob(String jobId) throws ApiException {
+    cancelThreatHuntingJobWithHttpInfo(jobId);
   }
 
   /**
-   * Cancel a historical job.
+   * Cancel a threat hunting job.
    *
-   * <p>See {@link #cancelHistoricalJobWithHttpInfoAsync}.
+   * <p>See {@link #cancelThreatHuntingJobWithHttpInfoAsync}.
    *
    * @param jobId The ID of the job. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> cancelHistoricalJobAsync(String jobId) {
-    return cancelHistoricalJobWithHttpInfoAsync(jobId)
+  public CompletableFuture<Void> cancelThreatHuntingJobAsync(String jobId) {
+    return cancelThreatHuntingJobWithHttpInfoAsync(jobId)
         .thenApply(
             response -> {
               return response.getData();
@@ -142,7 +142,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Cancel a historical job.
+   * Cancel a threat hunting job.
    *
    * @param jobId The ID of the job. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -160,9 +160,9 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> cancelHistoricalJobWithHttpInfo(String jobId) throws ApiException {
+  public ApiResponse<Void> cancelThreatHuntingJobWithHttpInfo(String jobId) throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "cancelHistoricalJob";
+    String operationId = "cancelThreatHuntingJob";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -173,18 +173,18 @@ public class SecurityMonitoringApi {
     // verify the required parameter 'jobId' is set
     if (jobId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'jobId' when calling cancelHistoricalJob");
+          400, "Missing the required parameter 'jobId' when calling cancelThreatHuntingJob");
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/siem-historical-detections/jobs/{job_id}/cancel"
+        "/api/v2/siem-threat-hunting/jobs/{job_id}/cancel"
             .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.SecurityMonitoringApi.cancelHistoricalJob",
+            "v2.SecurityMonitoringApi.cancelThreatHuntingJob",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -203,16 +203,17 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Cancel a historical job.
+   * Cancel a threat hunting job.
    *
-   * <p>See {@link #cancelHistoricalJobWithHttpInfo}.
+   * <p>See {@link #cancelThreatHuntingJobWithHttpInfo}.
    *
    * @param jobId The ID of the job. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> cancelHistoricalJobWithHttpInfoAsync(String jobId) {
+  public CompletableFuture<ApiResponse<Void>> cancelThreatHuntingJobWithHttpInfoAsync(
+      String jobId) {
     // Check if unstable operation is enabled
-    String operationId = "cancelHistoricalJob";
+    String operationId = "cancelThreatHuntingJob";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -228,12 +229,12 @@ public class SecurityMonitoringApi {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'jobId' when calling cancelHistoricalJob"));
+              400, "Missing the required parameter 'jobId' when calling cancelThreatHuntingJob"));
       return result;
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/siem-historical-detections/jobs/{job_id}/cancel"
+        "/api/v2/siem-threat-hunting/jobs/{job_id}/cancel"
             .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -242,7 +243,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.SecurityMonitoringApi.cancelHistoricalJob",
+              "v2.SecurityMonitoringApi.cancelThreatHuntingJob",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -474,7 +475,7 @@ public class SecurityMonitoringApi {
           400, "Missing the required parameter 'body' when calling convertJobResultToSignal");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/siem-historical-detections/jobs/signal_convert";
+    String localVarPath = "/api/v2/siem-threat-hunting/jobs/signal_convert";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -529,7 +530,7 @@ public class SecurityMonitoringApi {
       return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/siem-historical-detections/jobs/signal_convert";
+    String localVarPath = "/api/v2/siem-threat-hunting/jobs/signal_convert";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1704,158 +1705,6 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing job.
-   *
-   * <p>See {@link #deleteHistoricalJobWithHttpInfo}.
-   *
-   * @param jobId The ID of the job. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteHistoricalJob(String jobId) throws ApiException {
-    deleteHistoricalJobWithHttpInfo(jobId);
-  }
-
-  /**
-   * Delete an existing job.
-   *
-   * <p>See {@link #deleteHistoricalJobWithHttpInfoAsync}.
-   *
-   * @param jobId The ID of the job. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteHistoricalJobAsync(String jobId) {
-    return deleteHistoricalJobWithHttpInfoAsync(jobId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Delete an existing job.
-   *
-   * @param jobId The ID of the job. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Concurrent Modification </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<Void> deleteHistoricalJobWithHttpInfo(String jobId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'jobId' is set
-    if (jobId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'jobId' when calling deleteHistoricalJob");
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/siem-historical-detections/jobs/{job_id}"
-            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.SecurityMonitoringApi.deleteHistoricalJob",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
-  }
-
-  /**
-   * Delete an existing job.
-   *
-   * <p>See {@link #deleteHistoricalJobWithHttpInfo}.
-   *
-   * @param jobId The ID of the job. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<Void>> deleteHistoricalJobWithHttpInfoAsync(String jobId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'jobId' is set
-    if (jobId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'jobId' when calling deleteHistoricalJob"));
-      return result;
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/siem-historical-detections/jobs/{job_id}"
-            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.SecurityMonitoringApi.deleteHistoricalJob",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
-  }
-
-  /**
    * Delete a security filter.
    *
    * <p>See {@link #deleteSecurityFilterWithHttpInfo}.
@@ -2389,6 +2238,159 @@ public class SecurityMonitoringApi {
               new HashMap<String, String>(),
               new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an existing job.
+   *
+   * <p>See {@link #deleteThreatHuntingJobWithHttpInfo}.
+   *
+   * @param jobId The ID of the job. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteThreatHuntingJob(String jobId) throws ApiException {
+    deleteThreatHuntingJobWithHttpInfo(jobId);
+  }
+
+  /**
+   * Delete an existing job.
+   *
+   * <p>See {@link #deleteThreatHuntingJobWithHttpInfoAsync}.
+   *
+   * @param jobId The ID of the job. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteThreatHuntingJobAsync(String jobId) {
+    return deleteThreatHuntingJobWithHttpInfoAsync(jobId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an existing job.
+   *
+   * @param jobId The ID of the job. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteThreatHuntingJobWithHttpInfo(String jobId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteThreatHuntingJob";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'jobId' is set
+    if (jobId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'jobId' when calling deleteThreatHuntingJob");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/siem-threat-hunting/jobs/{job_id}"
+            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteThreatHuntingJob",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an existing job.
+   *
+   * <p>See {@link #deleteThreatHuntingJobWithHttpInfo}.
+   *
+   * @param jobId The ID of the job. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteThreatHuntingJobWithHttpInfoAsync(
+      String jobId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteThreatHuntingJob";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'jobId' is set
+    if (jobId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'jobId' when calling deleteThreatHuntingJob"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/siem-threat-hunting/jobs/{job_id}"
+            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteThreatHuntingJob",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3431,159 +3433,6 @@ public class SecurityMonitoringApi {
         new GenericType<GetFindingResponse>() {});
   }
 
-  /**
-   * Get a job&#39;s details.
-   *
-   * <p>See {@link #getHistoricalJobWithHttpInfo}.
-   *
-   * @param jobId The ID of the job. (required)
-   * @return HistoricalJobResponse
-   * @throws ApiException if fails to make API call
-   */
-  public HistoricalJobResponse getHistoricalJob(String jobId) throws ApiException {
-    return getHistoricalJobWithHttpInfo(jobId).getData();
-  }
-
-  /**
-   * Get a job&#39;s details.
-   *
-   * <p>See {@link #getHistoricalJobWithHttpInfoAsync}.
-   *
-   * @param jobId The ID of the job. (required)
-   * @return CompletableFuture&lt;HistoricalJobResponse&gt;
-   */
-  public CompletableFuture<HistoricalJobResponse> getHistoricalJobAsync(String jobId) {
-    return getHistoricalJobWithHttpInfoAsync(jobId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Get a job's details.
-   *
-   * @param jobId The ID of the job. (required)
-   * @return ApiResponse&lt;HistoricalJobResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<HistoricalJobResponse> getHistoricalJobWithHttpInfo(String jobId)
-      throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'jobId' is set
-    if (jobId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'jobId' when calling getHistoricalJob");
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/siem-historical-detections/jobs/{job_id}"
-            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.SecurityMonitoringApi.getHistoricalJob",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<HistoricalJobResponse>() {});
-  }
-
-  /**
-   * Get a job&#39;s details.
-   *
-   * <p>See {@link #getHistoricalJobWithHttpInfo}.
-   *
-   * @param jobId The ID of the job. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;HistoricalJobResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<HistoricalJobResponse>> getHistoricalJobWithHttpInfoAsync(
-      String jobId) {
-    // Check if unstable operation is enabled
-    String operationId = "getHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<HistoricalJobResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'jobId' is set
-    if (jobId == null) {
-      CompletableFuture<ApiResponse<HistoricalJobResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'jobId' when calling getHistoricalJob"));
-      return result;
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/siem-historical-detections/jobs/{job_id}"
-            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.SecurityMonitoringApi.getHistoricalJob",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<HistoricalJobResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<HistoricalJobResponse>() {});
-  }
-
   /** Manage optional parameters to getResourceEvaluationFilters. */
   public static class GetResourceEvaluationFiltersOptionalParameters {
     private String cloudProvider;
@@ -4437,7 +4286,7 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityMonitoringHistsignalWithHttpInfo}.
    *
-   * @param histsignalId The ID of the historical signal. (required)
+   * @param histsignalId The ID of the threat hunting signal. (required)
    * @return SecurityMonitoringSignalResponse
    * @throws ApiException if fails to make API call
    */
@@ -4451,7 +4300,7 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityMonitoringHistsignalWithHttpInfoAsync}.
    *
-   * @param histsignalId The ID of the historical signal. (required)
+   * @param histsignalId The ID of the threat hunting signal. (required)
    * @return CompletableFuture&lt;SecurityMonitoringSignalResponse&gt;
    */
   public CompletableFuture<SecurityMonitoringSignalResponse> getSecurityMonitoringHistsignalAsync(
@@ -4466,7 +4315,7 @@ public class SecurityMonitoringApi {
   /**
    * Get a hist signal's details.
    *
-   * @param histsignalId The ID of the historical signal. (required)
+   * @param histsignalId The ID of the threat hunting signal. (required)
    * @return ApiResponse&lt;SecurityMonitoringSignalResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -4500,7 +4349,7 @@ public class SecurityMonitoringApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/siem-historical-detections/histsignals/{histsignal_id}"
+        "/api/v2/siem-threat-hunting/histsignals/{histsignal_id}"
             .replaceAll(
                 "\\{" + "histsignal_id" + "\\}", apiClient.escapeString(histsignalId.toString()));
 
@@ -4531,7 +4380,7 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #getSecurityMonitoringHistsignalWithHttpInfo}.
    *
-   * @param histsignalId The ID of the historical signal. (required)
+   * @param histsignalId The ID of the threat hunting signal. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SecurityMonitoringSignalResponse>>
@@ -4562,7 +4411,7 @@ public class SecurityMonitoringApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/siem-historical-detections/histsignals/{histsignal_id}"
+        "/api/v2/siem-threat-hunting/histsignals/{histsignal_id}"
             .replaceAll(
                 "\\{" + "histsignal_id" + "\\}", apiClient.escapeString(histsignalId.toString()));
 
@@ -4793,7 +4642,7 @@ public class SecurityMonitoringApi {
     Integer pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath =
-        "/api/v2/siem-historical-detections/jobs/{job_id}/histsignals"
+        "/api/v2/siem-threat-hunting/jobs/{job_id}/histsignals"
             .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -4870,7 +4719,7 @@ public class SecurityMonitoringApi {
     Integer pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath =
-        "/api/v2/siem-historical-detections/jobs/{job_id}/histsignals"
+        "/api/v2/siem-threat-hunting/jobs/{job_id}/histsignals"
             .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5859,6 +5708,159 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSuppressionsResponse>() {});
+  }
+
+  /**
+   * Get a job&#39;s details.
+   *
+   * <p>See {@link #getThreatHuntingJobWithHttpInfo}.
+   *
+   * @param jobId The ID of the job. (required)
+   * @return ThreatHuntingJobResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ThreatHuntingJobResponse getThreatHuntingJob(String jobId) throws ApiException {
+    return getThreatHuntingJobWithHttpInfo(jobId).getData();
+  }
+
+  /**
+   * Get a job&#39;s details.
+   *
+   * <p>See {@link #getThreatHuntingJobWithHttpInfoAsync}.
+   *
+   * @param jobId The ID of the job. (required)
+   * @return CompletableFuture&lt;ThreatHuntingJobResponse&gt;
+   */
+  public CompletableFuture<ThreatHuntingJobResponse> getThreatHuntingJobAsync(String jobId) {
+    return getThreatHuntingJobWithHttpInfoAsync(jobId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a job's details.
+   *
+   * @param jobId The ID of the job. (required)
+   * @return ApiResponse&lt;ThreatHuntingJobResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ThreatHuntingJobResponse> getThreatHuntingJobWithHttpInfo(String jobId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getThreatHuntingJob";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'jobId' is set
+    if (jobId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'jobId' when calling getThreatHuntingJob");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/siem-threat-hunting/jobs/{job_id}"
+            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getThreatHuntingJob",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ThreatHuntingJobResponse>() {});
+  }
+
+  /**
+   * Get a job&#39;s details.
+   *
+   * <p>See {@link #getThreatHuntingJobWithHttpInfo}.
+   *
+   * @param jobId The ID of the job. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ThreatHuntingJobResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ThreatHuntingJobResponse>>
+      getThreatHuntingJobWithHttpInfoAsync(String jobId) {
+    // Check if unstable operation is enabled
+    String operationId = "getThreatHuntingJob";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ThreatHuntingJobResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'jobId' is set
+    if (jobId == null) {
+      CompletableFuture<ApiResponse<ThreatHuntingJobResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'jobId' when calling getThreatHuntingJob"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/siem-threat-hunting/jobs/{job_id}"
+            .replaceAll("\\{" + "job_id" + "\\}", apiClient.escapeString(jobId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getThreatHuntingJob",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ThreatHuntingJobResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ThreatHuntingJobResponse>() {});
   }
 
   /**
@@ -6995,241 +6997,6 @@ public class SecurityMonitoringApi {
         new GenericType<ListFindingsResponse>() {});
   }
 
-  /** Manage optional parameters to listHistoricalJobs. */
-  public static class ListHistoricalJobsOptionalParameters {
-    private Long pageSize;
-    private Long pageNumber;
-    private String sort;
-    private String filterQuery;
-
-    /**
-     * Set pageSize.
-     *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
-     * @return ListHistoricalJobsOptionalParameters
-     */
-    public ListHistoricalJobsOptionalParameters pageSize(Long pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    /**
-     * Set pageNumber.
-     *
-     * @param pageNumber Specific page number to return. (optional, default to 0)
-     * @return ListHistoricalJobsOptionalParameters
-     */
-    public ListHistoricalJobsOptionalParameters pageNumber(Long pageNumber) {
-      this.pageNumber = pageNumber;
-      return this;
-    }
-
-    /**
-     * Set sort.
-     *
-     * @param sort The order of the jobs in results. (optional)
-     * @return ListHistoricalJobsOptionalParameters
-     */
-    public ListHistoricalJobsOptionalParameters sort(String sort) {
-      this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Set filterQuery.
-     *
-     * @param filterQuery Query used to filter items from the fetched list. (optional)
-     * @return ListHistoricalJobsOptionalParameters
-     */
-    public ListHistoricalJobsOptionalParameters filterQuery(String filterQuery) {
-      this.filterQuery = filterQuery;
-      return this;
-    }
-  }
-
-  /**
-   * List historical jobs.
-   *
-   * <p>See {@link #listHistoricalJobsWithHttpInfo}.
-   *
-   * @return ListHistoricalJobsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ListHistoricalJobsResponse listHistoricalJobs() throws ApiException {
-    return listHistoricalJobsWithHttpInfo(new ListHistoricalJobsOptionalParameters()).getData();
-  }
-
-  /**
-   * List historical jobs.
-   *
-   * <p>See {@link #listHistoricalJobsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;ListHistoricalJobsResponse&gt;
-   */
-  public CompletableFuture<ListHistoricalJobsResponse> listHistoricalJobsAsync() {
-    return listHistoricalJobsWithHttpInfoAsync(new ListHistoricalJobsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * List historical jobs.
-   *
-   * <p>See {@link #listHistoricalJobsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return ListHistoricalJobsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ListHistoricalJobsResponse listHistoricalJobs(
-      ListHistoricalJobsOptionalParameters parameters) throws ApiException {
-    return listHistoricalJobsWithHttpInfo(parameters).getData();
-  }
-
-  /**
-   * List historical jobs.
-   *
-   * <p>See {@link #listHistoricalJobsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ListHistoricalJobsResponse&gt;
-   */
-  public CompletableFuture<ListHistoricalJobsResponse> listHistoricalJobsAsync(
-      ListHistoricalJobsOptionalParameters parameters) {
-    return listHistoricalJobsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * List historical jobs.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;ListHistoricalJobsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<ListHistoricalJobsResponse> listHistoricalJobsWithHttpInfo(
-      ListHistoricalJobsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listHistoricalJobs";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    Object localVarPostBody = null;
-    Long pageSize = parameters.pageSize;
-    Long pageNumber = parameters.pageNumber;
-    String sort = parameters.sort;
-    String filterQuery = parameters.filterQuery;
-    // create path and map variables
-    String localVarPath = "/api/v2/siem-historical-detections/jobs";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.SecurityMonitoringApi.listHistoricalJobs",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ListHistoricalJobsResponse>() {});
-  }
-
-  /**
-   * List historical jobs.
-   *
-   * <p>See {@link #listHistoricalJobsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;ListHistoricalJobsResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<ListHistoricalJobsResponse>>
-      listHistoricalJobsWithHttpInfoAsync(ListHistoricalJobsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listHistoricalJobs";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ListHistoricalJobsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
-    Object localVarPostBody = null;
-    Long pageSize = parameters.pageSize;
-    Long pageNumber = parameters.pageNumber;
-    String sort = parameters.sort;
-    String filterQuery = parameters.filterQuery;
-    // create path and map variables
-    String localVarPath = "/api/v2/siem-historical-detections/jobs";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.SecurityMonitoringApi.listHistoricalJobs",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<ListHistoricalJobsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ListHistoricalJobsResponse>() {});
-  }
-
   /** Manage optional parameters to listScannedAssetsMetadata. */
   public static class ListScannedAssetsMetadataOptionalParameters {
     private String pageToken;
@@ -7854,7 +7621,7 @@ public class SecurityMonitoringApi {
     String pageCursor = parameters.pageCursor;
     Integer pageLimit = parameters.pageLimit;
     // create path and map variables
-    String localVarPath = "/api/v2/siem-historical-detections/histsignals";
+    String localVarPath = "/api/v2/siem-threat-hunting/histsignals";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -7916,7 +7683,7 @@ public class SecurityMonitoringApi {
     String pageCursor = parameters.pageCursor;
     Integer pageLimit = parameters.pageLimit;
     // create path and map variables
-    String localVarPath = "/api/v2/siem-historical-detections/histsignals";
+    String localVarPath = "/api/v2/siem-threat-hunting/histsignals";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -8636,6 +8403,244 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSuppressionsResponse>() {});
+  }
+
+  /** Manage optional parameters to listThreatHuntingJobs. */
+  public static class ListThreatHuntingJobsOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private String sort;
+    private String filterQuery;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
+     *     to 10)
+     * @return ListThreatHuntingJobsOptionalParameters
+     */
+    public ListThreatHuntingJobsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListThreatHuntingJobsOptionalParameters
+     */
+    public ListThreatHuntingJobsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort The order of the jobs in results. (optional)
+     * @return ListThreatHuntingJobsOptionalParameters
+     */
+    public ListThreatHuntingJobsOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery Query used to filter items from the fetched list. (optional)
+     * @return ListThreatHuntingJobsOptionalParameters
+     */
+    public ListThreatHuntingJobsOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+  }
+
+  /**
+   * List threat hunting jobs.
+   *
+   * <p>See {@link #listThreatHuntingJobsWithHttpInfo}.
+   *
+   * @return ListThreatHuntingJobsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListThreatHuntingJobsResponse listThreatHuntingJobs() throws ApiException {
+    return listThreatHuntingJobsWithHttpInfo(new ListThreatHuntingJobsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List threat hunting jobs.
+   *
+   * <p>See {@link #listThreatHuntingJobsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListThreatHuntingJobsResponse&gt;
+   */
+  public CompletableFuture<ListThreatHuntingJobsResponse> listThreatHuntingJobsAsync() {
+    return listThreatHuntingJobsWithHttpInfoAsync(new ListThreatHuntingJobsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List threat hunting jobs.
+   *
+   * <p>See {@link #listThreatHuntingJobsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListThreatHuntingJobsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListThreatHuntingJobsResponse listThreatHuntingJobs(
+      ListThreatHuntingJobsOptionalParameters parameters) throws ApiException {
+    return listThreatHuntingJobsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List threat hunting jobs.
+   *
+   * <p>See {@link #listThreatHuntingJobsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListThreatHuntingJobsResponse&gt;
+   */
+  public CompletableFuture<ListThreatHuntingJobsResponse> listThreatHuntingJobsAsync(
+      ListThreatHuntingJobsOptionalParameters parameters) {
+    return listThreatHuntingJobsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List threat hunting jobs.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListThreatHuntingJobsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListThreatHuntingJobsResponse> listThreatHuntingJobsWithHttpInfo(
+      ListThreatHuntingJobsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listThreatHuntingJobs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String sort = parameters.sort;
+    String filterQuery = parameters.filterQuery;
+    // create path and map variables
+    String localVarPath = "/api/v2/siem-threat-hunting/jobs";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listThreatHuntingJobs",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListThreatHuntingJobsResponse>() {});
+  }
+
+  /**
+   * List threat hunting jobs.
+   *
+   * <p>See {@link #listThreatHuntingJobsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListThreatHuntingJobsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListThreatHuntingJobsResponse>>
+      listThreatHuntingJobsWithHttpInfoAsync(ListThreatHuntingJobsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listThreatHuntingJobs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListThreatHuntingJobsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String sort = parameters.sort;
+    String filterQuery = parameters.filterQuery;
+    // create path and map variables
+    String localVarPath = "/api/v2/siem-threat-hunting/jobs";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listThreatHuntingJobs",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListThreatHuntingJobsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListThreatHuntingJobsResponse>() {});
   }
 
   /** Manage optional parameters to listVulnerabilities. */
@@ -10758,28 +10763,30 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Run a historical job.
+   * Run a threat hunting job.
    *
-   * <p>See {@link #runHistoricalJobWithHttpInfo}.
+   * <p>See {@link #runThreatHuntingJobWithHttpInfo}.
    *
    * @param body (required)
    * @return JobCreateResponse
    * @throws ApiException if fails to make API call
    */
-  public JobCreateResponse runHistoricalJob(RunHistoricalJobRequest body) throws ApiException {
-    return runHistoricalJobWithHttpInfo(body).getData();
+  public JobCreateResponse runThreatHuntingJob(RunThreatHuntingJobRequest body)
+      throws ApiException {
+    return runThreatHuntingJobWithHttpInfo(body).getData();
   }
 
   /**
-   * Run a historical job.
+   * Run a threat hunting job.
    *
-   * <p>See {@link #runHistoricalJobWithHttpInfoAsync}.
+   * <p>See {@link #runThreatHuntingJobWithHttpInfoAsync}.
    *
    * @param body (required)
    * @return CompletableFuture&lt;JobCreateResponse&gt;
    */
-  public CompletableFuture<JobCreateResponse> runHistoricalJobAsync(RunHistoricalJobRequest body) {
-    return runHistoricalJobWithHttpInfoAsync(body)
+  public CompletableFuture<JobCreateResponse> runThreatHuntingJobAsync(
+      RunThreatHuntingJobRequest body) {
+    return runThreatHuntingJobWithHttpInfoAsync(body)
         .thenApply(
             response -> {
               return response.getData();
@@ -10787,7 +10794,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Run a historical job.
+   * Run a threat hunting job.
    *
    * @param body (required)
    * @return ApiResponse&lt;JobCreateResponse&gt;
@@ -10804,10 +10811,10 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<JobCreateResponse> runHistoricalJobWithHttpInfo(RunHistoricalJobRequest body)
-      throws ApiException {
+  public ApiResponse<JobCreateResponse> runThreatHuntingJobWithHttpInfo(
+      RunThreatHuntingJobRequest body) throws ApiException {
     // Check if unstable operation is enabled
-    String operationId = "runHistoricalJob";
+    String operationId = "runThreatHuntingJob";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -10818,16 +10825,16 @@ public class SecurityMonitoringApi {
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling runHistoricalJob");
+          400, "Missing the required parameter 'body' when calling runThreatHuntingJob");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/siem-historical-detections/jobs";
+    String localVarPath = "/api/v2/siem-threat-hunting/jobs";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.SecurityMonitoringApi.runHistoricalJob",
+            "v2.SecurityMonitoringApi.runThreatHuntingJob",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -10846,17 +10853,17 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Run a historical job.
+   * Run a threat hunting job.
    *
-   * <p>See {@link #runHistoricalJobWithHttpInfo}.
+   * <p>See {@link #runThreatHuntingJobWithHttpInfo}.
    *
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;JobCreateResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<JobCreateResponse>> runHistoricalJobWithHttpInfoAsync(
-      RunHistoricalJobRequest body) {
+  public CompletableFuture<ApiResponse<JobCreateResponse>> runThreatHuntingJobWithHttpInfoAsync(
+      RunThreatHuntingJobRequest body) {
     // Check if unstable operation is enabled
-    String operationId = "runHistoricalJob";
+    String operationId = "runThreatHuntingJob";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
@@ -10872,11 +10879,11 @@ public class SecurityMonitoringApi {
       CompletableFuture<ApiResponse<JobCreateResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'body' when calling runHistoricalJob"));
+              400, "Missing the required parameter 'body' when calling runThreatHuntingJob"));
       return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/siem-historical-detections/jobs";
+    String localVarPath = "/api/v2/siem-threat-hunting/jobs";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -10884,7 +10891,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.SecurityMonitoringApi.runHistoricalJob",
+              "v2.SecurityMonitoringApi.runThreatHuntingJob",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -11017,7 +11024,7 @@ public class SecurityMonitoringApi {
     }
     Object localVarPostBody = parameters.body;
     // create path and map variables
-    String localVarPath = "/api/v2/siem-historical-detections/histsignals/search";
+    String localVarPath = "/api/v2/siem-threat-hunting/histsignals/search";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -11065,7 +11072,7 @@ public class SecurityMonitoringApi {
     }
     Object localVarPostBody = parameters.body;
     // create path and map variables
-    String localVarPath = "/api/v2/siem-historical-detections/histsignals/search";
+    String localVarPath = "/api/v2/siem-threat-hunting/histsignals/search";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 

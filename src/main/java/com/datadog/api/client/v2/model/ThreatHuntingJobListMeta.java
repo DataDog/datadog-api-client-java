@@ -17,15 +17,15 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Metadata about the list of jobs. */
-@JsonPropertyOrder({HistoricalJobListMeta.JSON_PROPERTY_TOTAL_COUNT})
+@JsonPropertyOrder({ThreatHuntingJobListMeta.JSON_PROPERTY_TOTAL_COUNT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class HistoricalJobListMeta {
+public class ThreatHuntingJobListMeta {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
   private Integer totalCount;
 
-  public HistoricalJobListMeta totalCount(Integer totalCount) {
+  public ThreatHuntingJobListMeta totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -58,10 +58,10 @@ public class HistoricalJobListMeta {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return HistoricalJobListMeta
+   * @return ThreatHuntingJobListMeta
    */
   @JsonAnySetter
-  public HistoricalJobListMeta putAdditionalProperty(String key, Object value) {
+  public ThreatHuntingJobListMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -92,7 +92,7 @@ public class HistoricalJobListMeta {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HistoricalJobListMeta object is equal to o. */
+  /** Return true if this ThreatHuntingJobListMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,9 +101,9 @@ public class HistoricalJobListMeta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HistoricalJobListMeta historicalJobListMeta = (HistoricalJobListMeta) o;
-    return Objects.equals(this.totalCount, historicalJobListMeta.totalCount)
-        && Objects.equals(this.additionalProperties, historicalJobListMeta.additionalProperties);
+    ThreatHuntingJobListMeta threatHuntingJobListMeta = (ThreatHuntingJobListMeta) o;
+    return Objects.equals(this.totalCount, threatHuntingJobListMeta.totalCount)
+        && Objects.equals(this.additionalProperties, threatHuntingJobListMeta.additionalProperties);
   }
 
   @Override
@@ -114,7 +114,7 @@ public class HistoricalJobListMeta {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HistoricalJobListMeta {\n");
+    sb.append("class ThreatHuntingJobListMeta {\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

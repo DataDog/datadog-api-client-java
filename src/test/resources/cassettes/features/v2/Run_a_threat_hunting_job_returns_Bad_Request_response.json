@@ -7,7 +7,7 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/siem-historical-detections/jobs",
+      "path": "/api/v2/siem-threat-hunting/jobs",
       "keepAlive": false,
       "secure": true
     },
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d6c37d4c-15bf-d57c-afed-ccbe43952e41"
+    "id": "8385b3da-78cd-f5dc-4258-fcc039b5013a"
   }
 ]

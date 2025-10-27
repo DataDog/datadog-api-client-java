@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Definition of a historical job based on a security monitoring rule. */
+/** Definition of a threat hunting job based on a security monitoring rule. */
 @JsonPropertyOrder({
   JobDefinitionFromRule.JSON_PROPERTY_FROM,
   JobDefinitionFromRule.JSON_PROPERTY_ID,

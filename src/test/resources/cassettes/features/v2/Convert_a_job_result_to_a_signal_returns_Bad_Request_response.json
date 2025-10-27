@@ -7,7 +7,7 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/siem-historical-detections/jobs/signal_convert",
+      "path": "/api/v2/siem-threat-hunting/jobs/signal_convert",
       "keepAlive": false,
       "secure": true
     },
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0d4946af-2c85-586b-74dd-eb117a50a4a6"
+    "id": "547f0189-451a-1424-59cd-9f22ee5351f6"
   }
 ]

@@ -16,20 +16,20 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Historical job attributes. */
+/** Threat hunting job attributes. */
 @JsonPropertyOrder({
-  HistoricalJobResponseAttributes.JSON_PROPERTY_CREATED_AT,
-  HistoricalJobResponseAttributes.JSON_PROPERTY_CREATED_BY_HANDLE,
-  HistoricalJobResponseAttributes.JSON_PROPERTY_CREATED_BY_NAME,
-  HistoricalJobResponseAttributes.JSON_PROPERTY_CREATED_FROM_RULE_ID,
-  HistoricalJobResponseAttributes.JSON_PROPERTY_JOB_DEFINITION,
-  HistoricalJobResponseAttributes.JSON_PROPERTY_JOB_NAME,
-  HistoricalJobResponseAttributes.JSON_PROPERTY_JOB_STATUS,
-  HistoricalJobResponseAttributes.JSON_PROPERTY_MODIFIED_AT
+  ThreatHuntingJobResponseAttributes.JSON_PROPERTY_CREATED_AT,
+  ThreatHuntingJobResponseAttributes.JSON_PROPERTY_CREATED_BY_HANDLE,
+  ThreatHuntingJobResponseAttributes.JSON_PROPERTY_CREATED_BY_NAME,
+  ThreatHuntingJobResponseAttributes.JSON_PROPERTY_CREATED_FROM_RULE_ID,
+  ThreatHuntingJobResponseAttributes.JSON_PROPERTY_JOB_DEFINITION,
+  ThreatHuntingJobResponseAttributes.JSON_PROPERTY_JOB_NAME,
+  ThreatHuntingJobResponseAttributes.JSON_PROPERTY_JOB_STATUS,
+  ThreatHuntingJobResponseAttributes.JSON_PROPERTY_MODIFIED_AT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class HistoricalJobResponseAttributes {
+public class ThreatHuntingJobResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private String createdAt;
@@ -55,7 +55,7 @@ public class HistoricalJobResponseAttributes {
   public static final String JSON_PROPERTY_MODIFIED_AT = "modifiedAt";
   private String modifiedAt;
 
-  public HistoricalJobResponseAttributes createdAt(String createdAt) {
+  public ThreatHuntingJobResponseAttributes createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -76,7 +76,7 @@ public class HistoricalJobResponseAttributes {
     this.createdAt = createdAt;
   }
 
-  public HistoricalJobResponseAttributes createdByHandle(String createdByHandle) {
+  public ThreatHuntingJobResponseAttributes createdByHandle(String createdByHandle) {
     this.createdByHandle = createdByHandle;
     return this;
   }
@@ -97,7 +97,7 @@ public class HistoricalJobResponseAttributes {
     this.createdByHandle = createdByHandle;
   }
 
-  public HistoricalJobResponseAttributes createdByName(String createdByName) {
+  public ThreatHuntingJobResponseAttributes createdByName(String createdByName) {
     this.createdByName = createdByName;
     return this;
   }
@@ -118,7 +118,7 @@ public class HistoricalJobResponseAttributes {
     this.createdByName = createdByName;
   }
 
-  public HistoricalJobResponseAttributes createdFromRuleId(String createdFromRuleId) {
+  public ThreatHuntingJobResponseAttributes createdFromRuleId(String createdFromRuleId) {
     this.createdFromRuleId = createdFromRuleId;
     return this;
   }
@@ -139,14 +139,14 @@ public class HistoricalJobResponseAttributes {
     this.createdFromRuleId = createdFromRuleId;
   }
 
-  public HistoricalJobResponseAttributes jobDefinition(JobDefinition jobDefinition) {
+  public ThreatHuntingJobResponseAttributes jobDefinition(JobDefinition jobDefinition) {
     this.jobDefinition = jobDefinition;
     this.unparsed |= jobDefinition.unparsed;
     return this;
   }
 
   /**
-   * Definition of a historical job.
+   * Definition of a threat hunting job.
    *
    * @return jobDefinition
    */
@@ -161,7 +161,7 @@ public class HistoricalJobResponseAttributes {
     this.jobDefinition = jobDefinition;
   }
 
-  public HistoricalJobResponseAttributes jobName(String jobName) {
+  public ThreatHuntingJobResponseAttributes jobName(String jobName) {
     this.jobName = jobName;
     return this;
   }
@@ -182,7 +182,7 @@ public class HistoricalJobResponseAttributes {
     this.jobName = jobName;
   }
 
-  public HistoricalJobResponseAttributes jobStatus(String jobStatus) {
+  public ThreatHuntingJobResponseAttributes jobStatus(String jobStatus) {
     this.jobStatus = jobStatus;
     return this;
   }
@@ -203,7 +203,7 @@ public class HistoricalJobResponseAttributes {
     this.jobStatus = jobStatus;
   }
 
-  public HistoricalJobResponseAttributes modifiedAt(String modifiedAt) {
+  public ThreatHuntingJobResponseAttributes modifiedAt(String modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -236,10 +236,10 @@ public class HistoricalJobResponseAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return HistoricalJobResponseAttributes
+   * @return ThreatHuntingJobResponseAttributes
    */
   @JsonAnySetter
-  public HistoricalJobResponseAttributes putAdditionalProperty(String key, Object value) {
+  public ThreatHuntingJobResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -270,7 +270,7 @@ public class HistoricalJobResponseAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HistoricalJobResponseAttributes object is equal to o. */
+  /** Return true if this ThreatHuntingJobResponseAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -279,18 +279,19 @@ public class HistoricalJobResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HistoricalJobResponseAttributes historicalJobResponseAttributes =
-        (HistoricalJobResponseAttributes) o;
-    return Objects.equals(this.createdAt, historicalJobResponseAttributes.createdAt)
-        && Objects.equals(this.createdByHandle, historicalJobResponseAttributes.createdByHandle)
-        && Objects.equals(this.createdByName, historicalJobResponseAttributes.createdByName)
-        && Objects.equals(this.createdFromRuleId, historicalJobResponseAttributes.createdFromRuleId)
-        && Objects.equals(this.jobDefinition, historicalJobResponseAttributes.jobDefinition)
-        && Objects.equals(this.jobName, historicalJobResponseAttributes.jobName)
-        && Objects.equals(this.jobStatus, historicalJobResponseAttributes.jobStatus)
-        && Objects.equals(this.modifiedAt, historicalJobResponseAttributes.modifiedAt)
+    ThreatHuntingJobResponseAttributes threatHuntingJobResponseAttributes =
+        (ThreatHuntingJobResponseAttributes) o;
+    return Objects.equals(this.createdAt, threatHuntingJobResponseAttributes.createdAt)
+        && Objects.equals(this.createdByHandle, threatHuntingJobResponseAttributes.createdByHandle)
+        && Objects.equals(this.createdByName, threatHuntingJobResponseAttributes.createdByName)
         && Objects.equals(
-            this.additionalProperties, historicalJobResponseAttributes.additionalProperties);
+            this.createdFromRuleId, threatHuntingJobResponseAttributes.createdFromRuleId)
+        && Objects.equals(this.jobDefinition, threatHuntingJobResponseAttributes.jobDefinition)
+        && Objects.equals(this.jobName, threatHuntingJobResponseAttributes.jobName)
+        && Objects.equals(this.jobStatus, threatHuntingJobResponseAttributes.jobStatus)
+        && Objects.equals(this.modifiedAt, threatHuntingJobResponseAttributes.modifiedAt)
+        && Objects.equals(
+            this.additionalProperties, threatHuntingJobResponseAttributes.additionalProperties);
   }
 
   @Override
@@ -310,7 +311,7 @@ public class HistoricalJobResponseAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HistoricalJobResponseAttributes {\n");
+    sb.append("class ThreatHuntingJobResponseAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdByHandle: ").append(toIndentedString(createdByHandle)).append("\n");
     sb.append("    createdByName: ").append(toIndentedString(createdByName)).append("\n");

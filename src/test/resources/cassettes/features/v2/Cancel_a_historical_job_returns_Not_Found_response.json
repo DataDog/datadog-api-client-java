@@ -3,12 +3,12 @@
     "httpRequest": {
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/siem-historical-detections/jobs/8e2a37fb-b0c8-4761-a7f0-0a8d6a98ba93/cancel",
+      "path": "/api/v2/siem-threat-hunting/jobs/8e2a37fb-b0c8-4761-a7f0-0a8d6a98ba93/cancel",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"Job 8e2a37fb-b0c8-4761-a7f0-0a8d6a98ba93 was not found.\"}]}",
+      "body": "{\"errors\":[{\"status\":\"404\",\"detail\":\"Not Found\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "699b2b92-566c-9d92-69d6-d218f57402f8"
+    "id": "e39b14a9-77fa-d872-9562-37286fee579e"
   }
 ]
