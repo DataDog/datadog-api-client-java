@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for converting historical job results to signals. */
+/** Attributes for converting threat hunting job results to signals. */
 @JsonPropertyOrder({
   ConvertJobResultsToSignalsAttributes.JSON_PROPERTY_ID,
   ConvertJobResultsToSignalsAttributes.JSON_PROPERTY_JOB_RESULT_IDS,

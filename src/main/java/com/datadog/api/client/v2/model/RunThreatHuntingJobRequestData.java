@@ -16,44 +16,45 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data for running a historical job request. */
+/** Data for running a threat hunting job request. */
 @JsonPropertyOrder({
-  RunHistoricalJobRequestData.JSON_PROPERTY_ATTRIBUTES,
-  RunHistoricalJobRequestData.JSON_PROPERTY_TYPE
+  RunThreatHuntingJobRequestData.JSON_PROPERTY_ATTRIBUTES,
+  RunThreatHuntingJobRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RunHistoricalJobRequestData {
+public class RunThreatHuntingJobRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private RunHistoricalJobRequestAttributes attributes;
+  private RunThreatHuntingJobRequestAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private RunHistoricalJobRequestDataType type;
+  private RunThreatHuntingJobRequestDataType type;
 
-  public RunHistoricalJobRequestData attributes(RunHistoricalJobRequestAttributes attributes) {
+  public RunThreatHuntingJobRequestData attributes(
+      RunThreatHuntingJobRequestAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Run a historical job request.
+   * Run a threat hunting job request.
    *
    * @return attributes
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RunHistoricalJobRequestAttributes getAttributes() {
+  public RunThreatHuntingJobRequestAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(RunHistoricalJobRequestAttributes attributes) {
+  public void setAttributes(RunThreatHuntingJobRequestAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public RunHistoricalJobRequestData type(RunHistoricalJobRequestDataType type) {
+  public RunThreatHuntingJobRequestData type(RunThreatHuntingJobRequestDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -67,11 +68,11 @@ public class RunHistoricalJobRequestData {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RunHistoricalJobRequestDataType getType() {
+  public RunThreatHuntingJobRequestDataType getType() {
     return type;
   }
 
-  public void setType(RunHistoricalJobRequestDataType type) {
+  public void setType(RunThreatHuntingJobRequestDataType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -90,10 +91,10 @@ public class RunHistoricalJobRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RunHistoricalJobRequestData
+   * @return RunThreatHuntingJobRequestData
    */
   @JsonAnySetter
-  public RunHistoricalJobRequestData putAdditionalProperty(String key, Object value) {
+  public RunThreatHuntingJobRequestData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -124,7 +125,7 @@ public class RunHistoricalJobRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RunHistoricalJobRequestData object is equal to o. */
+  /** Return true if this RunThreatHuntingJobRequestData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,11 +134,12 @@ public class RunHistoricalJobRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RunHistoricalJobRequestData runHistoricalJobRequestData = (RunHistoricalJobRequestData) o;
-    return Objects.equals(this.attributes, runHistoricalJobRequestData.attributes)
-        && Objects.equals(this.type, runHistoricalJobRequestData.type)
+    RunThreatHuntingJobRequestData runThreatHuntingJobRequestData =
+        (RunThreatHuntingJobRequestData) o;
+    return Objects.equals(this.attributes, runThreatHuntingJobRequestData.attributes)
+        && Objects.equals(this.type, runThreatHuntingJobRequestData.type)
         && Objects.equals(
-            this.additionalProperties, runHistoricalJobRequestData.additionalProperties);
+            this.additionalProperties, runThreatHuntingJobRequestData.additionalProperties);
   }
 
   @Override
@@ -148,7 +150,7 @@ public class RunHistoricalJobRequestData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RunHistoricalJobRequestData {\n");
+    sb.append("class RunThreatHuntingJobRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

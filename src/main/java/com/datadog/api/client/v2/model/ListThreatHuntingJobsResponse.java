@@ -18,30 +18,30 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** List of historical jobs. */
+/** List of threat hunting jobs. */
 @JsonPropertyOrder({
-  ListHistoricalJobsResponse.JSON_PROPERTY_DATA,
-  ListHistoricalJobsResponse.JSON_PROPERTY_META
+  ListThreatHuntingJobsResponse.JSON_PROPERTY_DATA,
+  ListThreatHuntingJobsResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ListHistoricalJobsResponse {
+public class ListThreatHuntingJobsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<HistoricalJobResponseData> data = null;
+  private List<ThreatHuntingJobResponseData> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private HistoricalJobListMeta meta;
+  private ThreatHuntingJobListMeta meta;
 
-  public ListHistoricalJobsResponse data(List<HistoricalJobResponseData> data) {
+  public ListThreatHuntingJobsResponse data(List<ThreatHuntingJobResponseData> data) {
     this.data = data;
-    for (HistoricalJobResponseData item : data) {
+    for (ThreatHuntingJobResponseData item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public ListHistoricalJobsResponse addDataItem(HistoricalJobResponseData dataItem) {
+  public ListThreatHuntingJobsResponse addDataItem(ThreatHuntingJobResponseData dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -51,22 +51,22 @@ public class ListHistoricalJobsResponse {
   }
 
   /**
-   * Array containing the list of historical jobs.
+   * Array containing the list of threat hunting jobs.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<HistoricalJobResponseData> getData() {
+  public List<ThreatHuntingJobResponseData> getData() {
     return data;
   }
 
-  public void setData(List<HistoricalJobResponseData> data) {
+  public void setData(List<ThreatHuntingJobResponseData> data) {
     this.data = data;
   }
 
-  public ListHistoricalJobsResponse meta(HistoricalJobListMeta meta) {
+  public ListThreatHuntingJobsResponse meta(ThreatHuntingJobListMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
     return this;
@@ -80,11 +80,11 @@ public class ListHistoricalJobsResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HistoricalJobListMeta getMeta() {
+  public ThreatHuntingJobListMeta getMeta() {
     return meta;
   }
 
-  public void setMeta(HistoricalJobListMeta meta) {
+  public void setMeta(ThreatHuntingJobListMeta meta) {
     this.meta = meta;
   }
 
@@ -100,10 +100,10 @@ public class ListHistoricalJobsResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ListHistoricalJobsResponse
+   * @return ListThreatHuntingJobsResponse
    */
   @JsonAnySetter
-  public ListHistoricalJobsResponse putAdditionalProperty(String key, Object value) {
+  public ListThreatHuntingJobsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,7 +134,7 @@ public class ListHistoricalJobsResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ListHistoricalJobsResponse object is equal to o. */
+  /** Return true if this ListThreatHuntingJobsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,11 +143,11 @@ public class ListHistoricalJobsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListHistoricalJobsResponse listHistoricalJobsResponse = (ListHistoricalJobsResponse) o;
-    return Objects.equals(this.data, listHistoricalJobsResponse.data)
-        && Objects.equals(this.meta, listHistoricalJobsResponse.meta)
+    ListThreatHuntingJobsResponse listThreatHuntingJobsResponse = (ListThreatHuntingJobsResponse) o;
+    return Objects.equals(this.data, listThreatHuntingJobsResponse.data)
+        && Objects.equals(this.meta, listThreatHuntingJobsResponse.meta)
         && Objects.equals(
-            this.additionalProperties, listHistoricalJobsResponse.additionalProperties);
+            this.additionalProperties, listThreatHuntingJobsResponse.additionalProperties);
   }
 
   @Override
@@ -158,7 +158,7 @@ public class ListHistoricalJobsResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListHistoricalJobsResponse {\n");
+    sb.append("class ListThreatHuntingJobsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")

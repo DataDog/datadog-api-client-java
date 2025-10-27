@@ -18,20 +18,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Query for selecting logs analyzed by the historical job. */
+/** Query for selecting logs analyzed by the threat hunting job. */
 @JsonPropertyOrder({
-  HistoricalJobQuery.JSON_PROPERTY_AGGREGATION,
-  HistoricalJobQuery.JSON_PROPERTY_DATA_SOURCE,
-  HistoricalJobQuery.JSON_PROPERTY_DISTINCT_FIELDS,
-  HistoricalJobQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
-  HistoricalJobQuery.JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS,
-  HistoricalJobQuery.JSON_PROPERTY_METRICS,
-  HistoricalJobQuery.JSON_PROPERTY_NAME,
-  HistoricalJobQuery.JSON_PROPERTY_QUERY
+  ThreatHuntingJobQuery.JSON_PROPERTY_AGGREGATION,
+  ThreatHuntingJobQuery.JSON_PROPERTY_DATA_SOURCE,
+  ThreatHuntingJobQuery.JSON_PROPERTY_DISTINCT_FIELDS,
+  ThreatHuntingJobQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
+  ThreatHuntingJobQuery.JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS,
+  ThreatHuntingJobQuery.JSON_PROPERTY_METRICS,
+  ThreatHuntingJobQuery.JSON_PROPERTY_NAME,
+  ThreatHuntingJobQuery.JSON_PROPERTY_QUERY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class HistoricalJobQuery {
+public class ThreatHuntingJobQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private SecurityMonitoringRuleQueryAggregation aggregation;
@@ -59,7 +59,7 @@ public class HistoricalJobQuery {
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
-  public HistoricalJobQuery aggregation(SecurityMonitoringRuleQueryAggregation aggregation) {
+  public ThreatHuntingJobQuery aggregation(SecurityMonitoringRuleQueryAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
     return this;
@@ -84,7 +84,7 @@ public class HistoricalJobQuery {
     this.aggregation = aggregation;
   }
 
-  public HistoricalJobQuery dataSource(SecurityMonitoringStandardDataSource dataSource) {
+  public ThreatHuntingJobQuery dataSource(SecurityMonitoringStandardDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     return this;
@@ -109,12 +109,12 @@ public class HistoricalJobQuery {
     this.dataSource = dataSource;
   }
 
-  public HistoricalJobQuery distinctFields(List<String> distinctFields) {
+  public ThreatHuntingJobQuery distinctFields(List<String> distinctFields) {
     this.distinctFields = distinctFields;
     return this;
   }
 
-  public HistoricalJobQuery addDistinctFieldsItem(String distinctFieldsItem) {
+  public ThreatHuntingJobQuery addDistinctFieldsItem(String distinctFieldsItem) {
     if (this.distinctFields == null) {
       this.distinctFields = new ArrayList<>();
     }
@@ -138,12 +138,12 @@ public class HistoricalJobQuery {
     this.distinctFields = distinctFields;
   }
 
-  public HistoricalJobQuery groupByFields(List<String> groupByFields) {
+  public ThreatHuntingJobQuery groupByFields(List<String> groupByFields) {
     this.groupByFields = groupByFields;
     return this;
   }
 
-  public HistoricalJobQuery addGroupByFieldsItem(String groupByFieldsItem) {
+  public ThreatHuntingJobQuery addGroupByFieldsItem(String groupByFieldsItem) {
     if (this.groupByFields == null) {
       this.groupByFields = new ArrayList<>();
     }
@@ -167,7 +167,7 @@ public class HistoricalJobQuery {
     this.groupByFields = groupByFields;
   }
 
-  public HistoricalJobQuery hasOptionalGroupByFields(Boolean hasOptionalGroupByFields) {
+  public ThreatHuntingJobQuery hasOptionalGroupByFields(Boolean hasOptionalGroupByFields) {
     this.hasOptionalGroupByFields = hasOptionalGroupByFields;
     return this;
   }
@@ -189,12 +189,12 @@ public class HistoricalJobQuery {
     this.hasOptionalGroupByFields = hasOptionalGroupByFields;
   }
 
-  public HistoricalJobQuery metrics(List<String> metrics) {
+  public ThreatHuntingJobQuery metrics(List<String> metrics) {
     this.metrics = metrics;
     return this;
   }
 
-  public HistoricalJobQuery addMetricsItem(String metricsItem) {
+  public ThreatHuntingJobQuery addMetricsItem(String metricsItem) {
     if (this.metrics == null) {
       this.metrics = new ArrayList<>();
     }
@@ -220,7 +220,7 @@ public class HistoricalJobQuery {
     this.metrics = metrics;
   }
 
-  public HistoricalJobQuery name(String name) {
+  public ThreatHuntingJobQuery name(String name) {
     this.name = name;
     return this;
   }
@@ -241,7 +241,7 @@ public class HistoricalJobQuery {
     this.name = name;
   }
 
-  public HistoricalJobQuery query(String query) {
+  public ThreatHuntingJobQuery query(String query) {
     this.query = query;
     return this;
   }
@@ -274,10 +274,10 @@ public class HistoricalJobQuery {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return HistoricalJobQuery
+   * @return ThreatHuntingJobQuery
    */
   @JsonAnySetter
-  public HistoricalJobQuery putAdditionalProperty(String key, Object value) {
+  public ThreatHuntingJobQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -308,7 +308,7 @@ public class HistoricalJobQuery {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HistoricalJobQuery object is equal to o. */
+  /** Return true if this ThreatHuntingJobQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -317,17 +317,17 @@ public class HistoricalJobQuery {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HistoricalJobQuery historicalJobQuery = (HistoricalJobQuery) o;
-    return Objects.equals(this.aggregation, historicalJobQuery.aggregation)
-        && Objects.equals(this.dataSource, historicalJobQuery.dataSource)
-        && Objects.equals(this.distinctFields, historicalJobQuery.distinctFields)
-        && Objects.equals(this.groupByFields, historicalJobQuery.groupByFields)
+    ThreatHuntingJobQuery threatHuntingJobQuery = (ThreatHuntingJobQuery) o;
+    return Objects.equals(this.aggregation, threatHuntingJobQuery.aggregation)
+        && Objects.equals(this.dataSource, threatHuntingJobQuery.dataSource)
+        && Objects.equals(this.distinctFields, threatHuntingJobQuery.distinctFields)
+        && Objects.equals(this.groupByFields, threatHuntingJobQuery.groupByFields)
         && Objects.equals(
-            this.hasOptionalGroupByFields, historicalJobQuery.hasOptionalGroupByFields)
-        && Objects.equals(this.metrics, historicalJobQuery.metrics)
-        && Objects.equals(this.name, historicalJobQuery.name)
-        && Objects.equals(this.query, historicalJobQuery.query)
-        && Objects.equals(this.additionalProperties, historicalJobQuery.additionalProperties);
+            this.hasOptionalGroupByFields, threatHuntingJobQuery.hasOptionalGroupByFields)
+        && Objects.equals(this.metrics, threatHuntingJobQuery.metrics)
+        && Objects.equals(this.name, threatHuntingJobQuery.name)
+        && Objects.equals(this.query, threatHuntingJobQuery.query)
+        && Objects.equals(this.additionalProperties, threatHuntingJobQuery.additionalProperties);
   }
 
   @Override
@@ -347,7 +347,7 @@ public class HistoricalJobQuery {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HistoricalJobQuery {\n");
+    sb.append("class ThreatHuntingJobQuery {\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");

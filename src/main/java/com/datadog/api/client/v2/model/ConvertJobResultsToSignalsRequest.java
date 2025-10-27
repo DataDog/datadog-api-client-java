@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request for converting historical job results to signals. */
+/** Request for converting threat hunting job results to signals. */
 @JsonPropertyOrder({ConvertJobResultsToSignalsRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class ConvertJobResultsToSignalsRequest {
   }
 
   /**
-   * Data for converting historical job results to signals.
+   * Data for converting threat hunting job results to signals.
    *
    * @return data
    */
