@@ -56,7 +56,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRestrictionPolicy(String resourceId) throws ApiException {
@@ -74,7 +75,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteRestrictionPolicyAsync(String resourceId) {
@@ -94,7 +96,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -155,7 +158,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteRestrictionPolicyWithHttpInfoAsync(
@@ -217,7 +221,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @return RestrictionPolicyResponse
    * @throws ApiException if fails to make API call
    */
@@ -236,7 +241,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @return CompletableFuture&lt;RestrictionPolicyResponse&gt;
    */
   public CompletableFuture<RestrictionPolicyResponse> getRestrictionPolicyAsync(String resourceId) {
@@ -256,7 +262,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @return ApiResponse&lt;RestrictionPolicyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -317,7 +324,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RestrictionPolicyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RestrictionPolicyResponse>>
@@ -398,7 +406,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @param body Restriction policy payload (required)
    * @return RestrictionPolicyResponse
    * @throws ApiException if fails to make API call
@@ -421,7 +430,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @param body Restriction policy payload (required)
    * @return CompletableFuture&lt;RestrictionPolicyResponse&gt;
    */
@@ -446,7 +456,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return RestrictionPolicyResponse
@@ -471,7 +482,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;RestrictionPolicyResponse&gt;
@@ -505,7 +517,7 @@ public class RestrictionPoliciesApi {
    * Connections: <code>cross-org-connection</code> - Spreadsheets: <code>spreadsheet</code> -
    * On-Call Schedules: <code>on-call-schedule</code> - On-Call Escalation Policies: <code>
    * on-call-escalation-policy</code> - On-Call Team Routing Rules: <code>on-call-team-routing-rules
-   * </code>
+   * </code> - Logs Pipelines: <code>logs-pipeline</code>
    *
    * <h3>Supported relations for resources</h3>
    *
@@ -525,6 +537,7 @@ public class RestrictionPoliciesApi {
    * </code>, <code>editor</code> Spreadsheets | <code>viewer</code>, <code>editor</code> On-Call
    * Schedules | <code>viewer</code>, <code>overrider</code>, <code>editor</code> On-Call Escalation
    * Policies | <code>viewer</code>, <code>editor</code> On-Call Team Routing Rules | <code>viewer
+   * </code>, <code>editor</code> Logs Pipelines | <code>viewer</code>, <code>processors_editor
    * </code>, <code>editor</code>
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
@@ -533,7 +546,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;RestrictionPolicyResponse&gt;
@@ -610,7 +624,8 @@ public class RestrictionPoliciesApi {
    *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
    *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
    *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, `on-call-team-routing-rules. (required)
+   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
+   *     logs-pipeline</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;RestrictionPolicyResponse&gt;&gt;
