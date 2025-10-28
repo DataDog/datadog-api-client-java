@@ -89,9 +89,10 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Create a Datadog-Amazon Web Services integration. Using the <code>POST</code> method updates
-   * your integration configuration by adding your new configuration to the existing one in your
-   * Datadog organization. A unique AWS Account ID for role based authentication.
+   * "<strong>This endpoint is deprecated - use the V2 endpoints instead.</strong> Create a
+   * Datadog-Amazon Web Services integration. Using the <code>POST</code> method updates your
+   * integration configuration by adding your new configuration to the existing one in your Datadog
+   * organization. A unique AWS Account ID for role based authentication.
    *
    * @param body AWS Request Object (required)
    * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
@@ -539,7 +540,8 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Generate a new AWS external ID for a given AWS account ID and role name pair.
+   * <strong>This endpoint is deprecated - use the V2 endpoints instead.</strong> Generate a new AWS
+   * external ID for a given AWS account ID and role name pair.
    *
    * @param body Your Datadog role delegation name. For more information about your AWS account Role
    *     name, see the <a
@@ -685,7 +687,8 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete a Datadog-AWS integration matching the specified <code>account_id</code> and <code>
+   * <strong>This endpoint is deprecated - use the V2 endpoints instead.</strong> Delete a
+   * Datadog-AWS integration matching the specified <code>account_id</code> and <code>
    * role_name parameters</code>.
    *
    * @param body AWS request object (required)
@@ -1118,7 +1121,8 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
+   * <strong>This endpoint is deprecated - use the V2 endpoints instead.</strong> List all namespace
+   * rules for a given Datadog-AWS integration. This endpoint takes no arguments.
    *
    * @return ApiResponse&lt;List&lt;String&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -1314,7 +1318,8 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all Datadog-AWS integrations available in your Datadog organization.
+   * <strong>This endpoint is deprecated - use the V2 endpoints instead.</strong> List all
+   * Datadog-AWS integrations available in your Datadog organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;AWSAccountListResponse&gt;
@@ -1802,7 +1807,8 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update a Datadog-Amazon Web Services integration.
+   * <strong>This endpoint is deprecated - use the V2 endpoints instead.</strong> Update a
+   * Datadog-Amazon Web Services integration.
    *
    * @param body AWS request object (required)
    * @param parameters Optional parameters for the request.
