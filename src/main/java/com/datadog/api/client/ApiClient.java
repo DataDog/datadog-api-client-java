@@ -775,6 +775,14 @@ public class ApiClient {
           put("v2.listPipelines", false);
           put("v2.updatePipeline", false);
           put("v2.validatePipeline", false);
+          put("v2.getRumCohort", false);
+          put("v2.getRumCohortUsers", false);
+          put("v2.getRumFunnel", false);
+          put("v2.getRumFunnelStepSuggestions", false);
+          put("v2.getRumSankey", false);
+          put("v2.createRumSegment", false);
+          put("v2.initializeRumSegments", false);
+          put("v2.listRumSegments", false);
           put("v2.createScorecardOutcomesBatch", false);
           put("v2.createScorecardRule", false);
           put("v2.deleteScorecardRule", false);
