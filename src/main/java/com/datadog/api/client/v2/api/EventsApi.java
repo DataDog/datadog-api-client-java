@@ -91,6 +91,11 @@ public class EventsApi {
    * are using the latest version released on or after July 1, 2025. Earlier versions do not support
    * this functionality.
    *
+   * <p><strong>Important:</strong> Upgrade to the latest client library version to use the updated
+   * endpoint at <code>https://event-management-intake.{site}/api/v2/events</code>. Older client
+   * library versions of the Post an event (v2) API send requests to a deprecated endpoint (<code>
+   * https://api.{site}/api/v2/events</code>).
+   *
    * <p>✅ <strong>Only events with the <code>change</code> or <code>alert</code> category</strong>
    * are in General Availability. For change events, see <a
    * href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for more details.
