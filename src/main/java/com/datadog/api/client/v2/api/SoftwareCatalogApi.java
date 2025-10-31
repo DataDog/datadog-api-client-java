@@ -6,6 +6,7 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.EntityData;
+import com.datadog.api.client.v2.model.EntityResponseArray;
 import com.datadog.api.client.v2.model.IncludeType;
 import com.datadog.api.client.v2.model.KindData;
 import com.datadog.api.client.v2.model.ListEntityCatalogResponse;
@@ -1266,6 +1267,113 @@ public class SoftwareCatalogApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListRelationCatalogResponse>() {});
+  }
+
+  /**
+   * Preview catalog entities.
+   *
+   * <p>See {@link #previewCatalogEntitiesWithHttpInfo}.
+   *
+   * @return EntityResponseArray
+   * @throws ApiException if fails to make API call
+   */
+  public EntityResponseArray previewCatalogEntities() throws ApiException {
+    return previewCatalogEntitiesWithHttpInfo().getData();
+  }
+
+  /**
+   * Preview catalog entities.
+   *
+   * <p>See {@link #previewCatalogEntitiesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;EntityResponseArray&gt;
+   */
+  public CompletableFuture<EntityResponseArray> previewCatalogEntitiesAsync() {
+    return previewCatalogEntitiesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @return ApiResponse&lt;EntityResponseArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EntityResponseArray> previewCatalogEntitiesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/catalog/entity/preview";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SoftwareCatalogApi.previewCatalogEntities",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EntityResponseArray>() {});
+  }
+
+  /**
+   * Preview catalog entities.
+   *
+   * <p>See {@link #previewCatalogEntitiesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;EntityResponseArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EntityResponseArray>>
+      previewCatalogEntitiesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/catalog/entity/preview";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SoftwareCatalogApi.previewCatalogEntities",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<EntityResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EntityResponseArray>() {});
   }
 
   /**
