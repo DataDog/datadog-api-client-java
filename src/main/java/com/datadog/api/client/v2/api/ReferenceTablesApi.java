@@ -744,32 +744,32 @@ public class ReferenceTablesApi {
 
   /** Manage optional parameters to listTables. */
   public static class ListTablesOptionalParameters {
-    private Long limit;
-    private Long offset;
+    private Long pageLimit;
+    private Long pageOffset;
     private ReferenceTableSortType sort;
     private String filterStatus;
     private String filterTableNameExact;
     private String filterTableNameContains;
 
     /**
-     * Set limit.
+     * Set pageLimit.
      *
-     * @param limit Number of tables to return. (optional, default to 15)
+     * @param pageLimit Number of tables to return. (optional, default to 15)
      * @return ListTablesOptionalParameters
      */
-    public ListTablesOptionalParameters limit(Long limit) {
-      this.limit = limit;
+    public ListTablesOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
       return this;
     }
 
     /**
-     * Set offset.
+     * Set pageOffset.
      *
-     * @param offset Number of tables to skip for pagination. (optional, default to 0)
+     * @param pageOffset Number of tables to skip for pagination. (optional, default to 0)
      * @return ListTablesOptionalParameters
      */
-    public ListTablesOptionalParameters offset(Long offset) {
-      this.offset = offset;
+    public ListTablesOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
       return this;
     }
 
@@ -895,8 +895,8 @@ public class ReferenceTablesApi {
   public ApiResponse<TableResultV2Array> listTablesWithHttpInfo(
       ListTablesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
-    Long limit = parameters.limit;
-    Long offset = parameters.offset;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     ReferenceTableSortType sort = parameters.sort;
     String filterStatus = parameters.filterStatus;
     String filterTableNameExact = parameters.filterTableNameExact;
@@ -907,8 +907,8 @@ public class ReferenceTablesApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
     localVarQueryParams.addAll(
@@ -947,8 +947,8 @@ public class ReferenceTablesApi {
   public CompletableFuture<ApiResponse<TableResultV2Array>> listTablesWithHttpInfoAsync(
       ListTablesOptionalParameters parameters) {
     Object localVarPostBody = null;
-    Long limit = parameters.limit;
-    Long offset = parameters.offset;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     ReferenceTableSortType sort = parameters.sort;
     String filterStatus = parameters.filterStatus;
     String filterTableNameExact = parameters.filterTableNameExact;
@@ -959,8 +959,8 @@ public class ReferenceTablesApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
     localVarQueryParams.addAll(
