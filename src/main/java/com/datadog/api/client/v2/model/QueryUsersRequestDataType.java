@@ -1,0 +1,57 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v2.model;
+
+import com.datadog.api.client.ModelEnum;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+/** Query users request resource type. */
+@JsonSerialize(using = QueryUsersRequestDataType.QueryUsersRequestDataTypeSerializer.class)
+public class QueryUsersRequestDataType extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("query_users_request"));
+
+  public static final QueryUsersRequestDataType QUERY_USERS_REQUEST =
+      new QueryUsersRequestDataType("query_users_request");
+
+  QueryUsersRequestDataType(String value) {
+    super(value, allowedValues);
+  }
+
+  public static class QueryUsersRequestDataTypeSerializer
+      extends StdSerializer<QueryUsersRequestDataType> {
+    public QueryUsersRequestDataTypeSerializer(Class<QueryUsersRequestDataType> t) {
+      super(t);
+    }
+
+    public QueryUsersRequestDataTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        QueryUsersRequestDataType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
+  @JsonCreator
+  public static QueryUsersRequestDataType fromValue(String value) {
+    return new QueryUsersRequestDataType(value);
+  }
+}
