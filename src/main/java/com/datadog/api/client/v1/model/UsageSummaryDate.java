@@ -36,6 +36,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM,
   UsageSummaryDate.JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM,
+  UsageSummaryDate.JSON_PROPERTY_BITS_AI_INVESTIGATIONS_SUM,
   UsageSummaryDate.JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_BROWSER_RUM_UNITS_SUM,
@@ -139,6 +140,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM,
   UsageSummaryDate.JSON_PROPERTY_OCI_HOST_SUM,
   UsageSummaryDate.JSON_PROPERTY_OCI_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_ON_CALL_SEAT_HWM,
   UsageSummaryDate.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
@@ -280,6 +282,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM =
       "billable_ingested_bytes_sum";
   private Long billableIngestedBytesSum;
+
+  public static final String JSON_PROPERTY_BITS_AI_INVESTIGATIONS_SUM =
+      "bits_ai_investigations_sum";
+  private Long bitsAiInvestigationsSum;
 
   public static final String JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM =
       "browser_rum_lite_session_count_sum";
@@ -647,6 +653,9 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_OCI_HOST_TOP99P = "oci_host_top99p";
   private Long ociHostTop99p;
+
+  public static final String JSON_PROPERTY_ON_CALL_SEAT_HWM = "on_call_seat_hwm";
+  private Long onCallSeatHwm;
 
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM =
       "online_archive_events_count_sum";
@@ -1305,6 +1314,28 @@ public class UsageSummaryDate {
 
   public void setBillableIngestedBytesSum(Long billableIngestedBytesSum) {
     this.billableIngestedBytesSum = billableIngestedBytesSum;
+  }
+
+  public UsageSummaryDate bitsAiInvestigationsSum(Long bitsAiInvestigationsSum) {
+    this.bitsAiInvestigationsSum = bitsAiInvestigationsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Bits AI Investigations over all hours in the current date for all
+   * organizations.
+   *
+   * @return bitsAiInvestigationsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BITS_AI_INVESTIGATIONS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getBitsAiInvestigationsSum() {
+    return bitsAiInvestigationsSum;
+  }
+
+  public void setBitsAiInvestigationsSum(Long bitsAiInvestigationsSum) {
+    this.bitsAiInvestigationsSum = bitsAiInvestigationsSum;
   }
 
   public UsageSummaryDate browserRumLiteSessionCountSum(Long browserRumLiteSessionCountSum) {
@@ -3639,6 +3670,28 @@ public class UsageSummaryDate {
     this.ociHostTop99p = ociHostTop99p;
   }
 
+  public UsageSummaryDate onCallSeatHwm(Long onCallSeatHwm) {
+    this.onCallSeatHwm = onCallSeatHwm;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of On-Call seats over all hours in the current date for all
+   * organizations.
+   *
+   * @return onCallSeatHwm
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ON_CALL_SEAT_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOnCallSeatHwm() {
+    return onCallSeatHwm;
+  }
+
+  public void setOnCallSeatHwm(Long onCallSeatHwm) {
+    this.onCallSeatHwm = onCallSeatHwm;
+  }
+
   public UsageSummaryDate onlineArchiveEventsCountSum(Long onlineArchiveEventsCountSum) {
     this.onlineArchiveEventsCountSum = onlineArchiveEventsCountSum;
     return this;
@@ -5647,6 +5700,7 @@ public class UsageSummaryDate {
         && Objects.equals(this.awsLambdaInvocationsSum, usageSummaryDate.awsLambdaInvocationsSum)
         && Objects.equals(this.azureAppServiceTop99p, usageSummaryDate.azureAppServiceTop99p)
         && Objects.equals(this.billableIngestedBytesSum, usageSummaryDate.billableIngestedBytesSum)
+        && Objects.equals(this.bitsAiInvestigationsSum, usageSummaryDate.bitsAiInvestigationsSum)
         && Objects.equals(
             this.browserRumLiteSessionCountSum, usageSummaryDate.browserRumLiteSessionCountSum)
         && Objects.equals(
@@ -5819,6 +5873,7 @@ public class UsageSummaryDate {
             usageSummaryDate.observabilityPipelinesBytesProcessedSum)
         && Objects.equals(this.ociHostSum, usageSummaryDate.ociHostSum)
         && Objects.equals(this.ociHostTop99p, usageSummaryDate.ociHostTop99p)
+        && Objects.equals(this.onCallSeatHwm, usageSummaryDate.onCallSeatHwm)
         && Objects.equals(
             this.onlineArchiveEventsCountSum, usageSummaryDate.onlineArchiveEventsCountSum)
         && Objects.equals(
@@ -6021,6 +6076,7 @@ public class UsageSummaryDate {
         awsLambdaInvocationsSum,
         azureAppServiceTop99p,
         billableIngestedBytesSum,
+        bitsAiInvestigationsSum,
         browserRumLiteSessionCountSum,
         browserRumReplaySessionCountSum,
         browserRumUnitsSum,
@@ -6124,6 +6180,7 @@ public class UsageSummaryDate {
         observabilityPipelinesBytesProcessedSum,
         ociHostSum,
         ociHostTop99p,
+        onCallSeatHwm,
         onlineArchiveEventsCountSum,
         opentelemetryApmHostTop99p,
         opentelemetryHostTop99p,
@@ -6246,6 +6303,9 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    billableIngestedBytesSum: ")
         .append(toIndentedString(billableIngestedBytesSum))
+        .append("\n");
+    sb.append("    bitsAiInvestigationsSum: ")
+        .append(toIndentedString(bitsAiInvestigationsSum))
         .append("\n");
     sb.append("    browserRumLiteSessionCountSum: ")
         .append(toIndentedString(browserRumLiteSessionCountSum))
@@ -6494,6 +6554,7 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    ociHostSum: ").append(toIndentedString(ociHostSum)).append("\n");
     sb.append("    ociHostTop99p: ").append(toIndentedString(ociHostTop99p)).append("\n");
+    sb.append("    onCallSeatHwm: ").append(toIndentedString(onCallSeatHwm)).append("\n");
     sb.append("    onlineArchiveEventsCountSum: ")
         .append(toIndentedString(onlineArchiveEventsCountSum))
         .append("\n");
