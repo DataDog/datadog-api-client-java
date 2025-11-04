@@ -769,6 +769,16 @@ public class ApiClient {
           put("v2.validateExistingMonitorUserTemplate", false);
           put("v2.validateMonitorUserTemplate", false);
           put("v2.listRoleTemplates", false);
+          put("v2.createConnection", false);
+          put("v2.deleteConnection", false);
+          put("v2.getAccountFacetInfo", false);
+          put("v2.getMapping", false);
+          put("v2.getUserFacetInfo", false);
+          put("v2.listConnections", false);
+          put("v2.queryAccounts", false);
+          put("v2.queryEventFilteredUsers", false);
+          put("v2.queryUsers", false);
+          put("v2.updateConnection", false);
           put("v2.createPipeline", false);
           put("v2.deletePipeline", false);
           put("v2.getPipeline", false);
