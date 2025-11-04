@@ -40,6 +40,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AZURE_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_BILLABLE_INGESTED_BYTES_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_BITS_AI_INVESTIGATIONS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_BROWSER_RUM_UNITS_AGG_SUM,
@@ -149,6 +150,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OCI_HOST_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OCI_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_ON_CALL_SEAT_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM,
@@ -306,6 +308,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES_AGG_SUM =
       "billable_ingested_bytes_agg_sum";
   private Long billableIngestedBytesAggSum;
+
+  public static final String JSON_PROPERTY_BITS_AI_INVESTIGATIONS_AGG_SUM =
+      "bits_ai_investigations_agg_sum";
+  private Long bitsAiInvestigationsAggSum;
 
   public static final String JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_AGG_SUM =
       "browser_rum_lite_session_count_agg_sum";
@@ -711,6 +717,9 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_OCI_HOST_TOP99P_SUM = "oci_host_top99p_sum";
   private Long ociHostTop99pSum;
+
+  public static final String JSON_PROPERTY_ON_CALL_SEAT_HWM_SUM = "on_call_seat_hwm_sum";
+  private Long onCallSeatHwmSum;
 
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM =
       "online_archive_events_count_agg_sum";
@@ -1420,6 +1429,28 @@ public class UsageSummaryResponse {
 
   public void setBillableIngestedBytesAggSum(Long billableIngestedBytesAggSum) {
     this.billableIngestedBytesAggSum = billableIngestedBytesAggSum;
+  }
+
+  public UsageSummaryResponse bitsAiInvestigationsAggSum(Long bitsAiInvestigationsAggSum) {
+    this.bitsAiInvestigationsAggSum = bitsAiInvestigationsAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Bits AI Investigations over all hours in the current month for all
+   * organizations.
+   *
+   * @return bitsAiInvestigationsAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BITS_AI_INVESTIGATIONS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getBitsAiInvestigationsAggSum() {
+    return bitsAiInvestigationsAggSum;
+  }
+
+  public void setBitsAiInvestigationsAggSum(Long bitsAiInvestigationsAggSum) {
+    this.bitsAiInvestigationsAggSum = bitsAiInvestigationsAggSum;
   }
 
   public UsageSummaryResponse browserRumLiteSessionCountAggSum(
@@ -3921,6 +3952,28 @@ public class UsageSummaryResponse {
     this.ociHostTop99pSum = ociHostTop99pSum;
   }
 
+  public UsageSummaryResponse onCallSeatHwmSum(Long onCallSeatHwmSum) {
+    this.onCallSeatHwmSum = onCallSeatHwmSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of the high-water marks of On-Call seats over all hours in the current month for
+   * all organizations.
+   *
+   * @return onCallSeatHwmSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ON_CALL_SEAT_HWM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOnCallSeatHwmSum() {
+    return onCallSeatHwmSum;
+  }
+
+  public void setOnCallSeatHwmSum(Long onCallSeatHwmSum) {
+    this.onCallSeatHwmSum = onCallSeatHwmSum;
+  }
+
   public UsageSummaryResponse onlineArchiveEventsCountAggSum(Long onlineArchiveEventsCountAggSum) {
     this.onlineArchiveEventsCountAggSum = onlineArchiveEventsCountAggSum;
     return this;
@@ -6068,6 +6121,8 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.billableIngestedBytesAggSum, usageSummaryResponse.billableIngestedBytesAggSum)
         && Objects.equals(
+            this.bitsAiInvestigationsAggSum, usageSummaryResponse.bitsAiInvestigationsAggSum)
+        && Objects.equals(
             this.browserRumLiteSessionCountAggSum,
             usageSummaryResponse.browserRumLiteSessionCountAggSum)
         && Objects.equals(
@@ -6291,6 +6346,7 @@ public class UsageSummaryResponse {
             usageSummaryResponse.observabilityPipelinesBytesProcessedAggSum)
         && Objects.equals(this.ociHostAggSum, usageSummaryResponse.ociHostAggSum)
         && Objects.equals(this.ociHostTop99pSum, usageSummaryResponse.ociHostTop99pSum)
+        && Objects.equals(this.onCallSeatHwmSum, usageSummaryResponse.onCallSeatHwmSum)
         && Objects.equals(
             this.onlineArchiveEventsCountAggSum,
             usageSummaryResponse.onlineArchiveEventsCountAggSum)
@@ -6531,6 +6587,7 @@ public class UsageSummaryResponse {
         azureAppServiceTop99pSum,
         azureHostTop99pSum,
         billableIngestedBytesAggSum,
+        bitsAiInvestigationsAggSum,
         browserRumLiteSessionCountAggSum,
         browserRumReplaySessionCountAggSum,
         browserRumUnitsAggSum,
@@ -6640,6 +6697,7 @@ public class UsageSummaryResponse {
         observabilityPipelinesBytesProcessedAggSum,
         ociHostAggSum,
         ociHostTop99pSum,
+        onCallSeatHwmSum,
         onlineArchiveEventsCountAggSum,
         opentelemetryApmHostTop99pSum,
         opentelemetryHostTop99pSum,
@@ -6771,6 +6829,9 @@ public class UsageSummaryResponse {
     sb.append("    azureHostTop99pSum: ").append(toIndentedString(azureHostTop99pSum)).append("\n");
     sb.append("    billableIngestedBytesAggSum: ")
         .append(toIndentedString(billableIngestedBytesAggSum))
+        .append("\n");
+    sb.append("    bitsAiInvestigationsAggSum: ")
+        .append(toIndentedString(bitsAiInvestigationsAggSum))
         .append("\n");
     sb.append("    browserRumLiteSessionCountAggSum: ")
         .append(toIndentedString(browserRumLiteSessionCountAggSum))
@@ -7061,6 +7122,7 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    ociHostAggSum: ").append(toIndentedString(ociHostAggSum)).append("\n");
     sb.append("    ociHostTop99pSum: ").append(toIndentedString(ociHostTop99pSum)).append("\n");
+    sb.append("    onCallSeatHwmSum: ").append(toIndentedString(onCallSeatHwmSum)).append("\n");
     sb.append("    onlineArchiveEventsCountAggSum: ")
         .append(toIndentedString(onlineArchiveEventsCountAggSum))
         .append("\n");
