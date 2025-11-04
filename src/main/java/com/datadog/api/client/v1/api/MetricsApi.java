@@ -408,7 +408,9 @@ public class MetricsApi {
    *     </code>. (required)
    * @return MetricSearchResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public MetricSearchResponse listMetrics(String q) throws ApiException {
     return listMetricsWithHttpInfo(q).getData();
   }
@@ -421,7 +423,9 @@ public class MetricsApi {
    * @param q Query string to search metrics upon. Can optionally be prefixed with <code>metrics:
    *     </code>. (required)
    * @return CompletableFuture&lt;MetricSearchResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<MetricSearchResponse> listMetricsAsync(String q) {
     return listMetricsWithHttpInfoAsync(q)
         .thenApply(
@@ -431,7 +435,9 @@ public class MetricsApi {
   }
 
   /**
-   * Search for metrics from the last 24 hours in Datadog.
+   * <strong>Note</strong>: This endpoint is deprecated. Use <code>/api/v2/metrics</code> instead.
+   *
+   * <p>Search for metrics from the last 24 hours in Datadog.
    *
    * @param q Query string to search metrics upon. Can optionally be prefixed with <code>metrics:
    *     </code>. (required)
@@ -446,7 +452,10 @@ public class MetricsApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<MetricSearchResponse> listMetricsWithHttpInfo(String q) throws ApiException {
     Object localVarPostBody = null;
 
@@ -490,7 +499,9 @@ public class MetricsApi {
    * @param q Query string to search metrics upon. Can optionally be prefixed with <code>metrics:
    *     </code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricSearchResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<MetricSearchResponse>> listMetricsWithHttpInfoAsync(
       String q) {
     Object localVarPostBody = null;
