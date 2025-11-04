@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,63 +17,69 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a single deployment. */
+/** A package and its target version for deployment. */
 @JsonPropertyOrder({
-  FleetDeploymentResponse.JSON_PROPERTY_DATA,
-  FleetDeploymentResponse.JSON_PROPERTY_META
+  FleetDeploymentPackage.JSON_PROPERTY_NAME,
+  FleetDeploymentPackage.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FleetDeploymentResponse {
+public class FleetDeploymentPackage {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private FleetDeployment data;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private FleetDeploymentResponseMeta meta;
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private String version;
 
-  public FleetDeploymentResponse data(FleetDeployment data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public FleetDeploymentPackage() {}
+
+  @JsonCreator
+  public FleetDeploymentPackage(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) String version) {
+    this.name = name;
+    this.version = version;
+  }
+
+  public FleetDeploymentPackage name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * The name of the package to deploy.
    *
-   * @return data
+   * @return name
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FleetDeployment getData() {
-    return data;
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
   }
 
-  public void setData(FleetDeployment data) {
-    this.data = data;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public FleetDeploymentResponse meta(FleetDeploymentResponseMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
+  public FleetDeploymentPackage version(String version) {
+    this.version = version;
     return this;
   }
 
   /**
-   * Metadata for a single deployment response, including pagination information for hosts.
+   * The target version of the package to deploy.
    *
-   * @return meta
+   * @return version
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FleetDeploymentResponseMeta getMeta() {
-    return meta;
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getVersion() {
+    return version;
   }
 
-  public void setMeta(FleetDeploymentResponseMeta meta) {
-    this.meta = meta;
+  public void setVersion(String version) {
+    this.version = version;
   }
 
   /**
@@ -87,10 +94,10 @@ public class FleetDeploymentResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return FleetDeploymentResponse
+   * @return FleetDeploymentPackage
    */
   @JsonAnySetter
-  public FleetDeploymentResponse putAdditionalProperty(String key, Object value) {
+  public FleetDeploymentPackage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -121,7 +128,7 @@ public class FleetDeploymentResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FleetDeploymentResponse object is equal to o. */
+  /** Return true if this FleetDeploymentPackage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,23 +137,23 @@ public class FleetDeploymentResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FleetDeploymentResponse fleetDeploymentResponse = (FleetDeploymentResponse) o;
-    return Objects.equals(this.data, fleetDeploymentResponse.data)
-        && Objects.equals(this.meta, fleetDeploymentResponse.meta)
-        && Objects.equals(this.additionalProperties, fleetDeploymentResponse.additionalProperties);
+    FleetDeploymentPackage fleetDeploymentPackage = (FleetDeploymentPackage) o;
+    return Objects.equals(this.name, fleetDeploymentPackage.name)
+        && Objects.equals(this.version, fleetDeploymentPackage.version)
+        && Objects.equals(this.additionalProperties, fleetDeploymentPackage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(name, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FleetDeploymentResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("class FleetDeploymentPackage {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

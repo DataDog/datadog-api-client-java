@@ -1,4 +1,4 @@
-// Create a deployment returns "CREATED" response
+// Create a configuration deployment returns "CREATED" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,63 +17,77 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a single deployment. */
+/** Data for creating a new schedule. */
 @JsonPropertyOrder({
-  FleetDeploymentResponse.JSON_PROPERTY_DATA,
-  FleetDeploymentResponse.JSON_PROPERTY_META
+  FleetScheduleCreate.JSON_PROPERTY_ATTRIBUTES,
+  FleetScheduleCreate.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FleetDeploymentResponse {
+public class FleetScheduleCreate {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private FleetDeployment data;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private FleetScheduleCreateAttributes attributes;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private FleetDeploymentResponseMeta meta;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private FleetScheduleResourceType type = FleetScheduleResourceType.SCHEDULE;
 
-  public FleetDeploymentResponse data(FleetDeployment data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public FleetScheduleCreate() {}
+
+  @JsonCreator
+  public FleetScheduleCreate(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          FleetScheduleCreateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FleetScheduleResourceType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public FleetScheduleCreate attributes(FleetScheduleCreateAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * Attributes for creating a new schedule.
    *
-   * @return data
+   * @return attributes
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FleetDeployment getData() {
-    return data;
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FleetScheduleCreateAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setData(FleetDeployment data) {
-    this.data = data;
+  public void setAttributes(FleetScheduleCreateAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public FleetDeploymentResponse meta(FleetDeploymentResponseMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
+  public FleetScheduleCreate type(FleetScheduleResourceType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Metadata for a single deployment response, including pagination information for hosts.
+   * The type of schedule resource.
    *
-   * @return meta
+   * @return type
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FleetDeploymentResponseMeta getMeta() {
-    return meta;
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FleetScheduleResourceType getType() {
+    return type;
   }
 
-  public void setMeta(FleetDeploymentResponseMeta meta) {
-    this.meta = meta;
+  public void setType(FleetScheduleResourceType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -87,10 +102,10 @@ public class FleetDeploymentResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return FleetDeploymentResponse
+   * @return FleetScheduleCreate
    */
   @JsonAnySetter
-  public FleetDeploymentResponse putAdditionalProperty(String key, Object value) {
+  public FleetScheduleCreate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -121,7 +136,7 @@ public class FleetDeploymentResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FleetDeploymentResponse object is equal to o. */
+  /** Return true if this FleetScheduleCreate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,23 +145,23 @@ public class FleetDeploymentResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FleetDeploymentResponse fleetDeploymentResponse = (FleetDeploymentResponse) o;
-    return Objects.equals(this.data, fleetDeploymentResponse.data)
-        && Objects.equals(this.meta, fleetDeploymentResponse.meta)
-        && Objects.equals(this.additionalProperties, fleetDeploymentResponse.additionalProperties);
+    FleetScheduleCreate fleetScheduleCreate = (FleetScheduleCreate) o;
+    return Objects.equals(this.attributes, fleetScheduleCreate.attributes)
+        && Objects.equals(this.type, fleetScheduleCreate.type)
+        && Objects.equals(this.additionalProperties, fleetScheduleCreate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(attributes, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FleetDeploymentResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("class FleetScheduleCreate {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,63 +17,43 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a single deployment. */
-@JsonPropertyOrder({
-  FleetDeploymentResponse.JSON_PROPERTY_DATA,
-  FleetDeploymentResponse.JSON_PROPERTY_META
-})
+/** Request payload for partially updating a schedule. */
+@JsonPropertyOrder({FleetSchedulePatchRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FleetDeploymentResponse {
+public class FleetSchedulePatchRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private FleetDeployment data;
+  private FleetSchedulePatch data;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private FleetDeploymentResponseMeta meta;
+  public FleetSchedulePatchRequest() {}
 
-  public FleetDeploymentResponse data(FleetDeployment data) {
+  @JsonCreator
+  public FleetSchedulePatchRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) FleetSchedulePatch data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public FleetSchedulePatchRequest data(FleetSchedulePatch data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * Data for partially updating a schedule.
    *
    * @return data
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FleetDeployment getData() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FleetSchedulePatch getData() {
     return data;
   }
 
-  public void setData(FleetDeployment data) {
+  public void setData(FleetSchedulePatch data) {
     this.data = data;
-  }
-
-  public FleetDeploymentResponse meta(FleetDeploymentResponseMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * Metadata for a single deployment response, including pagination information for hosts.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FleetDeploymentResponseMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(FleetDeploymentResponseMeta meta) {
-    this.meta = meta;
   }
 
   /**
@@ -87,10 +68,10 @@ public class FleetDeploymentResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return FleetDeploymentResponse
+   * @return FleetSchedulePatchRequest
    */
   @JsonAnySetter
-  public FleetDeploymentResponse putAdditionalProperty(String key, Object value) {
+  public FleetSchedulePatchRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -121,7 +102,7 @@ public class FleetDeploymentResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FleetDeploymentResponse object is equal to o. */
+  /** Return true if this FleetSchedulePatchRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,23 +111,22 @@ public class FleetDeploymentResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FleetDeploymentResponse fleetDeploymentResponse = (FleetDeploymentResponse) o;
-    return Objects.equals(this.data, fleetDeploymentResponse.data)
-        && Objects.equals(this.meta, fleetDeploymentResponse.meta)
-        && Objects.equals(this.additionalProperties, fleetDeploymentResponse.additionalProperties);
+    FleetSchedulePatchRequest fleetSchedulePatchRequest = (FleetSchedulePatchRequest) o;
+    return Objects.equals(this.data, fleetSchedulePatchRequest.data)
+        && Objects.equals(
+            this.additionalProperties, fleetSchedulePatchRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FleetDeploymentResponse {\n");
+    sb.append("class FleetSchedulePatchRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

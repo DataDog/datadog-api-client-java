@@ -17,27 +17,27 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data for creating a new configuration deployment. */
+/** Data for creating a new package upgrade deployment. */
 @JsonPropertyOrder({
-  FleetDeploymentConfigureCreate.JSON_PROPERTY_ATTRIBUTES,
-  FleetDeploymentConfigureCreate.JSON_PROPERTY_TYPE
+  FleetDeploymentPackageUpgradeCreate.JSON_PROPERTY_ATTRIBUTES,
+  FleetDeploymentPackageUpgradeCreate.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FleetDeploymentConfigureCreate {
+public class FleetDeploymentPackageUpgradeCreate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private FleetDeploymentConfigureAttributes attributes;
+  private FleetDeploymentPackageUpgradeAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private FleetDeploymentResourceType type = FleetDeploymentResourceType.DEPLOYMENT;
 
-  public FleetDeploymentConfigureCreate() {}
+  public FleetDeploymentPackageUpgradeCreate() {}
 
   @JsonCreator
-  public FleetDeploymentConfigureCreate(
+  public FleetDeploymentPackageUpgradeCreate(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          FleetDeploymentConfigureAttributes attributes,
+          FleetDeploymentPackageUpgradeAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FleetDeploymentResourceType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -45,28 +45,29 @@ public class FleetDeploymentConfigureCreate {
     this.unparsed |= !type.isValid();
   }
 
-  public FleetDeploymentConfigureCreate attributes(FleetDeploymentConfigureAttributes attributes) {
+  public FleetDeploymentPackageUpgradeCreate attributes(
+      FleetDeploymentPackageUpgradeAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for creating a new configuration deployment.
+   * Attributes for creating a new package upgrade deployment.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public FleetDeploymentConfigureAttributes getAttributes() {
+  public FleetDeploymentPackageUpgradeAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(FleetDeploymentConfigureAttributes attributes) {
+  public void setAttributes(FleetDeploymentPackageUpgradeAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public FleetDeploymentConfigureCreate type(FleetDeploymentResourceType type) {
+  public FleetDeploymentPackageUpgradeCreate type(FleetDeploymentResourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -102,10 +103,10 @@ public class FleetDeploymentConfigureCreate {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return FleetDeploymentConfigureCreate
+   * @return FleetDeploymentPackageUpgradeCreate
    */
   @JsonAnySetter
-  public FleetDeploymentConfigureCreate putAdditionalProperty(String key, Object value) {
+  public FleetDeploymentPackageUpgradeCreate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +137,7 @@ public class FleetDeploymentConfigureCreate {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FleetDeploymentConfigureCreate object is equal to o. */
+  /** Return true if this FleetDeploymentPackageUpgradeCreate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,12 +146,12 @@ public class FleetDeploymentConfigureCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FleetDeploymentConfigureCreate fleetDeploymentConfigureCreate =
-        (FleetDeploymentConfigureCreate) o;
-    return Objects.equals(this.attributes, fleetDeploymentConfigureCreate.attributes)
-        && Objects.equals(this.type, fleetDeploymentConfigureCreate.type)
+    FleetDeploymentPackageUpgradeCreate fleetDeploymentPackageUpgradeCreate =
+        (FleetDeploymentPackageUpgradeCreate) o;
+    return Objects.equals(this.attributes, fleetDeploymentPackageUpgradeCreate.attributes)
+        && Objects.equals(this.type, fleetDeploymentPackageUpgradeCreate.type)
         && Objects.equals(
-            this.additionalProperties, fleetDeploymentConfigureCreate.additionalProperties);
+            this.additionalProperties, fleetDeploymentPackageUpgradeCreate.additionalProperties);
   }
 
   @Override
@@ -161,7 +162,7 @@ public class FleetDeploymentConfigureCreate {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FleetDeploymentConfigureCreate {\n");
+    sb.append("class FleetDeploymentPackageUpgradeCreate {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

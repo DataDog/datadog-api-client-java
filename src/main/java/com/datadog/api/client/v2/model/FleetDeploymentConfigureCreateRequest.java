@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request payload for creating a new deployment. */
+/** Request payload for creating a new configuration deployment. */
 @JsonPropertyOrder({FleetDeploymentConfigureCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class FleetDeploymentConfigureCreateRequest {
   }
 
   /**
-   * Data for creating a new deployment.
+   * Data for creating a new configuration deployment.
    *
    * @return data
    */

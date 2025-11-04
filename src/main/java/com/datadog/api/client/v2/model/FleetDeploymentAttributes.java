@@ -24,6 +24,8 @@ import java.util.Objects;
   FleetDeploymentAttributes.JSON_PROPERTY_ESTIMATED_END_TIME_UNIX,
   FleetDeploymentAttributes.JSON_PROPERTY_FILTER_QUERY,
   FleetDeploymentAttributes.JSON_PROPERTY_HIGH_LEVEL_STATUS,
+  FleetDeploymentAttributes.JSON_PROPERTY_HOSTS,
+  FleetDeploymentAttributes.JSON_PROPERTY_PACKAGES,
   FleetDeploymentAttributes.JSON_PROPERTY_TOTAL_HOSTS
 })
 @jakarta.annotation.Generated(
@@ -41,6 +43,12 @@ public class FleetDeploymentAttributes {
 
   public static final String JSON_PROPERTY_HIGH_LEVEL_STATUS = "high_level_status";
   private String highLevelStatus;
+
+  public static final String JSON_PROPERTY_HOSTS = "hosts";
+  private List<FleetDeploymentHost> hosts = null;
+
+  public static final String JSON_PROPERTY_PACKAGES = "packages";
+  private List<FleetDeploymentPackage> packages = null;
 
   public static final String JSON_PROPERTY_TOTAL_HOSTS = "total_hosts";
   private Long totalHosts;
@@ -144,6 +152,75 @@ public class FleetDeploymentAttributes {
     this.highLevelStatus = highLevelStatus;
   }
 
+  public FleetDeploymentAttributes hosts(List<FleetDeploymentHost> hosts) {
+    this.hosts = hosts;
+    for (FleetDeploymentHost item : hosts) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public FleetDeploymentAttributes addHostsItem(FleetDeploymentHost hostsItem) {
+    if (this.hosts == null) {
+      this.hosts = new ArrayList<>();
+    }
+    this.hosts.add(hostsItem);
+    this.unparsed |= hostsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Paginated list of hosts in this deployment with their individual statuses. Only included when
+   * fetching a single deployment by ID. Use the <code>limit</code> and <code>page</code> query
+   * parameters to navigate through pages. Pagination metadata is included in the response <code>
+   * meta.hosts</code> field.
+   *
+   * @return hosts
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOSTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FleetDeploymentHost> getHosts() {
+    return hosts;
+  }
+
+  public void setHosts(List<FleetDeploymentHost> hosts) {
+    this.hosts = hosts;
+  }
+
+  public FleetDeploymentAttributes packages(List<FleetDeploymentPackage> packages) {
+    this.packages = packages;
+    for (FleetDeploymentPackage item : packages) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public FleetDeploymentAttributes addPackagesItem(FleetDeploymentPackage packagesItem) {
+    if (this.packages == null) {
+      this.packages = new ArrayList<>();
+    }
+    this.packages.add(packagesItem);
+    this.unparsed |= packagesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of packages to deploy to target hosts. Present only for package upgrade deployments.
+   *
+   * @return packages
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PACKAGES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FleetDeploymentPackage> getPackages() {
+    return packages;
+  }
+
+  public void setPackages(List<FleetDeploymentPackage> packages) {
+    this.packages = packages;
+  }
+
   public FleetDeploymentAttributes totalHosts(Long totalHosts) {
     this.totalHosts = totalHosts;
     return this;
@@ -225,6 +302,8 @@ public class FleetDeploymentAttributes {
         && Objects.equals(this.estimatedEndTimeUnix, fleetDeploymentAttributes.estimatedEndTimeUnix)
         && Objects.equals(this.filterQuery, fleetDeploymentAttributes.filterQuery)
         && Objects.equals(this.highLevelStatus, fleetDeploymentAttributes.highLevelStatus)
+        && Objects.equals(this.hosts, fleetDeploymentAttributes.hosts)
+        && Objects.equals(this.packages, fleetDeploymentAttributes.packages)
         && Objects.equals(this.totalHosts, fleetDeploymentAttributes.totalHosts)
         && Objects.equals(
             this.additionalProperties, fleetDeploymentAttributes.additionalProperties);
@@ -237,6 +316,8 @@ public class FleetDeploymentAttributes {
         estimatedEndTimeUnix,
         filterQuery,
         highLevelStatus,
+        hosts,
+        packages,
         totalHosts,
         additionalProperties);
   }
@@ -251,6 +332,8 @@ public class FleetDeploymentAttributes {
         .append("\n");
     sb.append("    filterQuery: ").append(toIndentedString(filterQuery)).append("\n");
     sb.append("    highLevelStatus: ").append(toIndentedString(highLevelStatus)).append("\n");
+    sb.append("    hosts: ").append(toIndentedString(hosts)).append("\n");
+    sb.append("    packages: ").append(toIndentedString(packages)).append("\n");
     sb.append("    totalHosts: ").append(toIndentedString(totalHosts)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

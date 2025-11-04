@@ -17,73 +17,99 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data for creating a new configuration deployment. */
+/** A schedule that automatically creates deployments based on a recurrence rule. */
 @JsonPropertyOrder({
-  FleetDeploymentConfigureCreate.JSON_PROPERTY_ATTRIBUTES,
-  FleetDeploymentConfigureCreate.JSON_PROPERTY_TYPE
+  FleetSchedule.JSON_PROPERTY_ATTRIBUTES,
+  FleetSchedule.JSON_PROPERTY_ID,
+  FleetSchedule.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FleetDeploymentConfigureCreate {
+public class FleetSchedule {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private FleetDeploymentConfigureAttributes attributes;
+  private FleetScheduleAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private FleetDeploymentResourceType type = FleetDeploymentResourceType.DEPLOYMENT;
+  private FleetScheduleResourceType type = FleetScheduleResourceType.SCHEDULE;
 
-  public FleetDeploymentConfigureCreate() {}
+  public FleetSchedule() {}
 
   @JsonCreator
-  public FleetDeploymentConfigureCreate(
+  public FleetSchedule(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          FleetDeploymentConfigureAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FleetDeploymentResourceType type) {
+          FleetScheduleAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FleetScheduleResourceType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public FleetDeploymentConfigureCreate attributes(FleetDeploymentConfigureAttributes attributes) {
+  public FleetSchedule attributes(FleetScheduleAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for creating a new configuration deployment.
+   * Attributes of a schedule in the response.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public FleetDeploymentConfigureAttributes getAttributes() {
+  public FleetScheduleAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(FleetDeploymentConfigureAttributes attributes) {
+  public void setAttributes(FleetScheduleAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public FleetDeploymentConfigureCreate type(FleetDeploymentResourceType type) {
+  public FleetSchedule id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Unique identifier for the schedule.
+   *
+   * @return id
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public FleetSchedule type(FleetScheduleResourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The type of deployment resource.
+   * The type of schedule resource.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public FleetDeploymentResourceType getType() {
+  public FleetScheduleResourceType getType() {
     return type;
   }
 
-  public void setType(FleetDeploymentResourceType type) {
+  public void setType(FleetScheduleResourceType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -102,10 +128,10 @@ public class FleetDeploymentConfigureCreate {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return FleetDeploymentConfigureCreate
+   * @return FleetSchedule
    */
   @JsonAnySetter
-  public FleetDeploymentConfigureCreate putAdditionalProperty(String key, Object value) {
+  public FleetSchedule putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +162,7 @@ public class FleetDeploymentConfigureCreate {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FleetDeploymentConfigureCreate object is equal to o. */
+  /** Return true if this FleetSchedule object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,24 +171,24 @@ public class FleetDeploymentConfigureCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FleetDeploymentConfigureCreate fleetDeploymentConfigureCreate =
-        (FleetDeploymentConfigureCreate) o;
-    return Objects.equals(this.attributes, fleetDeploymentConfigureCreate.attributes)
-        && Objects.equals(this.type, fleetDeploymentConfigureCreate.type)
-        && Objects.equals(
-            this.additionalProperties, fleetDeploymentConfigureCreate.additionalProperties);
+    FleetSchedule fleetSchedule = (FleetSchedule) o;
+    return Objects.equals(this.attributes, fleetSchedule.attributes)
+        && Objects.equals(this.id, fleetSchedule.id)
+        && Objects.equals(this.type, fleetSchedule.type)
+        && Objects.equals(this.additionalProperties, fleetSchedule.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FleetDeploymentConfigureCreate {\n");
+    sb.append("class FleetSchedule {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
