@@ -1,4 +1,4 @@
-// Get a configuration deployment by ID returns "OK" response
+// Get a deployment by ID returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -11,8 +11,11 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.getFleetDeployment", true);
     FleetAutomationApi apiInstance = new FleetAutomationApi(defaultClient);
 
+    // there is a valid "deployment" in the system
+    String DEPLOYMENT_ID = System.getenv("DEPLOYMENT_ID");
+
     try {
-      FleetDeploymentResponse result = apiInstance.getFleetDeployment("abc-def-ghi");
+      FleetDeploymentResponse result = apiInstance.getFleetDeployment(DEPLOYMENT_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FleetAutomationApi#getFleetDeployment");

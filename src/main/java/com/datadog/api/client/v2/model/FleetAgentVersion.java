@@ -17,73 +17,97 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data for creating a new configuration deployment. */
+/** Represents an available Datadog Agent version. */
 @JsonPropertyOrder({
-  FleetDeploymentConfigureCreate.JSON_PROPERTY_ATTRIBUTES,
-  FleetDeploymentConfigureCreate.JSON_PROPERTY_TYPE
+  FleetAgentVersion.JSON_PROPERTY_ATTRIBUTES,
+  FleetAgentVersion.JSON_PROPERTY_ID,
+  FleetAgentVersion.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FleetDeploymentConfigureCreate {
+public class FleetAgentVersion {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private FleetDeploymentConfigureAttributes attributes;
+  private FleetAgentVersionAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private FleetDeploymentResourceType type = FleetDeploymentResourceType.DEPLOYMENT;
+  private FleetAgentVersionResourceType type = FleetAgentVersionResourceType.AGENT_VERSION;
 
-  public FleetDeploymentConfigureCreate() {}
+  public FleetAgentVersion() {}
 
   @JsonCreator
-  public FleetDeploymentConfigureCreate(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          FleetDeploymentConfigureAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FleetDeploymentResourceType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public FleetAgentVersion(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          FleetAgentVersionResourceType type) {
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public FleetDeploymentConfigureCreate attributes(FleetDeploymentConfigureAttributes attributes) {
+  public FleetAgentVersion attributes(FleetAgentVersionAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for creating a new configuration deployment.
+   * Getattributes
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public FleetDeploymentConfigureAttributes getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FleetAgentVersionAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(FleetDeploymentConfigureAttributes attributes) {
+  public void setAttributes(FleetAgentVersionAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public FleetDeploymentConfigureCreate type(FleetDeploymentResourceType type) {
+  public FleetAgentVersion id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Unique identifier for the Agent version (same as version).
+   *
+   * @return id
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public FleetAgentVersion type(FleetAgentVersionResourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The type of deployment resource.
+   * The type of Agent version resource.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public FleetDeploymentResourceType getType() {
+  public FleetAgentVersionResourceType getType() {
     return type;
   }
 
-  public void setType(FleetDeploymentResourceType type) {
+  public void setType(FleetAgentVersionResourceType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -102,10 +126,10 @@ public class FleetDeploymentConfigureCreate {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return FleetDeploymentConfigureCreate
+   * @return FleetAgentVersion
    */
   @JsonAnySetter
-  public FleetDeploymentConfigureCreate putAdditionalProperty(String key, Object value) {
+  public FleetAgentVersion putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +160,7 @@ public class FleetDeploymentConfigureCreate {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FleetDeploymentConfigureCreate object is equal to o. */
+  /** Return true if this FleetAgentVersion object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,24 +169,24 @@ public class FleetDeploymentConfigureCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FleetDeploymentConfigureCreate fleetDeploymentConfigureCreate =
-        (FleetDeploymentConfigureCreate) o;
-    return Objects.equals(this.attributes, fleetDeploymentConfigureCreate.attributes)
-        && Objects.equals(this.type, fleetDeploymentConfigureCreate.type)
-        && Objects.equals(
-            this.additionalProperties, fleetDeploymentConfigureCreate.additionalProperties);
+    FleetAgentVersion fleetAgentVersion = (FleetAgentVersion) o;
+    return Objects.equals(this.attributes, fleetAgentVersion.attributes)
+        && Objects.equals(this.id, fleetAgentVersion.id)
+        && Objects.equals(this.type, fleetAgentVersion.type)
+        && Objects.equals(this.additionalProperties, fleetAgentVersion.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FleetDeploymentConfigureCreate {\n");
+    sb.append("class FleetAgentVersion {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

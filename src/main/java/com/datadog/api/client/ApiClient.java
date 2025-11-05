@@ -689,8 +689,16 @@ public class ApiClient {
         {
           put("v2.cancelFleetDeployment", false);
           put("v2.createFleetDeploymentConfigure", false);
+          put("v2.createFleetDeploymentUpgrade", false);
+          put("v2.createFleetSchedule", false);
+          put("v2.deleteFleetSchedule", false);
           put("v2.getFleetDeployment", false);
+          put("v2.getFleetSchedule", false);
+          put("v2.listFleetAgentVersions", false);
           put("v2.listFleetDeployments", false);
+          put("v2.listFleetSchedules", false);
+          put("v2.triggerFleetSchedule", false);
+          put("v2.updateFleetSchedule", false);
           put("v2.createOpenAPI", false);
           put("v2.deleteOpenAPI", false);
           put("v2.getOpenAPI", false);

@@ -16,63 +16,35 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing a single deployment. */
-@JsonPropertyOrder({
-  FleetDeploymentResponse.JSON_PROPERTY_DATA,
-  FleetDeploymentResponse.JSON_PROPERTY_META
-})
+/** Metadata for a single deployment response, including pagination information for hosts. */
+@JsonPropertyOrder({FleetDeploymentResponseMeta.JSON_PROPERTY_HOSTS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FleetDeploymentResponse {
+public class FleetDeploymentResponseMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private FleetDeployment data;
+  public static final String JSON_PROPERTY_HOSTS = "hosts";
+  private FleetDeploymentHostsPage hosts;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private FleetDeploymentResponseMeta meta;
-
-  public FleetDeploymentResponse data(FleetDeployment data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public FleetDeploymentResponseMeta hosts(FleetDeploymentHostsPage hosts) {
+    this.hosts = hosts;
+    this.unparsed |= hosts.unparsed;
     return this;
   }
 
   /**
-   * A deployment that defines automated configuration changes for a fleet of hosts.
+   * Pagination details for the list of hosts in a deployment.
    *
-   * @return data
+   * @return hosts
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_HOSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FleetDeployment getData() {
-    return data;
+  public FleetDeploymentHostsPage getHosts() {
+    return hosts;
   }
 
-  public void setData(FleetDeployment data) {
-    this.data = data;
-  }
-
-  public FleetDeploymentResponse meta(FleetDeploymentResponseMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * Metadata for a single deployment response, including pagination information for hosts.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FleetDeploymentResponseMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(FleetDeploymentResponseMeta meta) {
-    this.meta = meta;
+  public void setHosts(FleetDeploymentHostsPage hosts) {
+    this.hosts = hosts;
   }
 
   /**
@@ -87,10 +59,10 @@ public class FleetDeploymentResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return FleetDeploymentResponse
+   * @return FleetDeploymentResponseMeta
    */
   @JsonAnySetter
-  public FleetDeploymentResponse putAdditionalProperty(String key, Object value) {
+  public FleetDeploymentResponseMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -121,7 +93,7 @@ public class FleetDeploymentResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FleetDeploymentResponse object is equal to o. */
+  /** Return true if this FleetDeploymentResponseMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,23 +102,22 @@ public class FleetDeploymentResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FleetDeploymentResponse fleetDeploymentResponse = (FleetDeploymentResponse) o;
-    return Objects.equals(this.data, fleetDeploymentResponse.data)
-        && Objects.equals(this.meta, fleetDeploymentResponse.meta)
-        && Objects.equals(this.additionalProperties, fleetDeploymentResponse.additionalProperties);
+    FleetDeploymentResponseMeta fleetDeploymentResponseMeta = (FleetDeploymentResponseMeta) o;
+    return Objects.equals(this.hosts, fleetDeploymentResponseMeta.hosts)
+        && Objects.equals(
+            this.additionalProperties, fleetDeploymentResponseMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(hosts, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FleetDeploymentResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("class FleetDeploymentResponseMeta {\n");
+    sb.append("    hosts: ").append(toIndentedString(hosts)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
