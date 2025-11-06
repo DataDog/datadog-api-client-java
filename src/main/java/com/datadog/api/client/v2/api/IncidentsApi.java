@@ -6065,7 +6065,9 @@ public class IncidentsApi {
    * @param body Incident Attachment Payload. (required)
    * @return IncidentAttachmentUpdateResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentAttachmentUpdateResponse updateIncidentAttachments(
       String incidentId, IncidentAttachmentUpdateRequest body) throws ApiException {
     return updateIncidentAttachmentsWithHttpInfo(
@@ -6081,7 +6083,9 @@ public class IncidentsApi {
    * @param incidentId The UUID of the incident. (required)
    * @param body Incident Attachment Payload. (required)
    * @return CompletableFuture&lt;IncidentAttachmentUpdateResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentAttachmentUpdateResponse> updateIncidentAttachmentsAsync(
       String incidentId, IncidentAttachmentUpdateRequest body) {
     return updateIncidentAttachmentsWithHttpInfoAsync(
@@ -6102,7 +6106,9 @@ public class IncidentsApi {
    * @param parameters Optional parameters for the request.
    * @return IncidentAttachmentUpdateResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentAttachmentUpdateResponse updateIncidentAttachments(
       String incidentId,
       IncidentAttachmentUpdateRequest body,
@@ -6120,7 +6126,9 @@ public class IncidentsApi {
    * @param body Incident Attachment Payload. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;IncidentAttachmentUpdateResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentAttachmentUpdateResponse> updateIncidentAttachmentsAsync(
       String incidentId,
       IncidentAttachmentUpdateRequest body,
@@ -6151,7 +6159,10 @@ public class IncidentsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentAttachmentUpdateResponse> updateIncidentAttachmentsWithHttpInfo(
       String incidentId,
       IncidentAttachmentUpdateRequest body,
@@ -6219,7 +6230,9 @@ public class IncidentsApi {
    * @param body Incident Attachment Payload. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentAttachmentUpdateResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentAttachmentUpdateResponse>>
       updateIncidentAttachmentsWithHttpInfoAsync(
           String incidentId,
