@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CreateTableRequestDataAttributesSchemaFieldsItems</code> object. */
+/** A single field (column) in the reference table schema to be created. */
 @JsonPropertyOrder({
   CreateTableRequestDataAttributesSchemaFieldsItems.JSON_PROPERTY_NAME,
   CreateTableRequestDataAttributesSchemaFieldsItems.JSON_PROPERTY_TYPE

@@ -19,7 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>PatchTableRequestDataAttributesSchema</code> object. */
+/**
+ * Schema defining the updates to the structure and columns of the reference table. Schema fields
+ * cannot be deleted or renamed.
+ */
 @JsonPropertyOrder({
   PatchTableRequestDataAttributesSchema.JSON_PROPERTY_FIELDS,
   PatchTableRequestDataAttributesSchema.JSON_PROPERTY_PRIMARY_KEYS
@@ -62,7 +65,7 @@ public class PatchTableRequestDataAttributesSchema {
   }
 
   /**
-   * The <code>schema</code> <code>fields</code>.
+   * The schema fields.
    *
    * @return fields
    */
@@ -88,7 +91,8 @@ public class PatchTableRequestDataAttributesSchema {
 
   /**
    * List of field names that serve as primary keys for the table. Only one primary key is
-   * supported, and it is used as an ID to retrieve rows.
+   * supported, and it is used as an ID to retrieve rows. Primary keys cannot be changed after table
+   * creation.
    *
    * @return primaryKeys
    */

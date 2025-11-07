@@ -17,10 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The definition of <code>CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
- * </code> object.
- */
+/** Azure Blob Storage access configuration. */
 @JsonPropertyOrder({
   CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail
       .JSON_PROPERTY_AZURE_CLIENT_ID,
@@ -77,7 +74,7 @@ public class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzure
   }
 
   /**
-   * The Azure client ID.
+   * Azure service principal (application) client ID with permissions to read from the container.
    *
    * @return azureClientId
    */
@@ -98,7 +95,7 @@ public class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzure
   }
 
   /**
-   * The name of the Azure container.
+   * Azure Blob Storage container containing the CSV file.
    *
    * @return azureContainerName
    */
@@ -119,7 +116,7 @@ public class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzure
   }
 
   /**
-   * The name of the Azure storage account.
+   * Azure storage account where the container is located.
    *
    * @return azureStorageAccountName
    */
@@ -140,7 +137,7 @@ public class CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzure
   }
 
   /**
-   * The ID of the Azure tenant.
+   * Azure Active Directory tenant ID.
    *
    * @return azureTenantId
    */

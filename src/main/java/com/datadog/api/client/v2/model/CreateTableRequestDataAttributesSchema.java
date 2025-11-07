@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CreateTableRequestDataAttributesSchema</code> object. */
+/** Schema defining the structure and columns of the reference table. */
 @JsonPropertyOrder({
   CreateTableRequestDataAttributesSchema.JSON_PROPERTY_FIELDS,
   CreateTableRequestDataAttributesSchema.JSON_PROPERTY_PRIMARY_KEYS
@@ -62,7 +62,7 @@ public class CreateTableRequestDataAttributesSchema {
   }
 
   /**
-   * The <code>schema</code> <code>fields</code>.
+   * The schema fields.
    *
    * @return fields
    */

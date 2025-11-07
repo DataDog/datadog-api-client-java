@@ -16,11 +16,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** File metadata for reference tables created by upload. */
+/**
+ * File metadata for reference tables created by upload. Note that upload_id is only returned in the
+ * immediate create/replace response and is not available in subsequent GET requests.
+ */
 @JsonPropertyOrder({
   TableResultV2DataAttributesFileMetadataLocalFile.JSON_PROPERTY_ERROR_MESSAGE,
-  TableResultV2DataAttributesFileMetadataLocalFile.JSON_PROPERTY_ERROR_ROW_COUNT,
-  TableResultV2DataAttributesFileMetadataLocalFile.JSON_PROPERTY_UPLOAD_ID
+  TableResultV2DataAttributesFileMetadataLocalFile.JSON_PROPERTY_ERROR_ROW_COUNT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,9 +33,6 @@ public class TableResultV2DataAttributesFileMetadataLocalFile {
 
   public static final String JSON_PROPERTY_ERROR_ROW_COUNT = "error_row_count";
   private Long errorRowCount;
-
-  public static final String JSON_PROPERTY_UPLOAD_ID = "upload_id";
-  private String uploadId;
 
   public TableResultV2DataAttributesFileMetadataLocalFile errorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
@@ -75,27 +74,6 @@ public class TableResultV2DataAttributesFileMetadataLocalFile {
 
   public void setErrorRowCount(Long errorRowCount) {
     this.errorRowCount = errorRowCount;
-  }
-
-  public TableResultV2DataAttributesFileMetadataLocalFile uploadId(String uploadId) {
-    this.uploadId = uploadId;
-    return this;
-  }
-
-  /**
-   * The upload ID that was used to create/update the table.
-   *
-   * @return uploadId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPLOAD_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUploadId() {
-    return uploadId;
-  }
-
-  public void setUploadId(String uploadId) {
-    this.uploadId = uploadId;
   }
 
   /**
@@ -161,7 +139,6 @@ public class TableResultV2DataAttributesFileMetadataLocalFile {
             this.errorMessage, tableResultV2DataAttributesFileMetadataLocalFile.errorMessage)
         && Objects.equals(
             this.errorRowCount, tableResultV2DataAttributesFileMetadataLocalFile.errorRowCount)
-        && Objects.equals(this.uploadId, tableResultV2DataAttributesFileMetadataLocalFile.uploadId)
         && Objects.equals(
             this.additionalProperties,
             tableResultV2DataAttributesFileMetadataLocalFile.additionalProperties);
@@ -169,7 +146,7 @@ public class TableResultV2DataAttributesFileMetadataLocalFile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorMessage, errorRowCount, uploadId, additionalProperties);
+    return Objects.hash(errorMessage, errorRowCount, additionalProperties);
   }
 
   @Override
@@ -178,7 +155,6 @@ public class TableResultV2DataAttributesFileMetadataLocalFile {
     sb.append("class TableResultV2DataAttributesFileMetadataLocalFile {\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    errorRowCount: ").append(toIndentedString(errorRowCount)).append("\n");
-    sb.append("    uploadId: ").append(toIndentedString(uploadId)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>TableResultV2</code> object. */
+/** A reference table resource containing its full configuration and state. */
 @JsonPropertyOrder({TableResultV2.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class TableResultV2 {
   }
 
   /**
-   * The definition of <code>TableResultV2Data</code> object.
+   * The data object containing the reference table configuration and state.
    *
    * @return data
    */

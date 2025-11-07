@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>TableRowResourceArray</code> object. */
+/** List of rows from a reference table query. */
 @JsonPropertyOrder({TableRowResourceArray.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

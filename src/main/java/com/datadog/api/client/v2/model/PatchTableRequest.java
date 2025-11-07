@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>PatchTableRequest</code> object. */
+/** Request body for updating an existing reference table. */
 @JsonPropertyOrder({PatchTableRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class PatchTableRequest {
   }
 
   /**
-   * The definition of <code>PatchTableRequestData</code> object.
+   * The data object containing the partial table definition updates.
    *
    * @return data
    */

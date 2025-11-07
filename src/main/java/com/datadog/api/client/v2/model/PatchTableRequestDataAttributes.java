@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>PatchTableRequestDataAttributes</code> object. */
+/** Attributes that define the updates to the reference table's configuration and properties. */
 @JsonPropertyOrder({
   PatchTableRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
   PatchTableRequestDataAttributes.JSON_PROPERTY_FILE_METADATA,
@@ -51,7 +51,7 @@ public class PatchTableRequestDataAttributes {
   }
 
   /**
-   * The description of the reference table.
+   * Optional text describing the purpose or contents of this reference table.
    *
    * @return description
    */
@@ -74,7 +74,7 @@ public class PatchTableRequestDataAttributes {
   }
 
   /**
-   * The definition of <code>PatchTableRequestDataAttributesFileMetadata</code> object.
+   * Metadata specifying where and how to access the reference table's data file.
    *
    * @return fileMetadata
    */
@@ -96,7 +96,8 @@ public class PatchTableRequestDataAttributes {
   }
 
   /**
-   * The definition of <code>PatchTableRequestDataAttributesSchema</code> object.
+   * Schema defining the updates to the structure and columns of the reference table. Schema fields
+   * cannot be deleted or renamed.
    *
    * @return schema
    */
@@ -146,7 +147,7 @@ public class PatchTableRequestDataAttributes {
   }
 
   /**
-   * The tags of the reference table.
+   * Tags for organizing and filtering reference tables.
    *
    * @return tags
    */

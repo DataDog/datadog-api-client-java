@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>TableResultV2DataAttributes</code> object. */
+/** Attributes that define the reference table's configuration and properties. */
 @JsonPropertyOrder({
   TableResultV2DataAttributes.JSON_PROPERTY_CREATED_BY,
   TableResultV2DataAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -96,7 +96,7 @@ public class TableResultV2DataAttributes {
   }
 
   /**
-   * The description of the reference table.
+   * Optional text describing the purpose or contents of this reference table.
    *
    * @return description
    */
@@ -119,7 +119,7 @@ public class TableResultV2DataAttributes {
   }
 
   /**
-   * The definition of <code>TableResultV2DataAttributesFileMetadata</code> object.
+   * Metadata specifying where and how to access the reference table's data file.
    *
    * @return fileMetadata
    */
@@ -183,7 +183,7 @@ public class TableResultV2DataAttributes {
   }
 
   /**
-   * The definition of <code>TableResultV2DataAttributesSchema</code> object.
+   * Schema defining the structure and columns of the reference table.
    *
    * @return schema
    */
@@ -230,7 +230,7 @@ public class TableResultV2DataAttributes {
   }
 
   /**
-   * The status of the reference table.
+   * The processing status of the table.
    *
    * @return status
    */
@@ -251,7 +251,7 @@ public class TableResultV2DataAttributes {
   }
 
   /**
-   * The name of the reference table.
+   * Unique name to identify this reference table. Used in enrichment processors and API calls.
    *
    * @return tableName
    */
@@ -280,7 +280,7 @@ public class TableResultV2DataAttributes {
   }
 
   /**
-   * The tags of the reference table.
+   * Tags for organizing and filtering reference tables.
    *
    * @return tags
    */
@@ -301,7 +301,7 @@ public class TableResultV2DataAttributes {
   }
 
   /**
-   * The timestamp of the last update to the reference table in ISO 8601 format.
+   * When the reference table was last updated, in ISO 8601 format.
    *
    * @return updatedAt
    */

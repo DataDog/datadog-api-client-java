@@ -16,10 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The definition of <code>TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail</code>
- * object.
- */
+/** Amazon Web Services S3 storage access configuration. */
 @JsonPropertyOrder({
   TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail.JSON_PROPERTY_AWS_ACCOUNT_ID,
   TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail.JSON_PROPERTY_AWS_BUCKET_NAME,
@@ -45,7 +42,7 @@ public class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail 
   }
 
   /**
-   * The ID of the AWS account.
+   * AWS account ID where the S3 bucket is located.
    *
    * @return awsAccountId
    */
@@ -67,7 +64,7 @@ public class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail 
   }
 
   /**
-   * The name of the AWS bucket.
+   * S3 bucket containing the CSV file.
    *
    * @return awsBucketName
    */

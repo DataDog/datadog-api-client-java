@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CreateUploadResponse</code> object. */
+/**
+ * Information about the upload created containing the upload ID and pre-signed URLs to PUT chunks
+ * of the CSV file to.
+ */
 @JsonPropertyOrder({CreateUploadResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +35,7 @@ public class CreateUploadResponse {
   }
 
   /**
-   * The definition of <code>CreateUploadResponseData</code> object.
+   * Upload ID and attributes of the created upload.
    *
    * @return data
    */
