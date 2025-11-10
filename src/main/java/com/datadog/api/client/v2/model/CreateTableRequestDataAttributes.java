@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CreateTableRequestDataAttributes</code> object. */
+/** Attributes that define the reference table's configuration and properties. */
 @JsonPropertyOrder({
   CreateTableRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
   CreateTableRequestDataAttributes.JSON_PROPERTY_FILE_METADATA,
@@ -72,7 +72,7 @@ public class CreateTableRequestDataAttributes {
   }
 
   /**
-   * The description of the reference table.
+   * Optional text describing the purpose or contents of this reference table.
    *
    * @return description
    */
@@ -95,7 +95,7 @@ public class CreateTableRequestDataAttributes {
   }
 
   /**
-   * The definition of <code>CreateTableRequestDataAttributesFileMetadata</code> object.
+   * Metadata specifying where and how to access the reference table's data file.
    *
    * @return fileMetadata
    */
@@ -117,7 +117,7 @@ public class CreateTableRequestDataAttributes {
   }
 
   /**
-   * The definition of <code>CreateTableRequestDataAttributesSchema</code> object.
+   * Schema defining the structure and columns of the reference table.
    *
    * @return schema
    */
@@ -162,7 +162,7 @@ public class CreateTableRequestDataAttributes {
   }
 
   /**
-   * The name of the reference table.
+   * Name to identify this reference table.
    *
    * @return tableName
    */
@@ -190,7 +190,7 @@ public class CreateTableRequestDataAttributes {
   }
 
   /**
-   * The tags of the reference table.
+   * Tags for organizing and filtering reference tables.
    *
    * @return tags
    */

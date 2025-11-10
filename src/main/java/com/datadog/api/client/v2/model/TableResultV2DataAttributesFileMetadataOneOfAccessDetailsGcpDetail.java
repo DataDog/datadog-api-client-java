@@ -16,10 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The definition of <code>TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail</code>
- * object.
- */
+/** Google Cloud Platform storage access configuration. */
 @JsonPropertyOrder({
   TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail.JSON_PROPERTY_FILE_PATH,
   TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail.JSON_PROPERTY_GCP_BUCKET_NAME,
@@ -72,7 +69,7 @@ public class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail 
   }
 
   /**
-   * The name of the GCP bucket.
+   * GCP bucket containing the CSV file.
    *
    * @return gcpBucketName
    */
@@ -94,7 +91,7 @@ public class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail 
   }
 
   /**
-   * The ID of the GCP project.
+   * GCP project ID where the bucket is located.
    *
    * @return gcpProjectId
    */
@@ -116,7 +113,7 @@ public class TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail 
   }
 
   /**
-   * The email of the GCP service account.
+   * Service account email with read permissions for the GCS bucket.
    *
    * @return gcpServiceAccountEmail
    */

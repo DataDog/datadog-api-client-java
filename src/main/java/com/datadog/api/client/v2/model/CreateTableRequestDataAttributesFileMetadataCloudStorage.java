@@ -51,8 +51,7 @@ public class CreateTableRequestDataAttributesFileMetadataCloudStorage {
   }
 
   /**
-   * The definition of <code>CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails</code>
-   * object.
+   * Cloud storage access configuration for the reference table data file.
    *
    * @return accessDetails
    */

@@ -19,7 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CreateUploadRequestDataAttributes</code> object. */
+/**
+ * Upload configuration specifying how data is uploaded by the user, and properties of the table to
+ * associate the upload with.
+ */
 @JsonPropertyOrder({
   CreateUploadRequestDataAttributes.JSON_PROPERTY_HEADERS,
   CreateUploadRequestDataAttributes.JSON_PROPERTY_PART_COUNT,
@@ -67,7 +70,8 @@ public class CreateUploadRequestDataAttributes {
   }
 
   /**
-   * The headers of the file to upload.
+   * The CSV file headers that define the schema fields, provided in the same order as the columns
+   * in the uploaded file.
    *
    * @return headers
    */
@@ -87,7 +91,7 @@ public class CreateUploadRequestDataAttributes {
   }
 
   /**
-   * The number of parts in the upload. maximum: 20
+   * Number of parts to split the file into for multipart upload. maximum: 20
    *
    * @return partCount
    */
@@ -107,9 +111,8 @@ public class CreateUploadRequestDataAttributes {
   }
 
   /**
-   * The size of each part in the upload in bytes. For multipart uploads (part_count &gt; 1), all
-   * parts except the last one must be at least 5,000,000 bytes. For single-part uploads (part_count
-   * = 1), any size is allowed.
+   * The size of each part in the upload in bytes. All parts except the last one must be at least
+   * 5,000,000 bytes.
    *
    * @return partSize
    */
@@ -129,7 +132,7 @@ public class CreateUploadRequestDataAttributes {
   }
 
   /**
-   * The name of the reference table.
+   * Name of the table to associate with this upload.
    *
    * @return tableName
    */

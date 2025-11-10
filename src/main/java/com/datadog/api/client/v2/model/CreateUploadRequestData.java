@@ -6,21 +6,16 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CreateUploadRequestData</code> object. */
+/** Request data for creating an upload for a file to be ingested into a reference table. */
 @JsonPropertyOrder({
   CreateUploadRequestData.JSON_PROPERTY_ATTRIBUTES,
-  CreateUploadRequestData.JSON_PROPERTY_ID,
   CreateUploadRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -29,9 +24,6 @@ public class CreateUploadRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateUploadRequestDataAttributes attributes;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private CreateUploadRequestDataType type = CreateUploadRequestDataType.UPLOAD;
@@ -52,7 +44,8 @@ public class CreateUploadRequestData {
   }
 
   /**
-   * The definition of <code>CreateUploadRequestDataAttributes</code> object.
+   * Upload configuration specifying how data is uploaded by the user, and properties of the table
+   * to associate the upload with.
    *
    * @return attributes
    */
@@ -65,27 +58,6 @@ public class CreateUploadRequestData {
 
   public void setAttributes(CreateUploadRequestDataAttributes attributes) {
     this.attributes = attributes;
-  }
-
-  public CreateUploadRequestData id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The ID of the upload.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public CreateUploadRequestData type(CreateUploadRequestDataType type) {
@@ -112,52 +84,6 @@ public class CreateUploadRequestData {
     this.type = type;
   }
 
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return CreateUploadRequestData
-   */
-  @JsonAnySetter
-  public CreateUploadRequestData putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
   /** Return true if this CreateUploadRequestData object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -169,14 +95,12 @@ public class CreateUploadRequestData {
     }
     CreateUploadRequestData createUploadRequestData = (CreateUploadRequestData) o;
     return Objects.equals(this.attributes, createUploadRequestData.attributes)
-        && Objects.equals(this.id, createUploadRequestData.id)
-        && Objects.equals(this.type, createUploadRequestData.type)
-        && Objects.equals(this.additionalProperties, createUploadRequestData.additionalProperties);
+        && Objects.equals(this.type, createUploadRequestData.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes, type);
   }
 
   @Override
@@ -184,11 +108,7 @@ public class CreateUploadRequestData {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateUploadRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
     sb.append('}');
     return sb.toString();
   }

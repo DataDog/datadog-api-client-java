@@ -81,11 +81,11 @@ public class ReferenceTablesApi {
   }
 
   /**
-   * Create a new reference table. You can provide data in two ways: 1) Call POST
-   * api/v2/reference-tables/upload first to get an upload ID, then PUT chunks of CSV data to each
-   * provided URL, and finally call this POST endpoint with the upload_id in file_metadata, OR 2)
-   * Provide access_details in file_metadata pointing to a CSV file in cloud storage (Amazon S3,
-   * Azure Blob Storage, or GCP Cloud Storage).
+   * Creates a reference table. You can provide data in two ways: 1. Call POST
+   * /api/v2/reference-tables/upload to get an upload ID. Then, PUT the CSV data (not the file
+   * itself) in chunks to each URL in the request body. Finally, call this POST endpoint with <code>
+   * upload_id</code> in <code>file_metadata</code>. 2. Provide <code>access_details</code> in
+   * <code>file_metadata</code> pointing to a CSV file in cloud storage.
    *
    * @param body (required)
    * @return ApiResponse&lt;TableResultV2&gt;
@@ -325,7 +325,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #deleteTableWithHttpInfo}.
    *
-   * @param id The ID of the reference table to delete (required)
+   * @param id Unique identifier of the reference table to delete (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteTable(String id) throws ApiException {
@@ -337,7 +337,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #deleteTableWithHttpInfoAsync}.
    *
-   * @param id The ID of the reference table to delete (required)
+   * @param id Unique identifier of the reference table to delete (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteTableAsync(String id) {
@@ -351,7 +351,7 @@ public class ReferenceTablesApi {
   /**
    * Delete a reference table by ID
    *
-   * @param id The ID of the reference table to delete (required)
+   * @param id Unique identifier of the reference table to delete (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -403,7 +403,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #deleteTableWithHttpInfo}.
    *
-   * @param id The ID of the reference table to delete (required)
+   * @param id Unique identifier of the reference table to delete (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteTableWithHttpInfoAsync(String id) {
@@ -455,7 +455,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #getRowsByIDWithHttpInfo}.
    *
-   * @param id The ID of the reference table (required)
+   * @param id Unique identifier of the reference table to get rows from (required)
    * @param rowId List of row IDs (primary key values) to retrieve from the reference table.
    *     (required)
    * @return TableRowResourceArray
@@ -470,7 +470,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #getRowsByIDWithHttpInfoAsync}.
    *
-   * @param id The ID of the reference table (required)
+   * @param id Unique identifier of the reference table to get rows from (required)
    * @param rowId List of row IDs (primary key values) to retrieve from the reference table.
    *     (required)
    * @return CompletableFuture&lt;TableRowResourceArray&gt;
@@ -486,7 +486,7 @@ public class ReferenceTablesApi {
   /**
    * Get reference table rows by their primary key values.
    *
-   * @param id The ID of the reference table (required)
+   * @param id Unique identifier of the reference table to get rows from (required)
    * @param rowId List of row IDs (primary key values) to retrieve from the reference table.
    *     (required)
    * @return ApiResponse&lt;TableRowResourceArray&gt;
@@ -550,7 +550,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #getRowsByIDWithHttpInfo}.
    *
-   * @param id The ID of the reference table (required)
+   * @param id Unique identifier of the reference table to get rows from (required)
    * @param rowId List of row IDs (primary key values) to retrieve from the reference table.
    *     (required)
    * @return CompletableFuture&lt;ApiResponse&lt;TableRowResourceArray&gt;&gt;
@@ -616,7 +616,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #getTableWithHttpInfo}.
    *
-   * @param id The ID of the reference table to retrieve (required)
+   * @param id Unique identifier of the reference table to retrieve (required)
    * @return TableResultV2
    * @throws ApiException if fails to make API call
    */
@@ -629,7 +629,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #getTableWithHttpInfoAsync}.
    *
-   * @param id The ID of the reference table to retrieve (required)
+   * @param id Unique identifier of the reference table to retrieve (required)
    * @return CompletableFuture&lt;TableResultV2&gt;
    */
   public CompletableFuture<TableResultV2> getTableAsync(String id) {
@@ -643,7 +643,7 @@ public class ReferenceTablesApi {
   /**
    * Get a reference table by ID
    *
-   * @param id The ID of the reference table to retrieve (required)
+   * @param id Unique identifier of the reference table to retrieve (required)
    * @return ApiResponse&lt;TableResultV2&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -695,7 +695,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #getTableWithHttpInfo}.
    *
-   * @param id The ID of the reference table to retrieve (required)
+   * @param id Unique identifier of the reference table to retrieve (required)
    * @return CompletableFuture&lt;ApiResponse&lt;TableResultV2&gt;&gt;
    */
   public CompletableFuture<ApiResponse<TableResultV2>> getTableWithHttpInfoAsync(String id) {
@@ -776,8 +776,8 @@ public class ReferenceTablesApi {
     /**
      * Set sort.
      *
-     * @param sort Sort field and direction. Use field name for ascending, prefix with "-" for
-     *     descending. (optional, default to "-updated_at")
+     * @param sort Sort field and direction for the list of reference tables. Use field name for
+     *     ascending, prefix with "-" for descending. (optional, default to "-updated_at")
      * @return ListTablesOptionalParameters
      */
     public ListTablesOptionalParameters sort(ReferenceTableSortType sort) {
@@ -1000,7 +1000,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #updateReferenceTableWithHttpInfo}.
    *
-   * @param id The ID of the reference table to update (required)
+   * @param id Unique identifier of the reference table to update (required)
    * @param body (required)
    * @throws ApiException if fails to make API call
    */
@@ -1013,7 +1013,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #updateReferenceTableWithHttpInfoAsync}.
    *
-   * @param id The ID of the reference table to update (required)
+   * @param id Unique identifier of the reference table to update (required)
    * @param body (required)
    * @return CompletableFuture
    */
@@ -1034,7 +1034,7 @@ public class ReferenceTablesApi {
    * types of <code>S3</code>, <code>GCS</code>, or <code>AZURE</code>, provide updated
    * access_details in file_metadata pointing to a CSV file in the same type of cloud storage.
    *
-   * @param id The ID of the reference table to update (required)
+   * @param id Unique identifier of the reference table to update (required)
    * @param body (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -1095,7 +1095,7 @@ public class ReferenceTablesApi {
    *
    * <p>See {@link #updateReferenceTableWithHttpInfo}.
    *
-   * @param id The ID of the reference table to update (required)
+   * @param id Unique identifier of the reference table to update (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */

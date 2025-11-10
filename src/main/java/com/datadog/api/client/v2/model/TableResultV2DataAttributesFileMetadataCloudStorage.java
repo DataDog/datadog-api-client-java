@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -43,6 +44,16 @@ public class TableResultV2DataAttributesFileMetadataCloudStorage {
   public static final String JSON_PROPERTY_SYNC_ENABLED = "sync_enabled";
   private Boolean syncEnabled;
 
+  public TableResultV2DataAttributesFileMetadataCloudStorage() {}
+
+  @JsonCreator
+  public TableResultV2DataAttributesFileMetadataCloudStorage(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACCESS_DETAILS)
+          TableResultV2DataAttributesFileMetadataOneOfAccessDetails accessDetails) {
+    this.accessDetails = accessDetails;
+    this.unparsed |= accessDetails.unparsed;
+  }
+
   public TableResultV2DataAttributesFileMetadataCloudStorage accessDetails(
       TableResultV2DataAttributesFileMetadataOneOfAccessDetails accessDetails) {
     this.accessDetails = accessDetails;
@@ -51,14 +62,12 @@ public class TableResultV2DataAttributesFileMetadataCloudStorage {
   }
 
   /**
-   * The definition of <code>TableResultV2DataAttributesFileMetadataOneOfAccessDetails</code>
-   * object.
+   * Cloud storage access configuration for the reference table data file.
    *
    * @return accessDetails
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCESS_DETAILS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TableResultV2DataAttributesFileMetadataOneOfAccessDetails getAccessDetails() {
     return accessDetails;
   }

@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>PatchTableRequestDataAttributesSchemaFieldsItems</code> object. */
+/**
+ * A single field (column) in the reference table schema to be updated. Schema fields cannot be
+ * deleted or renamed.
+ */
 @JsonPropertyOrder({
   PatchTableRequestDataAttributesSchemaFieldsItems.JSON_PROPERTY_NAME,
   PatchTableRequestDataAttributesSchemaFieldsItems.JSON_PROPERTY_TYPE

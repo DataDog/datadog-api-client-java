@@ -16,10 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The definition of <code>PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail
- * </code> object.
- */
+/** Amazon Web Services S3 storage access configuration. */
 @JsonPropertyOrder({
   PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail
       .JSON_PROPERTY_AWS_ACCOUNT_ID,
@@ -47,7 +44,7 @@ public class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDet
   }
 
   /**
-   * The ID of the AWS account.
+   * AWS account ID where the S3 bucket is located.
    *
    * @return awsAccountId
    */
@@ -69,7 +66,7 @@ public class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDet
   }
 
   /**
-   * The name of the AWS bucket.
+   * S3 bucket containing the CSV file.
    *
    * @return awsBucketName
    */

@@ -38,8 +38,7 @@ public class PatchTableRequestDataAttributesFileMetadataCloudStorage {
   }
 
   /**
-   * The definition of <code>PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails</code>
-   * object.
+   * Cloud storage access configuration for the reference table data file.
    *
    * @return accessDetails
    */

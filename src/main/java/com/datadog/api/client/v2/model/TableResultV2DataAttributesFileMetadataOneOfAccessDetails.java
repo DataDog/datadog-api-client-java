@@ -16,9 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The definition of <code>TableResultV2DataAttributesFileMetadataOneOfAccessDetails</code> object.
- */
+/** Cloud storage access configuration for the reference table data file. */
 @JsonPropertyOrder({
   TableResultV2DataAttributesFileMetadataOneOfAccessDetails.JSON_PROPERTY_AWS_DETAIL,
   TableResultV2DataAttributesFileMetadataOneOfAccessDetails.JSON_PROPERTY_AZURE_DETAIL,
@@ -45,8 +43,7 @@ public class TableResultV2DataAttributesFileMetadataOneOfAccessDetails {
   }
 
   /**
-   * The definition of <code>TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail
-   * </code> object.
+   * Amazon Web Services S3 storage access configuration.
    *
    * @return awsDetail
    */
@@ -70,8 +67,7 @@ public class TableResultV2DataAttributesFileMetadataOneOfAccessDetails {
   }
 
   /**
-   * The definition of <code>TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail
-   * </code> object.
+   * Azure Blob Storage access configuration.
    *
    * @return azureDetail
    */
@@ -95,8 +91,7 @@ public class TableResultV2DataAttributesFileMetadataOneOfAccessDetails {
   }
 
   /**
-   * The definition of <code>TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail
-   * </code> object.
+   * Google Cloud Platform storage access configuration.
    *
    * @return gcpDetail
    */

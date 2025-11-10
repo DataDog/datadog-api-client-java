@@ -16,10 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The definition of <code>PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails</code>
- * object.
- */
+/** Cloud storage access configuration for the reference table data file. */
 @JsonPropertyOrder({
   PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails.JSON_PROPERTY_AWS_DETAIL,
   PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails.JSON_PROPERTY_AZURE_DETAIL,
@@ -46,8 +43,7 @@ public class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails {
   }
 
   /**
-   * The definition of <code>PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail
-   * </code> object.
+   * Amazon Web Services S3 storage access configuration.
    *
    * @return awsDetail
    */
@@ -71,8 +67,7 @@ public class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails {
   }
 
   /**
-   * The definition of <code>
-   * PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail</code> object.
+   * Azure Blob Storage access configuration.
    *
    * @return azureDetail
    */
@@ -96,8 +91,7 @@ public class PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails {
   }
 
   /**
-   * The definition of <code>PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail
-   * </code> object.
+   * Google Cloud Platform storage access configuration.
    *
    * @return gcpDetail
    */

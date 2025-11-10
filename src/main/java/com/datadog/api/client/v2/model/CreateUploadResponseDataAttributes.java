@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CreateUploadResponseDataAttributes</code> object. */
+/** Pre-signed URLs for uploading parts of the file. */
 @JsonPropertyOrder({CreateUploadResponseDataAttributes.JSON_PROPERTY_PART_URLS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -41,7 +41,7 @@ public class CreateUploadResponseDataAttributes {
   }
 
   /**
-   * The URLs of the parts in the upload.
+   * The pre-signed URLs for uploading parts. These URLs expire after 5 minutes.
    *
    * @return partUrls
    */

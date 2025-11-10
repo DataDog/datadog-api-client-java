@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CreateUploadRequest</code> object. */
+/** Request to create an upload for a file to be ingested into a reference table. */
 @JsonPropertyOrder({CreateUploadRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class CreateUploadRequest {
   }
 
   /**
-   * The definition of <code>CreateUploadRequestData</code> object.
+   * Request data for creating an upload for a file to be ingested into a reference table.
    *
    * @return data
    */

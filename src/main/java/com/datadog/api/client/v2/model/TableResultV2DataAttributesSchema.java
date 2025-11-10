@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>TableResultV2DataAttributesSchema</code> object. */
+/** Schema defining the structure and columns of the reference table. */
 @JsonPropertyOrder({
   TableResultV2DataAttributesSchema.JSON_PROPERTY_FIELDS,
   TableResultV2DataAttributesSchema.JSON_PROPERTY_PRIMARY_KEYS
@@ -62,7 +62,7 @@ public class TableResultV2DataAttributesSchema {
   }
 
   /**
-   * The <code>schema</code> <code>fields</code>.
+   * The schema fields.
    *
    * @return fields
    */
