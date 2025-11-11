@@ -27,8 +27,10 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_AGENT_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_FARGATE_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_ASM_SERVERLESS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_AGG_SUM,
@@ -263,11 +265,19 @@ public class UsageSummaryResponse {
       "apm_devsecops_host_top99p_sum";
   private Long apmDevsecopsHostTop99pSum;
 
+  public static final String JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P_SUM =
+      "apm_enterprise_standalone_hosts_top99p_sum";
+  private Long apmEnterpriseStandaloneHostsTop99pSum;
+
   public static final String JSON_PROPERTY_APM_FARGATE_COUNT_AVG_SUM = "apm_fargate_count_avg_sum";
   private Long apmFargateCountAvgSum;
 
   public static final String JSON_PROPERTY_APM_HOST_TOP99P_SUM = "apm_host_top99p_sum";
   private Long apmHostTop99pSum;
+
+  public static final String JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P_SUM =
+      "apm_pro_standalone_hosts_top99p_sum";
+  private Long apmProStandaloneHostsTop99pSum;
 
   public static final String JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG_SUM =
       "appsec_fargate_count_avg_sum";
@@ -1142,6 +1152,29 @@ public class UsageSummaryResponse {
     this.apmDevsecopsHostTop99pSum = apmDevsecopsHostTop99pSum;
   }
 
+  public UsageSummaryResponse apmEnterpriseStandaloneHostsTop99pSum(
+      Long apmEnterpriseStandaloneHostsTop99pSum) {
+    this.apmEnterpriseStandaloneHostsTop99pSum = apmEnterpriseStandaloneHostsTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of the 99th percentile of all distinct standalone Enterprise hosts over all hours
+   * in the current month for all organizations.
+   *
+   * @return apmEnterpriseStandaloneHostsTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmEnterpriseStandaloneHostsTop99pSum() {
+    return apmEnterpriseStandaloneHostsTop99pSum;
+  }
+
+  public void setApmEnterpriseStandaloneHostsTop99pSum(Long apmEnterpriseStandaloneHostsTop99pSum) {
+    this.apmEnterpriseStandaloneHostsTop99pSum = apmEnterpriseStandaloneHostsTop99pSum;
+  }
+
   public UsageSummaryResponse apmFargateCountAvgSum(Long apmFargateCountAvgSum) {
     this.apmFargateCountAvgSum = apmFargateCountAvgSum;
     return this;
@@ -1184,6 +1217,28 @@ public class UsageSummaryResponse {
 
   public void setApmHostTop99pSum(Long apmHostTop99pSum) {
     this.apmHostTop99pSum = apmHostTop99pSum;
+  }
+
+  public UsageSummaryResponse apmProStandaloneHostsTop99pSum(Long apmProStandaloneHostsTop99pSum) {
+    this.apmProStandaloneHostsTop99pSum = apmProStandaloneHostsTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of the 99th percentile of all distinct standalone Pro hosts over all hours in the
+   * current month for all organizations.
+   *
+   * @return apmProStandaloneHostsTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmProStandaloneHostsTop99pSum() {
+    return apmProStandaloneHostsTop99pSum;
+  }
+
+  public void setApmProStandaloneHostsTop99pSum(Long apmProStandaloneHostsTop99pSum) {
+    this.apmProStandaloneHostsTop99pSum = apmProStandaloneHostsTop99pSum;
   }
 
   public UsageSummaryResponse appsecFargateCountAvgSum(Long appsecFargateCountAvgSum) {
@@ -6100,8 +6155,14 @@ public class UsageSummaryResponse {
             usageSummaryResponse.apmAzureAppServiceHostTop99pSum)
         && Objects.equals(
             this.apmDevsecopsHostTop99pSum, usageSummaryResponse.apmDevsecopsHostTop99pSum)
+        && Objects.equals(
+            this.apmEnterpriseStandaloneHostsTop99pSum,
+            usageSummaryResponse.apmEnterpriseStandaloneHostsTop99pSum)
         && Objects.equals(this.apmFargateCountAvgSum, usageSummaryResponse.apmFargateCountAvgSum)
         && Objects.equals(this.apmHostTop99pSum, usageSummaryResponse.apmHostTop99pSum)
+        && Objects.equals(
+            this.apmProStandaloneHostsTop99pSum,
+            usageSummaryResponse.apmProStandaloneHostsTop99pSum)
         && Objects.equals(
             this.appsecFargateCountAvgSum, usageSummaryResponse.appsecFargateCountAvgSum)
         && Objects.equals(this.asmServerlessAggSum, usageSummaryResponse.asmServerlessAggSum)
@@ -6574,8 +6635,10 @@ public class UsageSummaryResponse {
         agentHostTop99pSum,
         apmAzureAppServiceHostTop99pSum,
         apmDevsecopsHostTop99pSum,
+        apmEnterpriseStandaloneHostsTop99pSum,
         apmFargateCountAvgSum,
         apmHostTop99pSum,
+        apmProStandaloneHostsTop99pSum,
         appsecFargateCountAvgSum,
         asmServerlessAggSum,
         auditLogsLinesIndexedAggSum,
@@ -6799,10 +6862,16 @@ public class UsageSummaryResponse {
     sb.append("    apmDevsecopsHostTop99pSum: ")
         .append(toIndentedString(apmDevsecopsHostTop99pSum))
         .append("\n");
+    sb.append("    apmEnterpriseStandaloneHostsTop99pSum: ")
+        .append(toIndentedString(apmEnterpriseStandaloneHostsTop99pSum))
+        .append("\n");
     sb.append("    apmFargateCountAvgSum: ")
         .append(toIndentedString(apmFargateCountAvgSum))
         .append("\n");
     sb.append("    apmHostTop99pSum: ").append(toIndentedString(apmHostTop99pSum)).append("\n");
+    sb.append("    apmProStandaloneHostsTop99pSum: ")
+        .append(toIndentedString(apmProStandaloneHostsTop99pSum))
+        .append("\n");
     sb.append("    appsecFargateCountAvgSum: ")
         .append(toIndentedString(appsecFargateCountAvgSum))
         .append("\n");

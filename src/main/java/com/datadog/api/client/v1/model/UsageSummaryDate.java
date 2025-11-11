@@ -24,8 +24,10 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_APM_FARGATE_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_APM_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_ASM_SERVERLESS_SUM,
   UsageSummaryDate.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM,
@@ -243,11 +245,19 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P = "apm_devsecops_host_top99p";
   private Long apmDevsecopsHostTop99p;
 
+  public static final String JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P =
+      "apm_enterprise_standalone_hosts_top99p";
+  private Long apmEnterpriseStandaloneHostsTop99p;
+
   public static final String JSON_PROPERTY_APM_FARGATE_COUNT_AVG = "apm_fargate_count_avg";
   private Long apmFargateCountAvg;
 
   public static final String JSON_PROPERTY_APM_HOST_TOP99P = "apm_host_top99p";
   private Long apmHostTop99p;
+
+  public static final String JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P =
+      "apm_pro_standalone_hosts_top99p";
+  private Long apmProStandaloneHostsTop99p;
 
   public static final String JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG = "appsec_fargate_count_avg";
   private Long appsecFargateCountAvg;
@@ -1050,6 +1060,29 @@ public class UsageSummaryDate {
     this.apmDevsecopsHostTop99p = apmDevsecopsHostTop99p;
   }
 
+  public UsageSummaryDate apmEnterpriseStandaloneHostsTop99p(
+      Long apmEnterpriseStandaloneHostsTop99p) {
+    this.apmEnterpriseStandaloneHostsTop99p = apmEnterpriseStandaloneHostsTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all distinct standalone Enterprise hosts over all hours in the
+   * current date for all organizations.
+   *
+   * @return apmEnterpriseStandaloneHostsTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_ENTERPRISE_STANDALONE_HOSTS_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmEnterpriseStandaloneHostsTop99p() {
+    return apmEnterpriseStandaloneHostsTop99p;
+  }
+
+  public void setApmEnterpriseStandaloneHostsTop99p(Long apmEnterpriseStandaloneHostsTop99p) {
+    this.apmEnterpriseStandaloneHostsTop99p = apmEnterpriseStandaloneHostsTop99p;
+  }
+
   public UsageSummaryDate apmFargateCountAvg(Long apmFargateCountAvg) {
     this.apmFargateCountAvg = apmFargateCountAvg;
     return this;
@@ -1092,6 +1125,28 @@ public class UsageSummaryDate {
 
   public void setApmHostTop99p(Long apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
+  }
+
+  public UsageSummaryDate apmProStandaloneHostsTop99p(Long apmProStandaloneHostsTop99p) {
+    this.apmProStandaloneHostsTop99p = apmProStandaloneHostsTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all distinct standalone Pro hosts over all hours in the current
+   * date for all organizations.
+   *
+   * @return apmProStandaloneHostsTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_PRO_STANDALONE_HOSTS_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmProStandaloneHostsTop99p() {
+    return apmProStandaloneHostsTop99p;
+  }
+
+  public void setApmProStandaloneHostsTop99p(Long apmProStandaloneHostsTop99p) {
+    this.apmProStandaloneHostsTop99p = apmProStandaloneHostsTop99p;
   }
 
   public UsageSummaryDate appsecFargateCountAvg(Long appsecFargateCountAvg) {
@@ -5688,8 +5743,13 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.apmAzureAppServiceHostTop99p, usageSummaryDate.apmAzureAppServiceHostTop99p)
         && Objects.equals(this.apmDevsecopsHostTop99p, usageSummaryDate.apmDevsecopsHostTop99p)
+        && Objects.equals(
+            this.apmEnterpriseStandaloneHostsTop99p,
+            usageSummaryDate.apmEnterpriseStandaloneHostsTop99p)
         && Objects.equals(this.apmFargateCountAvg, usageSummaryDate.apmFargateCountAvg)
         && Objects.equals(this.apmHostTop99p, usageSummaryDate.apmHostTop99p)
+        && Objects.equals(
+            this.apmProStandaloneHostsTop99p, usageSummaryDate.apmProStandaloneHostsTop99p)
         && Objects.equals(this.appsecFargateCountAvg, usageSummaryDate.appsecFargateCountAvg)
         && Objects.equals(this.asmServerlessSum, usageSummaryDate.asmServerlessSum)
         && Objects.equals(this.auditLogsLinesIndexedSum, usageSummaryDate.auditLogsLinesIndexedSum)
@@ -6064,8 +6124,10 @@ public class UsageSummaryDate {
         agentHostTop99p,
         apmAzureAppServiceHostTop99p,
         apmDevsecopsHostTop99p,
+        apmEnterpriseStandaloneHostsTop99p,
         apmFargateCountAvg,
         apmHostTop99p,
+        apmProStandaloneHostsTop99p,
         appsecFargateCountAvg,
         asmServerlessSum,
         auditLogsLinesIndexedSum,
@@ -6278,8 +6340,14 @@ public class UsageSummaryDate {
     sb.append("    apmDevsecopsHostTop99p: ")
         .append(toIndentedString(apmDevsecopsHostTop99p))
         .append("\n");
+    sb.append("    apmEnterpriseStandaloneHostsTop99p: ")
+        .append(toIndentedString(apmEnterpriseStandaloneHostsTop99p))
+        .append("\n");
     sb.append("    apmFargateCountAvg: ").append(toIndentedString(apmFargateCountAvg)).append("\n");
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
+    sb.append("    apmProStandaloneHostsTop99p: ")
+        .append(toIndentedString(apmProStandaloneHostsTop99p))
+        .append("\n");
     sb.append("    appsecFargateCountAvg: ")
         .append(toIndentedString(appsecFargateCountAvg))
         .append("\n");
