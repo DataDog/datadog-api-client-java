@@ -1145,7 +1145,10 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key owned by current user
+   * Get an application key owned by current user. The <code>key</code> field is not returned for
+   * organizations in <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
+   * Read mode</a>.
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
@@ -2511,7 +2514,10 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key owned by current user
+   * Edit an application key owned by current user. The <code>key</code> field is not returned for
+   * organizations in <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
+   * Read mode</a>.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
