@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"enabled\":true,\"expiration_date\":1734535354000,\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1732720954\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"start_date\":1733584954000,\"suppression_query\":\"env:staging status:low\"},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"enabled\":true,\"expiration_date\":1764332845000,\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1762518445\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"start_date\":1763382445000,\"suppression_query\":\"env:staging status:low\",\"tags\":[\"technique:T1110-brute-force\",\"source:cloudtrail\"]},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ejv-ksi-r4j\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1732720954868,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"\"},\"data_exclusion_query\":\"\",\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"editable\":true,\"enabled\":true,\"expiration_date\":1734535354000,\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1732720954\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"start_date\":1733584954000,\"suppression_query\":\"env:staging status:low\",\"update_date\":1732720954868,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"\"},\"version\":1}}}",
+      "body": "{\"data\":{\"id\":\"oxk-jlo-pc8\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1762518446390,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"data_exclusion_query\":\"\",\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"editable\":true,\"enabled\":true,\"expiration_date\":1764332845000,\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1762518445\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"start_date\":1763382445000,\"suppression_query\":\"env:staging status:low\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1762518446390,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "935a1a23-dd04-eabb-dc7d-2dd3caa616f9"
+    "id": "18b138fa-5532-048a-aeca-2cc970b03b98"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/ejv-ksi-r4j",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/oxk-jlo-pc8",
       "keepAlive": false,
       "secure": true
     },
@@ -48,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b62286dc-79a3-ad34-84cf-c79401028e80"
+    "id": "273543e6-7c61-0a4b-b960-dfa949ae3868"
   }
 ]

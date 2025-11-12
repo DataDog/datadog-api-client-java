@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -27,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_RULE_QUERY,
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_START_DATE,
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_SUPPRESSION_QUERY,
+  SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_TAGS,
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
@@ -56,6 +59,9 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
 
   public static final String JSON_PROPERTY_SUPPRESSION_QUERY = "suppression_query";
   private String suppressionQuery;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Integer version;
@@ -257,6 +263,35 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
     this.suppressionQuery = suppressionQuery;
   }
 
+  public SecurityMonitoringSuppressionUpdateAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public SecurityMonitoringSuppressionUpdateAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * List of tags associated with the suppression rule.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   public SecurityMonitoringSuppressionUpdateAttributes version(Integer version) {
     this.version = version;
     return this;
@@ -350,6 +385,7 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
         && Objects.equals(this.startDate, securityMonitoringSuppressionUpdateAttributes.startDate)
         && Objects.equals(
             this.suppressionQuery, securityMonitoringSuppressionUpdateAttributes.suppressionQuery)
+        && Objects.equals(this.tags, securityMonitoringSuppressionUpdateAttributes.tags)
         && Objects.equals(this.version, securityMonitoringSuppressionUpdateAttributes.version)
         && Objects.equals(
             this.additionalProperties,
@@ -367,6 +403,7 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
         ruleQuery,
         startDate,
         suppressionQuery,
+        tags,
         version,
         additionalProperties);
   }
@@ -383,6 +420,7 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
     sb.append("    ruleQuery: ").append(toIndentedString(ruleQuery)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    suppressionQuery: ").append(toIndentedString(suppressionQuery)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
