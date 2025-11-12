@@ -206,7 +206,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key with a given name.
+   * Create an application key with a given name. This endpoint is disabled for organizations in <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
+   * Read mode</a>.
    *
    * @param body (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
@@ -470,7 +472,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete a given application key.
+   * Delete a given application key. This endpoint is disabled for organizations in <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
+   * Read mode</a>.
    *
    * @param key The specific APP key you are working with. (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
@@ -736,7 +740,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get a given application key.
+   * Get a given application key. This endpoint is disabled for organizations in <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
+   * Read mode</a>.
    *
    * @param key The specific APP key you are working with. (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
@@ -978,7 +984,10 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys available for your Datadog account.
+   * Get all application keys available for your Datadog account. This endpoint is disabled for
+   * organizations in <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
+   * Read mode</a>.
    *
    * @return ApiResponse&lt;ApplicationKeyListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1247,7 +1256,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key name.
+   * Edit an application key name. This endpoint is disabled for organizations in <a
+   * href="https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode">One-Time
+   * Read mode</a>.
    *
    * @param key The specific APP key you are working with. (required)
    * @param body (required)
