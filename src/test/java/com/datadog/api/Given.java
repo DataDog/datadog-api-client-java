@@ -6,7 +6,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -66,7 +66,7 @@ public class Given {
   public String key;
 
   public Map<String, Parameter> getRequestParameters() {
-    Map<String, Parameter> requestParams = new HashMap<>();
+    Map<String, Parameter> requestParams = new LinkedHashMap<>();
     if (parameters != null) {
       for (Parameter p : parameters) {
         requestParams.put(World.toPropertyName(p.name), p);
