@@ -192,8 +192,7 @@ public class ErrorTrackingApi {
      * Set include.
      *
      * @param include Comma-separated list of relationship objects that should be included in the
-     *     response. Possible values are <code>assignee</code>, <code>case</code>, and <code>
-     *     team_owners</code>. (optional)
+     *     response. (optional)
      * @return GetIssueOptionalParameters
      */
     public GetIssueOptionalParameters include(List<GetIssueIncludeQueryParameterItem> include) {
@@ -389,8 +388,7 @@ public class ErrorTrackingApi {
      * Set include.
      *
      * @param include Comma-separated list of relationship objects that should be included in the
-     *     response. Possible values are <code>issue</code>, <code>issue.assignee</code>, <code>
-     *     issue.case</code>, and <code>issue.team_owners</code>. (optional)
+     *     response. (optional)
      * @return SearchIssuesOptionalParameters
      */
     public SearchIssuesOptionalParameters include(
