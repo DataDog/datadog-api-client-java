@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateData;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionType;
+import java.util.Arrays;
 
 public class Example {
   public static void main(String[] args) {
@@ -28,7 +29,9 @@ public class Example {
                             .expirationDate(1638443471000L)
                             .name("Example-Security-Monitoring")
                             .ruleQuery("type:log_detection source:cloudtrail")
-                            .suppressionQuery("env:staging status:low"))
+                            .suppressionQuery("env:staging status:low")
+                            .tags(
+                                Arrays.asList("technique:T1110-brute-force", "source:cloudtrail")))
                     .type(SecurityMonitoringSuppressionType.SUPPRESSIONS));
 
     try {

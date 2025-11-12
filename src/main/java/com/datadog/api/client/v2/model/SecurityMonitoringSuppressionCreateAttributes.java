@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -26,7 +28,8 @@ import java.util.Objects;
   SecurityMonitoringSuppressionCreateAttributes.JSON_PROPERTY_NAME,
   SecurityMonitoringSuppressionCreateAttributes.JSON_PROPERTY_RULE_QUERY,
   SecurityMonitoringSuppressionCreateAttributes.JSON_PROPERTY_START_DATE,
-  SecurityMonitoringSuppressionCreateAttributes.JSON_PROPERTY_SUPPRESSION_QUERY
+  SecurityMonitoringSuppressionCreateAttributes.JSON_PROPERTY_SUPPRESSION_QUERY,
+  SecurityMonitoringSuppressionCreateAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -55,6 +58,9 @@ public class SecurityMonitoringSuppressionCreateAttributes {
 
   public static final String JSON_PROPERTY_SUPPRESSION_QUERY = "suppression_query";
   private String suppressionQuery;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public SecurityMonitoringSuppressionCreateAttributes() {}
 
@@ -241,6 +247,35 @@ public class SecurityMonitoringSuppressionCreateAttributes {
     this.suppressionQuery = suppressionQuery;
   }
 
+  public SecurityMonitoringSuppressionCreateAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public SecurityMonitoringSuppressionCreateAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * List of tags associated with the suppression rule.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -312,6 +347,7 @@ public class SecurityMonitoringSuppressionCreateAttributes {
         && Objects.equals(this.startDate, securityMonitoringSuppressionCreateAttributes.startDate)
         && Objects.equals(
             this.suppressionQuery, securityMonitoringSuppressionCreateAttributes.suppressionQuery)
+        && Objects.equals(this.tags, securityMonitoringSuppressionCreateAttributes.tags)
         && Objects.equals(
             this.additionalProperties,
             securityMonitoringSuppressionCreateAttributes.additionalProperties);
@@ -328,6 +364,7 @@ public class SecurityMonitoringSuppressionCreateAttributes {
         ruleQuery,
         startDate,
         suppressionQuery,
+        tags,
         additionalProperties);
   }
 
@@ -343,6 +380,7 @@ public class SecurityMonitoringSuppressionCreateAttributes {
     sb.append("    ruleQuery: ").append(toIndentedString(ruleQuery)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    suppressionQuery: ").append(toIndentedString(suppressionQuery)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
