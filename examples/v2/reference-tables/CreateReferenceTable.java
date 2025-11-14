@@ -10,6 +10,8 @@ import com.datadog.api.client.v2.model.CreateTableRequestDataAttributesFileMetad
 import com.datadog.api.client.v2.model.CreateTableRequestDataAttributesFileMetadataCloudStorage;
 import com.datadog.api.client.v2.model.CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails;
 import com.datadog.api.client.v2.model.CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail;
+import com.datadog.api.client.v2.model.CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail;
+import com.datadog.api.client.v2.model.CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail;
 import com.datadog.api.client.v2.model.CreateTableRequestDataAttributesSchema;
 import com.datadog.api.client.v2.model.CreateTableRequestDataAttributesSchemaFieldsItems;
 import com.datadog.api.client.v2.model.CreateTableRequestDataType;
@@ -30,7 +32,6 @@ public class Example {
                 new CreateTableRequestData()
                     .attributes(
                         new CreateTableRequestDataAttributes()
-                            .description("this is a cloud table generated via a cloud bucket sync")
                             .fileMetadata(
                                 new CreateTableRequestDataAttributesFileMetadata(
                                     new CreateTableRequestDataAttributesFileMetadataCloudStorage()
@@ -38,24 +39,38 @@ public class Example {
                                             new CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails()
                                                 .awsDetail(
                                                     new CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail()
-                                                        .awsAccountId("test-account-id")
-                                                        .awsBucketName("test-bucket")
-                                                        .filePath("test_rt.csv")))
-                                        .syncEnabled(true)))
+                                                        .awsAccountId("123456789000")
+                                                        .awsBucketName("example-data-bucket")
+                                                        .filePath("reference-tables/users.csv"))
+                                                .azureDetail(
+                                                    new CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail()
+                                                        .azureClientId(
+                                                            "aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb")
+                                                        .azureContainerName("reference-data")
+                                                        .azureStorageAccountName(
+                                                            "examplestorageaccount")
+                                                        .azureTenantId(
+                                                            "cccccccc-4444-5555-6666-dddddddddddd")
+                                                        .filePath("tables/users.csv"))
+                                                .gcpDetail(
+                                                    new CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail()
+                                                        .filePath("data/reference_tables/users.csv")
+                                                        .gcpBucketName("example-data-bucket")
+                                                        .gcpProjectId("example-gcp-project-12345")
+                                                        .gcpServiceAccountEmail(
+                                                            "example-service@example-gcp-project-12345.iam.gserviceaccount.com")))
+                                        .syncEnabled(false)))
                             .schema(
                                 new CreateTableRequestDataAttributesSchema()
                                     .fields(
-                                        Arrays.asList(
+                                        Collections.singletonList(
                                             new CreateTableRequestDataAttributesSchemaFieldsItems()
-                                                .name("name")
-                                                .type(ReferenceTableSchemaFieldType.STRING),
-                                            new CreateTableRequestDataAttributesSchemaFieldsItems()
-                                                .name("account_id")
+                                                .name("field_1")
                                                 .type(ReferenceTableSchemaFieldType.STRING)))
-                                    .primaryKeys(Collections.singletonList("account_id")))
-                            .source(ReferenceTableCreateSourceType.S3)
-                            .tableName("test_reference_table")
-                            .tags(Collections.singletonList("test_tag")))
+                                    .primaryKeys(Collections.singletonList("field_1")))
+                            .source(ReferenceTableCreateSourceType.LOCAL_FILE)
+                            .tableName("table_1")
+                            .tags(Arrays.asList("tag_1", "tag_2")))
                     .type(CreateTableRequestDataType.REFERENCE_TABLE));
 
     try {
