@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## 2.46.0/2025-11-14
+
+### Added
+* Add suppression tags [#3240](https://github.com/DataDog/datadog-api-client-java/pull/3240)
+* Add Team Connection API Documentation [#3238](https://github.com/DataDog/datadog-api-client-java/pull/3238)
+* Add new summary keys for new standalone billing dimensions [#3235](https://github.com/DataDog/datadog-api-client-java/pull/3235)
+* Add Bits AI Investigations and On-Call to  API specs [#3232](https://github.com/DataDog/datadog-api-client-java/pull/3232)
+* Add `PreviewCatalogEntities` [#3228](https://github.com/DataDog/datadog-api-client-java/pull/3228)
+* Sync 'audience_management.yaml' files with backend [#3226](https://github.com/DataDog/datadog-api-client-java/pull/3226)
+* 📝 [LOGSAC-1298] Add logs-pipeline type to restriction policy OpenAPI spec [#3219](https://github.com/DataDog/datadog-api-client-java/pull/3219)
+* Security Monitoring - Update Signal Archive Reasons [#3217](https://github.com/DataDog/datadog-api-client-java/pull/3217)
+* Add New Serverless Summary Entries to Api Spec [#3203](https://github.com/DataDog/datadog-api-client-java/pull/3203)
+* Add metric namespace config filters to V2 GCP API [#3202](https://github.com/DataDog/datadog-api-client-java/pull/3202)
+* Add specs for v2 eventbridge API [#3199](https://github.com/DataDog/datadog-api-client-java/pull/3199)
+* Add last_login_time to Users v2 API [#3181](https://github.com/DataDog/datadog-api-client-java/pull/3181)
+* Add Static Analysis Rules Endpoints [#3175](https://github.com/DataDog/datadog-api-client-java/pull/3175)
+
+### Deprecated
+* [api-spec] Mark PATCH /api/v2/incidents/incident_id/attachments endpoint as deprecated [#3237](https://github.com/DataDog/datadog-api-client-java/pull/3237)
+* [METEXP-2068] Deprecate api/v1/search Endpoint [#3233](https://github.com/DataDog/datadog-api-client-java/pull/3233)
+
+### Changed
+* Rename historical job API endpoints to threat hunting [#3215](https://github.com/DataDog/datadog-api-client-java/pull/3215)
+
 ## 2.45.0/2025-10-27
 
 ### Added
