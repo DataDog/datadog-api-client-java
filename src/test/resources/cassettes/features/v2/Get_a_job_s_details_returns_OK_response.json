@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"071b3516-4072-44d9-9288-d4adaa1db921\",\"type\":\"historicalDetectionsJob\"}}",
+      "body": "{\"data\":{\"id\":\"66896986-212c-4e6c-9890-14e5cfd0fc19\",\"type\":\"historicalDetectionsJob\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,12 +33,12 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/siem-threat-hunting/jobs/071b3516-4072-44d9-9288-d4adaa1db921",
+      "path": "/api/v2/siem-threat-hunting/jobs/66896986-212c-4e6c-9890-14e5cfd0fc19",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"071b3516-4072-44d9-9288-d4adaa1db921\",\"type\":\"historicalDetectionsJob\",\"attributes\":{\"createdAt\":\"2025-10-24 14:24:02.057923+00\",\"createdByHandle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"createdByName\":\"CI Account\",\"jobDefinition\":{\"from\":1730387522611,\"to\":1730387532611,\"index\":\"main\",\"name\":\"Excessive number of failed attempts.\",\"cases\":[{\"name\":\"Condition 1\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a \\u003e 1\"}],\"queries\":[{\"query\":\"source:non_existing_src_weekend\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"dataSource\":\"logs\"}],\"options\":{\"evaluationWindow\":900,\"detectionMethod\":\"threshold\",\"maxSignalDuration\":86400,\"keepAlive\":3600},\"message\":\"A large number of failed login attempts.\",\"tags\":[],\"type\":\"log_detection\"},\"jobName\":\"Excessive number of failed attempts.\",\"jobStatus\":\"pending\",\"modifiedAt\":\"2025-10-24 14:24:02.057923+00\"}}}",
+      "body": "{\"data\":{\"id\":\"66896986-212c-4e6c-9890-14e5cfd0fc19\",\"type\":\"historicalDetectionsJob\",\"attributes\":{\"createdAt\":\"2025-11-11 21:36:52.581297+00\",\"createdByHandle\":\"frog@datadoghq.com\",\"createdByName\":\"frog\",\"jobDefinition\":{\"from\":1730387522611,\"to\":1730387532611,\"index\":\"main\",\"name\":\"Excessive number of failed attempts.\",\"cases\":[{\"name\":\"Condition 1\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a \\u003e 1\"}],\"queries\":[{\"query\":\"source:non_existing_src_weekend\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"dataSource\":\"logs\"}],\"options\":{\"evaluationWindow\":900,\"detectionMethod\":\"threshold\",\"maxSignalDuration\":86400,\"keepAlive\":3600},\"message\":\"A large number of failed login attempts.\",\"tags\":[],\"type\":\"log_detection\"},\"jobName\":\"Excessive number of failed attempts.\",\"jobStatus\":\"pending\",\"modifiedAt\":\"2025-11-11 21:36:52.581297+00\",\"signalOutput\":false}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "08901fdd-0425-df60-dbde-e039f0e4a4dc"
+    "id": "288fd23d-8d2d-2972-e670-accb59b90273"
   }
 ]

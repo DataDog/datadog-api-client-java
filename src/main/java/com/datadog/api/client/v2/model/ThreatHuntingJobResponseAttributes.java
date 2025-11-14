@@ -25,7 +25,8 @@ import java.util.Objects;
   ThreatHuntingJobResponseAttributes.JSON_PROPERTY_JOB_DEFINITION,
   ThreatHuntingJobResponseAttributes.JSON_PROPERTY_JOB_NAME,
   ThreatHuntingJobResponseAttributes.JSON_PROPERTY_JOB_STATUS,
-  ThreatHuntingJobResponseAttributes.JSON_PROPERTY_MODIFIED_AT
+  ThreatHuntingJobResponseAttributes.JSON_PROPERTY_MODIFIED_AT,
+  ThreatHuntingJobResponseAttributes.JSON_PROPERTY_SIGNAL_OUTPUT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -54,6 +55,9 @@ public class ThreatHuntingJobResponseAttributes {
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modifiedAt";
   private String modifiedAt;
+
+  public static final String JSON_PROPERTY_SIGNAL_OUTPUT = "signalOutput";
+  private Boolean signalOutput;
 
   public ThreatHuntingJobResponseAttributes createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -224,6 +228,27 @@ public class ThreatHuntingJobResponseAttributes {
     this.modifiedAt = modifiedAt;
   }
 
+  public ThreatHuntingJobResponseAttributes signalOutput(Boolean signalOutput) {
+    this.signalOutput = signalOutput;
+    return this;
+  }
+
+  /**
+   * Whether the job outputs signals.
+   *
+   * @return signalOutput
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNAL_OUTPUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSignalOutput() {
+    return signalOutput;
+  }
+
+  public void setSignalOutput(Boolean signalOutput) {
+    this.signalOutput = signalOutput;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -290,6 +315,7 @@ public class ThreatHuntingJobResponseAttributes {
         && Objects.equals(this.jobName, threatHuntingJobResponseAttributes.jobName)
         && Objects.equals(this.jobStatus, threatHuntingJobResponseAttributes.jobStatus)
         && Objects.equals(this.modifiedAt, threatHuntingJobResponseAttributes.modifiedAt)
+        && Objects.equals(this.signalOutput, threatHuntingJobResponseAttributes.signalOutput)
         && Objects.equals(
             this.additionalProperties, threatHuntingJobResponseAttributes.additionalProperties);
   }
@@ -305,6 +331,7 @@ public class ThreatHuntingJobResponseAttributes {
         jobName,
         jobStatus,
         modifiedAt,
+        signalOutput,
         additionalProperties);
   }
 
@@ -320,6 +347,7 @@ public class ThreatHuntingJobResponseAttributes {
     sb.append("    jobName: ").append(toIndentedString(jobName)).append("\n");
     sb.append("    jobStatus: ").append(toIndentedString(jobStatus)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    signalOutput: ").append(toIndentedString(signalOutput)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
