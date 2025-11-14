@@ -126,6 +126,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_GCP_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_HEROKU_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INFRA_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_INGESTED_EVENTS_BYTES_AGG_SUM,
@@ -633,6 +634,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM_SUM =
       "incident_management_monthly_active_users_hwm_sum";
   private Long incidentManagementMonthlyActiveUsersHwmSum;
+
+  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM_SUM =
+      "incident_management_seats_hwm_sum";
+  private Long incidentManagementSeatsHwmSum;
 
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT_AGG_SUM =
       "indexed_events_count_agg_sum";
@@ -3393,6 +3398,28 @@ public class UsageSummaryResponse {
   public void setIncidentManagementMonthlyActiveUsersHwmSum(
       Long incidentManagementMonthlyActiveUsersHwmSum) {
     this.incidentManagementMonthlyActiveUsersHwmSum = incidentManagementMonthlyActiveUsersHwmSum;
+  }
+
+  public UsageSummaryResponse incidentManagementSeatsHwmSum(Long incidentManagementSeatsHwmSum) {
+    this.incidentManagementSeatsHwmSum = incidentManagementSeatsHwmSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of the high-water marks of Incident Management seats over all hours in the
+   * current month for all organizations.
+   *
+   * @return incidentManagementSeatsHwmSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getIncidentManagementSeatsHwmSum() {
+    return incidentManagementSeatsHwmSum;
+  }
+
+  public void setIncidentManagementSeatsHwmSum(Long incidentManagementSeatsHwmSum) {
+    this.incidentManagementSeatsHwmSum = incidentManagementSeatsHwmSum;
   }
 
   public UsageSummaryResponse indexedEventsCountAggSum(Long indexedEventsCountAggSum) {
@@ -6357,6 +6384,8 @@ public class UsageSummaryResponse {
             this.incidentManagementMonthlyActiveUsersHwmSum,
             usageSummaryResponse.incidentManagementMonthlyActiveUsersHwmSum)
         && Objects.equals(
+            this.incidentManagementSeatsHwmSum, usageSummaryResponse.incidentManagementSeatsHwmSum)
+        && Objects.equals(
             this.indexedEventsCountAggSum, usageSummaryResponse.indexedEventsCountAggSum)
         && Objects.equals(this.infraHostTop99pSum, usageSummaryResponse.infraHostTop99pSum)
         && Objects.equals(
@@ -6734,6 +6763,7 @@ public class UsageSummaryResponse {
         gcpHostTop99pSum,
         herokuHostTop99pSum,
         incidentManagementMonthlyActiveUsersHwmSum,
+        incidentManagementSeatsHwmSum,
         indexedEventsCountAggSum,
         infraHostTop99pSum,
         ingestedEventsBytesAggSum,
@@ -7128,6 +7158,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    incidentManagementMonthlyActiveUsersHwmSum: ")
         .append(toIndentedString(incidentManagementMonthlyActiveUsersHwmSum))
+        .append("\n");
+    sb.append("    incidentManagementSeatsHwmSum: ")
+        .append(toIndentedString(incidentManagementSeatsHwmSum))
         .append("\n");
     sb.append("    indexedEventsCountAggSum: ")
         .append(toIndentedString(indexedEventsCountAggSum))

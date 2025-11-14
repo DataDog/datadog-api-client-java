@@ -121,6 +121,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_HEROKU_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_ID,
   UsageSummaryDateOrg.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
@@ -602,6 +603,10 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM =
       "incident_management_monthly_active_users_hwm";
   private Long incidentManagementMonthlyActiveUsersHwm;
+
+  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM =
+      "incident_management_seats_hwm";
+  private Long incidentManagementSeatsHwm;
 
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM = "indexed_events_count_sum";
   private Long indexedEventsCountSum;
@@ -3315,6 +3320,28 @@ public class UsageSummaryDateOrg {
   public void setIncidentManagementMonthlyActiveUsersHwm(
       Long incidentManagementMonthlyActiveUsersHwm) {
     this.incidentManagementMonthlyActiveUsersHwm = incidentManagementMonthlyActiveUsersHwm;
+  }
+
+  public UsageSummaryDateOrg incidentManagementSeatsHwm(Long incidentManagementSeatsHwm) {
+    this.incidentManagementSeatsHwm = incidentManagementSeatsHwm;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of Incident Management seats over all hours on the current date for
+   * the given organization.
+   *
+   * @return incidentManagementSeatsHwm
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getIncidentManagementSeatsHwm() {
+    return incidentManagementSeatsHwm;
+  }
+
+  public void setIncidentManagementSeatsHwm(Long incidentManagementSeatsHwm) {
+    this.incidentManagementSeatsHwm = incidentManagementSeatsHwm;
   }
 
   public UsageSummaryDateOrg indexedEventsCountSum(Long indexedEventsCountSum) {
@@ -6049,6 +6076,8 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.incidentManagementMonthlyActiveUsersHwm,
             usageSummaryDateOrg.incidentManagementMonthlyActiveUsersHwm)
+        && Objects.equals(
+            this.incidentManagementSeatsHwm, usageSummaryDateOrg.incidentManagementSeatsHwm)
         && Objects.equals(this.indexedEventsCountSum, usageSummaryDateOrg.indexedEventsCountSum)
         && Objects.equals(this.infraHostTop99p, usageSummaryDateOrg.infraHostTop99p)
         && Objects.equals(this.ingestedEventsBytesSum, usageSummaryDateOrg.ingestedEventsBytesSum)
@@ -6387,6 +6416,7 @@ public class UsageSummaryDateOrg {
         herokuHostTop99p,
         id,
         incidentManagementMonthlyActiveUsersHwm,
+        incidentManagementSeatsHwm,
         indexedEventsCountSum,
         infraHostTop99p,
         ingestedEventsBytesSum,
@@ -6744,6 +6774,9 @@ public class UsageSummaryDateOrg {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    incidentManagementMonthlyActiveUsersHwm: ")
         .append(toIndentedString(incidentManagementMonthlyActiveUsersHwm))
+        .append("\n");
+    sb.append("    incidentManagementSeatsHwm: ")
+        .append(toIndentedString(incidentManagementSeatsHwm))
         .append("\n");
     sb.append("    indexedEventsCountSum: ")
         .append(toIndentedString(indexedEventsCountSum))
