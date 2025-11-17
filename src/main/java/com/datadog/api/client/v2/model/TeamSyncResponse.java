@@ -8,111 +8,56 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A configuration governing syncing between Datadog teams and teams from an external system. */
-@JsonPropertyOrder({
-  TeamSyncData.JSON_PROPERTY_ATTRIBUTES,
-  TeamSyncData.JSON_PROPERTY_ID,
-  TeamSyncData.JSON_PROPERTY_TYPE
-})
+/** Team sync configurations response. */
+@JsonPropertyOrder({TeamSyncResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamSyncData {
+public class TeamSyncResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private TeamSyncAttributes attributes;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<TeamSyncData> data = null;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private TeamSyncBulkType type;
-
-  public TeamSyncData() {}
-
-  @JsonCreator
-  public TeamSyncData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          TeamSyncAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TeamSyncBulkType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public TeamSyncResponse data(List<TeamSyncData> data) {
+    this.data = data;
+    for (TeamSyncData item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
   }
 
-  public TeamSyncData attributes(TeamSyncAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public TeamSyncResponse addDataItem(TeamSyncData dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * Team sync attributes.
+   * List of team sync configurations
    *
-   * @return attributes
-   */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TeamSyncAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(TeamSyncAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public TeamSyncData id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The sync's identifier
-   *
-   * @return id
+   * @return data
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  public List<TeamSyncData> getData() {
+    return data;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public TeamSyncData type(TeamSyncBulkType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Team sync bulk type.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TeamSyncBulkType getType() {
-    return type;
-  }
-
-  public void setType(TeamSyncBulkType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setData(List<TeamSyncData> data) {
+    this.data = data;
   }
 
   /**
@@ -127,10 +72,10 @@ public class TeamSyncData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamSyncData
+   * @return TeamSyncResponse
    */
   @JsonAnySetter
-  public TeamSyncData putAdditionalProperty(String key, Object value) {
+  public TeamSyncResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -161,7 +106,7 @@ public class TeamSyncData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamSyncData object is equal to o. */
+  /** Return true if this TeamSyncResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -170,25 +115,21 @@ public class TeamSyncData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamSyncData teamSyncData = (TeamSyncData) o;
-    return Objects.equals(this.attributes, teamSyncData.attributes)
-        && Objects.equals(this.id, teamSyncData.id)
-        && Objects.equals(this.type, teamSyncData.type)
-        && Objects.equals(this.additionalProperties, teamSyncData.additionalProperties);
+    TeamSyncResponse teamSyncResponse = (TeamSyncResponse) o;
+    return Objects.equals(this.data, teamSyncResponse.data)
+        && Objects.equals(this.additionalProperties, teamSyncResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamSyncData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class TeamSyncResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

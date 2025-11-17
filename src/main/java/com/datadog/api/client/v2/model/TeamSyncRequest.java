@@ -42,7 +42,7 @@ public class TeamSyncRequest {
   }
 
   /**
-   * Team sync data.
+   * A configuration governing syncing between Datadog teams and teams from an external system.
    *
    * @return data
    */
