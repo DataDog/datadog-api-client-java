@@ -812,6 +812,7 @@ public class ApiClient {
           put("v2.createSCAResolveVulnerableSymbols", false);
           put("v2.createSCAResult", false);
           put("v2.addMemberTeam", false);
+          put("v2.getTeamSync", false);
           put("v2.listMemberTeams", false);
           put("v2.removeMemberTeam", false);
           put("v2.syncTeams", false);

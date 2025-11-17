@@ -18,13 +18,24 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Team sync attributes. */
-@JsonPropertyOrder({TeamSyncAttributes.JSON_PROPERTY_SOURCE, TeamSyncAttributes.JSON_PROPERTY_TYPE})
+@JsonPropertyOrder({
+  TeamSyncAttributes.JSON_PROPERTY_FREQUENCY,
+  TeamSyncAttributes.JSON_PROPERTY_SOURCE,
+  TeamSyncAttributes.JSON_PROPERTY_SYNC_MEMBERSHIP,
+  TeamSyncAttributes.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamSyncAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FREQUENCY = "frequency";
+  private TeamSyncAttributesFrequency frequency;
+
   public static final String JSON_PROPERTY_SOURCE = "source";
   private TeamSyncAttributesSource source;
+
+  public static final String JSON_PROPERTY_SYNC_MEMBERSHIP = "sync_membership";
+  private Boolean syncMembership;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TeamSyncAttributesType type;
@@ -39,6 +50,31 @@ public class TeamSyncAttributes {
     this.unparsed |= !source.isValid();
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public TeamSyncAttributes frequency(TeamSyncAttributesFrequency frequency) {
+    this.frequency = frequency;
+    this.unparsed |= !frequency.isValid();
+    return this;
+  }
+
+  /**
+   * How often the sync process should be run. Defaults to <code>once</code> when not provided.
+   *
+   * @return frequency
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FREQUENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamSyncAttributesFrequency getFrequency() {
+    return frequency;
+  }
+
+  public void setFrequency(TeamSyncAttributesFrequency frequency) {
+    if (!frequency.isValid()) {
+      this.unparsed = true;
+    }
+    this.frequency = frequency;
   }
 
   public TeamSyncAttributes source(TeamSyncAttributesSource source) {
@@ -65,6 +101,28 @@ public class TeamSyncAttributes {
     this.source = source;
   }
 
+  public TeamSyncAttributes syncMembership(Boolean syncMembership) {
+    this.syncMembership = syncMembership;
+    return this;
+  }
+
+  /**
+   * Whether to sync members from the external team to the Datadog team. Defaults to <code>false
+   * </code> when not provided.
+   *
+   * @return syncMembership
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYNC_MEMBERSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSyncMembership() {
+    return syncMembership;
+  }
+
+  public void setSyncMembership(Boolean syncMembership) {
+    this.syncMembership = syncMembership;
+  }
+
   public TeamSyncAttributes type(TeamSyncAttributesType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -72,8 +130,8 @@ public class TeamSyncAttributes {
   }
 
   /**
-   * The type of synchronization operation. Only "link" is supported, which links existing teams by
-   * matching names.
+   * The type of synchronization operation. "link" connects teams by matching names. "provision"
+   * creates new teams when no match is found.
    *
    * @return type
    */
@@ -146,21 +204,25 @@ public class TeamSyncAttributes {
       return false;
     }
     TeamSyncAttributes teamSyncAttributes = (TeamSyncAttributes) o;
-    return Objects.equals(this.source, teamSyncAttributes.source)
+    return Objects.equals(this.frequency, teamSyncAttributes.frequency)
+        && Objects.equals(this.source, teamSyncAttributes.source)
+        && Objects.equals(this.syncMembership, teamSyncAttributes.syncMembership)
         && Objects.equals(this.type, teamSyncAttributes.type)
         && Objects.equals(this.additionalProperties, teamSyncAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(source, type, additionalProperties);
+    return Objects.hash(frequency, source, syncMembership, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TeamSyncAttributes {\n");
+    sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    syncMembership: ").append(toIndentedString(syncMembership)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

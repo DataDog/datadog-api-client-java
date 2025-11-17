@@ -18,7 +18,9 @@ import com.datadog.api.client.v2.model.TeamPermissionSettingResponse;
 import com.datadog.api.client.v2.model.TeamPermissionSettingUpdateRequest;
 import com.datadog.api.client.v2.model.TeamPermissionSettingsResponse;
 import com.datadog.api.client.v2.model.TeamResponse;
+import com.datadog.api.client.v2.model.TeamSyncAttributesSource;
 import com.datadog.api.client.v2.model.TeamSyncRequest;
+import com.datadog.api.client.v2.model.TeamSyncResponse;
 import com.datadog.api.client.v2.model.TeamUpdateRequest;
 import com.datadog.api.client.v2.model.TeamsField;
 import com.datadog.api.client.v2.model.TeamsResponse;
@@ -1988,6 +1990,162 @@ public class TeamsApi {
   }
 
   /**
+   * Get team sync configurations.
+   *
+   * <p>See {@link #getTeamSyncWithHttpInfo}.
+   *
+   * @param filterSource Filter by the external source platform for team synchronization (required)
+   * @return TeamSyncResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TeamSyncResponse getTeamSync(TeamSyncAttributesSource filterSource) throws ApiException {
+    return getTeamSyncWithHttpInfo(filterSource).getData();
+  }
+
+  /**
+   * Get team sync configurations.
+   *
+   * <p>See {@link #getTeamSyncWithHttpInfoAsync}.
+   *
+   * @param filterSource Filter by the external source platform for team synchronization (required)
+   * @return CompletableFuture&lt;TeamSyncResponse&gt;
+   */
+  public CompletableFuture<TeamSyncResponse> getTeamSyncAsync(
+      TeamSyncAttributesSource filterSource) {
+    return getTeamSyncWithHttpInfoAsync(filterSource)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all team synchronization configurations. Returns a list of configurations used for linking
+   * or provisioning teams with external sources like GitHub.
+   *
+   * @param filterSource Filter by the external source platform for team synchronization (required)
+   * @return ApiResponse&lt;TeamSyncResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Team sync configurations not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamSyncResponse> getTeamSyncWithHttpInfo(
+      TeamSyncAttributesSource filterSource) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getTeamSync";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterSource' is set
+    if (filterSource == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filterSource' when calling getTeamSync");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/team/sync";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[source]", filterSource));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.getTeamSync",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamSyncResponse>() {});
+  }
+
+  /**
+   * Get team sync configurations.
+   *
+   * <p>See {@link #getTeamSyncWithHttpInfo}.
+   *
+   * @param filterSource Filter by the external source platform for team synchronization (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamSyncResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamSyncResponse>> getTeamSyncWithHttpInfoAsync(
+      TeamSyncAttributesSource filterSource) {
+    // Check if unstable operation is enabled
+    String operationId = "getTeamSync";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TeamSyncResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterSource' is set
+    if (filterSource == null) {
+      CompletableFuture<ApiResponse<TeamSyncResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'filterSource' when calling getTeamSync"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/team/sync";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[source]", filterSource));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.getTeamSync",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamSyncResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamSyncResponse>() {});
+  }
+
+  /**
    * Get user memberships.
    *
    * <p>See {@link #getUserMembershipsWithHttpInfo}.
@@ -2958,8 +3116,8 @@ public class TeamsApi {
    * connected to your Datadog account</a>, and the GitHub App integrated with Datadog must have the
    * <code>Members Read</code> permission. Matching is performed by comparing the Datadog team
    * handle to the GitHub team slug using a normalized exact match; case is ignored and spaces are
-   * removed. No modifications are made to teams in GitHub. This will not create new Teams in
-   * Datadog.
+   * removed. No modifications are made to teams in GitHub. This only creates new teams in Datadog
+   * when type is set to <code>provision</code>.
    *
    * @param body (required)
    * @return ApiResponse&lt;Void&gt;

@@ -19,15 +19,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The type of synchronization operation. Only "link" is supported, which links existing teams by
- * matching names.
+ * The type of synchronization operation. "link" connects teams by matching names. "provision"
+ * creates new teams when no match is found.
  */
 @JsonSerialize(using = TeamSyncAttributesType.TeamSyncAttributesTypeSerializer.class)
 public class TeamSyncAttributesType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("link"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("link", "provision"));
 
   public static final TeamSyncAttributesType LINK = new TeamSyncAttributesType("link");
+  public static final TeamSyncAttributesType PROVISION = new TeamSyncAttributesType("provision");
 
   TeamSyncAttributesType(String value) {
     super(value, allowedValues);
