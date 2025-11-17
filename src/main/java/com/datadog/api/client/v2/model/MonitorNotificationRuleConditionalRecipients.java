@@ -19,7 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Use conditional recipients to define different recipients for different situations. */
+/**
+ * Use conditional recipients to define different recipients for different situations. Cannot be
+ * used with <code>recipients</code>.
+ */
 @JsonPropertyOrder({
   MonitorNotificationRuleConditionalRecipients.JSON_PROPERTY_CONDITIONS,
   MonitorNotificationRuleConditionalRecipients.JSON_PROPERTY_FALLBACK_RECIPIENTS
@@ -91,7 +94,7 @@ public class MonitorNotificationRuleConditionalRecipients {
 
   /**
    * A list of recipients to notify. Uses the same format as the monitor <code>message</code> field.
-   * Must not start with an '@'.
+   * Must not start with an '@'. Cannot be used with <code>conditional_recipients</code>.
    *
    * @return fallbackRecipients
    */

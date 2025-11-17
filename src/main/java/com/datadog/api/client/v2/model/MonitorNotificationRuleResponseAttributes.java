@@ -58,7 +58,8 @@ public class MonitorNotificationRuleResponseAttributes {
   }
 
   /**
-   * Use conditional recipients to define different recipients for different situations.
+   * Use conditional recipients to define different recipients for different situations. Cannot be
+   * used with <code>recipients</code>.
    *
    * @return conditionalRecipients
    */
@@ -174,7 +175,7 @@ public class MonitorNotificationRuleResponseAttributes {
 
   /**
    * A list of recipients to notify. Uses the same format as the monitor <code>message</code> field.
-   * Must not start with an '@'.
+   * Must not start with an '@'. Cannot be used with <code>conditional_recipients</code>.
    *
    * @return recipients
    */
