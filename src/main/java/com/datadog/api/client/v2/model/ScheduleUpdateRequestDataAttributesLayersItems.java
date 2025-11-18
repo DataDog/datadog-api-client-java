@@ -32,7 +32,8 @@ import java.util.Objects;
   ScheduleUpdateRequestDataAttributesLayersItems.JSON_PROPERTY_MEMBERS,
   ScheduleUpdateRequestDataAttributesLayersItems.JSON_PROPERTY_NAME,
   ScheduleUpdateRequestDataAttributesLayersItems.JSON_PROPERTY_RESTRICTIONS,
-  ScheduleUpdateRequestDataAttributesLayersItems.JSON_PROPERTY_ROTATION_START
+  ScheduleUpdateRequestDataAttributesLayersItems.JSON_PROPERTY_ROTATION_START,
+  ScheduleUpdateRequestDataAttributesLayersItems.JSON_PROPERTY_TIME_ZONE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -61,6 +62,9 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
 
   public static final String JSON_PROPERTY_ROTATION_START = "rotation_start";
   private OffsetDateTime rotationStart;
+
+  public static final String JSON_PROPERTY_TIME_ZONE = "time_zone";
+  private String timeZone;
 
   public ScheduleUpdateRequestDataAttributesLayersItems() {}
 
@@ -275,6 +279,27 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
     this.rotationStart = rotationStart;
   }
 
+  public ScheduleUpdateRequestDataAttributesLayersItems timeZone(String timeZone) {
+    this.timeZone = timeZone;
+    return this;
+  }
+
+  /**
+   * The time zone for this layer.
+   *
+   * @return timeZone
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME_ZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTimeZone() {
+    return timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -344,6 +369,7 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
             this.restrictions, scheduleUpdateRequestDataAttributesLayersItems.restrictions)
         && Objects.equals(
             this.rotationStart, scheduleUpdateRequestDataAttributesLayersItems.rotationStart)
+        && Objects.equals(this.timeZone, scheduleUpdateRequestDataAttributesLayersItems.timeZone)
         && Objects.equals(
             this.additionalProperties,
             scheduleUpdateRequestDataAttributesLayersItems.additionalProperties);
@@ -360,6 +386,7 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
         name,
         restrictions,
         rotationStart,
+        timeZone,
         additionalProperties);
   }
 
@@ -375,6 +402,7 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("    rotationStart: ").append(toIndentedString(rotationStart)).append("\n");
+    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

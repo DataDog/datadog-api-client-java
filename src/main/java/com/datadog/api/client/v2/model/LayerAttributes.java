@@ -29,7 +29,8 @@ import java.util.Objects;
   LayerAttributes.JSON_PROPERTY_INTERVAL,
   LayerAttributes.JSON_PROPERTY_NAME,
   LayerAttributes.JSON_PROPERTY_RESTRICTIONS,
-  LayerAttributes.JSON_PROPERTY_ROTATION_START
+  LayerAttributes.JSON_PROPERTY_ROTATION_START,
+  LayerAttributes.JSON_PROPERTY_TIME_ZONE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -52,6 +53,9 @@ public class LayerAttributes {
 
   public static final String JSON_PROPERTY_ROTATION_START = "rotation_start";
   private OffsetDateTime rotationStart;
+
+  public static final String JSON_PROPERTY_TIME_ZONE = "time_zone";
+  private String timeZone;
 
   public LayerAttributes effectiveDate(OffsetDateTime effectiveDate) {
     this.effectiveDate = effectiveDate;
@@ -193,6 +197,27 @@ public class LayerAttributes {
     this.rotationStart = rotationStart;
   }
 
+  public LayerAttributes timeZone(String timeZone) {
+    this.timeZone = timeZone;
+    return this;
+  }
+
+  /**
+   * The time zone for this layer.
+   *
+   * @return timeZone
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME_ZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTimeZone() {
+    return timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -255,13 +280,21 @@ public class LayerAttributes {
         && Objects.equals(this.name, layerAttributes.name)
         && Objects.equals(this.restrictions, layerAttributes.restrictions)
         && Objects.equals(this.rotationStart, layerAttributes.rotationStart)
+        && Objects.equals(this.timeZone, layerAttributes.timeZone)
         && Objects.equals(this.additionalProperties, layerAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        effectiveDate, endDate, interval, name, restrictions, rotationStart, additionalProperties);
+        effectiveDate,
+        endDate,
+        interval,
+        name,
+        restrictions,
+        rotationStart,
+        timeZone,
+        additionalProperties);
   }
 
   @Override
@@ -274,6 +307,7 @@ public class LayerAttributes {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    restrictions: ").append(toIndentedString(restrictions)).append("\n");
     sb.append("    rotationStart: ").append(toIndentedString(rotationStart)).append("\n");
+    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
