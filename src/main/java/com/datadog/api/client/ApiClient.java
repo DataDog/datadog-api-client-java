@@ -733,6 +733,14 @@ public class ApiClient {
           put("v2.cancelDataDeletionRequest", false);
           put("v2.createDataDeletionRequest", false);
           put("v2.getDataDeletionRequests", false);
+          put("v2.createDeploymentGate", false);
+          put("v2.createDeploymentRule", false);
+          put("v2.deleteDeploymentGate", false);
+          put("v2.deleteDeploymentRule", false);
+          put("v2.getDeploymentGate", false);
+          put("v2.getDeploymentRule", false);
+          put("v2.updateDeploymentGate", false);
+          put("v2.updateDeploymentRule", false);
           put("v2.createIncident", false);
           put("v2.createIncidentImpact", false);
           put("v2.createIncidentIntegration", false);
