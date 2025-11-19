@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Get_team_on_call_users_returns_OK_response-1748503817@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Get_team_on_call_users_returns_OK_response-1763469869@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"users\",\"id\":\"c534e9e3-3c5e-11f0-b6eb-6e406f40657f\",\"attributes\":{\"name\":null,\"handle\":\"test-get_team_on_call_users_returns_ok_response-1748503817@datadoghq.com\",\"created_at\":\"2025-05-29T07:30:18.165739+00:00\",\"modified_at\":\"2025-05-29T07:30:18.165739+00:00\",\"email\":\"test-get_team_on_call_users_returns_ok_response-1748503817@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/a9b817a05a2ad95be147030f20ff95fb?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"537c2919-c47c-11f0-9b08-ce88c9776d95\",\"attributes\":{\"name\":null,\"handle\":\"test-get_team_on_call_users_returns_ok_response-1763469869@datadoghq.com\",\"created_at\":\"2025-11-18T12:44:30.412060+00:00\",\"modified_at\":\"2025-11-18T12:44:30.412060+00:00\",\"email\":\"test-get_team_on_call_users_returns_ok_response-1763469869@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/e1a08271c5b3a54aaa074185b1550add?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\",\"last_login_time\":null},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "57e94619-50b1-1ac3-b718-d291ad6a0868"
+    "id": "63d88502-9723-3aa7-0205-e81d41d737fe"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-aa0dbd3d9b27ea9e\",\"name\":\"test-name-aa0dbd3d9b27ea9e\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-b0479fe6a2cd9873\",\"name\":\"test-name-b0479fe6a2cd9873\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,10 +42,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"6a8339f9-9d86-4948-a469-1b0cbef769bb\",\"attributes\":{\"name\":\"test-name-aa0dbd3d9b27ea9e\",\"handle\":\"test-handle-aa0dbd3d9b27ea9e\",\"summary\":null,\"description\":null,\"avatar\":null,\"banner\":1,\"visible_modules\":[],\"hidden_modules\":[],\"created_at\":\"2025-05-29T07:30:18.898463+00:00\",\"modified_at\":\"2025-05-29T07:30:18.898474+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/6a8339f9-9d86-4948-a469-1b0cbef769bb/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/6a8339f9-9d86-4948-a469-1b0cbef769bb/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"id\":\"11ba6480-761b-4dbd-b4a0-c77a9df6740c\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":15,\"created_at\":\"2025-11-18T12:44:31.250613+00:00\",\"description\":null,\"handle\":\"test-handle-b0479fe6a2cd9873\",\"hidden_modules\":[],\"link_count\":0,\"modified_at\":\"2025-11-18T12:44:31.250613+00:00\",\"name\":\"test-name-b0479fe6a2cd9873\",\"summary\":null,\"user_count\":0,\"visible_modules\":[]},\"relationships\":{\"team_links\":{\"data\":[],\"links\":{\"related\":\"/api/v2/team/11ba6480-761b-4dbd-b4a0-c77a9df6740c/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/11ba6480-761b-4dbd-b4a0-c77a9df6740c/permission-settings\"}}}}}",
       "headers": {
         "Content-Type": [
-          "application/json"
+          "application/vnd.api+json"
         ]
       },
       "statusCode": 201,
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "442e8aa3-11a2-5be7-b79a-86cca2bdeece"
+    "id": "b22aa90a-3e3f-97e9-76ab-de2eb3255ae2"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-05-19T07:30:17.381Z\",\"end_date\":\"2025-06-08T07:30:17.381Z\",\"interval\":{\"days\":1},\"members\":[{\"user\":{\"id\":\"c534e9e3-3c5e-11f0-b6eb-6e406f40657f\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-05-24T07:30:17.381Z\"}],\"name\":\"Test-Get_team_on_call_users_returns_OK_response-1748503817\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
+        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-11-08T12:44:29.751Z\",\"end_date\":\"2025-11-28T12:44:29.751Z\",\"interval\":{\"days\":1},\"members\":[{\"user\":{\"id\":\"537c2919-c47c-11f0-9b08-ce88c9776d95\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-11-13T12:44:29.751Z\"}],\"name\":\"Test-Get_team_on_call_users_returns_OK_response-1763469869\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -72,7 +72,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ba6c57a1-bb93-4f5a-a22b-174f84b0c5d6\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Get_team_on_call_users_returns_OK_response-1748503817\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"d12469b6-85d8-461a-89c6-61fc956c1446\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}}}}",
+      "body": "{\"data\":{\"id\":\"3be141a8-848d-4af1-86de-e5d76cd6e4fc\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Get_team_on_call_users_returns_OK_response-1763469869\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"0c2a552f-a2e0-47ca-ad8b-4407608b3f67\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -87,13 +87,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "75f6ef08-a8ca-4e05-0421-9b909786cba3"
+    "id": "e1fe73f1-b557-b9ed-473d-a3a5df93a49a"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_team_on_call_users_returns_OK_response-1748503817\",\"resolve_page_on_policy_end\":true,\"retries\":2,\"steps\":[{\"assignment\":\"default\",\"escalate_after_seconds\":3600,\"targets\":[{\"id\":\"6a8339f9-9d86-4948-a469-1b0cbef769bb\",\"type\":\"teams\"},{\"id\":\"ba6c57a1-bb93-4f5a-a22b-174f84b0c5d6\",\"type\":\"schedules\"},{\"id\":\"c534e9e3-3c5e-11f0-b6eb-6e406f40657f\",\"type\":\"users\"}]},{\"assignment\":\"round-robin\",\"escalate_after_seconds\":3600,\"targets\":[{\"id\":\"6a8339f9-9d86-4948-a469-1b0cbef769bb\",\"type\":\"teams\"}]}]},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"6a8339f9-9d86-4948-a469-1b0cbef769bb\",\"type\":\"teams\"}]}},\"type\":\"policies\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_team_on_call_users_returns_OK_response-1763469869\",\"resolve_page_on_policy_end\":true,\"retries\":2,\"steps\":[{\"assignment\":\"default\",\"escalate_after_seconds\":3600,\"targets\":[{\"id\":\"11ba6480-761b-4dbd-b4a0-c77a9df6740c\",\"type\":\"teams\"},{\"id\":\"3be141a8-848d-4af1-86de-e5d76cd6e4fc\",\"type\":\"schedules\"},{\"id\":\"537c2919-c47c-11f0-9b08-ce88c9776d95\",\"type\":\"users\"}]},{\"assignment\":\"round-robin\",\"escalate_after_seconds\":3600,\"targets\":[{\"id\":\"11ba6480-761b-4dbd-b4a0-c77a9df6740c\",\"type\":\"teams\"}]}]},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"11ba6480-761b-4dbd-b4a0-c77a9df6740c\",\"type\":\"teams\"}]}},\"type\":\"policies\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -102,7 +102,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"5cfa8139-510a-4965-8f10-dc79488fcd89\",\"type\":\"policies\",\"attributes\":{\"name\":\"Test-Get_team_on_call_users_returns_OK_response-1748503817\",\"resolve_page_on_policy_end\":true,\"retries\":2},\"relationships\":{\"steps\":{\"data\":[{\"id\":\"03c363ed-929e-4fa1-8397-e80a5b422648\",\"type\":\"steps\"},{\"id\":\"0c678f92-8639-4d72-ad5a-f40307c1d935\",\"type\":\"steps\"}]},\"teams\":{\"data\":[{\"id\":\"6a8339f9-9d86-4948-a469-1b0cbef769bb\",\"type\":\"teams\"}]}}}}",
+      "body": "{\"data\":{\"id\":\"5fe7a7c8-a2c1-4f07-9510-a5d483df5ae7\",\"type\":\"policies\",\"attributes\":{\"name\":\"Test-Get_team_on_call_users_returns_OK_response-1763469869\",\"resolve_page_on_policy_end\":true,\"retries\":2},\"relationships\":{\"steps\":{\"data\":[{\"id\":\"11f436b4-85bf-47c8-ab21-e851974ccf60\",\"type\":\"steps\"},{\"id\":\"6f0da5a9-4b7d-4d12-a859-4799599f074d\",\"type\":\"steps\"}]},\"teams\":{\"data\":[{\"id\":\"11ba6480-761b-4dbd-b4a0-c77a9df6740c\",\"type\":\"teams\"}]}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -117,22 +117,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c9d496b9-e3c6-79e2-02cb-d3305aec6f0a"
+    "id": "2df297d3-5324-bfa3-fc05-7e59cdba417f"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"rules\":[{\"actions\":[],\"policy_id\":\"5cfa8139-510a-4965-8f10-dc79488fcd89\",\"query\":\"\",\"urgency\":\"low\"}]},\"id\":\"6a8339f9-9d86-4948-a469-1b0cbef769bb\",\"type\":\"team_routing_rules\"}}"
+        "json": "{\"data\":{\"attributes\":{\"rules\":[{\"actions\":[],\"policy_id\":\"5fe7a7c8-a2c1-4f07-9510-a5d483df5ae7\",\"query\":\"\",\"urgency\":\"low\"}]},\"id\":\"11ba6480-761b-4dbd-b4a0-c77a9df6740c\",\"type\":\"team_routing_rules\"}}"
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/on-call/teams/6a8339f9-9d86-4948-a469-1b0cbef769bb/routing-rules",
+      "path": "/api/v2/on-call/teams/11ba6480-761b-4dbd-b4a0-c77a9df6740c/routing-rules",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"6a8339f9-9d86-4948-a469-1b0cbef769bb\",\"type\":\"team_routing_rules\",\"relationships\":{\"rules\":{\"data\":[{\"id\":\"virtual-6a8339f9-9d86-4948-a469-1b0cbef769bb-rule-0\",\"type\":\"team_routing_rules\"}]}}}}",
+      "body": "{\"data\":{\"id\":\"11ba6480-761b-4dbd-b4a0-c77a9df6740c\",\"type\":\"team_routing_rules\",\"relationships\":{\"rules\":{\"data\":[{\"id\":\"virtual-11ba6480-761b-4dbd-b4a0-c77a9df6740c-rule-0\",\"type\":\"team_routing_rules\"}]}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -147,13 +147,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6c9cc603-947c-8293-c800-eaeb14f5dd8a"
+    "id": "9ce3e78a-b3f5-ecbb-ba29-c62840172d27"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/on-call/teams/6a8339f9-9d86-4948-a469-1b0cbef769bb/on-call",
+      "path": "/api/v2/on-call/teams/11ba6480-761b-4dbd-b4a0-c77a9df6740c/on-call",
       "queryStringParameters": {
         "include": [
           "responders,escalations.responders"
@@ -163,7 +163,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"6a8339f9-9d86-4948-a469-1b0cbef769bb-1748503821\",\"type\":\"team_oncall_responders\",\"relationships\":{\"escalations\":{\"data\":[]},\"responders\":{\"data\":[{\"id\":\"c534e9e3-3c5e-11f0-b6eb-6e406f40657f\",\"type\":\"users\"}]}}},\"included\":[{\"id\":\"c534e9e3-3c5e-11f0-b6eb-6e406f40657f\",\"type\":\"users\",\"attributes\":{\"email\":\"test-get_team_on_call_users_returns_ok_response-1748503817@datadoghq.com\",\"name\":\"\",\"status\":\"pending\"}}]}",
+      "body": "{\"data\":{\"id\":\"11ba6480-761b-4dbd-b4a0-c77a9df6740c-1763469873\",\"type\":\"team_oncall_responders\",\"relationships\":{\"escalations\":{\"data\":[]},\"responders\":{\"data\":[{\"id\":\"537c2919-c47c-11f0-9b08-ce88c9776d95\",\"type\":\"users\"}]}}},\"included\":[{\"id\":\"537c2919-c47c-11f0-9b08-ce88c9776d95\",\"type\":\"users\",\"attributes\":{\"email\":\"test-get_team_on_call_users_returns_ok_response-1763469869@datadoghq.com\",\"name\":\"\",\"status\":\"pending\"}}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -178,25 +178,29 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a5cc36d3-84be-8b3e-c178-570a8206f79b"
+    "id": "89d378d2-694c-e27a-4ad4-3f3b5047f024"
   },
   {
     "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"rules\":[]},\"id\":\"11ba6480-761b-4dbd-b4a0-c77a9df6740c\",\"type\":\"team_routing_rules\"}}"
+      },
       "headers": {},
-      "method": "DELETE",
-      "path": "/api/v2/on-call/escalation-policies/5cfa8139-510a-4965-8f10-dc79488fcd89",
+      "method": "PUT",
+      "path": "/api/v2/on-call/teams/11ba6480-761b-4dbd-b4a0-c77a9df6740c/routing-rules",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"policy[5cfa8139-510a-4965-8f10-dc79488fcd89] is in use\"}]}",
+      "body": "{\"data\":{\"id\":\"11ba6480-761b-4dbd-b4a0-c77a9df6740c\",\"type\":\"team_routing_rules\",\"relationships\":{\"rules\":{\"data\":[]}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
         ]
       },
-      "statusCode": 409,
-      "reasonPhrase": "Conflict"
+      "statusCode": 200,
+      "reasonPhrase": "OK"
     },
     "times": {
       "remainingTimes": 1
@@ -204,39 +208,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "03c06d2a-af94-76a0-624c-bd0454d700a0"
+    "id": "102aca23-767e-de23-0032-29968dd4ec4b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/on-call/schedules/ba6c57a1-bb93-4f5a-a22b-174f84b0c5d6",
-      "keepAlive": false,
-      "secure": true
-    },
-    "httpResponse": {
-      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"schedule[ba6c57a1-bb93-4f5a-a22b-174f84b0c5d6] is in use\"}]}",
-      "headers": {
-        "Content-Type": [
-          "application/vnd.api+json"
-        ]
-      },
-      "statusCode": 409,
-      "reasonPhrase": "Conflict"
-    },
-    "times": {
-      "remainingTimes": 1
-    },
-    "timeToLive": {
-      "unlimited": true
-    },
-    "id": "2ade78d0-75dc-d33d-398b-2d1ff037d986"
-  },
-  {
-    "httpRequest": {
-      "headers": {},
-      "method": "DELETE",
-      "path": "/api/v2/team/6a8339f9-9d86-4948-a469-1b0cbef769bb",
+      "path": "/api/v2/on-call/escalation-policies/5fe7a7c8-a2c1-4f07-9510-a5d483df5ae7",
       "keepAlive": false,
       "secure": true
     },
@@ -251,13 +229,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "baaaeb21-7791-8769-04d2-4014ea195458"
+    "id": "6e425c1b-e8a5-1895-59fc-500f16267124"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/users/c534e9e3-3c5e-11f0-b6eb-6e406f40657f",
+      "path": "/api/v2/on-call/schedules/3be141a8-848d-4af1-86de-e5d76cd6e4fc",
       "keepAlive": false,
       "secure": true
     },
@@ -272,6 +250,48 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "fd63ffc7-c962-b119-bab1-e4b8311a7002"
+    "id": "a7c55cdb-9ddf-307a-483a-43156deab580"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/11ba6480-761b-4dbd-b4a0-c77a9df6740c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "39e7b285-cea6-2fd7-d1e6-e0b80bed70b9"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/users/537c2919-c47c-11f0-9b08-ce88c9776d95",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2253d3eb-4391-94df-26b9-ec13bc9149e9"
   }
 ]
