@@ -57,7 +57,6 @@ public class ObservabilityPipelineGooglePubSubSource {
 
   @JsonCreator
   public ObservabilityPipelineGooglePubSubSource(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AUTH) ObservabilityPipelineGcpAuth auth,
       @JsonProperty(required = true, value = JSON_PROPERTY_DECODING)
           ObservabilityPipelineDecoding decoding,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
@@ -65,8 +64,6 @@ public class ObservabilityPipelineGooglePubSubSource {
       @JsonProperty(required = true, value = JSON_PROPERTY_SUBSCRIPTION) String subscription,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineGooglePubSubSourceType type) {
-    this.auth = auth;
-    this.unparsed |= auth.unparsed;
     this.decoding = decoding;
     this.unparsed |= !decoding.isValid();
     this.id = id;
@@ -87,8 +84,9 @@ public class ObservabilityPipelineGooglePubSubSource {
    *
    * @return auth
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ObservabilityPipelineGcpAuth getAuth() {
     return auth;
   }
