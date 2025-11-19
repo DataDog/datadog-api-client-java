@@ -23,7 +23,6 @@ import java.util.Objects;
   PatchTableRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
   PatchTableRequestDataAttributes.JSON_PROPERTY_FILE_METADATA,
   PatchTableRequestDataAttributes.JSON_PROPERTY_SCHEMA,
-  PatchTableRequestDataAttributes.JSON_PROPERTY_SYNC_ENABLED,
   PatchTableRequestDataAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
@@ -38,9 +37,6 @@ public class PatchTableRequestDataAttributes {
 
   public static final String JSON_PROPERTY_SCHEMA = "schema";
   private PatchTableRequestDataAttributesSchema schema;
-
-  public static final String JSON_PROPERTY_SYNC_ENABLED = "sync_enabled";
-  private Boolean syncEnabled;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -110,27 +106,6 @@ public class PatchTableRequestDataAttributes {
 
   public void setSchema(PatchTableRequestDataAttributesSchema schema) {
     this.schema = schema;
-  }
-
-  public PatchTableRequestDataAttributes syncEnabled(Boolean syncEnabled) {
-    this.syncEnabled = syncEnabled;
-    return this;
-  }
-
-  /**
-   * Whether this table is synced automatically.
-   *
-   * @return syncEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SYNC_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getSyncEnabled() {
-    return syncEnabled;
-  }
-
-  public void setSyncEnabled(Boolean syncEnabled) {
-    this.syncEnabled = syncEnabled;
   }
 
   public PatchTableRequestDataAttributes tags(List<String> tags) {
@@ -222,7 +197,6 @@ public class PatchTableRequestDataAttributes {
     return Objects.equals(this.description, patchTableRequestDataAttributes.description)
         && Objects.equals(this.fileMetadata, patchTableRequestDataAttributes.fileMetadata)
         && Objects.equals(this.schema, patchTableRequestDataAttributes.schema)
-        && Objects.equals(this.syncEnabled, patchTableRequestDataAttributes.syncEnabled)
         && Objects.equals(this.tags, patchTableRequestDataAttributes.tags)
         && Objects.equals(
             this.additionalProperties, patchTableRequestDataAttributes.additionalProperties);
@@ -230,7 +204,7 @@ public class PatchTableRequestDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, fileMetadata, schema, syncEnabled, tags, additionalProperties);
+    return Objects.hash(description, fileMetadata, schema, tags, additionalProperties);
   }
 
   @Override
@@ -240,7 +214,6 @@ public class PatchTableRequestDataAttributes {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fileMetadata: ").append(toIndentedString(fileMetadata)).append("\n");
     sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
-    sb.append("    syncEnabled: ").append(toIndentedString(syncEnabled)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
