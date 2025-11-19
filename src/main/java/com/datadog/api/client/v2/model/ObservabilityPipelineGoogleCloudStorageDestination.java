@@ -70,9 +70,6 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
 
   @JsonCreator
   public ObservabilityPipelineGoogleCloudStorageDestination(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACL)
-          ObservabilityPipelineGoogleCloudStorageDestinationAcl acl,
-      @JsonProperty(required = true, value = JSON_PROPERTY_AUTH) ObservabilityPipelineGcpAuth auth,
       @JsonProperty(required = true, value = JSON_PROPERTY_BUCKET) String bucket,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
@@ -80,10 +77,6 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
           ObservabilityPipelineGoogleCloudStorageDestinationStorageClass storageClass,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineGoogleCloudStorageDestinationType type) {
-    this.acl = acl;
-    this.unparsed |= !acl.isValid();
-    this.auth = auth;
-    this.unparsed |= auth.unparsed;
     this.bucket = bucket;
     this.id = id;
     this.inputs = inputs;
@@ -105,8 +98,9 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
    *
    * @return acl
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ObservabilityPipelineGoogleCloudStorageDestinationAcl getAcl() {
     return acl;
   }
@@ -130,8 +124,9 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
    *
    * @return auth
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ObservabilityPipelineGcpAuth getAuth() {
     return auth;
   }

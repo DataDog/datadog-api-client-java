@@ -59,14 +59,11 @@ public class ObservabilityPipelineGoogleChronicleDestination {
 
   @JsonCreator
   public ObservabilityPipelineGoogleChronicleDestination(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AUTH) ObservabilityPipelineGcpAuth auth,
       @JsonProperty(required = true, value = JSON_PROPERTY_CUSTOMER_ID) String customerId,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineGoogleChronicleDestinationType type) {
-    this.auth = auth;
-    this.unparsed |= auth.unparsed;
     this.customerId = customerId;
     this.id = id;
     this.inputs = inputs;
@@ -85,8 +82,9 @@ public class ObservabilityPipelineGoogleChronicleDestination {
    *
    * @return auth
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ObservabilityPipelineGcpAuth getAuth() {
     return auth;
   }
