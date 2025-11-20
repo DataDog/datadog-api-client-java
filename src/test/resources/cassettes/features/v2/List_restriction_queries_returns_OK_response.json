@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/logs/config/restriction_queries",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"type\":\"logs_restriction_queries\",\"id\":\"6358d012-be7e-11f0-8999-da7ad0900002\",\"attributes\":{\"restriction_query\":\"env:production\",\"created_at\":\"2025-11-10T21:44:09.039708+00:00\",\"modified_at\":\"2025-11-10T21:44:09.164487+00:00\"}}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "14b9f3a8-ceae-b71e-bec2-861300148be7"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"id\":\"3653d3c6-0c75-11ea-ad28-fb5701eabc7d\",\"type\":\"roles\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/restriction_queries/00000000-0000-0000-0000-000000000000/roles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Role with id: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cc2e5216-40ba-1e6f-f5d2-047c2f9e5957"
+  }
+]

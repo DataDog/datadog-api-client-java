@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"test\":\"bad_request\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/restriction_queries",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"API input validation failed: {'_schema': [{'detail': 'Object must include `data` key.', 'source': {'pointer': '/'}}]}\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "914ab564-2c89-f946-8651-64b7d00223f9"
+  }
+]
