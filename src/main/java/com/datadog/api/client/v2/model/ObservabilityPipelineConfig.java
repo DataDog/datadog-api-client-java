@@ -33,7 +33,7 @@ public class ObservabilityPipelineConfig {
   private List<ObservabilityPipelineConfigDestinationItem> destinations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PROCESSORS = "processors";
-  private List<ObservabilityPipelineConfigProcessorItem> processors = null;
+  private ObservabilityPipelineConfigProcessors processors;
 
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<ObservabilityPipelineConfigSourceItem> sources = new ArrayList<>();
@@ -81,38 +81,26 @@ public class ObservabilityPipelineConfig {
     this.destinations = destinations;
   }
 
-  public ObservabilityPipelineConfig processors(
-      List<ObservabilityPipelineConfigProcessorItem> processors) {
+  public ObservabilityPipelineConfig processors(ObservabilityPipelineConfigProcessors processors) {
     this.processors = processors;
-    for (ObservabilityPipelineConfigProcessorItem item : processors) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public ObservabilityPipelineConfig addProcessorsItem(
-      ObservabilityPipelineConfigProcessorItem processorsItem) {
-    if (this.processors == null) {
-      this.processors = new ArrayList<>();
-    }
-    this.processors.add(processorsItem);
-    this.unparsed |= processorsItem.unparsed;
+    this.unparsed |= processors.unparsed;
     return this;
   }
 
   /**
-   * A list of processors that transform or enrich log data.
+   * A list of processors that transform or enrich log data, or a list of grouped processor
+   * configurations.
    *
    * @return processors
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ObservabilityPipelineConfigProcessorItem> getProcessors() {
+  public ObservabilityPipelineConfigProcessors getProcessors() {
     return processors;
   }
 
-  public void setProcessors(List<ObservabilityPipelineConfigProcessorItem> processors) {
+  public void setProcessors(ObservabilityPipelineConfigProcessors processors) {
     this.processors = processors;
   }
 

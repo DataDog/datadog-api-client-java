@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_DROP_EVENTS,
+  ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_IGNORE_WHEN_MISSING_PARTITIONS,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_INCLUDE,
@@ -43,6 +44,9 @@ public class ObservabilityPipelineQuotaProcessor {
   public static final String JSON_PROPERTY_DROP_EVENTS = "drop_events";
   private Boolean dropEvents;
 
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -54,7 +58,7 @@ public class ObservabilityPipelineQuotaProcessor {
   private String include;
 
   public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
+  private List<String> inputs = null;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private ObservabilityPipelineQuotaProcessorLimit limit;
@@ -82,7 +86,6 @@ public class ObservabilityPipelineQuotaProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_DROP_EVENTS) Boolean dropEvents,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_LIMIT)
           ObservabilityPipelineQuotaProcessorLimit limit,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
@@ -91,7 +94,6 @@ public class ObservabilityPipelineQuotaProcessor {
     this.dropEvents = dropEvents;
     this.id = id;
     this.include = include;
-    this.inputs = inputs;
     this.limit = limit;
     this.unparsed |= limit.unparsed;
     this.name = name;
@@ -119,6 +121,27 @@ public class ObservabilityPipelineQuotaProcessor {
 
   public void setDropEvents(Boolean dropEvents) {
     this.dropEvents = dropEvents;
+  }
+
+  public ObservabilityPipelineQuotaProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineQuotaProcessor id(String id) {
@@ -191,17 +214,22 @@ public class ObservabilityPipelineQuotaProcessor {
   }
 
   public ObservabilityPipelineQuotaProcessor addInputsItem(String inputsItem) {
+    if (this.inputs == null) {
+      this.inputs = new ArrayList<>();
+    }
     this.inputs.add(inputsItem);
     return this;
   }
 
   /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
+   * A list of component IDs whose output is used as input for this processor. Required when used as
+   * a standalone processor, omit when used within a processor group.
    *
    * @return inputs
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getInputs() {
     return inputs;
   }
@@ -428,6 +456,7 @@ public class ObservabilityPipelineQuotaProcessor {
     ObservabilityPipelineQuotaProcessor observabilityPipelineQuotaProcessor =
         (ObservabilityPipelineQuotaProcessor) o;
     return Objects.equals(this.dropEvents, observabilityPipelineQuotaProcessor.dropEvents)
+        && Objects.equals(this.enabled, observabilityPipelineQuotaProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineQuotaProcessor.id)
         && Objects.equals(
             this.ignoreWhenMissingPartitions,
@@ -448,6 +477,7 @@ public class ObservabilityPipelineQuotaProcessor {
   public int hashCode() {
     return Objects.hash(
         dropEvents,
+        enabled,
         id,
         ignoreWhenMissingPartitions,
         include,
@@ -466,6 +496,7 @@ public class ObservabilityPipelineQuotaProcessor {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineQuotaProcessor {\n");
     sb.append("    dropEvents: ").append(toIndentedString(dropEvents)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    ignoreWhenMissingPartitions: ")
         .append(toIndentedString(ignoreWhenMissingPartitions))

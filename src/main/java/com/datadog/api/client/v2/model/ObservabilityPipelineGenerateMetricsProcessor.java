@@ -25,6 +25,7 @@ import java.util.Objects;
  * fields.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineGenerateMetricsProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineGenerateMetricsProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineGenerateMetricsProcessor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineGenerateMetricsProcessor.JSON_PROPERTY_INPUTS,
@@ -35,6 +36,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineGenerateMetricsProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -42,10 +46,10 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
   private String include;
 
   public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
+  private List<String> inputs = null;
 
   public static final String JSON_PROPERTY_METRICS = "metrics";
-  private List<ObservabilityPipelineGeneratedMetric> metrics = new ArrayList<>();
+  private List<ObservabilityPipelineGeneratedMetric> metrics = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineGenerateMetricsProcessorType type =
@@ -56,18 +60,32 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
   @JsonCreator
   public ObservabilityPipelineGenerateMetricsProcessor(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METRICS)
-          List<ObservabilityPipelineGeneratedMetric> metrics,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineGenerateMetricsProcessorType type) {
     this.id = id;
-    this.include = include;
-    this.inputs = inputs;
-    this.metrics = metrics;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineGenerateMetricsProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineGenerateMetricsProcessor id(String id) {
@@ -101,8 +119,9 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
    *
    * @return include
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInclude() {
     return include;
   }
@@ -117,17 +136,22 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
   }
 
   public ObservabilityPipelineGenerateMetricsProcessor addInputsItem(String inputsItem) {
+    if (this.inputs == null) {
+      this.inputs = new ArrayList<>();
+    }
     this.inputs.add(inputsItem);
     return this;
   }
 
   /**
-   * A list of component IDs whose output is used as the <code>input</code> for this processor.
+   * A list of component IDs whose output is used as input for this processor. Required when used as
+   * a standalone processor, omit when used within a processor group.
    *
    * @return inputs
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getInputs() {
     return inputs;
   }
@@ -147,6 +171,9 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
 
   public ObservabilityPipelineGenerateMetricsProcessor addMetricsItem(
       ObservabilityPipelineGeneratedMetric metricsItem) {
+    if (this.metrics == null) {
+      this.metrics = new ArrayList<>();
+    }
     this.metrics.add(metricsItem);
     this.unparsed |= metricsItem.unparsed;
     return this;
@@ -157,8 +184,9 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
    *
    * @return metrics
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRICS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ObservabilityPipelineGeneratedMetric> getMetrics() {
     return metrics;
   }
@@ -250,7 +278,8 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
     }
     ObservabilityPipelineGenerateMetricsProcessor observabilityPipelineGenerateMetricsProcessor =
         (ObservabilityPipelineGenerateMetricsProcessor) o;
-    return Objects.equals(this.id, observabilityPipelineGenerateMetricsProcessor.id)
+    return Objects.equals(this.enabled, observabilityPipelineGenerateMetricsProcessor.enabled)
+        && Objects.equals(this.id, observabilityPipelineGenerateMetricsProcessor.id)
         && Objects.equals(this.include, observabilityPipelineGenerateMetricsProcessor.include)
         && Objects.equals(this.inputs, observabilityPipelineGenerateMetricsProcessor.inputs)
         && Objects.equals(this.metrics, observabilityPipelineGenerateMetricsProcessor.metrics)
@@ -262,13 +291,14 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, include, inputs, metrics, type, additionalProperties);
+    return Objects.hash(enabled, id, include, inputs, metrics, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineGenerateMetricsProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");

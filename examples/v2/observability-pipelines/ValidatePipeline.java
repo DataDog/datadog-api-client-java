@@ -6,6 +6,7 @@ import com.datadog.api.client.v2.api.ObservabilityPipelinesApi;
 import com.datadog.api.client.v2.model.ObservabilityPipelineConfig;
 import com.datadog.api.client.v2.model.ObservabilityPipelineConfigDestinationItem;
 import com.datadog.api.client.v2.model.ObservabilityPipelineConfigProcessorItem;
+import com.datadog.api.client.v2.model.ObservabilityPipelineConfigProcessors;
 import com.datadog.api.client.v2.model.ObservabilityPipelineConfigSourceItem;
 import com.datadog.api.client.v2.model.ObservabilityPipelineDataAttributes;
 import com.datadog.api.client.v2.model.ObservabilityPipelineDatadogAgentSource;
@@ -45,17 +46,19 @@ public class Example {
                                                         ObservabilityPipelineDatadogLogsDestinationType
                                                             .DATADOG_LOGS))))
                                     .processors(
-                                        Collections.singletonList(
-                                            new ObservabilityPipelineConfigProcessorItem(
-                                                new ObservabilityPipelineFilterProcessor()
-                                                    .id("filter-processor")
-                                                    .include("service:my-service")
-                                                    .inputs(
-                                                        Collections.singletonList(
-                                                            "datadog-agent-source"))
-                                                    .type(
-                                                        ObservabilityPipelineFilterProcessorType
-                                                            .FILTER))))
+                                        ObservabilityPipelineConfigProcessors
+                                            .fromObservabilityPipelineConfigProcessorItemList(
+                                                Collections.singletonList(
+                                                    new ObservabilityPipelineConfigProcessorItem(
+                                                        new ObservabilityPipelineFilterProcessor()
+                                                            .id("filter-processor")
+                                                            .include("service:my-service")
+                                                            .inputs(
+                                                                Collections.singletonList(
+                                                                    "datadog-agent-source"))
+                                                            .type(
+                                                                ObservabilityPipelineFilterProcessorType
+                                                                    .FILTER)))))
                                     .sources(
                                         Collections.singletonList(
                                             new ObservabilityPipelineConfigSourceItem(

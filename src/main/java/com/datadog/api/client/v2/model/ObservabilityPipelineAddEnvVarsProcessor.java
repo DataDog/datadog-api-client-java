@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The <code>add_env_vars</code> processor adds environment variable values to log events. */
 @JsonPropertyOrder({
+  ObservabilityPipelineAddEnvVarsProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineAddEnvVarsProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineAddEnvVarsProcessor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineAddEnvVarsProcessor.JSON_PROPERTY_INPUTS,
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineAddEnvVarsProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -38,7 +42,7 @@ public class ObservabilityPipelineAddEnvVarsProcessor {
   private String include;
 
   public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
+  private List<String> inputs = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineAddEnvVarsProcessorType type =
@@ -53,17 +57,36 @@ public class ObservabilityPipelineAddEnvVarsProcessor {
   public ObservabilityPipelineAddEnvVarsProcessor(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineAddEnvVarsProcessorType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_VARIABLES)
           List<ObservabilityPipelineAddEnvVarsProcessorVariable> variables) {
     this.id = id;
     this.include = include;
-    this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
     this.variables = variables;
+  }
+
+  public ObservabilityPipelineAddEnvVarsProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineAddEnvVarsProcessor id(String id) {
@@ -112,17 +135,22 @@ public class ObservabilityPipelineAddEnvVarsProcessor {
   }
 
   public ObservabilityPipelineAddEnvVarsProcessor addInputsItem(String inputsItem) {
+    if (this.inputs == null) {
+      this.inputs = new ArrayList<>();
+    }
     this.inputs.add(inputsItem);
     return this;
   }
 
   /**
-   * A list of component IDs whose output is used as the input for this processor.
+   * A list of component IDs whose output is used as input for this processor. Required when used as
+   * a standalone processor, omit when used within a processor group.
    *
    * @return inputs
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getInputs() {
     return inputs;
   }
@@ -244,7 +272,8 @@ public class ObservabilityPipelineAddEnvVarsProcessor {
     }
     ObservabilityPipelineAddEnvVarsProcessor observabilityPipelineAddEnvVarsProcessor =
         (ObservabilityPipelineAddEnvVarsProcessor) o;
-    return Objects.equals(this.id, observabilityPipelineAddEnvVarsProcessor.id)
+    return Objects.equals(this.enabled, observabilityPipelineAddEnvVarsProcessor.enabled)
+        && Objects.equals(this.id, observabilityPipelineAddEnvVarsProcessor.id)
         && Objects.equals(this.include, observabilityPipelineAddEnvVarsProcessor.include)
         && Objects.equals(this.inputs, observabilityPipelineAddEnvVarsProcessor.inputs)
         && Objects.equals(this.type, observabilityPipelineAddEnvVarsProcessor.type)
@@ -256,13 +285,14 @@ public class ObservabilityPipelineAddEnvVarsProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, include, inputs, type, variables, additionalProperties);
+    return Objects.hash(enabled, id, include, inputs, type, variables, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineAddEnvVarsProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
