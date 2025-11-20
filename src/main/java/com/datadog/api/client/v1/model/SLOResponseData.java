@@ -40,7 +40,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOResponseData.JSON_PROPERTY_TARGET_THRESHOLD,
   SLOResponseData.JSON_PROPERTY_THRESHOLDS,
   SLOResponseData.JSON_PROPERTY_TIMEFRAME,
-  SLOResponseData.JSON_PROPERTY_TYPE,
   SLOResponseData.JSON_PROPERTY_WARNING_THRESHOLD
 })
 @jakarta.annotation.Generated(
@@ -94,9 +93,6 @@ public class SLOResponseData {
 
   public static final String JSON_PROPERTY_TIMEFRAME = "timeframe";
   private SLOTimeframe timeframe;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private SLOType type;
 
   public static final String JSON_PROPERTY_WARNING_THRESHOLD = "warning_threshold";
   private Double warningThreshold;
@@ -343,9 +339,9 @@ public class SLOResponseData {
   }
 
   /**
-   * A metric-based SLO. <strong>Required if type is <code>metric</code></strong>. Note that Datadog
-   * only allows the sum by aggregator to be used because this will sum up all request counts
-   * instead of averaging them, or taking the max or min of all of those requests.
+   * A metric-based SLO. Note that Datadog only allows the sum by aggregator to be used because this
+   * will sum up all request counts instead of averaging them, or taking the max or min of all of
+   * those requests.
    *
    * @return query
    */
@@ -367,7 +363,7 @@ public class SLOResponseData {
   }
 
   /**
-   * A generic SLI specification. This is currently used for time-slice SLOs only.
+   * A generic SLI specification. This is currently used for time-slice and count-based SLOs only.
    *
    * @return sliSpecification
    */
@@ -493,31 +489,6 @@ public class SLOResponseData {
     this.timeframe = timeframe;
   }
 
-  public SLOResponseData type(SLOType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The type of the service level objective.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SLOType getType() {
-    return type;
-  }
-
-  public void setType(SLOType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
-  }
-
   public SLOResponseData warningThreshold(Double warningThreshold) {
     this.warningThreshold = warningThreshold;
     return this;
@@ -613,7 +584,6 @@ public class SLOResponseData {
         && Objects.equals(this.targetThreshold, sloResponseData.targetThreshold)
         && Objects.equals(this.thresholds, sloResponseData.thresholds)
         && Objects.equals(this.timeframe, sloResponseData.timeframe)
-        && Objects.equals(this.type, sloResponseData.type)
         && Objects.equals(this.warningThreshold, sloResponseData.warningThreshold)
         && Objects.equals(this.additionalProperties, sloResponseData.additionalProperties);
   }
@@ -637,7 +607,6 @@ public class SLOResponseData {
         targetThreshold,
         thresholds,
         timeframe,
-        type,
         warningThreshold,
         additionalProperties);
   }
@@ -662,7 +631,6 @@ public class SLOResponseData {
     sb.append("    targetThreshold: ").append(toIndentedString(targetThreshold)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
     sb.append("    timeframe: ").append(toIndentedString(timeframe)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    warningThreshold: ").append(toIndentedString(warningThreshold)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
