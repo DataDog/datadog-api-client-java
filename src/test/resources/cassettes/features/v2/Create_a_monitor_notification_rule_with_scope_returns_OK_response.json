@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"scope\":\"test:test-create_a_monitor_notification_rule_with_scope_returns_ok_response-1762896519\"},\"name\":\"test rule\",\"recipients\":[\"slack-test-channel\",\"jira-test\"]},\"type\":\"monitor-notification-rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/notification_rule",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"monitor-notification-rule\",\"attributes\":{\"modified_at\":\"1970-01-01T00:00:00+00:00\",\"filter\":{\"scope\":\"test:test-create_a_monitor_notification_rule_with_scope_returns_ok_response-1762896519\"},\"name\":\"test rule\",\"recipients\":[\"slack-test-channel\",\"jira-test\"],\"created_at\":\"2025-11-11T21:28:40.032148+00:00\"},\"relationships\":{\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}},\"id\":\"bbea2907-c191-48d0-9e0f-1ec5881ee37c\"},\"included\":[{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"attributes\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"created_at\":\"2020-12-29T22:58:44.733921+00:00\",\"modified_at\":\"2021-04-27T13:54:01.547888+00:00\",\"email\":\"team-intg-tools-libs-spam@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/b7c189b5b4c2c429d7c1e0bc3749330e?s=48&d=retro\",\"title\":null,\"verified\":true,\"service_account\":true,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Active\",\"last_login_time\":null}}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e4be868d-ca8d-7434-0ab1-7b06ab95288e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/notification_rule/bbea2907-c191-48d0-9e0f-1ec5881ee37c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "00d5556e-17c8-27a0-dc4a-a1c17361ac26"
+  }
+]
