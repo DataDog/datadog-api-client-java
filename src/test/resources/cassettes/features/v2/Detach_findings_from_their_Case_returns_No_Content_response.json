@@ -1,0 +1,27 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"relationships\":{\"findings\":{\"data\":[{\"id\":\"YzM2MTFjYzcyNmY0Zjg4MTAxZmRlNjQ1MWU1ZGQwYzR-YzI5NzE5Y2Y4MzU4ZjliNzhkNjYxNTY0ODIzZDQ2YTM=\",\"type\":\"findings\"}]}},\"type\":\"cases\"}}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/findings/cases",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "174509b6-8566-c668-aa99-a0da232e4fcb"
+  }
+]

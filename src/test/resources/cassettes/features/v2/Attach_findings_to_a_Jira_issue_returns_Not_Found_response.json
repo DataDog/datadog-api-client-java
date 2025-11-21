@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"jira_issue_url\":\"https://datadoghq-sandbox-538.atlassian.net/browse/CSMSEC-105476\"},\"relationships\":{\"findings\":{\"data\":[{\"id\":\"wrong-finding-id\",\"type\":\"findings\"}]},\"project\":{\"data\":{\"id\":\"959a6f71-bac8-4027-b1d3-2264f569296f\",\"type\":\"projects\"}}},\"type\":\"jira_issues\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security/findings/jira_issues",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"finding not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b1091cc9-c091-d172-0b0d-8b3f6e867c72"
+  }
+]
