@@ -23,6 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object describing a monitor. */
 @JsonPropertyOrder({
+  Monitor.JSON_PROPERTY_ASSETS,
   Monitor.JSON_PROPERTY_CREATED,
   Monitor.JSON_PROPERTY_CREATOR,
   Monitor.JSON_PROPERTY_DELETED,
@@ -46,6 +47,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Monitor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ASSETS = "assets";
+  private List<MonitorAsset> assets = null;
+
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
 
@@ -109,6 +113,40 @@ public class Monitor {
     this.query = query;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public Monitor assets(List<MonitorAsset> assets) {
+    this.assets = assets;
+    for (MonitorAsset item : assets) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public Monitor addAssetsItem(MonitorAsset assetsItem) {
+    if (this.assets == null) {
+      this.assets = new ArrayList<>();
+    }
+    this.assets.add(assetsItem);
+    this.unparsed |= assetsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * The list of monitor assets tied to a monitor, which represents key links for users to take
+   * action on monitor alerts (for example, runbooks).
+   *
+   * @return assets
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorAsset> getAssets() {
+    return assets;
+  }
+
+  public void setAssets(List<MonitorAsset> assets) {
+    this.assets = assets;
   }
 
   /**
@@ -560,7 +598,8 @@ public class Monitor {
       return false;
     }
     Monitor monitor = (Monitor) o;
-    return Objects.equals(this.created, monitor.created)
+    return Objects.equals(this.assets, monitor.assets)
+        && Objects.equals(this.created, monitor.created)
         && Objects.equals(this.creator, monitor.creator)
         && Objects.equals(this.deleted, monitor.deleted)
         && Objects.equals(this.draftStatus, monitor.draftStatus)
@@ -584,6 +623,7 @@ public class Monitor {
   @Override
   public int hashCode() {
     return Objects.hash(
+        assets,
         created,
         creator,
         deleted,
@@ -609,6 +649,7 @@ public class Monitor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Monitor {\n");
+    sb.append("    assets: ").append(toIndentedString(assets)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");

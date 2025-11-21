@@ -863,6 +863,7 @@ public class MonitorsApi {
   public static class GetMonitorOptionalParameters {
     private String groupStates;
     private Boolean withDowntimes;
+    private Boolean withAssets;
 
     /**
      * Set groupStates.
@@ -886,6 +887,18 @@ public class MonitorsApi {
      */
     public GetMonitorOptionalParameters withDowntimes(Boolean withDowntimes) {
       this.withDowntimes = withDowntimes;
+      return this;
+    }
+
+    /**
+     * Set withAssets.
+     *
+     * @param withAssets If this argument is set to <code>true</code>, the returned data includes
+     *     all assets tied to this monitor. (optional)
+     * @return GetMonitorOptionalParameters
+     */
+    public GetMonitorOptionalParameters withAssets(Boolean withAssets) {
+      this.withAssets = withAssets;
       return this;
     }
   }
@@ -981,6 +994,7 @@ public class MonitorsApi {
     }
     String groupStates = parameters.groupStates;
     Boolean withDowntimes = parameters.withDowntimes;
+    Boolean withAssets = parameters.withAssets;
     // create path and map variables
     String localVarPath =
         "/api/v1/monitor/{monitor_id}"
@@ -991,6 +1005,7 @@ public class MonitorsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", groupStates));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_downtimes", withDowntimes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_assets", withAssets));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1035,6 +1050,7 @@ public class MonitorsApi {
     }
     String groupStates = parameters.groupStates;
     Boolean withDowntimes = parameters.withDowntimes;
+    Boolean withAssets = parameters.withAssets;
     // create path and map variables
     String localVarPath =
         "/api/v1/monitor/{monitor_id}"
@@ -1045,6 +1061,7 @@ public class MonitorsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", groupStates));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_downtimes", withDowntimes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_assets", withAssets));
 
     Invocation.Builder builder;
     try {
