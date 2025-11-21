@@ -11,6 +11,10 @@ import com.datadog.api.client.v2.model.ListTeamsInclude;
 import com.datadog.api.client.v2.model.ListTeamsSort;
 import com.datadog.api.client.v2.model.Team;
 import com.datadog.api.client.v2.model.TeamCreateRequest;
+import com.datadog.api.client.v2.model.TeamHierarchyLink;
+import com.datadog.api.client.v2.model.TeamHierarchyLinkCreateRequest;
+import com.datadog.api.client.v2.model.TeamHierarchyLinkResponse;
+import com.datadog.api.client.v2.model.TeamHierarchyLinksResponse;
 import com.datadog.api.client.v2.model.TeamLinkCreateRequest;
 import com.datadog.api.client.v2.model.TeamLinkResponse;
 import com.datadog.api.client.v2.model.TeamLinksResponse;
@@ -77,7 +81,9 @@ public class TeamsApi {
    * @param superTeamId None (required)
    * @param body (required)
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public void addMemberTeam(String superTeamId, AddMemberTeamRequest body) throws ApiException {
     addMemberTeamWithHttpInfo(superTeamId, body);
   }
@@ -90,7 +96,9 @@ public class TeamsApi {
    * @param superTeamId None (required)
    * @param body (required)
    * @return CompletableFuture
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Void> addMemberTeamAsync(String superTeamId, AddMemberTeamRequest body) {
     return addMemberTeamWithHttpInfoAsync(superTeamId, body)
         .thenApply(
@@ -102,6 +110,9 @@ public class TeamsApi {
   /**
    * Add a member team. Adds the team given by the <code>id</code> in the body as a member team of
    * the super team.
+   *
+   * <p><strong>Note</strong>: This API is deprecated. For creating team hierarchy links, use the
+   * team hierarchy links API: <code>POST /api/v2/team-hierarchy-links</code>.
    *
    * @param superTeamId None (required)
    * @param body (required)
@@ -116,7 +127,10 @@ public class TeamsApi {
    *       <tr><td> 409 </td><td> API error response. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Void> addMemberTeamWithHttpInfo(String superTeamId, AddMemberTeamRequest body)
       throws ApiException {
     // Check if unstable operation is enabled
@@ -175,7 +189,9 @@ public class TeamsApi {
    * @param superTeamId None (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Void>> addMemberTeamWithHttpInfoAsync(
       String superTeamId, AddMemberTeamRequest body) {
     // Check if unstable operation is enabled
@@ -240,6 +256,139 @@ public class TeamsApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Create a team hierarchy link.
+   *
+   * <p>See {@link #addTeamHierarchyLinkWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return TeamHierarchyLinkResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TeamHierarchyLinkResponse addTeamHierarchyLink(TeamHierarchyLinkCreateRequest body)
+      throws ApiException {
+    return addTeamHierarchyLinkWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a team hierarchy link.
+   *
+   * <p>See {@link #addTeamHierarchyLinkWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;TeamHierarchyLinkResponse&gt;
+   */
+  public CompletableFuture<TeamHierarchyLinkResponse> addTeamHierarchyLinkAsync(
+      TeamHierarchyLinkCreateRequest body) {
+    return addTeamHierarchyLinkWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new team hierarchy link between a parent team and a sub team.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;TeamHierarchyLinkResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamHierarchyLinkResponse> addTeamHierarchyLinkWithHttpInfo(
+      TeamHierarchyLinkCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling addTeamHierarchyLink");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/team-hierarchy-links";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.addTeamHierarchyLink",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamHierarchyLinkResponse>() {});
+  }
+
+  /**
+   * Create a team hierarchy link.
+   *
+   * <p>See {@link #addTeamHierarchyLinkWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamHierarchyLinkResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamHierarchyLinkResponse>>
+      addTeamHierarchyLinkWithHttpInfoAsync(TeamHierarchyLinkCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TeamHierarchyLinkResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling addTeamHierarchyLink"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/team-hierarchy-links";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.addTeamHierarchyLink",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamHierarchyLinkResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamHierarchyLinkResponse>() {});
   }
 
   /**
@@ -1256,6 +1405,415 @@ public class TeamsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<TeamResponse>() {});
+  }
+
+  /**
+   * Get a team hierarchy link.
+   *
+   * <p>See {@link #getTeamHierarchyLinkWithHttpInfo}.
+   *
+   * @param linkId The team hierarchy link's identifier (required)
+   * @return TeamHierarchyLinkResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TeamHierarchyLinkResponse getTeamHierarchyLink(String linkId) throws ApiException {
+    return getTeamHierarchyLinkWithHttpInfo(linkId).getData();
+  }
+
+  /**
+   * Get a team hierarchy link.
+   *
+   * <p>See {@link #getTeamHierarchyLinkWithHttpInfoAsync}.
+   *
+   * @param linkId The team hierarchy link's identifier (required)
+   * @return CompletableFuture&lt;TeamHierarchyLinkResponse&gt;
+   */
+  public CompletableFuture<TeamHierarchyLinkResponse> getTeamHierarchyLinkAsync(String linkId) {
+    return getTeamHierarchyLinkWithHttpInfoAsync(linkId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a single team hierarchy link for the given link_id.
+   *
+   * @param linkId The team hierarchy link's identifier (required)
+   * @return ApiResponse&lt;TeamHierarchyLinkResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamHierarchyLinkResponse> getTeamHierarchyLinkWithHttpInfo(String linkId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'linkId' is set
+    if (linkId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'linkId' when calling getTeamHierarchyLink");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team-hierarchy-links/{link_id}"
+            .replaceAll("\\{" + "link_id" + "\\}", apiClient.escapeString(linkId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.getTeamHierarchyLink",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamHierarchyLinkResponse>() {});
+  }
+
+  /**
+   * Get a team hierarchy link.
+   *
+   * <p>See {@link #getTeamHierarchyLinkWithHttpInfo}.
+   *
+   * @param linkId The team hierarchy link's identifier (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamHierarchyLinkResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamHierarchyLinkResponse>>
+      getTeamHierarchyLinkWithHttpInfoAsync(String linkId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'linkId' is set
+    if (linkId == null) {
+      CompletableFuture<ApiResponse<TeamHierarchyLinkResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'linkId' when calling getTeamHierarchyLink"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team-hierarchy-links/{link_id}"
+            .replaceAll("\\{" + "link_id" + "\\}", apiClient.escapeString(linkId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.getTeamHierarchyLink",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamHierarchyLinkResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamHierarchyLinkResponse>() {});
+  }
+
+  /** Manage optional parameters to getTeamHierarchyLinks. */
+  public static class GetTeamHierarchyLinksOptionalParameters {
+    private Long pageNumber;
+    private Long pageSize;
+    private String filterParentTeam;
+    private String filterSubTeam;
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return GetTeamHierarchyLinksOptionalParameters
+     */
+    public GetTeamHierarchyLinksOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
+     *     to 10)
+     * @return GetTeamHierarchyLinksOptionalParameters
+     */
+    public GetTeamHierarchyLinksOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set filterParentTeam.
+     *
+     * @param filterParentTeam Filter by parent team ID (optional)
+     * @return GetTeamHierarchyLinksOptionalParameters
+     */
+    public GetTeamHierarchyLinksOptionalParameters filterParentTeam(String filterParentTeam) {
+      this.filterParentTeam = filterParentTeam;
+      return this;
+    }
+
+    /**
+     * Set filterSubTeam.
+     *
+     * @param filterSubTeam Filter by sub team ID (optional)
+     * @return GetTeamHierarchyLinksOptionalParameters
+     */
+    public GetTeamHierarchyLinksOptionalParameters filterSubTeam(String filterSubTeam) {
+      this.filterSubTeam = filterSubTeam;
+      return this;
+    }
+  }
+
+  /**
+   * Get team hierarchy links.
+   *
+   * <p>See {@link #getTeamHierarchyLinksWithHttpInfo}.
+   *
+   * @return TeamHierarchyLinksResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TeamHierarchyLinksResponse getTeamHierarchyLinks() throws ApiException {
+    return getTeamHierarchyLinksWithHttpInfo(new GetTeamHierarchyLinksOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get team hierarchy links.
+   *
+   * <p>See {@link #getTeamHierarchyLinksWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;TeamHierarchyLinksResponse&gt;
+   */
+  public CompletableFuture<TeamHierarchyLinksResponse> getTeamHierarchyLinksAsync() {
+    return getTeamHierarchyLinksWithHttpInfoAsync(new GetTeamHierarchyLinksOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get team hierarchy links.
+   *
+   * <p>See {@link #getTeamHierarchyLinksWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return TeamHierarchyLinksResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TeamHierarchyLinksResponse getTeamHierarchyLinks(
+      GetTeamHierarchyLinksOptionalParameters parameters) throws ApiException {
+    return getTeamHierarchyLinksWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get team hierarchy links.
+   *
+   * <p>See {@link #getTeamHierarchyLinksWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TeamHierarchyLinksResponse&gt;
+   */
+  public CompletableFuture<TeamHierarchyLinksResponse> getTeamHierarchyLinksAsync(
+      GetTeamHierarchyLinksOptionalParameters parameters) {
+    return getTeamHierarchyLinksWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get team hierarchy links.
+   *
+   * <p>See {@link #getTeamHierarchyLinksWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;TeamHierarchyLink&gt;
+   */
+  public PaginationIterable<TeamHierarchyLink> getTeamHierarchyLinksWithPagination() {
+    GetTeamHierarchyLinksOptionalParameters parameters =
+        new GetTeamHierarchyLinksOptionalParameters();
+    return getTeamHierarchyLinksWithPagination(parameters);
+  }
+
+  /**
+   * Get team hierarchy links.
+   *
+   * <p>See {@link #getTeamHierarchyLinksWithHttpInfo}.
+   *
+   * @return TeamHierarchyLinksResponse
+   */
+  public PaginationIterable<TeamHierarchyLink> getTeamHierarchyLinksWithPagination(
+      GetTeamHierarchyLinksOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "getTeamHierarchyLinks",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
+   * Get all team hierarchy links that match the provided filters.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TeamHierarchyLinksResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamHierarchyLinksResponse> getTeamHierarchyLinksWithHttpInfo(
+      GetTeamHierarchyLinksOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String filterParentTeam = parameters.filterParentTeam;
+    String filterSubTeam = parameters.filterSubTeam;
+    // create path and map variables
+    String localVarPath = "/api/v2/team-hierarchy-links";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[parent_team]", filterParentTeam));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[sub_team]", filterSubTeam));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.getTeamHierarchyLinks",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamHierarchyLinksResponse>() {});
+  }
+
+  /**
+   * Get team hierarchy links.
+   *
+   * <p>See {@link #getTeamHierarchyLinksWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamHierarchyLinksResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamHierarchyLinksResponse>>
+      getTeamHierarchyLinksWithHttpInfoAsync(GetTeamHierarchyLinksOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String filterParentTeam = parameters.filterParentTeam;
+    String filterSubTeam = parameters.filterSubTeam;
+    // create path and map variables
+    String localVarPath = "/api/v2/team-hierarchy-links";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[parent_team]", filterParentTeam));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[sub_team]", filterSubTeam));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.getTeamHierarchyLinks",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamHierarchyLinksResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamHierarchyLinksResponse>() {});
   }
 
   /**
@@ -2328,7 +2886,9 @@ public class TeamsApi {
    * @param superTeamId None (required)
    * @return TeamsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public TeamsResponse listMemberTeams(String superTeamId) throws ApiException {
     return listMemberTeamsWithHttpInfo(superTeamId, new ListMemberTeamsOptionalParameters())
         .getData();
@@ -2341,7 +2901,9 @@ public class TeamsApi {
    *
    * @param superTeamId None (required)
    * @return CompletableFuture&lt;TeamsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<TeamsResponse> listMemberTeamsAsync(String superTeamId) {
     return listMemberTeamsWithHttpInfoAsync(superTeamId, new ListMemberTeamsOptionalParameters())
         .thenApply(
@@ -2359,7 +2921,9 @@ public class TeamsApi {
    * @param parameters Optional parameters for the request.
    * @return TeamsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public TeamsResponse listMemberTeams(
       String superTeamId, ListMemberTeamsOptionalParameters parameters) throws ApiException {
     return listMemberTeamsWithHttpInfo(superTeamId, parameters).getData();
@@ -2373,7 +2937,9 @@ public class TeamsApi {
    * @param superTeamId None (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;TeamsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<TeamsResponse> listMemberTeamsAsync(
       String superTeamId, ListMemberTeamsOptionalParameters parameters) {
     return listMemberTeamsWithHttpInfoAsync(superTeamId, parameters)
@@ -2390,7 +2956,9 @@ public class TeamsApi {
    *
    * @param superTeamId None (required)
    * @return PaginationIterable&lt;Team&gt;
+   * @deprecated
    */
+  @Deprecated
   public PaginationIterable<Team> listMemberTeamsWithPagination(String superTeamId) {
     ListMemberTeamsOptionalParameters parameters = new ListMemberTeamsOptionalParameters();
     return listMemberTeamsWithPagination(superTeamId, parameters);
@@ -2403,7 +2971,9 @@ public class TeamsApi {
    *
    * @param superTeamId None (required)
    * @return TeamsResponse
+   * @deprecated
    */
+  @Deprecated
   public PaginationIterable<Team> listMemberTeamsWithPagination(
       String superTeamId, ListMemberTeamsOptionalParameters parameters) {
     String resultsPath = "getData";
@@ -2442,6 +3012,10 @@ public class TeamsApi {
   /**
    * Get all member teams.
    *
+   * <p><strong>Note</strong>: This API is deprecated. For team hierarchy relationships
+   * (parent-child teams), use the team hierarchy links API: <code>GET /api/v2/team-hierarchy-links
+   * </code>.
+   *
    * @param superTeamId None (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;TeamsResponse&gt;
@@ -2455,7 +3029,10 @@ public class TeamsApi {
    *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<TeamsResponse> listMemberTeamsWithHttpInfo(
       String superTeamId, ListMemberTeamsOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
@@ -2516,7 +3093,9 @@ public class TeamsApi {
    * @param superTeamId None (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;TeamsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<TeamsResponse>> listMemberTeamsWithHttpInfoAsync(
       String superTeamId, ListMemberTeamsOptionalParameters parameters) {
     // Check if unstable operation is enabled
@@ -2908,7 +3487,9 @@ public class TeamsApi {
    * @param superTeamId None (required)
    * @param memberTeamId None (required)
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public void removeMemberTeam(String superTeamId, String memberTeamId) throws ApiException {
     removeMemberTeamWithHttpInfo(superTeamId, memberTeamId);
   }
@@ -2921,7 +3502,9 @@ public class TeamsApi {
    * @param superTeamId None (required)
    * @param memberTeamId None (required)
    * @return CompletableFuture
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Void> removeMemberTeamAsync(String superTeamId, String memberTeamId) {
     return removeMemberTeamWithHttpInfoAsync(superTeamId, memberTeamId)
         .thenApply(
@@ -2932,6 +3515,9 @@ public class TeamsApi {
 
   /**
    * Remove a super team's member team identified by <code>member_team_id</code>.
+   *
+   * <p><strong>Note</strong>: This API is deprecated. For deleting team hierarchy links, use the
+   * team hierarchy links API: <code>DELETE /api/v2/team-hierarchy-links/{link_id}</code>.
    *
    * @param superTeamId None (required)
    * @param memberTeamId None (required)
@@ -2946,7 +3532,10 @@ public class TeamsApi {
    *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Void> removeMemberTeamWithHttpInfo(String superTeamId, String memberTeamId)
       throws ApiException {
     // Check if unstable operation is enabled
@@ -3007,7 +3596,9 @@ public class TeamsApi {
    * @param superTeamId None (required)
    * @param memberTeamId None (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Void>> removeMemberTeamWithHttpInfoAsync(
       String superTeamId, String memberTeamId) {
     // Check if unstable operation is enabled
@@ -3054,6 +3645,139 @@ public class TeamsApi {
       builder =
           apiClient.createBuilder(
               "v2.TeamsApi.removeMemberTeam",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove a team hierarchy link.
+   *
+   * <p>See {@link #removeTeamHierarchyLinkWithHttpInfo}.
+   *
+   * @param linkId The team hierarchy link's identifier (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void removeTeamHierarchyLink(String linkId) throws ApiException {
+    removeTeamHierarchyLinkWithHttpInfo(linkId);
+  }
+
+  /**
+   * Remove a team hierarchy link.
+   *
+   * <p>See {@link #removeTeamHierarchyLinkWithHttpInfoAsync}.
+   *
+   * @param linkId The team hierarchy link's identifier (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> removeTeamHierarchyLinkAsync(String linkId) {
+    return removeTeamHierarchyLinkWithHttpInfoAsync(linkId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove a team hierarchy link by the given link_id.
+   *
+   * @param linkId The team hierarchy link's identifier (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> removeTeamHierarchyLinkWithHttpInfo(String linkId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'linkId' is set
+    if (linkId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'linkId' when calling removeTeamHierarchyLink");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team-hierarchy-links/{link_id}"
+            .replaceAll("\\{" + "link_id" + "\\}", apiClient.escapeString(linkId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.removeTeamHierarchyLink",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove a team hierarchy link.
+   *
+   * <p>See {@link #removeTeamHierarchyLinkWithHttpInfo}.
+   *
+   * @param linkId The team hierarchy link's identifier (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> removeTeamHierarchyLinkWithHttpInfoAsync(
+      String linkId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'linkId' is set
+    if (linkId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'linkId' when calling removeTeamHierarchyLink"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team-hierarchy-links/{link_id}"
+            .replaceAll("\\{" + "link_id" + "\\}", apiClient.escapeString(linkId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.removeTeamHierarchyLink",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
