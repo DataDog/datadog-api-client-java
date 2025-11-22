@@ -4,6 +4,8 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.BatchDeleteRowsRequestArray;
+import com.datadog.api.client.v2.model.BatchUpsertRowsRequestArray;
 import com.datadog.api.client.v2.model.CreateTableRequest;
 import com.datadog.api.client.v2.model.CreateUploadRequest;
 import com.datadog.api.client.v2.model.CreateUploadResponse;
@@ -318,6 +320,157 @@ public class ReferenceTablesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CreateUploadResponse>() {});
+  }
+
+  /**
+   * Delete rows.
+   *
+   * <p>See {@link #deleteRowsWithHttpInfo}.
+   *
+   * @param id Unique identifier of the reference table to delete rows from (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteRows(String id, BatchDeleteRowsRequestArray body) throws ApiException {
+    deleteRowsWithHttpInfo(id, body);
+  }
+
+  /**
+   * Delete rows.
+   *
+   * <p>See {@link #deleteRowsWithHttpInfoAsync}.
+   *
+   * @param id Unique identifier of the reference table to delete rows from (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteRowsAsync(String id, BatchDeleteRowsRequestArray body) {
+    return deleteRowsWithHttpInfoAsync(id, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete multiple rows from a Reference Table by their primary key values.
+   *
+   * @param id Unique identifier of the reference table to delete rows from (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Rows deleted successfully </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteRowsWithHttpInfo(String id, BatchDeleteRowsRequestArray body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteRows");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling deleteRows");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/reference-tables/tables/{id}/rows"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ReferenceTablesApi.deleteRows",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete rows.
+   *
+   * <p>See {@link #deleteRowsWithHttpInfo}.
+   *
+   * @param id Unique identifier of the reference table to delete rows from (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteRowsWithHttpInfoAsync(
+      String id, BatchDeleteRowsRequestArray body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'id' when calling deleteRows"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling deleteRows"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/reference-tables/tables/{id}/rows"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ReferenceTablesApi.deleteRows",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -1145,6 +1298,158 @@ public class ReferenceTablesApi {
     }
     return apiClient.invokeAPIAsync(
         "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Upsert rows.
+   *
+   * <p>See {@link #upsertRowsWithHttpInfo}.
+   *
+   * @param id Unique identifier of the reference table to upsert rows into (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void upsertRows(String id, BatchUpsertRowsRequestArray body) throws ApiException {
+    upsertRowsWithHttpInfo(id, body);
+  }
+
+  /**
+   * Upsert rows.
+   *
+   * <p>See {@link #upsertRowsWithHttpInfoAsync}.
+   *
+   * @param id Unique identifier of the reference table to upsert rows into (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> upsertRowsAsync(String id, BatchUpsertRowsRequestArray body) {
+    return upsertRowsWithHttpInfoAsync(id, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create or update rows in a Reference Table by their primary key values. If a row with the
+   * specified primary key exists, it is updated; otherwise, a new row is created.
+   *
+   * @param id Unique identifier of the reference table to upsert rows into (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Rows created or updated successfully </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> upsertRowsWithHttpInfo(String id, BatchUpsertRowsRequestArray body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling upsertRows");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling upsertRows");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/reference-tables/tables/{id}/rows"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ReferenceTablesApi.upsertRows",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Upsert rows.
+   *
+   * <p>See {@link #upsertRowsWithHttpInfo}.
+   *
+   * @param id Unique identifier of the reference table to upsert rows into (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> upsertRowsWithHttpInfoAsync(
+      String id, BatchUpsertRowsRequestArray body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'id' when calling upsertRows"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling upsertRows"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/reference-tables/tables/{id}/rows"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ReferenceTablesApi.upsertRows",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
         builder,
         localVarHeaderParams,
         new String[] {"application/json"},
