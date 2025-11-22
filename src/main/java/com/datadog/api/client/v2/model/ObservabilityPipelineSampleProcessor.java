@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The <code>sample</code> processor allows probabilistic sampling of logs at a fixed rate. */
 @JsonPropertyOrder({
+  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_INPUTS,
@@ -32,6 +33,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSampleProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -39,7 +43,7 @@ public class ObservabilityPipelineSampleProcessor {
   private String include;
 
   public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
+  private List<String> inputs = null;
 
   public static final String JSON_PROPERTY_PERCENTAGE = "percentage";
   private Double percentage;
@@ -57,14 +61,33 @@ public class ObservabilityPipelineSampleProcessor {
   public ObservabilityPipelineSampleProcessor(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineSampleProcessorType type) {
     this.id = id;
     this.include = include;
-    this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineSampleProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineSampleProcessor id(String id) {
@@ -114,17 +137,22 @@ public class ObservabilityPipelineSampleProcessor {
   }
 
   public ObservabilityPipelineSampleProcessor addInputsItem(String inputsItem) {
+    if (this.inputs == null) {
+      this.inputs = new ArrayList<>();
+    }
     this.inputs.add(inputsItem);
     return this;
   }
 
   /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
+   * A list of component IDs whose output is used as input for this processor. Required when used as
+   * a standalone processor, omit when used within a processor group.
    *
    * @return inputs
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getInputs() {
     return inputs;
   }
@@ -256,7 +284,8 @@ public class ObservabilityPipelineSampleProcessor {
     }
     ObservabilityPipelineSampleProcessor observabilityPipelineSampleProcessor =
         (ObservabilityPipelineSampleProcessor) o;
-    return Objects.equals(this.id, observabilityPipelineSampleProcessor.id)
+    return Objects.equals(this.enabled, observabilityPipelineSampleProcessor.enabled)
+        && Objects.equals(this.id, observabilityPipelineSampleProcessor.id)
         && Objects.equals(this.include, observabilityPipelineSampleProcessor.include)
         && Objects.equals(this.inputs, observabilityPipelineSampleProcessor.inputs)
         && Objects.equals(this.percentage, observabilityPipelineSampleProcessor.percentage)
@@ -268,13 +297,14 @@ public class ObservabilityPipelineSampleProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, include, inputs, percentage, rate, type, additionalProperties);
+    return Objects.hash(enabled, id, include, inputs, percentage, rate, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSampleProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
