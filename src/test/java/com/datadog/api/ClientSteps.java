@@ -50,14 +50,14 @@ public class ClientSteps {
     world.scenario = scenario;
     apiVersion = world.getVersion();
     final Span span = GlobalTracer.get().activeSpan();
-    if (span != null) {
+    if (span != null && span instanceof MutableSpan) {
       ArrayList<String> codeowners = new ArrayList<String>();
       for (String tag : scenario.getSourceTagNames()) {
         if (tag.startsWith("@team:")) {
           codeowners.add("@" + tag.substring(6));
         }
       }
-      // if the agent container is not running, span is null
+      // if the agent container is not running or tracer not initialized, span is null or noop
       MutableSpan localRootSpan = ((MutableSpan) span).getLocalRootSpan();
       localRootSpan.setTag(TEST_CODEOWNERS_TAG, new Gson().toJson(codeowners));
     }

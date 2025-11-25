@@ -247,8 +247,8 @@ public class TestUtils {
     @Before
     public void setTracingTags() {
       final Span span = GlobalTracer.get().activeSpan();
-      if (span != null) {
-        // if the agent container is not running, span is null
+      if (span != null && span instanceof MutableSpan) {
+        // if the agent container is not running or tracer not initialized, span is null or noop
         MutableSpan localRootSpan = ((MutableSpan) span).getLocalRootSpan();
         localRootSpan.setTag(TRACING_TAG_ENDPOINT, getTracingEndpoint());
         localRootSpan.setOperationName(TRACING_SPAN_TYPE);
