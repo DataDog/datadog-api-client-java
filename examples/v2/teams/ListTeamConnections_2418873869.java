@@ -2,14 +2,14 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.PaginationIterable;
-import com.datadog.api.client.v2.api.TeamConnectionsApi;
+import com.datadog.api.client.v2.api.TeamsApi;
 import com.datadog.api.client.v2.model.TeamConnection;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("v2.listTeamConnections", true);
-    TeamConnectionsApi apiInstance = new TeamConnectionsApi(defaultClient);
+    TeamsApi apiInstance = new TeamsApi(defaultClient);
 
     try {
       PaginationIterable<TeamConnection> iterable = apiInstance.listTeamConnectionsWithPagination();
@@ -18,8 +18,7 @@ public class Example {
         System.out.println(item);
       }
     } catch (RuntimeException e) {
-      System.err.println(
-          "Exception when calling TeamConnectionsApi#listTeamConnectionsWithPagination");
+      System.err.println("Exception when calling TeamsApi#listTeamConnectionsWithPagination");
       System.err.println("Reason: " + e.getMessage());
       e.printStackTrace();
     }
