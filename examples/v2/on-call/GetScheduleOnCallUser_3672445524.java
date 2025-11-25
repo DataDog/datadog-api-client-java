@@ -1,4 +1,4 @@
-// Get the scheduled on-call user returns "OK" response
+// Get the schedule on-call user returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -10,8 +10,11 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OnCallApi apiInstance = new OnCallApi(defaultClient);
 
+    // there is a valid "schedule" in the system
+    String SCHEDULE_DATA_ID = System.getenv("SCHEDULE_DATA_ID");
+
     try {
-      Shift result = apiInstance.getScheduleOnCallUser("3653d3c6-0c75-11ea-ad28-fb5701eabc7d");
+      Shift result = apiInstance.getScheduleOnCallUser(SCHEDULE_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OnCallApi#getScheduleOnCallUser");
