@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 2.47.0/2025-11-25
+
+### Security
+* Bump jackson library versions [#3274](https://github.com/DataDog/datadog-api-client-java/pull/3274)
+
+### Fixed
+* obs_pipelines: make google auth optional [#3260](https://github.com/DataDog/datadog-api-client-java/pull/3260)
+
+### Changed
+* Flatten file_metadata response schema to avoid OneOf unmarshaling issues [#3255](https://github.com/DataDog/datadog-api-client-java/pull/3255)
+
+### Added
+* Add incident management seats  to spec [#3253](https://github.com/DataDog/datadog-api-client-java/pull/3253)
+* Support provisioning teams from external sources [#3252](https://github.com/DataDog/datadog-api-client-java/pull/3252)
+* security_monitoring - Add signalOutput field to ThreatHuntingJobResponseAttributes schema [#3250](https://github.com/DataDog/datadog-api-client-java/pull/3250)
+* Add filter.scope to Monitor Notification Rules [#3246](https://github.com/DataDog/datadog-api-client-java/pull/3246)
+* Add api specs for deployment gates [#3198](https://github.com/DataDog/datadog-api-client-java/pull/3198)
+
 ## 2.46.0/2025-11-14
 
 ### Added
