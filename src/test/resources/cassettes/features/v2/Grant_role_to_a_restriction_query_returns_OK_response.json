@@ -1,0 +1,137 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"restriction_query\":\"env:sandbox\"},\"type\":\"logs_restriction_queries\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/restriction_queries",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"logs_restriction_queries\",\"id\":\"81f63382-c3fd-11f0-be7b-da7ad0900002\",\"attributes\":{\"restriction_query\":\"env:sandbox\",\"created_at\":\"2025-11-17T21:36:42.301659+00:00\",\"modified_at\":\"2025-11-17T21:36:42.301659+00:00\"}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "eb3b308b-3d56-9ef8-4096-dd7718f51861"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Grant_role_to_a_restriction_query_returns_OK_response-1763415402\"},\"type\":\"roles\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/roles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"822b736c-c3fd-11f0-8df1-da7ad0900002\",\"type\":\"roles\",\"attributes\":{\"created_at\":\"2025-11-17T21:36:42.650961Z\",\"modified_at\":\"2025-11-17T21:36:42.650523Z\",\"name\":\"Test-Grant_role_to_a_restriction_query_returns_OK_response-1763415402\",\"team_count\":0,\"user_count\":0},\"relationships\":{\"permissions\":{\"data\":[{\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\",\"type\":\"permissions\"},{\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\",\"type\":\"permissions\"},{\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\",\"type\":\"permissions\"},{\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\",\"type\":\"permissions\"},{\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\",\"type\":\"permissions\"},{\"id\":\"b6bf9ac6-9a59-11ec-8480-da7ad0900002\",\"type\":\"permissions\"},{\"id\":\"f8e941cf-e746-11ec-b22d-da7ad0900002\",\"type\":\"permissions\"},{\"id\":\"6c5ad874-7aff-11ed-a5cd-da7ad0900002\",\"type\":\"permissions\"},{\"id\":\"a8b4d6e8-4ea4-11ee-b482-da7ad0900002\",\"type\":\"permissions\"},{\"id\":\"50c270de-69ee-11ee-9151-da7ad0900002\",\"type\":\"permissions\"}]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9c0648ef-6973-c59d-8a08-d37a16422230"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"id\":\"822b736c-c3fd-11f0-8df1-da7ad0900002\",\"type\":\"roles\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/restriction_queries/81f63382-c3fd-11f0-be7b-da7ad0900002/roles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "37ba0598-e22a-0f2f-a3df-be338b533680"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/roles/822b736c-c3fd-11f0-8df1-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "56774daf-da5a-671c-df37-b4cef4c1e348"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/restriction_queries/81f63382-c3fd-11f0-be7b-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "931f19c0-5642-d388-9f86-55f097f905a8"
+  }
+]
