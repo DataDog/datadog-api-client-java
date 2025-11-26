@@ -4284,6 +4284,40 @@
       "type": "safe"
     }
   },
+  "CreateSyntheticsSuite": {
+    "tag": "Synthetics",
+    "undo": {
+      "operationId": "TODO",
+      "parameters": [],
+      "type": "unsafe"
+    }
+  },
+  "DeleteSyntheticsSuites": {
+    "tag": "Synthetics",
+    "undo": {
+      "operationId": "TODO",
+      "parameters": [],
+      "type": "unsafe"
+    }
+  },
+  "SearchSuites": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetSyntheticsSuite": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "EditSyntheticsSuite": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "ListTagPipelinesRulesets": {
     "tag": "Cloud Cost Management",
     "undo": {
