@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"da5f2218-21fa-11f0-96de-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"filter-processor\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"id\":\"filter-processor\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"type\":\"filter\"}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
+      "body": "{\"data\":{\"id\":\"73822ece-cae1-11f0-a2c5-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"filter-processor\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"id\":\"filter-processor\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"type\":\"filter\"}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ccedcb24-9a42-7cb7-5505-c852f00f431d"
+    "id": "ccedcb24-9a42-7cb7-5505-c852f00f431c"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/da5f2218-21fa-11f0-96de-da7ad0900002",
+      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/73822ece-cae1-11f0-a2c5-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -52,13 +52,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "598cf7c6-bf15-0219-bc90-925671f48c4a"
+    "id": "6c1cef76-441b-b531-1d11-561b30679af8"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/da5f2218-21fa-11f0-96de-da7ad0900002",
+      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/73822ece-cae1-11f0-a2c5-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "598cf7c6-bf15-0219-bc90-925671f48c4b"
+    "id": "6c1cef76-441b-b531-1d11-561b30679af9"
   }
 ]
