@@ -13,9 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -24,11 +22,11 @@ import java.util.Objects;
  * database.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_FILE,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_GEOIP,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_INCLUDE,
-  ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_TARGET,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_TYPE
 })
@@ -36,6 +34,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineEnrichmentTableProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_FILE = "file";
   private ObservabilityPipelineEnrichmentTableFile file;
 
@@ -48,9 +49,6 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
 
-  public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
-
   public static final String JSON_PROPERTY_TARGET = "target";
   private String target;
 
@@ -62,18 +60,38 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
 
   @JsonCreator
   public ObservabilityPipelineEnrichmentTableProcessor(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) String target,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineEnrichmentTableProcessorType type) {
+    this.enabled = enabled;
     this.id = id;
     this.include = include;
-    this.inputs = inputs;
     this.target = target;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineEnrichmentTableProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineEnrichmentTableProcessor file(
@@ -160,31 +178,6 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
 
   public void setInclude(String include) {
     this.include = include;
-  }
-
-  public ObservabilityPipelineEnrichmentTableProcessor inputs(List<String> inputs) {
-    this.inputs = inputs;
-    return this;
-  }
-
-  public ObservabilityPipelineEnrichmentTableProcessor addInputsItem(String inputsItem) {
-    this.inputs.add(inputsItem);
-    return this;
-  }
-
-  /**
-   * A list of component IDs whose output is used as the input for this processor.
-   *
-   * @return inputs
-   */
-  @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getInputs() {
-    return inputs;
-  }
-
-  public void setInputs(List<String> inputs) {
-    this.inputs = inputs;
   }
 
   public ObservabilityPipelineEnrichmentTableProcessor target(String target) {
@@ -290,11 +283,11 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
     }
     ObservabilityPipelineEnrichmentTableProcessor observabilityPipelineEnrichmentTableProcessor =
         (ObservabilityPipelineEnrichmentTableProcessor) o;
-    return Objects.equals(this.file, observabilityPipelineEnrichmentTableProcessor.file)
+    return Objects.equals(this.enabled, observabilityPipelineEnrichmentTableProcessor.enabled)
+        && Objects.equals(this.file, observabilityPipelineEnrichmentTableProcessor.file)
         && Objects.equals(this.geoip, observabilityPipelineEnrichmentTableProcessor.geoip)
         && Objects.equals(this.id, observabilityPipelineEnrichmentTableProcessor.id)
         && Objects.equals(this.include, observabilityPipelineEnrichmentTableProcessor.include)
-        && Objects.equals(this.inputs, observabilityPipelineEnrichmentTableProcessor.inputs)
         && Objects.equals(this.target, observabilityPipelineEnrichmentTableProcessor.target)
         && Objects.equals(this.type, observabilityPipelineEnrichmentTableProcessor.type)
         && Objects.equals(
@@ -304,18 +297,18 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(file, geoip, id, include, inputs, target, type, additionalProperties);
+    return Objects.hash(enabled, file, geoip, id, include, target, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineEnrichmentTableProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("    geoip: ").append(toIndentedString(geoip)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
-    sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

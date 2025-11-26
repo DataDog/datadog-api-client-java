@@ -21,16 +21,19 @@ import java.util.Objects;
 
 /** The <code>add_fields</code> processor adds static key-value fields to logs. */
 @JsonPropertyOrder({
+  ObservabilityPipelineAddFieldsProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineAddFieldsProcessor.JSON_PROPERTY_FIELDS,
   ObservabilityPipelineAddFieldsProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineAddFieldsProcessor.JSON_PROPERTY_INCLUDE,
-  ObservabilityPipelineAddFieldsProcessor.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineAddFieldsProcessor.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineAddFieldsProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private List<ObservabilityPipelineFieldValue> fields = new ArrayList<>();
 
@@ -40,9 +43,6 @@ public class ObservabilityPipelineAddFieldsProcessor {
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
 
-  public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
-
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineAddFieldsProcessorType type =
       ObservabilityPipelineAddFieldsProcessorType.ADD_FIELDS;
@@ -51,19 +51,39 @@ public class ObservabilityPipelineAddFieldsProcessor {
 
   @JsonCreator
   public ObservabilityPipelineAddFieldsProcessor(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_FIELDS)
           List<ObservabilityPipelineFieldValue> fields,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineAddFieldsProcessorType type) {
+    this.enabled = enabled;
     this.fields = fields;
     this.id = id;
     this.include = include;
-    this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineAddFieldsProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineAddFieldsProcessor fields(
@@ -137,31 +157,6 @@ public class ObservabilityPipelineAddFieldsProcessor {
 
   public void setInclude(String include) {
     this.include = include;
-  }
-
-  public ObservabilityPipelineAddFieldsProcessor inputs(List<String> inputs) {
-    this.inputs = inputs;
-    return this;
-  }
-
-  public ObservabilityPipelineAddFieldsProcessor addInputsItem(String inputsItem) {
-    this.inputs.add(inputsItem);
-    return this;
-  }
-
-  /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
-   *
-   * @return inputs
-   */
-  @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getInputs() {
-    return inputs;
-  }
-
-  public void setInputs(List<String> inputs) {
-    this.inputs = inputs;
   }
 
   public ObservabilityPipelineAddFieldsProcessor type(
@@ -246,10 +241,10 @@ public class ObservabilityPipelineAddFieldsProcessor {
     }
     ObservabilityPipelineAddFieldsProcessor observabilityPipelineAddFieldsProcessor =
         (ObservabilityPipelineAddFieldsProcessor) o;
-    return Objects.equals(this.fields, observabilityPipelineAddFieldsProcessor.fields)
+    return Objects.equals(this.enabled, observabilityPipelineAddFieldsProcessor.enabled)
+        && Objects.equals(this.fields, observabilityPipelineAddFieldsProcessor.fields)
         && Objects.equals(this.id, observabilityPipelineAddFieldsProcessor.id)
         && Objects.equals(this.include, observabilityPipelineAddFieldsProcessor.include)
-        && Objects.equals(this.inputs, observabilityPipelineAddFieldsProcessor.inputs)
         && Objects.equals(this.type, observabilityPipelineAddFieldsProcessor.type)
         && Objects.equals(
             this.additionalProperties,
@@ -258,17 +253,17 @@ public class ObservabilityPipelineAddFieldsProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields, id, include, inputs, type, additionalProperties);
+    return Objects.hash(enabled, fields, id, include, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineAddFieldsProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
-    sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
