@@ -4,7 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.FleetAgentInfoResponse;
 import com.datadog.api.client.v2.model.FleetAgentVersionsResponse;
+import com.datadog.api.client.v2.model.FleetAgentsResponse;
 import com.datadog.api.client.v2.model.FleetDeploymentConfigureCreateRequest;
 import com.datadog.api.client.v2.model.FleetDeploymentPackageUpgradeCreateRequest;
 import com.datadog.api.client.v2.model.FleetDeploymentResponse;
@@ -855,6 +857,163 @@ public class FleetAutomationApi {
         null);
   }
 
+  /**
+   * Get detailed information about an agent.
+   *
+   * <p>See {@link #getFleetAgentInfoWithHttpInfo}.
+   *
+   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
+   * @return FleetAgentInfoResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetAgentInfoResponse getFleetAgentInfo(String agentKey) throws ApiException {
+    return getFleetAgentInfoWithHttpInfo(agentKey).getData();
+  }
+
+  /**
+   * Get detailed information about an agent.
+   *
+   * <p>See {@link #getFleetAgentInfoWithHttpInfoAsync}.
+   *
+   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
+   * @return CompletableFuture&lt;FleetAgentInfoResponse&gt;
+   */
+  public CompletableFuture<FleetAgentInfoResponse> getFleetAgentInfoAsync(String agentKey) {
+    return getFleetAgentInfoWithHttpInfoAsync(agentKey)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve detailed information about a specific Datadog Agent. This endpoint returns
+   * comprehensive information about an agent including: - Agent details and metadata - Configured
+   * integrations organized by status (working, warning, error, missing) - Detected integrations -
+   * Configuration files and layers
+   *
+   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
+   * @return ApiResponse&lt;FleetAgentInfoResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetAgentInfoResponse> getFleetAgentInfoWithHttpInfo(String agentKey)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getFleetAgentInfo";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'agentKey' is set
+    if (agentKey == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'agentKey' when calling getFleetAgentInfo");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/unstable/fleet/agents/{agent_key}"
+            .replaceAll("\\{" + "agent_key" + "\\}", apiClient.escapeString(agentKey.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.getFleetAgentInfo",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAgentInfoResponse>() {});
+  }
+
+  /**
+   * Get detailed information about an agent.
+   *
+   * <p>See {@link #getFleetAgentInfoWithHttpInfo}.
+   *
+   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetAgentInfoResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetAgentInfoResponse>> getFleetAgentInfoWithHttpInfoAsync(
+      String agentKey) {
+    // Check if unstable operation is enabled
+    String operationId = "getFleetAgentInfo";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FleetAgentInfoResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'agentKey' is set
+    if (agentKey == null) {
+      CompletableFuture<ApiResponse<FleetAgentInfoResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'agentKey' when calling getFleetAgentInfo"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/unstable/fleet/agents/{agent_key}"
+            .replaceAll("\\{" + "agent_key" + "\\}", apiClient.escapeString(agentKey.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.getFleetAgentInfo",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetAgentInfoResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAgentInfoResponse>() {});
+  }
+
   /** Manage optional parameters to getFleetDeployment. */
   public static class GetFleetDeploymentOptionalParameters {
     private Long limit;
@@ -1266,6 +1425,277 @@ public class FleetAutomationApi {
         new GenericType<FleetScheduleResponse>() {});
   }
 
+  /** Manage optional parameters to listFleetAgents. */
+  public static class ListFleetAgentsOptionalParameters {
+    private Long pageNumber;
+    private Long pageSize;
+    private String sortAttribute;
+    private Boolean sortDescending;
+    private String tags;
+    private String filter;
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Page number for pagination (must be greater than 0). (optional)
+     * @return ListFleetAgentsOptionalParameters
+     */
+    public ListFleetAgentsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Number of results per page (must be greater than 0 and less than or equal to
+     *     100). (optional, default to 10)
+     * @return ListFleetAgentsOptionalParameters
+     */
+    public ListFleetAgentsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set sortAttribute.
+     *
+     * @param sortAttribute Attribute to sort by. (optional)
+     * @return ListFleetAgentsOptionalParameters
+     */
+    public ListFleetAgentsOptionalParameters sortAttribute(String sortAttribute) {
+      this.sortAttribute = sortAttribute;
+      return this;
+    }
+
+    /**
+     * Set sortDescending.
+     *
+     * @param sortDescending Sort order (true for descending, false for ascending). (optional)
+     * @return ListFleetAgentsOptionalParameters
+     */
+    public ListFleetAgentsOptionalParameters sortDescending(Boolean sortDescending) {
+      this.sortDescending = sortDescending;
+      return this;
+    }
+
+    /**
+     * Set tags.
+     *
+     * @param tags Comma-separated list of tags to filter agents. (optional)
+     * @return ListFleetAgentsOptionalParameters
+     */
+    public ListFleetAgentsOptionalParameters tags(String tags) {
+      this.tags = tags;
+      return this;
+    }
+
+    /**
+     * Set filter.
+     *
+     * @param filter Filter string for narrowing down agent results. (optional)
+     * @return ListFleetAgentsOptionalParameters
+     */
+    public ListFleetAgentsOptionalParameters filter(String filter) {
+      this.filter = filter;
+      return this;
+    }
+  }
+
+  /**
+   * List all Datadog Agents.
+   *
+   * <p>See {@link #listFleetAgentsWithHttpInfo}.
+   *
+   * @return FleetAgentsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetAgentsResponse listFleetAgents() throws ApiException {
+    return listFleetAgentsWithHttpInfo(new ListFleetAgentsOptionalParameters()).getData();
+  }
+
+  /**
+   * List all Datadog Agents.
+   *
+   * <p>See {@link #listFleetAgentsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;FleetAgentsResponse&gt;
+   */
+  public CompletableFuture<FleetAgentsResponse> listFleetAgentsAsync() {
+    return listFleetAgentsWithHttpInfoAsync(new ListFleetAgentsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all Datadog Agents.
+   *
+   * <p>See {@link #listFleetAgentsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return FleetAgentsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetAgentsResponse listFleetAgents(ListFleetAgentsOptionalParameters parameters)
+      throws ApiException {
+    return listFleetAgentsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List all Datadog Agents.
+   *
+   * <p>See {@link #listFleetAgentsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;FleetAgentsResponse&gt;
+   */
+  public CompletableFuture<FleetAgentsResponse> listFleetAgentsAsync(
+      ListFleetAgentsOptionalParameters parameters) {
+    return listFleetAgentsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a paginated list of all Datadog Agents. This endpoint returns a paginated list of all
+   * Datadog Agents with support for pagination, sorting, and filtering. Use the <code>page_number
+   * </code> and <code>page_size</code> query parameters to paginate through results.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;FleetAgentsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetAgentsResponse> listFleetAgentsWithHttpInfo(
+      ListFleetAgentsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetAgents";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String sortAttribute = parameters.sortAttribute;
+    Boolean sortDescending = parameters.sortDescending;
+    String tags = parameters.tags;
+    String filter = parameters.filter;
+    // create path and map variables
+    String localVarPath = "/api/unstable/fleet/agents";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_attribute", sortAttribute));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_descending", sortDescending));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.listFleetAgents",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAgentsResponse>() {});
+  }
+
+  /**
+   * List all Datadog Agents.
+   *
+   * <p>See {@link #listFleetAgentsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetAgentsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetAgentsResponse>> listFleetAgentsWithHttpInfoAsync(
+      ListFleetAgentsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetAgents";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FleetAgentsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String sortAttribute = parameters.sortAttribute;
+    Boolean sortDescending = parameters.sortDescending;
+    String tags = parameters.tags;
+    String filter = parameters.filter;
+    // create path and map variables
+    String localVarPath = "/api/unstable/fleet/agents";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_attribute", sortAttribute));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_descending", sortDescending));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.listFleetAgents",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetAgentsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetAgentsResponse>() {});
+  }
+
   /**
    * List all available Agent versions.
    *
@@ -1325,7 +1755,7 @@ public class FleetAutomationApi {
     }
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/agents";
+    String localVarPath = "/api/unstable/fleet/agent_versions";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1370,7 +1800,7 @@ public class FleetAutomationApi {
     }
     Object localVarPostBody = null;
     // create path and map variables
-    String localVarPath = "/api/unstable/fleet/agents";
+    String localVarPath = "/api/unstable/fleet/agent_versions";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 

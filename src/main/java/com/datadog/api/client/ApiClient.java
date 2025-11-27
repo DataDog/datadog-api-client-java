@@ -692,8 +692,10 @@ public class ApiClient {
           put("v2.createFleetDeploymentUpgrade", false);
           put("v2.createFleetSchedule", false);
           put("v2.deleteFleetSchedule", false);
+          put("v2.getFleetAgentInfo", false);
           put("v2.getFleetDeployment", false);
           put("v2.getFleetSchedule", false);
+          put("v2.listFleetAgents", false);
           put("v2.listFleetAgentVersions", false);
           put("v2.listFleetDeployments", false);
           put("v2.listFleetSchedules", false);
