@@ -777,6 +777,17 @@ public class ApiClient {
           put("v2.updateIncidentNotificationTemplate", false);
           put("v2.updateIncidentTodo", false);
           put("v2.updateIncidentType", false);
+          put("v2.addRoleToRestrictionQuery", false);
+          put("v2.createRestrictionQuery", false);
+          put("v2.deleteRestrictionQuery", false);
+          put("v2.getRestrictionQuery", false);
+          put("v2.getRoleRestrictionQuery", false);
+          put("v2.listRestrictionQueries", false);
+          put("v2.listRestrictionQueryRoles", false);
+          put("v2.listUserRestrictionQueries", false);
+          put("v2.removeRoleFromRestrictionQuery", false);
+          put("v2.replaceRestrictionQuery", false);
+          put("v2.updateRestrictionQuery", false);
           put("v2.createMonitorUserTemplate", false);
           put("v2.deleteMonitorUserTemplate", false);
           put("v2.getMonitorUserTemplate", false);
