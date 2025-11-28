@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"attributes\":{\"description\":\"A description\",\"title\":\"A title\"},\"relationships\":{\"findings\":{\"data\":[{\"id\":\"ZGZhMDI3ZjdjMDM3YjJmNzcxNTlhZGMwMjdmZWNiNTZ-MTVlYTNmYWU3NjNlOTNlYTE2YjM4N2JmZmI4Yjk5N2Y=\",\"type\":\"findings\"},{\"id\":\"MzZkNTMxODNmOGZlZmJiYzIyMDg4NzhmM2QyMDExZjB-ZmY5NzUwNDQzYTE0MGIyNDM1MTg4YjkxZDNmMDU4OGU=\",\"type\":\"findings\"}]},\"project\":{\"data\":{\"id\":\"959a6f71-bac8-4027-b1d3-2264f569296f\",\"type\":\"projects\"}}},\"type\":\"cases\"}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/findings/cases",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"2c1ac0c4-e8cf-4699-8781-09077b10d2a0\",\"type\":\"cases\",\"attributes\":{\"created_at\":\"2025-11-19T13:46:09.874194Z\",\"creation_source\":\"CS_SECURITY_FINDING\",\"description\":\"A description\",\"insights\":[{\"type\":\"SECURITY_FINDING\",\"ref\":\"/security/appsec/vm/library/vulnerability/36d53183f8fefbbc2208878f3d2011f0?detection=static\",\"resource_id\":\"MzZkNTMxODNmOGZlZmJiYzIyMDg4NzhmM2QyMDExZjB-ZmY5NzUwNDQzYTE0MGIyNDM1MTg4YjkxZDNmMDU4OGU=\"},{\"type\":\"SECURITY_FINDING\",\"ref\":\"/security/appsec/vm/library/vulnerability/dfa027f7c037b2f77159adc027fecb56?detection=static\",\"resource_id\":\"ZGZhMDI3ZjdjMDM3YjJmNzcxNTlhZGMwMjdmZWNiNTZ-MTVlYTNmYWU3NjNlOTNlYTE2YjM4N2JmZmI4Yjk5N2Y=\"}],\"key\":\"CSMINV-455\",\"priority\":\"NOT_DEFINED\",\"status\":\"OPEN\",\"status_group\":\"SG_OPEN\",\"status_name\":\"Open\",\"title\":\"A title\",\"type\":\"SECURITY\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"dc09afab-6ae7-11ef-92b1-828dac1b0195\",\"type\":\"users\"}},\"project\":{\"data\":{\"id\":\"959a6f71-bac8-4027-b1d3-2264f569296f\",\"type\":\"projects\"}}}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d04ffa36-418b-582f-47ed-5b22a0b60827"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"id\":\"2c1ac0c4-e8cf-4699-8781-09077b10d2a0\",\"relationships\":{\"findings\":{\"data\":[{\"id\":\"MzZkNTMxODNmOGZlZmJiYzIyMDg4NzhmM2QyMDExZjB-ZmY5NzUwNDQzYTE0MGIyNDM1MTg4YjkxZDNmMDU4OGU=\",\"type\":\"findings\"}]}},\"type\":\"cases\"}}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/findings/cases",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c198d524-9355-a9d4-7ab2-13b40ab22dc1"
+  }
+]
