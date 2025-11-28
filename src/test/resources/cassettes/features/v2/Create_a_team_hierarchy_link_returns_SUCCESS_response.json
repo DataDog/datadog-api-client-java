@@ -1,0 +1,155 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-a75ee0b8b483d66f\",\"name\":\"test-name-a75ee0b8b483d66f\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"b85e63cd-1d9f-4b71-a47c-f5a99d4a4afd\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":3,\"created_at\":\"2025-11-24T15:48:40.359260+00:00\",\"description\":null,\"handle\":\"test-handle-a75ee0b8b483d66f\",\"hidden_modules\":null,\"is_managed\":false,\"link_count\":0,\"modified_at\":\"2025-11-24T15:48:40.359261+00:00\",\"name\":\"test-name-a75ee0b8b483d66f\",\"summary\":null,\"user_count\":0,\"visible_modules\":null},\"relationships\":{\"team_links\":{\"data\":[],\"links\":{\"related\":\"/api/v2/team/b85e63cd-1d9f-4b71-a47c-f5a99d4a4afd/links\"}},\"user_team_permissions\":{\"data\":null,\"links\":{\"related\":\"/api/v2/team/b85e63cd-1d9f-4b71-a47c-f5a99d4a4afd/permission-settings\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a2753edb-970c-fffe-b922-aed09f6fdbdc"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-2-a75ee0b8b483d66f\",\"name\":\"test-name-2-a75ee0b8b483d66f\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"2d096572-eb6a-4579-ba38-b4247cf75e17\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":8,\"created_at\":\"2025-11-24T15:48:40.893488+00:00\",\"description\":null,\"handle\":\"test-handle-2-a75ee0b8b483d66f\",\"hidden_modules\":null,\"is_managed\":false,\"link_count\":0,\"modified_at\":\"2025-11-24T15:48:40.893488+00:00\",\"name\":\"test-name-2-a75ee0b8b483d66f\",\"summary\":null,\"user_count\":0,\"visible_modules\":null},\"relationships\":{\"team_links\":{\"data\":[],\"links\":{\"related\":\"/api/v2/team/2d096572-eb6a-4579-ba38-b4247cf75e17/links\"}},\"user_team_permissions\":{\"data\":null,\"links\":{\"related\":\"/api/v2/team/2d096572-eb6a-4579-ba38-b4247cf75e17/permission-settings\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f158473a-07cd-c089-2d92-0faf55be902d"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"relationships\":{\"parent_team\":{\"data\":{\"id\":\"b85e63cd-1d9f-4b71-a47c-f5a99d4a4afd\",\"type\":\"team\"}},\"sub_team\":{\"data\":{\"id\":\"2d096572-eb6a-4579-ba38-b4247cf75e17\",\"type\":\"team\"}}},\"type\":\"team_hierarchy_links\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team-hierarchy-links",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"fb94d43b-fe10-4c5f-ae7c-4ad745428651\",\"type\":\"team_hierarchy_links\",\"attributes\":{\"created_at\":\"2025-11-24T15:48:41.150923395Z\",\"provisioned_by\":\"\"},\"relationships\":{\"parent_team\":{\"data\":{\"id\":\"b85e63cd-1d9f-4b71-a47c-f5a99d4a4afd\",\"type\":\"team\"}},\"sub_team\":{\"data\":{\"id\":\"2d096572-eb6a-4579-ba38-b4247cf75e17\",\"type\":\"team\"}}}},\"included\":[{\"id\":\"b85e63cd-1d9f-4b71-a47c-f5a99d4a4afd\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":3,\"handle\":\"test-handle-a75ee0b8b483d66f\",\"is_managed\":false,\"is_open_membership\":false,\"link_count\":0,\"name\":\"test-name-a75ee0b8b483d66f\",\"summary\":null,\"user_count\":0}},{\"id\":\"2d096572-eb6a-4579-ba38-b4247cf75e17\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":8,\"handle\":\"test-handle-2-a75ee0b8b483d66f\",\"is_managed\":false,\"is_open_membership\":false,\"link_count\":0,\"name\":\"test-name-2-a75ee0b8b483d66f\",\"summary\":null,\"user_count\":0}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8ef0058d-92ab-3007-6975-11d2bed31ad6"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team-hierarchy-links/fb94d43b-fe10-4c5f-ae7c-4ad745428651",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b586f65c-5e8c-5c75-934c-2310020328b2"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/2d096572-eb6a-4579-ba38-b4247cf75e17",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "df534d51-8851-12f9-7264-0ec13f719086"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/b85e63cd-1d9f-4b71-a47c-f5a99d4a4afd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "10a7d2f1-489b-3643-d02d-08eeed113a13"
+  }
+]
