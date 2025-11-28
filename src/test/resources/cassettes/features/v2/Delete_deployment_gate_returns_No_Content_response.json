@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate\",\"service\":\"my-service\"},\"type\":\"deployment_gate\"}}"
+        "json": "{\"data\":{\"attributes\":{\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate-testdeletedeploymentgatereturnsnocontentresponse1764326920\",\"service\":\"my-service\"},\"type\":\"deployment_gate\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"dba6d48b-b7ac-4ac8-b2d5-70e45b500eed\",\"type\":\"deployment_gate\",\"attributes\":{\"created_at\":\"2025-10-28T14:51:14.313688Z\",\"created_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate\",\"service\":\"my-service\",\"updated_at\":\"2025-10-28T14:51:14.313688Z\",\"updated_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
+      "body": "{\"data\":{\"id\":\"86e38caf-0d2a-4e72-93ac-9850957d2c6b\",\"type\":\"deployment_gate\",\"attributes\":{\"created_at\":\"2025-11-28T10:48:40.909837Z\",\"created_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate-testdeletedeploymentgatereturnsnocontentresponse1764326920\",\"service\":\"my-service\",\"updated_at\":\"2025-11-28T10:48:40.909837Z\",\"updated_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "70acb264-a190-c950-4530-585b68c408c7"
+    "id": "67a945a0-70d1-baa8-c7e5-b4f428bf52e0"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/deployment_gates/dba6d48b-b7ac-4ac8-b2d5-70e45b500eed",
+      "path": "/api/v2/deployment_gates/86e38caf-0d2a-4e72-93ac-9850957d2c6b",
       "keepAlive": false,
       "secure": true
     },
@@ -48,13 +48,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "06c13af0-8631-90d6-1020-1b7ddf35a59e"
+    "id": "3e123064-488b-434d-cd2d-e8d0c7cb4f34"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/deployment_gates/dba6d48b-b7ac-4ac8-b2d5-70e45b500eed",
+      "path": "/api/v2/deployment_gates/86e38caf-0d2a-4e72-93ac-9850957d2c6b",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "06c13af0-8631-90d6-1020-1b7ddf35a59f"
+    "id": "3e123064-488b-434d-cd2d-e8d0c7cb4f35"
   }
 ]
