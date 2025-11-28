@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   TeamAttributes.JSON_PROPERTY_DESCRIPTION,
   TeamAttributes.JSON_PROPERTY_HANDLE,
   TeamAttributes.JSON_PROPERTY_HIDDEN_MODULES,
+  TeamAttributes.JSON_PROPERTY_IS_MANAGED,
   TeamAttributes.JSON_PROPERTY_LINK_COUNT,
   TeamAttributes.JSON_PROPERTY_MODIFIED_AT,
   TeamAttributes.JSON_PROPERTY_NAME,
@@ -56,7 +57,10 @@ public class TeamAttributes {
   private String handle;
 
   public static final String JSON_PROPERTY_HIDDEN_MODULES = "hidden_modules";
-  private List<String> hiddenModules = null;
+  private JsonNullable<List<String>> hiddenModules = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_IS_MANAGED = "is_managed";
+  private Boolean isManaged;
 
   public static final String JSON_PROPERTY_LINK_COUNT = "link_count";
   private Integer linkCount;
@@ -74,7 +78,7 @@ public class TeamAttributes {
   private Integer userCount;
 
   public static final String JSON_PROPERTY_VISIBLE_MODULES = "visible_modules";
-  private List<String> visibleModules = null;
+  private JsonNullable<List<String>> visibleModules = JsonNullable.<List<String>>undefined();
 
   public TeamAttributes() {}
 
@@ -221,15 +225,19 @@ public class TeamAttributes {
   }
 
   public TeamAttributes hiddenModules(List<String> hiddenModules) {
-    this.hiddenModules = hiddenModules;
+    this.hiddenModules = JsonNullable.<List<String>>of(hiddenModules);
     return this;
   }
 
   public TeamAttributes addHiddenModulesItem(String hiddenModulesItem) {
-    if (this.hiddenModules == null) {
-      this.hiddenModules = new ArrayList<>();
+    if (this.hiddenModules == null || !this.hiddenModules.isPresent()) {
+      this.hiddenModules = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.hiddenModules.add(hiddenModulesItem);
+    try {
+      this.hiddenModules.get().add(hiddenModulesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -239,14 +247,45 @@ public class TeamAttributes {
    * @return hiddenModules
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getHiddenModules() {
+    return hiddenModules.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_HIDDEN_MODULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getHiddenModules() {
+  public JsonNullable<List<String>> getHiddenModules_JsonNullable() {
     return hiddenModules;
   }
 
-  public void setHiddenModules(List<String> hiddenModules) {
+  @JsonProperty(JSON_PROPERTY_HIDDEN_MODULES)
+  public void setHiddenModules_JsonNullable(JsonNullable<List<String>> hiddenModules) {
     this.hiddenModules = hiddenModules;
+  }
+
+  public void setHiddenModules(List<String> hiddenModules) {
+    this.hiddenModules = JsonNullable.<List<String>>of(hiddenModules);
+  }
+
+  public TeamAttributes isManaged(Boolean isManaged) {
+    this.isManaged = isManaged;
+    return this;
+  }
+
+  /**
+   * Whether the team is managed from an external source
+   *
+   * @return isManaged
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_MANAGED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsManaged() {
+    return isManaged;
+  }
+
+  public void setIsManaged(Boolean isManaged) {
+    this.isManaged = isManaged;
   }
 
   /**
@@ -346,15 +385,19 @@ public class TeamAttributes {
   }
 
   public TeamAttributes visibleModules(List<String> visibleModules) {
-    this.visibleModules = visibleModules;
+    this.visibleModules = JsonNullable.<List<String>>of(visibleModules);
     return this;
   }
 
   public TeamAttributes addVisibleModulesItem(String visibleModulesItem) {
-    if (this.visibleModules == null) {
-      this.visibleModules = new ArrayList<>();
+    if (this.visibleModules == null || !this.visibleModules.isPresent()) {
+      this.visibleModules = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.visibleModules.add(visibleModulesItem);
+    try {
+      this.visibleModules.get().add(visibleModulesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -364,14 +407,24 @@ public class TeamAttributes {
    * @return visibleModules
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getVisibleModules() {
+    return visibleModules.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_VISIBLE_MODULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getVisibleModules() {
+  public JsonNullable<List<String>> getVisibleModules_JsonNullable() {
     return visibleModules;
   }
 
-  public void setVisibleModules(List<String> visibleModules) {
+  @JsonProperty(JSON_PROPERTY_VISIBLE_MODULES)
+  public void setVisibleModules_JsonNullable(JsonNullable<List<String>> visibleModules) {
     this.visibleModules = visibleModules;
+  }
+
+  public void setVisibleModules(List<String> visibleModules) {
+    this.visibleModules = JsonNullable.<List<String>>of(visibleModules);
   }
 
   /**
@@ -436,6 +489,7 @@ public class TeamAttributes {
         && Objects.equals(this.description, teamAttributes.description)
         && Objects.equals(this.handle, teamAttributes.handle)
         && Objects.equals(this.hiddenModules, teamAttributes.hiddenModules)
+        && Objects.equals(this.isManaged, teamAttributes.isManaged)
         && Objects.equals(this.linkCount, teamAttributes.linkCount)
         && Objects.equals(this.modifiedAt, teamAttributes.modifiedAt)
         && Objects.equals(this.name, teamAttributes.name)
@@ -454,6 +508,7 @@ public class TeamAttributes {
         description,
         handle,
         hiddenModules,
+        isManaged,
         linkCount,
         modifiedAt,
         name,
@@ -473,6 +528,7 @@ public class TeamAttributes {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
     sb.append("    hiddenModules: ").append(toIndentedString(hiddenModules)).append("\n");
+    sb.append("    isManaged: ").append(toIndentedString(isManaged)).append("\n");
     sb.append("    linkCount: ").append(toIndentedString(linkCount)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
