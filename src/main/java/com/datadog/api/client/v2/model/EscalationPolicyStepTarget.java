@@ -18,9 +18,10 @@ import java.util.Objects;
 
 /**
  * Defines a single escalation target within a step for an escalation policy creation request.
- * Contains <code>id</code> and <code>type</code>.
+ * Contains <code>id</code>, <code>type</code>, and optional <code>config</code>.
  */
 @JsonPropertyOrder({
+  EscalationPolicyStepTarget.JSON_PROPERTY_CONFIG,
   EscalationPolicyStepTarget.JSON_PROPERTY_ID,
   EscalationPolicyStepTarget.JSON_PROPERTY_TYPE
 })
@@ -28,11 +29,36 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EscalationPolicyStepTarget {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONFIG = "config";
+  private EscalationPolicyStepTargetConfig config;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private EscalationPolicyStepTargetType type;
+
+  public EscalationPolicyStepTarget config(EscalationPolicyStepTargetConfig config) {
+    this.config = config;
+    this.unparsed |= config.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for an escalation target, such as schedule position.
+   *
+   * @return config
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EscalationPolicyStepTargetConfig getConfig() {
+    return config;
+  }
+
+  public void setConfig(EscalationPolicyStepTargetConfig config) {
+    this.config = config;
+  }
 
   public EscalationPolicyStepTarget id(String id) {
     this.id = id;
@@ -137,7 +163,8 @@ public class EscalationPolicyStepTarget {
       return false;
     }
     EscalationPolicyStepTarget escalationPolicyStepTarget = (EscalationPolicyStepTarget) o;
-    return Objects.equals(this.id, escalationPolicyStepTarget.id)
+    return Objects.equals(this.config, escalationPolicyStepTarget.config)
+        && Objects.equals(this.id, escalationPolicyStepTarget.id)
         && Objects.equals(this.type, escalationPolicyStepTarget.type)
         && Objects.equals(
             this.additionalProperties, escalationPolicyStepTarget.additionalProperties);
@@ -145,13 +172,14 @@ public class EscalationPolicyStepTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(config, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EscalationPolicyStepTarget {\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

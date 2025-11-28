@@ -84,7 +84,7 @@ public class EscalationPolicyCreateRequestDataAttributesStepsItems {
   }
 
   /**
-   * Defines how many seconds to wait before escalating to the next step.
+   * Defines how many seconds to wait before escalating to the next step. minimum: 60 maximum: 36000
    *
    * @return escalateAfterSeconds
    */

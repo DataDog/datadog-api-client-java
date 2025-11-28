@@ -1,0 +1,61 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v2.model;
+
+import com.datadog.api.client.ModelEnum;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * Specifies the position of a schedule target (example <code>previous</code>, <code>current</code>,
+ * or <code>next</code>).
+ */
+@JsonSerialize(using = ScheduleTargetPosition.ScheduleTargetPositionSerializer.class)
+public class ScheduleTargetPosition extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("previous", "current", "next"));
+
+  public static final ScheduleTargetPosition PREVIOUS = new ScheduleTargetPosition("previous");
+  public static final ScheduleTargetPosition CURRENT = new ScheduleTargetPosition("current");
+  public static final ScheduleTargetPosition NEXT = new ScheduleTargetPosition("next");
+
+  ScheduleTargetPosition(String value) {
+    super(value, allowedValues);
+  }
+
+  public static class ScheduleTargetPositionSerializer
+      extends StdSerializer<ScheduleTargetPosition> {
+    public ScheduleTargetPositionSerializer(Class<ScheduleTargetPosition> t) {
+      super(t);
+    }
+
+    public ScheduleTargetPositionSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        ScheduleTargetPosition value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
+  @JsonCreator
+  public static ScheduleTargetPosition fromValue(String value) {
+    return new ScheduleTargetPosition(value);
+  }
+}
