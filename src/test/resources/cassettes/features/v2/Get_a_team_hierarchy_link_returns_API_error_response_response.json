@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/team-hierarchy-links/aaa11111-aa11-aa11-aaaa-aaaaaa111111",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Not Found: team hierarchy link not found (linkId=aaa11111-aa11-aa11-aaaa-aaaaaa111111)\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c4e82909-dd35-3220-4c88-18e59e6b3249"
+  }
+]
