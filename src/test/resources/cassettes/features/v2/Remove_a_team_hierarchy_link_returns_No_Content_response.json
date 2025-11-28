@@ -1,0 +1,181 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-db31819631324305\",\"name\":\"test-name-db31819631324305\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"eaf01981-6b63-41ba-b49f-30449c50e865\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":10,\"created_at\":\"2025-11-24T17:08:01.930314+00:00\",\"description\":null,\"handle\":\"test-handle-db31819631324305\",\"hidden_modules\":null,\"is_managed\":false,\"link_count\":0,\"modified_at\":\"2025-11-24T17:08:01.930314+00:00\",\"name\":\"test-name-db31819631324305\",\"summary\":null,\"user_count\":0,\"visible_modules\":null},\"relationships\":{\"team_links\":{\"data\":[],\"links\":{\"related\":\"/api/v2/team/eaf01981-6b63-41ba-b49f-30449c50e865/links\"}},\"user_team_permissions\":{\"data\":null,\"links\":{\"related\":\"/api/v2/team/eaf01981-6b63-41ba-b49f-30449c50e865/permission-settings\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "83a592d3-fc05-7f6c-2225-6a804b6cb3fd"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-2-db31819631324305\",\"name\":\"test-name-2-db31819631324305\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"120aeb27-ca42-4e38-a9e4-6497b8f9407c\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":6,\"created_at\":\"2025-11-24T17:08:02.174211+00:00\",\"description\":null,\"handle\":\"test-handle-2-db31819631324305\",\"hidden_modules\":null,\"is_managed\":false,\"link_count\":0,\"modified_at\":\"2025-11-24T17:08:02.174211+00:00\",\"name\":\"test-name-2-db31819631324305\",\"summary\":null,\"user_count\":0,\"visible_modules\":null},\"relationships\":{\"team_links\":{\"data\":[],\"links\":{\"related\":\"/api/v2/team/120aeb27-ca42-4e38-a9e4-6497b8f9407c/links\"}},\"user_team_permissions\":{\"data\":null,\"links\":{\"related\":\"/api/v2/team/120aeb27-ca42-4e38-a9e4-6497b8f9407c/permission-settings\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "60fd2072-6a36-5270-a7ac-420092d128f7"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"relationships\":{\"parent_team\":{\"data\":{\"id\":\"eaf01981-6b63-41ba-b49f-30449c50e865\",\"type\":\"team\"}},\"sub_team\":{\"data\":{\"id\":\"120aeb27-ca42-4e38-a9e4-6497b8f9407c\",\"type\":\"team\"}}},\"type\":\"team_hierarchy_links\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team-hierarchy-links",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"185446b8-1e88-419c-b266-3933f1411b6e\",\"type\":\"team_hierarchy_links\",\"attributes\":{\"created_at\":\"2025-11-24T17:08:02.736655421Z\",\"provisioned_by\":\"\"},\"relationships\":{\"parent_team\":{\"data\":{\"id\":\"eaf01981-6b63-41ba-b49f-30449c50e865\",\"type\":\"team\"}},\"sub_team\":{\"data\":{\"id\":\"120aeb27-ca42-4e38-a9e4-6497b8f9407c\",\"type\":\"team\"}}}},\"included\":[{\"id\":\"eaf01981-6b63-41ba-b49f-30449c50e865\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":10,\"handle\":\"test-handle-db31819631324305\",\"is_managed\":false,\"is_open_membership\":false,\"link_count\":0,\"name\":\"test-name-db31819631324305\",\"summary\":null,\"user_count\":0}},{\"id\":\"120aeb27-ca42-4e38-a9e4-6497b8f9407c\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":6,\"handle\":\"test-handle-2-db31819631324305\",\"is_managed\":false,\"is_open_membership\":false,\"link_count\":0,\"name\":\"test-name-2-db31819631324305\",\"summary\":null,\"user_count\":0}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1ed15f6e-36fe-e51e-ffaa-3009d34464e7"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team-hierarchy-links/185446b8-1e88-419c-b266-3933f1411b6e",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "954ab98a-3b9c-8c13-b2fa-c9692349b4a9"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team-hierarchy-links/185446b8-1e88-419c-b266-3933f1411b6e",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Not Found: link with id 185446b8-1e88-419c-b266-3933f1411b6e not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "954ab98a-3b9c-8c13-b2fa-c9692349b4aa"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/120aeb27-ca42-4e38-a9e4-6497b8f9407c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "eab70343-b6b4-67c9-8bcc-3a1ac13f5c75"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/eaf01981-6b63-41ba-b49f-30449c50e865",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d01fd700-c1e5-677d-4032-73e8d5805ab6"
+  }
+]
