@@ -12,14 +12,14 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"title\":\"failed to update policy\"}]}\n",
+      "body": "{\"errors\":[{\"title\":\"Not Found\"}]}",
       "headers": {
         "Content-Type": [
           "application/json"
         ]
       },
-      "statusCode": 400,
-      "reasonPhrase": "Bad Request"
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
     },
     "times": {
       "remainingTimes": 1
