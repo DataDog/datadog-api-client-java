@@ -18,38 +18,79 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Represents a schedule target for an escalation policy step, including its ID and resource type.
- * This is a shortcut for a configured schedule target with position set to 'current'.
+ * Full resource representation of a configured schedule target with position (previous, current, or
+ * next).
  */
-@JsonPropertyOrder({ScheduleTarget.JSON_PROPERTY_ID, ScheduleTarget.JSON_PROPERTY_TYPE})
+@JsonPropertyOrder({
+  ConfiguredSchedule.JSON_PROPERTY_ATTRIBUTES,
+  ConfiguredSchedule.JSON_PROPERTY_ID,
+  ConfiguredSchedule.JSON_PROPERTY_RELATIONSHIPS,
+  ConfiguredSchedule.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleTarget {
+public class ConfiguredSchedule {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private ConfiguredScheduleTargetAttributes attributes;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ScheduleTargetType type = ScheduleTargetType.SCHEDULES;
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private ConfiguredScheduleTargetRelationships relationships;
 
-  public ScheduleTarget() {}
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private ConfiguredScheduleTargetType type = ConfiguredScheduleTargetType.SCHEDULE_TARGET;
+
+  public ConfiguredSchedule() {}
 
   @JsonCreator
-  public ScheduleTarget(
+  public ConfiguredSchedule(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          ConfiguredScheduleTargetAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ScheduleTargetType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_RELATIONSHIPS)
+          ConfiguredScheduleTargetRelationships relationships,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ConfiguredScheduleTargetType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     this.id = id;
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public ScheduleTarget id(String id) {
+  public ConfiguredSchedule attributes(ConfiguredScheduleTargetAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    return this;
+  }
+
+  /**
+   * Attributes for a configured schedule target, including position.
+   *
+   * @return attributes
+   */
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ConfiguredScheduleTargetAttributes getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(ConfiguredScheduleTargetAttributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public ConfiguredSchedule id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Specifies the unique identifier of the schedule resource.
+   * Specifies the unique identifier of the configured schedule target.
    *
    * @return id
    */
@@ -63,24 +104,45 @@ public class ScheduleTarget {
     this.id = id;
   }
 
-  public ScheduleTarget type(ScheduleTargetType type) {
+  public ConfiguredSchedule relationships(ConfiguredScheduleTargetRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * Represents the relationships of a configured schedule target.
+   *
+   * @return relationships
+   */
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ConfiguredScheduleTargetRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(ConfiguredScheduleTargetRelationships relationships) {
+    this.relationships = relationships;
+  }
+
+  public ConfiguredSchedule type(ConfiguredScheduleTargetType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Indicates that the resource is of type <code>schedules</code>.
+   * Indicates that the resource is of type <code>schedule_target</code>.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ScheduleTargetType getType() {
+  public ConfiguredScheduleTargetType getType() {
     return type;
   }
 
-  public void setType(ScheduleTargetType type) {
+  public void setType(ConfiguredScheduleTargetType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -99,10 +161,10 @@ public class ScheduleTarget {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleTarget
+   * @return ConfiguredSchedule
    */
   @JsonAnySetter
-  public ScheduleTarget putAdditionalProperty(String key, Object value) {
+  public ConfiguredSchedule putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +195,7 @@ public class ScheduleTarget {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScheduleTarget object is equal to o. */
+  /** Return true if this ConfiguredSchedule object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,22 +204,26 @@ public class ScheduleTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleTarget scheduleTarget = (ScheduleTarget) o;
-    return Objects.equals(this.id, scheduleTarget.id)
-        && Objects.equals(this.type, scheduleTarget.type)
-        && Objects.equals(this.additionalProperties, scheduleTarget.additionalProperties);
+    ConfiguredSchedule configuredSchedule = (ConfiguredSchedule) o;
+    return Objects.equals(this.attributes, configuredSchedule.attributes)
+        && Objects.equals(this.id, configuredSchedule.id)
+        && Objects.equals(this.relationships, configuredSchedule.relationships)
+        && Objects.equals(this.type, configuredSchedule.type)
+        && Objects.equals(this.additionalProperties, configuredSchedule.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleTarget {\n");
+    sb.append("class ConfiguredSchedule {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
