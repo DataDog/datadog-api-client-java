@@ -18,40 +18,43 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of change. */
-@JsonSerialize(using = RuleVersionUpdateType.RuleVersionUpdateTypeSerializer.class)
-public class RuleVersionUpdateType extends ModelEnum<String> {
+/** Type of data. */
+@JsonSerialize(
+    using =
+        GetSuppressionVersionHistoryDataType.GetSuppressionVersionHistoryDataTypeSerializer.class)
+public class GetSuppressionVersionHistoryDataType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("create", "update", "delete"));
+      new HashSet<String>(Arrays.asList("suppression_version_history"));
 
-  public static final RuleVersionUpdateType CREATE = new RuleVersionUpdateType("create");
-  public static final RuleVersionUpdateType UPDATE = new RuleVersionUpdateType("update");
-  public static final RuleVersionUpdateType DELETE = new RuleVersionUpdateType("delete");
+  public static final GetSuppressionVersionHistoryDataType SUPPRESSIONVERSIONHISTORY =
+      new GetSuppressionVersionHistoryDataType("suppression_version_history");
 
-  RuleVersionUpdateType(String value) {
+  GetSuppressionVersionHistoryDataType(String value) {
     super(value, allowedValues);
   }
 
-  public static class RuleVersionUpdateTypeSerializer extends StdSerializer<RuleVersionUpdateType> {
-    public RuleVersionUpdateTypeSerializer(Class<RuleVersionUpdateType> t) {
+  public static class GetSuppressionVersionHistoryDataTypeSerializer
+      extends StdSerializer<GetSuppressionVersionHistoryDataType> {
+    public GetSuppressionVersionHistoryDataTypeSerializer(
+        Class<GetSuppressionVersionHistoryDataType> t) {
       super(t);
     }
 
-    public RuleVersionUpdateTypeSerializer() {
+    public GetSuppressionVersionHistoryDataTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        RuleVersionUpdateType value, JsonGenerator jgen, SerializerProvider provider)
+        GetSuppressionVersionHistoryDataType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static RuleVersionUpdateType fromValue(String value) {
-    return new RuleVersionUpdateType(value);
+  public static GetSuppressionVersionHistoryDataType fromValue(String value) {
+    return new GetSuppressionVersionHistoryDataType(value);
   }
 }
