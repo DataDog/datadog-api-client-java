@@ -12,78 +12,82 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Relationship between a user team permission and a team */
+/** Response containing information about a single restriction query. */
 @JsonPropertyOrder({
-  RelationshipToUserTeamPermission.JSON_PROPERTY_DATA,
-  RelationshipToUserTeamPermission.JSON_PROPERTY_LINKS
+  RestrictionQueryWithRelationshipsResponse.JSON_PROPERTY_DATA,
+  RestrictionQueryWithRelationshipsResponse.JSON_PROPERTY_INCLUDED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RelationshipToUserTeamPermission {
+public class RestrictionQueryWithRelationshipsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private JsonNullable<RelationshipToUserTeamPermissionData> data =
-      JsonNullable.<RelationshipToUserTeamPermissionData>undefined();
+  private RestrictionQueryWithRelationships data;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private TeamRelationshipsLinks links;
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<RestrictionQueryResponseIncludedItem> included = null;
 
-  public RelationshipToUserTeamPermission data(RelationshipToUserTeamPermissionData data) {
-    this.data = JsonNullable.<RelationshipToUserTeamPermissionData>of(data);
+  public RestrictionQueryWithRelationshipsResponse data(RestrictionQueryWithRelationships data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Related user team permission data
+   * Restriction query object returned by the API.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public RelationshipToUserTeamPermissionData getData() {
-    return data.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<RelationshipToUserTeamPermissionData> getData_JsonNullable() {
+  public RestrictionQueryWithRelationships getData() {
     return data;
   }
 
-  @JsonProperty(JSON_PROPERTY_DATA)
-  public void setData_JsonNullable(JsonNullable<RelationshipToUserTeamPermissionData> data) {
+  public void setData(RestrictionQueryWithRelationships data) {
     this.data = data;
   }
 
-  public void setData(RelationshipToUserTeamPermissionData data) {
-    this.data = JsonNullable.<RelationshipToUserTeamPermissionData>of(data);
+  public RestrictionQueryWithRelationshipsResponse included(
+      List<RestrictionQueryResponseIncludedItem> included) {
+    this.included = included;
+    for (RestrictionQueryResponseIncludedItem item : included) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
   }
 
-  public RelationshipToUserTeamPermission links(TeamRelationshipsLinks links) {
-    this.links = links;
-    this.unparsed |= links.unparsed;
+  public RestrictionQueryWithRelationshipsResponse addIncludedItem(
+      RestrictionQueryResponseIncludedItem includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
     return this;
   }
 
   /**
-   * Links attributes.
+   * Array of objects related to the restriction query.
    *
-   * @return links
+   * @return included
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamRelationshipsLinks getLinks() {
-    return links;
+  public List<RestrictionQueryResponseIncludedItem> getIncluded() {
+    return included;
   }
 
-  public void setLinks(TeamRelationshipsLinks links) {
-    this.links = links;
+  public void setIncluded(List<RestrictionQueryResponseIncludedItem> included) {
+    this.included = included;
   }
 
   /**
@@ -98,10 +102,10 @@ public class RelationshipToUserTeamPermission {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RelationshipToUserTeamPermission
+   * @return RestrictionQueryWithRelationshipsResponse
    */
   @JsonAnySetter
-  public RelationshipToUserTeamPermission putAdditionalProperty(String key, Object value) {
+  public RestrictionQueryWithRelationshipsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -132,7 +136,7 @@ public class RelationshipToUserTeamPermission {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RelationshipToUserTeamPermission object is equal to o. */
+  /** Return true if this RestrictionQueryWithRelationshipsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,25 +145,26 @@ public class RelationshipToUserTeamPermission {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToUserTeamPermission relationshipToUserTeamPermission =
-        (RelationshipToUserTeamPermission) o;
-    return Objects.equals(this.data, relationshipToUserTeamPermission.data)
-        && Objects.equals(this.links, relationshipToUserTeamPermission.links)
+    RestrictionQueryWithRelationshipsResponse restrictionQueryWithRelationshipsResponse =
+        (RestrictionQueryWithRelationshipsResponse) o;
+    return Objects.equals(this.data, restrictionQueryWithRelationshipsResponse.data)
+        && Objects.equals(this.included, restrictionQueryWithRelationshipsResponse.included)
         && Objects.equals(
-            this.additionalProperties, relationshipToUserTeamPermission.additionalProperties);
+            this.additionalProperties,
+            restrictionQueryWithRelationshipsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, additionalProperties);
+    return Objects.hash(data, included, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RelationshipToUserTeamPermission {\n");
+    sb.append("class RestrictionQueryWithRelationshipsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

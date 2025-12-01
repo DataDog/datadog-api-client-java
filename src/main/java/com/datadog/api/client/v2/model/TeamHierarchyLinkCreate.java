@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,75 +16,78 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Relationship between a user team permission and a team */
+/** Data provided when creating a team hierarchy link */
 @JsonPropertyOrder({
-  RelationshipToUserTeamPermission.JSON_PROPERTY_DATA,
-  RelationshipToUserTeamPermission.JSON_PROPERTY_LINKS
+  TeamHierarchyLinkCreate.JSON_PROPERTY_RELATIONSHIPS,
+  TeamHierarchyLinkCreate.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RelationshipToUserTeamPermission {
+public class TeamHierarchyLinkCreate {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private JsonNullable<RelationshipToUserTeamPermissionData> data =
-      JsonNullable.<RelationshipToUserTeamPermissionData>undefined();
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private TeamHierarchyLinkCreateRelationships relationships;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private TeamRelationshipsLinks links;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TeamHierarchyLinkType type = TeamHierarchyLinkType.TEAM_HIERARCHY_LINKS;
 
-  public RelationshipToUserTeamPermission data(RelationshipToUserTeamPermissionData data) {
-    this.data = JsonNullable.<RelationshipToUserTeamPermissionData>of(data);
+  public TeamHierarchyLinkCreate() {}
+
+  @JsonCreator
+  public TeamHierarchyLinkCreate(
+      @JsonProperty(required = true, value = JSON_PROPERTY_RELATIONSHIPS)
+          TeamHierarchyLinkCreateRelationships relationships,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TeamHierarchyLinkType type) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public TeamHierarchyLinkCreate relationships(TeamHierarchyLinkCreateRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
     return this;
   }
 
   /**
-   * Related user team permission data
+   * The related teams that will be connected by the team hierarchy link
    *
-   * @return data
+   * @return relationships
    */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public RelationshipToUserTeamPermissionData getData() {
-    return data.orElse(null);
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TeamHierarchyLinkCreateRelationships getRelationships() {
+    return relationships;
   }
 
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<RelationshipToUserTeamPermissionData> getData_JsonNullable() {
-    return data;
+  public void setRelationships(TeamHierarchyLinkCreateRelationships relationships) {
+    this.relationships = relationships;
   }
 
-  @JsonProperty(JSON_PROPERTY_DATA)
-  public void setData_JsonNullable(JsonNullable<RelationshipToUserTeamPermissionData> data) {
-    this.data = data;
-  }
-
-  public void setData(RelationshipToUserTeamPermissionData data) {
-    this.data = JsonNullable.<RelationshipToUserTeamPermissionData>of(data);
-  }
-
-  public RelationshipToUserTeamPermission links(TeamRelationshipsLinks links) {
-    this.links = links;
-    this.unparsed |= links.unparsed;
+  public TeamHierarchyLinkCreate type(TeamHierarchyLinkType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Links attributes.
+   * Team hierarchy link type
    *
-   * @return links
+   * @return type
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamRelationshipsLinks getLinks() {
-    return links;
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TeamHierarchyLinkType getType() {
+    return type;
   }
 
-  public void setLinks(TeamRelationshipsLinks links) {
-    this.links = links;
+  public void setType(TeamHierarchyLinkType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -98,10 +102,10 @@ public class RelationshipToUserTeamPermission {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RelationshipToUserTeamPermission
+   * @return TeamHierarchyLinkCreate
    */
   @JsonAnySetter
-  public RelationshipToUserTeamPermission putAdditionalProperty(String key, Object value) {
+  public TeamHierarchyLinkCreate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -132,7 +136,7 @@ public class RelationshipToUserTeamPermission {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RelationshipToUserTeamPermission object is equal to o. */
+  /** Return true if this TeamHierarchyLinkCreate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,25 +145,23 @@ public class RelationshipToUserTeamPermission {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToUserTeamPermission relationshipToUserTeamPermission =
-        (RelationshipToUserTeamPermission) o;
-    return Objects.equals(this.data, relationshipToUserTeamPermission.data)
-        && Objects.equals(this.links, relationshipToUserTeamPermission.links)
-        && Objects.equals(
-            this.additionalProperties, relationshipToUserTeamPermission.additionalProperties);
+    TeamHierarchyLinkCreate teamHierarchyLinkCreate = (TeamHierarchyLinkCreate) o;
+    return Objects.equals(this.relationships, teamHierarchyLinkCreate.relationships)
+        && Objects.equals(this.type, teamHierarchyLinkCreate.type)
+        && Objects.equals(this.additionalProperties, teamHierarchyLinkCreate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, additionalProperties);
+    return Objects.hash(relationships, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RelationshipToUserTeamPermission {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("class TeamHierarchyLinkCreate {\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

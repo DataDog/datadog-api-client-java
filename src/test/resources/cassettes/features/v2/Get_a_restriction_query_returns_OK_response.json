@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"restriction_query\":\"env:sandbox\"},\"type\":\"logs_restriction_queries\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/restriction_queries",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"logs_restriction_queries\",\"id\":\"2cc39998-c4b3-11f0-8b4b-da7ad0900002\",\"attributes\":{\"restriction_query\":\"env:sandbox\",\"created_at\":\"2025-11-18T19:17:07.768188+00:00\",\"modified_at\":\"2025-11-18T19:17:07.768188+00:00\"}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "eb3b308b-3d56-9ef8-4096-dd7718f51862"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/logs/config/restriction_queries/2cc39998-c4b3-11f0-8b4b-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"logs_restriction_queries\",\"id\":\"2cc39998-c4b3-11f0-8b4b-da7ad0900002\",\"attributes\":{\"restriction_query\":\"env:sandbox\",\"created_at\":\"2025-11-18T19:17:07.768188+00:00\",\"modified_at\":\"2025-11-18T19:17:07.768188+00:00\"},\"relationships\":{\"roles\":{\"data\":[]}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "948c6128-784a-4600-1adc-61749de3c923"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/restriction_queries/2cc39998-c4b3-11f0-8b4b-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9faae684-66f6-8c18-29cd-17c0deb68739"
+  }
+]

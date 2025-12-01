@@ -15,75 +15,67 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Relationship between a user team permission and a team */
+/** Data related to the update of a restriction query. */
 @JsonPropertyOrder({
-  RelationshipToUserTeamPermission.JSON_PROPERTY_DATA,
-  RelationshipToUserTeamPermission.JSON_PROPERTY_LINKS
+  RestrictionQueryUpdateData.JSON_PROPERTY_ATTRIBUTES,
+  RestrictionQueryUpdateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RelationshipToUserTeamPermission {
+public class RestrictionQueryUpdateData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private JsonNullable<RelationshipToUserTeamPermissionData> data =
-      JsonNullable.<RelationshipToUserTeamPermissionData>undefined();
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private RestrictionQueryUpdateAttributes attributes;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private TeamRelationshipsLinks links;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private LogsRestrictionQueriesType type = LogsRestrictionQueriesType.LOGS_RESTRICTION_QUERIES;
 
-  public RelationshipToUserTeamPermission data(RelationshipToUserTeamPermissionData data) {
-    this.data = JsonNullable.<RelationshipToUserTeamPermissionData>of(data);
+  public RestrictionQueryUpdateData attributes(RestrictionQueryUpdateAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Related user team permission data
+   * Attributes of the edited restriction query.
    *
-   * @return data
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public RelationshipToUserTeamPermissionData getData() {
-    return data.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<RelationshipToUserTeamPermissionData> getData_JsonNullable() {
-    return data;
+  public RestrictionQueryUpdateAttributes getAttributes() {
+    return attributes;
   }
 
-  @JsonProperty(JSON_PROPERTY_DATA)
-  public void setData_JsonNullable(JsonNullable<RelationshipToUserTeamPermissionData> data) {
-    this.data = data;
+  public void setAttributes(RestrictionQueryUpdateAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public void setData(RelationshipToUserTeamPermissionData data) {
-    this.data = JsonNullable.<RelationshipToUserTeamPermissionData>of(data);
-  }
-
-  public RelationshipToUserTeamPermission links(TeamRelationshipsLinks links) {
-    this.links = links;
-    this.unparsed |= links.unparsed;
+  public RestrictionQueryUpdateData type(LogsRestrictionQueriesType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Links attributes.
+   * Restriction query resource type.
    *
-   * @return links
+   * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamRelationshipsLinks getLinks() {
-    return links;
+  public LogsRestrictionQueriesType getType() {
+    return type;
   }
 
-  public void setLinks(TeamRelationshipsLinks links) {
-    this.links = links;
+  public void setType(LogsRestrictionQueriesType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -98,10 +90,10 @@ public class RelationshipToUserTeamPermission {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RelationshipToUserTeamPermission
+   * @return RestrictionQueryUpdateData
    */
   @JsonAnySetter
-  public RelationshipToUserTeamPermission putAdditionalProperty(String key, Object value) {
+  public RestrictionQueryUpdateData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -132,7 +124,7 @@ public class RelationshipToUserTeamPermission {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RelationshipToUserTeamPermission object is equal to o. */
+  /** Return true if this RestrictionQueryUpdateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,25 +133,24 @@ public class RelationshipToUserTeamPermission {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToUserTeamPermission relationshipToUserTeamPermission =
-        (RelationshipToUserTeamPermission) o;
-    return Objects.equals(this.data, relationshipToUserTeamPermission.data)
-        && Objects.equals(this.links, relationshipToUserTeamPermission.links)
+    RestrictionQueryUpdateData restrictionQueryUpdateData = (RestrictionQueryUpdateData) o;
+    return Objects.equals(this.attributes, restrictionQueryUpdateData.attributes)
+        && Objects.equals(this.type, restrictionQueryUpdateData.type)
         && Objects.equals(
-            this.additionalProperties, relationshipToUserTeamPermission.additionalProperties);
+            this.additionalProperties, restrictionQueryUpdateData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, additionalProperties);
+    return Objects.hash(attributes, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RelationshipToUserTeamPermission {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("class RestrictionQueryUpdateData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

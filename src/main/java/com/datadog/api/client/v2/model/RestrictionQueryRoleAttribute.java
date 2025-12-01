@@ -15,75 +15,35 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Relationship between a user team permission and a team */
-@JsonPropertyOrder({
-  RelationshipToUserTeamPermission.JSON_PROPERTY_DATA,
-  RelationshipToUserTeamPermission.JSON_PROPERTY_LINKS
-})
+/** Attributes of the role for a restriction query. */
+@JsonPropertyOrder({RestrictionQueryRoleAttribute.JSON_PROPERTY_NAME})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RelationshipToUserTeamPermission {
+public class RestrictionQueryRoleAttribute {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private JsonNullable<RelationshipToUserTeamPermissionData> data =
-      JsonNullable.<RelationshipToUserTeamPermissionData>undefined();
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private TeamRelationshipsLinks links;
-
-  public RelationshipToUserTeamPermission data(RelationshipToUserTeamPermissionData data) {
-    this.data = JsonNullable.<RelationshipToUserTeamPermissionData>of(data);
+  public RestrictionQueryRoleAttribute name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Related user team permission data
+   * The role name.
    *
-   * @return data
+   * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public RelationshipToUserTeamPermissionData getData() {
-    return data.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<RelationshipToUserTeamPermissionData> getData_JsonNullable() {
-    return data;
+  public String getName() {
+    return name;
   }
 
-  @JsonProperty(JSON_PROPERTY_DATA)
-  public void setData_JsonNullable(JsonNullable<RelationshipToUserTeamPermissionData> data) {
-    this.data = data;
-  }
-
-  public void setData(RelationshipToUserTeamPermissionData data) {
-    this.data = JsonNullable.<RelationshipToUserTeamPermissionData>of(data);
-  }
-
-  public RelationshipToUserTeamPermission links(TeamRelationshipsLinks links) {
-    this.links = links;
-    this.unparsed |= links.unparsed;
-    return this;
-  }
-
-  /**
-   * Links attributes.
-   *
-   * @return links
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamRelationshipsLinks getLinks() {
-    return links;
-  }
-
-  public void setLinks(TeamRelationshipsLinks links) {
-    this.links = links;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -98,10 +58,10 @@ public class RelationshipToUserTeamPermission {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RelationshipToUserTeamPermission
+   * @return RestrictionQueryRoleAttribute
    */
   @JsonAnySetter
-  public RelationshipToUserTeamPermission putAdditionalProperty(String key, Object value) {
+  public RestrictionQueryRoleAttribute putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -132,7 +92,7 @@ public class RelationshipToUserTeamPermission {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RelationshipToUserTeamPermission object is equal to o. */
+  /** Return true if this RestrictionQueryRoleAttribute object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,25 +101,22 @@ public class RelationshipToUserTeamPermission {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToUserTeamPermission relationshipToUserTeamPermission =
-        (RelationshipToUserTeamPermission) o;
-    return Objects.equals(this.data, relationshipToUserTeamPermission.data)
-        && Objects.equals(this.links, relationshipToUserTeamPermission.links)
+    RestrictionQueryRoleAttribute restrictionQueryRoleAttribute = (RestrictionQueryRoleAttribute) o;
+    return Objects.equals(this.name, restrictionQueryRoleAttribute.name)
         && Objects.equals(
-            this.additionalProperties, relationshipToUserTeamPermission.additionalProperties);
+            this.additionalProperties, restrictionQueryRoleAttribute.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, additionalProperties);
+    return Objects.hash(name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RelationshipToUserTeamPermission {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("class RestrictionQueryRoleAttribute {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
