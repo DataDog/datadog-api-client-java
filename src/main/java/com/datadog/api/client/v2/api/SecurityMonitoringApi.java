@@ -6,15 +6,22 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.AssetType;
+import com.datadog.api.client.v2.model.AttachCaseRequest;
+import com.datadog.api.client.v2.model.AttachJiraIssueRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsResponse;
 import com.datadog.api.client.v2.model.CloudAssetType;
 import com.datadog.api.client.v2.model.ConvertJobResultsToSignalsRequest;
+import com.datadog.api.client.v2.model.CreateCaseRequestArray;
 import com.datadog.api.client.v2.model.CreateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.CreateCustomFrameworkResponse;
+import com.datadog.api.client.v2.model.CreateJiraIssueRequestArray;
 import com.datadog.api.client.v2.model.CreateNotificationRuleParameters;
 import com.datadog.api.client.v2.model.DeleteCustomFrameworkResponse;
+import com.datadog.api.client.v2.model.DetachCaseRequest;
 import com.datadog.api.client.v2.model.Finding;
+import com.datadog.api.client.v2.model.FindingCaseResponse;
+import com.datadog.api.client.v2.model.FindingCaseResponseArray;
 import com.datadog.api.client.v2.model.FindingEvaluation;
 import com.datadog.api.client.v2.model.FindingStatus;
 import com.datadog.api.client.v2.model.FindingVulnerabilityType;
@@ -114,6 +121,295 @@ public class SecurityMonitoringApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Attach security findings to a case.
+   *
+   * <p>See {@link #attachCaseWithHttpInfo}.
+   *
+   * @param caseId The unique identifier of the case to attach security findings to (required)
+   * @param body (required)
+   * @return FindingCaseResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FindingCaseResponse attachCase(String caseId, AttachCaseRequest body) throws ApiException {
+    return attachCaseWithHttpInfo(caseId, body).getData();
+  }
+
+  /**
+   * Attach security findings to a case.
+   *
+   * <p>See {@link #attachCaseWithHttpInfoAsync}.
+   *
+   * @param caseId The unique identifier of the case to attach security findings to (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FindingCaseResponse&gt;
+   */
+  public CompletableFuture<FindingCaseResponse> attachCaseAsync(
+      String caseId, AttachCaseRequest body) {
+    return attachCaseWithHttpInfoAsync(caseId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Attach security findings to a case. You can attach up to 50 security findings per case.
+   * Security findings that are already attached to another case will be detached from their
+   * previous case and attached to the specified case.
+   *
+   * @param caseId The unique identifier of the case to attach security findings to (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FindingCaseResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FindingCaseResponse> attachCaseWithHttpInfo(
+      String caseId, AttachCaseRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseId' when calling attachCase");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling attachCase");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/cases/{case_id}"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.attachCase",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Attach security findings to a case.
+   *
+   * <p>See {@link #attachCaseWithHttpInfo}.
+   *
+   * @param caseId The unique identifier of the case to attach security findings to (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FindingCaseResponse>> attachCaseWithHttpInfoAsync(
+      String caseId, AttachCaseRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'caseId' when calling attachCase"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling attachCase"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/findings/cases/{case_id}"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.attachCase",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Attach security findings to a Jira issue.
+   *
+   * <p>See {@link #attachJiraIssueWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return FindingCaseResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FindingCaseResponse attachJiraIssue(AttachJiraIssueRequest body) throws ApiException {
+    return attachJiraIssueWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Attach security findings to a Jira issue.
+   *
+   * <p>See {@link #attachJiraIssueWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;FindingCaseResponse&gt;
+   */
+  public CompletableFuture<FindingCaseResponse> attachJiraIssueAsync(AttachJiraIssueRequest body) {
+    return attachJiraIssueWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Attach security findings to a Jira issue by providing the Jira issue URL. You can attach up to
+   * 50 security findings per Jira issue. If the Jira issue is not linked to any case, this
+   * operation will create a case for the security findings and link the Jira issue to the newly
+   * created case. Security findings that are already attached to another Jira issue will be
+   * detached from their previous Jira issue and attached to the specified Jira issue.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;FindingCaseResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FindingCaseResponse> attachJiraIssueWithHttpInfo(AttachJiraIssueRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling attachJiraIssue");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/jira_issues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.attachJiraIssue",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Attach security findings to a Jira issue.
+   *
+   * <p>See {@link #attachJiraIssueWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FindingCaseResponse>> attachJiraIssueWithHttpInfoAsync(
+      AttachJiraIssueRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling attachJiraIssue"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/jira_issues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.attachJiraIssue",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponse>() {});
   }
 
   /**
@@ -721,6 +1017,137 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Create cases for security findings.
+   *
+   * <p>See {@link #createCasesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return FindingCaseResponseArray
+   * @throws ApiException if fails to make API call
+   */
+  public FindingCaseResponseArray createCases(CreateCaseRequestArray body) throws ApiException {
+    return createCasesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create cases for security findings.
+   *
+   * <p>See {@link #createCasesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;FindingCaseResponseArray&gt;
+   */
+  public CompletableFuture<FindingCaseResponseArray> createCasesAsync(CreateCaseRequestArray body) {
+    return createCasesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create cases for security findings. You can create up to 50 cases per request and associate up
+   * to 50 security findings per case. Security findings that are already attached to another case
+   * will be detached from their previous case and attached to the newly created case.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;FindingCaseResponseArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FindingCaseResponseArray> createCasesWithHttpInfo(CreateCaseRequestArray body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createCases");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/cases";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createCases",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponseArray>() {});
+  }
+
+  /**
+   * Create cases for security findings.
+   *
+   * <p>See {@link #createCasesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponseArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FindingCaseResponseArray>> createCasesWithHttpInfoAsync(
+      CreateCaseRequestArray body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling createCases"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/cases";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createCases",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponseArray>() {});
+  }
+
+  /**
    * Create a custom framework.
    *
    * <p>See {@link #createCustomFrameworkWithHttpInfo}.
@@ -854,6 +1281,143 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CreateCustomFrameworkResponse>() {});
+  }
+
+  /**
+   * Create Jira issues for security findings.
+   *
+   * <p>See {@link #createJiraIssuesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return FindingCaseResponseArray
+   * @throws ApiException if fails to make API call
+   */
+  public FindingCaseResponseArray createJiraIssues(CreateJiraIssueRequestArray body)
+      throws ApiException {
+    return createJiraIssuesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create Jira issues for security findings.
+   *
+   * <p>See {@link #createJiraIssuesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;FindingCaseResponseArray&gt;
+   */
+  public CompletableFuture<FindingCaseResponseArray> createJiraIssuesAsync(
+      CreateJiraIssueRequestArray body) {
+    return createJiraIssuesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create Jira issues for security findings. This operation creates a case in Datadog and a Jira
+   * issue linked to that case for bidirectional sync between Datadog and Jira. You can create up to
+   * 50 Jira issues per request and associate up to 50 security findings per Jira issue. Security
+   * findings that are already attached to another Jira issue will be detached from their previous
+   * Jira issue and attached to the newly created Jira issue.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;FindingCaseResponseArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FindingCaseResponseArray> createJiraIssuesWithHttpInfo(
+      CreateJiraIssueRequestArray body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createJiraIssues");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/jira_issues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createJiraIssues",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponseArray>() {});
+  }
+
+  /**
+   * Create Jira issues for security findings.
+   *
+   * <p>See {@link #createJiraIssuesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponseArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FindingCaseResponseArray>> createJiraIssuesWithHttpInfoAsync(
+      CreateJiraIssueRequestArray body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createJiraIssues"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/jira_issues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createJiraIssues",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FindingCaseResponseArray>() {});
   }
 
   /**
@@ -2552,6 +3116,135 @@ public class SecurityMonitoringApi {
         builder,
         localVarHeaderParams,
         new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Detach security findings from their case.
+   *
+   * <p>See {@link #detachCaseWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void detachCase(DetachCaseRequest body) throws ApiException {
+    detachCaseWithHttpInfo(body);
+  }
+
+  /**
+   * Detach security findings from their case.
+   *
+   * <p>See {@link #detachCaseWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> detachCaseAsync(DetachCaseRequest body) {
+    return detachCaseWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Detach security findings from their case. This operation dissociates security findings from
+   * their associated cases without deleting the cases themselves. You can detach security findings
+   * from multiple different cases in a single request, with a limit of 50 security findings per
+   * request. Security findings that are not currently attached to any case will be ignored.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> detachCaseWithHttpInfo(DetachCaseRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling detachCase");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/cases";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.detachCase",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Detach security findings from their case.
+   *
+   * <p>See {@link #detachCaseWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> detachCaseWithHttpInfoAsync(DetachCaseRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling detachCase"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/cases";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.detachCase",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
@@ -10643,7 +11336,7 @@ public class SecurityMonitoringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -10708,7 +11401,7 @@ public class SecurityMonitoringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<BulkMuteFindingsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
