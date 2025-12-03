@@ -17,39 +17,40 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Represents a schedule target for an escalation policy step, including its ID and resource type.
- * This is a shortcut for a configured schedule target with position set to 'current'.
- */
-@JsonPropertyOrder({ScheduleTarget.JSON_PROPERTY_ID, ScheduleTarget.JSON_PROPERTY_TYPE})
+/** Relationship reference to a configured schedule target. */
+@JsonPropertyOrder({
+  ConfiguredScheduleTarget.JSON_PROPERTY_ID,
+  ConfiguredScheduleTarget.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleTarget {
+public class ConfiguredScheduleTarget {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ScheduleTargetType type = ScheduleTargetType.SCHEDULES;
+  private ConfiguredScheduleTargetType type = ConfiguredScheduleTargetType.SCHEDULE_TARGET;
 
-  public ScheduleTarget() {}
+  public ConfiguredScheduleTarget() {}
 
   @JsonCreator
-  public ScheduleTarget(
+  public ConfiguredScheduleTarget(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ScheduleTargetType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ConfiguredScheduleTargetType type) {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public ScheduleTarget id(String id) {
+  public ConfiguredScheduleTarget id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Specifies the unique identifier of the schedule resource.
+   * Specifies the unique identifier of the configured schedule target.
    *
    * @return id
    */
@@ -63,24 +64,24 @@ public class ScheduleTarget {
     this.id = id;
   }
 
-  public ScheduleTarget type(ScheduleTargetType type) {
+  public ConfiguredScheduleTarget type(ConfiguredScheduleTargetType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Indicates that the resource is of type <code>schedules</code>.
+   * Indicates that the resource is of type <code>schedule_target</code>.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ScheduleTargetType getType() {
+  public ConfiguredScheduleTargetType getType() {
     return type;
   }
 
-  public void setType(ScheduleTargetType type) {
+  public void setType(ConfiguredScheduleTargetType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -99,10 +100,10 @@ public class ScheduleTarget {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleTarget
+   * @return ConfiguredScheduleTarget
    */
   @JsonAnySetter
-  public ScheduleTarget putAdditionalProperty(String key, Object value) {
+  public ConfiguredScheduleTarget putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +134,7 @@ public class ScheduleTarget {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScheduleTarget object is equal to o. */
+  /** Return true if this ConfiguredScheduleTarget object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,10 +143,10 @@ public class ScheduleTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleTarget scheduleTarget = (ScheduleTarget) o;
-    return Objects.equals(this.id, scheduleTarget.id)
-        && Objects.equals(this.type, scheduleTarget.type)
-        && Objects.equals(this.additionalProperties, scheduleTarget.additionalProperties);
+    ConfiguredScheduleTarget configuredScheduleTarget = (ConfiguredScheduleTarget) o;
+    return Objects.equals(this.id, configuredScheduleTarget.id)
+        && Objects.equals(this.type, configuredScheduleTarget.type)
+        && Objects.equals(this.additionalProperties, configuredScheduleTarget.additionalProperties);
   }
 
   @Override
@@ -156,7 +157,7 @@ public class ScheduleTarget {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleTarget {\n");
+    sb.append("class ConfiguredScheduleTarget {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

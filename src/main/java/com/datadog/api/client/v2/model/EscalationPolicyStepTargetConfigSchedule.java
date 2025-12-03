@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,74 +16,39 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Represents a schedule target for an escalation policy step, including its ID and resource type.
- * This is a shortcut for a configured schedule target with position set to 'current'.
- */
-@JsonPropertyOrder({ScheduleTarget.JSON_PROPERTY_ID, ScheduleTarget.JSON_PROPERTY_TYPE})
+/** Schedule-specific configuration for an escalation target. */
+@JsonPropertyOrder({EscalationPolicyStepTargetConfigSchedule.JSON_PROPERTY_POSITION})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleTarget {
+public class EscalationPolicyStepTargetConfigSchedule {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_POSITION = "position";
+  private ScheduleTargetPosition position;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ScheduleTargetType type = ScheduleTargetType.SCHEDULES;
-
-  public ScheduleTarget() {}
-
-  @JsonCreator
-  public ScheduleTarget(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ScheduleTargetType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public ScheduleTarget id(String id) {
-    this.id = id;
+  public EscalationPolicyStepTargetConfigSchedule position(ScheduleTargetPosition position) {
+    this.position = position;
+    this.unparsed |= !position.isValid();
     return this;
   }
 
   /**
-   * Specifies the unique identifier of the schedule resource.
+   * Specifies the position of a schedule target (example <code>previous</code>, <code>current
+   * </code>, or <code>next</code>).
    *
-   * @return id
+   * @return position
    */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POSITION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScheduleTargetPosition getPosition() {
+    return position;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ScheduleTarget type(ScheduleTargetType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Indicates that the resource is of type <code>schedules</code>.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ScheduleTargetType getType() {
-    return type;
-  }
-
-  public void setType(ScheduleTargetType type) {
-    if (!type.isValid()) {
+  public void setPosition(ScheduleTargetPosition position) {
+    if (!position.isValid()) {
       this.unparsed = true;
     }
-    this.type = type;
+    this.position = position;
   }
 
   /**
@@ -99,10 +63,10 @@ public class ScheduleTarget {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleTarget
+   * @return EscalationPolicyStepTargetConfigSchedule
    */
   @JsonAnySetter
-  public ScheduleTarget putAdditionalProperty(String key, Object value) {
+  public EscalationPolicyStepTargetConfigSchedule putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +97,7 @@ public class ScheduleTarget {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScheduleTarget object is equal to o. */
+  /** Return true if this EscalationPolicyStepTargetConfigSchedule object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,23 +106,24 @@ public class ScheduleTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleTarget scheduleTarget = (ScheduleTarget) o;
-    return Objects.equals(this.id, scheduleTarget.id)
-        && Objects.equals(this.type, scheduleTarget.type)
-        && Objects.equals(this.additionalProperties, scheduleTarget.additionalProperties);
+    EscalationPolicyStepTargetConfigSchedule escalationPolicyStepTargetConfigSchedule =
+        (EscalationPolicyStepTargetConfigSchedule) o;
+    return Objects.equals(this.position, escalationPolicyStepTargetConfigSchedule.position)
+        && Objects.equals(
+            this.additionalProperties,
+            escalationPolicyStepTargetConfigSchedule.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(position, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleTarget {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class EscalationPolicyStepTargetConfigSchedule {\n");
+    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
