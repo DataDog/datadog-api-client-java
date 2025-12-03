@@ -205,6 +205,51 @@ public class EscalationTarget extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'ScheduleTarget'", e);
       }
 
+      // deserialize ConfiguredScheduleTarget
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ConfiguredScheduleTarget.class.equals(Integer.class)
+            || ConfiguredScheduleTarget.class.equals(Long.class)
+            || ConfiguredScheduleTarget.class.equals(Float.class)
+            || ConfiguredScheduleTarget.class.equals(Double.class)
+            || ConfiguredScheduleTarget.class.equals(Boolean.class)
+            || ConfiguredScheduleTarget.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ConfiguredScheduleTarget.class.equals(Integer.class)
+                        || ConfiguredScheduleTarget.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ConfiguredScheduleTarget.class.equals(Float.class)
+                        || ConfiguredScheduleTarget.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ConfiguredScheduleTarget.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ConfiguredScheduleTarget.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ConfiguredScheduleTarget.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ConfiguredScheduleTarget) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ConfiguredScheduleTarget'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ConfiguredScheduleTarget'", e);
+      }
+
       EscalationTarget ret = new EscalationTarget();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -248,10 +293,16 @@ public class EscalationTarget extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public EscalationTarget(ConfiguredScheduleTarget o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("TeamTarget", new GenericType<TeamTarget>() {});
     schemas.put("UserTarget", new GenericType<UserTarget>() {});
     schemas.put("ScheduleTarget", new GenericType<ScheduleTarget>() {});
+    schemas.put("ConfiguredScheduleTarget", new GenericType<ConfiguredScheduleTarget>() {});
     JSON.registerDescendants(EscalationTarget.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -262,7 +313,8 @@ public class EscalationTarget extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: TeamTarget, UserTarget, ScheduleTarget
+   * against the oneOf child schemas: TeamTarget, UserTarget, ScheduleTarget,
+   * ConfiguredScheduleTarget
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -281,19 +333,25 @@ public class EscalationTarget extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(ConfiguredScheduleTarget.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be TeamTarget, UserTarget, ScheduleTarget");
+        "Invalid instance type. Must be TeamTarget, UserTarget, ScheduleTarget,"
+            + " ConfiguredScheduleTarget");
   }
 
   /**
-   * Get the actual instance, which can be the following: TeamTarget, UserTarget, ScheduleTarget
+   * Get the actual instance, which can be the following: TeamTarget, UserTarget, ScheduleTarget,
+   * ConfiguredScheduleTarget
    *
-   * @return The actual instance (TeamTarget, UserTarget, ScheduleTarget)
+   * @return The actual instance (TeamTarget, UserTarget, ScheduleTarget, ConfiguredScheduleTarget)
    */
   @Override
   public Object getActualInstance() {
@@ -331,5 +389,16 @@ public class EscalationTarget extends AbstractOpenApiSchema {
    */
   public ScheduleTarget getScheduleTarget() throws ClassCastException {
     return (ScheduleTarget) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ConfiguredScheduleTarget`. If the actual instance is not
+   * `ConfiguredScheduleTarget`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ConfiguredScheduleTarget`
+   * @throws ClassCastException if the instance is not `ConfiguredScheduleTarget`
+   */
+  public ConfiguredScheduleTarget getConfiguredScheduleTarget() throws ClassCastException {
+    return (ConfiguredScheduleTarget) super.getActualInstance();
   }
 }

@@ -94,7 +94,8 @@ public class EscalationPolicyDataAttributes {
   }
 
   /**
-   * Specifies how many times the escalation sequence is retried if there is no response.
+   * Specifies how many times the escalation sequence is retried if there is no response. minimum: 0
+   * maximum: 10
    *
    * @return retries
    */

@@ -16,7 +16,10 @@ import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataRelation
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataType;
 import com.datadog.api.client.v2.model.EscalationPolicyStepAttributesAssignment;
 import com.datadog.api.client.v2.model.EscalationPolicyStepTarget;
+import com.datadog.api.client.v2.model.EscalationPolicyStepTargetConfig;
+import com.datadog.api.client.v2.model.EscalationPolicyStepTargetConfigSchedule;
 import com.datadog.api.client.v2.model.EscalationPolicyStepTargetType;
+import com.datadog.api.client.v2.model.ScheduleTargetPosition;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -55,6 +58,16 @@ public class Example {
                                                     .id(USER_DATA_ID)
                                                     .type(EscalationPolicyStepTargetType.USERS),
                                                 new EscalationPolicyStepTarget()
+                                                    .id(SCHEDULE_DATA_ID)
+                                                    .type(EscalationPolicyStepTargetType.SCHEDULES),
+                                                new EscalationPolicyStepTarget()
+                                                    .config(
+                                                        new EscalationPolicyStepTargetConfig()
+                                                            .schedule(
+                                                                new EscalationPolicyStepTargetConfigSchedule()
+                                                                    .position(
+                                                                        ScheduleTargetPosition
+                                                                            .PREVIOUS)))
                                                     .id(SCHEDULE_DATA_ID)
                                                     .type(EscalationPolicyStepTargetType.SCHEDULES),
                                                 new EscalationPolicyStepTarget()
