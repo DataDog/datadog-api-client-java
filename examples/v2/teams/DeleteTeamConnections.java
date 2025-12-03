@@ -2,7 +2,7 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.TeamConnectionsApi;
+import com.datadog.api.client.v2.api.TeamsApi;
 import com.datadog.api.client.v2.model.TeamConnectionDeleteRequest;
 import com.datadog.api.client.v2.model.TeamConnectionDeleteRequestDataItem;
 import com.datadog.api.client.v2.model.TeamConnectionType;
@@ -12,7 +12,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("v2.deleteTeamConnections", true);
-    TeamConnectionsApi apiInstance = new TeamConnectionsApi(defaultClient);
+    TeamsApi apiInstance = new TeamsApi(defaultClient);
 
     TeamConnectionDeleteRequest body =
         new TeamConnectionDeleteRequest()
@@ -25,7 +25,7 @@ public class Example {
     try {
       apiInstance.deleteTeamConnections(body);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TeamConnectionsApi#deleteTeamConnections");
+      System.err.println("Exception when calling TeamsApi#deleteTeamConnections");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
