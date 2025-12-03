@@ -1,21 +1,27 @@
-// List team connections returns "OK" response
+// List team connections with filters returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.TeamConnectionsApi;
+import com.datadog.api.client.v2.api.TeamsApi;
+import com.datadog.api.client.v2.api.TeamsApi.ListTeamConnectionsOptionalParameters;
 import com.datadog.api.client.v2.model.TeamConnectionsResponse;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("v2.listTeamConnections", true);
-    TeamConnectionsApi apiInstance = new TeamConnectionsApi(defaultClient);
+    TeamsApi apiInstance = new TeamsApi(defaultClient);
 
     try {
-      TeamConnectionsResponse result = apiInstance.listTeamConnections();
+      TeamConnectionsResponse result =
+          apiInstance.listTeamConnections(
+              new ListTeamConnectionsOptionalParameters()
+                  .filterSources(Collections.singletonList("github"))
+                  .pageSize(10L));
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TeamConnectionsApi#listTeamConnections");
+      System.err.println("Exception when calling TeamsApi#listTeamConnections");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

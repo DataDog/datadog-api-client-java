@@ -831,13 +831,13 @@ public class ApiClient {
           put("v2.createSCAResolveVulnerableSymbols", false);
           put("v2.createSCAResult", false);
           put("v2.addMemberTeam", false);
-          put("v2.getTeamSync", false);
-          put("v2.listMemberTeams", false);
-          put("v2.removeMemberTeam", false);
-          put("v2.syncTeams", false);
           put("v2.createTeamConnections", false);
           put("v2.deleteTeamConnections", false);
+          put("v2.getTeamSync", false);
+          put("v2.listMemberTeams", false);
           put("v2.listTeamConnections", false);
+          put("v2.removeMemberTeam", false);
+          put("v2.syncTeams", false);
           put("v2.createIncidentTeam", false);
           put("v2.deleteIncidentTeam", false);
           put("v2.getIncidentTeam", false);
