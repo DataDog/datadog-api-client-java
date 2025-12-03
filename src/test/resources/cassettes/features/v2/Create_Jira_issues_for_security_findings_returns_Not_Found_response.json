@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"attributes\":{},\"relationships\":{\"case\":{\"data\":{\"id\":\"6ed1d7c2-e1a3-4369-b92b-a38d3cc75cf3\",\"type\":\"cases\"}}},\"type\":\"jira_issues\"}],\"included\":[{\"attributes\":{\"description\":\"A description\",\"title\":\"A title\"},\"id\":\"6ed1d7c2-e1a3-4369-b92b-a38d3cc75cf3\",\"relationships\":{\"findings\":{\"data\":[{\"id\":\"YzM2MTFjYzcyNmY0Zjg4MTAxZmRlNjQ1MWU1ZGQwYzR-YzI5NzE5Y2Y4MzU4ZjliNzhkNjYxNTY0ODIzZDQ2YTM=\",\"type\":\"findings\"}]},\"project\":{\"data\":{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"projects\"}}},\"type\":\"cases\"},{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"projects\"},{\"id\":\"YzM2MTFjYzcyNmY0Zjg4MTAxZmRlNjQ1MWU1ZGQwYzR-YzI5NzE5Y2Y4MzU4ZjliNzhkNjYxNTY0ODIzZDQ2YTM=\",\"type\":\"findings\"}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/findings/jira_issues",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"project not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f21ac686-77c1-ddb9-4c05-8bfdcaa7c533"
+  }
+]
