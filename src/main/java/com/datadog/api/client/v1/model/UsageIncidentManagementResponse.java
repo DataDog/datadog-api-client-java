@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing the incident management usage for each hour for a given organization. */
+/** Response containing the Incident Management usage for each hour for a given organization. */
 @JsonPropertyOrder({UsageIncidentManagementResponse.JSON_PROPERTY_USAGE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,7 +45,7 @@ public class UsageIncidentManagementResponse {
   }
 
   /**
-   * Get hourly usage for incident management.
+   * Get hourly usage for Incident Management.
    *
    * @return usage
    */

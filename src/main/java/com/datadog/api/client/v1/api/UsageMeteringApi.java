@@ -661,7 +661,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management.
+   * Get hourly usage for Incident Management.
    *
    * <p>See {@link #getIncidentManagementWithHttpInfo}.
    *
@@ -679,7 +679,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management.
+   * Get hourly usage for Incident Management.
    *
    * <p>See {@link #getIncidentManagementWithHttpInfoAsync}.
    *
@@ -700,7 +700,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management.
+   * Get hourly usage for Incident Management.
    *
    * <p>See {@link #getIncidentManagementWithHttpInfo}.
    *
@@ -719,7 +719,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management.
+   * Get hourly usage for Incident Management.
    *
    * <p>See {@link #getIncidentManagementWithHttpInfoAsync}.
    *
@@ -740,7 +740,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management. <strong>Note:</strong> This endpoint has been
+   * Get hourly usage for Incident Management. <strong>Note:</strong> This endpoint has been
    * deprecated. Hourly usage data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
    * hourly usage by product family API</a>. Refer to <a
@@ -806,7 +806,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management.
+   * Get hourly usage for Incident Management.
    *
    * <p>See {@link #getIncidentManagementWithHttpInfo}.
    *
