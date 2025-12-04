@@ -22,6 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object describing a monitor update request. */
 @JsonPropertyOrder({
+  MonitorUpdateRequest.JSON_PROPERTY_ASSETS,
   MonitorUpdateRequest.JSON_PROPERTY_CREATED,
   MonitorUpdateRequest.JSON_PROPERTY_CREATOR,
   MonitorUpdateRequest.JSON_PROPERTY_DELETED,
@@ -44,6 +45,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ASSETS = "assets";
+  private JsonNullable<List<MonitorAsset>> assets = JsonNullable.<List<MonitorAsset>>undefined();
+
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
 
@@ -94,6 +98,50 @@ public class MonitorUpdateRequest {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private MonitorType type;
+
+  public MonitorUpdateRequest assets(List<MonitorAsset> assets) {
+    this.assets = JsonNullable.<List<MonitorAsset>>of(assets);
+    return this;
+  }
+
+  public MonitorUpdateRequest addAssetsItem(MonitorAsset assetsItem) {
+    if (this.assets == null || !this.assets.isPresent()) {
+      this.assets = JsonNullable.<List<MonitorAsset>>of(new ArrayList<>());
+    }
+    try {
+      this.assets.get().add(assetsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The list of monitor assets tied to a monitor, which represents key links for users to take
+   * action on monitor alerts (for example, runbooks).
+   *
+   * @return assets
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<MonitorAsset> getAssets() {
+    return assets.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ASSETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<MonitorAsset>> getAssets_JsonNullable() {
+    return assets;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ASSETS)
+  public void setAssets_JsonNullable(JsonNullable<List<MonitorAsset>> assets) {
+    this.assets = assets;
+  }
+
+  public void setAssets(List<MonitorAsset> assets) {
+    this.assets = JsonNullable.<List<MonitorAsset>>of(assets);
+  }
 
   /**
    * Timestamp of the monitor creation.
@@ -513,7 +561,8 @@ public class MonitorUpdateRequest {
       return false;
     }
     MonitorUpdateRequest monitorUpdateRequest = (MonitorUpdateRequest) o;
-    return Objects.equals(this.created, monitorUpdateRequest.created)
+    return Objects.equals(this.assets, monitorUpdateRequest.assets)
+        && Objects.equals(this.created, monitorUpdateRequest.created)
         && Objects.equals(this.creator, monitorUpdateRequest.creator)
         && Objects.equals(this.deleted, monitorUpdateRequest.deleted)
         && Objects.equals(this.draftStatus, monitorUpdateRequest.draftStatus)
@@ -536,6 +585,7 @@ public class MonitorUpdateRequest {
   @Override
   public int hashCode() {
     return Objects.hash(
+        assets,
         created,
         creator,
         deleted,
@@ -560,6 +610,7 @@ public class MonitorUpdateRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MonitorUpdateRequest {\n");
+    sb.append("    assets: ").append(toIndentedString(assets)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
