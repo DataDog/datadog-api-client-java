@@ -869,6 +869,12 @@ public class TeamsApi {
   /**
    * Add a user to a team.
    *
+   * <p><strong>Note</strong>: Each team has a setting that determines who is allowed to modify
+   * membership of the team. The <code>user_access_manage</code> permission generally grants access
+   * to modify membership of any team. To get the full picture, see <a
+   * href="https://docs.datadoghq.com/account_management/teams/manage/#team-membership">Team
+   * Membership documentation</a>.
+   *
    * @param teamId None (required)
    * @param body (required)
    * @return ApiResponse&lt;UserTeamResponse&gt;
@@ -1456,6 +1462,12 @@ public class TeamsApi {
 
   /**
    * Remove a user from a team.
+   *
+   * <p><strong>Note</strong>: Each team has a setting that determines who is allowed to modify
+   * membership of the team. The <code>user_access_manage</code> permission generally grants access
+   * to modify membership of any team. To get the full picture, see <a
+   * href="https://docs.datadoghq.com/account_management/teams/manage/#team-membership">Team
+   * Membership documentation</a>.
    *
    * @param teamId None (required)
    * @param userId None (required)
@@ -4956,6 +4968,12 @@ public class TeamsApi {
 
   /**
    * Update a user's membership attributes on a team.
+   *
+   * <p><strong>Note</strong>: Each team has a setting that determines who is allowed to modify
+   * membership of the team. The <code>user_access_manage</code> permission generally grants access
+   * to modify membership of any team. To get the full picture, see <a
+   * href="https://docs.datadoghq.com/account_management/teams/manage/#team-membership">Team
+   * Membership documentation</a>.
    *
    * @param teamId None (required)
    * @param userId None (required)
