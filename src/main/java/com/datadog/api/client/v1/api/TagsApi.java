@@ -690,7 +690,7 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags.
+   * Get All Hosts Tags.
    *
    * <p>See {@link #listHostTagsWithHttpInfo}.
    *
@@ -702,7 +702,7 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags.
+   * Get All Hosts Tags.
    *
    * <p>See {@link #listHostTagsWithHttpInfoAsync}.
    *
@@ -717,7 +717,7 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags.
+   * Get All Hosts Tags.
    *
    * <p>See {@link #listHostTagsWithHttpInfo}.
    *
@@ -730,7 +730,7 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags.
+   * Get All Hosts Tags.
    *
    * <p>See {@link #listHostTagsWithHttpInfoAsync}.
    *
@@ -795,7 +795,7 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags.
+   * Get All Hosts Tags.
    *
    * <p>See {@link #listHostTagsWithHttpInfo}.
    *
