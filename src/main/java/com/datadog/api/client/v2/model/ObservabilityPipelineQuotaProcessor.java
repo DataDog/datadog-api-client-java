@@ -25,10 +25,10 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_DROP_EVENTS,
+  ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_IGNORE_WHEN_MISSING_PARTITIONS,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_INCLUDE,
-  ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_LIMIT,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_NAME,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_OVERFLOW_ACTION,
@@ -43,6 +43,9 @@ public class ObservabilityPipelineQuotaProcessor {
   public static final String JSON_PROPERTY_DROP_EVENTS = "drop_events";
   private Boolean dropEvents;
 
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -52,9 +55,6 @@ public class ObservabilityPipelineQuotaProcessor {
 
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
-
-  public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private ObservabilityPipelineQuotaProcessorLimit limit;
@@ -79,19 +79,17 @@ public class ObservabilityPipelineQuotaProcessor {
 
   @JsonCreator
   public ObservabilityPipelineQuotaProcessor(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DROP_EVENTS) Boolean dropEvents,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_LIMIT)
           ObservabilityPipelineQuotaProcessorLimit limit,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineQuotaProcessorType type) {
-    this.dropEvents = dropEvents;
+    this.enabled = enabled;
     this.id = id;
     this.include = include;
-    this.inputs = inputs;
     this.limit = limit;
     this.unparsed |= limit.unparsed;
     this.name = name;
@@ -111,14 +109,35 @@ public class ObservabilityPipelineQuotaProcessor {
    *
    * @return dropEvents
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DROP_EVENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDropEvents() {
     return dropEvents;
   }
 
   public void setDropEvents(Boolean dropEvents) {
     this.dropEvents = dropEvents;
+  }
+
+  public ObservabilityPipelineQuotaProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineQuotaProcessor id(String id) {
@@ -183,31 +202,6 @@ public class ObservabilityPipelineQuotaProcessor {
 
   public void setInclude(String include) {
     this.include = include;
-  }
-
-  public ObservabilityPipelineQuotaProcessor inputs(List<String> inputs) {
-    this.inputs = inputs;
-    return this;
-  }
-
-  public ObservabilityPipelineQuotaProcessor addInputsItem(String inputsItem) {
-    this.inputs.add(inputsItem);
-    return this;
-  }
-
-  /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
-   *
-   * @return inputs
-   */
-  @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getInputs() {
-    return inputs;
-  }
-
-  public void setInputs(List<String> inputs) {
-    this.inputs = inputs;
   }
 
   public ObservabilityPipelineQuotaProcessor limit(ObservabilityPipelineQuotaProcessorLimit limit) {
@@ -428,12 +422,12 @@ public class ObservabilityPipelineQuotaProcessor {
     ObservabilityPipelineQuotaProcessor observabilityPipelineQuotaProcessor =
         (ObservabilityPipelineQuotaProcessor) o;
     return Objects.equals(this.dropEvents, observabilityPipelineQuotaProcessor.dropEvents)
+        && Objects.equals(this.enabled, observabilityPipelineQuotaProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineQuotaProcessor.id)
         && Objects.equals(
             this.ignoreWhenMissingPartitions,
             observabilityPipelineQuotaProcessor.ignoreWhenMissingPartitions)
         && Objects.equals(this.include, observabilityPipelineQuotaProcessor.include)
-        && Objects.equals(this.inputs, observabilityPipelineQuotaProcessor.inputs)
         && Objects.equals(this.limit, observabilityPipelineQuotaProcessor.limit)
         && Objects.equals(this.name, observabilityPipelineQuotaProcessor.name)
         && Objects.equals(this.overflowAction, observabilityPipelineQuotaProcessor.overflowAction)
@@ -448,10 +442,10 @@ public class ObservabilityPipelineQuotaProcessor {
   public int hashCode() {
     return Objects.hash(
         dropEvents,
+        enabled,
         id,
         ignoreWhenMissingPartitions,
         include,
-        inputs,
         limit,
         name,
         overflowAction,
@@ -466,12 +460,12 @@ public class ObservabilityPipelineQuotaProcessor {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineQuotaProcessor {\n");
     sb.append("    dropEvents: ").append(toIndentedString(dropEvents)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    ignoreWhenMissingPartitions: ")
         .append(toIndentedString(ignoreWhenMissingPartitions))
         .append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
-    sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overflowAction: ").append(toIndentedString(overflowAction)).append("\n");

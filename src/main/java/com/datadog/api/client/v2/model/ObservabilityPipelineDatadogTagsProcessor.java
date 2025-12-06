@@ -24,9 +24,9 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_ACTION,
+  ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_INCLUDE,
-  ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_KEYS,
   ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_MODE,
   ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_TYPE
@@ -38,14 +38,14 @@ public class ObservabilityPipelineDatadogTagsProcessor {
   public static final String JSON_PROPERTY_ACTION = "action";
   private ObservabilityPipelineDatadogTagsProcessorAction action;
 
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
-
-  public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_KEYS = "keys";
   private List<String> keys = new ArrayList<>();
@@ -63,9 +63,9 @@ public class ObservabilityPipelineDatadogTagsProcessor {
   public ObservabilityPipelineDatadogTagsProcessor(
       @JsonProperty(required = true, value = JSON_PROPERTY_ACTION)
           ObservabilityPipelineDatadogTagsProcessorAction action,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_KEYS) List<String> keys,
       @JsonProperty(required = true, value = JSON_PROPERTY_MODE)
           ObservabilityPipelineDatadogTagsProcessorMode mode,
@@ -73,9 +73,9 @@ public class ObservabilityPipelineDatadogTagsProcessor {
           ObservabilityPipelineDatadogTagsProcessorType type) {
     this.action = action;
     this.unparsed |= !action.isValid();
+    this.enabled = enabled;
     this.id = id;
     this.include = include;
-    this.inputs = inputs;
     this.keys = keys;
     this.mode = mode;
     this.unparsed |= !mode.isValid();
@@ -106,6 +106,26 @@ public class ObservabilityPipelineDatadogTagsProcessor {
       this.unparsed = true;
     }
     this.action = action;
+  }
+
+  public ObservabilityPipelineDatadogTagsProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineDatadogTagsProcessor id(String id) {
@@ -147,31 +167,6 @@ public class ObservabilityPipelineDatadogTagsProcessor {
 
   public void setInclude(String include) {
     this.include = include;
-  }
-
-  public ObservabilityPipelineDatadogTagsProcessor inputs(List<String> inputs) {
-    this.inputs = inputs;
-    return this;
-  }
-
-  public ObservabilityPipelineDatadogTagsProcessor addInputsItem(String inputsItem) {
-    this.inputs.add(inputsItem);
-    return this;
-  }
-
-  /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
-   *
-   * @return inputs
-   */
-  @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getInputs() {
-    return inputs;
-  }
-
-  public void setInputs(List<String> inputs) {
-    this.inputs = inputs;
   }
 
   public ObservabilityPipelineDatadogTagsProcessor keys(List<String> keys) {
@@ -307,9 +302,9 @@ public class ObservabilityPipelineDatadogTagsProcessor {
     ObservabilityPipelineDatadogTagsProcessor observabilityPipelineDatadogTagsProcessor =
         (ObservabilityPipelineDatadogTagsProcessor) o;
     return Objects.equals(this.action, observabilityPipelineDatadogTagsProcessor.action)
+        && Objects.equals(this.enabled, observabilityPipelineDatadogTagsProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineDatadogTagsProcessor.id)
         && Objects.equals(this.include, observabilityPipelineDatadogTagsProcessor.include)
-        && Objects.equals(this.inputs, observabilityPipelineDatadogTagsProcessor.inputs)
         && Objects.equals(this.keys, observabilityPipelineDatadogTagsProcessor.keys)
         && Objects.equals(this.mode, observabilityPipelineDatadogTagsProcessor.mode)
         && Objects.equals(this.type, observabilityPipelineDatadogTagsProcessor.type)
@@ -320,7 +315,7 @@ public class ObservabilityPipelineDatadogTagsProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, id, include, inputs, keys, mode, type, additionalProperties);
+    return Objects.hash(action, enabled, id, include, keys, mode, type, additionalProperties);
   }
 
   @Override
@@ -328,9 +323,9 @@ public class ObservabilityPipelineDatadogTagsProcessor {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineDatadogTagsProcessor {\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
-    sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

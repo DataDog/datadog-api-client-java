@@ -13,9 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -24,23 +22,23 @@ import java.util.Objects;
  * query. Logs that match the <code>include</code> query are passed through; others are discarded.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineFilterProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineFilterProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineFilterProcessor.JSON_PROPERTY_INCLUDE,
-  ObservabilityPipelineFilterProcessor.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineFilterProcessor.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineFilterProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
-
-  public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineFilterProcessorType type =
@@ -50,16 +48,36 @@ public class ObservabilityPipelineFilterProcessor {
 
   @JsonCreator
   public ObservabilityPipelineFilterProcessor(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineFilterProcessorType type) {
+    this.enabled = enabled;
     this.id = id;
     this.include = include;
-    this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineFilterProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineFilterProcessor id(String id) {
@@ -102,31 +120,6 @@ public class ObservabilityPipelineFilterProcessor {
 
   public void setInclude(String include) {
     this.include = include;
-  }
-
-  public ObservabilityPipelineFilterProcessor inputs(List<String> inputs) {
-    this.inputs = inputs;
-    return this;
-  }
-
-  public ObservabilityPipelineFilterProcessor addInputsItem(String inputsItem) {
-    this.inputs.add(inputsItem);
-    return this;
-  }
-
-  /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
-   *
-   * @return inputs
-   */
-  @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getInputs() {
-    return inputs;
-  }
-
-  public void setInputs(List<String> inputs) {
-    this.inputs = inputs;
   }
 
   public ObservabilityPipelineFilterProcessor type(ObservabilityPipelineFilterProcessorType type) {
@@ -210,9 +203,9 @@ public class ObservabilityPipelineFilterProcessor {
     }
     ObservabilityPipelineFilterProcessor observabilityPipelineFilterProcessor =
         (ObservabilityPipelineFilterProcessor) o;
-    return Objects.equals(this.id, observabilityPipelineFilterProcessor.id)
+    return Objects.equals(this.enabled, observabilityPipelineFilterProcessor.enabled)
+        && Objects.equals(this.id, observabilityPipelineFilterProcessor.id)
         && Objects.equals(this.include, observabilityPipelineFilterProcessor.include)
-        && Objects.equals(this.inputs, observabilityPipelineFilterProcessor.inputs)
         && Objects.equals(this.type, observabilityPipelineFilterProcessor.type)
         && Objects.equals(
             this.additionalProperties, observabilityPipelineFilterProcessor.additionalProperties);
@@ -220,16 +213,16 @@ public class ObservabilityPipelineFilterProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, include, inputs, type, additionalProperties);
+    return Objects.hash(enabled, id, include, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineFilterProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
-    sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

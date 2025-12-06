@@ -49,12 +49,10 @@ public class ObservabilityPipelineCustomProcessorRemap {
   @JsonCreator
   public ObservabilityPipelineCustomProcessorRemap(
       @JsonProperty(required = true, value = JSON_PROPERTY_DROP_ON_ERROR) Boolean dropOnError,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE) String source) {
     this.dropOnError = dropOnError;
-    this.enabled = enabled;
     this.include = include;
     this.name = name;
     this.source = source;
@@ -90,8 +88,9 @@ public class ObservabilityPipelineCustomProcessorRemap {
    *
    * @return enabled
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {
     return enabled;
   }
