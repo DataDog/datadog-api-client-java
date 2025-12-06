@@ -40,7 +40,10 @@ public class GeomapWidgetDefinitionView {
   }
 
   /**
-   * The 2-letter ISO code of a country to focus the map on. Or <code>WORLD</code>.
+   * The 2-letter ISO code of a country to focus the map on, or <code>WORLD</code> for global view,
+   * or a region (<code>EMEA</code>, <code>APAC</code>, <code>LATAM</code>), or a continent (<code>
+   * NORTH_AMERICA</code>, <code>SOUTH_AMERICA</code>, <code>EUROPE</code>, <code>AFRICA</code>,
+   * <code>ASIA</code>, <code>OCEANIA</code>).
    *
    * @return focus
    */
