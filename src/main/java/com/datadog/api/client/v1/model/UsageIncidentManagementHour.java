@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Incident management usage for a given organization for a given hour. */
+/** Incident Management usage for a given organization for a given hour. */
 @JsonPropertyOrder({
   UsageIncidentManagementHour.JSON_PROPERTY_HOUR,
   UsageIncidentManagementHour.JSON_PROPERTY_MONTHLY_ACTIVE_USERS,
