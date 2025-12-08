@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,69 +16,68 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The postmortem attachment. */
+/** */
 @JsonPropertyOrder({
-  IncidentAttachmentsPostmortemAttributesAttachmentObject.JSON_PROPERTY_DOCUMENT_URL,
-  IncidentAttachmentsPostmortemAttributesAttachmentObject.JSON_PROPERTY_TITLE
+  CreateAttachmentRequestDataAttributes.JSON_PROPERTY_ATTACHMENT,
+  CreateAttachmentRequestDataAttributes.JSON_PROPERTY_ATTACHMENT_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentAttachmentsPostmortemAttributesAttachmentObject {
+public class CreateAttachmentRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DOCUMENT_URL = "documentUrl";
-  private String documentUrl;
+  public static final String JSON_PROPERTY_ATTACHMENT = "attachment";
+  private CreateAttachmentRequestDataAttributesAttachment attachment;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private String title;
+  public static final String JSON_PROPERTY_ATTACHMENT_TYPE = "attachment_type";
+  private AttachmentDataAttributesAttachmentType attachmentType;
 
-  public IncidentAttachmentsPostmortemAttributesAttachmentObject() {}
-
-  @JsonCreator
-  public IncidentAttachmentsPostmortemAttributesAttachmentObject(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DOCUMENT_URL) String documentUrl,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
-    this.documentUrl = documentUrl;
-    this.title = title;
-  }
-
-  public IncidentAttachmentsPostmortemAttributesAttachmentObject documentUrl(String documentUrl) {
-    this.documentUrl = documentUrl;
+  public CreateAttachmentRequestDataAttributes attachment(
+      CreateAttachmentRequestDataAttributesAttachment attachment) {
+    this.attachment = attachment;
+    this.unparsed |= attachment.unparsed;
     return this;
   }
 
   /**
-   * The URL of this notebook attachment.
+   * Getattachment
    *
-   * @return documentUrl
+   * @return attachment
    */
-  @JsonProperty(JSON_PROPERTY_DOCUMENT_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDocumentUrl() {
-    return documentUrl;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTACHMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CreateAttachmentRequestDataAttributesAttachment getAttachment() {
+    return attachment;
   }
 
-  public void setDocumentUrl(String documentUrl) {
-    this.documentUrl = documentUrl;
+  public void setAttachment(CreateAttachmentRequestDataAttributesAttachment attachment) {
+    this.attachment = attachment;
   }
 
-  public IncidentAttachmentsPostmortemAttributesAttachmentObject title(String title) {
-    this.title = title;
+  public CreateAttachmentRequestDataAttributes attachmentType(
+      AttachmentDataAttributesAttachmentType attachmentType) {
+    this.attachmentType = attachmentType;
+    this.unparsed |= !attachmentType.isValid();
     return this;
   }
 
   /**
-   * The title of this postmortem attachment.
+   * GetattachmentType
    *
-   * @return title
+   * @return attachmentType
    */
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTitle() {
-    return title;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTACHMENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AttachmentDataAttributesAttachmentType getAttachmentType() {
+    return attachmentType;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
+  public void setAttachmentType(AttachmentDataAttributesAttachmentType attachmentType) {
+    if (!attachmentType.isValid()) {
+      this.unparsed = true;
+    }
+    this.attachmentType = attachmentType;
   }
 
   /**
@@ -94,11 +92,10 @@ public class IncidentAttachmentsPostmortemAttributesAttachmentObject {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentAttachmentsPostmortemAttributesAttachmentObject
+   * @return CreateAttachmentRequestDataAttributes
    */
   @JsonAnySetter
-  public IncidentAttachmentsPostmortemAttributesAttachmentObject putAdditionalProperty(
-      String key, Object value) {
+  public CreateAttachmentRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -129,10 +126,7 @@ public class IncidentAttachmentsPostmortemAttributesAttachmentObject {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this IncidentAttachmentsPostmortemAttributesAttachmentObject object is equal to
-   * o.
-   */
+  /** Return true if this CreateAttachmentRequestDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,28 +135,25 @@ public class IncidentAttachmentsPostmortemAttributesAttachmentObject {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentAttachmentsPostmortemAttributesAttachmentObject
-        incidentAttachmentsPostmortemAttributesAttachmentObject =
-            (IncidentAttachmentsPostmortemAttributesAttachmentObject) o;
-    return Objects.equals(
-            this.documentUrl, incidentAttachmentsPostmortemAttributesAttachmentObject.documentUrl)
-        && Objects.equals(this.title, incidentAttachmentsPostmortemAttributesAttachmentObject.title)
+    CreateAttachmentRequestDataAttributes createAttachmentRequestDataAttributes =
+        (CreateAttachmentRequestDataAttributes) o;
+    return Objects.equals(this.attachment, createAttachmentRequestDataAttributes.attachment)
+        && Objects.equals(this.attachmentType, createAttachmentRequestDataAttributes.attachmentType)
         && Objects.equals(
-            this.additionalProperties,
-            incidentAttachmentsPostmortemAttributesAttachmentObject.additionalProperties);
+            this.additionalProperties, createAttachmentRequestDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentUrl, title, additionalProperties);
+    return Objects.hash(attachment, attachmentType, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentAttachmentsPostmortemAttributesAttachmentObject {\n");
-    sb.append("    documentUrl: ").append(toIndentedString(documentUrl)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("class CreateAttachmentRequestDataAttributes {\n");
+    sb.append("    attachment: ").append(toIndentedString(attachment)).append("\n");
+    sb.append("    attachmentType: ").append(toIndentedString(attachmentType)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

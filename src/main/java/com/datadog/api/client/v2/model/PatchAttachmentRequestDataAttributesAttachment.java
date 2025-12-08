@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,99 +16,61 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A single incident attachment. */
+/** */
 @JsonPropertyOrder({
-  IncidentAttachmentUpdateData.JSON_PROPERTY_ATTRIBUTES,
-  IncidentAttachmentUpdateData.JSON_PROPERTY_ID,
-  IncidentAttachmentUpdateData.JSON_PROPERTY_TYPE
+  PatchAttachmentRequestDataAttributesAttachment.JSON_PROPERTY_DOCUMENT_URL,
+  PatchAttachmentRequestDataAttributesAttachment.JSON_PROPERTY_TITLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentAttachmentUpdateData {
+public class PatchAttachmentRequestDataAttributesAttachment {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private IncidentAttachmentUpdateAttributes attributes;
+  public static final String JSON_PROPERTY_DOCUMENT_URL = "documentUrl";
+  private String documentUrl;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private IncidentAttachmentType type = IncidentAttachmentType.INCIDENT_ATTACHMENTS;
-
-  public IncidentAttachmentUpdateData() {}
-
-  @JsonCreator
-  public IncidentAttachmentUpdateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentAttachmentType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public IncidentAttachmentUpdateData attributes(IncidentAttachmentUpdateAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public PatchAttachmentRequestDataAttributesAttachment documentUrl(String documentUrl) {
+    this.documentUrl = documentUrl;
     return this;
   }
 
   /**
-   * Incident attachment attributes.
+   * GetdocumentUrl
    *
-   * @return attributes
+   * @return documentUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_DOCUMENT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentAttachmentUpdateAttributes getAttributes() {
-    return attributes;
+  public String getDocumentUrl() {
+    return documentUrl;
   }
 
-  public void setAttributes(IncidentAttachmentUpdateAttributes attributes) {
-    this.attributes = attributes;
+  public void setDocumentUrl(String documentUrl) {
+    this.documentUrl = documentUrl;
   }
 
-  public IncidentAttachmentUpdateData id(String id) {
-    this.id = id;
+  public PatchAttachmentRequestDataAttributesAttachment title(String title) {
+    this.title = title;
     return this;
   }
 
   /**
-   * A unique identifier that represents the incident attachment.
+   * Gettitle
    *
-   * @return id
+   * @return title
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  public String getTitle() {
+    return title;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public IncidentAttachmentUpdateData type(IncidentAttachmentType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The incident attachment resource type.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentAttachmentType getType() {
-    return type;
-  }
-
-  public void setType(IncidentAttachmentType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   /**
@@ -124,10 +85,11 @@ public class IncidentAttachmentUpdateData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentAttachmentUpdateData
+   * @return PatchAttachmentRequestDataAttributesAttachment
    */
   @JsonAnySetter
-  public IncidentAttachmentUpdateData putAdditionalProperty(String key, Object value) {
+  public PatchAttachmentRequestDataAttributesAttachment putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -158,7 +120,7 @@ public class IncidentAttachmentUpdateData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentAttachmentUpdateData object is equal to o. */
+  /** Return true if this PatchAttachmentRequestDataAttributesAttachment object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -167,26 +129,27 @@ public class IncidentAttachmentUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentAttachmentUpdateData incidentAttachmentUpdateData = (IncidentAttachmentUpdateData) o;
-    return Objects.equals(this.attributes, incidentAttachmentUpdateData.attributes)
-        && Objects.equals(this.id, incidentAttachmentUpdateData.id)
-        && Objects.equals(this.type, incidentAttachmentUpdateData.type)
+    PatchAttachmentRequestDataAttributesAttachment patchAttachmentRequestDataAttributesAttachment =
+        (PatchAttachmentRequestDataAttributesAttachment) o;
+    return Objects.equals(
+            this.documentUrl, patchAttachmentRequestDataAttributesAttachment.documentUrl)
+        && Objects.equals(this.title, patchAttachmentRequestDataAttributesAttachment.title)
         && Objects.equals(
-            this.additionalProperties, incidentAttachmentUpdateData.additionalProperties);
+            this.additionalProperties,
+            patchAttachmentRequestDataAttributesAttachment.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(documentUrl, title, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentAttachmentUpdateData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class PatchAttachmentRequestDataAttributesAttachment {\n");
+    sb.append("    documentUrl: ").append(toIndentedString(documentUrl)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

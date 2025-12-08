@@ -17,76 +17,39 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A single incident attachment. */
+/** */
 @JsonPropertyOrder({
-  IncidentAttachmentData.JSON_PROPERTY_ATTRIBUTES,
-  IncidentAttachmentData.JSON_PROPERTY_ID,
-  IncidentAttachmentData.JSON_PROPERTY_RELATIONSHIPS,
-  IncidentAttachmentData.JSON_PROPERTY_TYPE
+  AttachmentDataRelationshipsLastModifiedByUserData.JSON_PROPERTY_ID,
+  AttachmentDataRelationshipsLastModifiedByUserData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentAttachmentData {
+public class AttachmentDataRelationshipsLastModifiedByUserData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private IncidentAttachmentAttributes attributes;
-
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private IncidentAttachmentRelationships relationships;
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private IncidentAttachmentType type = IncidentAttachmentType.INCIDENT_ATTACHMENTS;
+  private UserType type = UserType.USERS;
 
-  public IncidentAttachmentData() {}
+  public AttachmentDataRelationshipsLastModifiedByUserData() {}
 
   @JsonCreator
-  public IncidentAttachmentData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          IncidentAttachmentAttributes attributes,
+  public AttachmentDataRelationshipsLastModifiedByUserData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RELATIONSHIPS)
-          IncidentAttachmentRelationships relationships,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentAttachmentType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) UserType type) {
     this.id = id;
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public IncidentAttachmentData attributes(IncidentAttachmentAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
-  }
-
-  /**
-   * The attributes object for an attachment.
-   *
-   * @return attributes
-   */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentAttachmentAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(IncidentAttachmentAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public IncidentAttachmentData id(String id) {
+  public AttachmentDataRelationshipsLastModifiedByUserData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * A unique identifier that represents the incident attachment.
+   * Getid
    *
    * @return id
    */
@@ -100,45 +63,24 @@ public class IncidentAttachmentData {
     this.id = id;
   }
 
-  public IncidentAttachmentData relationships(IncidentAttachmentRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
-  /**
-   * The incident attachment's relationships.
-   *
-   * @return relationships
-   */
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentAttachmentRelationships getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(IncidentAttachmentRelationships relationships) {
-    this.relationships = relationships;
-  }
-
-  public IncidentAttachmentData type(IncidentAttachmentType type) {
+  public AttachmentDataRelationshipsLastModifiedByUserData type(UserType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The incident attachment resource type.
+   * Users resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentAttachmentType getType() {
+  public UserType getType() {
     return type;
   }
 
-  public void setType(IncidentAttachmentType type) {
+  public void setType(UserType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -157,10 +99,11 @@ public class IncidentAttachmentData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentAttachmentData
+   * @return AttachmentDataRelationshipsLastModifiedByUserData
    */
   @JsonAnySetter
-  public IncidentAttachmentData putAdditionalProperty(String key, Object value) {
+  public AttachmentDataRelationshipsLastModifiedByUserData putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -191,7 +134,7 @@ public class IncidentAttachmentData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentAttachmentData object is equal to o. */
+  /** Return true if this AttachmentDataRelationshipsLastModifiedByUserData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -200,26 +143,26 @@ public class IncidentAttachmentData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentAttachmentData incidentAttachmentData = (IncidentAttachmentData) o;
-    return Objects.equals(this.attributes, incidentAttachmentData.attributes)
-        && Objects.equals(this.id, incidentAttachmentData.id)
-        && Objects.equals(this.relationships, incidentAttachmentData.relationships)
-        && Objects.equals(this.type, incidentAttachmentData.type)
-        && Objects.equals(this.additionalProperties, incidentAttachmentData.additionalProperties);
+    AttachmentDataRelationshipsLastModifiedByUserData
+        attachmentDataRelationshipsLastModifiedByUserData =
+            (AttachmentDataRelationshipsLastModifiedByUserData) o;
+    return Objects.equals(this.id, attachmentDataRelationshipsLastModifiedByUserData.id)
+        && Objects.equals(this.type, attachmentDataRelationshipsLastModifiedByUserData.type)
+        && Objects.equals(
+            this.additionalProperties,
+            attachmentDataRelationshipsLastModifiedByUserData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentAttachmentData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class AttachmentDataRelationshipsLastModifiedByUserData {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -744,6 +744,7 @@ public class ApiClient {
           put("v2.updateDeploymentGate", false);
           put("v2.updateDeploymentRule", false);
           put("v2.createIncident", false);
+          put("v2.createIncidentAttachment", false);
           put("v2.createIncidentImpact", false);
           put("v2.createIncidentIntegration", false);
           put("v2.createIncidentNotificationRule", false);
@@ -751,6 +752,7 @@ public class ApiClient {
           put("v2.createIncidentTodo", false);
           put("v2.createIncidentType", false);
           put("v2.deleteIncident", false);
+          put("v2.deleteIncidentAttachment", false);
           put("v2.deleteIncidentImpact", false);
           put("v2.deleteIncidentIntegration", false);
           put("v2.deleteIncidentNotificationRule", false);
@@ -773,7 +775,7 @@ public class ApiClient {
           put("v2.listIncidentTypes", false);
           put("v2.searchIncidents", false);
           put("v2.updateIncident", false);
-          put("v2.updateIncidentAttachments", false);
+          put("v2.updateIncidentAttachment", false);
           put("v2.updateIncidentIntegration", false);
           put("v2.updateIncidentNotificationRule", false);
           put("v2.updateIncidentNotificationTemplate", false);
