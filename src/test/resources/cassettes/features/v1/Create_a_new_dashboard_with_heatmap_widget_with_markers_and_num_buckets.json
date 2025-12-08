@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_heatmap_widget_with_markers_and_num_buckets-1765201444\",\"widgets\":[{\"definition\":{\"markers\":[{\"display_type\":\"percentile\",\"value\":\"50\"},{\"display_type\":\"percentile\",\"value\":\"99\"}],\"requests\":[{\"query\":{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"histogram:trace.servlet.request{*}\"},\"request_type\":\"histogram\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"heatmap\",\"xaxis\":{\"num_buckets\":75},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"num_buckets\":55,\"scale\":\"linear\"}},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"47i-rsj-bdw\",\"title\":\"Test-Create_a_new_dashboard_with_heatmap_widget_with_markers_and_num_buckets-1765201444\",\"description\":null,\"author_handle\":\"shishi.liu@datadoghq.com\",\"author_name\":\"Shishi Liu\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/47i-rsj-bdw/test-createanewdashboardwithheatmapwidgetwithmarkersandnumbuckets-1765201444\",\"template_variables\":null,\"widgets\":[{\"definition\":{\"markers\":[{\"display_type\":\"percentile\",\"value\":\"50\"},{\"display_type\":\"percentile\",\"value\":\"99\"}],\"requests\":[{\"query\":{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"histogram:trace.servlet.request{*}\"},\"request_type\":\"histogram\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"heatmap\",\"xaxis\":{\"num_buckets\":75},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"num_buckets\":55,\"scale\":\"linear\"}},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0},\"id\":5710247626201242}],\"notify_list\":null,\"created_at\":\"2025-12-08T13:44:05.403199+00:00\",\"modified_at\":\"2025-12-08T13:44:05.403199+00:00\",\"restricted_roles\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d67a5ba7-9ba5-030c-ac00-2d594e6ad0ec"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/47i-rsj-bdw",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"47i-rsj-bdw\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fbfa6a42-5b9f-14ca-0c94-a1f3f06d3ae0"
+  }
+]

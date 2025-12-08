@@ -16,20 +16,24 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** X Axis controls for the distribution widget. */
+/** Y Axis controls for the heat map widget. */
 @JsonPropertyOrder({
-  DistributionWidgetXAxis.JSON_PROPERTY_INCLUDE_ZERO,
-  DistributionWidgetXAxis.JSON_PROPERTY_MAX,
-  DistributionWidgetXAxis.JSON_PROPERTY_MIN,
-  DistributionWidgetXAxis.JSON_PROPERTY_NUM_BUCKETS,
-  DistributionWidgetXAxis.JSON_PROPERTY_SCALE
+  HeatMapWidgetYAxis.JSON_PROPERTY_INCLUDE_ZERO,
+  HeatMapWidgetYAxis.JSON_PROPERTY_LABEL,
+  HeatMapWidgetYAxis.JSON_PROPERTY_MAX,
+  HeatMapWidgetYAxis.JSON_PROPERTY_MIN,
+  HeatMapWidgetYAxis.JSON_PROPERTY_NUM_BUCKETS,
+  HeatMapWidgetYAxis.JSON_PROPERTY_SCALE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DistributionWidgetXAxis {
+public class HeatMapWidgetYAxis {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INCLUDE_ZERO = "include_zero";
   private Boolean includeZero;
+
+  public static final String JSON_PROPERTY_LABEL = "label";
+  private String label;
 
   public static final String JSON_PROPERTY_MAX = "max";
   private String max = "auto";
@@ -43,13 +47,13 @@ public class DistributionWidgetXAxis {
   public static final String JSON_PROPERTY_SCALE = "scale";
   private String scale = "linear";
 
-  public DistributionWidgetXAxis includeZero(Boolean includeZero) {
+  public HeatMapWidgetYAxis includeZero(Boolean includeZero) {
     this.includeZero = includeZero;
     return this;
   }
 
   /**
-   * True includes zero.
+   * Set to <code>true</code> to include zero.
    *
    * @return includeZero
    */
@@ -64,14 +68,34 @@ public class DistributionWidgetXAxis {
     this.includeZero = includeZero;
   }
 
-  public DistributionWidgetXAxis max(String max) {
+  public HeatMapWidgetYAxis label(String label) {
+    this.label = label;
+    return this;
+  }
+
+  /**
+   * The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
+   *
+   * @return label
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLabel() {
+    return label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+  public HeatMapWidgetYAxis max(String max) {
     this.max = max;
     return this;
   }
 
   /**
-   * Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th
-   * percentile), or auto for default behavior.
+   * Specifies maximum numeric value to show on the axis. Defaults to <code>auto</code>.
    *
    * @return max
    */
@@ -86,14 +110,13 @@ public class DistributionWidgetXAxis {
     this.max = max;
   }
 
-  public DistributionWidgetXAxis min(String min) {
+  public HeatMapWidgetYAxis min(String min) {
     this.min = min;
     return this;
   }
 
   /**
-   * Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th
-   * percentile), or auto for default behavior.
+   * Specifies minimum numeric value to show on the axis. Defaults to <code>auto</code>.
    *
    * @return min
    */
@@ -108,7 +131,7 @@ public class DistributionWidgetXAxis {
     this.min = min;
   }
 
-  public DistributionWidgetXAxis numBuckets(Long numBuckets) {
+  public HeatMapWidgetYAxis numBuckets(Long numBuckets) {
     this.numBuckets = numBuckets;
     return this;
   }
@@ -129,13 +152,14 @@ public class DistributionWidgetXAxis {
     this.numBuckets = numBuckets;
   }
 
-  public DistributionWidgetXAxis scale(String scale) {
+  public HeatMapWidgetYAxis scale(String scale) {
     this.scale = scale;
     return this;
   }
 
   /**
-   * Specifies the scale type. Possible values are <code>linear</code>.
+   * Specifies the scale type. Possible values are <code>linear</code>, <code>log</code>, <code>sqrt
+   * </code>, and <code>pow##</code> (for example <code>pow2</code> or <code>pow0.5</code>).
    *
    * @return scale
    */
@@ -162,10 +186,10 @@ public class DistributionWidgetXAxis {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DistributionWidgetXAxis
+   * @return HeatMapWidgetYAxis
    */
   @JsonAnySetter
-  public DistributionWidgetXAxis putAdditionalProperty(String key, Object value) {
+  public HeatMapWidgetYAxis putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -196,7 +220,7 @@ public class DistributionWidgetXAxis {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DistributionWidgetXAxis object is equal to o. */
+  /** Return true if this HeatMapWidgetYAxis object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -205,25 +229,27 @@ public class DistributionWidgetXAxis {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DistributionWidgetXAxis distributionWidgetXAxis = (DistributionWidgetXAxis) o;
-    return Objects.equals(this.includeZero, distributionWidgetXAxis.includeZero)
-        && Objects.equals(this.max, distributionWidgetXAxis.max)
-        && Objects.equals(this.min, distributionWidgetXAxis.min)
-        && Objects.equals(this.numBuckets, distributionWidgetXAxis.numBuckets)
-        && Objects.equals(this.scale, distributionWidgetXAxis.scale)
-        && Objects.equals(this.additionalProperties, distributionWidgetXAxis.additionalProperties);
+    HeatMapWidgetYAxis heatMapWidgetYAxis = (HeatMapWidgetYAxis) o;
+    return Objects.equals(this.includeZero, heatMapWidgetYAxis.includeZero)
+        && Objects.equals(this.label, heatMapWidgetYAxis.label)
+        && Objects.equals(this.max, heatMapWidgetYAxis.max)
+        && Objects.equals(this.min, heatMapWidgetYAxis.min)
+        && Objects.equals(this.numBuckets, heatMapWidgetYAxis.numBuckets)
+        && Objects.equals(this.scale, heatMapWidgetYAxis.scale)
+        && Objects.equals(this.additionalProperties, heatMapWidgetYAxis.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(includeZero, max, min, numBuckets, scale, additionalProperties);
+    return Objects.hash(includeZero, label, max, min, numBuckets, scale, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DistributionWidgetXAxis {\n");
+    sb.append("class HeatMapWidgetYAxis {\n");
     sb.append("    includeZero: ").append(toIndentedString(includeZero)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
     sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    numBuckets: ").append(toIndentedString(numBuckets)).append("\n");
