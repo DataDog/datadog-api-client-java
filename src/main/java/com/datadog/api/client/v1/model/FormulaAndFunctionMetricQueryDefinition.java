@@ -25,7 +25,8 @@ import java.util.Objects;
   FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_CROSS_ORG_UUIDS,
   FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
   FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_NAME,
-  FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_QUERY
+  FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_QUERY,
+  FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_SEMANTIC_MODE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,6 +46,9 @@ public class FormulaAndFunctionMetricQueryDefinition {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_SEMANTIC_MODE = "semantic_mode";
+  private FormulaAndFunctionMetricSemanticMode semanticMode;
 
   public FormulaAndFunctionMetricQueryDefinition() {}
 
@@ -180,6 +184,33 @@ public class FormulaAndFunctionMetricQueryDefinition {
     this.query = query;
   }
 
+  public FormulaAndFunctionMetricQueryDefinition semanticMode(
+      FormulaAndFunctionMetricSemanticMode semanticMode) {
+    this.semanticMode = semanticMode;
+    this.unparsed |= !semanticMode.isValid();
+    return this;
+  }
+
+  /**
+   * Semantic mode for metrics queries. This determines how metrics from different sources are
+   * combined or displayed.
+   *
+   * @return semanticMode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEMANTIC_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionMetricSemanticMode getSemanticMode() {
+    return semanticMode;
+  }
+
+  public void setSemanticMode(FormulaAndFunctionMetricSemanticMode semanticMode) {
+    if (!semanticMode.isValid()) {
+      this.unparsed = true;
+    }
+    this.semanticMode = semanticMode;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -242,6 +273,7 @@ public class FormulaAndFunctionMetricQueryDefinition {
         && Objects.equals(this.dataSource, formulaAndFunctionMetricQueryDefinition.dataSource)
         && Objects.equals(this.name, formulaAndFunctionMetricQueryDefinition.name)
         && Objects.equals(this.query, formulaAndFunctionMetricQueryDefinition.query)
+        && Objects.equals(this.semanticMode, formulaAndFunctionMetricQueryDefinition.semanticMode)
         && Objects.equals(
             this.additionalProperties,
             formulaAndFunctionMetricQueryDefinition.additionalProperties);
@@ -249,7 +281,8 @@ public class FormulaAndFunctionMetricQueryDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregator, crossOrgUuids, dataSource, name, query, additionalProperties);
+    return Objects.hash(
+        aggregator, crossOrgUuids, dataSource, name, query, semanticMode, additionalProperties);
   }
 
   @Override
@@ -261,6 +294,7 @@ public class FormulaAndFunctionMetricQueryDefinition {
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    semanticMode: ").append(toIndentedString(semanticMode)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
