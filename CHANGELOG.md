@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.47.1/2025-12-09
+
+### Fixed
+* Don't create dep reduced pom [#3300](https://github.com/DataDog/datadog-api-client-java/pull/3300)
+
 ## 2.47.0/2025-12-08
 
 ### Fixed
