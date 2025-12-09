@@ -404,6 +404,7 @@
                     <shadedClassifierName>shaded-jar</shadedClassifierName>
                     <shadedArtifactAttached>true</shadedArtifactAttached>
                     <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
                 </configuration>
                 <executions>
                     <execution>
