@@ -1,4 +1,4 @@
-// {{ scenario.name|wordwrap(width=120)}}
+// {{ scenario.name|wordwrap(width=120, wrapstring='\n// ')}}
 
 {%- set required_parameters, optional_parameters, parameters_models = format_parameters(context.api_request.kwargs, spec=operation_spec, replace_values=context._replace_values, has_body=context.body) %}
 {%- if context.body %}
