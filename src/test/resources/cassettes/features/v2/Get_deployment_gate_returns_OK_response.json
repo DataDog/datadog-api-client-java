@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate\",\"service\":\"my-service\"},\"type\":\"deployment_gate\"}}"
+        "json": "{\"data\":{\"attributes\":{\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate-testgetdeploymentgatereturnsokresponse1765358631\",\"service\":\"my-service\"},\"type\":\"deployment_gate\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"a71a41f7-e7b9-4c51-8af0-397c8e99aaf9\",\"type\":\"deployment_gate\",\"attributes\":{\"created_at\":\"2025-12-02T17:12:00.52354Z\",\"created_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate\",\"service\":\"my-service\",\"updated_at\":\"2025-12-02T17:12:00.52354Z\",\"updated_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
+      "body": "{\"data\":{\"id\":\"da8c8c14-6bb2-4fc6-8dac-4027468738e4\",\"type\":\"deployment_gate\",\"attributes\":{\"created_at\":\"2025-12-10T09:23:51.581308Z\",\"created_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate-testgetdeploymentgatereturnsokresponse1765358631\",\"service\":\"my-service\",\"updated_at\":\"2025-12-10T09:23:51.581308Z\",\"updated_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "70acb264-a190-c950-4530-585b68c408c6"
+    "id": "412e8c95-7c57-4376-659c-5781dad217a1"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/deployment_gates/a71a41f7-e7b9-4c51-8af0-397c8e99aaf9",
+      "path": "/api/v2/deployment_gates/da8c8c14-6bb2-4fc6-8dac-4027468738e4",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"a71a41f7-e7b9-4c51-8af0-397c8e99aaf9\",\"type\":\"deployment_gate\",\"attributes\":{\"created_at\":\"2025-12-02T17:12:00.52354Z\",\"created_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate\",\"service\":\"my-service\",\"updated_at\":\"2025-12-02T17:12:00.52354Z\",\"updated_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
+      "body": "{\"data\":{\"id\":\"da8c8c14-6bb2-4fc6-8dac-4027468738e4\",\"type\":\"deployment_gate\",\"attributes\":{\"created_at\":\"2025-12-10T09:23:51.581308Z\",\"created_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"dry_run\":false,\"env\":\"production\",\"identifier\":\"my-gate-testgetdeploymentgatereturnsokresponse1765358631\",\"service\":\"my-service\",\"updated_at\":\"2025-12-10T09:23:51.581308Z\",\"updated_by\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7a1714b6-c4d9-89fa-0a6f-7c0023d67164"
+    "id": "41efec9f-7d12-bbbf-4254-a893399dbee7"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/deployment_gates/a71a41f7-e7b9-4c51-8af0-397c8e99aaf9",
+      "path": "/api/v2/deployment_gates/da8c8c14-6bb2-4fc6-8dac-4027468738e4",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b2ac5be2-bfad-4104-b212-2c28f0abe7ae"
+    "id": "7d18ab44-8e43-0345-d6e9-f5ae3be97dfd"
   }
 ]

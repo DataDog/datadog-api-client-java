@@ -8,7 +8,6 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,44 +16,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The view of the world that the map should render. */
-@JsonPropertyOrder({GeomapWidgetDefinitionView.JSON_PROPERTY_FOCUS})
+/** The style to apply to the request for points layer. */
+@JsonPropertyOrder({GeomapWidgetRequestStyle.JSON_PROPERTY_COLOR_BY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class GeomapWidgetDefinitionView {
+public class GeomapWidgetRequestStyle {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_FOCUS = "focus";
-  private String focus;
+  public static final String JSON_PROPERTY_COLOR_BY = "color_by";
+  private String colorBy;
 
-  public GeomapWidgetDefinitionView() {}
-
-  @JsonCreator
-  public GeomapWidgetDefinitionView(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FOCUS) String focus) {
-    this.focus = focus;
-  }
-
-  public GeomapWidgetDefinitionView focus(String focus) {
-    this.focus = focus;
+  public GeomapWidgetRequestStyle colorBy(String colorBy) {
+    this.colorBy = colorBy;
     return this;
   }
 
   /**
-   * The 2-letter ISO code of a country to focus the map on, or <code>WORLD</code> for global view,
-   * or a region (<code>EMEA</code>, <code>APAC</code>, <code>LATAM</code>), or a continent (<code>
-   * NORTH_AMERICA</code>, <code>SOUTH_AMERICA</code>, <code>EUROPE</code>, <code>AFRICA</code>,
-   * <code>ASIA</code>, <code>OCEANIA</code>).
+   * The category to color the points by.
    *
-   * @return focus
+   * @return colorBy
    */
-  @JsonProperty(JSON_PROPERTY_FOCUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getFocus() {
-    return focus;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COLOR_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getColorBy() {
+    return colorBy;
   }
 
-  public void setFocus(String focus) {
-    this.focus = focus;
+  public void setColorBy(String colorBy) {
+    this.colorBy = colorBy;
   }
 
   /**
@@ -69,10 +58,10 @@ public class GeomapWidgetDefinitionView {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return GeomapWidgetDefinitionView
+   * @return GeomapWidgetRequestStyle
    */
   @JsonAnySetter
-  public GeomapWidgetDefinitionView putAdditionalProperty(String key, Object value) {
+  public GeomapWidgetRequestStyle putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -103,7 +92,7 @@ public class GeomapWidgetDefinitionView {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GeomapWidgetDefinitionView object is equal to o. */
+  /** Return true if this GeomapWidgetRequestStyle object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,22 +101,21 @@ public class GeomapWidgetDefinitionView {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GeomapWidgetDefinitionView geomapWidgetDefinitionView = (GeomapWidgetDefinitionView) o;
-    return Objects.equals(this.focus, geomapWidgetDefinitionView.focus)
-        && Objects.equals(
-            this.additionalProperties, geomapWidgetDefinitionView.additionalProperties);
+    GeomapWidgetRequestStyle geomapWidgetRequestStyle = (GeomapWidgetRequestStyle) o;
+    return Objects.equals(this.colorBy, geomapWidgetRequestStyle.colorBy)
+        && Objects.equals(this.additionalProperties, geomapWidgetRequestStyle.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(focus, additionalProperties);
+    return Objects.hash(colorBy, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GeomapWidgetDefinitionView {\n");
-    sb.append("    focus: ").append(toIndentedString(focus)).append("\n");
+    sb.append("class GeomapWidgetRequestStyle {\n");
+    sb.append("    colorBy: ").append(toIndentedString(colorBy)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
