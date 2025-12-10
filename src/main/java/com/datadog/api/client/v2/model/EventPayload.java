@@ -20,6 +20,7 @@ import java.util.Objects;
   EventPayload.JSON_PROPERTY_AGGREGATION_KEY,
   EventPayload.JSON_PROPERTY_ATTRIBUTES,
   EventPayload.JSON_PROPERTY_CATEGORY,
+  EventPayload.JSON_PROPERTY_HOST,
   EventPayload.JSON_PROPERTY_INTEGRATION_ID,
   EventPayload.JSON_PROPERTY_MESSAGE,
   EventPayload.JSON_PROPERTY_TAGS,
@@ -38,6 +39,9 @@ public class EventPayload {
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private EventCategory category;
+
+  public static final String JSON_PROPERTY_HOST = "host";
+  private String host;
 
   public static final String JSON_PROPERTY_INTEGRATION_ID = "integration_id";
   private EventPayloadIntegrationId integrationId;
@@ -136,6 +140,28 @@ public class EventPayload {
       this.unparsed = true;
     }
     this.category = category;
+  }
+
+  public EventPayload host(String host) {
+    this.host = host;
+    return this;
+  }
+
+  /**
+   * Host name to associate with the event. Any tags associated with the host are also applied to
+   * this event. Limited to 255 characters.
+   *
+   * @return host
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
   }
 
   public EventPayload integrationId(EventPayloadIntegrationId integrationId) {
@@ -273,6 +299,7 @@ public class EventPayload {
     return Objects.equals(this.aggregationKey, eventPayload.aggregationKey)
         && Objects.equals(this.attributes, eventPayload.attributes)
         && Objects.equals(this.category, eventPayload.category)
+        && Objects.equals(this.host, eventPayload.host)
         && Objects.equals(this.integrationId, eventPayload.integrationId)
         && Objects.equals(this.message, eventPayload.message)
         && Objects.equals(this.tags, eventPayload.tags)
@@ -283,7 +310,7 @@ public class EventPayload {
   @Override
   public int hashCode() {
     return Objects.hash(
-        aggregationKey, attributes, category, integrationId, message, tags, timestamp, title);
+        aggregationKey, attributes, category, host, integrationId, message, tags, timestamp, title);
   }
 
   @Override
@@ -293,6 +320,7 @@ public class EventPayload {
     sb.append("    aggregationKey: ").append(toIndentedString(aggregationKey)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
