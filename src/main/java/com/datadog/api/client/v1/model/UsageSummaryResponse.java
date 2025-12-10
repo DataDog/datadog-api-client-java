@@ -55,6 +55,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_OCI_HOST_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_SIEM_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM_SUM,
@@ -102,6 +103,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_APM_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_EPH_INFRA_HOST_PRO_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_EPH_INFRA_HOST_PROXMOX_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_ERROR_TRACKING_EVENTS_AGG_SUM,
@@ -161,6 +163,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_CONTAINER_AGENT_COUNT_AVG,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_PROXMOX_HOST_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_PROXMOX_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_PUBLISHED_APP_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_REHYDRATED_INGESTED_BYTES_AGG_SUM,
@@ -371,6 +375,10 @@ public class UsageSummaryResponse {
       "cloud_cost_management_host_count_avg_sum";
   private Long cloudCostManagementHostCountAvgSum;
 
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_OCI_HOST_COUNT_AVG_SUM =
+      "cloud_cost_management_oci_host_count_avg_sum";
+  private Long cloudCostManagementOciHostCountAvgSum;
+
   public static final String JSON_PROPERTY_CLOUD_SIEM_EVENTS_AGG_SUM = "cloud_siem_events_agg_sum";
   private Long cloudSiemEventsAggSum;
 
@@ -540,6 +548,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_AGG_SUM =
       "eph_infra_host_proplus_agg_sum";
   private Long ephInfraHostProplusAggSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_PROXMOX_AGG_SUM =
+      "eph_infra_host_proxmox_agg_sum";
+  private Long ephInfraHostProxmoxAggSum;
 
   public static final String JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_AGG_SUM =
       "error_tracking_apm_error_events_agg_sum";
@@ -762,6 +774,12 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM =
       "profiling_host_count_top99p_sum";
   private Long profilingHostCountTop99pSum;
+
+  public static final String JSON_PROPERTY_PROXMOX_HOST_AGG_SUM = "proxmox_host_agg_sum";
+  private Long proxmoxHostAggSum;
+
+  public static final String JSON_PROPERTY_PROXMOX_HOST_TOP99P_SUM = "proxmox_host_top99p_sum";
+  private Long proxmoxHostTop99pSum;
 
   public static final String JSON_PROPERTY_PUBLISHED_APP_HWM_SUM = "published_app_hwm_sum";
   private Long publishedAppHwmSum;
@@ -1787,6 +1805,28 @@ public class UsageSummaryResponse {
 
   public void setCloudCostManagementHostCountAvgSum(Long cloudCostManagementHostCountAvgSum) {
     this.cloudCostManagementHostCountAvgSum = cloudCostManagementHostCountAvgSum;
+  }
+
+  public UsageSummaryResponse cloudCostManagementOciHostCountAvgSum(
+      Long cloudCostManagementOciHostCountAvgSum) {
+    this.cloudCostManagementOciHostCountAvgSum = cloudCostManagementOciHostCountAvgSum;
+    return this;
+  }
+
+  /**
+   * Sum of the average host counts for Cloud Cost Management on OCI.
+   *
+   * @return cloudCostManagementOciHostCountAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_OCI_HOST_COUNT_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCloudCostManagementOciHostCountAvgSum() {
+    return cloudCostManagementOciHostCountAvgSum;
+  }
+
+  public void setCloudCostManagementOciHostCountAvgSum(Long cloudCostManagementOciHostCountAvgSum) {
+    this.cloudCostManagementOciHostCountAvgSum = cloudCostManagementOciHostCountAvgSum;
   }
 
   public UsageSummaryResponse cloudSiemEventsAggSum(Long cloudSiemEventsAggSum) {
@@ -2844,6 +2884,28 @@ public class UsageSummaryResponse {
 
   public void setEphInfraHostProplusAggSum(Long ephInfraHostProplusAggSum) {
     this.ephInfraHostProplusAggSum = ephInfraHostProplusAggSum;
+  }
+
+  public UsageSummaryResponse ephInfraHostProxmoxAggSum(Long ephInfraHostProxmoxAggSum) {
+    this.ephInfraHostProxmoxAggSum = ephInfraHostProxmoxAggSum;
+    return this;
+  }
+
+  /**
+   * Sum of all ephemeral infrastructure hosts for Proxmox over all hours in the current month for
+   * all organizations.
+   *
+   * @return ephInfraHostProxmoxAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_PROXMOX_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostProxmoxAggSum() {
+    return ephInfraHostProxmoxAggSum;
+  }
+
+  public void setEphInfraHostProxmoxAggSum(Long ephInfraHostProxmoxAggSum) {
+    this.ephInfraHostProxmoxAggSum = ephInfraHostProxmoxAggSum;
   }
 
   public UsageSummaryResponse errorTrackingApmErrorEventsAggSum(
@@ -4207,6 +4269,49 @@ public class UsageSummaryResponse {
 
   public void setProfilingHostCountTop99pSum(Long profilingHostCountTop99pSum) {
     this.profilingHostCountTop99pSum = profilingHostCountTop99pSum;
+  }
+
+  public UsageSummaryResponse proxmoxHostAggSum(Long proxmoxHostAggSum) {
+    this.proxmoxHostAggSum = proxmoxHostAggSum;
+    return this;
+  }
+
+  /**
+   * Sum of all Proxmox hosts over all hours in the current month for all organizations.
+   *
+   * @return proxmoxHostAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROXMOX_HOST_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getProxmoxHostAggSum() {
+    return proxmoxHostAggSum;
+  }
+
+  public void setProxmoxHostAggSum(Long proxmoxHostAggSum) {
+    this.proxmoxHostAggSum = proxmoxHostAggSum;
+  }
+
+  public UsageSummaryResponse proxmoxHostTop99pSum(Long proxmoxHostTop99pSum) {
+    this.proxmoxHostTop99pSum = proxmoxHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Sum of the 99th percentile of all Proxmox hosts over all hours in the current month for all
+   * organizations.
+   *
+   * @return proxmoxHostTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROXMOX_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getProxmoxHostTop99pSum() {
+    return proxmoxHostTop99pSum;
+  }
+
+  public void setProxmoxHostTop99pSum(Long proxmoxHostTop99pSum) {
+    this.proxmoxHostTop99pSum = proxmoxHostTop99pSum;
   }
 
   public UsageSummaryResponse publishedAppHwmSum(Long publishedAppHwmSum) {
@@ -6242,6 +6347,9 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.cloudCostManagementHostCountAvgSum,
             usageSummaryResponse.cloudCostManagementHostCountAvgSum)
+        && Objects.equals(
+            this.cloudCostManagementOciHostCountAvgSum,
+            usageSummaryResponse.cloudCostManagementOciHostCountAvgSum)
         && Objects.equals(this.cloudSiemEventsAggSum, usageSummaryResponse.cloudSiemEventsAggSum)
         && Objects.equals(
             this.codeAnalysisSaCommittersHwmSum,
@@ -6328,6 +6436,8 @@ public class UsageSummaryResponse {
         && Objects.equals(this.ephInfraHostProAggSum, usageSummaryResponse.ephInfraHostProAggSum)
         && Objects.equals(
             this.ephInfraHostProplusAggSum, usageSummaryResponse.ephInfraHostProplusAggSum)
+        && Objects.equals(
+            this.ephInfraHostProxmoxAggSum, usageSummaryResponse.ephInfraHostProxmoxAggSum)
         && Objects.equals(
             this.errorTrackingApmErrorEventsAggSum,
             usageSummaryResponse.errorTrackingApmErrorEventsAggSum)
@@ -6452,6 +6562,8 @@ public class UsageSummaryResponse {
             usageSummaryResponse.profilingContainerAgentCountAvg)
         && Objects.equals(
             this.profilingHostCountTop99pSum, usageSummaryResponse.profilingHostCountTop99pSum)
+        && Objects.equals(this.proxmoxHostAggSum, usageSummaryResponse.proxmoxHostAggSum)
+        && Objects.equals(this.proxmoxHostTop99pSum, usageSummaryResponse.proxmoxHostTop99pSum)
         && Objects.equals(this.publishedAppHwmSum, usageSummaryResponse.publishedAppHwmSum)
         && Objects.equals(
             this.rehydratedIndexedEventsAggSum, usageSummaryResponse.rehydratedIndexedEventsAggSum)
@@ -6692,6 +6804,7 @@ public class UsageSummaryResponse {
         cloudCostManagementAzureHostCountAvgSum,
         cloudCostManagementGcpHostCountAvgSum,
         cloudCostManagementHostCountAvgSum,
+        cloudCostManagementOciHostCountAvgSum,
         cloudSiemEventsAggSum,
         codeAnalysisSaCommittersHwmSum,
         codeAnalysisScaCommittersHwmSum,
@@ -6739,6 +6852,7 @@ public class UsageSummaryResponse {
         ephInfraHostOpentelemetryApmAggSum,
         ephInfraHostProAggSum,
         ephInfraHostProplusAggSum,
+        ephInfraHostProxmoxAggSum,
         errorTrackingApmErrorEventsAggSum,
         errorTrackingErrorEventsAggSum,
         errorTrackingEventsAggSum,
@@ -6798,6 +6912,8 @@ public class UsageSummaryResponse {
         profilingAasCountTop99pSum,
         profilingContainerAgentCountAvg,
         profilingHostCountTop99pSum,
+        proxmoxHostAggSum,
+        proxmoxHostTop99pSum,
         publishedAppHwmSum,
         rehydratedIndexedEventsAggSum,
         rehydratedIngestedBytesAggSum,
@@ -6968,6 +7084,9 @@ public class UsageSummaryResponse {
     sb.append("    cloudCostManagementHostCountAvgSum: ")
         .append(toIndentedString(cloudCostManagementHostCountAvgSum))
         .append("\n");
+    sb.append("    cloudCostManagementOciHostCountAvgSum: ")
+        .append(toIndentedString(cloudCostManagementOciHostCountAvgSum))
+        .append("\n");
     sb.append("    cloudSiemEventsAggSum: ")
         .append(toIndentedString(cloudSiemEventsAggSum))
         .append("\n");
@@ -7088,6 +7207,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    ephInfraHostProplusAggSum: ")
         .append(toIndentedString(ephInfraHostProplusAggSum))
+        .append("\n");
+    sb.append("    ephInfraHostProxmoxAggSum: ")
+        .append(toIndentedString(ephInfraHostProxmoxAggSum))
         .append("\n");
     sb.append("    errorTrackingApmErrorEventsAggSum: ")
         .append(toIndentedString(errorTrackingApmErrorEventsAggSum))
@@ -7245,6 +7367,10 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    profilingHostCountTop99pSum: ")
         .append(toIndentedString(profilingHostCountTop99pSum))
+        .append("\n");
+    sb.append("    proxmoxHostAggSum: ").append(toIndentedString(proxmoxHostAggSum)).append("\n");
+    sb.append("    proxmoxHostTop99pSum: ")
+        .append(toIndentedString(proxmoxHostTop99pSum))
         .append("\n");
     sb.append("    publishedAppHwmSum: ").append(toIndentedString(publishedAppHwmSum)).append("\n");
     sb.append("    rehydratedIndexedEventsAggSum: ")
