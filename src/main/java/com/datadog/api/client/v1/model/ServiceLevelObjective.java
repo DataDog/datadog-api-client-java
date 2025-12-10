@@ -324,9 +324,9 @@ public class ServiceLevelObjective {
   }
 
   /**
-   * A metric-based SLO. <strong>Required if type is <code>metric</code></strong>. Note that Datadog
-   * only allows the sum by aggregator to be used because this will sum up all request counts
-   * instead of averaging them, or taking the max or min of all of those requests.
+   * A now deprecated metric SLO. Note that Datadog only allows the sum by aggregator to be used
+   * because this will sum up all request counts instead of averaging them, or taking the max or min
+   * of all of those requests.
    *
    * @return query
    */
@@ -348,7 +348,7 @@ public class ServiceLevelObjective {
   }
 
   /**
-   * A generic SLI specification. This is currently used for time-slice SLOs only.
+   * A generic SLI specification. This is currently used for time-slice and metric SLOs only.
    *
    * @return sliSpecification
    */
