@@ -7,6 +7,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CreateDeploymentGateParams;
 import com.datadog.api.client.v2.model.CreateDeploymentRuleParams;
 import com.datadog.api.client.v2.model.DeploymentGateResponse;
+import com.datadog.api.client.v2.model.DeploymentGateRulesResponse;
 import com.datadog.api.client.v2.model.DeploymentRuleResponse;
 import com.datadog.api.client.v2.model.UpdateDeploymentGateParams;
 import com.datadog.api.client.v2.model.UpdateDeploymentRuleParams;
@@ -855,6 +856,163 @@ public class DeploymentGatesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<DeploymentGateResponse>() {});
+  }
+
+  /**
+   * Get rules for a deployment gate.
+   *
+   * <p>See {@link #getDeploymentGateRulesWithHttpInfo}.
+   *
+   * @param gateId The ID of the deployment gate. (required)
+   * @return DeploymentGateRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DeploymentGateRulesResponse getDeploymentGateRules(String gateId) throws ApiException {
+    return getDeploymentGateRulesWithHttpInfo(gateId).getData();
+  }
+
+  /**
+   * Get rules for a deployment gate.
+   *
+   * <p>See {@link #getDeploymentGateRulesWithHttpInfoAsync}.
+   *
+   * @param gateId The ID of the deployment gate. (required)
+   * @return CompletableFuture&lt;DeploymentGateRulesResponse&gt;
+   */
+  public CompletableFuture<DeploymentGateRulesResponse> getDeploymentGateRulesAsync(String gateId) {
+    return getDeploymentGateRulesWithHttpInfoAsync(gateId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Endpoint to get rules for a deployment gate.
+   *
+   * @param gateId The ID of the deployment gate. (required)
+   * @return ApiResponse&lt;DeploymentGateRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DeploymentGateRulesResponse> getDeploymentGateRulesWithHttpInfo(String gateId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getDeploymentGateRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'gateId' is set
+    if (gateId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'gateId' when calling getDeploymentGateRules");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/deployment_gates/{gate_id}/rules"
+            .replaceAll("\\{" + "gate_id" + "\\}", apiClient.escapeString(gateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.DeploymentGatesApi.getDeploymentGateRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeploymentGateRulesResponse>() {});
+  }
+
+  /**
+   * Get rules for a deployment gate.
+   *
+   * <p>See {@link #getDeploymentGateRulesWithHttpInfo}.
+   *
+   * @param gateId The ID of the deployment gate. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DeploymentGateRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DeploymentGateRulesResponse>>
+      getDeploymentGateRulesWithHttpInfoAsync(String gateId) {
+    // Check if unstable operation is enabled
+    String operationId = "getDeploymentGateRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DeploymentGateRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'gateId' is set
+    if (gateId == null) {
+      CompletableFuture<ApiResponse<DeploymentGateRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'gateId' when calling getDeploymentGateRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/deployment_gates/{gate_id}/rules"
+            .replaceAll("\\{" + "gate_id" + "\\}", apiClient.escapeString(gateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.DeploymentGatesApi.getDeploymentGateRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DeploymentGateRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeploymentGateRulesResponse>() {});
   }
 
   /**
