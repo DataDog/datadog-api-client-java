@@ -79,6 +79,7 @@ public class Example {
                                                     "{'datacenter': 'devcycle.us1.prod'}")))))
                             .category(EventCategory.CHANGE)
                             .integrationId(EventPayloadIntegrationId.CUSTOM_EVENTS)
+                            .host("test-host")
                             .message("payment_processed feature flag has been enabled")
                             .tags(Collections.singletonList("env:api_client_test"))
                             .title("payment_processed feature flag updated"))
