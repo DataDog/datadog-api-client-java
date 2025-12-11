@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.47.2/2025-12-11
+
+### Fixed
+* Fix Java example template to properly wrap long scenario names in comments [#3305](https://github.com/DataDog/datadog-api-client-java/pull/3305)
+
 ## 2.47.1/2025-12-09
 
 ### Fixed
