@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The response form a monitor search. */
+/** The response from a monitor search. */
 @JsonPropertyOrder({
   MonitorSearchResponse.JSON_PROPERTY_COUNTS,
   MonitorSearchResponse.JSON_PROPERTY_METADATA,
