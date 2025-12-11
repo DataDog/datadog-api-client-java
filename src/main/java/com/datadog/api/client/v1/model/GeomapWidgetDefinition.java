@@ -128,11 +128,11 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Array of one request object to display in the widget. The request must contain a <code>group-by
-   * </code> tag whose value is a country ISO code.
-   *
-   * <p>See the <a href="https://docs.datadoghq.com/dashboards/graphing_json/request_json">Request
-   * JSON schema documentation</a> for information about building the <code>REQUEST_SCHEMA</code>.
+   * Array of request objects to display in the widget. May include an optional request for the
+   * region layer and/or an optional request for the points layer. Region layer requests must
+   * contain a <code>group-by</code> tag whose value is a country ISO code. See the <a
+   * href="https://docs.datadoghq.com/dashboards/graphing_json/request_json">Request JSON schema
+   * documentation</a> for information about building the <code>REQUEST_SCHEMA</code>.
    *
    * @return requests
    */

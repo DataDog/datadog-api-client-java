@@ -21,6 +21,7 @@ import java.util.Objects;
 /** An updated geomap widget. */
 @JsonPropertyOrder({
   GeomapWidgetRequest.JSON_PROPERTY_COLUMNS,
+  GeomapWidgetRequest.JSON_PROPERTY_CONDITIONAL_FORMATS,
   GeomapWidgetRequest.JSON_PROPERTY_FORMULAS,
   GeomapWidgetRequest.JSON_PROPERTY_LOG_QUERY,
   GeomapWidgetRequest.JSON_PROPERTY_Q,
@@ -29,7 +30,9 @@ import java.util.Objects;
   GeomapWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   GeomapWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   GeomapWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
-  GeomapWidgetRequest.JSON_PROPERTY_SORT
+  GeomapWidgetRequest.JSON_PROPERTY_SORT,
+  GeomapWidgetRequest.JSON_PROPERTY_STYLE,
+  GeomapWidgetRequest.JSON_PROPERTY_TEXT_FORMATS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -37,6 +40,9 @@ public class GeomapWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<ListStreamColumn> columns = null;
+
+  public static final String JSON_PROPERTY_CONDITIONAL_FORMATS = "conditional_formats";
+  private List<WidgetConditionalFormat> conditionalFormats = null;
 
   public static final String JSON_PROPERTY_FORMULAS = "formulas";
   private List<WidgetFormula> formulas = null;
@@ -64,6 +70,12 @@ public class GeomapWidgetRequest {
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private WidgetSortBy sort;
+
+  public static final String JSON_PROPERTY_STYLE = "style";
+  private GeomapWidgetRequestStyle style;
+
+  public static final String JSON_PROPERTY_TEXT_FORMATS = "text_formats";
+  private List<TableWidgetTextFormatRule> textFormats = null;
 
   public GeomapWidgetRequest columns(List<ListStreamColumn> columns) {
     this.columns = columns;
@@ -96,6 +108,40 @@ public class GeomapWidgetRequest {
 
   public void setColumns(List<ListStreamColumn> columns) {
     this.columns = columns;
+  }
+
+  public GeomapWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
+    this.conditionalFormats = conditionalFormats;
+    for (WidgetConditionalFormat item : conditionalFormats) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public GeomapWidgetRequest addConditionalFormatsItem(
+      WidgetConditionalFormat conditionalFormatsItem) {
+    if (this.conditionalFormats == null) {
+      this.conditionalFormats = new ArrayList<>();
+    }
+    this.conditionalFormats.add(conditionalFormatsItem);
+    this.unparsed |= conditionalFormatsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Threshold (numeric) conditional formatting rules may be used by a regions layer.
+   *
+   * @return conditionalFormats
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetConditionalFormat> getConditionalFormats() {
+    return conditionalFormats;
+  }
+
+  public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
+    this.conditionalFormats = conditionalFormats;
   }
 
   public GeomapWidgetRequest formulas(List<WidgetFormula> formulas) {
@@ -321,6 +367,61 @@ public class GeomapWidgetRequest {
     this.sort = sort;
   }
 
+  public GeomapWidgetRequest style(GeomapWidgetRequestStyle style) {
+    this.style = style;
+    this.unparsed |= style.unparsed;
+    return this;
+  }
+
+  /**
+   * The style to apply to the request for points layer.
+   *
+   * @return style
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STYLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GeomapWidgetRequestStyle getStyle() {
+    return style;
+  }
+
+  public void setStyle(GeomapWidgetRequestStyle style) {
+    this.style = style;
+  }
+
+  public GeomapWidgetRequest textFormats(List<TableWidgetTextFormatRule> textFormats) {
+    this.textFormats = textFormats;
+    for (TableWidgetTextFormatRule item : textFormats) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public GeomapWidgetRequest addTextFormatsItem(TableWidgetTextFormatRule textFormatsItem) {
+    if (this.textFormats == null) {
+      this.textFormats = new ArrayList<>();
+    }
+    this.textFormats.add(textFormatsItem);
+    this.unparsed |= textFormatsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Text formatting rules may be used by a points layer.
+   *
+   * @return textFormats
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEXT_FORMATS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TableWidgetTextFormatRule> getTextFormats() {
+    return textFormats;
+  }
+
+  public void setTextFormats(List<TableWidgetTextFormatRule> textFormats) {
+    this.textFormats = textFormats;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -378,6 +479,7 @@ public class GeomapWidgetRequest {
     }
     GeomapWidgetRequest geomapWidgetRequest = (GeomapWidgetRequest) o;
     return Objects.equals(this.columns, geomapWidgetRequest.columns)
+        && Objects.equals(this.conditionalFormats, geomapWidgetRequest.conditionalFormats)
         && Objects.equals(this.formulas, geomapWidgetRequest.formulas)
         && Objects.equals(this.logQuery, geomapWidgetRequest.logQuery)
         && Objects.equals(this.q, geomapWidgetRequest.q)
@@ -387,6 +489,8 @@ public class GeomapWidgetRequest {
         && Objects.equals(this.rumQuery, geomapWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, geomapWidgetRequest.securityQuery)
         && Objects.equals(this.sort, geomapWidgetRequest.sort)
+        && Objects.equals(this.style, geomapWidgetRequest.style)
+        && Objects.equals(this.textFormats, geomapWidgetRequest.textFormats)
         && Objects.equals(this.additionalProperties, geomapWidgetRequest.additionalProperties);
   }
 
@@ -394,6 +498,7 @@ public class GeomapWidgetRequest {
   public int hashCode() {
     return Objects.hash(
         columns,
+        conditionalFormats,
         formulas,
         logQuery,
         q,
@@ -403,6 +508,8 @@ public class GeomapWidgetRequest {
         rumQuery,
         securityQuery,
         sort,
+        style,
+        textFormats,
         additionalProperties);
   }
 
@@ -411,6 +518,7 @@ public class GeomapWidgetRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GeomapWidgetRequest {\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
+    sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
@@ -420,6 +528,8 @@ public class GeomapWidgetRequest {
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    style: ").append(toIndentedString(style)).append("\n");
+    sb.append("    textFormats: ").append(toIndentedString(textFormats)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
