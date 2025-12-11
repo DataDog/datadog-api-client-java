@@ -19,10 +19,10 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Set of tags to associate with your host. */
-@JsonPropertyOrder({HostTags.JSON_PROPERTY_HOST, HostTags.JSON_PROPERTY_TAGS})
+@JsonPropertyOrder({HostTagsOutput.JSON_PROPERTY_HOST, HostTagsOutput.JSON_PROPERTY_TAGS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class HostTags {
+public class HostTagsOutput {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOST = "host";
   private String host;
@@ -30,7 +30,7 @@ public class HostTags {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
-  public HostTags host(String host) {
+  public HostTagsOutput host(String host) {
     this.host = host;
     return this;
   }
@@ -51,12 +51,12 @@ public class HostTags {
     this.host = host;
   }
 
-  public HostTags tags(List<String> tags) {
+  public HostTagsOutput tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public HostTags addTagsItem(String tagsItem) {
+  public HostTagsOutput addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -65,7 +65,7 @@ public class HostTags {
   }
 
   /**
-   * A list of tags to apply to the host.
+   * A list of tags attached to a given host.
    *
    * @return tags
    */
@@ -92,10 +92,10 @@ public class HostTags {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return HostTags
+   * @return HostTagsOutput
    */
   @JsonAnySetter
-  public HostTags putAdditionalProperty(String key, Object value) {
+  public HostTagsOutput putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -126,7 +126,7 @@ public class HostTags {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HostTags object is equal to o. */
+  /** Return true if this HostTagsOutput object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,10 +135,10 @@ public class HostTags {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HostTags hostTags = (HostTags) o;
-    return Objects.equals(this.host, hostTags.host)
-        && Objects.equals(this.tags, hostTags.tags)
-        && Objects.equals(this.additionalProperties, hostTags.additionalProperties);
+    HostTagsOutput hostTagsOutput = (HostTagsOutput) o;
+    return Objects.equals(this.host, hostTagsOutput.host)
+        && Objects.equals(this.tags, hostTagsOutput.tags)
+        && Objects.equals(this.additionalProperties, hostTagsOutput.additionalProperties);
   }
 
   @Override
@@ -149,7 +149,7 @@ public class HostTags {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HostTags {\n");
+    sb.append("class HostTagsOutput {\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")

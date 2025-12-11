@@ -12,49 +12,71 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * In this object, the key is the tag, and the value is a list of host names that are reporting that
- * tag.
- */
-@JsonPropertyOrder({TagToHosts.JSON_PROPERTY_TAGS})
+/** Set of tags to associate with your host. */
+@JsonPropertyOrder({HostTagsInput.JSON_PROPERTY_HOST, HostTagsInput.JSON_PROPERTY_TAGS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagToHosts {
+public class HostTagsInput {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_HOST = "host";
+  private String host;
+
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private Map<String, List<String>> tags = null;
+  private List<String> tags = null;
 
-  public TagToHosts tags(Map<String, List<String>> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public TagToHosts putTagsItem(String key, List<String> tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
-    }
-    this.tags.put(key, tagsItem);
+  public HostTagsInput host(String host) {
+    this.host = host;
     return this;
   }
 
   /**
-   * A mapping of tags to host names
+   * Your host name.
+   *
+   * @return host
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
+  }
+
+  public HostTagsInput tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public HostTagsInput addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * A list of tags to apply to the host.
    *
    * @return tags
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, List<String>> getTags() {
+  public List<String> getTags() {
     return tags;
   }
 
-  public void setTags(Map<String, List<String>> tags) {
+  public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
@@ -70,10 +92,10 @@ public class TagToHosts {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagToHosts
+   * @return HostTagsInput
    */
   @JsonAnySetter
-  public TagToHosts putAdditionalProperty(String key, Object value) {
+  public HostTagsInput putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -104,7 +126,7 @@ public class TagToHosts {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagToHosts object is equal to o. */
+  /** Return true if this HostTagsInput object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -113,20 +135,22 @@ public class TagToHosts {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagToHosts tagToHosts = (TagToHosts) o;
-    return Objects.equals(this.tags, tagToHosts.tags)
-        && Objects.equals(this.additionalProperties, tagToHosts.additionalProperties);
+    HostTagsInput hostTagsInput = (HostTagsInput) o;
+    return Objects.equals(this.host, hostTagsInput.host)
+        && Objects.equals(this.tags, hostTagsInput.tags)
+        && Objects.equals(this.additionalProperties, hostTagsInput.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, additionalProperties);
+    return Objects.hash(host, tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagToHosts {\n");
+    sb.append("class HostTagsInput {\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
