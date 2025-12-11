@@ -26,7 +26,7 @@ public class Example {
                             .name("Test updating retention filter")
                             .eventType(RumRetentionFilterEventType.VIEW)
                             .query("view_query")
-                            .sampleRate(100L)
+                            .sampleRate(100.0)
                             .enabled(true)));
 
     try {
