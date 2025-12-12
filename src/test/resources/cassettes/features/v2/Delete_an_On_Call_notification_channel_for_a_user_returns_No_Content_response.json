@@ -1,0 +1,104 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Delete_an_On_Call_notification_channel_for_a_user_returns_No_Content_response-1765477670@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/users",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"1df33be3-5397-4aaf-95c0-00dd63819c80\",\"attributes\":{\"name\":null,\"handle\":\"test-delete_an_on_call_notification_channel_for_a_user_returns_no_content_response-1765477670@datadoghq.com\",\"created_at\":\"2025-12-11T18:27:50.837055+00:00\",\"modified_at\":\"2025-12-11T18:27:50.837055+00:00\",\"email\":\"test-delete_an_on_call_notification_channel_for_a_user_returns_no_content_response-1765477670@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/f0ef01f65aae0d49a442ade4a44a5a53?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\",\"last_login_time\":null},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "80da1347-5cb7-fcb8-d246-ecb3a2e83eeb"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"config\":{\"address\":\"test-delete_an_on_call_notification_channel_for_a_user_returns_no_content_response-1765477670@datadoghq.com\",\"formats\":[\"html\"],\"type\":\"email\"}},\"type\":\"notification_channels\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/on-call/users/1df33be3-5397-4aaf-95c0-00dd63819c80/notification-channels",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"dd22cf57-a576-4c7e-92f8-36c2171f5f99\",\"type\":\"notification_channels\",\"attributes\":{\"active\":true,\"config\":{\"type\":\"email\",\"address\":\"test-delete_an_on_call_notification_channel_for_a_user_returns_no_content_response-1765477670@datadoghq.com\",\"formats\":[\"html\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b54ba694-e3ee-3096-441d-eff4941b2a2e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/on-call/users/1df33be3-5397-4aaf-95c0-00dd63819c80/notification-channels/dd22cf57-a576-4c7e-92f8-36c2171f5f99",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "16cde92b-365f-2969-442f-556b74d3b28e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/users/1df33be3-5397-4aaf-95c0-00dd63819c80",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5dcdb2de-9d9b-03ee-65dd-240047575a00"
+  }
+]
