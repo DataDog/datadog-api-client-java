@@ -15,73 +15,35 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The versions of the policy */
-@JsonPropertyOrder({
-  CloudWorkloadSecurityAgentPolicyVersion.JSON_PROPERTY_DATE,
-  CloudWorkloadSecurityAgentPolicyVersion.JSON_PROPERTY_NAME
-})
+/** Hash file specified by the field attribute */
+@JsonPropertyOrder({CloudWorkloadSecurityAgentRuleActionHash.JSON_PROPERTY_FIELD})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CloudWorkloadSecurityAgentPolicyVersion {
+public class CloudWorkloadSecurityAgentRuleActionHash {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATE = "date";
-  private JsonNullable<String> date = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_FIELD = "field";
+  private String field;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
-  public CloudWorkloadSecurityAgentPolicyVersion date(String date) {
-    this.date = JsonNullable.<String>of(date);
+  public CloudWorkloadSecurityAgentRuleActionHash field(String field) {
+    this.field = field;
     return this;
   }
 
   /**
-   * The date and time the version was created
+   * The field of the hash action
    *
-   * @return date
+   * @return field
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getDate() {
-    return date.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getDate_JsonNullable() {
-    return date;
+  public String getField() {
+    return field;
   }
 
-  @JsonProperty(JSON_PROPERTY_DATE)
-  public void setDate_JsonNullable(JsonNullable<String> date) {
-    this.date = date;
-  }
-
-  public void setDate(String date) {
-    this.date = JsonNullable.<String>of(date);
-  }
-
-  public CloudWorkloadSecurityAgentPolicyVersion name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The version of the policy
-   *
-   * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setField(String field) {
+    this.field = field;
   }
 
   /**
@@ -96,10 +58,10 @@ public class CloudWorkloadSecurityAgentPolicyVersion {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CloudWorkloadSecurityAgentPolicyVersion
+   * @return CloudWorkloadSecurityAgentRuleActionHash
    */
   @JsonAnySetter
-  public CloudWorkloadSecurityAgentPolicyVersion putAdditionalProperty(String key, Object value) {
+  public CloudWorkloadSecurityAgentRuleActionHash putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -130,7 +92,7 @@ public class CloudWorkloadSecurityAgentPolicyVersion {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CloudWorkloadSecurityAgentPolicyVersion object is equal to o. */
+  /** Return true if this CloudWorkloadSecurityAgentRuleActionHash object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -139,26 +101,24 @@ public class CloudWorkloadSecurityAgentPolicyVersion {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudWorkloadSecurityAgentPolicyVersion cloudWorkloadSecurityAgentPolicyVersion =
-        (CloudWorkloadSecurityAgentPolicyVersion) o;
-    return Objects.equals(this.date, cloudWorkloadSecurityAgentPolicyVersion.date)
-        && Objects.equals(this.name, cloudWorkloadSecurityAgentPolicyVersion.name)
+    CloudWorkloadSecurityAgentRuleActionHash cloudWorkloadSecurityAgentRuleActionHash =
+        (CloudWorkloadSecurityAgentRuleActionHash) o;
+    return Objects.equals(this.field, cloudWorkloadSecurityAgentRuleActionHash.field)
         && Objects.equals(
             this.additionalProperties,
-            cloudWorkloadSecurityAgentPolicyVersion.additionalProperties);
+            cloudWorkloadSecurityAgentRuleActionHash.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, name, additionalProperties);
+    return Objects.hash(field, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CloudWorkloadSecurityAgentPolicyVersion {\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("class CloudWorkloadSecurityAgentRuleActionHash {\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

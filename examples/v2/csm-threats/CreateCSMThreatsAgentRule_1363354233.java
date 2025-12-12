@@ -39,7 +39,7 @@ exec.file.name == "sh"
                                         .set(
                                             new CloudWorkloadSecurityAgentRuleActionSet()
                                                 .name("test_set")
-                                                .expression("open.file.path")
+                                                .expression("exec.file.path")
                                                 .defaultValue("/dev/null")
                                                 .scope("process")))))
                     .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
