@@ -30,6 +30,7 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_MONITORING_RULES_COUNT,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_NAME,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_PINNED,
+  CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_POLICY_TYPE,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_POLICY_VERSION,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_PRIORITY,
   CloudWorkloadSecurityAgentPolicyAttributes.JSON_PROPERTY_RULE_COUNT,
@@ -71,6 +72,9 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
 
   public static final String JSON_PROPERTY_PINNED = "pinned";
   private Boolean pinned;
+
+  public static final String JSON_PROPERTY_POLICY_TYPE = "policyType";
+  private String policyType;
 
   public static final String JSON_PROPERTY_POLICY_VERSION = "policyVersion";
   private String policyVersion;
@@ -323,6 +327,27 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
     this.pinned = pinned;
   }
 
+  public CloudWorkloadSecurityAgentPolicyAttributes policyType(String policyType) {
+    this.policyType = policyType;
+    return this;
+  }
+
+  /**
+   * The type of the policy
+   *
+   * @return policyType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POLICY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPolicyType() {
+    return policyType;
+  }
+
+  public void setPolicyType(String policyType) {
+    this.policyType = policyType;
+  }
+
   public CloudWorkloadSecurityAgentPolicyAttributes policyVersion(String policyVersion) {
     this.policyVersion = policyVersion;
     return this;
@@ -560,6 +585,7 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
             cloudWorkloadSecurityAgentPolicyAttributes.monitoringRulesCount)
         && Objects.equals(this.name, cloudWorkloadSecurityAgentPolicyAttributes.name)
         && Objects.equals(this.pinned, cloudWorkloadSecurityAgentPolicyAttributes.pinned)
+        && Objects.equals(this.policyType, cloudWorkloadSecurityAgentPolicyAttributes.policyType)
         && Objects.equals(
             this.policyVersion, cloudWorkloadSecurityAgentPolicyAttributes.policyVersion)
         && Objects.equals(this.priority, cloudWorkloadSecurityAgentPolicyAttributes.priority)
@@ -586,6 +612,7 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
         monitoringRulesCount,
         name,
         pinned,
+        policyType,
         policyVersion,
         priority,
         ruleCount,
@@ -612,6 +639,7 @@ public class CloudWorkloadSecurityAgentPolicyAttributes {
         .append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pinned: ").append(toIndentedString(pinned)).append("\n");
+    sb.append("    policyType: ").append(toIndentedString(policyType)).append("\n");
     sb.append("    policyVersion: ").append(toIndentedString(policyVersion)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    ruleCount: ").append(toIndentedString(ruleCount)).append("\n");

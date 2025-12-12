@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testdeleteaworkloadprotectionpolicyreturnsokresponse1760109663\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testdeleteaworkloadprotectionpolicyreturnsokresponse1765469372\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"qdn-itt-2ed\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:staging\"]],\"monitoringRulesCount\":7,\"name\":\"testdeleteaworkloadprotectionpolicyreturnsokresponse1760109663\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1760109664181,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"vsz-2f2-xdy\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:staging\"]],\"monitoringRulesCount\":7,\"name\":\"testdeleteaworkloadprotectionpolicyreturnsokresponse1765469372\",\"pinned\":false,\"policyVersion\":\"1\",\"ruleCount\":8,\"updateDate\":1765469373250,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1f91d0e2-3f8a-9f4e-d663-645104329d50"
+    "id": "a4e4cfce-ac9e-3128-c43b-d79b4e57df21"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/qdn-itt-2ed",
+      "path": "/api/v2/remote_config/products/cws/policy/vsz-2f2-xdy",
       "keepAlive": false,
       "secure": true
     },
@@ -52,13 +52,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a6ef25bc-c04a-1124-eeda-c833b5de2baf"
+    "id": "d39effa0-5a42-44fe-a051-46d56a9447cc"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/qdn-itt-2ed",
+      "path": "/api/v2/remote_config/products/cws/policy/vsz-2f2-xdy",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a6ef25bc-c04a-1124-eeda-c833b5de2bb0"
+    "id": "d39effa0-5a42-44fe-a051-46d56a9447cd"
   }
 ]

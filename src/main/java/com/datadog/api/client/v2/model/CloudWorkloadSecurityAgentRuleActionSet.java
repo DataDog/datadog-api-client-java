@@ -61,7 +61,7 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
   private Long ttl;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private String value;
+  private CloudWorkloadSecurityAgentRuleActionSetValue value;
 
   public CloudWorkloadSecurityAgentRuleActionSet append(Boolean append) {
     this.append = append;
@@ -252,8 +252,10 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
     this.ttl = ttl;
   }
 
-  public CloudWorkloadSecurityAgentRuleActionSet value(String value) {
+  public CloudWorkloadSecurityAgentRuleActionSet value(
+      CloudWorkloadSecurityAgentRuleActionSetValue value) {
     this.value = value;
+    this.unparsed |= value.unparsed;
     return this;
   }
 
@@ -265,11 +267,11 @@ public class CloudWorkloadSecurityAgentRuleActionSet {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getValue() {
+  public CloudWorkloadSecurityAgentRuleActionSetValue getValue() {
     return value;
   }
 
-  public void setValue(String value) {
+  public void setValue(CloudWorkloadSecurityAgentRuleActionSetValue value) {
     this.value = value;
   }
 
