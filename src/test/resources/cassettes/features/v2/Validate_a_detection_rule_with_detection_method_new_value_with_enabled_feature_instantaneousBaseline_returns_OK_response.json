@@ -1,0 +1,27 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"cases\":[{\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"hasExtendedTitle\":true,\"isEnabled\":true,\"message\":\"My security monitoring rule\",\"name\":\"My security monitoring rule\",\"options\":{\"detectionMethod\":\"new_value\",\"evaluationWindow\":0,\"keepAlive\":300,\"maxSignalDuration\":600,\"newValueOptions\":{\"forgetAfter\":7,\"instantaneousBaseline\":true,\"learningDuration\":1,\"learningMethod\":\"duration\",\"learningThreshold\":0}},\"queries\":[{\"aggregation\":\"new_value\",\"dataSource\":\"logs\",\"distinctFields\":[],\"groupByFields\":[\"@userIdentity.assumed_role\"],\"metric\":\"name\",\"metrics\":[\"name\"],\"name\":\"\",\"query\":\"source:source_here\"}],\"tags\":[\"env:prod\",\"team:security\"],\"type\":\"log_detection\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules/validation",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cbc72101-0d20-de2d-84fc-d5191be021fe"
+  }
+]
