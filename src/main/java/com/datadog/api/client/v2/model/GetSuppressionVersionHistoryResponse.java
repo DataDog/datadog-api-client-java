@@ -16,90 +16,35 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A change in a rule version. */
-@JsonPropertyOrder({
-  RuleVersionUpdate.JSON_PROPERTY_CHANGE,
-  RuleVersionUpdate.JSON_PROPERTY_FIELD,
-  RuleVersionUpdate.JSON_PROPERTY_TYPE
-})
+/** Response for getting the suppression version history. */
+@JsonPropertyOrder({GetSuppressionVersionHistoryResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RuleVersionUpdate {
+public class GetSuppressionVersionHistoryResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CHANGE = "change";
-  private String change;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private GetSuppressionVersionHistoryData data;
 
-  public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private RuleVersionUpdateType type;
-
-  public RuleVersionUpdate change(String change) {
-    this.change = change;
+  public GetSuppressionVersionHistoryResponse data(GetSuppressionVersionHistoryData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * The new value of the field.
+   * Data for the suppression version history.
    *
-   * @return change
+   * @return data
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGE)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getChange() {
-    return change;
+  public GetSuppressionVersionHistoryData getData() {
+    return data;
   }
 
-  public void setChange(String change) {
-    this.change = change;
-  }
-
-  public RuleVersionUpdate field(String field) {
-    this.field = field;
-    return this;
-  }
-
-  /**
-   * The field that was changed.
-   *
-   * @return field
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getField() {
-    return field;
-  }
-
-  public void setField(String field) {
-    this.field = field;
-  }
-
-  public RuleVersionUpdate type(RuleVersionUpdateType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The type of change.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RuleVersionUpdateType getType() {
-    return type;
-  }
-
-  public void setType(RuleVersionUpdateType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setData(GetSuppressionVersionHistoryData data) {
+    this.data = data;
   }
 
   /**
@@ -114,10 +59,10 @@ public class RuleVersionUpdate {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RuleVersionUpdate
+   * @return GetSuppressionVersionHistoryResponse
    */
   @JsonAnySetter
-  public RuleVersionUpdate putAdditionalProperty(String key, Object value) {
+  public GetSuppressionVersionHistoryResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -148,7 +93,7 @@ public class RuleVersionUpdate {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RuleVersionUpdate object is equal to o. */
+  /** Return true if this GetSuppressionVersionHistoryResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -157,25 +102,23 @@ public class RuleVersionUpdate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RuleVersionUpdate ruleVersionUpdate = (RuleVersionUpdate) o;
-    return Objects.equals(this.change, ruleVersionUpdate.change)
-        && Objects.equals(this.field, ruleVersionUpdate.field)
-        && Objects.equals(this.type, ruleVersionUpdate.type)
-        && Objects.equals(this.additionalProperties, ruleVersionUpdate.additionalProperties);
+    GetSuppressionVersionHistoryResponse getSuppressionVersionHistoryResponse =
+        (GetSuppressionVersionHistoryResponse) o;
+    return Objects.equals(this.data, getSuppressionVersionHistoryResponse.data)
+        && Objects.equals(
+            this.additionalProperties, getSuppressionVersionHistoryResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(change, field, type, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RuleVersionUpdate {\n");
-    sb.append("    change: ").append(toIndentedString(change)).append("\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class GetSuppressionVersionHistoryResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
