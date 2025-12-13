@@ -12,6 +12,8 @@ import com.datadog.api.client.v2.model.IncidentAttachmentRelatedObject;
 import com.datadog.api.client.v2.model.IncidentAttachmentUpdateRequest;
 import com.datadog.api.client.v2.model.IncidentAttachmentUpdateResponse;
 import com.datadog.api.client.v2.model.IncidentAttachmentsResponse;
+import com.datadog.api.client.v2.model.IncidentCreatePageFromIncidentRequest;
+import com.datadog.api.client.v2.model.IncidentCreatePageResponse;
 import com.datadog.api.client.v2.model.IncidentCreateRequest;
 import com.datadog.api.client.v2.model.IncidentImpactCreateRequest;
 import com.datadog.api.client.v2.model.IncidentImpactRelatedObject;
@@ -1313,6 +1315,185 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentTypeResponse>() {});
+  }
+
+  /**
+   * Create a page from an incident.
+   *
+   * <p>See {@link #createPageFromIncidentWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Page creation request payload. (required)
+   * @return IncidentCreatePageResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentCreatePageResponse createPageFromIncident(
+      String incidentId, IncidentCreatePageFromIncidentRequest body) throws ApiException {
+    return createPageFromIncidentWithHttpInfo(incidentId, body).getData();
+  }
+
+  /**
+   * Create a page from an incident.
+   *
+   * <p>See {@link #createPageFromIncidentWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Page creation request payload. (required)
+   * @return CompletableFuture&lt;IncidentCreatePageResponse&gt;
+   */
+  public CompletableFuture<IncidentCreatePageResponse> createPageFromIncidentAsync(
+      String incidentId, IncidentCreatePageFromIncidentRequest body) {
+    return createPageFromIncidentWithHttpInfoAsync(incidentId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a page from an incident.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Page creation request payload. (required)
+   * @return ApiResponse&lt;IncidentCreatePageResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentCreatePageResponse> createPageFromIncidentWithHttpInfo(
+      String incidentId, IncidentCreatePageFromIncidentRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createPageFromIncident";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'incidentId' when calling createPageFromIncident");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createPageFromIncident");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/page"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.createPageFromIncident",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentCreatePageResponse>() {});
+  }
+
+  /**
+   * Create a page from an incident.
+   *
+   * <p>See {@link #createPageFromIncidentWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Page creation request payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentCreatePageResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentCreatePageResponse>>
+      createPageFromIncidentWithHttpInfoAsync(
+          String incidentId, IncidentCreatePageFromIncidentRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createPageFromIncident";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentCreatePageResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      CompletableFuture<ApiResponse<IncidentCreatePageResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentId' when calling createPageFromIncident"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentCreatePageResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createPageFromIncident"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/page"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.createPageFromIncident",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentCreatePageResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentCreatePageResponse>() {});
   }
 
   /**
