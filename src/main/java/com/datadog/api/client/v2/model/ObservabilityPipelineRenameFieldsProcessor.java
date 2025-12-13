@@ -21,16 +21,19 @@ import java.util.Objects;
 
 /** The <code>rename_fields</code> processor changes field names. */
 @JsonPropertyOrder({
+  ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_FIELDS,
   ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_INCLUDE,
-  ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineRenameFieldsProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private List<ObservabilityPipelineRenameFieldsProcessorField> fields = new ArrayList<>();
 
@@ -40,9 +43,6 @@ public class ObservabilityPipelineRenameFieldsProcessor {
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
 
-  public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
-
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineRenameFieldsProcessorType type =
       ObservabilityPipelineRenameFieldsProcessorType.RENAME_FIELDS;
@@ -51,19 +51,39 @@ public class ObservabilityPipelineRenameFieldsProcessor {
 
   @JsonCreator
   public ObservabilityPipelineRenameFieldsProcessor(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_FIELDS)
           List<ObservabilityPipelineRenameFieldsProcessorField> fields,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineRenameFieldsProcessorType type) {
+    this.enabled = enabled;
     this.fields = fields;
     this.id = id;
     this.include = include;
-    this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineRenameFieldsProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineRenameFieldsProcessor fields(
@@ -137,31 +157,6 @@ public class ObservabilityPipelineRenameFieldsProcessor {
 
   public void setInclude(String include) {
     this.include = include;
-  }
-
-  public ObservabilityPipelineRenameFieldsProcessor inputs(List<String> inputs) {
-    this.inputs = inputs;
-    return this;
-  }
-
-  public ObservabilityPipelineRenameFieldsProcessor addInputsItem(String inputsItem) {
-    this.inputs.add(inputsItem);
-    return this;
-  }
-
-  /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
-   *
-   * @return inputs
-   */
-  @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getInputs() {
-    return inputs;
-  }
-
-  public void setInputs(List<String> inputs) {
-    this.inputs = inputs;
   }
 
   public ObservabilityPipelineRenameFieldsProcessor type(
@@ -247,10 +242,10 @@ public class ObservabilityPipelineRenameFieldsProcessor {
     }
     ObservabilityPipelineRenameFieldsProcessor observabilityPipelineRenameFieldsProcessor =
         (ObservabilityPipelineRenameFieldsProcessor) o;
-    return Objects.equals(this.fields, observabilityPipelineRenameFieldsProcessor.fields)
+    return Objects.equals(this.enabled, observabilityPipelineRenameFieldsProcessor.enabled)
+        && Objects.equals(this.fields, observabilityPipelineRenameFieldsProcessor.fields)
         && Objects.equals(this.id, observabilityPipelineRenameFieldsProcessor.id)
         && Objects.equals(this.include, observabilityPipelineRenameFieldsProcessor.include)
-        && Objects.equals(this.inputs, observabilityPipelineRenameFieldsProcessor.inputs)
         && Objects.equals(this.type, observabilityPipelineRenameFieldsProcessor.type)
         && Objects.equals(
             this.additionalProperties,
@@ -259,17 +254,17 @@ public class ObservabilityPipelineRenameFieldsProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields, id, include, inputs, type, additionalProperties);
+    return Objects.hash(enabled, fields, id, include, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineRenameFieldsProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
-    sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

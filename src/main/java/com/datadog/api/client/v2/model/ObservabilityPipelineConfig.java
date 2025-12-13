@@ -33,7 +33,7 @@ public class ObservabilityPipelineConfig {
   private List<ObservabilityPipelineConfigDestinationItem> destinations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PROCESSORS = "processors";
-  private List<ObservabilityPipelineConfigProcessorItem> processors = null;
+  private List<ObservabilityPipelineConfigProcessorGroup> processors = null;
 
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<ObservabilityPipelineConfigSourceItem> sources = new ArrayList<>();
@@ -82,16 +82,16 @@ public class ObservabilityPipelineConfig {
   }
 
   public ObservabilityPipelineConfig processors(
-      List<ObservabilityPipelineConfigProcessorItem> processors) {
+      List<ObservabilityPipelineConfigProcessorGroup> processors) {
     this.processors = processors;
-    for (ObservabilityPipelineConfigProcessorItem item : processors) {
+    for (ObservabilityPipelineConfigProcessorGroup item : processors) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public ObservabilityPipelineConfig addProcessorsItem(
-      ObservabilityPipelineConfigProcessorItem processorsItem) {
+      ObservabilityPipelineConfigProcessorGroup processorsItem) {
     if (this.processors == null) {
       this.processors = new ArrayList<>();
     }
@@ -101,18 +101,18 @@ public class ObservabilityPipelineConfig {
   }
 
   /**
-   * A list of processors that transform or enrich log data.
+   * A list of processor groups that transform or enrich log data.
    *
    * @return processors
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ObservabilityPipelineConfigProcessorItem> getProcessors() {
+  public List<ObservabilityPipelineConfigProcessorGroup> getProcessors() {
     return processors;
   }
 
-  public void setProcessors(List<ObservabilityPipelineConfigProcessorItem> processors) {
+  public void setProcessors(List<ObservabilityPipelineConfigProcessorGroup> processors) {
     this.processors = processors;
   }
 

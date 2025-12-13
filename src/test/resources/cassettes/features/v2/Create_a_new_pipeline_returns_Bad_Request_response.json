@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"filter-processor\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"id\":\"unknown-processor\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"type\":\"filter\"}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]},\"name\":\"Main Observability Pipeline\"},\"type\":\"pipelines\"}}"
+        "json": "{\"data\":{\"attributes\":{\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"my-processor-group\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"enabled\":true,\"id\":\"unknown-processor\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]},\"name\":\"Main Observability Pipeline\"},\"type\":\"pipelines\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"title\":\"Component with ID filter-processor is an unknown component\",\"meta\":{\"message\":\"Component with ID filter-processor is an unknown component\"}},{\"title\":\"The following components are unused: [datadog-agent-source unknown-processor]\",\"meta\":{\"message\":\"The following components are unused: [datadog-agent-source unknown-processor]\"}}]}\n",
+      "body": "{\"errors\":[{\"title\":\"Component with ID my-processor-group is an unknown component\",\"meta\":{\"message\":\"Component with ID my-processor-group is an unknown component\"}},{\"title\":\"The following components are unused: [datadog-agent-source unknown-processor]\",\"meta\":{\"message\":\"The following components are unused: [datadog-agent-source unknown-processor]\"}}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "27cad2cb-136c-f531-08ff-45a0fc536c02"
+    "id": "95a57011-26df-3343-b440-f0295430ff3b"
   }
 ]

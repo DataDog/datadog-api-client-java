@@ -24,10 +24,10 @@ import java.util.Objects;
  * time window.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_GROUP_BY,
   ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_INCLUDE,
-  ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_THRESHOLD,
   ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_TYPE,
   ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_WINDOW
@@ -36,6 +36,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineThrottleProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private List<String> groupBy = null;
 
@@ -44,9 +47,6 @@ public class ObservabilityPipelineThrottleProcessor {
 
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
-
-  public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_THRESHOLD = "threshold";
   private Long threshold;
@@ -62,20 +62,40 @@ public class ObservabilityPipelineThrottleProcessor {
 
   @JsonCreator
   public ObservabilityPipelineThrottleProcessor(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_THRESHOLD) Long threshold,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineThrottleProcessorType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_WINDOW) Double window) {
+    this.enabled = enabled;
     this.id = id;
     this.include = include;
-    this.inputs = inputs;
     this.threshold = threshold;
     this.type = type;
     this.unparsed |= !type.isValid();
     this.window = window;
+  }
+
+  public ObservabilityPipelineThrottleProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineThrottleProcessor groupBy(List<String> groupBy) {
@@ -145,31 +165,6 @@ public class ObservabilityPipelineThrottleProcessor {
 
   public void setInclude(String include) {
     this.include = include;
-  }
-
-  public ObservabilityPipelineThrottleProcessor inputs(List<String> inputs) {
-    this.inputs = inputs;
-    return this;
-  }
-
-  public ObservabilityPipelineThrottleProcessor addInputsItem(String inputsItem) {
-    this.inputs.add(inputsItem);
-    return this;
-  }
-
-  /**
-   * A list of component IDs whose output is used as the input for this processor.
-   *
-   * @return inputs
-   */
-  @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getInputs() {
-    return inputs;
-  }
-
-  public void setInputs(List<String> inputs) {
-    this.inputs = inputs;
   }
 
   public ObservabilityPipelineThrottleProcessor threshold(Long threshold) {
@@ -295,10 +290,10 @@ public class ObservabilityPipelineThrottleProcessor {
     }
     ObservabilityPipelineThrottleProcessor observabilityPipelineThrottleProcessor =
         (ObservabilityPipelineThrottleProcessor) o;
-    return Objects.equals(this.groupBy, observabilityPipelineThrottleProcessor.groupBy)
+    return Objects.equals(this.enabled, observabilityPipelineThrottleProcessor.enabled)
+        && Objects.equals(this.groupBy, observabilityPipelineThrottleProcessor.groupBy)
         && Objects.equals(this.id, observabilityPipelineThrottleProcessor.id)
         && Objects.equals(this.include, observabilityPipelineThrottleProcessor.include)
-        && Objects.equals(this.inputs, observabilityPipelineThrottleProcessor.inputs)
         && Objects.equals(this.threshold, observabilityPipelineThrottleProcessor.threshold)
         && Objects.equals(this.type, observabilityPipelineThrottleProcessor.type)
         && Objects.equals(this.window, observabilityPipelineThrottleProcessor.window)
@@ -309,17 +304,17 @@ public class ObservabilityPipelineThrottleProcessor {
   @Override
   public int hashCode() {
     return Objects.hash(
-        groupBy, id, include, inputs, threshold, type, window, additionalProperties);
+        enabled, groupBy, id, include, threshold, type, window, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineThrottleProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
-    sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    window: ").append(toIndentedString(window)).append("\n");

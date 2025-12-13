@@ -21,10 +21,10 @@ import java.util.Objects;
 
 /** The <code>dedupe</code> processor removes duplicate fields in log events. */
 @JsonPropertyOrder({
+  ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_FIELDS,
   ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_INCLUDE,
-  ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_MODE,
   ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_TYPE
 })
@@ -32,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineDedupeProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
+
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private List<String> fields = new ArrayList<>();
 
@@ -40,9 +43,6 @@ public class ObservabilityPipelineDedupeProcessor {
 
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
-
-  public static final String JSON_PROPERTY_INPUTS = "inputs";
-  private List<String> inputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MODE = "mode";
   private ObservabilityPipelineDedupeProcessorMode mode;
@@ -55,22 +55,42 @@ public class ObservabilityPipelineDedupeProcessor {
 
   @JsonCreator
   public ObservabilityPipelineDedupeProcessor(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_FIELDS) List<String> fields,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_MODE)
           ObservabilityPipelineDedupeProcessorMode mode,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineDedupeProcessorType type) {
+    this.enabled = enabled;
     this.fields = fields;
     this.id = id;
     this.include = include;
-    this.inputs = inputs;
     this.mode = mode;
     this.unparsed |= !mode.isValid();
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineDedupeProcessor enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Whether this processor is enabled.
+   *
+   * @return enabled
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public ObservabilityPipelineDedupeProcessor fields(List<String> fields) {
@@ -136,31 +156,6 @@ public class ObservabilityPipelineDedupeProcessor {
 
   public void setInclude(String include) {
     this.include = include;
-  }
-
-  public ObservabilityPipelineDedupeProcessor inputs(List<String> inputs) {
-    this.inputs = inputs;
-    return this;
-  }
-
-  public ObservabilityPipelineDedupeProcessor addInputsItem(String inputsItem) {
-    this.inputs.add(inputsItem);
-    return this;
-  }
-
-  /**
-   * A list of component IDs whose output is used as the input for this processor.
-   *
-   * @return inputs
-   */
-  @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getInputs() {
-    return inputs;
-  }
-
-  public void setInputs(List<String> inputs) {
-    this.inputs = inputs;
   }
 
   public ObservabilityPipelineDedupeProcessor mode(ObservabilityPipelineDedupeProcessorMode mode) {
@@ -268,10 +263,10 @@ public class ObservabilityPipelineDedupeProcessor {
     }
     ObservabilityPipelineDedupeProcessor observabilityPipelineDedupeProcessor =
         (ObservabilityPipelineDedupeProcessor) o;
-    return Objects.equals(this.fields, observabilityPipelineDedupeProcessor.fields)
+    return Objects.equals(this.enabled, observabilityPipelineDedupeProcessor.enabled)
+        && Objects.equals(this.fields, observabilityPipelineDedupeProcessor.fields)
         && Objects.equals(this.id, observabilityPipelineDedupeProcessor.id)
         && Objects.equals(this.include, observabilityPipelineDedupeProcessor.include)
-        && Objects.equals(this.inputs, observabilityPipelineDedupeProcessor.inputs)
         && Objects.equals(this.mode, observabilityPipelineDedupeProcessor.mode)
         && Objects.equals(this.type, observabilityPipelineDedupeProcessor.type)
         && Objects.equals(
@@ -280,17 +275,17 @@ public class ObservabilityPipelineDedupeProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields, id, include, inputs, mode, type, additionalProperties);
+    return Objects.hash(enabled, fields, id, include, mode, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineDedupeProcessor {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
-    sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
