@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,54 +18,71 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The update request for an incident's attachments. */
-@JsonPropertyOrder({IncidentAttachmentUpdateRequest.JSON_PROPERTY_DATA})
+/** */
+@JsonPropertyOrder({Attachment.JSON_PROPERTY_DATA, Attachment.JSON_PROPERTY_INCLUDED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentAttachmentUpdateRequest {
+public class Attachment {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<IncidentAttachmentUpdateData> data = new ArrayList<>();
+  private AttachmentData data;
 
-  public IncidentAttachmentUpdateRequest() {}
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<AttachmentIncluded> included = null;
 
-  @JsonCreator
-  public IncidentAttachmentUpdateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<IncidentAttachmentUpdateData> data) {
+  public Attachment data(AttachmentData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+    return this;
+  }
+
+  /**
+   * Getdata
+   *
+   * @return data
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AttachmentData getData() {
+    return data;
+  }
+
+  public void setData(AttachmentData data) {
     this.data = data;
   }
 
-  public IncidentAttachmentUpdateRequest data(List<IncidentAttachmentUpdateData> data) {
-    this.data = data;
-    for (IncidentAttachmentUpdateData item : data) {
+  public Attachment included(List<AttachmentIncluded> included) {
+    this.included = included;
+    for (AttachmentIncluded item : included) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public IncidentAttachmentUpdateRequest addDataItem(IncidentAttachmentUpdateData dataItem) {
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+  public Attachment addIncludedItem(AttachmentIncluded includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
     return this;
   }
 
   /**
-   * An array of incident attachments. An attachment object without an "id" key indicates that you
-   * want to create that attachment. An attachment object without an "attributes" key indicates that
-   * you want to delete that attachment. An attachment object with both the "id" key and a populated
-   * "attributes" object indicates that you want to update that attachment.
+   * Getincluded
    *
-   * @return data
+   * @return included
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<IncidentAttachmentUpdateData> getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AttachmentIncluded> getIncluded() {
+    return included;
   }
 
-  public void setData(List<IncidentAttachmentUpdateData> data) {
-    this.data = data;
+  public void setIncluded(List<AttachmentIncluded> included) {
+    this.included = included;
   }
 
   /**
@@ -81,10 +97,10 @@ public class IncidentAttachmentUpdateRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentAttachmentUpdateRequest
+   * @return Attachment
    */
   @JsonAnySetter
-  public IncidentAttachmentUpdateRequest putAdditionalProperty(String key, Object value) {
+  public Attachment putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -115,7 +131,7 @@ public class IncidentAttachmentUpdateRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentAttachmentUpdateRequest object is equal to o. */
+  /** Return true if this Attachment object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -124,23 +140,23 @@ public class IncidentAttachmentUpdateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentAttachmentUpdateRequest incidentAttachmentUpdateRequest =
-        (IncidentAttachmentUpdateRequest) o;
-    return Objects.equals(this.data, incidentAttachmentUpdateRequest.data)
-        && Objects.equals(
-            this.additionalProperties, incidentAttachmentUpdateRequest.additionalProperties);
+    Attachment attachment = (Attachment) o;
+    return Objects.equals(this.data, attachment.data)
+        && Objects.equals(this.included, attachment.included)
+        && Objects.equals(this.additionalProperties, attachment.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(data, included, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentAttachmentUpdateRequest {\n");
+    sb.append("class Attachment {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
