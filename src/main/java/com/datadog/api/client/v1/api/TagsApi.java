@@ -4,7 +4,8 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v1.model.HostTags;
+import com.datadog.api.client.v1.model.HostTagsInput;
+import com.datadog.api.client.v1.model.HostTagsOutput;
 import com.datadog.api.client.v1.model.TagToHosts;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -52,9 +53,10 @@ public class TagsApi {
     /**
      * Set source.
      *
-     * @param source The source of the tags. <a
+     * @param source Source to filter. <a
      *     href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete
-     *     list of source attribute values</a>. (optional)
+     *     list of source attribute values</a>. Use "user" source for custom-defined tags.
+     *     (optional)
      * @return CreateHostTagsOptionalParameters
      */
     public CreateHostTagsOptionalParameters source(String source) {
@@ -68,13 +70,12 @@ public class TagsApi {
    *
    * <p>See {@link #createHostTagsWithHttpInfo}.
    *
-   * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
-   *     the tags came from. (required)
+   * @param hostName Specified host name to add new tags (required)
    * @param body Update host tags request body. (required)
-   * @return HostTags
+   * @return HostTagsOutput
    * @throws ApiException if fails to make API call
    */
-  public HostTags createHostTags(String hostName, HostTags body) throws ApiException {
+  public HostTagsOutput createHostTags(String hostName, HostTagsInput body) throws ApiException {
     return createHostTagsWithHttpInfo(hostName, body, new CreateHostTagsOptionalParameters())
         .getData();
   }
@@ -84,12 +85,12 @@ public class TagsApi {
    *
    * <p>See {@link #createHostTagsWithHttpInfoAsync}.
    *
-   * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
-   *     the tags came from. (required)
+   * @param hostName Specified host name to add new tags (required)
    * @param body Update host tags request body. (required)
-   * @return CompletableFuture&lt;HostTags&gt;
+   * @return CompletableFuture&lt;HostTagsOutput&gt;
    */
-  public CompletableFuture<HostTags> createHostTagsAsync(String hostName, HostTags body) {
+  public CompletableFuture<HostTagsOutput> createHostTagsAsync(
+      String hostName, HostTagsInput body) {
     return createHostTagsWithHttpInfoAsync(hostName, body, new CreateHostTagsOptionalParameters())
         .thenApply(
             response -> {
@@ -102,15 +103,14 @@ public class TagsApi {
    *
    * <p>See {@link #createHostTagsWithHttpInfo}.
    *
-   * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
-   *     the tags came from. (required)
+   * @param hostName Specified host name to add new tags (required)
    * @param body Update host tags request body. (required)
    * @param parameters Optional parameters for the request.
-   * @return HostTags
+   * @return HostTagsOutput
    * @throws ApiException if fails to make API call
    */
-  public HostTags createHostTags(
-      String hostName, HostTags body, CreateHostTagsOptionalParameters parameters)
+  public HostTagsOutput createHostTags(
+      String hostName, HostTagsInput body, CreateHostTagsOptionalParameters parameters)
       throws ApiException {
     return createHostTagsWithHttpInfo(hostName, body, parameters).getData();
   }
@@ -120,14 +120,13 @@ public class TagsApi {
    *
    * <p>See {@link #createHostTagsWithHttpInfoAsync}.
    *
-   * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
-   *     the tags came from. (required)
+   * @param hostName Specified host name to add new tags (required)
    * @param body Update host tags request body. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;HostTags&gt;
+   * @return CompletableFuture&lt;HostTagsOutput&gt;
    */
-  public CompletableFuture<HostTags> createHostTagsAsync(
-      String hostName, HostTags body, CreateHostTagsOptionalParameters parameters) {
+  public CompletableFuture<HostTagsOutput> createHostTagsAsync(
+      String hostName, HostTagsInput body, CreateHostTagsOptionalParameters parameters) {
     return createHostTagsWithHttpInfoAsync(hostName, body, parameters)
         .thenApply(
             response -> {
@@ -136,14 +135,13 @@ public class TagsApi {
   }
 
   /**
-   * This endpoint allows you to add new tags to a host, optionally specifying where these tags come
-   * from.
+   * This endpoint allows you to add new tags to a host, optionally specifying what source these
+   * tags come from.
    *
-   * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
-   *     the tags came from. (required)
+   * @param hostName Specified host name to add new tags (required)
    * @param body Update host tags request body. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HostTags&gt;
+   * @return ApiResponse&lt;HostTagsOutput&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -155,8 +153,8 @@ public class TagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<HostTags> createHostTagsWithHttpInfo(
-      String hostName, HostTags body, CreateHostTagsOptionalParameters parameters)
+  public ApiResponse<HostTagsOutput> createHostTagsWithHttpInfo(
+      String hostName, HostTagsInput body, CreateHostTagsOptionalParameters parameters)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -199,7 +197,7 @@ public class TagsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<HostTags>() {});
+        new GenericType<HostTagsOutput>() {});
   }
 
   /**
@@ -207,19 +205,18 @@ public class TagsApi {
    *
    * <p>See {@link #createHostTagsWithHttpInfo}.
    *
-   * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
-   *     the tags came from. (required)
+   * @param hostName Specified host name to add new tags (required)
    * @param body Update host tags request body. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;HostTags&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;HostTagsOutput&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<HostTags>> createHostTagsWithHttpInfoAsync(
-      String hostName, HostTags body, CreateHostTagsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<HostTagsOutput>> createHostTagsWithHttpInfoAsync(
+      String hostName, HostTagsInput body, CreateHostTagsOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'hostName' is set
     if (hostName == null) {
-      CompletableFuture<ApiResponse<HostTags>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<HostTagsOutput>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'hostName' when calling createHostTags"));
@@ -228,7 +225,7 @@ public class TagsApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<HostTags>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<HostTagsOutput>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'body' when calling createHostTags"));
@@ -257,7 +254,7 @@ public class TagsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<HostTags>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<HostTagsOutput>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -269,7 +266,7 @@ public class TagsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<HostTags>() {});
+        new GenericType<HostTagsOutput>() {});
   }
 
   /** Manage optional parameters to deleteHostTags. */
@@ -279,9 +276,10 @@ public class TagsApi {
     /**
      * Set source.
      *
-     * @param source The source of the tags (for example chef, puppet). <a
+     * @param source Source to filter. <a
      *     href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete
-     *     list of source attribute values</a>. (optional)
+     *     list of source attribute values</a>. Use "user" source for custom-defined tags.
+     *     (optional)
      * @return DeleteHostTagsOptionalParameters
      */
     public DeleteHostTagsOptionalParameters source(String source) {
@@ -295,8 +293,7 @@ public class TagsApi {
    *
    * <p>See {@link #deleteHostTagsWithHttpInfo}.
    *
-   * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
-   *     (required)
+   * @param hostName Specified host name to delete tags (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteHostTags(String hostName) throws ApiException {
@@ -308,8 +305,7 @@ public class TagsApi {
    *
    * <p>See {@link #deleteHostTagsWithHttpInfoAsync}.
    *
-   * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
-   *     (required)
+   * @param hostName Specified host name to delete tags (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteHostTagsAsync(String hostName) {
@@ -325,8 +321,7 @@ public class TagsApi {
    *
    * <p>See {@link #deleteHostTagsWithHttpInfo}.
    *
-   * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
-   *     (required)
+   * @param hostName Specified host name to delete tags (required)
    * @param parameters Optional parameters for the request.
    * @throws ApiException if fails to make API call
    */
@@ -340,8 +335,7 @@ public class TagsApi {
    *
    * <p>See {@link #deleteHostTagsWithHttpInfoAsync}.
    *
-   * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
-   *     (required)
+   * @param hostName Specified host name to delete tags (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture
    */
@@ -357,8 +351,7 @@ public class TagsApi {
   /**
    * This endpoint allows you to remove all user-assigned tags for a single host.
    *
-   * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
-   *     (required)
+   * @param hostName Specified host name to delete tags (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -417,8 +410,7 @@ public class TagsApi {
    *
    * <p>See {@link #deleteHostTagsWithHttpInfo}.
    *
-   * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
-   *     (required)
+   * @param hostName Specified host name to delete tags (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -479,7 +471,10 @@ public class TagsApi {
     /**
      * Set source.
      *
-     * @param source Source to filter. (optional)
+     * @param source Source to filter. <a
+     *     href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete
+     *     list of source attribute values</a>. Use "user" source for custom-defined tags.
+     *     (optional)
      * @return GetHostTagsOptionalParameters
      */
     public GetHostTagsOptionalParameters source(String source) {
@@ -489,29 +484,27 @@ public class TagsApi {
   }
 
   /**
-   * Get host tags.
+   * Get Host Tags.
    *
    * <p>See {@link #getHostTagsWithHttpInfo}.
    *
-   * @param hostName When specified, filters list of tags to those tags with the specified source.
-   *     (required)
-   * @return HostTags
+   * @param hostName Specified host name to view tags (required)
+   * @return HostTagsOutput
    * @throws ApiException if fails to make API call
    */
-  public HostTags getHostTags(String hostName) throws ApiException {
+  public HostTagsOutput getHostTags(String hostName) throws ApiException {
     return getHostTagsWithHttpInfo(hostName, new GetHostTagsOptionalParameters()).getData();
   }
 
   /**
-   * Get host tags.
+   * Get Host Tags.
    *
    * <p>See {@link #getHostTagsWithHttpInfoAsync}.
    *
-   * @param hostName When specified, filters list of tags to those tags with the specified source.
-   *     (required)
-   * @return CompletableFuture&lt;HostTags&gt;
+   * @param hostName Specified host name to view tags (required)
+   * @return CompletableFuture&lt;HostTagsOutput&gt;
    */
-  public CompletableFuture<HostTags> getHostTagsAsync(String hostName) {
+  public CompletableFuture<HostTagsOutput> getHostTagsAsync(String hostName) {
     return getHostTagsWithHttpInfoAsync(hostName, new GetHostTagsOptionalParameters())
         .thenApply(
             response -> {
@@ -520,32 +513,30 @@ public class TagsApi {
   }
 
   /**
-   * Get host tags.
+   * Get Host Tags.
    *
    * <p>See {@link #getHostTagsWithHttpInfo}.
    *
-   * @param hostName When specified, filters list of tags to those tags with the specified source.
-   *     (required)
+   * @param hostName Specified host name to view tags (required)
    * @param parameters Optional parameters for the request.
-   * @return HostTags
+   * @return HostTagsOutput
    * @throws ApiException if fails to make API call
    */
-  public HostTags getHostTags(String hostName, GetHostTagsOptionalParameters parameters)
+  public HostTagsOutput getHostTags(String hostName, GetHostTagsOptionalParameters parameters)
       throws ApiException {
     return getHostTagsWithHttpInfo(hostName, parameters).getData();
   }
 
   /**
-   * Get host tags.
+   * Get Host Tags.
    *
    * <p>See {@link #getHostTagsWithHttpInfoAsync}.
    *
-   * @param hostName When specified, filters list of tags to those tags with the specified source.
-   *     (required)
+   * @param hostName Specified host name to view tags (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;HostTags&gt;
+   * @return CompletableFuture&lt;HostTagsOutput&gt;
    */
-  public CompletableFuture<HostTags> getHostTagsAsync(
+  public CompletableFuture<HostTagsOutput> getHostTagsAsync(
       String hostName, GetHostTagsOptionalParameters parameters) {
     return getHostTagsWithHttpInfoAsync(hostName, parameters)
         .thenApply(
@@ -557,10 +548,9 @@ public class TagsApi {
   /**
    * Return the list of tags that apply to a given host.
    *
-   * @param hostName When specified, filters list of tags to those tags with the specified source.
-   *     (required)
+   * @param hostName Specified host name to view tags (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HostTags&gt;
+   * @return ApiResponse&lt;HostTagsOutput&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -572,7 +562,7 @@ public class TagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<HostTags> getHostTagsWithHttpInfo(
+  public ApiResponse<HostTagsOutput> getHostTagsWithHttpInfo(
       String hostName, GetHostTagsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
@@ -609,26 +599,25 @@ public class TagsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<HostTags>() {});
+        new GenericType<HostTagsOutput>() {});
   }
 
   /**
-   * Get host tags.
+   * Get Host Tags.
    *
    * <p>See {@link #getHostTagsWithHttpInfo}.
    *
-   * @param hostName When specified, filters list of tags to those tags with the specified source.
-   *     (required)
+   * @param hostName Specified host name to view tags (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;HostTags&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;HostTagsOutput&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<HostTags>> getHostTagsWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<HostTagsOutput>> getHostTagsWithHttpInfoAsync(
       String hostName, GetHostTagsOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'hostName' is set
     if (hostName == null) {
-      CompletableFuture<ApiResponse<HostTags>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<HostTagsOutput>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'hostName' when calling getHostTags"));
@@ -657,7 +646,7 @@ public class TagsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<HostTags>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<HostTagsOutput>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -669,7 +658,7 @@ public class TagsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<HostTags>() {});
+        new GenericType<HostTagsOutput>() {});
   }
 
   /** Manage optional parameters to listHostTags. */
@@ -679,7 +668,9 @@ public class TagsApi {
     /**
      * Set source.
      *
-     * @param source When specified, filters host list to those tags with the specified source.
+     * @param source Source to filter. <a
+     *     href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete
+     *     list of source attribute values</a>. Use "user" source for custom-defined tags.
      *     (optional)
      * @return ListHostTagsOptionalParameters
      */
@@ -690,7 +681,7 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags.
+   * Get All Host Tags.
    *
    * <p>See {@link #listHostTagsWithHttpInfo}.
    *
@@ -702,7 +693,7 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags.
+   * Get All Host Tags.
    *
    * <p>See {@link #listHostTagsWithHttpInfoAsync}.
    *
@@ -717,7 +708,7 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags.
+   * Get All Host Tags.
    *
    * <p>See {@link #listHostTagsWithHttpInfo}.
    *
@@ -730,7 +721,7 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags.
+   * Get All Host Tags.
    *
    * <p>See {@link #listHostTagsWithHttpInfoAsync}.
    *
@@ -747,7 +738,9 @@ public class TagsApi {
   }
 
   /**
-   * Return a mapping of tags to hosts for your whole infrastructure.
+   * Returns a mapping of tags to hosts. For each tag, the response returns a list of host names
+   * that contain this tag. There is a restriction of 10k host names from the org that can be
+   * attached to tags and returned.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;TagToHosts&gt;
@@ -795,7 +788,7 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags.
+   * Get All Host Tags.
    *
    * <p>See {@link #listHostTagsWithHttpInfo}.
    *
@@ -848,9 +841,10 @@ public class TagsApi {
     /**
      * Set source.
      *
-     * @param source The source of the tags (for example chef, puppet). <a
+     * @param source Source to filter. <a
      *     href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete
-     *     list of source attribute values</a> (optional)
+     *     list of source attribute values</a>. Use "user" source for custom-defined tags.
+     *     (optional)
      * @return UpdateHostTagsOptionalParameters
      */
     public UpdateHostTagsOptionalParameters source(String source) {
@@ -864,13 +858,12 @@ public class TagsApi {
    *
    * <p>See {@link #updateHostTagsWithHttpInfo}.
    *
-   * @param hostName This endpoint allows you to update/replace all in an integration source with
-   *     those supplied in the request. (required)
+   * @param hostName Specified host name to change tags (required)
    * @param body Add tags to host (required)
-   * @return HostTags
+   * @return HostTagsOutput
    * @throws ApiException if fails to make API call
    */
-  public HostTags updateHostTags(String hostName, HostTags body) throws ApiException {
+  public HostTagsOutput updateHostTags(String hostName, HostTagsInput body) throws ApiException {
     return updateHostTagsWithHttpInfo(hostName, body, new UpdateHostTagsOptionalParameters())
         .getData();
   }
@@ -880,12 +873,12 @@ public class TagsApi {
    *
    * <p>See {@link #updateHostTagsWithHttpInfoAsync}.
    *
-   * @param hostName This endpoint allows you to update/replace all in an integration source with
-   *     those supplied in the request. (required)
+   * @param hostName Specified host name to change tags (required)
    * @param body Add tags to host (required)
-   * @return CompletableFuture&lt;HostTags&gt;
+   * @return CompletableFuture&lt;HostTagsOutput&gt;
    */
-  public CompletableFuture<HostTags> updateHostTagsAsync(String hostName, HostTags body) {
+  public CompletableFuture<HostTagsOutput> updateHostTagsAsync(
+      String hostName, HostTagsInput body) {
     return updateHostTagsWithHttpInfoAsync(hostName, body, new UpdateHostTagsOptionalParameters())
         .thenApply(
             response -> {
@@ -898,15 +891,14 @@ public class TagsApi {
    *
    * <p>See {@link #updateHostTagsWithHttpInfo}.
    *
-   * @param hostName This endpoint allows you to update/replace all in an integration source with
-   *     those supplied in the request. (required)
+   * @param hostName Specified host name to change tags (required)
    * @param body Add tags to host (required)
    * @param parameters Optional parameters for the request.
-   * @return HostTags
+   * @return HostTagsOutput
    * @throws ApiException if fails to make API call
    */
-  public HostTags updateHostTags(
-      String hostName, HostTags body, UpdateHostTagsOptionalParameters parameters)
+  public HostTagsOutput updateHostTags(
+      String hostName, HostTagsInput body, UpdateHostTagsOptionalParameters parameters)
       throws ApiException {
     return updateHostTagsWithHttpInfo(hostName, body, parameters).getData();
   }
@@ -916,14 +908,13 @@ public class TagsApi {
    *
    * <p>See {@link #updateHostTagsWithHttpInfoAsync}.
    *
-   * @param hostName This endpoint allows you to update/replace all in an integration source with
-   *     those supplied in the request. (required)
+   * @param hostName Specified host name to change tags (required)
    * @param body Add tags to host (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;HostTags&gt;
+   * @return CompletableFuture&lt;HostTagsOutput&gt;
    */
-  public CompletableFuture<HostTags> updateHostTagsAsync(
-      String hostName, HostTags body, UpdateHostTagsOptionalParameters parameters) {
+  public CompletableFuture<HostTagsOutput> updateHostTagsAsync(
+      String hostName, HostTagsInput body, UpdateHostTagsOptionalParameters parameters) {
     return updateHostTagsWithHttpInfoAsync(hostName, body, parameters)
         .thenApply(
             response -> {
@@ -935,11 +926,10 @@ public class TagsApi {
    * This endpoint allows you to update/replace all tags in an integration source with those
    * supplied in the request.
    *
-   * @param hostName This endpoint allows you to update/replace all in an integration source with
-   *     those supplied in the request. (required)
+   * @param hostName Specified host name to change tags (required)
    * @param body Add tags to host (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HostTags&gt;
+   * @return ApiResponse&lt;HostTagsOutput&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -951,8 +941,8 @@ public class TagsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<HostTags> updateHostTagsWithHttpInfo(
-      String hostName, HostTags body, UpdateHostTagsOptionalParameters parameters)
+  public ApiResponse<HostTagsOutput> updateHostTagsWithHttpInfo(
+      String hostName, HostTagsInput body, UpdateHostTagsOptionalParameters parameters)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -995,7 +985,7 @@ public class TagsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<HostTags>() {});
+        new GenericType<HostTagsOutput>() {});
   }
 
   /**
@@ -1003,19 +993,18 @@ public class TagsApi {
    *
    * <p>See {@link #updateHostTagsWithHttpInfo}.
    *
-   * @param hostName This endpoint allows you to update/replace all in an integration source with
-   *     those supplied in the request. (required)
+   * @param hostName Specified host name to change tags (required)
    * @param body Add tags to host (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;HostTags&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;HostTagsOutput&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<HostTags>> updateHostTagsWithHttpInfoAsync(
-      String hostName, HostTags body, UpdateHostTagsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<HostTagsOutput>> updateHostTagsWithHttpInfoAsync(
+      String hostName, HostTagsInput body, UpdateHostTagsOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'hostName' is set
     if (hostName == null) {
-      CompletableFuture<ApiResponse<HostTags>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<HostTagsOutput>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'hostName' when calling updateHostTags"));
@@ -1024,7 +1013,7 @@ public class TagsApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<HostTags>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<HostTagsOutput>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'body' when calling updateHostTags"));
@@ -1053,7 +1042,7 @@ public class TagsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<HostTags>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<HostTagsOutput>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1065,6 +1054,6 @@ public class TagsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<HostTags>() {});
+        new GenericType<HostTagsOutput>() {});
   }
 }

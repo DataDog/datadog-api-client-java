@@ -1,9 +1,9 @@
-// Get host tags returns "OK" response
+// Get Host Tags returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.TagsApi;
-import com.datadog.api.client.v1.model.HostTags;
+import com.datadog.api.client.v1.model.HostTagsOutput;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Example {
     TagsApi apiInstance = new TagsApi(defaultClient);
 
     try {
-      HostTags result = apiInstance.getHostTags("host_name");
+      HostTagsOutput result = apiInstance.getHostTags("host_name");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#getHostTags");
