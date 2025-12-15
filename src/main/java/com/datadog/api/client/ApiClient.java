@@ -300,6 +300,7 @@ public class ApiClient {
                                               "us3.datadoghq.com",
                                               "us5.datadoghq.com",
                                               "ap1.datadoghq.com",
+                                              "ap2.datadoghq.com",
                                               "datadoghq.eu",
                                               "ddog-gov.com"))));
                               put(
@@ -729,11 +730,6 @@ public class ApiClient {
           put("v2.muteFindings", false);
           put("v2.runThreatHuntingJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
-          put("v2.createDataset", false);
-          put("v2.deleteDataset", false);
-          put("v2.getAllDatasets", false);
-          put("v2.getDataset", false);
-          put("v2.updateDataset", false);
           put("v2.cancelDataDeletionRequest", false);
           put("v2.createDataDeletionRequest", false);
           put("v2.getDataDeletionRequests", false);

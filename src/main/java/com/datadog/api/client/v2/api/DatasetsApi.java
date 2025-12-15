@@ -94,13 +94,6 @@ public class DatasetsApi {
    */
   public ApiResponse<DatasetResponseSingle> createDatasetWithHttpInfo(DatasetCreateRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createDataset";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -143,16 +136,6 @@ public class DatasetsApi {
    */
   public CompletableFuture<ApiResponse<DatasetResponseSingle>> createDatasetWithHttpInfoAsync(
       DatasetCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createDataset";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DatasetResponseSingle>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -241,13 +224,6 @@ public class DatasetsApi {
    *     </table>
    */
   public ApiResponse<Void> deleteDatasetWithHttpInfo(String datasetId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteDataset";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'datasetId' is set
@@ -291,16 +267,6 @@ public class DatasetsApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteDatasetWithHttpInfoAsync(String datasetId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteDataset";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'datasetId' is set
@@ -387,13 +353,6 @@ public class DatasetsApi {
    *     </table>
    */
   public ApiResponse<DatasetResponseMulti> getAllDatasetsWithHttpInfo() throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getAllDatasets";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/datasets";
@@ -428,16 +387,6 @@ public class DatasetsApi {
    * @return CompletableFuture&lt;ApiResponse&lt;DatasetResponseMulti&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DatasetResponseMulti>> getAllDatasetsWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "getAllDatasets";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DatasetResponseMulti>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/datasets";
@@ -519,13 +468,6 @@ public class DatasetsApi {
    */
   public ApiResponse<DatasetResponseSingle> getDatasetWithHttpInfo(String datasetId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getDataset";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'datasetId' is set
@@ -570,16 +512,6 @@ public class DatasetsApi {
    */
   public CompletableFuture<ApiResponse<DatasetResponseSingle>> getDatasetWithHttpInfoAsync(
       String datasetId) {
-    // Check if unstable operation is enabled
-    String operationId = "getDataset";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DatasetResponseSingle>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'datasetId' is set
@@ -677,13 +609,6 @@ public class DatasetsApi {
    */
   public ApiResponse<DatasetResponseSingle> updateDatasetWithHttpInfo(
       String datasetId, DatasetUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateDataset";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'datasetId' is set
@@ -735,16 +660,6 @@ public class DatasetsApi {
    */
   public CompletableFuture<ApiResponse<DatasetResponseSingle>> updateDatasetWithHttpInfoAsync(
       String datasetId, DatasetUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateDataset";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DatasetResponseSingle>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'datasetId' is set
