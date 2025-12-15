@@ -19,6 +19,7 @@ import java.util.Objects;
 /** Options on new value detection method. */
 @JsonPropertyOrder({
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_FORGET_AFTER,
+  SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_INSTANTANEOUS_BASELINE,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_DURATION,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_METHOD,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_THRESHOLD
@@ -29,6 +30,9 @@ public class SecurityMonitoringRuleNewValueOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORGET_AFTER = "forgetAfter";
   private SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter;
+
+  public static final String JSON_PROPERTY_INSTANTANEOUS_BASELINE = "instantaneousBaseline";
+  private Boolean instantaneousBaseline;
 
   public static final String JSON_PROPERTY_LEARNING_DURATION = "learningDuration";
   private SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration =
@@ -66,6 +70,30 @@ public class SecurityMonitoringRuleNewValueOptions {
       this.unparsed = true;
     }
     this.forgetAfter = forgetAfter;
+  }
+
+  public SecurityMonitoringRuleNewValueOptions instantaneousBaseline(
+      Boolean instantaneousBaseline) {
+    this.instantaneousBaseline = instantaneousBaseline;
+    return this;
+  }
+
+  /**
+   * When set to true, Datadog uses previous values that fall within the defined learning window to
+   * construct the baseline, enabling the system to establish an accurate baseline more rapidly
+   * rather than relying solely on gradual learning over time.
+   *
+   * @return instantaneousBaseline
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INSTANTANEOUS_BASELINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getInstantaneousBaseline() {
+    return instantaneousBaseline;
+  }
+
+  public void setInstantaneousBaseline(Boolean instantaneousBaseline) {
+    this.instantaneousBaseline = instantaneousBaseline;
   }
 
   public SecurityMonitoringRuleNewValueOptions learningDuration(
@@ -211,6 +239,8 @@ public class SecurityMonitoringRuleNewValueOptions {
         (SecurityMonitoringRuleNewValueOptions) o;
     return Objects.equals(this.forgetAfter, securityMonitoringRuleNewValueOptions.forgetAfter)
         && Objects.equals(
+            this.instantaneousBaseline, securityMonitoringRuleNewValueOptions.instantaneousBaseline)
+        && Objects.equals(
             this.learningDuration, securityMonitoringRuleNewValueOptions.learningDuration)
         && Objects.equals(this.learningMethod, securityMonitoringRuleNewValueOptions.learningMethod)
         && Objects.equals(
@@ -222,7 +252,12 @@ public class SecurityMonitoringRuleNewValueOptions {
   @Override
   public int hashCode() {
     return Objects.hash(
-        forgetAfter, learningDuration, learningMethod, learningThreshold, additionalProperties);
+        forgetAfter,
+        instantaneousBaseline,
+        learningDuration,
+        learningMethod,
+        learningThreshold,
+        additionalProperties);
   }
 
   @Override
@@ -230,6 +265,9 @@ public class SecurityMonitoringRuleNewValueOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleNewValueOptions {\n");
     sb.append("    forgetAfter: ").append(toIndentedString(forgetAfter)).append("\n");
+    sb.append("    instantaneousBaseline: ")
+        .append(toIndentedString(instantaneousBaseline))
+        .append("\n");
     sb.append("    learningDuration: ").append(toIndentedString(learningDuration)).append("\n");
     sb.append("    learningMethod: ").append(toIndentedString(learningMethod)).append("\n");
     sb.append("    learningThreshold: ").append(toIndentedString(learningThreshold)).append("\n");
