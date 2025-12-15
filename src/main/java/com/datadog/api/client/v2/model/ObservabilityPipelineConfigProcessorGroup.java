@@ -13,30 +13,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The <code>parse_json</code> processor extracts JSON from a specified field and flattens it into
- * the event. This is useful when logs contain embedded JSON as a string.
- */
+/** A group of processors. */
 @JsonPropertyOrder({
-  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_ENABLED,
-  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_FIELD,
-  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_ID,
-  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_INCLUDE,
-  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_TYPE
+  ObservabilityPipelineConfigProcessorGroup.JSON_PROPERTY_ENABLED,
+  ObservabilityPipelineConfigProcessorGroup.JSON_PROPERTY_ID,
+  ObservabilityPipelineConfigProcessorGroup.JSON_PROPERTY_INCLUDE,
+  ObservabilityPipelineConfigProcessorGroup.JSON_PROPERTY_INPUTS,
+  ObservabilityPipelineConfigProcessorGroup.JSON_PROPERTY_PROCESSORS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineParseJSONProcessor {
+public class ObservabilityPipelineConfigProcessorGroup {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
-
-  public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -44,35 +40,36 @@ public class ObservabilityPipelineParseJSONProcessor {
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineParseJSONProcessorType type =
-      ObservabilityPipelineParseJSONProcessorType.PARSE_JSON;
+  public static final String JSON_PROPERTY_INPUTS = "inputs";
+  private List<String> inputs = new ArrayList<>();
 
-  public ObservabilityPipelineParseJSONProcessor() {}
+  public static final String JSON_PROPERTY_PROCESSORS = "processors";
+  private List<ObservabilityPipelineConfigProcessorItem> processors = new ArrayList<>();
+
+  public ObservabilityPipelineConfigProcessorGroup() {}
 
   @JsonCreator
-  public ObservabilityPipelineParseJSONProcessor(
+  public ObservabilityPipelineConfigProcessorGroup(
       @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FIELD) String field,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineParseJSONProcessorType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PROCESSORS)
+          List<ObservabilityPipelineConfigProcessorItem> processors) {
     this.enabled = enabled;
-    this.field = field;
     this.id = id;
     this.include = include;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+    this.inputs = inputs;
+    this.processors = processors;
   }
 
-  public ObservabilityPipelineParseJSONProcessor enabled(Boolean enabled) {
+  public ObservabilityPipelineConfigProcessorGroup enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * Whether this processor is enabled.
+   * Whether this processor group is enabled.
    *
    * @return enabled
    */
@@ -86,34 +83,13 @@ public class ObservabilityPipelineParseJSONProcessor {
     this.enabled = enabled;
   }
 
-  public ObservabilityPipelineParseJSONProcessor field(String field) {
-    this.field = field;
-    return this;
-  }
-
-  /**
-   * The name of the log field that contains a JSON string.
-   *
-   * @return field
-   */
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getField() {
-    return field;
-  }
-
-  public void setField(String field) {
-    this.field = field;
-  }
-
-  public ObservabilityPipelineParseJSONProcessor id(String id) {
+  public ObservabilityPipelineConfigProcessorGroup id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * A unique identifier for this component. Used to reference this component in other parts of the
-   * pipeline (e.g., as input to downstream components).
+   * The unique identifier for the processor group.
    *
    * @return id
    */
@@ -127,13 +103,13 @@ public class ObservabilityPipelineParseJSONProcessor {
     this.id = id;
   }
 
-  public ObservabilityPipelineParseJSONProcessor include(String include) {
+  public ObservabilityPipelineConfigProcessorGroup include(String include) {
     this.include = include;
     return this;
   }
 
   /**
-   * A Datadog search query used to determine which logs this processor targets.
+   * Conditional expression for when this processor group should execute.
    *
    * @return include
    */
@@ -147,29 +123,60 @@ public class ObservabilityPipelineParseJSONProcessor {
     this.include = include;
   }
 
-  public ObservabilityPipelineParseJSONProcessor type(
-      ObservabilityPipelineParseJSONProcessorType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public ObservabilityPipelineConfigProcessorGroup inputs(List<String> inputs) {
+    this.inputs = inputs;
+    return this;
+  }
+
+  public ObservabilityPipelineConfigProcessorGroup addInputsItem(String inputsItem) {
+    this.inputs.add(inputsItem);
     return this;
   }
 
   /**
-   * The processor type. The value should always be <code>parse_json</code>.
+   * A list of IDs for components whose output is used as the input for this processor group.
    *
-   * @return type
+   * @return inputs
    */
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_INPUTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineParseJSONProcessorType getType() {
-    return type;
+  public List<String> getInputs() {
+    return inputs;
   }
 
-  public void setType(ObservabilityPipelineParseJSONProcessorType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+  public void setInputs(List<String> inputs) {
+    this.inputs = inputs;
+  }
+
+  public ObservabilityPipelineConfigProcessorGroup processors(
+      List<ObservabilityPipelineConfigProcessorItem> processors) {
+    this.processors = processors;
+    for (ObservabilityPipelineConfigProcessorItem item : processors) {
+      this.unparsed |= item.unparsed;
     }
-    this.type = type;
+    return this;
+  }
+
+  public ObservabilityPipelineConfigProcessorGroup addProcessorsItem(
+      ObservabilityPipelineConfigProcessorItem processorsItem) {
+    this.processors.add(processorsItem);
+    this.unparsed |= processorsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Processors applied sequentially within this group. Events flow through each processor in order.
+   *
+   * @return processors
+   */
+  @JsonProperty(JSON_PROPERTY_PROCESSORS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<ObservabilityPipelineConfigProcessorItem> getProcessors() {
+    return processors;
+  }
+
+  public void setProcessors(List<ObservabilityPipelineConfigProcessorItem> processors) {
+    this.processors = processors;
   }
 
   /**
@@ -184,10 +191,10 @@ public class ObservabilityPipelineParseJSONProcessor {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineParseJSONProcessor
+   * @return ObservabilityPipelineConfigProcessorGroup
    */
   @JsonAnySetter
-  public ObservabilityPipelineParseJSONProcessor putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineConfigProcessorGroup putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -218,7 +225,7 @@ public class ObservabilityPipelineParseJSONProcessor {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineParseJSONProcessor object is equal to o. */
+  /** Return true if this ObservabilityPipelineConfigProcessorGroup object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -227,32 +234,32 @@ public class ObservabilityPipelineParseJSONProcessor {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineParseJSONProcessor observabilityPipelineParseJsonProcessor =
-        (ObservabilityPipelineParseJSONProcessor) o;
-    return Objects.equals(this.enabled, observabilityPipelineParseJsonProcessor.enabled)
-        && Objects.equals(this.field, observabilityPipelineParseJsonProcessor.field)
-        && Objects.equals(this.id, observabilityPipelineParseJsonProcessor.id)
-        && Objects.equals(this.include, observabilityPipelineParseJsonProcessor.include)
-        && Objects.equals(this.type, observabilityPipelineParseJsonProcessor.type)
+    ObservabilityPipelineConfigProcessorGroup observabilityPipelineConfigProcessorGroup =
+        (ObservabilityPipelineConfigProcessorGroup) o;
+    return Objects.equals(this.enabled, observabilityPipelineConfigProcessorGroup.enabled)
+        && Objects.equals(this.id, observabilityPipelineConfigProcessorGroup.id)
+        && Objects.equals(this.include, observabilityPipelineConfigProcessorGroup.include)
+        && Objects.equals(this.inputs, observabilityPipelineConfigProcessorGroup.inputs)
+        && Objects.equals(this.processors, observabilityPipelineConfigProcessorGroup.processors)
         && Objects.equals(
             this.additionalProperties,
-            observabilityPipelineParseJsonProcessor.additionalProperties);
+            observabilityPipelineConfigProcessorGroup.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, field, id, include, type, additionalProperties);
+    return Objects.hash(enabled, id, include, inputs, processors, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineParseJSONProcessor {\n");
+    sb.append("class ObservabilityPipelineConfigProcessorGroup {\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
+    sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
