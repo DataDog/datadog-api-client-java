@@ -40,7 +40,7 @@ public class AttachJiraIssueRequestDataAttributes {
   }
 
   /**
-   * The URL of the Jira issue to attach security findings to.
+   * URL of the Jira issue to attach security findings to.
    *
    * @return jiraIssueUrl
    */

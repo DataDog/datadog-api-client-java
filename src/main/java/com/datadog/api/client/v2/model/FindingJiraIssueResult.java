@@ -45,7 +45,7 @@ public class FindingJiraIssueResult {
   }
 
   /**
-   * The account ID of the Jira issue.
+   * Account ID of the Jira issue.
    *
    * @return accountId
    */
@@ -66,7 +66,7 @@ public class FindingJiraIssueResult {
   }
 
   /**
-   * The unique identifier of the Jira issue.
+   * Unique identifier of the Jira issue.
    *
    * @return issueId
    */
@@ -87,7 +87,7 @@ public class FindingJiraIssueResult {
   }
 
   /**
-   * The key of the Jira issue.
+   * Key of the Jira issue.
    *
    * @return issueKey
    */
@@ -108,7 +108,7 @@ public class FindingJiraIssueResult {
   }
 
   /**
-   * The URL of the Jira issue.
+   * URL of the Jira issue.
    *
    * @return issueUrl
    */

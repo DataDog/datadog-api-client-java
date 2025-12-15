@@ -18,44 +18,72 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Relationships of the Jira issue to create. */
-@JsonPropertyOrder({CreateJiraIssueRequestDataRelationships.JSON_PROPERTY_CASE})
+@JsonPropertyOrder({
+  CreateJiraIssueRequestDataRelationships.JSON_PROPERTY_FINDINGS,
+  CreateJiraIssueRequestDataRelationships.JSON_PROPERTY_PROJECT
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateJiraIssueRequestDataRelationships {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CASE = "case";
-  private CreateJiraIssueRequestDataRelationshipsCase _case;
+  public static final String JSON_PROPERTY_FINDINGS = "findings";
+  private Findings findings;
+
+  public static final String JSON_PROPERTY_PROJECT = "project";
+  private CaseManagementProject project;
 
   public CreateJiraIssueRequestDataRelationships() {}
 
   @JsonCreator
   public CreateJiraIssueRequestDataRelationships(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CASE)
-          CreateJiraIssueRequestDataRelationshipsCase _case) {
-    this._case = _case;
-    this.unparsed |= _case.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FINDINGS) Findings findings,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT) CaseManagementProject project) {
+    this.findings = findings;
+    this.unparsed |= findings.unparsed;
+    this.project = project;
+    this.unparsed |= project.unparsed;
   }
 
-  public CreateJiraIssueRequestDataRelationships _case(
-      CreateJiraIssueRequestDataRelationshipsCase _case) {
-    this._case = _case;
-    this.unparsed |= _case.unparsed;
+  public CreateJiraIssueRequestDataRelationships findings(Findings findings) {
+    this.findings = findings;
+    this.unparsed |= findings.unparsed;
     return this;
   }
 
   /**
-   * Case linked to the Jira issue.
+   * A list of security findings.
    *
-   * @return _case
+   * @return findings
    */
-  @JsonProperty(JSON_PROPERTY_CASE)
+  @JsonProperty(JSON_PROPERTY_FINDINGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CreateJiraIssueRequestDataRelationshipsCase getCase() {
-    return _case;
+  public Findings getFindings() {
+    return findings;
   }
 
-  public void setCase(CreateJiraIssueRequestDataRelationshipsCase _case) {
-    this._case = _case;
+  public void setFindings(Findings findings) {
+    this.findings = findings;
+  }
+
+  public CreateJiraIssueRequestDataRelationships project(CaseManagementProject project) {
+    this.project = project;
+    this.unparsed |= project.unparsed;
+    return this;
+  }
+
+  /**
+   * Case management project.
+   *
+   * @return project
+   */
+  @JsonProperty(JSON_PROPERTY_PROJECT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CaseManagementProject getProject() {
+    return project;
+  }
+
+  public void setProject(CaseManagementProject project) {
+    this.project = project;
   }
 
   /**
@@ -115,7 +143,8 @@ public class CreateJiraIssueRequestDataRelationships {
     }
     CreateJiraIssueRequestDataRelationships createJiraIssueRequestDataRelationships =
         (CreateJiraIssueRequestDataRelationships) o;
-    return Objects.equals(this._case, createJiraIssueRequestDataRelationships._case)
+    return Objects.equals(this.findings, createJiraIssueRequestDataRelationships.findings)
+        && Objects.equals(this.project, createJiraIssueRequestDataRelationships.project)
         && Objects.equals(
             this.additionalProperties,
             createJiraIssueRequestDataRelationships.additionalProperties);
@@ -123,14 +152,15 @@ public class CreateJiraIssueRequestDataRelationships {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_case, additionalProperties);
+    return Objects.hash(findings, project, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateJiraIssueRequestDataRelationships {\n");
-    sb.append("    _case: ").append(toIndentedString(_case)).append("\n");
+    sb.append("    findings: ").append(toIndentedString(findings)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

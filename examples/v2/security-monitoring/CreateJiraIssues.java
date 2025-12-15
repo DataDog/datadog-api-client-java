@@ -3,123 +3,61 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
-import com.datadog.api.client.v2.model.CaseDataType;
 import com.datadog.api.client.v2.model.CaseManagementProject;
 import com.datadog.api.client.v2.model.CaseManagementProjectData;
 import com.datadog.api.client.v2.model.CaseManagementProjectDataType;
-import com.datadog.api.client.v2.model.CreateCaseRequestData;
-import com.datadog.api.client.v2.model.CreateCaseRequestDataAttributes;
-import com.datadog.api.client.v2.model.CreateCaseRequestDataRelationships;
+import com.datadog.api.client.v2.model.CasePriority;
 import com.datadog.api.client.v2.model.CreateJiraIssueRequestArray;
-import com.datadog.api.client.v2.model.CreateJiraIssueRequestArrayIncluded;
 import com.datadog.api.client.v2.model.CreateJiraIssueRequestData;
 import com.datadog.api.client.v2.model.CreateJiraIssueRequestDataAttributes;
 import com.datadog.api.client.v2.model.CreateJiraIssueRequestDataRelationships;
-import com.datadog.api.client.v2.model.CreateJiraIssueRequestDataRelationshipsCase;
-import com.datadog.api.client.v2.model.CreateJiraIssueRequestDataRelationshipsCaseData;
 import com.datadog.api.client.v2.model.FindingCaseResponseArray;
 import com.datadog.api.client.v2.model.FindingData;
 import com.datadog.api.client.v2.model.FindingDataType;
 import com.datadog.api.client.v2.model.Findings;
 import com.datadog.api.client.v2.model.JiraIssuesDataType;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.createJiraIssues", true);
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     CreateJiraIssueRequestArray body =
         new CreateJiraIssueRequestArray()
             .data(
-                Arrays.asList(
+                Collections.singletonList(
                     new CreateJiraIssueRequestData()
-                        .type(JiraIssuesDataType.JIRA_ISSUES)
-                        .attributes(new CreateJiraIssueRequestDataAttributes())
+                        .attributes(
+                            new CreateJiraIssueRequestDataAttributes()
+                                .assigneeId("f315bdaf-9ee7-4808-a9c1-99c15bf0f4d0")
+                                .description("A description of the Jira issue.")
+                                .fields(
+                                    Map.ofEntries(
+                                        Map.entry("key1", "value"),
+                                        Map.entry("key2", "['value']"),
+                                        Map.entry("key3", "{'key4': 'value'}")))
+                                .priority(CasePriority.NOT_DEFINED)
+                                .title("A title for the Jira issue."))
                         .relationships(
                             new CreateJiraIssueRequestDataRelationships()
-                                ._case(
-                                    new CreateJiraIssueRequestDataRelationshipsCase()
+                                .findings(
+                                    new Findings()
                                         .data(
-                                            new CreateJiraIssueRequestDataRelationshipsCaseData()
-                                                .type(CaseDataType.CASES)
-                                                .id("53e242c6-a7d6-46ad-9680-b8d14753f716")))),
-                    new CreateJiraIssueRequestData()
-                        .type(JiraIssuesDataType.JIRA_ISSUES)
-                        .attributes(new CreateJiraIssueRequestDataAttributes())
-                        .relationships(
-                            new CreateJiraIssueRequestDataRelationships()
-                                ._case(
-                                    new CreateJiraIssueRequestDataRelationshipsCase()
+                                            Collections.singletonList(
+                                                new FindingData()
+                                                    .id(
+                                                        "ZGVmLTAwcC1pZXJ-aS0wZjhjNjMyZDNmMzRlZTgzNw==")
+                                                    .type(FindingDataType.FINDINGS))))
+                                .project(
+                                    new CaseManagementProject()
                                         .data(
-                                            new CreateJiraIssueRequestDataRelationshipsCaseData()
-                                                .type(CaseDataType.CASES)
-                                                .id("195772b2-1f53-41d2-b81e-48c8e6c21d33"))))))
-            .included(
-                Arrays.asList(
-                    new CreateJiraIssueRequestArrayIncluded(
-                        new CreateCaseRequestData()
-                            .type(CaseDataType.CASES)
-                            .attributes(
-                                new CreateCaseRequestDataAttributes()
-                                    .title("A title")
-                                    .description("A description"))
-                            .relationships(
-                                new CreateCaseRequestDataRelationships()
-                                    .project(
-                                        new CaseManagementProject()
-                                            .data(
-                                                new CaseManagementProjectData()
-                                                    .type(CaseManagementProjectDataType.PROJECTS)
-                                                    .id("959a6f71-bac8-4027-b1d3-2264f569296f")))
-                                    .findings(
-                                        new Findings()
-                                            .data(
-                                                Collections.singletonList(
-                                                    new FindingData()
-                                                        .type(FindingDataType.FINDINGS)
-                                                        .id(
-                                                            "OTQ3NjJkMmYwMTIzMzMxNTc1Y2Q4MTA5NWU0NTBmMDl-ZjE3NjMxZWVkYzBjZGI1NDY2NWY2OGQxZDk4MDY4MmI=")))))
-                            .id("53e242c6-a7d6-46ad-9680-b8d14753f716")),
-                    new CreateJiraIssueRequestArrayIncluded(
-                        new CreateCaseRequestData()
-                            .type(CaseDataType.CASES)
-                            .attributes(
-                                new CreateCaseRequestDataAttributes()
-                                    .title("A title")
-                                    .description("A description"))
-                            .relationships(
-                                new CreateCaseRequestDataRelationships()
-                                    .project(
-                                        new CaseManagementProject()
-                                            .data(
-                                                new CaseManagementProjectData()
-                                                    .type(CaseManagementProjectDataType.PROJECTS)
-                                                    .id("959a6f71-bac8-4027-b1d3-2264f569296f")))
-                                    .findings(
-                                        new Findings()
-                                            .data(
-                                                Collections.singletonList(
-                                                    new FindingData()
-                                                        .type(FindingDataType.FINDINGS)
-                                                        .id(
-                                                            "MTNjN2ZmYWMzMDIxYmU1ZDFiZDRjNWUwN2I1NzVmY2F-YTA3MzllMTUzNWM3NmEyZjdiNzEzOWM5YmViZTMzOGM=")))))
-                            .id("195772b2-1f53-41d2-b81e-48c8e6c21d33")),
-                    new CreateJiraIssueRequestArrayIncluded(
-                        new CaseManagementProjectData()
-                            .type(CaseManagementProjectDataType.PROJECTS)
-                            .id("959a6f71-bac8-4027-b1d3-2264f569296f")),
-                    new CreateJiraIssueRequestArrayIncluded(
-                        new FindingData()
-                            .type(FindingDataType.FINDINGS)
-                            .id(
-                                "OTQ3NjJkMmYwMTIzMzMxNTc1Y2Q4MTA5NWU0NTBmMDl-ZjE3NjMxZWVkYzBjZGI1NDY2NWY2OGQxZDk4MDY4MmI=")),
-                    new CreateJiraIssueRequestArrayIncluded(
-                        new FindingData()
-                            .type(FindingDataType.FINDINGS)
-                            .id(
-                                "MTNjN2ZmYWMzMDIxYmU1ZDFiZDRjNWUwN2I1NzVmY2F-YTA3MzllMTUzNWM3NmEyZjdiNzEzOWM5YmViZTMzOGM="))));
+                                            new CaseManagementProjectData()
+                                                .id("aeadc05e-98a8-11ec-ac2c-da7ad0900001")
+                                                .type(CaseManagementProjectDataType.PROJECTS))))
+                        .type(JiraIssuesDataType.JIRA_ISSUES)));
 
     try {
       FindingCaseResponseArray result = apiInstance.createJiraIssues(body);

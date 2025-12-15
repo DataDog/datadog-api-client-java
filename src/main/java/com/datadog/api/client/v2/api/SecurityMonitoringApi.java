@@ -128,7 +128,7 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #attachCaseWithHttpInfo}.
    *
-   * @param caseId The unique identifier of the case to attach security findings to (required)
+   * @param caseId Unique identifier of the case to attach security findings to (required)
    * @param body (required)
    * @return FindingCaseResponse
    * @throws ApiException if fails to make API call
@@ -142,7 +142,7 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #attachCaseWithHttpInfoAsync}.
    *
-   * @param caseId The unique identifier of the case to attach security findings to (required)
+   * @param caseId Unique identifier of the case to attach security findings to (required)
    * @param body (required)
    * @return CompletableFuture&lt;FindingCaseResponse&gt;
    */
@@ -160,7 +160,7 @@ public class SecurityMonitoringApi {
    * Security findings that are already attached to another case will be detached from their
    * previous case and attached to the specified case.
    *
-   * @param caseId The unique identifier of the case to attach security findings to (required)
+   * @param caseId Unique identifier of the case to attach security findings to (required)
    * @param body (required)
    * @return ApiResponse&lt;FindingCaseResponse&gt;
    * @throws ApiException if fails to make API call
@@ -220,7 +220,7 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #attachCaseWithHttpInfo}.
    *
-   * @param caseId The unique identifier of the case to attach security findings to (required)
+   * @param caseId Unique identifier of the case to attach security findings to (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;FindingCaseResponse&gt;&gt;
    */
@@ -310,8 +310,10 @@ public class SecurityMonitoringApi {
    * Attach security findings to a Jira issue by providing the Jira issue URL. You can attach up to
    * 50 security findings per Jira issue. If the Jira issue is not linked to any case, this
    * operation will create a case for the security findings and link the Jira issue to the newly
-   * created case. Security findings that are already attached to another Jira issue will be
-   * detached from their previous Jira issue and attached to the specified Jira issue.
+   * created case. To configure the Jira integration, see <a
+   * href="https://docs.datadoghq.com/security/ticketing_integrations/#bidirectional-ticket-syncing-with-jira">Bidirectional
+   * ticket syncing with Jira</a>. Security findings that are already attached to another Jira issue
+   * will be detached from their previous Jira issue and attached to the specified Jira issue.
    *
    * @param body (required)
    * @return ApiResponse&lt;FindingCaseResponse&gt;
@@ -1333,10 +1335,13 @@ public class SecurityMonitoringApi {
 
   /**
    * Create Jira issues for security findings. This operation creates a case in Datadog and a Jira
-   * issue linked to that case for bidirectional sync between Datadog and Jira. You can create up to
-   * 50 Jira issues per request and associate up to 50 security findings per Jira issue. Security
-   * findings that are already attached to another Jira issue will be detached from their previous
-   * Jira issue and attached to the newly created Jira issue.
+   * issue linked to that case for bidirectional sync between Datadog and Jira. To configure the
+   * Jira integration, see <a
+   * href="https://docs.datadoghq.com/security/ticketing_integrations/#bidirectional-ticket-syncing-with-jira">Bidirectional
+   * ticket syncing with Jira</a>. You can create up to 50 Jira issues per request and associate up
+   * to 50 security findings per Jira issue. Security findings that are already attached to another
+   * Jira issue will be detached from their previous Jira issue and attached to the newly created
+   * Jira issue.
    *
    * @param body (required)
    * @return ApiResponse&lt;FindingCaseResponseArray&gt;

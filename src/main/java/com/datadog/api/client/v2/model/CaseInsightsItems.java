@@ -41,7 +41,7 @@ public class CaseInsightsItems {
   }
 
   /**
-   * The reference of the insight.
+   * Reference of the insight.
    *
    * @return ref
    */
@@ -62,8 +62,7 @@ public class CaseInsightsItems {
   }
 
   /**
-   * The unique identifier of the resource. For example, the unique identifier of a security
-   * finding.
+   * Unique identifier of the resource. For example, the unique identifier of a security finding.
    *
    * @return resourceId
    */
@@ -84,7 +83,7 @@ public class CaseInsightsItems {
   }
 
   /**
-   * The type of the resource. For example, the type of a security finding is "SECURITY_FINDING".
+   * Type of the resource. For example, the type of a security finding is "SECURITY_FINDING".
    *
    * @return type
    */

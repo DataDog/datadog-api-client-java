@@ -20,7 +20,6 @@ import java.util.Objects;
 /** Data of the case to create. */
 @JsonPropertyOrder({
   CreateCaseRequestData.JSON_PROPERTY_ATTRIBUTES,
-  CreateCaseRequestData.JSON_PROPERTY_ID,
   CreateCaseRequestData.JSON_PROPERTY_RELATIONSHIPS,
   CreateCaseRequestData.JSON_PROPERTY_TYPE
 })
@@ -30,9 +29,6 @@ public class CreateCaseRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateCaseRequestDataAttributes attributes;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
   private CreateCaseRequestDataRelationships relationships;
@@ -69,27 +65,6 @@ public class CreateCaseRequestData {
 
   public void setAttributes(CreateCaseRequestDataAttributes attributes) {
     this.attributes = attributes;
-  }
-
-  public CreateCaseRequestData id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The unique identifier of the case.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public CreateCaseRequestData relationships(CreateCaseRequestDataRelationships relationships) {
@@ -195,7 +170,6 @@ public class CreateCaseRequestData {
     }
     CreateCaseRequestData createCaseRequestData = (CreateCaseRequestData) o;
     return Objects.equals(this.attributes, createCaseRequestData.attributes)
-        && Objects.equals(this.id, createCaseRequestData.id)
         && Objects.equals(this.relationships, createCaseRequestData.relationships)
         && Objects.equals(this.type, createCaseRequestData.type)
         && Objects.equals(this.additionalProperties, createCaseRequestData.additionalProperties);
@@ -203,7 +177,7 @@ public class CreateCaseRequestData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(attributes, relationships, type, additionalProperties);
   }
 
   @Override
@@ -211,7 +185,6 @@ public class CreateCaseRequestData {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateCaseRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

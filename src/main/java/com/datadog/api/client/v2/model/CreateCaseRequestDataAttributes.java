@@ -45,7 +45,7 @@ public class CreateCaseRequestDataAttributes {
   }
 
   /**
-   * The unique identifier of the user assigned to the case.
+   * Unique identifier of the user assigned to the case.
    *
    * @return assigneeId
    */
@@ -66,7 +66,7 @@ public class CreateCaseRequestDataAttributes {
   }
 
   /**
-   * The description of the case. If not provided, the description will be automatically generated.
+   * Description of the case. If not provided, the description will be automatically generated.
    *
    * @return description
    */
@@ -112,7 +112,7 @@ public class CreateCaseRequestDataAttributes {
   }
 
   /**
-   * The title of the case. If not provided, the title will be automatically generated.
+   * Title of the case. If not provided, the title will be automatically generated.
    *
    * @return title
    */

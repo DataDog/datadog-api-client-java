@@ -40,11 +40,11 @@ public class Example {
                                             Arrays.asList(
                                                 new FindingData()
                                                     .id(
-                                                        "ZGZhMDI3ZjdjMDM3YjJmNzcxNTlhZGMwMjdmZWNiNTZ-MTVlYTNmYWU3NjNlOTNlYTE2YjM4N2JmZmI4Yjk5N2Y=")
+                                                        "ZTd5LWNuYi1seWV-aS0wMjI2NGZjZjRmZWQ5ODMyMg==")
                                                     .type(FindingDataType.FINDINGS),
                                                 new FindingData()
                                                     .id(
-                                                        "MzZkNTMxODNmOGZlZmJiYzIyMDg4NzhmM2QyMDExZjB-ZmY5NzUwNDQzYTE0MGIyNDM1MTg4YjkxZDNmMDU4OGU=")
+                                                        "c2FuLXhyaS1kZnN-aS0wODM3MjVhMTM2MDExNzNkOQ==")
                                                     .type(FindingDataType.FINDINGS))))
                                 .project(
                                     new CaseManagementProject()

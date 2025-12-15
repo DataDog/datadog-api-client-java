@@ -46,7 +46,7 @@ public class FindingData {
   }
 
   /**
-   * The unique identifier of the security finding.
+   * Unique identifier of the security finding.
    *
    * @return id
    */

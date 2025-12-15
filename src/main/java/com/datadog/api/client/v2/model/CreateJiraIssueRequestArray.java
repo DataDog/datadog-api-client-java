@@ -20,19 +20,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /** List of requests to create Jira issues for security findings. */
-@JsonPropertyOrder({
-  CreateJiraIssueRequestArray.JSON_PROPERTY_DATA,
-  CreateJiraIssueRequestArray.JSON_PROPERTY_INCLUDED
-})
+@JsonPropertyOrder({CreateJiraIssueRequestArray.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateJiraIssueRequestArray {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<CreateJiraIssueRequestData> data = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<CreateJiraIssueRequestArrayIncluded> included = null;
 
   public CreateJiraIssueRequestArray() {}
 
@@ -70,40 +64,6 @@ public class CreateJiraIssueRequestArray {
 
   public void setData(List<CreateJiraIssueRequestData> data) {
     this.data = data;
-  }
-
-  public CreateJiraIssueRequestArray included(List<CreateJiraIssueRequestArrayIncluded> included) {
-    this.included = included;
-    for (CreateJiraIssueRequestArrayIncluded item : included) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public CreateJiraIssueRequestArray addIncludedItem(
-      CreateJiraIssueRequestArrayIncluded includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
-    this.unparsed |= includedItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Getincluded
-   *
-   * @return included
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<CreateJiraIssueRequestArrayIncluded> getIncluded() {
-    return included;
-  }
-
-  public void setIncluded(List<CreateJiraIssueRequestArrayIncluded> included) {
-    this.included = included;
   }
 
   /**
@@ -163,14 +123,13 @@ public class CreateJiraIssueRequestArray {
     }
     CreateJiraIssueRequestArray createJiraIssueRequestArray = (CreateJiraIssueRequestArray) o;
     return Objects.equals(this.data, createJiraIssueRequestArray.data)
-        && Objects.equals(this.included, createJiraIssueRequestArray.included)
         && Objects.equals(
             this.additionalProperties, createJiraIssueRequestArray.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
@@ -178,7 +137,6 @@ public class CreateJiraIssueRequestArray {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateJiraIssueRequestArray {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -20,7 +20,6 @@ import java.util.Objects;
 /** Data of the Jira issue to attach security findings to. */
 @JsonPropertyOrder({
   AttachJiraIssueRequestData.JSON_PROPERTY_ATTRIBUTES,
-  AttachJiraIssueRequestData.JSON_PROPERTY_ID,
   AttachJiraIssueRequestData.JSON_PROPERTY_RELATIONSHIPS,
   AttachJiraIssueRequestData.JSON_PROPERTY_TYPE
 })
@@ -30,9 +29,6 @@ public class AttachJiraIssueRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private AttachJiraIssueRequestDataAttributes attributes;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
   private AttachJiraIssueRequestDataRelationships relationships;
@@ -69,27 +65,6 @@ public class AttachJiraIssueRequestData {
 
   public void setAttributes(AttachJiraIssueRequestDataAttributes attributes) {
     this.attributes = attributes;
-  }
-
-  public AttachJiraIssueRequestData id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The unique identifier of the Jira issue attachment request.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public AttachJiraIssueRequestData relationships(
@@ -196,7 +171,6 @@ public class AttachJiraIssueRequestData {
     }
     AttachJiraIssueRequestData attachJiraIssueRequestData = (AttachJiraIssueRequestData) o;
     return Objects.equals(this.attributes, attachJiraIssueRequestData.attributes)
-        && Objects.equals(this.id, attachJiraIssueRequestData.id)
         && Objects.equals(this.relationships, attachJiraIssueRequestData.relationships)
         && Objects.equals(this.type, attachJiraIssueRequestData.type)
         && Objects.equals(
@@ -205,7 +179,7 @@ public class AttachJiraIssueRequestData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(attributes, relationships, type, additionalProperties);
   }
 
   @Override
@@ -213,7 +187,6 @@ public class AttachJiraIssueRequestData {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachJiraIssueRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

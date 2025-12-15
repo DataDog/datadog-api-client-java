@@ -50,7 +50,7 @@ public class CaseManagementProjectData {
   }
 
   /**
-   * The unique identifier of the case management project.
+   * Unique identifier of the case management project.
    *
    * @return id
    */
