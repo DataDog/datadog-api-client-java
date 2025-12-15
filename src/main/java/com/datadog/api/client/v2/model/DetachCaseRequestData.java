@@ -19,7 +19,6 @@ import java.util.Objects;
 
 /** Data for detaching security findings from their case. */
 @JsonPropertyOrder({
-  DetachCaseRequestData.JSON_PROPERTY_ID,
   DetachCaseRequestData.JSON_PROPERTY_RELATIONSHIPS,
   DetachCaseRequestData.JSON_PROPERTY_TYPE
 })
@@ -27,9 +26,6 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DetachCaseRequestData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
   private DetachCaseRequestDataRelationships relationships;
 
@@ -43,27 +39,6 @@ public class DetachCaseRequestData {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CaseDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
-  }
-
-  public DetachCaseRequestData id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The unique identifier of the detachment request.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public DetachCaseRequestData relationships(DetachCaseRequestDataRelationships relationships) {
@@ -168,22 +143,20 @@ public class DetachCaseRequestData {
       return false;
     }
     DetachCaseRequestData detachCaseRequestData = (DetachCaseRequestData) o;
-    return Objects.equals(this.id, detachCaseRequestData.id)
-        && Objects.equals(this.relationships, detachCaseRequestData.relationships)
+    return Objects.equals(this.relationships, detachCaseRequestData.relationships)
         && Objects.equals(this.type, detachCaseRequestData.type)
         && Objects.equals(this.additionalProperties, detachCaseRequestData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, relationships, type, additionalProperties);
+    return Objects.hash(relationships, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DetachCaseRequestData {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

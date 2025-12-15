@@ -77,7 +77,7 @@ public class FindingCaseResponseData {
   }
 
   /**
-   * The unique identifier of the case.
+   * Unique identifier of the case.
    *
    * @return id
    */

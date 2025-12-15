@@ -20,7 +20,6 @@ import java.util.Objects;
 /** Data of the Jira issue to create. */
 @JsonPropertyOrder({
   CreateJiraIssueRequestData.JSON_PROPERTY_ATTRIBUTES,
-  CreateJiraIssueRequestData.JSON_PROPERTY_ID,
   CreateJiraIssueRequestData.JSON_PROPERTY_RELATIONSHIPS,
   CreateJiraIssueRequestData.JSON_PROPERTY_TYPE
 })
@@ -30,9 +29,6 @@ public class CreateJiraIssueRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateJiraIssueRequestDataAttributes attributes;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
   private CreateJiraIssueRequestDataRelationships relationships;
@@ -69,27 +65,6 @@ public class CreateJiraIssueRequestData {
 
   public void setAttributes(CreateJiraIssueRequestDataAttributes attributes) {
     this.attributes = attributes;
-  }
-
-  public CreateJiraIssueRequestData id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The unique identifier of the Jira issue creation request.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public CreateJiraIssueRequestData relationships(
@@ -196,7 +171,6 @@ public class CreateJiraIssueRequestData {
     }
     CreateJiraIssueRequestData createJiraIssueRequestData = (CreateJiraIssueRequestData) o;
     return Objects.equals(this.attributes, createJiraIssueRequestData.attributes)
-        && Objects.equals(this.id, createJiraIssueRequestData.id)
         && Objects.equals(this.relationships, createJiraIssueRequestData.relationships)
         && Objects.equals(this.type, createJiraIssueRequestData.type)
         && Objects.equals(
@@ -205,7 +179,7 @@ public class CreateJiraIssueRequestData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(attributes, relationships, type, additionalProperties);
   }
 
   @Override
@@ -213,7 +187,6 @@ public class CreateJiraIssueRequestData {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateJiraIssueRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

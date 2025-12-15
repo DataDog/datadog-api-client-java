@@ -53,7 +53,7 @@ public class AttachCaseRequestData {
   }
 
   /**
-   * The unique identifier of the case.
+   * Unique identifier of the case.
    *
    * @return id
    */

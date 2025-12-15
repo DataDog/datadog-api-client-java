@@ -41,7 +41,7 @@ public class FindingJiraIssue {
   }
 
   /**
-   * The error message if the Jira issue creation failed.
+   * Error message if the Jira issue creation failed.
    *
    * @return errorMessage
    */
@@ -84,7 +84,7 @@ public class FindingJiraIssue {
   }
 
   /**
-   * The status of the Jira issue creation. Can be "COMPLETED" if the Jira issue was created
+   * Status of the Jira issue creation. Can be "COMPLETED" if the Jira issue was created
    * successfully, or "FAILED" if the Jira issue creation failed.
    *
    * @return status

@@ -40,7 +40,7 @@ public class Example {
                                             Collections.singletonList(
                                                 new FindingData()
                                                     .id(
-                                                        "ZGZhMDI3ZjdjMDM3YjJmNzcxNTlhZGMwMjdmZWNiNTZ-MTVlYTNmYWU3NjNlOTNlYTE2YjM4N2JmZmI4Yjk5N2Y=")
+                                                        "YjdhNDM3N2QyNTFjYmUwYTY3NDdhMTg0YTk2Yjg5MDl-ZjNmMzAwOTFkZDNhNGQzYzI0MzgxNTk4MjRjZmE2NzE=")
                                                     .type(FindingDataType.FINDINGS))))
                                 .project(
                                     new CaseManagementProject()
@@ -62,7 +62,7 @@ public class Example {
                                             Collections.singletonList(
                                                 new FindingData()
                                                     .id(
-                                                        "MzZkNTMxODNmOGZlZmJiYzIyMDg4NzhmM2QyMDExZjB-ZmY5NzUwNDQzYTE0MGIyNDM1MTg4YjkxZDNmMDU4OGU=")
+                                                        "OGRlMDIwYzk4MjFmZTZiNTQwMzk2ZjUxNzg0MDc0NjR-MTk3Yjk4MDI4ZDQ4YzI2ZGZiMWJmMTNhNDEwZGZkYWI=")
                                                     .type(FindingDataType.FINDINGS))))
                                 .project(
                                     new CaseManagementProject()

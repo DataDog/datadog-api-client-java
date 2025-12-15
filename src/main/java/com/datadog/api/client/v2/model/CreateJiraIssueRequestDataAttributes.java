@@ -17,18 +17,85 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Attributes of the Jira issue to create. */
-@JsonPropertyOrder({CreateJiraIssueRequestDataAttributes.JSON_PROPERTY_FIELDS})
+@JsonPropertyOrder({
+  CreateJiraIssueRequestDataAttributes.JSON_PROPERTY_ASSIGNEE_ID,
+  CreateJiraIssueRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
+  CreateJiraIssueRequestDataAttributes.JSON_PROPERTY_FIELDS,
+  CreateJiraIssueRequestDataAttributes.JSON_PROPERTY_PRIORITY,
+  CreateJiraIssueRequestDataAttributes.JSON_PROPERTY_TITLE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateJiraIssueRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_FIELDS = "fields";
-  private CreateJiraIssueRequestDataAttributesFields fields;
+  public static final String JSON_PROPERTY_ASSIGNEE_ID = "assignee_id";
+  private String assigneeId;
 
-  public CreateJiraIssueRequestDataAttributes fields(
-      CreateJiraIssueRequestDataAttributesFields fields) {
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
+  public static final String JSON_PROPERTY_FIELDS = "fields";
+  private Map<String, Object> fields = null;
+
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
+  private CasePriority priority = CasePriority.NOT_DEFINED;
+
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
+
+  public CreateJiraIssueRequestDataAttributes assigneeId(String assigneeId) {
+    this.assigneeId = assigneeId;
+    return this;
+  }
+
+  /**
+   * Unique identifier of the user assigned to the Jira issue.
+   *
+   * @return assigneeId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSIGNEE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAssigneeId() {
+    return assigneeId;
+  }
+
+  public void setAssigneeId(String assigneeId) {
+    this.assigneeId = assigneeId;
+  }
+
+  public CreateJiraIssueRequestDataAttributes description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Description of the Jira issue. If not provided, the description will be automatically
+   * generated.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public CreateJiraIssueRequestDataAttributes fields(Map<String, Object> fields) {
     this.fields = fields;
-    this.unparsed |= fields.unparsed;
+    return this;
+  }
+
+  public CreateJiraIssueRequestDataAttributes putFieldsItem(String key, Object fieldsItem) {
+    if (this.fields == null) {
+      this.fields = new HashMap<>();
+    }
+    this.fields.put(key, fieldsItem);
     return this;
   }
 
@@ -42,12 +109,58 @@ public class CreateJiraIssueRequestDataAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CreateJiraIssueRequestDataAttributesFields getFields() {
+  public Map<String, Object> getFields() {
     return fields;
   }
 
-  public void setFields(CreateJiraIssueRequestDataAttributesFields fields) {
+  public void setFields(Map<String, Object> fields) {
     this.fields = fields;
+  }
+
+  public CreateJiraIssueRequestDataAttributes priority(CasePriority priority) {
+    this.priority = priority;
+    this.unparsed |= !priority.isValid();
+    return this;
+  }
+
+  /**
+   * Case priority
+   *
+   * @return priority
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CasePriority getPriority() {
+    return priority;
+  }
+
+  public void setPriority(CasePriority priority) {
+    if (!priority.isValid()) {
+      this.unparsed = true;
+    }
+    this.priority = priority;
+  }
+
+  public CreateJiraIssueRequestDataAttributes title(String title) {
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * Title of the Jira issue. If not provided, the title will be automatically generated.
+   *
+   * @return title
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   /**
@@ -107,21 +220,29 @@ public class CreateJiraIssueRequestDataAttributes {
     }
     CreateJiraIssueRequestDataAttributes createJiraIssueRequestDataAttributes =
         (CreateJiraIssueRequestDataAttributes) o;
-    return Objects.equals(this.fields, createJiraIssueRequestDataAttributes.fields)
+    return Objects.equals(this.assigneeId, createJiraIssueRequestDataAttributes.assigneeId)
+        && Objects.equals(this.description, createJiraIssueRequestDataAttributes.description)
+        && Objects.equals(this.fields, createJiraIssueRequestDataAttributes.fields)
+        && Objects.equals(this.priority, createJiraIssueRequestDataAttributes.priority)
+        && Objects.equals(this.title, createJiraIssueRequestDataAttributes.title)
         && Objects.equals(
             this.additionalProperties, createJiraIssueRequestDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields, additionalProperties);
+    return Objects.hash(assigneeId, description, fields, priority, title, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateJiraIssueRequestDataAttributes {\n");
+    sb.append("    assigneeId: ").append(toIndentedString(assigneeId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
