@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Get_a_suppression_s_version_history_returns_OK_response-1764163986\",\"enabled\":true,\"name\":\"Test-Get_a_suppression_s_version_history_returns_OK_response-1764163986\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"technique:T1110-brute-force\",\"source:cloudtrail\"]},\"type\":\"suppressions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/suppressions",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"456-piv-74h\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1764163986851,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Get_a_suppression_s_version_history_returns_OK_response-1764163986\",\"editable\":true,\"enabled\":true,\"name\":\"Test-Get_a_suppression_s_version_history_returns_OK_response-1764163986\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1764163986851,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e4ecf284-d916-cf58-7572-d0e822e67625"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/456-piv-74h/version_history",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"456-piv-74h\",\"type\":\"suppression_version_history\",\"attributes\":{\"count\":1,\"data\":{\"1\":{\"suppression\":{\"id\":\"456-piv-74h\",\"name\":\"Test-Get_a_suppression_s_version_history_returns_OK_response-1764163986\",\"enabled\":true,\"description\":\"Test-Get_a_suppression_s_version_history_returns_OK_response-1764163986\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"data_exclusion_query\":\"\",\"version\":1,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"creation_date\":1764163986851,\"update_date\":1764163986851,\"editable\":true,\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"]},\"changes\":[]}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "14bae097-aa0a-c347-3396-bfa6a75aef1b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/456-piv-74h",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3cca0e33-ca70-78cd-461f-84eae086ab5d"
+  }
+]

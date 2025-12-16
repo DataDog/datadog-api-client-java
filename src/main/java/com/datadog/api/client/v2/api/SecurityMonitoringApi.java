@@ -32,6 +32,7 @@ import com.datadog.api.client.v2.model.GetMultipleRulesetsResponse;
 import com.datadog.api.client.v2.model.GetResourceEvaluationFiltersResponse;
 import com.datadog.api.client.v2.model.GetRuleVersionHistoryResponse;
 import com.datadog.api.client.v2.model.GetSBOMResponse;
+import com.datadog.api.client.v2.model.GetSuppressionVersionHistoryResponse;
 import com.datadog.api.client.v2.model.JobCreateResponse;
 import com.datadog.api.client.v2.model.ListAssetsSBOMsResponse;
 import com.datadog.api.client.v2.model.ListFindingsResponse;
@@ -6579,6 +6580,233 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSuppressionsResponse>() {});
+  }
+
+  /** Manage optional parameters to getSuppressionVersionHistory. */
+  public static class GetSuppressionVersionHistoryOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
+     *     to 10)
+     * @return GetSuppressionVersionHistoryOptionalParameters
+     */
+    public GetSuppressionVersionHistoryOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return GetSuppressionVersionHistoryOptionalParameters
+     */
+    public GetSuppressionVersionHistoryOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+  }
+
+  /**
+   * Get a suppression&#39;s version history.
+   *
+   * <p>See {@link #getSuppressionVersionHistoryWithHttpInfo}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @return GetSuppressionVersionHistoryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetSuppressionVersionHistoryResponse getSuppressionVersionHistory(String suppressionId)
+      throws ApiException {
+    return getSuppressionVersionHistoryWithHttpInfo(
+            suppressionId, new GetSuppressionVersionHistoryOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a suppression&#39;s version history.
+   *
+   * <p>See {@link #getSuppressionVersionHistoryWithHttpInfoAsync}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @return CompletableFuture&lt;GetSuppressionVersionHistoryResponse&gt;
+   */
+  public CompletableFuture<GetSuppressionVersionHistoryResponse> getSuppressionVersionHistoryAsync(
+      String suppressionId) {
+    return getSuppressionVersionHistoryWithHttpInfoAsync(
+            suppressionId, new GetSuppressionVersionHistoryOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a suppression&#39;s version history.
+   *
+   * <p>See {@link #getSuppressionVersionHistoryWithHttpInfo}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @param parameters Optional parameters for the request.
+   * @return GetSuppressionVersionHistoryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetSuppressionVersionHistoryResponse getSuppressionVersionHistory(
+      String suppressionId, GetSuppressionVersionHistoryOptionalParameters parameters)
+      throws ApiException {
+    return getSuppressionVersionHistoryWithHttpInfo(suppressionId, parameters).getData();
+  }
+
+  /**
+   * Get a suppression&#39;s version history.
+   *
+   * <p>See {@link #getSuppressionVersionHistoryWithHttpInfoAsync}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;GetSuppressionVersionHistoryResponse&gt;
+   */
+  public CompletableFuture<GetSuppressionVersionHistoryResponse> getSuppressionVersionHistoryAsync(
+      String suppressionId, GetSuppressionVersionHistoryOptionalParameters parameters) {
+    return getSuppressionVersionHistoryWithHttpInfoAsync(suppressionId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a suppression's version history.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;GetSuppressionVersionHistoryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetSuppressionVersionHistoryResponse> getSuppressionVersionHistoryWithHttpInfo(
+      String suppressionId, GetSuppressionVersionHistoryOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suppressionId' is set
+    if (suppressionId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'suppressionId' when calling"
+              + " getSuppressionVersionHistory");
+    }
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}/version_history"
+            .replaceAll(
+                "\\{" + "suppression_id" + "\\}", apiClient.escapeString(suppressionId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSuppressionVersionHistory",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetSuppressionVersionHistoryResponse>() {});
+  }
+
+  /**
+   * Get a suppression&#39;s version history.
+   *
+   * <p>See {@link #getSuppressionVersionHistoryWithHttpInfo}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;GetSuppressionVersionHistoryResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetSuppressionVersionHistoryResponse>>
+      getSuppressionVersionHistoryWithHttpInfoAsync(
+          String suppressionId, GetSuppressionVersionHistoryOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suppressionId' is set
+    if (suppressionId == null) {
+      CompletableFuture<ApiResponse<GetSuppressionVersionHistoryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'suppressionId' when calling"
+                  + " getSuppressionVersionHistory"));
+      return result;
+    }
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}/version_history"
+            .replaceAll(
+                "\\{" + "suppression_id" + "\\}", apiClient.escapeString(suppressionId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSuppressionVersionHistory",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetSuppressionVersionHistoryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetSuppressionVersionHistoryResponse>() {});
   }
 
   /**
