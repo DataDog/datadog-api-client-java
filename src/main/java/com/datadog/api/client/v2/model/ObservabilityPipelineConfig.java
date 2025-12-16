@@ -23,7 +23,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineConfig.JSON_PROPERTY_DESTINATIONS,
   ObservabilityPipelineConfig.JSON_PROPERTY_PROCESSORS,
-  ObservabilityPipelineConfig.JSON_PROPERTY_SOURCES
+  ObservabilityPipelineConfig.JSON_PROPERTY_SOURCES,
+  ObservabilityPipelineConfig.JSON_PROPERTY_USE_LEGACY_SEARCH_SYNTAX
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -37,6 +38,9 @@ public class ObservabilityPipelineConfig {
 
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<ObservabilityPipelineConfigSourceItem> sources = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_USE_LEGACY_SEARCH_SYNTAX = "use_legacy_search_syntax";
+  private Boolean useLegacySearchSyntax;
 
   public ObservabilityPipelineConfig() {}
 
@@ -146,6 +150,27 @@ public class ObservabilityPipelineConfig {
     this.sources = sources;
   }
 
+  public ObservabilityPipelineConfig useLegacySearchSyntax(Boolean useLegacySearchSyntax) {
+    this.useLegacySearchSyntax = useLegacySearchSyntax;
+    return this;
+  }
+
+  /**
+   * Use this field to configure the pipeline's filter queries to use the deprecated search syntax.
+   *
+   * @return useLegacySearchSyntax
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USE_LEGACY_SEARCH_SYNTAX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getUseLegacySearchSyntax() {
+    return useLegacySearchSyntax;
+  }
+
+  public void setUseLegacySearchSyntax(Boolean useLegacySearchSyntax) {
+    this.useLegacySearchSyntax = useLegacySearchSyntax;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -206,12 +231,15 @@ public class ObservabilityPipelineConfig {
         && Objects.equals(this.processors, observabilityPipelineConfig.processors)
         && Objects.equals(this.sources, observabilityPipelineConfig.sources)
         && Objects.equals(
+            this.useLegacySearchSyntax, observabilityPipelineConfig.useLegacySearchSyntax)
+        && Objects.equals(
             this.additionalProperties, observabilityPipelineConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinations, processors, sources, additionalProperties);
+    return Objects.hash(
+        destinations, processors, sources, useLegacySearchSyntax, additionalProperties);
   }
 
   @Override
@@ -221,6 +249,9 @@ public class ObservabilityPipelineConfig {
     sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
     sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
+    sb.append("    useLegacySearchSyntax: ")
+        .append(toIndentedString(useLegacySearchSyntax))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
