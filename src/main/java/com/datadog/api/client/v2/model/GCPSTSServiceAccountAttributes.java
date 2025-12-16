@@ -26,11 +26,13 @@ import java.util.Objects;
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_HOST_FILTERS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_CSPM_ENABLED,
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_GLOBAL_LOCATION_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_PER_PROJECT_QUOTA_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_RESOURCE_CHANGE_COLLECTION_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_METRIC_NAMESPACE_CONFIGS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_MONITORED_RESOURCE_CONFIGS,
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_REGION_FILTER_CONFIGS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED
 })
 @jakarta.annotation.Generated(
@@ -56,6 +58,10 @@ public class GCPSTSServiceAccountAttributes {
   public static final String JSON_PROPERTY_IS_CSPM_ENABLED = "is_cspm_enabled";
   private Boolean isCspmEnabled;
 
+  public static final String JSON_PROPERTY_IS_GLOBAL_LOCATION_ENABLED =
+      "is_global_location_enabled";
+  private Boolean isGlobalLocationEnabled = true;
+
   public static final String JSON_PROPERTY_IS_PER_PROJECT_QUOTA_ENABLED =
       "is_per_project_quota_enabled";
   private Boolean isPerProjectQuotaEnabled = false;
@@ -74,6 +80,9 @@ public class GCPSTSServiceAccountAttributes {
   public static final String JSON_PROPERTY_MONITORED_RESOURCE_CONFIGS =
       "monitored_resource_configs";
   private List<GCPMonitoredResourceConfig> monitoredResourceConfigs = null;
+
+  public static final String JSON_PROPERTY_REGION_FILTER_CONFIGS = "region_filter_configs";
+  private List<String> regionFilterConfigs = null;
 
   public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED =
       "resource_collection_enabled";
@@ -244,6 +253,28 @@ public class GCPSTSServiceAccountAttributes {
     this.isCspmEnabled = isCspmEnabled;
   }
 
+  public GCPSTSServiceAccountAttributes isGlobalLocationEnabled(Boolean isGlobalLocationEnabled) {
+    this.isGlobalLocationEnabled = isGlobalLocationEnabled;
+    return this;
+  }
+
+  /**
+   * When enabled, Datadog collects metrics where location is explicitly stated as "global" or where
+   * location information cannot be deduced from GCP labels.
+   *
+   * @return isGlobalLocationEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_GLOBAL_LOCATION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsGlobalLocationEnabled() {
+    return isGlobalLocationEnabled;
+  }
+
+  public void setIsGlobalLocationEnabled(Boolean isGlobalLocationEnabled) {
+    this.isGlobalLocationEnabled = isGlobalLocationEnabled;
+  }
+
   public GCPSTSServiceAccountAttributes isPerProjectQuotaEnabled(Boolean isPerProjectQuotaEnabled) {
     this.isPerProjectQuotaEnabled = isPerProjectQuotaEnabled;
     return this;
@@ -383,6 +414,37 @@ public class GCPSTSServiceAccountAttributes {
     this.monitoredResourceConfigs = monitoredResourceConfigs;
   }
 
+  public GCPSTSServiceAccountAttributes regionFilterConfigs(List<String> regionFilterConfigs) {
+    this.regionFilterConfigs = regionFilterConfigs;
+    return this;
+  }
+
+  public GCPSTSServiceAccountAttributes addRegionFilterConfigsItem(String regionFilterConfigsItem) {
+    if (this.regionFilterConfigs == null) {
+      this.regionFilterConfigs = new ArrayList<>();
+    }
+    this.regionFilterConfigs.add(regionFilterConfigsItem);
+    return this;
+  }
+
+  /**
+   * Configurations for GCP location filtering, such as region, multi-region, or zone. Only
+   * monitored resources that match the specified regions are imported into Datadog. By default,
+   * Datadog collects from all locations.
+   *
+   * @return regionFilterConfigs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGION_FILTER_CONFIGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getRegionFilterConfigs() {
+    return regionFilterConfigs;
+  }
+
+  public void setRegionFilterConfigs(List<String> regionFilterConfigs) {
+    this.regionFilterConfigs = regionFilterConfigs;
+  }
+
   public GCPSTSServiceAccountAttributes resourceCollectionEnabled(
       Boolean resourceCollectionEnabled) {
     this.resourceCollectionEnabled = resourceCollectionEnabled;
@@ -470,6 +532,8 @@ public class GCPSTSServiceAccountAttributes {
         && Objects.equals(this.hostFilters, gcpstsServiceAccountAttributes.hostFilters)
         && Objects.equals(this.isCspmEnabled, gcpstsServiceAccountAttributes.isCspmEnabled)
         && Objects.equals(
+            this.isGlobalLocationEnabled, gcpstsServiceAccountAttributes.isGlobalLocationEnabled)
+        && Objects.equals(
             this.isPerProjectQuotaEnabled, gcpstsServiceAccountAttributes.isPerProjectQuotaEnabled)
         && Objects.equals(
             this.isResourceChangeCollectionEnabled,
@@ -481,6 +545,8 @@ public class GCPSTSServiceAccountAttributes {
             this.metricNamespaceConfigs, gcpstsServiceAccountAttributes.metricNamespaceConfigs)
         && Objects.equals(
             this.monitoredResourceConfigs, gcpstsServiceAccountAttributes.monitoredResourceConfigs)
+        && Objects.equals(
+            this.regionFilterConfigs, gcpstsServiceAccountAttributes.regionFilterConfigs)
         && Objects.equals(
             this.resourceCollectionEnabled,
             gcpstsServiceAccountAttributes.resourceCollectionEnabled)
@@ -497,11 +563,13 @@ public class GCPSTSServiceAccountAttributes {
         cloudRunRevisionFilters,
         hostFilters,
         isCspmEnabled,
+        isGlobalLocationEnabled,
         isPerProjectQuotaEnabled,
         isResourceChangeCollectionEnabled,
         isSecurityCommandCenterEnabled,
         metricNamespaceConfigs,
         monitoredResourceConfigs,
+        regionFilterConfigs,
         resourceCollectionEnabled,
         additionalProperties);
   }
@@ -518,6 +586,9 @@ public class GCPSTSServiceAccountAttributes {
         .append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
     sb.append("    isCspmEnabled: ").append(toIndentedString(isCspmEnabled)).append("\n");
+    sb.append("    isGlobalLocationEnabled: ")
+        .append(toIndentedString(isGlobalLocationEnabled))
+        .append("\n");
     sb.append("    isPerProjectQuotaEnabled: ")
         .append(toIndentedString(isPerProjectQuotaEnabled))
         .append("\n");
@@ -532,6 +603,9 @@ public class GCPSTSServiceAccountAttributes {
         .append("\n");
     sb.append("    monitoredResourceConfigs: ")
         .append(toIndentedString(monitoredResourceConfigs))
+        .append("\n");
+    sb.append("    regionFilterConfigs: ")
+        .append(toIndentedString(regionFilterConfigs))
         .append("\n");
     sb.append("    resourceCollectionEnabled: ")
         .append(toIndentedString(resourceCollectionEnabled))
