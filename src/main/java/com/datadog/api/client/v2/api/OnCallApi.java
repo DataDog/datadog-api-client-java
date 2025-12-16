@@ -4,9 +4,12 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.CreateUserNotificationChannelRequest;
 import com.datadog.api.client.v2.model.EscalationPolicy;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequest;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequest;
+import com.datadog.api.client.v2.model.ListNotificationChannelsResponse;
+import com.datadog.api.client.v2.model.NotificationChannel;
 import com.datadog.api.client.v2.model.Schedule;
 import com.datadog.api.client.v2.model.ScheduleCreateRequest;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequest;
@@ -453,6 +456,170 @@ public class OnCallApi {
   }
 
   /**
+   * Create an On-Call notification channel for a user.
+   *
+   * <p>See {@link #createUserNotificationChannelWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param body (required)
+   * @return NotificationChannel
+   * @throws ApiException if fails to make API call
+   */
+  public NotificationChannel createUserNotificationChannel(
+      String userId, CreateUserNotificationChannelRequest body) throws ApiException {
+    return createUserNotificationChannelWithHttpInfo(userId, body).getData();
+  }
+
+  /**
+   * Create an On-Call notification channel for a user.
+   *
+   * <p>See {@link #createUserNotificationChannelWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;NotificationChannel&gt;
+   */
+  public CompletableFuture<NotificationChannel> createUserNotificationChannelAsync(
+      String userId, CreateUserNotificationChannelRequest body) {
+    return createUserNotificationChannelWithHttpInfoAsync(userId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new notification channel for a user. The authenticated user must be the target user or
+   * have the <code>on_call_admin</code> permission
+   *
+   * @param userId The user ID (required)
+   * @param body (required)
+   * @return ApiResponse&lt;NotificationChannel&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NotificationChannel> createUserNotificationChannelWithHttpInfo(
+      String userId, CreateUserNotificationChannelRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'userId' when calling createUserNotificationChannel");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createUserNotificationChannel");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-channels"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.createUserNotificationChannel",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationChannel>() {});
+  }
+
+  /**
+   * Create an On-Call notification channel for a user.
+   *
+   * <p>See {@link #createUserNotificationChannelWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationChannel&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NotificationChannel>>
+      createUserNotificationChannelWithHttpInfoAsync(
+          String userId, CreateUserNotificationChannelRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<NotificationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userId' when calling"
+                  + " createUserNotificationChannel"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<NotificationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createUserNotificationChannel"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-channels"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.createUserNotificationChannel",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotificationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationChannel>() {});
+  }
+
+  /**
    * Delete On-Call escalation policy.
    *
    * <p>See {@link #deleteOnCallEscalationPolicyWithHttpInfo}.
@@ -705,6 +872,171 @@ public class OnCallApi {
       builder =
           apiClient.createBuilder(
               "v2.OnCallApi.deleteOnCallSchedule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an On-Call notification channel for a user.
+   *
+   * <p>See {@link #deleteUserNotificationChannelWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param channelId The channel ID (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteUserNotificationChannel(String userId, String channelId) throws ApiException {
+    deleteUserNotificationChannelWithHttpInfo(userId, channelId);
+  }
+
+  /**
+   * Delete an On-Call notification channel for a user.
+   *
+   * <p>See {@link #deleteUserNotificationChannelWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @param channelId The channel ID (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteUserNotificationChannelAsync(
+      String userId, String channelId) {
+    return deleteUserNotificationChannelWithHttpInfoAsync(userId, channelId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a notification channel for a user. The authenticated user must be the target user or
+   * have the <code>on_call_admin</code> permission
+   *
+   * @param userId The user ID (required)
+   * @param channelId The channel ID (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteUserNotificationChannelWithHttpInfo(
+      String userId, String channelId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'userId' when calling deleteUserNotificationChannel");
+    }
+
+    // verify the required parameter 'channelId' is set
+    if (channelId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'channelId' when calling deleteUserNotificationChannel");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-channels/{channel_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "channel_id" + "\\}", apiClient.escapeString(channelId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.deleteUserNotificationChannel",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an On-Call notification channel for a user.
+   *
+   * <p>See {@link #deleteUserNotificationChannelWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param channelId The channel ID (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteUserNotificationChannelWithHttpInfoAsync(
+      String userId, String channelId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userId' when calling"
+                  + " deleteUserNotificationChannel"));
+      return result;
+    }
+
+    // verify the required parameter 'channelId' is set
+    if (channelId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'channelId' when calling"
+                  + " deleteUserNotificationChannel"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-channels/{channel_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "channel_id" + "\\}", apiClient.escapeString(channelId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.deleteUserNotificationChannel",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1744,6 +2076,314 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<TeamOnCallResponders>() {});
+  }
+
+  /**
+   * Get an On-Call notification channel for a user.
+   *
+   * <p>See {@link #getUserNotificationChannelWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param channelId The channel ID (required)
+   * @return NotificationChannel
+   * @throws ApiException if fails to make API call
+   */
+  public NotificationChannel getUserNotificationChannel(String userId, String channelId)
+      throws ApiException {
+    return getUserNotificationChannelWithHttpInfo(userId, channelId).getData();
+  }
+
+  /**
+   * Get an On-Call notification channel for a user.
+   *
+   * <p>See {@link #getUserNotificationChannelWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @param channelId The channel ID (required)
+   * @return CompletableFuture&lt;NotificationChannel&gt;
+   */
+  public CompletableFuture<NotificationChannel> getUserNotificationChannelAsync(
+      String userId, String channelId) {
+    return getUserNotificationChannelWithHttpInfoAsync(userId, channelId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a notification channel for a user. The authenticated user must be the target user or have
+   * the <code>on_call_admin</code> permission
+   *
+   * @param userId The user ID (required)
+   * @param channelId The channel ID (required)
+   * @return ApiResponse&lt;NotificationChannel&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NotificationChannel> getUserNotificationChannelWithHttpInfo(
+      String userId, String channelId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling getUserNotificationChannel");
+    }
+
+    // verify the required parameter 'channelId' is set
+    if (channelId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'channelId' when calling getUserNotificationChannel");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-channels/{channel_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "channel_id" + "\\}", apiClient.escapeString(channelId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.getUserNotificationChannel",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationChannel>() {});
+  }
+
+  /**
+   * Get an On-Call notification channel for a user.
+   *
+   * <p>See {@link #getUserNotificationChannelWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param channelId The channel ID (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationChannel&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NotificationChannel>>
+      getUserNotificationChannelWithHttpInfoAsync(String userId, String channelId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<NotificationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userId' when calling getUserNotificationChannel"));
+      return result;
+    }
+
+    // verify the required parameter 'channelId' is set
+    if (channelId == null) {
+      CompletableFuture<ApiResponse<NotificationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'channelId' when calling"
+                  + " getUserNotificationChannel"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-channels/{channel_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "channel_id" + "\\}", apiClient.escapeString(channelId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.getUserNotificationChannel",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotificationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationChannel>() {});
+  }
+
+  /**
+   * List On-Call notification channels for a user.
+   *
+   * <p>See {@link #listUserNotificationChannelsWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @return ListNotificationChannelsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListNotificationChannelsResponse listUserNotificationChannels(String userId)
+      throws ApiException {
+    return listUserNotificationChannelsWithHttpInfo(userId).getData();
+  }
+
+  /**
+   * List On-Call notification channels for a user.
+   *
+   * <p>See {@link #listUserNotificationChannelsWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @return CompletableFuture&lt;ListNotificationChannelsResponse&gt;
+   */
+  public CompletableFuture<ListNotificationChannelsResponse> listUserNotificationChannelsAsync(
+      String userId) {
+    return listUserNotificationChannelsWithHttpInfoAsync(userId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the notification channels for a user. The authenticated user must be the target user or
+   * have the <code>on_call_admin</code> permission
+   *
+   * @param userId The user ID (required)
+   * @return ApiResponse&lt;ListNotificationChannelsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListNotificationChannelsResponse> listUserNotificationChannelsWithHttpInfo(
+      String userId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling listUserNotificationChannels");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-channels"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.listUserNotificationChannels",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListNotificationChannelsResponse>() {});
+  }
+
+  /**
+   * List On-Call notification channels for a user.
+   *
+   * <p>See {@link #listUserNotificationChannelsWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ListNotificationChannelsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListNotificationChannelsResponse>>
+      listUserNotificationChannelsWithHttpInfoAsync(String userId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<ListNotificationChannelsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userId' when calling listUserNotificationChannels"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-channels"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.listUserNotificationChannels",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListNotificationChannelsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListNotificationChannelsResponse>() {});
   }
 
   /** Manage optional parameters to setOnCallTeamRoutingRules. */
