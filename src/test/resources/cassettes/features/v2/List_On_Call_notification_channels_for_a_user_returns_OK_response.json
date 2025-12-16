@@ -1,0 +1,109 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-List_On_Call_notification_channels_for_a_user_returns_OK_response-1765550440@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/users",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"c7fe3658-67dd-4a91-bf86-3709728fd8a5\",\"attributes\":{\"name\":null,\"handle\":\"test-list_on_call_notification_channels_for_a_user_returns_ok_response-1765550440@datadoghq.com\",\"created_at\":\"2025-12-12T14:40:40.467657+00:00\",\"modified_at\":\"2025-12-12T14:40:40.467657+00:00\",\"email\":\"test-list_on_call_notification_channels_for_a_user_returns_ok_response-1765550440@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/c74061cf101e1fea18813bda82103b47?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\",\"last_login_time\":null},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6ddfc267-b7b8-7643-eb7d-58b6864ec71c"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"config\":{\"address\":\"test-list_on_call_notification_channels_for_a_user_returns_ok_response-1765550440@datadoghq.com\",\"formats\":[\"html\"],\"type\":\"email\"}},\"type\":\"notification_channels\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/on-call/users/c7fe3658-67dd-4a91-bf86-3709728fd8a5/notification-channels",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"8e9a9ded-ff10-4661-8d56-b4b789f54bf1\",\"type\":\"notification_channels\",\"attributes\":{\"active\":true,\"config\":{\"type\":\"email\",\"address\":\"test-list_on_call_notification_channels_for_a_user_returns_ok_response-1765550440@datadoghq.com\",\"formats\":[\"html\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8b6257b6-661c-2f65-0b81-b85b3f6c45d4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/on-call/users/c7fe3658-67dd-4a91-bf86-3709728fd8a5/notification-channels",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"8e9a9ded-ff10-4661-8d56-b4b789f54bf1\",\"type\":\"notification_channels\",\"attributes\":{\"active\":true,\"config\":{\"type\":\"email\",\"address\":\"test-list_on_call_notification_channels_for_a_user_returns_ok_response-1765550440@datadoghq.com\",\"formats\":[\"html\"]}}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d72734fa-d87a-8355-0ecc-b3dbd27dae01"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/users/c7fe3658-67dd-4a91-bf86-3709728fd8a5",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cb4a1520-7e11-8ea2-3c7c-ba8ace639482"
+  }
+]
