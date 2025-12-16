@@ -13,16 +13,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Vulnerability library. */
-@JsonPropertyOrder({Library.JSON_PROPERTY_NAME, Library.JSON_PROPERTY_VERSION})
+@JsonPropertyOrder({
+  Library.JSON_PROPERTY_ADDITIONAL_NAMES,
+  Library.JSON_PROPERTY_NAME,
+  Library.JSON_PROPERTY_VERSION
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Library {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDITIONAL_NAMES = "additional_names";
+  private List<String> additionalNames = null;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -34,6 +43,35 @@ public class Library {
   @JsonCreator
   public Library(@JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
+  }
+
+  public Library additionalNames(List<String> additionalNames) {
+    this.additionalNames = additionalNames;
+    return this;
+  }
+
+  public Library addAdditionalNamesItem(String additionalNamesItem) {
+    if (this.additionalNames == null) {
+      this.additionalNames = new ArrayList<>();
+    }
+    this.additionalNames.add(additionalNamesItem);
+    return this;
+  }
+
+  /**
+   * Related library or package names (such as child packages or affected binary paths).
+   *
+   * @return additionalNames
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getAdditionalNames() {
+    return additionalNames;
+  }
+
+  public void setAdditionalNames(List<String> additionalNames) {
+    this.additionalNames = additionalNames;
   }
 
   public Library name(String name) {
@@ -133,20 +171,22 @@ public class Library {
       return false;
     }
     Library library = (Library) o;
-    return Objects.equals(this.name, library.name)
+    return Objects.equals(this.additionalNames, library.additionalNames)
+        && Objects.equals(this.name, library.name)
         && Objects.equals(this.version, library.version)
         && Objects.equals(this.additionalProperties, library.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version, additionalProperties);
+    return Objects.hash(additionalNames, name, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Library {\n");
+    sb.append("    additionalNames: ").append(toIndentedString(additionalNames)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")

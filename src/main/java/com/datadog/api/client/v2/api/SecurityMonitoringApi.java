@@ -4884,7 +4884,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Returns list of Secrets rules.
+   * Returns a list of Secrets rules.
    *
    * <p>See {@link #getSecretsRulesWithHttpInfo}.
    *
@@ -4896,7 +4896,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Returns list of Secrets rules.
+   * Returns a list of Secrets rules.
    *
    * <p>See {@link #getSecretsRulesWithHttpInfoAsync}.
    *
@@ -4911,7 +4911,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Returns list of Secrets rules with ID, Pattern, Description, Priority, and SDS ID
+   * Returns a list of Secrets rules with ID, Pattern, Description, Priority, and SDS ID.
    *
    * @return ApiResponse&lt;SecretRuleArray&gt;
    * @throws ApiException if fails to make API call
@@ -4958,7 +4958,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Returns list of Secrets rules.
+   * Returns a list of Secrets rules.
    *
    * <p>See {@link #getSecretsRulesWithHttpInfo}.
    *
@@ -9694,6 +9694,7 @@ public class SecurityMonitoringApi {
     private Boolean filterFixAvailable;
     private String filterRepoDigests;
     private String filterOrigin;
+    private Boolean filterRunningKernel;
     private String filterAssetName;
     private AssetType filterAssetType;
     private String filterAssetVersionFirst;
@@ -10024,6 +10025,18 @@ public class SecurityMonitoringApi {
      */
     public ListVulnerabilitiesOptionalParameters filterOrigin(String filterOrigin) {
       this.filterOrigin = filterOrigin;
+      return this;
+    }
+
+    /**
+     * Set filterRunningKernel.
+     *
+     * @param filterRunningKernel Filter for whether the vulnerability affects a running kernel (for
+     *     vulnerabilities related to a <code>Host</code> asset). (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterRunningKernel(Boolean filterRunningKernel) {
+      this.filterRunningKernel = filterRunningKernel;
       return this;
     }
 
@@ -10436,6 +10449,7 @@ public class SecurityMonitoringApi {
     Boolean filterFixAvailable = parameters.filterFixAvailable;
     String filterRepoDigests = parameters.filterRepoDigests;
     String filterOrigin = parameters.filterOrigin;
+    Boolean filterRunningKernel = parameters.filterRunningKernel;
     String filterAssetName = parameters.filterAssetName;
     AssetType filterAssetType = parameters.filterAssetType;
     String filterAssetVersionFirst = parameters.filterAssetVersionFirst;
@@ -10511,6 +10525,8 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[repo_digests]", filterRepoDigests));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[origin]", filterOrigin));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[running_kernel]", filterRunningKernel));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[asset.name]", filterAssetName));
     localVarQueryParams.addAll(
@@ -10622,6 +10638,7 @@ public class SecurityMonitoringApi {
     Boolean filterFixAvailable = parameters.filterFixAvailable;
     String filterRepoDigests = parameters.filterRepoDigests;
     String filterOrigin = parameters.filterOrigin;
+    Boolean filterRunningKernel = parameters.filterRunningKernel;
     String filterAssetName = parameters.filterAssetName;
     AssetType filterAssetType = parameters.filterAssetType;
     String filterAssetVersionFirst = parameters.filterAssetVersionFirst;
@@ -10697,6 +10714,8 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[repo_digests]", filterRepoDigests));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[origin]", filterOrigin));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[running_kernel]", filterRunningKernel));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[asset.name]", filterAssetName));
     localVarQueryParams.addAll(
