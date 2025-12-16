@@ -18,19 +18,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A rule version with a list of updates. */
-@JsonPropertyOrder({RuleVersions.JSON_PROPERTY_CHANGES, RuleVersions.JSON_PROPERTY_RULE})
+/** A suppression version with a list of updates. */
+@JsonPropertyOrder({
+  SuppressionVersions.JSON_PROPERTY_CHANGES,
+  SuppressionVersions.JSON_PROPERTY_SUPPRESSION
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RuleVersions {
+public class SuppressionVersions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHANGES = "changes";
   private List<VersionHistoryUpdate> changes = null;
 
-  public static final String JSON_PROPERTY_RULE = "rule";
-  private SecurityMonitoringRuleResponse rule;
+  public static final String JSON_PROPERTY_SUPPRESSION = "suppression";
+  private SecurityMonitoringSuppressionAttributes suppression;
 
-  public RuleVersions changes(List<VersionHistoryUpdate> changes) {
+  public SuppressionVersions changes(List<VersionHistoryUpdate> changes) {
     this.changes = changes;
     for (VersionHistoryUpdate item : changes) {
       this.unparsed |= item.unparsed;
@@ -38,7 +41,7 @@ public class RuleVersions {
     return this;
   }
 
-  public RuleVersions addChangesItem(VersionHistoryUpdate changesItem) {
+  public SuppressionVersions addChangesItem(VersionHistoryUpdate changesItem) {
     if (this.changes == null) {
       this.changes = new ArrayList<>();
     }
@@ -63,26 +66,26 @@ public class RuleVersions {
     this.changes = changes;
   }
 
-  public RuleVersions rule(SecurityMonitoringRuleResponse rule) {
-    this.rule = rule;
-    this.unparsed |= rule.unparsed;
+  public SuppressionVersions suppression(SecurityMonitoringSuppressionAttributes suppression) {
+    this.suppression = suppression;
+    this.unparsed |= suppression.unparsed;
     return this;
   }
 
   /**
-   * Create a new rule.
+   * The attributes of the suppression rule.
    *
-   * @return rule
+   * @return suppression
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonProperty(JSON_PROPERTY_SUPPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleResponse getRule() {
-    return rule;
+  public SecurityMonitoringSuppressionAttributes getSuppression() {
+    return suppression;
   }
 
-  public void setRule(SecurityMonitoringRuleResponse rule) {
-    this.rule = rule;
+  public void setSuppression(SecurityMonitoringSuppressionAttributes suppression) {
+    this.suppression = suppression;
   }
 
   /**
@@ -97,10 +100,10 @@ public class RuleVersions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RuleVersions
+   * @return SuppressionVersions
    */
   @JsonAnySetter
-  public RuleVersions putAdditionalProperty(String key, Object value) {
+  public SuppressionVersions putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -131,7 +134,7 @@ public class RuleVersions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RuleVersions object is equal to o. */
+  /** Return true if this SuppressionVersions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -140,23 +143,23 @@ public class RuleVersions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RuleVersions ruleVersions = (RuleVersions) o;
-    return Objects.equals(this.changes, ruleVersions.changes)
-        && Objects.equals(this.rule, ruleVersions.rule)
-        && Objects.equals(this.additionalProperties, ruleVersions.additionalProperties);
+    SuppressionVersions suppressionVersions = (SuppressionVersions) o;
+    return Objects.equals(this.changes, suppressionVersions.changes)
+        && Objects.equals(this.suppression, suppressionVersions.suppression)
+        && Objects.equals(this.additionalProperties, suppressionVersions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(changes, rule, additionalProperties);
+    return Objects.hash(changes, suppression, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RuleVersions {\n");
+    sb.append("class SuppressionVersions {\n");
     sb.append("    changes: ").append(toIndentedString(changes)).append("\n");
-    sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
+    sb.append("    suppression: ").append(toIndentedString(suppression)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

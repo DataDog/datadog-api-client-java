@@ -12,77 +12,95 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A rule version with a list of updates. */
-@JsonPropertyOrder({RuleVersions.JSON_PROPERTY_CHANGES, RuleVersions.JSON_PROPERTY_RULE})
+/** Data for the suppression version history. */
+@JsonPropertyOrder({
+  GetSuppressionVersionHistoryData.JSON_PROPERTY_ATTRIBUTES,
+  GetSuppressionVersionHistoryData.JSON_PROPERTY_ID,
+  GetSuppressionVersionHistoryData.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RuleVersions {
+public class GetSuppressionVersionHistoryData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CHANGES = "changes";
-  private List<VersionHistoryUpdate> changes = null;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private SuppressionVersionHistory attributes;
 
-  public static final String JSON_PROPERTY_RULE = "rule";
-  private SecurityMonitoringRuleResponse rule;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public RuleVersions changes(List<VersionHistoryUpdate> changes) {
-    this.changes = changes;
-    for (VersionHistoryUpdate item : changes) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private GetSuppressionVersionHistoryDataType type;
 
-  public RuleVersions addChangesItem(VersionHistoryUpdate changesItem) {
-    if (this.changes == null) {
-      this.changes = new ArrayList<>();
-    }
-    this.changes.add(changesItem);
-    this.unparsed |= changesItem.unparsed;
+  public GetSuppressionVersionHistoryData attributes(SuppressionVersionHistory attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * A list of changes.
+   * Response object containing the version history of a suppression.
    *
-   * @return changes
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGES)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<VersionHistoryUpdate> getChanges() {
-    return changes;
+  public SuppressionVersionHistory getAttributes() {
+    return attributes;
   }
 
-  public void setChanges(List<VersionHistoryUpdate> changes) {
-    this.changes = changes;
+  public void setAttributes(SuppressionVersionHistory attributes) {
+    this.attributes = attributes;
   }
 
-  public RuleVersions rule(SecurityMonitoringRuleResponse rule) {
-    this.rule = rule;
-    this.unparsed |= rule.unparsed;
+  public GetSuppressionVersionHistoryData id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Create a new rule.
+   * ID of the suppression.
    *
-   * @return rule
+   * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleResponse getRule() {
-    return rule;
+  public String getId() {
+    return id;
   }
 
-  public void setRule(SecurityMonitoringRuleResponse rule) {
-    this.rule = rule;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public GetSuppressionVersionHistoryData type(GetSuppressionVersionHistoryDataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Type of data.
+   *
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GetSuppressionVersionHistoryDataType getType() {
+    return type;
+  }
+
+  public void setType(GetSuppressionVersionHistoryDataType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -97,10 +115,10 @@ public class RuleVersions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RuleVersions
+   * @return GetSuppressionVersionHistoryData
    */
   @JsonAnySetter
-  public RuleVersions putAdditionalProperty(String key, Object value) {
+  public GetSuppressionVersionHistoryData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -131,7 +149,7 @@ public class RuleVersions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RuleVersions object is equal to o. */
+  /** Return true if this GetSuppressionVersionHistoryData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -140,23 +158,27 @@ public class RuleVersions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RuleVersions ruleVersions = (RuleVersions) o;
-    return Objects.equals(this.changes, ruleVersions.changes)
-        && Objects.equals(this.rule, ruleVersions.rule)
-        && Objects.equals(this.additionalProperties, ruleVersions.additionalProperties);
+    GetSuppressionVersionHistoryData getSuppressionVersionHistoryData =
+        (GetSuppressionVersionHistoryData) o;
+    return Objects.equals(this.attributes, getSuppressionVersionHistoryData.attributes)
+        && Objects.equals(this.id, getSuppressionVersionHistoryData.id)
+        && Objects.equals(this.type, getSuppressionVersionHistoryData.type)
+        && Objects.equals(
+            this.additionalProperties, getSuppressionVersionHistoryData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(changes, rule, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RuleVersions {\n");
-    sb.append("    changes: ").append(toIndentedString(changes)).append("\n");
-    sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
+    sb.append("class GetSuppressionVersionHistoryData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

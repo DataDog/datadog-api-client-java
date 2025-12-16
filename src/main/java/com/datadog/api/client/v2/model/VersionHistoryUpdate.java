@@ -12,77 +12,94 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A rule version with a list of updates. */
-@JsonPropertyOrder({RuleVersions.JSON_PROPERTY_CHANGES, RuleVersions.JSON_PROPERTY_RULE})
+/** A change in a rule version. */
+@JsonPropertyOrder({
+  VersionHistoryUpdate.JSON_PROPERTY_CHANGE,
+  VersionHistoryUpdate.JSON_PROPERTY_FIELD,
+  VersionHistoryUpdate.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RuleVersions {
+public class VersionHistoryUpdate {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CHANGES = "changes";
-  private List<VersionHistoryUpdate> changes = null;
+  public static final String JSON_PROPERTY_CHANGE = "change";
+  private String change;
 
-  public static final String JSON_PROPERTY_RULE = "rule";
-  private SecurityMonitoringRuleResponse rule;
+  public static final String JSON_PROPERTY_FIELD = "field";
+  private String field;
 
-  public RuleVersions changes(List<VersionHistoryUpdate> changes) {
-    this.changes = changes;
-    for (VersionHistoryUpdate item : changes) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private VersionHistoryUpdateType type;
 
-  public RuleVersions addChangesItem(VersionHistoryUpdate changesItem) {
-    if (this.changes == null) {
-      this.changes = new ArrayList<>();
-    }
-    this.changes.add(changesItem);
-    this.unparsed |= changesItem.unparsed;
+  public VersionHistoryUpdate change(String change) {
+    this.change = change;
     return this;
   }
 
   /**
-   * A list of changes.
+   * The new value of the field.
    *
-   * @return changes
+   * @return change
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGES)
+  @JsonProperty(JSON_PROPERTY_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<VersionHistoryUpdate> getChanges() {
-    return changes;
+  public String getChange() {
+    return change;
   }
 
-  public void setChanges(List<VersionHistoryUpdate> changes) {
-    this.changes = changes;
+  public void setChange(String change) {
+    this.change = change;
   }
 
-  public RuleVersions rule(SecurityMonitoringRuleResponse rule) {
-    this.rule = rule;
-    this.unparsed |= rule.unparsed;
+  public VersionHistoryUpdate field(String field) {
+    this.field = field;
     return this;
   }
 
   /**
-   * Create a new rule.
+   * The field that was changed.
    *
-   * @return rule
+   * @return field
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleResponse getRule() {
-    return rule;
+  public String getField() {
+    return field;
   }
 
-  public void setRule(SecurityMonitoringRuleResponse rule) {
-    this.rule = rule;
+  public void setField(String field) {
+    this.field = field;
+  }
+
+  public VersionHistoryUpdate type(VersionHistoryUpdateType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * The type of change.
+   *
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public VersionHistoryUpdateType getType() {
+    return type;
+  }
+
+  public void setType(VersionHistoryUpdateType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -97,10 +114,10 @@ public class RuleVersions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RuleVersions
+   * @return VersionHistoryUpdate
    */
   @JsonAnySetter
-  public RuleVersions putAdditionalProperty(String key, Object value) {
+  public VersionHistoryUpdate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -131,7 +148,7 @@ public class RuleVersions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RuleVersions object is equal to o. */
+  /** Return true if this VersionHistoryUpdate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -140,23 +157,25 @@ public class RuleVersions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RuleVersions ruleVersions = (RuleVersions) o;
-    return Objects.equals(this.changes, ruleVersions.changes)
-        && Objects.equals(this.rule, ruleVersions.rule)
-        && Objects.equals(this.additionalProperties, ruleVersions.additionalProperties);
+    VersionHistoryUpdate versionHistoryUpdate = (VersionHistoryUpdate) o;
+    return Objects.equals(this.change, versionHistoryUpdate.change)
+        && Objects.equals(this.field, versionHistoryUpdate.field)
+        && Objects.equals(this.type, versionHistoryUpdate.type)
+        && Objects.equals(this.additionalProperties, versionHistoryUpdate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(changes, rule, additionalProperties);
+    return Objects.hash(change, field, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RuleVersions {\n");
-    sb.append("    changes: ").append(toIndentedString(changes)).append("\n");
-    sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
+    sb.append("class VersionHistoryUpdate {\n");
+    sb.append("    change: ").append(toIndentedString(change)).append("\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
