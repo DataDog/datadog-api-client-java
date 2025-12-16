@@ -45,7 +45,8 @@ public class BatchUpsertRowsRequestDataAttributes {
   }
 
   /**
-   * Key-value pairs representing row data, where keys are field names from the schema.
+   * Key-value pairs representing row data, where keys are schema field names and values match the
+   * corresponding column types.
    *
    * @return values
    */
