@@ -4,14 +4,15 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CsmThreatsApi;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleAction;
+import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleActionHash;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleActionSet;
+import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleActionSetValue;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateAttributes;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateData;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateRequest;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleType;
 import java.util.Arrays;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -40,11 +41,15 @@ exec.file.name == "sh"
                                         .set(
                                             new CloudWorkloadSecurityAgentRuleActionSet()
                                                 .name("test_set")
-                                                .value("test_value")
+                                                .value(
+                                                    new CloudWorkloadSecurityAgentRuleActionSetValue(
+                                                        "test_value"))
                                                 .scope("process")
                                                 .inherited(true)),
                                     new CloudWorkloadSecurityAgentRuleAction()
-                                        .hash(Map.ofEntries()))))
+                                        .hash(
+                                            new CloudWorkloadSecurityAgentRuleActionHash()
+                                                .field("exec.file")))))
                     .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
 
     try {
