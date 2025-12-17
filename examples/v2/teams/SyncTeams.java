@@ -13,7 +13,6 @@ import com.datadog.api.client.v2.model.TeamSyncRequest;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.syncTeams", true);
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
     TeamSyncRequest body =
