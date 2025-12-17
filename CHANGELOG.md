@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 2.48.0/2025-12-17
+
+### Changed
+* Mark Incident Impact Endpoints stable [#3321](https://github.com/DataDog/datadog-api-client-java/pull/3321)
+* Vulnerability Management - Update ListVulnerabilities endpoint query params and response schema [#3313](https://github.com/DataDog/datadog-api-client-java/pull/3313)
+* Update specs for AWS account updates and creation for CCM configs [#3306](https://github.com/DataDog/datadog-api-client-java/pull/3306)
+* add suppression version history [#3277](https://github.com/DataDog/datadog-api-client-java/pull/3277)
+* Add processors groups to Observability Pipelines [#3231](https://github.com/DataDog/datadog-api-client-java/pull/3231)
+
+### Added
+* Update security finding triage specs [#3315](https://github.com/DataDog/datadog-api-client-java/pull/3315)
+* Add routes for managing On-Call user notification channels [#3309](https://github.com/DataDog/datadog-api-client-java/pull/3309)
+* Add host field to Post an event V2 API [#3307](https://github.com/DataDog/datadog-api-client-java/pull/3307)
+* Add `GET /api/v2/apm/services` endpoint to public documentation [#3303](https://github.com/DataDog/datadog-api-client-java/pull/3303)
+* Dashboards - Add semantic_mode support to FormulaAndFunctionMetricQueryDefinition [#3294](https://github.com/DataDog/datadog-api-client-java/pull/3294)
+* Cloud SIEM - Add instantaneousBaseline feature parameter. [#3291](https://github.com/DataDog/datadog-api-client-java/pull/3291)
+* Add new fields to usage metering api spec [#3289](https://github.com/DataDog/datadog-api-client-java/pull/3289)
+* update geomap widget definition about `conditional_format` and `text_formats` and view focus [#3283](https://github.com/DataDog/datadog-api-client-java/pull/3283)
+* Add new endpoint for listing rules for a gate [#3265](https://github.com/DataDog/datadog-api-client-java/pull/3265)
+
+### Fixed
+* Fix Java example template to properly wrap long scenario names in comments [#3305](https://github.com/DataDog/datadog-api-client-java/pull/3305)
+* Add field attribute to the Workload Protection hash action [#3271](https://github.com/DataDog/datadog-api-client-java/pull/3271)
+
+### Removed
+* Tag security findings Jira endpoints as unstable [#3299](https://github.com/DataDog/datadog-api-client-java/pull/3299)
+
 ## 2.47.2/2025-12-11
 
 ### Fixed
