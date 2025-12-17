@@ -575,13 +575,6 @@ public class TeamsApi {
    */
   public ApiResponse<TeamConnectionsResponse> createTeamConnectionsWithHttpInfo(
       TeamConnectionCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createTeamConnections";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -624,16 +617,6 @@ public class TeamsApi {
    */
   public CompletableFuture<ApiResponse<TeamConnectionsResponse>>
       createTeamConnectionsWithHttpInfoAsync(TeamConnectionCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createTeamConnections";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TeamConnectionsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1174,13 +1157,6 @@ public class TeamsApi {
    */
   public ApiResponse<Void> deleteTeamConnectionsWithHttpInfo(TeamConnectionDeleteRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteTeamConnections";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1223,16 +1199,6 @@ public class TeamsApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteTeamConnectionsWithHttpInfoAsync(
       TeamConnectionDeleteRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteTeamConnections";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -2637,13 +2603,6 @@ public class TeamsApi {
    */
   public ApiResponse<TeamSyncResponse> getTeamSyncWithHttpInfo(
       TeamSyncAttributesSource filterSource) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getTeamSync";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'filterSource' is set
@@ -2689,16 +2648,6 @@ public class TeamsApi {
    */
   public CompletableFuture<ApiResponse<TeamSyncResponse>> getTeamSyncWithHttpInfoAsync(
       TeamSyncAttributesSource filterSource) {
-    // Check if unstable operation is enabled
-    String operationId = "getTeamSync";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TeamSyncResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'filterSource' is set
@@ -3411,13 +3360,6 @@ public class TeamsApi {
    */
   public ApiResponse<TeamConnectionsResponse> listTeamConnectionsWithHttpInfo(
       ListTeamConnectionsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listTeamConnections";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -3471,16 +3413,6 @@ public class TeamsApi {
    */
   public CompletableFuture<ApiResponse<TeamConnectionsResponse>>
       listTeamConnectionsWithHttpInfoAsync(ListTeamConnectionsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listTeamConnections";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<TeamConnectionsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -4501,13 +4433,6 @@ public class TeamsApi {
    *     </table>
    */
   public ApiResponse<Void> syncTeamsWithHttpInfo(TeamSyncRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "syncTeams";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -4548,16 +4473,6 @@ public class TeamsApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> syncTeamsWithHttpInfoAsync(TeamSyncRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "syncTeams";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
