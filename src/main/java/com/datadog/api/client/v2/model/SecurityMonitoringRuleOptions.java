@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** Options. */
 @JsonPropertyOrder({
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_ANOMALY_DETECTION_OPTIONS,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_DETECTION_METHOD,
@@ -34,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleOptions {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ANOMALY_DETECTION_OPTIONS = "anomalyDetectionOptions";
+  private SecurityMonitoringRuleAnomalyDetectionOptions anomalyDetectionOptions;
+
   public static final String JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS = "complianceRuleOptions";
   private CloudConfigurationComplianceRuleOptions complianceRuleOptions;
 
@@ -67,6 +71,30 @@ public class SecurityMonitoringRuleOptions {
 
   public static final String JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS = "thirdPartyRuleOptions";
   private SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions;
+
+  public SecurityMonitoringRuleOptions anomalyDetectionOptions(
+      SecurityMonitoringRuleAnomalyDetectionOptions anomalyDetectionOptions) {
+    this.anomalyDetectionOptions = anomalyDetectionOptions;
+    this.unparsed |= anomalyDetectionOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Options on anomaly detection method.
+   *
+   * @return anomalyDetectionOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ANOMALY_DETECTION_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleAnomalyDetectionOptions getAnomalyDetectionOptions() {
+    return anomalyDetectionOptions;
+  }
+
+  public void setAnomalyDetectionOptions(
+      SecurityMonitoringRuleAnomalyDetectionOptions anomalyDetectionOptions) {
+    this.anomalyDetectionOptions = anomalyDetectionOptions;
+  }
 
   public SecurityMonitoringRuleOptions complianceRuleOptions(
       CloudConfigurationComplianceRuleOptions complianceRuleOptions) {
@@ -406,6 +434,8 @@ public class SecurityMonitoringRuleOptions {
     }
     SecurityMonitoringRuleOptions securityMonitoringRuleOptions = (SecurityMonitoringRuleOptions) o;
     return Objects.equals(
+            this.anomalyDetectionOptions, securityMonitoringRuleOptions.anomalyDetectionOptions)
+        && Objects.equals(
             this.complianceRuleOptions, securityMonitoringRuleOptions.complianceRuleOptions)
         && Objects.equals(
             this.decreaseCriticalityBasedOnEnv,
@@ -430,6 +460,7 @@ public class SecurityMonitoringRuleOptions {
   @Override
   public int hashCode() {
     return Objects.hash(
+        anomalyDetectionOptions,
         complianceRuleOptions,
         decreaseCriticalityBasedOnEnv,
         detectionMethod,
@@ -448,6 +479,9 @@ public class SecurityMonitoringRuleOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleOptions {\n");
+    sb.append("    anomalyDetectionOptions: ")
+        .append(toIndentedString(anomalyDetectionOptions))
+        .append("\n");
     sb.append("    complianceRuleOptions: ")
         .append(toIndentedString(complianceRuleOptions))
         .append("\n");

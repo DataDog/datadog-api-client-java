@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** Job options. */
 @JsonPropertyOrder({
+  ThreatHuntingJobOptions.JSON_PROPERTY_ANOMALY_DETECTION_OPTIONS,
   ThreatHuntingJobOptions.JSON_PROPERTY_DETECTION_METHOD,
   ThreatHuntingJobOptions.JSON_PROPERTY_EVALUATION_WINDOW,
   ThreatHuntingJobOptions.JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS,
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ThreatHuntingJobOptions {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ANOMALY_DETECTION_OPTIONS = "anomalyDetectionOptions";
+  private SecurityMonitoringRuleAnomalyDetectionOptions anomalyDetectionOptions;
+
   public static final String JSON_PROPERTY_DETECTION_METHOD = "detectionMethod";
   private SecurityMonitoringRuleDetectionMethod detectionMethod;
 
@@ -54,6 +58,30 @@ public class ThreatHuntingJobOptions {
 
   public static final String JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS = "thirdPartyRuleOptions";
   private SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions;
+
+  public ThreatHuntingJobOptions anomalyDetectionOptions(
+      SecurityMonitoringRuleAnomalyDetectionOptions anomalyDetectionOptions) {
+    this.anomalyDetectionOptions = anomalyDetectionOptions;
+    this.unparsed |= anomalyDetectionOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Options on anomaly detection method.
+   *
+   * @return anomalyDetectionOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ANOMALY_DETECTION_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleAnomalyDetectionOptions getAnomalyDetectionOptions() {
+    return anomalyDetectionOptions;
+  }
+
+  public void setAnomalyDetectionOptions(
+      SecurityMonitoringRuleAnomalyDetectionOptions anomalyDetectionOptions) {
+    this.anomalyDetectionOptions = anomalyDetectionOptions;
+  }
 
   public ThreatHuntingJobOptions detectionMethod(
       SecurityMonitoringRuleDetectionMethod detectionMethod) {
@@ -313,7 +341,9 @@ public class ThreatHuntingJobOptions {
       return false;
     }
     ThreatHuntingJobOptions threatHuntingJobOptions = (ThreatHuntingJobOptions) o;
-    return Objects.equals(this.detectionMethod, threatHuntingJobOptions.detectionMethod)
+    return Objects.equals(
+            this.anomalyDetectionOptions, threatHuntingJobOptions.anomalyDetectionOptions)
+        && Objects.equals(this.detectionMethod, threatHuntingJobOptions.detectionMethod)
         && Objects.equals(this.evaluationWindow, threatHuntingJobOptions.evaluationWindow)
         && Objects.equals(
             this.impossibleTravelOptions, threatHuntingJobOptions.impossibleTravelOptions)
@@ -329,6 +359,7 @@ public class ThreatHuntingJobOptions {
   @Override
   public int hashCode() {
     return Objects.hash(
+        anomalyDetectionOptions,
         detectionMethod,
         evaluationWindow,
         impossibleTravelOptions,
@@ -344,6 +375,9 @@ public class ThreatHuntingJobOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ThreatHuntingJobOptions {\n");
+    sb.append("    anomalyDetectionOptions: ")
+        .append(toIndentedString(anomalyDetectionOptions))
+        .append("\n");
     sb.append("    detectionMethod: ").append(toIndentedString(detectionMethod)).append("\n");
     sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
     sb.append("    impossibleTravelOptions: ")
