@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"page\":{\"cursor\":\"invalid_cursor\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/findings/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"document is missing required top-level members; must have one of: \\\"data\\\", \\\"meta\\\", \\\"errors\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c47f7cfc-83de-8dd7-156b-7d2e2e9517da"
+  }
+]

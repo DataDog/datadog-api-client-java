@@ -36,6 +36,7 @@ import com.datadog.api.client.v2.model.GetSuppressionVersionHistoryResponse;
 import com.datadog.api.client.v2.model.JobCreateResponse;
 import com.datadog.api.client.v2.model.ListAssetsSBOMsResponse;
 import com.datadog.api.client.v2.model.ListFindingsResponse;
+import com.datadog.api.client.v2.model.ListSecurityFindingsResponse;
 import com.datadog.api.client.v2.model.ListThreatHuntingJobsResponse;
 import com.datadog.api.client.v2.model.ListVulnerabilitiesResponse;
 import com.datadog.api.client.v2.model.ListVulnerableAssetsResponse;
@@ -50,6 +51,12 @@ import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
 import com.datadog.api.client.v2.model.SecurityFilterUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityFiltersResponse;
+import com.datadog.api.client.v2.model.SecurityFindingsData;
+import com.datadog.api.client.v2.model.SecurityFindingsSearchRequest;
+import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestData;
+import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestDataAttributes;
+import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestPage;
+import com.datadog.api.client.v2.model.SecurityFindingsSort;
 import com.datadog.api.client.v2.model.SecurityMonitoringListRulesResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertResponse;
@@ -8692,6 +8699,306 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityFiltersResponse>() {});
   }
 
+  /** Manage optional parameters to listSecurityFindings. */
+  public static class ListSecurityFindingsOptionalParameters {
+    private String filterQuery;
+    private String pageCursor;
+    private Long pageLimit;
+    private SecurityFindingsSort sort;
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery The search query following log search syntax. (optional, default to "*")
+     * @return ListSecurityFindingsOptionalParameters
+     */
+    public ListSecurityFindingsOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor Get the next page of results with a cursor provided in the previous query.
+     *     (optional)
+     * @return ListSecurityFindingsOptionalParameters
+     */
+    public ListSecurityFindingsOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit The maximum number of findings in the response. (optional, default to 10)
+     * @return ListSecurityFindingsOptionalParameters
+     */
+    public ListSecurityFindingsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sorts by @detection_changed_at. (optional, default to "-@detection_changed_at")
+     * @return ListSecurityFindingsOptionalParameters
+     */
+    public ListSecurityFindingsOptionalParameters sort(SecurityFindingsSort sort) {
+      this.sort = sort;
+      return this;
+    }
+  }
+
+  /**
+   * List security findings.
+   *
+   * <p>See {@link #listSecurityFindingsWithHttpInfo}.
+   *
+   * @return ListSecurityFindingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListSecurityFindingsResponse listSecurityFindings() throws ApiException {
+    return listSecurityFindingsWithHttpInfo(new ListSecurityFindingsOptionalParameters()).getData();
+  }
+
+  /**
+   * List security findings.
+   *
+   * <p>See {@link #listSecurityFindingsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListSecurityFindingsResponse&gt;
+   */
+  public CompletableFuture<ListSecurityFindingsResponse> listSecurityFindingsAsync() {
+    return listSecurityFindingsWithHttpInfoAsync(new ListSecurityFindingsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List security findings.
+   *
+   * <p>See {@link #listSecurityFindingsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListSecurityFindingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListSecurityFindingsResponse listSecurityFindings(
+      ListSecurityFindingsOptionalParameters parameters) throws ApiException {
+    return listSecurityFindingsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List security findings.
+   *
+   * <p>See {@link #listSecurityFindingsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListSecurityFindingsResponse&gt;
+   */
+  public CompletableFuture<ListSecurityFindingsResponse> listSecurityFindingsAsync(
+      ListSecurityFindingsOptionalParameters parameters) {
+    return listSecurityFindingsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List security findings.
+   *
+   * <p>See {@link #listSecurityFindingsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;SecurityFindingsData&gt;
+   */
+  public PaginationIterable<SecurityFindingsData> listSecurityFindingsWithPagination() {
+    ListSecurityFindingsOptionalParameters parameters =
+        new ListSecurityFindingsOptionalParameters();
+    return listSecurityFindingsWithPagination(parameters);
+  }
+
+  /**
+   * List security findings.
+   *
+   * <p>See {@link #listSecurityFindingsWithHttpInfo}.
+   *
+   * @return ListSecurityFindingsResponse
+   */
+  public PaginationIterable<SecurityFindingsData> listSecurityFindingsWithPagination(
+      ListSecurityFindingsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 10l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listSecurityFindings",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
+   * Get a list of security findings that match a search query.
+   *
+   * <p>This endpoint requires one of the following permissions: - <code>
+   * security_monitoring_findings_read</code> - <code>appsec_vm_read</code>
+   *
+   * <h3>Query Syntax</h3>
+   *
+   * <p>This endpoint uses the logs query syntax. Findings attributes (living in the custom.
+   * namespace) are prefixed by @ when queried. Tags are queried without a prefix.
+   *
+   * <p>Example: <code>@severity:(critical OR high) @status:open team:platform</code>
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListSecurityFindingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListSecurityFindingsResponse> listSecurityFindingsWithHttpInfo(
+      ListSecurityFindingsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String filterQuery = parameters.filterQuery;
+    String pageCursor = parameters.pageCursor;
+    Long pageLimit = parameters.pageLimit;
+    SecurityFindingsSort sort = parameters.sort;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityFindings",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListSecurityFindingsResponse>() {});
+  }
+
+  /**
+   * List security findings.
+   *
+   * <p>See {@link #listSecurityFindingsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListSecurityFindingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListSecurityFindingsResponse>>
+      listSecurityFindingsWithHttpInfoAsync(ListSecurityFindingsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListSecurityFindingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String filterQuery = parameters.filterQuery;
+    String pageCursor = parameters.pageCursor;
+    Long pageLimit = parameters.pageLimit;
+    SecurityFindingsSort sort = parameters.sort;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityFindings",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListSecurityFindingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListSecurityFindingsResponse>() {});
+  }
+
   /** Manage optional parameters to listSecurityMonitoringHistsignals. */
   public static class ListSecurityMonitoringHistsignalsOptionalParameters {
     private String filterQuery;
@@ -12181,6 +12488,222 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<JobCreateResponse>() {});
+  }
+
+  /**
+   * Search security findings.
+   *
+   * <p>See {@link #searchSecurityFindingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ListSecurityFindingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListSecurityFindingsResponse searchSecurityFindings(SecurityFindingsSearchRequest body)
+      throws ApiException {
+    return searchSecurityFindingsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Search security findings.
+   *
+   * <p>See {@link #searchSecurityFindingsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ListSecurityFindingsResponse&gt;
+   */
+  public CompletableFuture<ListSecurityFindingsResponse> searchSecurityFindingsAsync(
+      SecurityFindingsSearchRequest body) {
+    return searchSecurityFindingsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search security findings.
+   *
+   * <p>See {@link #searchSecurityFindingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return PaginationIterable&lt;SecurityFindingsData&gt;
+   */
+  public PaginationIterable<SecurityFindingsData> searchSecurityFindingsWithPagination(
+      SecurityFindingsSearchRequest body) {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "body.getData.getAttributes.getPage.setCursor";
+    Boolean valueSetterParamOptional = false;
+    Long limit;
+
+    if (body.getData() == null) {
+      body.setData(new SecurityFindingsSearchRequestData());
+    }
+
+    if (body.getData().getAttributes() == null) {
+      body.getData().setAttributes(new SecurityFindingsSearchRequestDataAttributes());
+    }
+
+    if (body.getData().getAttributes().getPage() == null) {
+      body.getData().getAttributes().setPage(new SecurityFindingsSearchRequestPage());
+    }
+
+    if (body.getData().getAttributes().getPage().getLimit() == null) {
+      limit = 10l;
+      body.getData().getAttributes().getPage().setLimit(limit);
+    } else {
+      limit = body.getData().getAttributes().getPage().getLimit();
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("body", body);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "searchSecurityFindings",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
+   * Get a list of security findings that match a search query.
+   *
+   * <p>This endpoint requires one of the following permissions: - <code>
+   * security_monitoring_findings_read</code> - <code>appsec_vm_read</code>
+   *
+   * <h3>Query Syntax</h3>
+   *
+   * <p>The API uses the logs query syntax. Findings attributes (living in the custom. namespace)
+   * are prefixed by @ when queried. Tags are queried without a prefix.
+   *
+   * <p>Example: <code>@severity:(critical OR high) @status:open team:platform</code>
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ListSecurityFindingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListSecurityFindingsResponse> searchSecurityFindingsWithHttpInfo(
+      SecurityFindingsSearchRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "searchSecurityFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling searchSecurityFindings");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/search";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.searchSecurityFindings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListSecurityFindingsResponse>() {});
+  }
+
+  /**
+   * Search security findings.
+   *
+   * <p>See {@link #searchSecurityFindingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ListSecurityFindingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListSecurityFindingsResponse>>
+      searchSecurityFindingsWithHttpInfoAsync(SecurityFindingsSearchRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "searchSecurityFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListSecurityFindingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ListSecurityFindingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling searchSecurityFindings"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/search";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.searchSecurityFindings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListSecurityFindingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListSecurityFindingsResponse>() {});
   }
 
   /** Manage optional parameters to searchSecurityMonitoringHistsignals. */
