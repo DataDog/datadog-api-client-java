@@ -24,6 +24,7 @@ public class Example {
                             new BatchUpsertRowsRequestDataAttributes()
                                 .values(
                                     Map.ofEntries(
+                                        Map.entry("age", 25),
                                         Map.entry("example_key_value", "primary_key_value"),
                                         Map.entry("name", "row_name"))))
                         .id("primary_key_value")
