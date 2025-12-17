@@ -338,6 +338,7 @@ public class SoftwareCatalogApi {
     private RelationType filterRelationType;
     private String filterExcludeSnapshot;
     private IncludeType include;
+    private Boolean includeDiscovered;
 
     /**
      * Set pageOffset.
@@ -447,6 +448,18 @@ public class SoftwareCatalogApi {
      */
     public ListCatalogEntityOptionalParameters include(IncludeType include) {
       this.include = include;
+      return this;
+    }
+
+    /**
+     * Set includeDiscovered.
+     *
+     * @param includeDiscovered If true, includes discovered services from APM and USM that do not
+     *     have entity definitions. (optional, default to false)
+     * @return ListCatalogEntityOptionalParameters
+     */
+    public ListCatalogEntityOptionalParameters includeDiscovered(Boolean includeDiscovered) {
+      this.includeDiscovered = includeDiscovered;
       return this;
     }
   }
@@ -589,6 +602,7 @@ public class SoftwareCatalogApi {
     RelationType filterRelationType = parameters.filterRelationType;
     String filterExcludeSnapshot = parameters.filterExcludeSnapshot;
     IncludeType include = parameters.include;
+    Boolean includeDiscovered = parameters.includeDiscovered;
     // create path and map variables
     String localVarPath = "/api/v2/catalog/entity";
 
@@ -607,6 +621,8 @@ public class SoftwareCatalogApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[exclude_snapshot]", filterExcludeSnapshot));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "includeDiscovered", includeDiscovered));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -649,6 +665,7 @@ public class SoftwareCatalogApi {
     RelationType filterRelationType = parameters.filterRelationType;
     String filterExcludeSnapshot = parameters.filterExcludeSnapshot;
     IncludeType include = parameters.include;
+    Boolean includeDiscovered = parameters.includeDiscovered;
     // create path and map variables
     String localVarPath = "/api/v2/catalog/entity";
 
@@ -667,6 +684,8 @@ public class SoftwareCatalogApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[exclude_snapshot]", filterExcludeSnapshot));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "includeDiscovered", includeDiscovered));
 
     Invocation.Builder builder;
     try {
@@ -973,6 +992,7 @@ public class SoftwareCatalogApi {
     private String filterFromRef;
     private String filterToRef;
     private RelationIncludeType include;
+    private Boolean includeDiscovered;
 
     /**
      * Set pageOffset.
@@ -1040,6 +1060,18 @@ public class SoftwareCatalogApi {
      */
     public ListCatalogRelationOptionalParameters include(RelationIncludeType include) {
       this.include = include;
+      return this;
+    }
+
+    /**
+     * Set includeDiscovered.
+     *
+     * @param includeDiscovered If true, includes relationships discovered by APM and USM.
+     *     (optional, default to false)
+     * @return ListCatalogRelationOptionalParameters
+     */
+    public ListCatalogRelationOptionalParameters includeDiscovered(Boolean includeDiscovered) {
+      this.includeDiscovered = includeDiscovered;
       return this;
     }
   }
@@ -1178,6 +1210,7 @@ public class SoftwareCatalogApi {
     String filterFromRef = parameters.filterFromRef;
     String filterToRef = parameters.filterToRef;
     RelationIncludeType include = parameters.include;
+    Boolean includeDiscovered = parameters.includeDiscovered;
     // create path and map variables
     String localVarPath = "/api/v2/catalog/relation";
 
@@ -1190,6 +1223,8 @@ public class SoftwareCatalogApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from_ref]", filterFromRef));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to_ref]", filterToRef));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "includeDiscovered", includeDiscovered));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1228,6 +1263,7 @@ public class SoftwareCatalogApi {
     String filterFromRef = parameters.filterFromRef;
     String filterToRef = parameters.filterToRef;
     RelationIncludeType include = parameters.include;
+    Boolean includeDiscovered = parameters.includeDiscovered;
     // create path and map variables
     String localVarPath = "/api/v2/catalog/relation";
 
@@ -1240,6 +1276,8 @@ public class SoftwareCatalogApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from_ref]", filterFromRef));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to_ref]", filterToRef));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "includeDiscovered", includeDiscovered));
 
     Invocation.Builder builder;
     try {
