@@ -79,7 +79,7 @@ public class MetricTagConfigurationCreateAttributes {
 
   /**
    * Deprecated. You no longer need to configure specific time and space aggregations for Metrics
-   * Without Limits.
+   * without Limits™.
    *
    * @return aggregations
    */
