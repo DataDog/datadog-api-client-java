@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_DISABLE_LIBRARY_RULES,
+  ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_INCLUDE,
@@ -37,6 +38,9 @@ public class ObservabilityPipelineParseGrokProcessor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISABLE_LIBRARY_RULES = "disable_library_rules";
   private Boolean disableLibraryRules = false;
+
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
@@ -92,6 +96,27 @@ public class ObservabilityPipelineParseGrokProcessor {
 
   public void setDisableLibraryRules(Boolean disableLibraryRules) {
     this.disableLibraryRules = disableLibraryRules;
+  }
+
+  public ObservabilityPipelineParseGrokProcessor displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name for a component.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ObservabilityPipelineParseGrokProcessor enabled(Boolean enabled) {
@@ -270,6 +295,7 @@ public class ObservabilityPipelineParseGrokProcessor {
         (ObservabilityPipelineParseGrokProcessor) o;
     return Objects.equals(
             this.disableLibraryRules, observabilityPipelineParseGrokProcessor.disableLibraryRules)
+        && Objects.equals(this.displayName, observabilityPipelineParseGrokProcessor.displayName)
         && Objects.equals(this.enabled, observabilityPipelineParseGrokProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineParseGrokProcessor.id)
         && Objects.equals(this.include, observabilityPipelineParseGrokProcessor.include)
@@ -283,7 +309,7 @@ public class ObservabilityPipelineParseGrokProcessor {
   @Override
   public int hashCode() {
     return Objects.hash(
-        disableLibraryRules, enabled, id, include, rules, type, additionalProperties);
+        disableLibraryRules, displayName, enabled, id, include, rules, type, additionalProperties);
   }
 
   @Override
@@ -293,6 +319,7 @@ public class ObservabilityPipelineParseGrokProcessor {
     sb.append("    disableLibraryRules: ")
         .append(toIndentedString(disableLibraryRules))
         .append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");

@@ -24,6 +24,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_ACTION,
+  ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_INCLUDE,
@@ -37,6 +38,9 @@ public class ObservabilityPipelineDatadogTagsProcessor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTION = "action";
   private ObservabilityPipelineDatadogTagsProcessorAction action;
+
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
@@ -106,6 +110,27 @@ public class ObservabilityPipelineDatadogTagsProcessor {
       this.unparsed = true;
     }
     this.action = action;
+  }
+
+  public ObservabilityPipelineDatadogTagsProcessor displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name for a component.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ObservabilityPipelineDatadogTagsProcessor enabled(Boolean enabled) {
@@ -302,6 +327,7 @@ public class ObservabilityPipelineDatadogTagsProcessor {
     ObservabilityPipelineDatadogTagsProcessor observabilityPipelineDatadogTagsProcessor =
         (ObservabilityPipelineDatadogTagsProcessor) o;
     return Objects.equals(this.action, observabilityPipelineDatadogTagsProcessor.action)
+        && Objects.equals(this.displayName, observabilityPipelineDatadogTagsProcessor.displayName)
         && Objects.equals(this.enabled, observabilityPipelineDatadogTagsProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineDatadogTagsProcessor.id)
         && Objects.equals(this.include, observabilityPipelineDatadogTagsProcessor.include)
@@ -315,7 +341,8 @@ public class ObservabilityPipelineDatadogTagsProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, enabled, id, include, keys, mode, type, additionalProperties);
+    return Objects.hash(
+        action, displayName, enabled, id, include, keys, mode, type, additionalProperties);
   }
 
   @Override
@@ -323,6 +350,7 @@ public class ObservabilityPipelineDatadogTagsProcessor {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineDatadogTagsProcessor {\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");

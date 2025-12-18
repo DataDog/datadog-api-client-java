@@ -24,6 +24,7 @@ import java.util.Objects;
  * configured daily quota is met, the processor can drop or alert.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_DROP_EVENTS,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_ID,
@@ -40,6 +41,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineQuotaProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
+
   public static final String JSON_PROPERTY_DROP_EVENTS = "drop_events";
   private Boolean dropEvents;
 
@@ -95,6 +99,27 @@ public class ObservabilityPipelineQuotaProcessor {
     this.name = name;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineQuotaProcessor displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name for a component.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ObservabilityPipelineQuotaProcessor dropEvents(Boolean dropEvents) {
@@ -421,7 +446,8 @@ public class ObservabilityPipelineQuotaProcessor {
     }
     ObservabilityPipelineQuotaProcessor observabilityPipelineQuotaProcessor =
         (ObservabilityPipelineQuotaProcessor) o;
-    return Objects.equals(this.dropEvents, observabilityPipelineQuotaProcessor.dropEvents)
+    return Objects.equals(this.displayName, observabilityPipelineQuotaProcessor.displayName)
+        && Objects.equals(this.dropEvents, observabilityPipelineQuotaProcessor.dropEvents)
         && Objects.equals(this.enabled, observabilityPipelineQuotaProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineQuotaProcessor.id)
         && Objects.equals(
@@ -441,6 +467,7 @@ public class ObservabilityPipelineQuotaProcessor {
   @Override
   public int hashCode() {
     return Objects.hash(
+        displayName,
         dropEvents,
         enabled,
         id,
@@ -459,6 +486,7 @@ public class ObservabilityPipelineQuotaProcessor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineQuotaProcessor {\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    dropEvents: ").append(toIndentedString(dropEvents)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

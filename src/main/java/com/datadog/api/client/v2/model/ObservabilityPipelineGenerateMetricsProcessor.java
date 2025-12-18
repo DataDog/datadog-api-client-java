@@ -25,6 +25,7 @@ import java.util.Objects;
  * fields.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineGenerateMetricsProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineGenerateMetricsProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineGenerateMetricsProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineGenerateMetricsProcessor.JSON_PROPERTY_INCLUDE,
@@ -35,6 +36,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineGenerateMetricsProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -63,6 +67,27 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineGenerateMetricsProcessor displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name for a component.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ObservabilityPipelineGenerateMetricsProcessor enabled(Boolean enabled) {
@@ -245,7 +270,9 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
     }
     ObservabilityPipelineGenerateMetricsProcessor observabilityPipelineGenerateMetricsProcessor =
         (ObservabilityPipelineGenerateMetricsProcessor) o;
-    return Objects.equals(this.enabled, observabilityPipelineGenerateMetricsProcessor.enabled)
+    return Objects.equals(
+            this.displayName, observabilityPipelineGenerateMetricsProcessor.displayName)
+        && Objects.equals(this.enabled, observabilityPipelineGenerateMetricsProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineGenerateMetricsProcessor.id)
         && Objects.equals(this.include, observabilityPipelineGenerateMetricsProcessor.include)
         && Objects.equals(this.metrics, observabilityPipelineGenerateMetricsProcessor.metrics)
@@ -257,13 +284,14 @@ public class ObservabilityPipelineGenerateMetricsProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, id, include, metrics, type, additionalProperties);
+    return Objects.hash(displayName, enabled, id, include, metrics, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineGenerateMetricsProcessor {\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");

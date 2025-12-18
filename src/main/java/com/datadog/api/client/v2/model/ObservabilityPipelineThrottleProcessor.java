@@ -24,6 +24,7 @@ import java.util.Objects;
  * time window.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_GROUP_BY,
   ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_ID,
@@ -36,6 +37,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineThrottleProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -76,6 +80,27 @@ public class ObservabilityPipelineThrottleProcessor {
     this.type = type;
     this.unparsed |= !type.isValid();
     this.window = window;
+  }
+
+  public ObservabilityPipelineThrottleProcessor displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name for a component.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ObservabilityPipelineThrottleProcessor enabled(Boolean enabled) {
@@ -290,7 +315,8 @@ public class ObservabilityPipelineThrottleProcessor {
     }
     ObservabilityPipelineThrottleProcessor observabilityPipelineThrottleProcessor =
         (ObservabilityPipelineThrottleProcessor) o;
-    return Objects.equals(this.enabled, observabilityPipelineThrottleProcessor.enabled)
+    return Objects.equals(this.displayName, observabilityPipelineThrottleProcessor.displayName)
+        && Objects.equals(this.enabled, observabilityPipelineThrottleProcessor.enabled)
         && Objects.equals(this.groupBy, observabilityPipelineThrottleProcessor.groupBy)
         && Objects.equals(this.id, observabilityPipelineThrottleProcessor.id)
         && Objects.equals(this.include, observabilityPipelineThrottleProcessor.include)
@@ -304,13 +330,14 @@ public class ObservabilityPipelineThrottleProcessor {
   @Override
   public int hashCode() {
     return Objects.hash(
-        enabled, groupBy, id, include, threshold, type, window, additionalProperties);
+        displayName, enabled, groupBy, id, include, threshold, type, window, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineThrottleProcessor {\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
