@@ -96,6 +96,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "lambda_traced_invocations_percentage",
               "llm_observability_usage",
               "llm_observability_percentage",
+              "llm_spans_usage",
+              "llm_spans_percentage",
               "mobile_app_testing_percentage",
               "mobile_app_testing_usage",
               "ndm_netflow_usage",
@@ -328,6 +330,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("llm_observability_usage");
   public static final MonthlyUsageAttributionSupportedMetrics LLM_OBSERVABILITY_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("llm_observability_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LLM_SPANS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("llm_spans_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LLM_SPANS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("llm_spans_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics MOBILE_APP_TESTING_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("mobile_app_testing_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics MOBILE_APP_TESTING_PERCENTAGE =

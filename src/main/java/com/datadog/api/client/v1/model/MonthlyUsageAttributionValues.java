@@ -100,6 +100,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LLM_OBSERVABILITY_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LLM_OBSERVABILITY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LLM_SPANS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LLM_SPANS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_15DAY_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_15DAY_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_180DAY_PERCENTAGE,
@@ -441,6 +443,12 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_LLM_OBSERVABILITY_USAGE = "llm_observability_usage";
   private Double llmObservabilityUsage;
+
+  public static final String JSON_PROPERTY_LLM_SPANS_PERCENTAGE = "llm_spans_percentage";
+  private Double llmSpansPercentage;
+
+  public static final String JSON_PROPERTY_LLM_SPANS_USAGE = "llm_spans_usage";
+  private Double llmSpansUsage;
 
   public static final String JSON_PROPERTY_LOGS_INDEXED_15DAY_PERCENTAGE =
       "logs_indexed_15day_percentage";
@@ -2366,6 +2374,48 @@ public class MonthlyUsageAttributionValues {
     this.llmObservabilityUsage = llmObservabilityUsage;
   }
 
+  public MonthlyUsageAttributionValues llmSpansPercentage(Double llmSpansPercentage) {
+    this.llmSpansPercentage = llmSpansPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of LLM Spans usage by tag(s).
+   *
+   * @return llmSpansPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_SPANS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLlmSpansPercentage() {
+    return llmSpansPercentage;
+  }
+
+  public void setLlmSpansPercentage(Double llmSpansPercentage) {
+    this.llmSpansPercentage = llmSpansPercentage;
+  }
+
+  public MonthlyUsageAttributionValues llmSpansUsage(Double llmSpansUsage) {
+    this.llmSpansUsage = llmSpansUsage;
+    return this;
+  }
+
+  /**
+   * The LLM Spans usage by tag(s).
+   *
+   * @return llmSpansUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LLM_SPANS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLlmSpansUsage() {
+    return llmSpansUsage;
+  }
+
+  public void setLlmSpansUsage(Double llmSpansUsage) {
+    this.llmSpansUsage = llmSpansUsage;
+  }
+
   public MonthlyUsageAttributionValues logsIndexed15dayPercentage(
       Double logsIndexed15dayPercentage) {
     this.logsIndexed15dayPercentage = logsIndexed15dayPercentage;
@@ -4153,6 +4203,8 @@ public class MonthlyUsageAttributionValues {
             monthlyUsageAttributionValues.llmObservabilityPercentage)
         && Objects.equals(
             this.llmObservabilityUsage, monthlyUsageAttributionValues.llmObservabilityUsage)
+        && Objects.equals(this.llmSpansPercentage, monthlyUsageAttributionValues.llmSpansPercentage)
+        && Objects.equals(this.llmSpansUsage, monthlyUsageAttributionValues.llmSpansUsage)
         && Objects.equals(
             this.logsIndexed15dayPercentage,
             monthlyUsageAttributionValues.logsIndexed15dayPercentage)
@@ -4405,6 +4457,8 @@ public class MonthlyUsageAttributionValues {
         lambdaTracedInvocationsUsage,
         llmObservabilityPercentage,
         llmObservabilityUsage,
+        llmSpansPercentage,
+        llmSpansUsage,
         logsIndexed15dayPercentage,
         logsIndexed15dayUsage,
         logsIndexed180dayPercentage,
@@ -4662,6 +4716,8 @@ public class MonthlyUsageAttributionValues {
     sb.append("    llmObservabilityUsage: ")
         .append(toIndentedString(llmObservabilityUsage))
         .append("\n");
+    sb.append("    llmSpansPercentage: ").append(toIndentedString(llmSpansPercentage)).append("\n");
+    sb.append("    llmSpansUsage: ").append(toIndentedString(llmSpansUsage)).append("\n");
     sb.append("    logsIndexed15dayPercentage: ")
         .append(toIndentedString(logsIndexed15dayPercentage))
         .append("\n");

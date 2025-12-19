@@ -479,7 +479,10 @@ public class UsageMeteringApi {
    *   sleep(5 seconds)  # Avoid running into rate limit
    *   response := GetHourlyUsageAttribution(start_month, next_record_id=cursor)
    *   cursor := response.metadata.pagination.next_record_id
-   * END</code>
+   * END</code> The following values have been <strong>deprecated</strong>: <code>
+   * estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>, <code>
+   * estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage</code>, <code>
+   * llm_observability_usage</code>, <code>llm_observability_percentage</code>.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -1426,7 +1429,8 @@ public class UsageMeteringApi {
    *     types. The following values have been <strong>deprecated</strong>: <code>
    *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
    *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>. (required)
+   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
+   *     (required)
    * @return MonthlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
    */
@@ -1449,7 +1453,8 @@ public class UsageMeteringApi {
    *     types. The following values have been <strong>deprecated</strong>: <code>
    *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
    *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>. (required)
+   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
+   *     (required)
    * @return CompletableFuture&lt;MonthlyUsageAttributionResponse&gt;
    */
   public CompletableFuture<MonthlyUsageAttributionResponse> getMonthlyUsageAttributionAsync(
@@ -1473,7 +1478,8 @@ public class UsageMeteringApi {
    *     types. The following values have been <strong>deprecated</strong>: <code>
    *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
    *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>. (required)
+   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
+   *     (required)
    * @param parameters Optional parameters for the request.
    * @return MonthlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
@@ -1497,7 +1503,8 @@ public class UsageMeteringApi {
    *     types. The following values have been <strong>deprecated</strong>: <code>
    *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
    *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>. (required)
+   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
+   *     (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;MonthlyUsageAttributionResponse&gt;
    */
@@ -1533,7 +1540,8 @@ public class UsageMeteringApi {
    *     types. The following values have been <strong>deprecated</strong>: <code>
    *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
    *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>. (required)
+   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
+   *     (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MonthlyUsageAttributionResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1619,7 +1627,8 @@ public class UsageMeteringApi {
    *     types. The following values have been <strong>deprecated</strong>: <code>
    *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
    *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>. (required)
+   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
+   *     (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MonthlyUsageAttributionResponse&gt;&gt;
    */
