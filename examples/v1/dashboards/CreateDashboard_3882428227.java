@@ -9,7 +9,6 @@ import com.datadog.api.client.v1.model.DashboardLayoutType;
 import com.datadog.api.client.v1.model.DistributionWidgetDefinition;
 import com.datadog.api.client.v1.model.DistributionWidgetDefinitionType;
 import com.datadog.api.client.v1.model.DistributionWidgetHistogramRequestQuery;
-import com.datadog.api.client.v1.model.DistributionWidgetHistogramRequestType;
 import com.datadog.api.client.v1.model.DistributionWidgetRequest;
 import com.datadog.api.client.v1.model.DistributionWidgetXAxis;
 import com.datadog.api.client.v1.model.DistributionWidgetYAxis;
@@ -20,6 +19,7 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionSea
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventsDataSource;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetHistogramRequestType;
 import com.datadog.api.client.v1.model.WidgetLayout;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import java.util.Collections;
@@ -78,8 +78,7 @@ public class Example {
                                                             .indexes(
                                                                 Collections.singletonList("*"))))
                                                 .requestType(
-                                                    DistributionWidgetHistogramRequestType
-                                                        .HISTOGRAM)))))
+                                                    WidgetHistogramRequestType.HISTOGRAM)))))
                         .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(2L))))
             .layoutType(DashboardLayoutType.ORDERED);
 

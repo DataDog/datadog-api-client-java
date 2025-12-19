@@ -29,6 +29,8 @@ import java.util.Objects;
   HeatMapWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
   HeatMapWidgetRequest.JSON_PROPERTY_Q,
   HeatMapWidgetRequest.JSON_PROPERTY_QUERIES,
+  HeatMapWidgetRequest.JSON_PROPERTY_QUERY,
+  HeatMapWidgetRequest.JSON_PROPERTY_REQUEST_TYPE,
   HeatMapWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   HeatMapWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   HeatMapWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
@@ -64,6 +66,12 @@ public class HeatMapWidgetRequest {
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
   private List<FormulaAndFunctionQueryDefinition> queries = null;
+
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private FormulaAndFunctionMetricQueryDefinition query;
+
+  public static final String JSON_PROPERTY_REQUEST_TYPE = "request_type";
+  private WidgetHistogramRequestType requestType;
 
   public static final String JSON_PROPERTY_RESPONSE_FORMAT = "response_format";
   private FormulaAndFunctionResponseFormat responseFormat;
@@ -296,6 +304,53 @@ public class HeatMapWidgetRequest {
     this.queries = queries;
   }
 
+  public HeatMapWidgetRequest query(FormulaAndFunctionMetricQueryDefinition query) {
+    this.query = query;
+    this.unparsed |= query.unparsed;
+    return this;
+  }
+
+  /**
+   * A formula and functions metrics query.
+   *
+   * @return query
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionMetricQueryDefinition getQuery() {
+    return query;
+  }
+
+  public void setQuery(FormulaAndFunctionMetricQueryDefinition query) {
+    this.query = query;
+  }
+
+  public HeatMapWidgetRequest requestType(WidgetHistogramRequestType requestType) {
+    this.requestType = requestType;
+    this.unparsed |= !requestType.isValid();
+    return this;
+  }
+
+  /**
+   * Request type for the histogram request.
+   *
+   * @return requestType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetHistogramRequestType getRequestType() {
+    return requestType;
+  }
+
+  public void setRequestType(WidgetHistogramRequestType requestType) {
+    if (!requestType.isValid()) {
+      this.unparsed = true;
+    }
+    this.requestType = requestType;
+  }
+
   public HeatMapWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
     this.unparsed |= !responseFormat.isValid();
@@ -453,6 +508,8 @@ public class HeatMapWidgetRequest {
         && Objects.equals(this.profileMetricsQuery, heatMapWidgetRequest.profileMetricsQuery)
         && Objects.equals(this.q, heatMapWidgetRequest.q)
         && Objects.equals(this.queries, heatMapWidgetRequest.queries)
+        && Objects.equals(this.query, heatMapWidgetRequest.query)
+        && Objects.equals(this.requestType, heatMapWidgetRequest.requestType)
         && Objects.equals(this.responseFormat, heatMapWidgetRequest.responseFormat)
         && Objects.equals(this.rumQuery, heatMapWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, heatMapWidgetRequest.securityQuery)
@@ -472,6 +529,8 @@ public class HeatMapWidgetRequest {
         profileMetricsQuery,
         q,
         queries,
+        query,
+        requestType,
         responseFormat,
         rumQuery,
         securityQuery,
@@ -494,6 +553,8 @@ public class HeatMapWidgetRequest {
         .append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");

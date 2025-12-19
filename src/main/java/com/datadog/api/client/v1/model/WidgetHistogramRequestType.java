@@ -19,44 +19,38 @@ import java.util.HashSet;
 import java.util.Set;
 
 /** Request type for the histogram request. */
-@JsonSerialize(
-    using =
-        DistributionWidgetHistogramRequestType.DistributionWidgetHistogramRequestTypeSerializer
-            .class)
-public class DistributionWidgetHistogramRequestType extends ModelEnum<String> {
+@JsonSerialize(using = WidgetHistogramRequestType.WidgetHistogramRequestTypeSerializer.class)
+public class WidgetHistogramRequestType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("histogram"));
 
-  public static final DistributionWidgetHistogramRequestType HISTOGRAM =
-      new DistributionWidgetHistogramRequestType("histogram");
+  public static final WidgetHistogramRequestType HISTOGRAM =
+      new WidgetHistogramRequestType("histogram");
 
-  DistributionWidgetHistogramRequestType(String value) {
+  WidgetHistogramRequestType(String value) {
     super(value, allowedValues);
   }
 
-  public static class DistributionWidgetHistogramRequestTypeSerializer
-      extends StdSerializer<DistributionWidgetHistogramRequestType> {
-    public DistributionWidgetHistogramRequestTypeSerializer(
-        Class<DistributionWidgetHistogramRequestType> t) {
+  public static class WidgetHistogramRequestTypeSerializer
+      extends StdSerializer<WidgetHistogramRequestType> {
+    public WidgetHistogramRequestTypeSerializer(Class<WidgetHistogramRequestType> t) {
       super(t);
     }
 
-    public DistributionWidgetHistogramRequestTypeSerializer() {
+    public WidgetHistogramRequestTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        DistributionWidgetHistogramRequestType value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
+        WidgetHistogramRequestType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static DistributionWidgetHistogramRequestType fromValue(String value) {
-    return new DistributionWidgetHistogramRequestType(value);
+  public static WidgetHistogramRequestType fromValue(String value) {
+    return new WidgetHistogramRequestType(value);
   }
 }

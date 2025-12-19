@@ -54,7 +54,7 @@ public class WidgetMarker {
 
   /**
    * Combination of: - A severity error, warning, ok, or info - A line type: dashed, solid, or bold
-   * In this case of a Distribution widget, this can be set to be <code>x_axis_percentile</code>.
+   * In this case of a Distribution widget, this can be set to be <code>percentile</code>.
    *
    * @return displayType
    */
@@ -117,7 +117,9 @@ public class WidgetMarker {
   }
 
   /**
-   * Value to apply. Can be a single value y = 15 or a range of values 0 &lt; y &lt; 10.
+   * Value to apply. Can be a single value y = 15 or a range of values 0 &lt; y &lt; 10. For
+   * Distribution widgets with <code>display_type</code> set to <code>percentile</code>, this should
+   * be a numeric percentile value (for example, "90" for P90).
    *
    * @return value
    */
