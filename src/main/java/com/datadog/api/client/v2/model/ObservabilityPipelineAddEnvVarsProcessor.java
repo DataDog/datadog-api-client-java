@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The <code>add_env_vars</code> processor adds environment variable values to log events. */
 @JsonPropertyOrder({
+  ObservabilityPipelineAddEnvVarsProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineAddEnvVarsProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineAddEnvVarsProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineAddEnvVarsProcessor.JSON_PROPERTY_INCLUDE,
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineAddEnvVarsProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -64,6 +68,27 @@ public class ObservabilityPipelineAddEnvVarsProcessor {
     this.type = type;
     this.unparsed |= !type.isValid();
     this.variables = variables;
+  }
+
+  public ObservabilityPipelineAddEnvVarsProcessor displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name for a component.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ObservabilityPipelineAddEnvVarsProcessor enabled(Boolean enabled) {
@@ -239,7 +264,8 @@ public class ObservabilityPipelineAddEnvVarsProcessor {
     }
     ObservabilityPipelineAddEnvVarsProcessor observabilityPipelineAddEnvVarsProcessor =
         (ObservabilityPipelineAddEnvVarsProcessor) o;
-    return Objects.equals(this.enabled, observabilityPipelineAddEnvVarsProcessor.enabled)
+    return Objects.equals(this.displayName, observabilityPipelineAddEnvVarsProcessor.displayName)
+        && Objects.equals(this.enabled, observabilityPipelineAddEnvVarsProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineAddEnvVarsProcessor.id)
         && Objects.equals(this.include, observabilityPipelineAddEnvVarsProcessor.include)
         && Objects.equals(this.type, observabilityPipelineAddEnvVarsProcessor.type)
@@ -251,13 +277,14 @@ public class ObservabilityPipelineAddEnvVarsProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, id, include, type, variables, additionalProperties);
+    return Objects.hash(displayName, enabled, id, include, type, variables, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineAddEnvVarsProcessor {\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");

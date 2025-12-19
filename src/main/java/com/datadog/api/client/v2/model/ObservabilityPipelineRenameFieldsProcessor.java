@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The <code>rename_fields</code> processor changes field names. */
 @JsonPropertyOrder({
+  ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_FIELDS,
   ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_ID,
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineRenameFieldsProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -64,6 +68,27 @@ public class ObservabilityPipelineRenameFieldsProcessor {
     this.include = include;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineRenameFieldsProcessor displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name for a component.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ObservabilityPipelineRenameFieldsProcessor enabled(Boolean enabled) {
@@ -242,7 +267,8 @@ public class ObservabilityPipelineRenameFieldsProcessor {
     }
     ObservabilityPipelineRenameFieldsProcessor observabilityPipelineRenameFieldsProcessor =
         (ObservabilityPipelineRenameFieldsProcessor) o;
-    return Objects.equals(this.enabled, observabilityPipelineRenameFieldsProcessor.enabled)
+    return Objects.equals(this.displayName, observabilityPipelineRenameFieldsProcessor.displayName)
+        && Objects.equals(this.enabled, observabilityPipelineRenameFieldsProcessor.enabled)
         && Objects.equals(this.fields, observabilityPipelineRenameFieldsProcessor.fields)
         && Objects.equals(this.id, observabilityPipelineRenameFieldsProcessor.id)
         && Objects.equals(this.include, observabilityPipelineRenameFieldsProcessor.include)
@@ -254,13 +280,14 @@ public class ObservabilityPipelineRenameFieldsProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, fields, id, include, type, additionalProperties);
+    return Objects.hash(displayName, enabled, fields, id, include, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineRenameFieldsProcessor {\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

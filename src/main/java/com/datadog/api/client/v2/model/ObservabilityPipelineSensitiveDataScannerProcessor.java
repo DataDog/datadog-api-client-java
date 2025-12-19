@@ -24,6 +24,7 @@ import java.util.Objects;
  * in log events.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineSensitiveDataScannerProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineSensitiveDataScannerProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineSensitiveDataScannerProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineSensitiveDataScannerProcessor.JSON_PROPERTY_INCLUDE,
@@ -34,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSensitiveDataScannerProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -67,6 +71,27 @@ public class ObservabilityPipelineSensitiveDataScannerProcessor {
     this.rules = rules;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineSensitiveDataScannerProcessor displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name for a component.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessor enabled(Boolean enabled) {
@@ -247,7 +272,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessor {
     ObservabilityPipelineSensitiveDataScannerProcessor
         observabilityPipelineSensitiveDataScannerProcessor =
             (ObservabilityPipelineSensitiveDataScannerProcessor) o;
-    return Objects.equals(this.enabled, observabilityPipelineSensitiveDataScannerProcessor.enabled)
+    return Objects.equals(
+            this.displayName, observabilityPipelineSensitiveDataScannerProcessor.displayName)
+        && Objects.equals(this.enabled, observabilityPipelineSensitiveDataScannerProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineSensitiveDataScannerProcessor.id)
         && Objects.equals(this.include, observabilityPipelineSensitiveDataScannerProcessor.include)
         && Objects.equals(this.rules, observabilityPipelineSensitiveDataScannerProcessor.rules)
@@ -259,13 +286,14 @@ public class ObservabilityPipelineSensitiveDataScannerProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, id, include, rules, type, additionalProperties);
+    return Objects.hash(displayName, enabled, id, include, rules, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSensitiveDataScannerProcessor {\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");

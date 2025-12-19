@@ -22,6 +22,7 @@ import java.util.Objects;
  * the event. This is useful when logs contain embedded JSON as a string.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_FIELD,
   ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_ID,
@@ -32,6 +33,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineParseJSONProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -64,6 +68,27 @@ public class ObservabilityPipelineParseJSONProcessor {
     this.include = include;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineParseJSONProcessor displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name for a component.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ObservabilityPipelineParseJSONProcessor enabled(Boolean enabled) {
@@ -229,7 +254,8 @@ public class ObservabilityPipelineParseJSONProcessor {
     }
     ObservabilityPipelineParseJSONProcessor observabilityPipelineParseJsonProcessor =
         (ObservabilityPipelineParseJSONProcessor) o;
-    return Objects.equals(this.enabled, observabilityPipelineParseJsonProcessor.enabled)
+    return Objects.equals(this.displayName, observabilityPipelineParseJsonProcessor.displayName)
+        && Objects.equals(this.enabled, observabilityPipelineParseJsonProcessor.enabled)
         && Objects.equals(this.field, observabilityPipelineParseJsonProcessor.field)
         && Objects.equals(this.id, observabilityPipelineParseJsonProcessor.id)
         && Objects.equals(this.include, observabilityPipelineParseJsonProcessor.include)
@@ -241,13 +267,14 @@ public class ObservabilityPipelineParseJSONProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, field, id, include, type, additionalProperties);
+    return Objects.hash(displayName, enabled, field, id, include, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineParseJSONProcessor {\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

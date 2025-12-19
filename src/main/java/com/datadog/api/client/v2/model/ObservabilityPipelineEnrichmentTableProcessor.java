@@ -22,6 +22,7 @@ import java.util.Objects;
  * database.
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_FILE,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_GEOIP,
@@ -34,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineEnrichmentTableProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -72,6 +76,27 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
     this.target = target;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineEnrichmentTableProcessor displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name for a component.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ObservabilityPipelineEnrichmentTableProcessor enabled(Boolean enabled) {
@@ -283,7 +308,9 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
     }
     ObservabilityPipelineEnrichmentTableProcessor observabilityPipelineEnrichmentTableProcessor =
         (ObservabilityPipelineEnrichmentTableProcessor) o;
-    return Objects.equals(this.enabled, observabilityPipelineEnrichmentTableProcessor.enabled)
+    return Objects.equals(
+            this.displayName, observabilityPipelineEnrichmentTableProcessor.displayName)
+        && Objects.equals(this.enabled, observabilityPipelineEnrichmentTableProcessor.enabled)
         && Objects.equals(this.file, observabilityPipelineEnrichmentTableProcessor.file)
         && Objects.equals(this.geoip, observabilityPipelineEnrichmentTableProcessor.geoip)
         && Objects.equals(this.id, observabilityPipelineEnrichmentTableProcessor.id)
@@ -297,13 +324,15 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, file, geoip, id, include, target, type, additionalProperties);
+    return Objects.hash(
+        displayName, enabled, file, geoip, id, include, target, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineEnrichmentTableProcessor {\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    file: ").append(toIndentedString(file)).append("\n");
     sb.append("    geoip: ").append(toIndentedString(geoip)).append("\n");

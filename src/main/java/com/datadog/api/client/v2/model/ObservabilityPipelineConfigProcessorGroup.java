@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** A group of processors. */
 @JsonPropertyOrder({
+  ObservabilityPipelineConfigProcessorGroup.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineConfigProcessorGroup.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineConfigProcessorGroup.JSON_PROPERTY_ID,
   ObservabilityPipelineConfigProcessorGroup.JSON_PROPERTY_INCLUDE,
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineConfigProcessorGroup {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
+  private String displayName;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -61,6 +65,27 @@ public class ObservabilityPipelineConfigProcessorGroup {
     this.include = include;
     this.inputs = inputs;
     this.processors = processors;
+  }
+
+  public ObservabilityPipelineConfigProcessorGroup displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+  /**
+   * The display name for a component.
+   *
+   * @return displayName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ObservabilityPipelineConfigProcessorGroup enabled(Boolean enabled) {
@@ -236,7 +261,8 @@ public class ObservabilityPipelineConfigProcessorGroup {
     }
     ObservabilityPipelineConfigProcessorGroup observabilityPipelineConfigProcessorGroup =
         (ObservabilityPipelineConfigProcessorGroup) o;
-    return Objects.equals(this.enabled, observabilityPipelineConfigProcessorGroup.enabled)
+    return Objects.equals(this.displayName, observabilityPipelineConfigProcessorGroup.displayName)
+        && Objects.equals(this.enabled, observabilityPipelineConfigProcessorGroup.enabled)
         && Objects.equals(this.id, observabilityPipelineConfigProcessorGroup.id)
         && Objects.equals(this.include, observabilityPipelineConfigProcessorGroup.include)
         && Objects.equals(this.inputs, observabilityPipelineConfigProcessorGroup.inputs)
@@ -248,13 +274,15 @@ public class ObservabilityPipelineConfigProcessorGroup {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, id, include, inputs, processors, additionalProperties);
+    return Objects.hash(
+        displayName, enabled, id, include, inputs, processors, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineConfigProcessorGroup {\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
