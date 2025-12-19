@@ -18,40 +18,36 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The object related to an incident attachment. */
-@JsonSerialize(
-    using = IncidentAttachmentRelatedObject.IncidentAttachmentRelatedObjectSerializer.class)
-public class IncidentAttachmentRelatedObject extends ModelEnum<String> {
+/** Users resource type. */
+@JsonSerialize(using = UserType.UserTypeSerializer.class)
+public class UserType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("users"));
 
-  public static final IncidentAttachmentRelatedObject USERS =
-      new IncidentAttachmentRelatedObject("users");
+  public static final UserType USERS = new UserType("users");
 
-  IncidentAttachmentRelatedObject(String value) {
+  UserType(String value) {
     super(value, allowedValues);
   }
 
-  public static class IncidentAttachmentRelatedObjectSerializer
-      extends StdSerializer<IncidentAttachmentRelatedObject> {
-    public IncidentAttachmentRelatedObjectSerializer(Class<IncidentAttachmentRelatedObject> t) {
+  public static class UserTypeSerializer extends StdSerializer<UserType> {
+    public UserTypeSerializer(Class<UserType> t) {
       super(t);
     }
 
-    public IncidentAttachmentRelatedObjectSerializer() {
+    public UserTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(
-        IncidentAttachmentRelatedObject value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(UserType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static IncidentAttachmentRelatedObject fromValue(String value) {
-    return new IncidentAttachmentRelatedObject(value);
+  public static UserType fromValue(String value) {
+    return new UserType(value);
   }
 }

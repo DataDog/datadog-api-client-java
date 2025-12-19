@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,69 +16,36 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The link attachment. */
-@JsonPropertyOrder({
-  IncidentAttachmentLinkAttributesAttachmentObject.JSON_PROPERTY_DOCUMENT_URL,
-  IncidentAttachmentLinkAttributesAttachmentObject.JSON_PROPERTY_TITLE
-})
+/** */
+@JsonPropertyOrder({PatchAttachmentRequestDataAttributes.JSON_PROPERTY_ATTACHMENT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentAttachmentLinkAttributesAttachmentObject {
+public class PatchAttachmentRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DOCUMENT_URL = "documentUrl";
-  private String documentUrl;
+  public static final String JSON_PROPERTY_ATTACHMENT = "attachment";
+  private PatchAttachmentRequestDataAttributesAttachment attachment;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private String title;
-
-  public IncidentAttachmentLinkAttributesAttachmentObject() {}
-
-  @JsonCreator
-  public IncidentAttachmentLinkAttributesAttachmentObject(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DOCUMENT_URL) String documentUrl,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
-    this.documentUrl = documentUrl;
-    this.title = title;
-  }
-
-  public IncidentAttachmentLinkAttributesAttachmentObject documentUrl(String documentUrl) {
-    this.documentUrl = documentUrl;
+  public PatchAttachmentRequestDataAttributes attachment(
+      PatchAttachmentRequestDataAttributesAttachment attachment) {
+    this.attachment = attachment;
+    this.unparsed |= attachment.unparsed;
     return this;
   }
 
   /**
-   * The URL of this link attachment.
+   * Getattachment
    *
-   * @return documentUrl
+   * @return attachment
    */
-  @JsonProperty(JSON_PROPERTY_DOCUMENT_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDocumentUrl() {
-    return documentUrl;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTACHMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PatchAttachmentRequestDataAttributesAttachment getAttachment() {
+    return attachment;
   }
 
-  public void setDocumentUrl(String documentUrl) {
-    this.documentUrl = documentUrl;
-  }
-
-  public IncidentAttachmentLinkAttributesAttachmentObject title(String title) {
-    this.title = title;
-    return this;
-  }
-
-  /**
-   * The title of this link attachment.
-   *
-   * @return title
-   */
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
+  public void setAttachment(PatchAttachmentRequestDataAttributesAttachment attachment) {
+    this.attachment = attachment;
   }
 
   /**
@@ -94,11 +60,10 @@ public class IncidentAttachmentLinkAttributesAttachmentObject {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentAttachmentLinkAttributesAttachmentObject
+   * @return PatchAttachmentRequestDataAttributes
    */
   @JsonAnySetter
-  public IncidentAttachmentLinkAttributesAttachmentObject putAdditionalProperty(
-      String key, Object value) {
+  public PatchAttachmentRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -129,7 +94,7 @@ public class IncidentAttachmentLinkAttributesAttachmentObject {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentAttachmentLinkAttributesAttachmentObject object is equal to o. */
+  /** Return true if this PatchAttachmentRequestDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -138,28 +103,23 @@ public class IncidentAttachmentLinkAttributesAttachmentObject {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentAttachmentLinkAttributesAttachmentObject
-        incidentAttachmentLinkAttributesAttachmentObject =
-            (IncidentAttachmentLinkAttributesAttachmentObject) o;
-    return Objects.equals(
-            this.documentUrl, incidentAttachmentLinkAttributesAttachmentObject.documentUrl)
-        && Objects.equals(this.title, incidentAttachmentLinkAttributesAttachmentObject.title)
+    PatchAttachmentRequestDataAttributes patchAttachmentRequestDataAttributes =
+        (PatchAttachmentRequestDataAttributes) o;
+    return Objects.equals(this.attachment, patchAttachmentRequestDataAttributes.attachment)
         && Objects.equals(
-            this.additionalProperties,
-            incidentAttachmentLinkAttributesAttachmentObject.additionalProperties);
+            this.additionalProperties, patchAttachmentRequestDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentUrl, title, additionalProperties);
+    return Objects.hash(attachment, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentAttachmentLinkAttributesAttachmentObject {\n");
-    sb.append("    documentUrl: ").append(toIndentedString(documentUrl)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("class PatchAttachmentRequestDataAttributes {\n");
+    sb.append("    attachment: ").append(toIndentedString(attachment)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
