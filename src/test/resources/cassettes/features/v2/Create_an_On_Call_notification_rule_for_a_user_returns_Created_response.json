@@ -1,0 +1,113 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Create_an_On_Call_notification_rule_for_a_user_returns_Created_response-1765913404@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/users",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"2ab53f07-289f-4060-b21a-3d704096aadf\",\"attributes\":{\"name\":null,\"handle\":\"test-create_an_on_call_notification_rule_for_a_user_returns_created_response-1765913404@datadoghq.com\",\"created_at\":\"2025-12-16T19:30:05.014723+00:00\",\"modified_at\":\"2025-12-16T19:30:05.014723+00:00\",\"email\":\"test-create_an_on_call_notification_rule_for_a_user_returns_created_response-1765913404@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/c5ddb15c50d998db06711e0a31591216?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\",\"last_login_time\":null},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "603e6dc3-72cf-5745-6bdf-4520e65beb45"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"config\":{\"address\":\"test-create_an_on_call_notification_rule_for_a_user_returns_created_response-1765913404@datadoghq.com\",\"formats\":[\"html\"],\"type\":\"email\"}},\"type\":\"notification_channels\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/on-call/users/2ab53f07-289f-4060-b21a-3d704096aadf/notification-channels",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ca8520ce-27e0-4bba-997f-004047cda45d\",\"type\":\"notification_channels\",\"attributes\":{\"active\":true,\"config\":{\"type\":\"email\",\"address\":\"test-create_an_on_call_notification_rule_for_a_user_returns_created_response-1765913404@datadoghq.com\",\"formats\":[\"html\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8f6e4e69-17a3-eef4-cc1a-432c5d2b54f0"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"category\":\"high_urgency\",\"delay_minutes\":0},\"relationships\":{\"channel\":{\"data\":{\"id\":\"ca8520ce-27e0-4bba-997f-004047cda45d\",\"type\":\"notification_channels\"}}},\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/on-call/users/2ab53f07-289f-4060-b21a-3d704096aadf/notification-rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4e551e4f-d1aa-4fce-8cc7-c6bf98925efe\",\"type\":\"notification_rules\",\"attributes\":{\"category\":\"high_urgency\",\"delay_minutes\":0},\"relationships\":{\"channel\":{\"data\":{\"id\":\"ca8520ce-27e0-4bba-997f-004047cda45d\",\"type\":\"notification_channels\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "28420a44-4c30-927d-0b4c-5932c10915a5"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/users/2ab53f07-289f-4060-b21a-3d704096aadf",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "99fd0d5d-ed68-1e05-6858-a46a02bec632"
+  }
+]

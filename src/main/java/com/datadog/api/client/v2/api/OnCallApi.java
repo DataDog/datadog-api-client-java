@@ -4,12 +4,15 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.CreateOnCallNotificationRuleRequest;
 import com.datadog.api.client.v2.model.CreateUserNotificationChannelRequest;
 import com.datadog.api.client.v2.model.EscalationPolicy;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequest;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequest;
 import com.datadog.api.client.v2.model.ListNotificationChannelsResponse;
+import com.datadog.api.client.v2.model.ListOnCallNotificationRulesResponse;
 import com.datadog.api.client.v2.model.NotificationChannel;
+import com.datadog.api.client.v2.model.OnCallNotificationRule;
 import com.datadog.api.client.v2.model.Schedule;
 import com.datadog.api.client.v2.model.ScheduleCreateRequest;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequest;
@@ -17,6 +20,7 @@ import com.datadog.api.client.v2.model.Shift;
 import com.datadog.api.client.v2.model.TeamOnCallResponders;
 import com.datadog.api.client.v2.model.TeamRoutingRules;
 import com.datadog.api.client.v2.model.TeamRoutingRulesRequest;
+import com.datadog.api.client.v2.model.UpdateOnCallNotificationRuleRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -620,6 +624,168 @@ public class OnCallApi {
   }
 
   /**
+   * Create an On-Call notification rule for a user.
+   *
+   * <p>See {@link #createUserNotificationRuleWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param body (required)
+   * @return OnCallNotificationRule
+   * @throws ApiException if fails to make API call
+   */
+  public OnCallNotificationRule createUserNotificationRule(
+      String userId, CreateOnCallNotificationRuleRequest body) throws ApiException {
+    return createUserNotificationRuleWithHttpInfo(userId, body).getData();
+  }
+
+  /**
+   * Create an On-Call notification rule for a user.
+   *
+   * <p>See {@link #createUserNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;OnCallNotificationRule&gt;
+   */
+  public CompletableFuture<OnCallNotificationRule> createUserNotificationRuleAsync(
+      String userId, CreateOnCallNotificationRuleRequest body) {
+    return createUserNotificationRuleWithHttpInfoAsync(userId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new notification rule for a user. The authenticated user must be the target user or
+   * have the <code>on_call_admin</code> permission
+   *
+   * @param userId The user ID (required)
+   * @param body (required)
+   * @return ApiResponse&lt;OnCallNotificationRule&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OnCallNotificationRule> createUserNotificationRuleWithHttpInfo(
+      String userId, CreateOnCallNotificationRuleRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling createUserNotificationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createUserNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-rules"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.createUserNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OnCallNotificationRule>() {});
+  }
+
+  /**
+   * Create an On-Call notification rule for a user.
+   *
+   * <p>See {@link #createUserNotificationRuleWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OnCallNotificationRule&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OnCallNotificationRule>>
+      createUserNotificationRuleWithHttpInfoAsync(
+          String userId, CreateOnCallNotificationRuleRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<OnCallNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userId' when calling createUserNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<OnCallNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createUserNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-rules"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.createUserNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OnCallNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OnCallNotificationRule>() {});
+  }
+
+  /**
    * Delete On-Call escalation policy.
    *
    * <p>See {@link #deleteOnCallEscalationPolicyWithHttpInfo}.
@@ -1037,6 +1203,166 @@ public class OnCallApi {
       builder =
           apiClient.createBuilder(
               "v2.OnCallApi.deleteUserNotificationChannel",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an On-Call notification rule for a user.
+   *
+   * <p>See {@link #deleteUserNotificationRuleWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteUserNotificationRule(String userId, String ruleId) throws ApiException {
+    deleteUserNotificationRuleWithHttpInfo(userId, ruleId);
+  }
+
+  /**
+   * Delete an On-Call notification rule for a user.
+   *
+   * <p>See {@link #deleteUserNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteUserNotificationRuleAsync(String userId, String ruleId) {
+    return deleteUserNotificationRuleWithHttpInfoAsync(userId, ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a notification rule for a user. The authenticated user must be the target user or have
+   * the <code>on_call_admin</code> permission
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteUserNotificationRuleWithHttpInfo(String userId, String ruleId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling deleteUserNotificationRule");
+    }
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling deleteUserNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.deleteUserNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an On-Call notification rule for a user.
+   *
+   * <p>See {@link #deleteUserNotificationRuleWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteUserNotificationRuleWithHttpInfoAsync(
+      String userId, String ruleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userId' when calling deleteUserNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling deleteUserNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.deleteUserNotificationRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2243,6 +2569,235 @@ public class OnCallApi {
         new GenericType<NotificationChannel>() {});
   }
 
+  /** Manage optional parameters to getUserNotificationRule. */
+  public static class GetUserNotificationRuleOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>channel</code>. (optional)
+     * @return GetUserNotificationRuleOptionalParameters
+     */
+    public GetUserNotificationRuleOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get an On-Call notification rule for a user.
+   *
+   * <p>See {@link #getUserNotificationRuleWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @return OnCallNotificationRule
+   * @throws ApiException if fails to make API call
+   */
+  public OnCallNotificationRule getUserNotificationRule(String userId, String ruleId)
+      throws ApiException {
+    return getUserNotificationRuleWithHttpInfo(
+            userId, ruleId, new GetUserNotificationRuleOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get an On-Call notification rule for a user.
+   *
+   * <p>See {@link #getUserNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @return CompletableFuture&lt;OnCallNotificationRule&gt;
+   */
+  public CompletableFuture<OnCallNotificationRule> getUserNotificationRuleAsync(
+      String userId, String ruleId) {
+    return getUserNotificationRuleWithHttpInfoAsync(
+            userId, ruleId, new GetUserNotificationRuleOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an On-Call notification rule for a user.
+   *
+   * <p>See {@link #getUserNotificationRuleWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return OnCallNotificationRule
+   * @throws ApiException if fails to make API call
+   */
+  public OnCallNotificationRule getUserNotificationRule(
+      String userId, String ruleId, GetUserNotificationRuleOptionalParameters parameters)
+      throws ApiException {
+    return getUserNotificationRuleWithHttpInfo(userId, ruleId, parameters).getData();
+  }
+
+  /**
+   * Get an On-Call notification rule for a user.
+   *
+   * <p>See {@link #getUserNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;OnCallNotificationRule&gt;
+   */
+  public CompletableFuture<OnCallNotificationRule> getUserNotificationRuleAsync(
+      String userId, String ruleId, GetUserNotificationRuleOptionalParameters parameters) {
+    return getUserNotificationRuleWithHttpInfoAsync(userId, ruleId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a notification rule for a user. The authenticated user must be the target user or have the
+   * <code>on_call_admin</code> permission
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;OnCallNotificationRule&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OnCallNotificationRule> getUserNotificationRuleWithHttpInfo(
+      String userId, String ruleId, GetUserNotificationRuleOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling getUserNotificationRule");
+    }
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling getUserNotificationRule");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.getUserNotificationRule",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OnCallNotificationRule>() {});
+  }
+
+  /**
+   * Get an On-Call notification rule for a user.
+   *
+   * <p>See {@link #getUserNotificationRuleWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;OnCallNotificationRule&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OnCallNotificationRule>>
+      getUserNotificationRuleWithHttpInfoAsync(
+          String userId, String ruleId, GetUserNotificationRuleOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<OnCallNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userId' when calling getUserNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<OnCallNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'ruleId' when calling getUserNotificationRule"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.getUserNotificationRule",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OnCallNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OnCallNotificationRule>() {});
+  }
+
   /**
    * List On-Call notification channels for a user.
    *
@@ -2384,6 +2939,213 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListNotificationChannelsResponse>() {});
+  }
+
+  /** Manage optional parameters to listUserNotificationRules. */
+  public static class ListUserNotificationRulesOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>channel</code>. (optional)
+     * @return ListUserNotificationRulesOptionalParameters
+     */
+    public ListUserNotificationRulesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * List On-Call notification rules for a user.
+   *
+   * <p>See {@link #listUserNotificationRulesWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @return ListOnCallNotificationRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListOnCallNotificationRulesResponse listUserNotificationRules(String userId)
+      throws ApiException {
+    return listUserNotificationRulesWithHttpInfo(
+            userId, new ListUserNotificationRulesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List On-Call notification rules for a user.
+   *
+   * <p>See {@link #listUserNotificationRulesWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @return CompletableFuture&lt;ListOnCallNotificationRulesResponse&gt;
+   */
+  public CompletableFuture<ListOnCallNotificationRulesResponse> listUserNotificationRulesAsync(
+      String userId) {
+    return listUserNotificationRulesWithHttpInfoAsync(
+            userId, new ListUserNotificationRulesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List On-Call notification rules for a user.
+   *
+   * <p>See {@link #listUserNotificationRulesWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return ListOnCallNotificationRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListOnCallNotificationRulesResponse listUserNotificationRules(
+      String userId, ListUserNotificationRulesOptionalParameters parameters) throws ApiException {
+    return listUserNotificationRulesWithHttpInfo(userId, parameters).getData();
+  }
+
+  /**
+   * List On-Call notification rules for a user.
+   *
+   * <p>See {@link #listUserNotificationRulesWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListOnCallNotificationRulesResponse&gt;
+   */
+  public CompletableFuture<ListOnCallNotificationRulesResponse> listUserNotificationRulesAsync(
+      String userId, ListUserNotificationRulesOptionalParameters parameters) {
+    return listUserNotificationRulesWithHttpInfoAsync(userId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the notification rules for a user. The authenticated user must be the target user or have
+   * the <code>on_call_admin</code> permission
+   *
+   * @param userId The user ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListOnCallNotificationRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListOnCallNotificationRulesResponse> listUserNotificationRulesWithHttpInfo(
+      String userId, ListUserNotificationRulesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling listUserNotificationRules");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-rules"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.listUserNotificationRules",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListOnCallNotificationRulesResponse>() {});
+  }
+
+  /**
+   * List On-Call notification rules for a user.
+   *
+   * <p>See {@link #listUserNotificationRulesWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListOnCallNotificationRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListOnCallNotificationRulesResponse>>
+      listUserNotificationRulesWithHttpInfoAsync(
+          String userId, ListUserNotificationRulesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<ListOnCallNotificationRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userId' when calling listUserNotificationRules"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-rules"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.listUserNotificationRules",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListOnCallNotificationRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListOnCallNotificationRulesResponse>() {});
   }
 
   /** Manage optional parameters to setOnCallTeamRoutingRules. */
@@ -3090,5 +3852,270 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Schedule>() {});
+  }
+
+  /** Manage optional parameters to updateUserNotificationRule. */
+  public static class UpdateUserNotificationRuleOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>channel</code>. (optional)
+     * @return UpdateUserNotificationRuleOptionalParameters
+     */
+    public UpdateUserNotificationRuleOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Update an On-Call notification rule for a user.
+   *
+   * <p>See {@link #updateUserNotificationRuleWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @param body (required)
+   * @return OnCallNotificationRule
+   * @throws ApiException if fails to make API call
+   */
+  public OnCallNotificationRule updateUserNotificationRule(
+      String userId, String ruleId, UpdateOnCallNotificationRuleRequest body) throws ApiException {
+    return updateUserNotificationRuleWithHttpInfo(
+            userId, ruleId, body, new UpdateUserNotificationRuleOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Update an On-Call notification rule for a user.
+   *
+   * <p>See {@link #updateUserNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;OnCallNotificationRule&gt;
+   */
+  public CompletableFuture<OnCallNotificationRule> updateUserNotificationRuleAsync(
+      String userId, String ruleId, UpdateOnCallNotificationRuleRequest body) {
+    return updateUserNotificationRuleWithHttpInfoAsync(
+            userId, ruleId, body, new UpdateUserNotificationRuleOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an On-Call notification rule for a user.
+   *
+   * <p>See {@link #updateUserNotificationRuleWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return OnCallNotificationRule
+   * @throws ApiException if fails to make API call
+   */
+  public OnCallNotificationRule updateUserNotificationRule(
+      String userId,
+      String ruleId,
+      UpdateOnCallNotificationRuleRequest body,
+      UpdateUserNotificationRuleOptionalParameters parameters)
+      throws ApiException {
+    return updateUserNotificationRuleWithHttpInfo(userId, ruleId, body, parameters).getData();
+  }
+
+  /**
+   * Update an On-Call notification rule for a user.
+   *
+   * <p>See {@link #updateUserNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;OnCallNotificationRule&gt;
+   */
+  public CompletableFuture<OnCallNotificationRule> updateUserNotificationRuleAsync(
+      String userId,
+      String ruleId,
+      UpdateOnCallNotificationRuleRequest body,
+      UpdateUserNotificationRuleOptionalParameters parameters) {
+    return updateUserNotificationRuleWithHttpInfoAsync(userId, ruleId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a notification rule for a user. The authenticated user must be the target user or have
+   * the <code>on_call_admin</code> permission
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;OnCallNotificationRule&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OnCallNotificationRule> updateUserNotificationRuleWithHttpInfo(
+      String userId,
+      String ruleId,
+      UpdateOnCallNotificationRuleRequest body,
+      UpdateUserNotificationRuleOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling updateUserNotificationRule");
+    }
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling updateUserNotificationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateUserNotificationRule");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.updateUserNotificationRule",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OnCallNotificationRule>() {});
+  }
+
+  /**
+   * Update an On-Call notification rule for a user.
+   *
+   * <p>See {@link #updateUserNotificationRuleWithHttpInfo}.
+   *
+   * @param userId The user ID (required)
+   * @param ruleId The rule ID (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;OnCallNotificationRule&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OnCallNotificationRule>>
+      updateUserNotificationRuleWithHttpInfoAsync(
+          String userId,
+          String ruleId,
+          UpdateOnCallNotificationRuleRequest body,
+          UpdateUserNotificationRuleOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<OnCallNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userId' when calling updateUserNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<OnCallNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling updateUserNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<OnCallNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateUserNotificationRule"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()))
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.updateUserNotificationRule",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OnCallNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OnCallNotificationRule>() {});
   }
 }
