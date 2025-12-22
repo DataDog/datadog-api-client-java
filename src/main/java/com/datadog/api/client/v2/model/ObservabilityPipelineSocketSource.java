@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>socket</code> source ingests logs over TCP or UDP. */
+/**
+ * The <code>socket</code> source ingests logs over TCP or UDP.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineSocketSource.JSON_PROPERTY_FRAMING,
   ObservabilityPipelineSocketSource.JSON_PROPERTY_ID,

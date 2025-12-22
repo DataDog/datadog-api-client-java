@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>splunk_hec</code> source implements the Splunk HTTP Event Collector (HEC) API. */
+/**
+ * The <code>splunk_hec</code> source implements the Splunk HTTP Event Collector (HEC) API.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_ID,
   ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_TLS,

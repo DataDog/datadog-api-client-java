@@ -20,6 +20,8 @@ import java.util.Objects;
 /**
  * The <code>enrichment_table</code> processor enriches logs using a static CSV file or GeoIP
  * database.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_DISPLAY_NAME,

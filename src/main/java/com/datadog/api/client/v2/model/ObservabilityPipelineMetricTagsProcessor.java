@@ -13,36 +13,31 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /**
- * The <code>parse_json</code> processor extracts JSON from a specified field and flattens it into
- * the event. This is useful when logs contain embedded JSON as a string.
+ * The <code>metric_tags</code> processor filters metrics based on their tags using Datadog tag key
+ * patterns.
  *
- * <p><strong>Supported pipeline types:</strong> logs
+ * <p><strong>Supported pipeline types:</strong> metrics
  */
 @JsonPropertyOrder({
-  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_DISPLAY_NAME,
-  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_ENABLED,
-  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_FIELD,
-  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_ID,
-  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_INCLUDE,
-  ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_TYPE
+  ObservabilityPipelineMetricTagsProcessor.JSON_PROPERTY_ENABLED,
+  ObservabilityPipelineMetricTagsProcessor.JSON_PROPERTY_ID,
+  ObservabilityPipelineMetricTagsProcessor.JSON_PROPERTY_INCLUDE,
+  ObservabilityPipelineMetricTagsProcessor.JSON_PROPERTY_RULES,
+  ObservabilityPipelineMetricTagsProcessor.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineParseJSONProcessor {
+public class ObservabilityPipelineMetricTagsProcessor {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
-  private String displayName;
-
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
-
-  public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -50,50 +45,33 @@ public class ObservabilityPipelineParseJSONProcessor {
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineParseJSONProcessorType type =
-      ObservabilityPipelineParseJSONProcessorType.PARSE_JSON;
+  public static final String JSON_PROPERTY_RULES = "rules";
+  private List<ObservabilityPipelineMetricTagsProcessorRule> rules = new ArrayList<>();
 
-  public ObservabilityPipelineParseJSONProcessor() {}
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private ObservabilityPipelineMetricTagsProcessorType type =
+      ObservabilityPipelineMetricTagsProcessorType.METRIC_TAGS;
+
+  public ObservabilityPipelineMetricTagsProcessor() {}
 
   @JsonCreator
-  public ObservabilityPipelineParseJSONProcessor(
+  public ObservabilityPipelineMetricTagsProcessor(
       @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FIELD) String field,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULES)
+          List<ObservabilityPipelineMetricTagsProcessorRule> rules,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineParseJSONProcessorType type) {
+          ObservabilityPipelineMetricTagsProcessorType type) {
     this.enabled = enabled;
-    this.field = field;
     this.id = id;
     this.include = include;
+    this.rules = rules;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public ObservabilityPipelineParseJSONProcessor displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-  /**
-   * The display name for a component.
-   *
-   * @return displayName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public ObservabilityPipelineParseJSONProcessor enabled(Boolean enabled) {
+  public ObservabilityPipelineMetricTagsProcessor enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
@@ -113,34 +91,14 @@ public class ObservabilityPipelineParseJSONProcessor {
     this.enabled = enabled;
   }
 
-  public ObservabilityPipelineParseJSONProcessor field(String field) {
-    this.field = field;
-    return this;
-  }
-
-  /**
-   * The name of the log field that contains a JSON string.
-   *
-   * @return field
-   */
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getField() {
-    return field;
-  }
-
-  public void setField(String field) {
-    this.field = field;
-  }
-
-  public ObservabilityPipelineParseJSONProcessor id(String id) {
+  public ObservabilityPipelineMetricTagsProcessor id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * A unique identifier for this component. Used to reference this component in other parts of the
-   * pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used to reference this component in other parts of
+   * the pipeline (for example, as the <code>input</code> to downstream components).
    *
    * @return id
    */
@@ -154,13 +112,13 @@ public class ObservabilityPipelineParseJSONProcessor {
     this.id = id;
   }
 
-  public ObservabilityPipelineParseJSONProcessor include(String include) {
+  public ObservabilityPipelineMetricTagsProcessor include(String include) {
     this.include = include;
     return this;
   }
 
   /**
-   * A Datadog search query used to determine which logs this processor targets.
+   * A Datadog search query used to determine which metrics this processor targets.
    *
    * @return include
    */
@@ -174,25 +132,56 @@ public class ObservabilityPipelineParseJSONProcessor {
     this.include = include;
   }
 
-  public ObservabilityPipelineParseJSONProcessor type(
-      ObservabilityPipelineParseJSONProcessorType type) {
+  public ObservabilityPipelineMetricTagsProcessor rules(
+      List<ObservabilityPipelineMetricTagsProcessorRule> rules) {
+    this.rules = rules;
+    for (ObservabilityPipelineMetricTagsProcessorRule item : rules) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public ObservabilityPipelineMetricTagsProcessor addRulesItem(
+      ObservabilityPipelineMetricTagsProcessorRule rulesItem) {
+    this.rules.add(rulesItem);
+    this.unparsed |= rulesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * A list of rules for filtering metric tags.
+   *
+   * @return rules
+   */
+  @JsonProperty(JSON_PROPERTY_RULES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<ObservabilityPipelineMetricTagsProcessorRule> getRules() {
+    return rules;
+  }
+
+  public void setRules(List<ObservabilityPipelineMetricTagsProcessorRule> rules) {
+    this.rules = rules;
+  }
+
+  public ObservabilityPipelineMetricTagsProcessor type(
+      ObservabilityPipelineMetricTagsProcessorType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The processor type. The value should always be <code>parse_json</code>.
+   * The processor type. The value should always be <code>metric_tags</code>.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineParseJSONProcessorType getType() {
+  public ObservabilityPipelineMetricTagsProcessorType getType() {
     return type;
   }
 
-  public void setType(ObservabilityPipelineParseJSONProcessorType type) {
+  public void setType(ObservabilityPipelineMetricTagsProcessorType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -211,10 +200,10 @@ public class ObservabilityPipelineParseJSONProcessor {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineParseJSONProcessor
+   * @return ObservabilityPipelineMetricTagsProcessor
    */
   @JsonAnySetter
-  public ObservabilityPipelineParseJSONProcessor putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineMetricTagsProcessor putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -245,7 +234,7 @@ public class ObservabilityPipelineParseJSONProcessor {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineParseJSONProcessor object is equal to o. */
+  /** Return true if this ObservabilityPipelineMetricTagsProcessor object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -254,33 +243,31 @@ public class ObservabilityPipelineParseJSONProcessor {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineParseJSONProcessor observabilityPipelineParseJsonProcessor =
-        (ObservabilityPipelineParseJSONProcessor) o;
-    return Objects.equals(this.displayName, observabilityPipelineParseJsonProcessor.displayName)
-        && Objects.equals(this.enabled, observabilityPipelineParseJsonProcessor.enabled)
-        && Objects.equals(this.field, observabilityPipelineParseJsonProcessor.field)
-        && Objects.equals(this.id, observabilityPipelineParseJsonProcessor.id)
-        && Objects.equals(this.include, observabilityPipelineParseJsonProcessor.include)
-        && Objects.equals(this.type, observabilityPipelineParseJsonProcessor.type)
+    ObservabilityPipelineMetricTagsProcessor observabilityPipelineMetricTagsProcessor =
+        (ObservabilityPipelineMetricTagsProcessor) o;
+    return Objects.equals(this.enabled, observabilityPipelineMetricTagsProcessor.enabled)
+        && Objects.equals(this.id, observabilityPipelineMetricTagsProcessor.id)
+        && Objects.equals(this.include, observabilityPipelineMetricTagsProcessor.include)
+        && Objects.equals(this.rules, observabilityPipelineMetricTagsProcessor.rules)
+        && Objects.equals(this.type, observabilityPipelineMetricTagsProcessor.type)
         && Objects.equals(
             this.additionalProperties,
-            observabilityPipelineParseJsonProcessor.additionalProperties);
+            observabilityPipelineMetricTagsProcessor.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, enabled, field, id, include, type, additionalProperties);
+    return Objects.hash(enabled, id, include, rules, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineParseJSONProcessor {\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("class ObservabilityPipelineMetricTagsProcessor {\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
+    sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -20,27 +20,19 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The <code>azure_storage</code> destination forwards logs to an Azure Blob Storage container.
+ * The <code>datadog_metrics</code> destination forwards metrics to Datadog.
  *
- * <p><strong>Supported pipeline types:</strong> logs
+ * <p><strong>Supported pipeline types:</strong> metrics
  */
 @JsonPropertyOrder({
-  AzureStorageDestination.JSON_PROPERTY_BLOB_PREFIX,
-  AzureStorageDestination.JSON_PROPERTY_CONTAINER_NAME,
-  AzureStorageDestination.JSON_PROPERTY_ID,
-  AzureStorageDestination.JSON_PROPERTY_INPUTS,
-  AzureStorageDestination.JSON_PROPERTY_TYPE
+  ObservabilityPipelineDatadogMetricsDestination.JSON_PROPERTY_ID,
+  ObservabilityPipelineDatadogMetricsDestination.JSON_PROPERTY_INPUTS,
+  ObservabilityPipelineDatadogMetricsDestination.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AzureStorageDestination {
+public class ObservabilityPipelineDatadogMetricsDestination {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_BLOB_PREFIX = "blob_prefix";
-  private String blobPrefix;
-
-  public static final String JSON_PROPERTY_CONTAINER_NAME = "container_name";
-  private String containerName;
-
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -48,65 +40,24 @@ public class AzureStorageDestination {
   private List<String> inputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private AzureStorageDestinationType type = AzureStorageDestinationType.AZURE_STORAGE;
+  private ObservabilityPipelineDatadogMetricsDestinationType type =
+      ObservabilityPipelineDatadogMetricsDestinationType.DATADOG_METRICS;
 
-  public AzureStorageDestination() {}
+  public ObservabilityPipelineDatadogMetricsDestination() {}
 
   @JsonCreator
-  public AzureStorageDestination(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CONTAINER_NAME) String containerName,
+  public ObservabilityPipelineDatadogMetricsDestination(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AzureStorageDestinationType type) {
-    this.containerName = containerName;
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ObservabilityPipelineDatadogMetricsDestinationType type) {
     this.id = id;
     this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public AzureStorageDestination blobPrefix(String blobPrefix) {
-    this.blobPrefix = blobPrefix;
-    return this;
-  }
-
-  /**
-   * Optional prefix for blobs written to the container.
-   *
-   * @return blobPrefix
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BLOB_PREFIX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getBlobPrefix() {
-    return blobPrefix;
-  }
-
-  public void setBlobPrefix(String blobPrefix) {
-    this.blobPrefix = blobPrefix;
-  }
-
-  public AzureStorageDestination containerName(String containerName) {
-    this.containerName = containerName;
-    return this;
-  }
-
-  /**
-   * The name of the Azure Blob Storage container to store logs in.
-   *
-   * @return containerName
-   */
-  @JsonProperty(JSON_PROPERTY_CONTAINER_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getContainerName() {
-    return containerName;
-  }
-
-  public void setContainerName(String containerName) {
-    this.containerName = containerName;
-  }
-
-  public AzureStorageDestination id(String id) {
+  public ObservabilityPipelineDatadogMetricsDestination id(String id) {
     this.id = id;
     return this;
   }
@@ -126,18 +77,18 @@ public class AzureStorageDestination {
     this.id = id;
   }
 
-  public AzureStorageDestination inputs(List<String> inputs) {
+  public ObservabilityPipelineDatadogMetricsDestination inputs(List<String> inputs) {
     this.inputs = inputs;
     return this;
   }
 
-  public AzureStorageDestination addInputsItem(String inputsItem) {
+  public ObservabilityPipelineDatadogMetricsDestination addInputsItem(String inputsItem) {
     this.inputs.add(inputsItem);
     return this;
   }
 
   /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
+   * A list of component IDs whose output is used as the input for this component.
    *
    * @return inputs
    */
@@ -151,24 +102,25 @@ public class AzureStorageDestination {
     this.inputs = inputs;
   }
 
-  public AzureStorageDestination type(AzureStorageDestinationType type) {
+  public ObservabilityPipelineDatadogMetricsDestination type(
+      ObservabilityPipelineDatadogMetricsDestinationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The destination type. The value should always be <code>azure_storage</code>.
+   * The destination type. The value should always be <code>datadog_metrics</code>.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AzureStorageDestinationType getType() {
+  public ObservabilityPipelineDatadogMetricsDestinationType getType() {
     return type;
   }
 
-  public void setType(AzureStorageDestinationType type) {
+  public void setType(ObservabilityPipelineDatadogMetricsDestinationType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -187,10 +139,11 @@ public class AzureStorageDestination {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AzureStorageDestination
+   * @return ObservabilityPipelineDatadogMetricsDestination
    */
   @JsonAnySetter
-  public AzureStorageDestination putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineDatadogMetricsDestination putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -221,7 +174,7 @@ public class AzureStorageDestination {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AzureStorageDestination object is equal to o. */
+  /** Return true if this ObservabilityPipelineDatadogMetricsDestination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -230,26 +183,25 @@ public class AzureStorageDestination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AzureStorageDestination azureStorageDestination = (AzureStorageDestination) o;
-    return Objects.equals(this.blobPrefix, azureStorageDestination.blobPrefix)
-        && Objects.equals(this.containerName, azureStorageDestination.containerName)
-        && Objects.equals(this.id, azureStorageDestination.id)
-        && Objects.equals(this.inputs, azureStorageDestination.inputs)
-        && Objects.equals(this.type, azureStorageDestination.type)
-        && Objects.equals(this.additionalProperties, azureStorageDestination.additionalProperties);
+    ObservabilityPipelineDatadogMetricsDestination observabilityPipelineDatadogMetricsDestination =
+        (ObservabilityPipelineDatadogMetricsDestination) o;
+    return Objects.equals(this.id, observabilityPipelineDatadogMetricsDestination.id)
+        && Objects.equals(this.inputs, observabilityPipelineDatadogMetricsDestination.inputs)
+        && Objects.equals(this.type, observabilityPipelineDatadogMetricsDestination.type)
+        && Objects.equals(
+            this.additionalProperties,
+            observabilityPipelineDatadogMetricsDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(blobPrefix, containerName, id, inputs, type, additionalProperties);
+    return Objects.hash(id, inputs, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AzureStorageDestination {\n");
-    sb.append("    blobPrefix: ").append(toIndentedString(blobPrefix)).append("\n");
-    sb.append("    containerName: ").append(toIndentedString(containerName)).append("\n");
+    sb.append("class ObservabilityPipelineDatadogMetricsDestination {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
