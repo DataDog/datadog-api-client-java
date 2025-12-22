@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>rename_fields</code> processor changes field names. */
+/**
+ * The <code>rename_fields</code> processor changes field names.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineRenameFieldsProcessor.JSON_PROPERTY_ENABLED,

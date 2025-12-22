@@ -17,81 +17,49 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The <code>sumo_logic</code> source receives logs from Sumo Logic collectors.
- *
- * <p><strong>Supported pipeline types:</strong> logs
- */
-@JsonPropertyOrder({
-  ObservabilityPipelineSumoLogicSource.JSON_PROPERTY_ID,
-  ObservabilityPipelineSumoLogicSource.JSON_PROPERTY_TYPE
-})
+/** Compression configuration for HTTP requests. */
+@JsonPropertyOrder({ObservabilityPipelineHttpClientDestinationCompression.JSON_PROPERTY_ALGORITHM})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineSumoLogicSource {
+public class ObservabilityPipelineHttpClientDestinationCompression {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_ALGORITHM = "algorithm";
+  private ObservabilityPipelineHttpClientDestinationCompressionAlgorithm algorithm;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineSumoLogicSourceType type =
-      ObservabilityPipelineSumoLogicSourceType.SUMO_LOGIC;
-
-  public ObservabilityPipelineSumoLogicSource() {}
+  public ObservabilityPipelineHttpClientDestinationCompression() {}
 
   @JsonCreator
-  public ObservabilityPipelineSumoLogicSource(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineSumoLogicSourceType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public ObservabilityPipelineHttpClientDestinationCompression(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ALGORITHM)
+          ObservabilityPipelineHttpClientDestinationCompressionAlgorithm algorithm) {
+    this.algorithm = algorithm;
+    this.unparsed |= !algorithm.isValid();
   }
 
-  public ObservabilityPipelineSumoLogicSource id(String id) {
-    this.id = id;
+  public ObservabilityPipelineHttpClientDestinationCompression algorithm(
+      ObservabilityPipelineHttpClientDestinationCompressionAlgorithm algorithm) {
+    this.algorithm = algorithm;
+    this.unparsed |= !algorithm.isValid();
     return this;
   }
 
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of
-   * the pipeline (e.g., as input to downstream components).
+   * Compression algorithm.
    *
-   * @return id
+   * @return algorithm
    */
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
+  public ObservabilityPipelineHttpClientDestinationCompressionAlgorithm getAlgorithm() {
+    return algorithm;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ObservabilityPipelineSumoLogicSource type(ObservabilityPipelineSumoLogicSourceType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The source type. The value should always be <code>sumo_logic</code>.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineSumoLogicSourceType getType() {
-    return type;
-  }
-
-  public void setType(ObservabilityPipelineSumoLogicSourceType type) {
-    if (!type.isValid()) {
+  public void setAlgorithm(
+      ObservabilityPipelineHttpClientDestinationCompressionAlgorithm algorithm) {
+    if (!algorithm.isValid()) {
       this.unparsed = true;
     }
-    this.type = type;
+    this.algorithm = algorithm;
   }
 
   /**
@@ -106,10 +74,11 @@ public class ObservabilityPipelineSumoLogicSource {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineSumoLogicSource
+   * @return ObservabilityPipelineHttpClientDestinationCompression
    */
   @JsonAnySetter
-  public ObservabilityPipelineSumoLogicSource putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineHttpClientDestinationCompression putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -140,7 +109,9 @@ public class ObservabilityPipelineSumoLogicSource {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineSumoLogicSource object is equal to o. */
+  /**
+   * Return true if this ObservabilityPipelineHttpClientDestinationCompression object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,25 +120,26 @@ public class ObservabilityPipelineSumoLogicSource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineSumoLogicSource observabilityPipelineSumoLogicSource =
-        (ObservabilityPipelineSumoLogicSource) o;
-    return Objects.equals(this.id, observabilityPipelineSumoLogicSource.id)
-        && Objects.equals(this.type, observabilityPipelineSumoLogicSource.type)
+    ObservabilityPipelineHttpClientDestinationCompression
+        observabilityPipelineHttpClientDestinationCompression =
+            (ObservabilityPipelineHttpClientDestinationCompression) o;
+    return Objects.equals(
+            this.algorithm, observabilityPipelineHttpClientDestinationCompression.algorithm)
         && Objects.equals(
-            this.additionalProperties, observabilityPipelineSumoLogicSource.additionalProperties);
+            this.additionalProperties,
+            observabilityPipelineHttpClientDestinationCompression.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(algorithm, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineSumoLogicSource {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class ObservabilityPipelineHttpClientDestinationCompression {\n");
+    sb.append("    algorithm: ").append(toIndentedString(algorithm)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
