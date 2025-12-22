@@ -36,102 +36,92 @@ import java.util.logging.Logger;
 
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-@JsonDeserialize(
-    using =
-        IncidentAttachmentsResponseIncludedItem.IncidentAttachmentsResponseIncludedItemDeserializer
-            .class)
-@JsonSerialize(
-    using =
-        IncidentAttachmentsResponseIncludedItem.IncidentAttachmentsResponseIncludedItemSerializer
-            .class)
-public class IncidentAttachmentsResponseIncludedItem extends AbstractOpenApiSchema {
-  private static final Logger log =
-      Logger.getLogger(IncidentAttachmentsResponseIncludedItem.class.getName());
+@JsonDeserialize(using = AttachmentIncluded.AttachmentIncludedDeserializer.class)
+@JsonSerialize(using = AttachmentIncluded.AttachmentIncludedSerializer.class)
+public class AttachmentIncluded extends AbstractOpenApiSchema {
+  private static final Logger log = Logger.getLogger(AttachmentIncluded.class.getName());
 
   @JsonIgnore public boolean unparsed = false;
 
-  public static class IncidentAttachmentsResponseIncludedItemSerializer
-      extends StdSerializer<IncidentAttachmentsResponseIncludedItem> {
-    public IncidentAttachmentsResponseIncludedItemSerializer(
-        Class<IncidentAttachmentsResponseIncludedItem> t) {
+  public static class AttachmentIncludedSerializer extends StdSerializer<AttachmentIncluded> {
+    public AttachmentIncludedSerializer(Class<AttachmentIncluded> t) {
       super(t);
     }
 
-    public IncidentAttachmentsResponseIncludedItemSerializer() {
+    public AttachmentIncludedSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(
-        IncidentAttachmentsResponseIncludedItem value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
+    public void serialize(AttachmentIncluded value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.getActualInstance());
     }
   }
 
-  public static class IncidentAttachmentsResponseIncludedItemDeserializer
-      extends StdDeserializer<IncidentAttachmentsResponseIncludedItem> {
-    public IncidentAttachmentsResponseIncludedItemDeserializer() {
-      this(IncidentAttachmentsResponseIncludedItem.class);
+  public static class AttachmentIncludedDeserializer extends StdDeserializer<AttachmentIncluded> {
+    public AttachmentIncludedDeserializer() {
+      this(AttachmentIncluded.class);
     }
 
-    public IncidentAttachmentsResponseIncludedItemDeserializer(Class<?> vc) {
+    public AttachmentIncludedDeserializer(Class<?> vc) {
       super(vc);
     }
 
     @Override
-    public IncidentAttachmentsResponseIncludedItem deserialize(
-        JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public AttachmentIncluded deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
       Object tmp = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize User
+      // deserialize User140420082644000
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (User.class.equals(Integer.class)
-            || User.class.equals(Long.class)
-            || User.class.equals(Float.class)
-            || User.class.equals(Double.class)
-            || User.class.equals(Boolean.class)
-            || User.class.equals(String.class)) {
+        if (User140420082644000.class.equals(Integer.class)
+            || User140420082644000.class.equals(Long.class)
+            || User140420082644000.class.equals(Float.class)
+            || User140420082644000.class.equals(Double.class)
+            || User140420082644000.class.equals(Boolean.class)
+            || User140420082644000.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((User.class.equals(Integer.class) || User.class.equals(Long.class))
+                ((User140420082644000.class.equals(Integer.class)
+                        || User140420082644000.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((User.class.equals(Float.class) || User.class.equals(Double.class))
+                ((User140420082644000.class.equals(Float.class)
+                        || User140420082644000.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (User.class.equals(Boolean.class)
+                (User140420082644000.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |= (User.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+            attemptParsing |=
+                (User140420082644000.class.equals(String.class) && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(User.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(User140420082644000.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((User) tmp).unparsed) {
+          if (!((User140420082644000) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'User'");
+          log.log(Level.FINER, "Input data matches schema 'User140420082644000'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'User'", e);
+        log.log(Level.FINER, "Input data does not match schema 'User140420082644000'", e);
       }
 
-      IncidentAttachmentsResponseIncludedItem ret = new IncidentAttachmentsResponseIncludedItem();
+      AttachmentIncluded ret = new AttachmentIncluded();
       if (match == 1) {
         ret.setActualInstance(deserialized);
       } else {
@@ -147,46 +137,44 @@ public class IncidentAttachmentsResponseIncludedItem extends AbstractOpenApiSche
 
     /** Handle deserialization of the 'null' value. */
     @Override
-    public IncidentAttachmentsResponseIncludedItem getNullValue(DeserializationContext ctxt)
+    public AttachmentIncluded getNullValue(DeserializationContext ctxt)
         throws JsonMappingException {
-      throw new JsonMappingException(
-          ctxt.getParser(), "IncidentAttachmentsResponseIncludedItem cannot be null");
+      throw new JsonMappingException(ctxt.getParser(), "AttachmentIncluded cannot be null");
     }
   }
 
   // store a list of schema names defined in oneOf
   public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
-  public IncidentAttachmentsResponseIncludedItem() {
+  public AttachmentIncluded() {
     super("oneOf", Boolean.FALSE);
   }
 
-  public IncidentAttachmentsResponseIncludedItem(User o) {
+  public AttachmentIncluded(User140420082644000 o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
   static {
-    schemas.put("User", new GenericType<User>() {});
-    JSON.registerDescendants(
-        IncidentAttachmentsResponseIncludedItem.class, Collections.unmodifiableMap(schemas));
+    schemas.put("User140420082644000", new GenericType<User140420082644000>() {});
+    JSON.registerDescendants(AttachmentIncluded.class, Collections.unmodifiableMap(schemas));
   }
 
   @Override
   public Map<String, GenericType> getSchemas() {
-    return IncidentAttachmentsResponseIncludedItem.schemas;
+    return AttachmentIncluded.schemas;
   }
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: User
+   * against the oneOf child schemas: User140420082644000
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(User.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(User140420082644000.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -195,13 +183,13 @@ public class IncidentAttachmentsResponseIncludedItem extends AbstractOpenApiSche
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be User");
+    throw new RuntimeException("Invalid instance type. Must be User140420082644000");
   }
 
   /**
-   * Get the actual instance, which can be the following: User
+   * Get the actual instance, which can be the following: User140420082644000
    *
-   * @return The actual instance (User)
+   * @return The actual instance (User140420082644000)
    */
   @Override
   public Object getActualInstance() {
@@ -209,13 +197,13 @@ public class IncidentAttachmentsResponseIncludedItem extends AbstractOpenApiSche
   }
 
   /**
-   * Get the actual instance of `User`. If the actual instance is not `User`, the ClassCastException
-   * will be thrown.
+   * Get the actual instance of `User140420082644000`. If the actual instance is not
+   * `User140420082644000`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `User`
-   * @throws ClassCastException if the instance is not `User`
+   * @return The actual instance of `User140420082644000`
+   * @throws ClassCastException if the instance is not `User140420082644000`
    */
-  public User getUser() throws ClassCastException {
-    return (User) super.getActualInstance();
+  public User140420082644000 getUser140420082644000() throws ClassCastException {
+    return (User140420082644000) super.getActualInstance();
   }
 }
