@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * In this object, the key is the tag, the value is a list of host names that are reporting that
+ * In this object, the key is the tag, and the value is a list of host names that are reporting that
  * tag.
  */
 @JsonPropertyOrder({TagToHosts.JSON_PROPERTY_TAGS})
@@ -43,7 +43,7 @@ public class TagToHosts {
   }
 
   /**
-   * A list of tags to apply to the host.
+   * A mapping of tags to host names
    *
    * @return tags
    */
