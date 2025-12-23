@@ -20,8 +20,10 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The Quota Processor measures logging traffic for logs that match a specified filter. When the
- * configured daily quota is met, the processor can drop or alert.
+ * The <code>quota</code> processor measures logging traffic for logs that match a specified filter.
+ * When the configured daily quota is met, the processor can drop or alert.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_DISPLAY_NAME,

@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>amazon_opensearch</code> destination writes logs to Amazon OpenSearch. */
+/**
+ * The <code>amazon_opensearch</code> destination writes logs to Amazon OpenSearch.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_BULK_INDEX,

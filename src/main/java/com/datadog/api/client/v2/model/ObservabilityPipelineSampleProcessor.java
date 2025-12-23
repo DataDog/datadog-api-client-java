@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>sample</code> processor allows probabilistic sampling of logs at a fixed rate. */
+/**
+ * The <code>sample</code> processor allows probabilistic sampling of logs at a fixed rate.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_ENABLED,
