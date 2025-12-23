@@ -3,7 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.DoraMetricsApi;
-import com.datadog.api.client.v2.model.DORAFetchResponse;
+import com.datadog.api.client.v2.model.DORAFailureFetchResponse;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Example {
     DoraMetricsApi apiInstance = new DoraMetricsApi(defaultClient);
 
     try {
-      DORAFetchResponse result = apiInstance.getDORAFailure("failure_id");
+      DORAFailureFetchResponse result = apiInstance.getDORAFailure("failure_id");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DoraMetricsApi#getDORAFailure");

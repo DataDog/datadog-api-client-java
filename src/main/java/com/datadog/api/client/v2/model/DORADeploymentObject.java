@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,73 +16,87 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The JSON:API data. */
+/** A DORA deployment event. */
 @JsonPropertyOrder({
-  DORAListDeploymentsRequestData.JSON_PROPERTY_ATTRIBUTES,
-  DORAListDeploymentsRequestData.JSON_PROPERTY_TYPE
+  DORADeploymentObject.JSON_PROPERTY_ATTRIBUTES,
+  DORADeploymentObject.JSON_PROPERTY_ID,
+  DORADeploymentObject.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAListDeploymentsRequestData {
+public class DORADeploymentObject {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private DORAListDeploymentsRequestAttributes attributes;
+  private DORADeploymentObjectAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private DORAListDeploymentsRequestDataType type =
-      DORAListDeploymentsRequestDataType.DORA_DEPLOYMENTS_LIST_REQUEST;
+  private DORADeploymentType type = DORADeploymentType.DORA_DEPLOYMENT;
 
-  public DORAListDeploymentsRequestData() {}
-
-  @JsonCreator
-  public DORAListDeploymentsRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-  }
-
-  public DORAListDeploymentsRequestData attributes(
-      DORAListDeploymentsRequestAttributes attributes) {
+  public DORADeploymentObject attributes(DORADeploymentObjectAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes to get a list of deployments.
+   * The attributes of the deployment event.
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DORAListDeploymentsRequestAttributes getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DORADeploymentObjectAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(DORAListDeploymentsRequestAttributes attributes) {
+  public void setAttributes(DORADeploymentObjectAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public DORAListDeploymentsRequestData type(DORAListDeploymentsRequestDataType type) {
+  public DORADeploymentObject id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the deployment event.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public DORADeploymentObject type(DORADeploymentType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>DORAListDeploymentsRequestDataType</code> object.
+   * JSON:API type for DORA deployment events.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAListDeploymentsRequestDataType getType() {
+  public DORADeploymentType getType() {
     return type;
   }
 
-  public void setType(DORAListDeploymentsRequestDataType type) {
+  public void setType(DORADeploymentType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -102,10 +115,10 @@ public class DORAListDeploymentsRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAListDeploymentsRequestData
+   * @return DORADeploymentObject
    */
   @JsonAnySetter
-  public DORAListDeploymentsRequestData putAdditionalProperty(String key, Object value) {
+  public DORADeploymentObject putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +149,7 @@ public class DORAListDeploymentsRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAListDeploymentsRequestData object is equal to o. */
+  /** Return true if this DORADeploymentObject object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,24 +158,24 @@ public class DORAListDeploymentsRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAListDeploymentsRequestData doraListDeploymentsRequestData =
-        (DORAListDeploymentsRequestData) o;
-    return Objects.equals(this.attributes, doraListDeploymentsRequestData.attributes)
-        && Objects.equals(this.type, doraListDeploymentsRequestData.type)
-        && Objects.equals(
-            this.additionalProperties, doraListDeploymentsRequestData.additionalProperties);
+    DORADeploymentObject doraDeploymentObject = (DORADeploymentObject) o;
+    return Objects.equals(this.attributes, doraDeploymentObject.attributes)
+        && Objects.equals(this.id, doraDeploymentObject.id)
+        && Objects.equals(this.type, doraDeploymentObject.type)
+        && Objects.equals(this.additionalProperties, doraDeploymentObject.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAListDeploymentsRequestData {\n");
+    sb.append("class DORADeploymentObject {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
