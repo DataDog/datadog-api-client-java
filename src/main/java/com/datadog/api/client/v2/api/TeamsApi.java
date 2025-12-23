@@ -22,6 +22,8 @@ import com.datadog.api.client.v2.model.TeamHierarchyLinksResponse;
 import com.datadog.api.client.v2.model.TeamLinkCreateRequest;
 import com.datadog.api.client.v2.model.TeamLinkResponse;
 import com.datadog.api.client.v2.model.TeamLinksResponse;
+import com.datadog.api.client.v2.model.TeamNotificationRule;
+import com.datadog.api.client.v2.model.TeamNotificationRulesResponse;
 import com.datadog.api.client.v2.model.TeamPermissionSettingResponse;
 import com.datadog.api.client.v2.model.TeamPermissionSettingUpdateRequest;
 import com.datadog.api.client.v2.model.TeamPermissionSettingsResponse;
@@ -980,6 +982,163 @@ public class TeamsApi {
   }
 
   /**
+   * Create team notification rule.
+   *
+   * <p>See {@link #createTeamNotificationRuleWithHttpInfo}.
+   *
+   * @param teamId None (required)
+   * @param body (required)
+   * @return TeamNotificationRule
+   * @throws ApiException if fails to make API call
+   */
+  public TeamNotificationRule createTeamNotificationRule(String teamId, TeamNotificationRule body)
+      throws ApiException {
+    return createTeamNotificationRuleWithHttpInfo(teamId, body).getData();
+  }
+
+  /**
+   * Create team notification rule.
+   *
+   * <p>See {@link #createTeamNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param teamId None (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;TeamNotificationRule&gt;
+   */
+  public CompletableFuture<TeamNotificationRule> createTeamNotificationRuleAsync(
+      String teamId, TeamNotificationRule body) {
+    return createTeamNotificationRuleWithHttpInfoAsync(teamId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param teamId None (required)
+   * @param body (required)
+   * @return ApiResponse&lt;TeamNotificationRule&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamNotificationRule> createTeamNotificationRuleWithHttpInfo(
+      String teamId, TeamNotificationRule body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling createTeamNotificationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createTeamNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/notification-rules"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.createTeamNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamNotificationRule>() {});
+  }
+
+  /**
+   * Create team notification rule.
+   *
+   * <p>See {@link #createTeamNotificationRuleWithHttpInfo}.
+   *
+   * @param teamId None (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamNotificationRule&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamNotificationRule>>
+      createTeamNotificationRuleWithHttpInfoAsync(String teamId, TeamNotificationRule body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<TeamNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'teamId' when calling createTeamNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TeamNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createTeamNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/notification-rules"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.createTeamNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamNotificationRule>() {});
+  }
+
+  /**
    * Remove a team.
    *
    * <p>See {@link #deleteTeamWithHttpInfo}.
@@ -1535,6 +1694,161 @@ public class TeamsApi {
       builder =
           apiClient.createBuilder(
               "v2.TeamsApi.deleteTeamMembership",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete team notification rule.
+   *
+   * <p>See {@link #deleteTeamNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteTeamNotificationRule(String ruleId, String teamId) throws ApiException {
+    deleteTeamNotificationRuleWithHttpInfo(ruleId, teamId);
+  }
+
+  /**
+   * Delete team notification rule.
+   *
+   * <p>See {@link #deleteTeamNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteTeamNotificationRuleAsync(String ruleId, String teamId) {
+    return deleteTeamNotificationRuleWithHttpInfoAsync(ruleId, teamId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteTeamNotificationRuleWithHttpInfo(String ruleId, String teamId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling deleteTeamNotificationRule");
+    }
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling deleteTeamNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.deleteTeamNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete team notification rule.
+   *
+   * <p>See {@link #deleteTeamNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteTeamNotificationRuleWithHttpInfoAsync(
+      String ruleId, String teamId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling deleteTeamNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'teamId' when calling deleteTeamNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.deleteTeamNotificationRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2412,6 +2726,299 @@ public class TeamsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UserTeamsResponse>() {});
+  }
+
+  /**
+   * Get team notification rule.
+   *
+   * <p>See {@link #getTeamNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @return TeamNotificationRule
+   * @throws ApiException if fails to make API call
+   */
+  public TeamNotificationRule getTeamNotificationRule(String ruleId, String teamId)
+      throws ApiException {
+    return getTeamNotificationRuleWithHttpInfo(ruleId, teamId).getData();
+  }
+
+  /**
+   * Get team notification rule.
+   *
+   * <p>See {@link #getTeamNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @return CompletableFuture&lt;TeamNotificationRule&gt;
+   */
+  public CompletableFuture<TeamNotificationRule> getTeamNotificationRuleAsync(
+      String ruleId, String teamId) {
+    return getTeamNotificationRuleWithHttpInfoAsync(ruleId, teamId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @return ApiResponse&lt;TeamNotificationRule&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamNotificationRule> getTeamNotificationRuleWithHttpInfo(
+      String ruleId, String teamId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling getTeamNotificationRule");
+    }
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling getTeamNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.getTeamNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamNotificationRule>() {});
+  }
+
+  /**
+   * Get team notification rule.
+   *
+   * <p>See {@link #getTeamNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamNotificationRule&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamNotificationRule>>
+      getTeamNotificationRuleWithHttpInfoAsync(String ruleId, String teamId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<TeamNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'ruleId' when calling getTeamNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<TeamNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'teamId' when calling getTeamNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.getTeamNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamNotificationRule>() {});
+  }
+
+  /**
+   * Get team notification rules.
+   *
+   * <p>See {@link #getTeamNotificationRulesWithHttpInfo}.
+   *
+   * @param teamId None (required)
+   * @return TeamNotificationRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TeamNotificationRulesResponse getTeamNotificationRules(String teamId) throws ApiException {
+    return getTeamNotificationRulesWithHttpInfo(teamId).getData();
+  }
+
+  /**
+   * Get team notification rules.
+   *
+   * <p>See {@link #getTeamNotificationRulesWithHttpInfoAsync}.
+   *
+   * @param teamId None (required)
+   * @return CompletableFuture&lt;TeamNotificationRulesResponse&gt;
+   */
+  public CompletableFuture<TeamNotificationRulesResponse> getTeamNotificationRulesAsync(
+      String teamId) {
+    return getTeamNotificationRulesWithHttpInfoAsync(teamId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param teamId None (required)
+   * @return ApiResponse&lt;TeamNotificationRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamNotificationRulesResponse> getTeamNotificationRulesWithHttpInfo(
+      String teamId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling getTeamNotificationRules");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/notification-rules"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.getTeamNotificationRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamNotificationRulesResponse>() {});
+  }
+
+  /**
+   * Get team notification rules.
+   *
+   * <p>See {@link #getTeamNotificationRulesWithHttpInfo}.
+   *
+   * @param teamId None (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamNotificationRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamNotificationRulesResponse>>
+      getTeamNotificationRulesWithHttpInfoAsync(String teamId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<TeamNotificationRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'teamId' when calling getTeamNotificationRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/notification-rules"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.getTeamNotificationRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamNotificationRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamNotificationRulesResponse>() {});
   }
 
   /**
@@ -5027,6 +5634,185 @@ public class TeamsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UserTeamResponse>() {});
+  }
+
+  /**
+   * Update team notification rule.
+   *
+   * <p>See {@link #updateTeamNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @param body (required)
+   * @return TeamNotificationRule
+   * @throws ApiException if fails to make API call
+   */
+  public TeamNotificationRule updateTeamNotificationRule(
+      String ruleId, String teamId, TeamNotificationRule body) throws ApiException {
+    return updateTeamNotificationRuleWithHttpInfo(ruleId, teamId, body).getData();
+  }
+
+  /**
+   * Update team notification rule.
+   *
+   * <p>See {@link #updateTeamNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;TeamNotificationRule&gt;
+   */
+  public CompletableFuture<TeamNotificationRule> updateTeamNotificationRuleAsync(
+      String ruleId, String teamId, TeamNotificationRule body) {
+    return updateTeamNotificationRuleWithHttpInfoAsync(ruleId, teamId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @param body (required)
+   * @return ApiResponse&lt;TeamNotificationRule&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamNotificationRule> updateTeamNotificationRuleWithHttpInfo(
+      String ruleId, String teamId, TeamNotificationRule body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling updateTeamNotificationRule");
+    }
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling updateTeamNotificationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateTeamNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.updateTeamNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamNotificationRule>() {});
+  }
+
+  /**
+   * Update team notification rule.
+   *
+   * <p>See {@link #updateTeamNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId None (required)
+   * @param teamId None (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamNotificationRule&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamNotificationRule>>
+      updateTeamNotificationRuleWithHttpInfoAsync(
+          String ruleId, String teamId, TeamNotificationRule body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<TeamNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling updateTeamNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<TeamNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'teamId' when calling updateTeamNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TeamNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateTeamNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/notification-rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.updateTeamNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamNotificationRule>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamNotificationRule>() {});
   }
 
   /**
