@@ -7,7 +7,7 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/validate",
+      "path": "/api/v2/obs-pipelines/pipelines/validate",
       "keepAlive": false,
       "secure": true
     },
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "621a711b-583d-6a39-1a85-b709238bf078"
+    "id": "77f6e197-9dba-2d03-a370-77dce88acbcd"
   }
 ]
