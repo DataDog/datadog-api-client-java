@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>google_pubsub</code> destination publishes logs to a Google Cloud Pub/Sub topic. */
+/**
+ * The <code>google_pubsub</code> destination publishes logs to a Google Cloud Pub/Sub topic.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_ENCODING,

@@ -18,8 +18,11 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The <code>filter</code> processor allows conditional processing of logs based on a Datadog search
- * query. Logs that match the <code>include</code> query are passed through; others are discarded.
+ * The <code>filter</code> processor allows conditional processing of logs/metrics based on a
+ * Datadog search query. Logs/metrics that match the <code>include</code> query are passed through;
+ * others are discarded.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs, metrics
  */
 @JsonPropertyOrder({
   ObservabilityPipelineFilterProcessor.JSON_PROPERTY_DISPLAY_NAME,
@@ -132,8 +135,8 @@ public class ObservabilityPipelineFilterProcessor {
   }
 
   /**
-   * A Datadog search query used to determine which logs should pass through the filter. Logs that
-   * match this query continue to downstream components; others are dropped.
+   * A Datadog search query used to determine which logs/metrics should pass through the filter.
+   * Logs/metrics that match this query continue to downstream components; others are dropped.
    *
    * @return include
    */

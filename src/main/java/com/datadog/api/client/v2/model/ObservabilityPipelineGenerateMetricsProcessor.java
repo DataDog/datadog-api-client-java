@@ -23,6 +23,8 @@ import java.util.Objects;
  * The <code>generate_datadog_metrics</code> processor creates custom metrics from logs and sends
  * them to Datadog. Metrics can be counters, gauges, or distributions and optionally grouped by log
  * fields.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineGenerateMetricsProcessor.JSON_PROPERTY_DISPLAY_NAME,

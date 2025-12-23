@@ -22,6 +22,8 @@ import java.util.Objects;
 /**
  * The <code>amazon_s3</code> destination sends your logs in Datadog-rehydratable format to an
  * Amazon S3 bucket for archiving.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineAmazonS3Destination.JSON_PROPERTY_AUTH,
