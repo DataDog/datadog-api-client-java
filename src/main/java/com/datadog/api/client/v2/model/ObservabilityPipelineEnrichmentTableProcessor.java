@@ -18,8 +18,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The <code>enrichment_table</code> processor enriches logs using a static CSV file or GeoIP
- * database.
+ * The <code>enrichment_table</code> processor enriches logs using a static CSV file, GeoIP
+ * database, or reference table. Exactly one of <code>file</code>, <code>geoip</code>, or <code>
+ * reference_table</code> must be configured.
  */
 @JsonPropertyOrder({
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_DISPLAY_NAME,
@@ -28,6 +29,7 @@ import java.util.Objects;
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_GEOIP,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_INCLUDE,
+  ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_REFERENCE_TABLE,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_TARGET,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_TYPE
 })
@@ -52,6 +54,9 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
 
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
+
+  public static final String JSON_PROPERTY_REFERENCE_TABLE = "reference_table";
+  private ObservabilityPipelineEnrichmentTableReferenceTable referenceTable;
 
   public static final String JSON_PROPERTY_TARGET = "target";
   private String target;
@@ -205,6 +210,29 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
     this.include = include;
   }
 
+  public ObservabilityPipelineEnrichmentTableProcessor referenceTable(
+      ObservabilityPipelineEnrichmentTableReferenceTable referenceTable) {
+    this.referenceTable = referenceTable;
+    this.unparsed |= referenceTable.unparsed;
+    return this;
+  }
+
+  /**
+   * Uses a Datadog reference table to enrich logs.
+   *
+   * @return referenceTable
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REFERENCE_TABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineEnrichmentTableReferenceTable getReferenceTable() {
+    return referenceTable;
+  }
+
+  public void setReferenceTable(ObservabilityPipelineEnrichmentTableReferenceTable referenceTable) {
+    this.referenceTable = referenceTable;
+  }
+
   public ObservabilityPipelineEnrichmentTableProcessor target(String target) {
     this.target = target;
     return this;
@@ -315,6 +343,8 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
         && Objects.equals(this.geoip, observabilityPipelineEnrichmentTableProcessor.geoip)
         && Objects.equals(this.id, observabilityPipelineEnrichmentTableProcessor.id)
         && Objects.equals(this.include, observabilityPipelineEnrichmentTableProcessor.include)
+        && Objects.equals(
+            this.referenceTable, observabilityPipelineEnrichmentTableProcessor.referenceTable)
         && Objects.equals(this.target, observabilityPipelineEnrichmentTableProcessor.target)
         && Objects.equals(this.type, observabilityPipelineEnrichmentTableProcessor.type)
         && Objects.equals(
@@ -325,7 +355,16 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
   @Override
   public int hashCode() {
     return Objects.hash(
-        displayName, enabled, file, geoip, id, include, target, type, additionalProperties);
+        displayName,
+        enabled,
+        file,
+        geoip,
+        id,
+        include,
+        referenceTable,
+        target,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -338,6 +377,7 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
     sb.append("    geoip: ").append(toIndentedString(geoip)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
+    sb.append("    referenceTable: ").append(toIndentedString(referenceTable)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
