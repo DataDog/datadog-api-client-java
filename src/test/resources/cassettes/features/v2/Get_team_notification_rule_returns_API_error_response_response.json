@@ -1,0 +1,109 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-903f29be232384f8\",\"name\":\"test-name-903f29be232384f8\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"54fb1795-4bee-4e8f-9ccd-1aca53d24f8e\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":14,\"created_at\":\"2025-12-23T15:29:05.802966+00:00\",\"description\":null,\"handle\":\"test-handle-903f29be232384f8\",\"hidden_modules\":null,\"is_managed\":false,\"link_count\":0,\"modified_at\":\"2025-12-23T15:29:05.802966+00:00\",\"name\":\"test-name-903f29be232384f8\",\"summary\":null,\"user_count\":0,\"visible_modules\":null},\"relationships\":{\"team_links\":{\"data\":[],\"links\":{\"related\":\"/api/v2/team/54fb1795-4bee-4e8f-9ccd-1aca53d24f8e/links\"}},\"user_team_permissions\":{\"data\":null,\"links\":{\"related\":\"/api/v2/team/54fb1795-4bee-4e8f-9ccd-1aca53d24f8e/permission-settings\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "25d19fe0-37f6-bfd5-2fe9-947bb1861190"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"email\":{\"enabled\":true},\"slack\":{\"channel\":\"aaa-omg-ops\",\"workspace\":\"Datadog\"}},\"type\":\"team_notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team/54fb1795-4bee-4e8f-9ccd-1aca53d24f8e/notification-rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"51f01e40-e075-4c25-8878-9fd3f7800770\",\"type\":\"team_notification_rules\",\"attributes\":{\"email\":{\"enabled\":true},\"slack\":{\"workspace\":\"Datadog\",\"channel\":\"aaa-omg-ops\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f4861bf3-db17-1612-05c9-9a82c042e80c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/team/54fb1795-4bee-4e8f-9ccd-1aca53d24f8e/notification-rules/54fb1795-4bee-4e8f-9ccd-1aca53d24f8e",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"rule not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cc32ef8a-eb7e-1638-aff8-14566f5ba630"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/54fb1795-4bee-4e8f-9ccd-1aca53d24f8e",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4565490e-de43-141e-efb7-f70721653c5a"
+  }
+]
