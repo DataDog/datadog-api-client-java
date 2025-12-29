@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -21,13 +23,16 @@ import java.util.Objects;
   DistributionWidgetRequest.JSON_PROPERTY_APM_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_APM_STATS_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
+  DistributionWidgetRequest.JSON_PROPERTY_FORMULAS,
   DistributionWidgetRequest.JSON_PROPERTY_LOG_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_Q,
+  DistributionWidgetRequest.JSON_PROPERTY_QUERIES,
   DistributionWidgetRequest.JSON_PROPERTY_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_REQUEST_TYPE,
+  DistributionWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   DistributionWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_STYLE
@@ -45,6 +50,9 @@ public class DistributionWidgetRequest {
   public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
   private LogQueryDefinition eventQuery;
 
+  public static final String JSON_PROPERTY_FORMULAS = "formulas";
+  private List<WidgetFormula> formulas = null;
+
   public static final String JSON_PROPERTY_LOG_QUERY = "log_query";
   private LogQueryDefinition logQuery;
 
@@ -60,11 +68,17 @@ public class DistributionWidgetRequest {
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
 
+  public static final String JSON_PROPERTY_QUERIES = "queries";
+  private List<FormulaAndFunctionQueryDefinition> queries = null;
+
   public static final String JSON_PROPERTY_QUERY = "query";
   private DistributionWidgetHistogramRequestQuery query;
 
   public static final String JSON_PROPERTY_REQUEST_TYPE = "request_type";
-  private DistributionWidgetHistogramRequestType requestType;
+  private WidgetHistogramRequestType requestType;
+
+  public static final String JSON_PROPERTY_RESPONSE_FORMAT = "response_format";
+  private FormulaAndFunctionResponseFormat responseFormat;
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
@@ -139,6 +153,39 @@ public class DistributionWidgetRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+  }
+
+  public DistributionWidgetRequest formulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
+    for (WidgetFormula item : formulas) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public DistributionWidgetRequest addFormulasItem(WidgetFormula formulasItem) {
+    if (this.formulas == null) {
+      this.formulas = new ArrayList<>();
+    }
+    this.formulas.add(formulasItem);
+    this.unparsed |= formulasItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of formulas that operate on queries.
+   *
+   * @return formulas
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORMULAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetFormula> getFormulas() {
+    return formulas;
+  }
+
+  public void setFormulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
   }
 
   public DistributionWidgetRequest logQuery(LogQueryDefinition logQuery) {
@@ -250,6 +297,39 @@ public class DistributionWidgetRequest {
     this.q = q;
   }
 
+  public DistributionWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+    for (FormulaAndFunctionQueryDefinition item : queries) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public DistributionWidgetRequest addQueriesItem(FormulaAndFunctionQueryDefinition queriesItem) {
+    if (this.queries == null) {
+      this.queries = new ArrayList<>();
+    }
+    this.queries.add(queriesItem);
+    this.unparsed |= queriesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of queries that can be returned directly or used in formulas.
+   *
+   * @return queries
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FormulaAndFunctionQueryDefinition> getQueries() {
+    return queries;
+  }
+
+  public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+  }
+
   public DistributionWidgetRequest query(DistributionWidgetHistogramRequestQuery query) {
     this.query = query;
     this.unparsed |= query.unparsed;
@@ -272,7 +352,7 @@ public class DistributionWidgetRequest {
     this.query = query;
   }
 
-  public DistributionWidgetRequest requestType(DistributionWidgetHistogramRequestType requestType) {
+  public DistributionWidgetRequest requestType(WidgetHistogramRequestType requestType) {
     this.requestType = requestType;
     this.unparsed |= !requestType.isValid();
     return this;
@@ -286,15 +366,41 @@ public class DistributionWidgetRequest {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DistributionWidgetHistogramRequestType getRequestType() {
+  public WidgetHistogramRequestType getRequestType() {
     return requestType;
   }
 
-  public void setRequestType(DistributionWidgetHistogramRequestType requestType) {
+  public void setRequestType(WidgetHistogramRequestType requestType) {
     if (!requestType.isValid()) {
       this.unparsed = true;
     }
     this.requestType = requestType;
+  }
+
+  public DistributionWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    this.responseFormat = responseFormat;
+    this.unparsed |= !responseFormat.isValid();
+    return this;
+  }
+
+  /**
+   * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap
+   * widgets.
+   *
+   * @return responseFormat
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionResponseFormat getResponseFormat() {
+    return responseFormat;
+  }
+
+  public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    if (!responseFormat.isValid()) {
+      this.unparsed = true;
+    }
+    this.responseFormat = responseFormat;
   }
 
   public DistributionWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
@@ -422,13 +528,16 @@ public class DistributionWidgetRequest {
     return Objects.equals(this.apmQuery, distributionWidgetRequest.apmQuery)
         && Objects.equals(this.apmStatsQuery, distributionWidgetRequest.apmStatsQuery)
         && Objects.equals(this.eventQuery, distributionWidgetRequest.eventQuery)
+        && Objects.equals(this.formulas, distributionWidgetRequest.formulas)
         && Objects.equals(this.logQuery, distributionWidgetRequest.logQuery)
         && Objects.equals(this.networkQuery, distributionWidgetRequest.networkQuery)
         && Objects.equals(this.processQuery, distributionWidgetRequest.processQuery)
         && Objects.equals(this.profileMetricsQuery, distributionWidgetRequest.profileMetricsQuery)
         && Objects.equals(this.q, distributionWidgetRequest.q)
+        && Objects.equals(this.queries, distributionWidgetRequest.queries)
         && Objects.equals(this.query, distributionWidgetRequest.query)
         && Objects.equals(this.requestType, distributionWidgetRequest.requestType)
+        && Objects.equals(this.responseFormat, distributionWidgetRequest.responseFormat)
         && Objects.equals(this.rumQuery, distributionWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, distributionWidgetRequest.securityQuery)
         && Objects.equals(this.style, distributionWidgetRequest.style)
@@ -442,13 +551,16 @@ public class DistributionWidgetRequest {
         apmQuery,
         apmStatsQuery,
         eventQuery,
+        formulas,
         logQuery,
         networkQuery,
         processQuery,
         profileMetricsQuery,
         q,
+        queries,
         query,
         requestType,
+        responseFormat,
         rumQuery,
         securityQuery,
         style,
@@ -462,6 +574,7 @@ public class DistributionWidgetRequest {
     sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
     sb.append("    apmStatsQuery: ").append(toIndentedString(apmStatsQuery)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
+    sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
@@ -469,8 +582,10 @@ public class DistributionWidgetRequest {
         .append(toIndentedString(profileMetricsQuery))
         .append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
+    sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
+    sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
