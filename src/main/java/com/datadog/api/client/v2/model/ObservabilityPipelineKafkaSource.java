@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>kafka</code> source ingests data from Apache Kafka topics. */
+/**
+ * The <code>kafka</code> source ingests data from Apache Kafka topics.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineKafkaSource.JSON_PROPERTY_GROUP_ID,
   ObservabilityPipelineKafkaSource.JSON_PROPERTY_ID,

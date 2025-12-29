@@ -20,28 +20,31 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The <code>crowdstrike_next_gen_siem</code> destination forwards logs to CrowdStrike Next Gen
- * SIEM.
+ * The <code>http_client</code> destination sends data to an HTTP endpoint.
  *
- * <p><strong>Supported pipeline types:</strong> logs
+ * <p><strong>Supported pipeline types:</strong> logs, metrics
  */
 @JsonPropertyOrder({
-  ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_COMPRESSION,
-  ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_ENCODING,
-  ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_ID,
-  ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_INPUTS,
-  ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_TLS,
-  ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_TYPE
+  ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_AUTH_STRATEGY,
+  ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_COMPRESSION,
+  ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_ENCODING,
+  ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_ID,
+  ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_INPUTS,
+  ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_TLS,
+  ObservabilityPipelineHttpClientDestination.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
+public class ObservabilityPipelineHttpClientDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AUTH_STRATEGY = "auth_strategy";
+  private ObservabilityPipelineHttpClientDestinationAuthStrategy authStrategy;
+
   public static final String JSON_PROPERTY_COMPRESSION = "compression";
-  private ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression compression;
+  private ObservabilityPipelineHttpClientDestinationCompression compression;
 
   public static final String JSON_PROPERTY_ENCODING = "encoding";
-  private ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding encoding;
+  private ObservabilityPipelineHttpClientDestinationEncoding encoding;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -53,19 +56,19 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
   private ObservabilityPipelineTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType type =
-      ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType.CROWDSTRIKE_NEXT_GEN_SIEM;
+  private ObservabilityPipelineHttpClientDestinationType type =
+      ObservabilityPipelineHttpClientDestinationType.HTTP_CLIENT;
 
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination() {}
+  public ObservabilityPipelineHttpClientDestination() {}
 
   @JsonCreator
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination(
+  public ObservabilityPipelineHttpClientDestination(
       @JsonProperty(required = true, value = JSON_PROPERTY_ENCODING)
-          ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding encoding,
+          ObservabilityPipelineHttpClientDestinationEncoding encoding,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType type) {
+          ObservabilityPipelineHttpClientDestinationType type) {
     this.encoding = encoding;
     this.unparsed |= !encoding.isValid();
     this.id = id;
@@ -74,32 +77,57 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
     this.unparsed |= !type.isValid();
   }
 
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination compression(
-      ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression compression) {
+  public ObservabilityPipelineHttpClientDestination authStrategy(
+      ObservabilityPipelineHttpClientDestinationAuthStrategy authStrategy) {
+    this.authStrategy = authStrategy;
+    this.unparsed |= !authStrategy.isValid();
+    return this;
+  }
+
+  /**
+   * HTTP authentication strategy.
+   *
+   * @return authStrategy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTH_STRATEGY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineHttpClientDestinationAuthStrategy getAuthStrategy() {
+    return authStrategy;
+  }
+
+  public void setAuthStrategy(ObservabilityPipelineHttpClientDestinationAuthStrategy authStrategy) {
+    if (!authStrategy.isValid()) {
+      this.unparsed = true;
+    }
+    this.authStrategy = authStrategy;
+  }
+
+  public ObservabilityPipelineHttpClientDestination compression(
+      ObservabilityPipelineHttpClientDestinationCompression compression) {
     this.compression = compression;
     this.unparsed |= compression.unparsed;
     return this;
   }
 
   /**
-   * Compression configuration for log events.
+   * Compression configuration for HTTP requests.
    *
    * @return compression
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression getCompression() {
+  public ObservabilityPipelineHttpClientDestinationCompression getCompression() {
     return compression;
   }
 
-  public void setCompression(
-      ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression compression) {
+  public void setCompression(ObservabilityPipelineHttpClientDestinationCompression compression) {
     this.compression = compression;
   }
 
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination encoding(
-      ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding encoding) {
+  public ObservabilityPipelineHttpClientDestination encoding(
+      ObservabilityPipelineHttpClientDestinationEncoding encoding) {
     this.encoding = encoding;
     this.unparsed |= !encoding.isValid();
     return this;
@@ -112,18 +140,18 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
    */
   @JsonProperty(JSON_PROPERTY_ENCODING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding getEncoding() {
+  public ObservabilityPipelineHttpClientDestinationEncoding getEncoding() {
     return encoding;
   }
 
-  public void setEncoding(ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding encoding) {
+  public void setEncoding(ObservabilityPipelineHttpClientDestinationEncoding encoding) {
     if (!encoding.isValid()) {
       this.unparsed = true;
     }
     this.encoding = encoding;
   }
 
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination id(String id) {
+  public ObservabilityPipelineHttpClientDestination id(String id) {
     this.id = id;
     return this;
   }
@@ -143,18 +171,18 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
     this.id = id;
   }
 
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination inputs(List<String> inputs) {
+  public ObservabilityPipelineHttpClientDestination inputs(List<String> inputs) {
     this.inputs = inputs;
     return this;
   }
 
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination addInputsItem(String inputsItem) {
+  public ObservabilityPipelineHttpClientDestination addInputsItem(String inputsItem) {
     this.inputs.add(inputsItem);
     return this;
   }
 
   /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
+   * A list of component IDs whose output is used as the input for this component.
    *
    * @return inputs
    */
@@ -168,7 +196,7 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
     this.inputs = inputs;
   }
 
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination tls(ObservabilityPipelineTls tls) {
+  public ObservabilityPipelineHttpClientDestination tls(ObservabilityPipelineTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
     return this;
@@ -190,25 +218,25 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
     this.tls = tls;
   }
 
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination type(
-      ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType type) {
+  public ObservabilityPipelineHttpClientDestination type(
+      ObservabilityPipelineHttpClientDestinationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The destination type. The value should always be <code>crowdstrike_next_gen_siem</code>.
+   * The destination type. The value should always be <code>http_client</code>.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType getType() {
+  public ObservabilityPipelineHttpClientDestinationType getType() {
     return type;
   }
 
-  public void setType(ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType type) {
+  public void setType(ObservabilityPipelineHttpClientDestinationType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -227,10 +255,10 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineCrowdStrikeNextGenSiemDestination
+   * @return ObservabilityPipelineHttpClientDestination
    */
   @JsonAnySetter
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination putAdditionalProperty(
+  public ObservabilityPipelineHttpClientDestination putAdditionalProperty(
       String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
@@ -262,10 +290,7 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ObservabilityPipelineCrowdStrikeNextGenSiemDestination object is equal to
-   * o.
-   */
+  /** Return true if this ObservabilityPipelineHttpClientDestination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -274,32 +299,32 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineCrowdStrikeNextGenSiemDestination
-        observabilityPipelineCrowdStrikeNextGenSiemDestination =
-            (ObservabilityPipelineCrowdStrikeNextGenSiemDestination) o;
+    ObservabilityPipelineHttpClientDestination observabilityPipelineHttpClientDestination =
+        (ObservabilityPipelineHttpClientDestination) o;
     return Objects.equals(
-            this.compression, observabilityPipelineCrowdStrikeNextGenSiemDestination.compression)
-        && Objects.equals(
-            this.encoding, observabilityPipelineCrowdStrikeNextGenSiemDestination.encoding)
-        && Objects.equals(this.id, observabilityPipelineCrowdStrikeNextGenSiemDestination.id)
-        && Objects.equals(
-            this.inputs, observabilityPipelineCrowdStrikeNextGenSiemDestination.inputs)
-        && Objects.equals(this.tls, observabilityPipelineCrowdStrikeNextGenSiemDestination.tls)
-        && Objects.equals(this.type, observabilityPipelineCrowdStrikeNextGenSiemDestination.type)
+            this.authStrategy, observabilityPipelineHttpClientDestination.authStrategy)
+        && Objects.equals(this.compression, observabilityPipelineHttpClientDestination.compression)
+        && Objects.equals(this.encoding, observabilityPipelineHttpClientDestination.encoding)
+        && Objects.equals(this.id, observabilityPipelineHttpClientDestination.id)
+        && Objects.equals(this.inputs, observabilityPipelineHttpClientDestination.inputs)
+        && Objects.equals(this.tls, observabilityPipelineHttpClientDestination.tls)
+        && Objects.equals(this.type, observabilityPipelineHttpClientDestination.type)
         && Objects.equals(
             this.additionalProperties,
-            observabilityPipelineCrowdStrikeNextGenSiemDestination.additionalProperties);
+            observabilityPipelineHttpClientDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compression, encoding, id, inputs, tls, type, additionalProperties);
+    return Objects.hash(
+        authStrategy, compression, encoding, id, inputs, tls, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {\n");
+    sb.append("class ObservabilityPipelineHttpClientDestination {\n");
+    sb.append("    authStrategy: ").append(toIndentedString(authStrategy)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

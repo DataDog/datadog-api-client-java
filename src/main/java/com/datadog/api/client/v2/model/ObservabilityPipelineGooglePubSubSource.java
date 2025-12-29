@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>google_pubsub</code> source ingests logs from a Google Cloud Pub/Sub subscription. */
+/**
+ * The <code>google_pubsub</code> source ingests logs from a Google Cloud Pub/Sub subscription.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineGooglePubSubSource.JSON_PROPERTY_AUTH,
   ObservabilityPipelineGooglePubSubSource.JSON_PROPERTY_DECODING,

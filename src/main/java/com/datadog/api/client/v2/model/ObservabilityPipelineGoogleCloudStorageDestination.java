@@ -22,6 +22,8 @@ import java.util.Objects;
 /**
  * The <code>google_cloud_storage</code> destination stores logs in a Google Cloud Storage (GCS)
  * bucket. It requires a bucket name, GCP authentication, and metadata fields.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_ACL,
