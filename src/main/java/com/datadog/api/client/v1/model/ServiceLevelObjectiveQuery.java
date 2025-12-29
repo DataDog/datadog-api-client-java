@@ -18,9 +18,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * A metric-based SLO. <strong>Required if type is <code>metric</code></strong>. Note that Datadog
- * only allows the sum by aggregator to be used because this will sum up all request counts instead
- * of averaging them, or taking the max or min of all of those requests.
+ * A now deprecated metric SLO. Note that Datadog only allows the sum by aggregator to be used
+ * because this will sum up all request counts instead of averaging them, or taking the max or min
+ * of all of those requests.
  */
 @JsonPropertyOrder({
   ServiceLevelObjectiveQuery.JSON_PROPERTY_DENOMINATOR,
