@@ -12,90 +12,52 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** A DORA event. */
-@JsonPropertyOrder({
-  DORAEvent.JSON_PROPERTY_ATTRIBUTES,
-  DORAEvent.JSON_PROPERTY_ID,
-  DORAEvent.JSON_PROPERTY_TYPE
-})
+/** Response for the list failures endpoint. */
+@JsonPropertyOrder({DORAFailuresListResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAEvent {
+public class DORAFailuresListResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private Object attributes;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<DORAIncidentObject> data = null;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public DORAFailuresListResponse data(List<DORAIncidentObject> data) {
+    this.data = data;
+    for (DORAIncidentObject item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
-
-  public DORAEvent attributes(Object attributes) {
-    this.attributes = attributes;
+  public DORAFailuresListResponse addDataItem(DORAIncidentObject dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * The attributes of the event.
+   * The list of DORA incident events.
    *
-   * @return attributes
+   * @return data
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getAttributes() {
-    return attributes;
+  public List<DORAIncidentObject> getData() {
+    return data;
   }
 
-  public void setAttributes(Object attributes) {
-    this.attributes = attributes;
-  }
-
-  public DORAEvent id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The ID of the event.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public DORAEvent type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * The type of the event.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
+  public void setData(List<DORAIncidentObject> data) {
+    this.data = data;
   }
 
   /**
@@ -110,10 +72,10 @@ public class DORAEvent {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAEvent
+   * @return DORAFailuresListResponse
    */
   @JsonAnySetter
-  public DORAEvent putAdditionalProperty(String key, Object value) {
+  public DORAFailuresListResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +106,7 @@ public class DORAEvent {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAEvent object is equal to o. */
+  /** Return true if this DORAFailuresListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,25 +115,21 @@ public class DORAEvent {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAEvent doraEvent = (DORAEvent) o;
-    return Objects.equals(this.attributes, doraEvent.attributes)
-        && Objects.equals(this.id, doraEvent.id)
-        && Objects.equals(this.type, doraEvent.type)
-        && Objects.equals(this.additionalProperties, doraEvent.additionalProperties);
+    DORAFailuresListResponse doraFailuresListResponse = (DORAFailuresListResponse) o;
+    return Objects.equals(this.data, doraFailuresListResponse.data)
+        && Objects.equals(this.additionalProperties, doraFailuresListResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAEvent {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class DORAFailuresListResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

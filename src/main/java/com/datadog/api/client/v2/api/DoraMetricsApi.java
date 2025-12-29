@@ -4,14 +4,16 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.DORADeploymentFetchResponse;
 import com.datadog.api.client.v2.model.DORADeploymentRequest;
 import com.datadog.api.client.v2.model.DORADeploymentResponse;
+import com.datadog.api.client.v2.model.DORADeploymentsListResponse;
+import com.datadog.api.client.v2.model.DORAFailureFetchResponse;
 import com.datadog.api.client.v2.model.DORAFailureRequest;
 import com.datadog.api.client.v2.model.DORAFailureResponse;
-import com.datadog.api.client.v2.model.DORAFetchResponse;
+import com.datadog.api.client.v2.model.DORAFailuresListResponse;
 import com.datadog.api.client.v2.model.DORAListDeploymentsRequest;
 import com.datadog.api.client.v2.model.DORAListFailuresRequest;
-import com.datadog.api.client.v2.model.DORAListResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -741,10 +743,10 @@ public class DoraMetricsApi {
    * <p>See {@link #getDORADeploymentWithHttpInfo}.
    *
    * @param deploymentId The ID of the deployment event. (required)
-   * @return DORAFetchResponse
+   * @return DORADeploymentFetchResponse
    * @throws ApiException if fails to make API call
    */
-  public DORAFetchResponse getDORADeployment(String deploymentId) throws ApiException {
+  public DORADeploymentFetchResponse getDORADeployment(String deploymentId) throws ApiException {
     return getDORADeploymentWithHttpInfo(deploymentId).getData();
   }
 
@@ -754,9 +756,10 @@ public class DoraMetricsApi {
    * <p>See {@link #getDORADeploymentWithHttpInfoAsync}.
    *
    * @param deploymentId The ID of the deployment event. (required)
-   * @return CompletableFuture&lt;DORAFetchResponse&gt;
+   * @return CompletableFuture&lt;DORADeploymentFetchResponse&gt;
    */
-  public CompletableFuture<DORAFetchResponse> getDORADeploymentAsync(String deploymentId) {
+  public CompletableFuture<DORADeploymentFetchResponse> getDORADeploymentAsync(
+      String deploymentId) {
     return getDORADeploymentWithHttpInfoAsync(deploymentId)
         .thenApply(
             response -> {
@@ -768,7 +771,7 @@ public class DoraMetricsApi {
    * Use this API endpoint to get a deployment event.
    *
    * @param deploymentId The ID of the deployment event. (required)
-   * @return ApiResponse&lt;DORAFetchResponse&gt;
+   * @return ApiResponse&lt;DORADeploymentFetchResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -780,7 +783,7 @@ public class DoraMetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DORAFetchResponse> getDORADeploymentWithHttpInfo(String deploymentId)
+  public ApiResponse<DORADeploymentFetchResponse> getDORADeploymentWithHttpInfo(String deploymentId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -814,7 +817,7 @@ public class DoraMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<DORAFetchResponse>() {});
+        new GenericType<DORADeploymentFetchResponse>() {});
   }
 
   /**
@@ -823,15 +826,16 @@ public class DoraMetricsApi {
    * <p>See {@link #getDORADeploymentWithHttpInfo}.
    *
    * @param deploymentId The ID of the deployment event. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;DORAFetchResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;DORADeploymentFetchResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DORAFetchResponse>> getDORADeploymentWithHttpInfoAsync(
-      String deploymentId) {
+  public CompletableFuture<ApiResponse<DORADeploymentFetchResponse>>
+      getDORADeploymentWithHttpInfoAsync(String deploymentId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'deploymentId' is set
     if (deploymentId == null) {
-      CompletableFuture<ApiResponse<DORAFetchResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DORADeploymentFetchResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'deploymentId' when calling getDORADeployment"));
@@ -857,7 +861,8 @@ public class DoraMetricsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<DORAFetchResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DORADeploymentFetchResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -869,7 +874,7 @@ public class DoraMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<DORAFetchResponse>() {});
+        new GenericType<DORADeploymentFetchResponse>() {});
   }
 
   /**
@@ -878,10 +883,10 @@ public class DoraMetricsApi {
    * <p>See {@link #getDORAFailureWithHttpInfo}.
    *
    * @param failureId The ID of the failure event. (required)
-   * @return DORAFetchResponse
+   * @return DORAFailureFetchResponse
    * @throws ApiException if fails to make API call
    */
-  public DORAFetchResponse getDORAFailure(String failureId) throws ApiException {
+  public DORAFailureFetchResponse getDORAFailure(String failureId) throws ApiException {
     return getDORAFailureWithHttpInfo(failureId).getData();
   }
 
@@ -891,9 +896,9 @@ public class DoraMetricsApi {
    * <p>See {@link #getDORAFailureWithHttpInfoAsync}.
    *
    * @param failureId The ID of the failure event. (required)
-   * @return CompletableFuture&lt;DORAFetchResponse&gt;
+   * @return CompletableFuture&lt;DORAFailureFetchResponse&gt;
    */
-  public CompletableFuture<DORAFetchResponse> getDORAFailureAsync(String failureId) {
+  public CompletableFuture<DORAFailureFetchResponse> getDORAFailureAsync(String failureId) {
     return getDORAFailureWithHttpInfoAsync(failureId)
         .thenApply(
             response -> {
@@ -905,7 +910,7 @@ public class DoraMetricsApi {
    * Use this API endpoint to get a failure event.
    *
    * @param failureId The ID of the failure event. (required)
-   * @return ApiResponse&lt;DORAFetchResponse&gt;
+   * @return ApiResponse&lt;DORAFailureFetchResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -917,7 +922,7 @@ public class DoraMetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DORAFetchResponse> getDORAFailureWithHttpInfo(String failureId)
+  public ApiResponse<DORAFailureFetchResponse> getDORAFailureWithHttpInfo(String failureId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -950,7 +955,7 @@ public class DoraMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<DORAFetchResponse>() {});
+        new GenericType<DORAFailureFetchResponse>() {});
   }
 
   /**
@@ -959,15 +964,15 @@ public class DoraMetricsApi {
    * <p>See {@link #getDORAFailureWithHttpInfo}.
    *
    * @param failureId The ID of the failure event. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;DORAFetchResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;DORAFailureFetchResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DORAFetchResponse>> getDORAFailureWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<DORAFailureFetchResponse>> getDORAFailureWithHttpInfoAsync(
       String failureId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'failureId' is set
     if (failureId == null) {
-      CompletableFuture<ApiResponse<DORAFetchResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DORAFailureFetchResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'failureId' when calling getDORAFailure"));
@@ -992,7 +997,7 @@ public class DoraMetricsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<DORAFetchResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DORAFailureFetchResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1004,7 +1009,7 @@ public class DoraMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<DORAFetchResponse>() {});
+        new GenericType<DORAFailureFetchResponse>() {});
   }
 
   /**
@@ -1013,10 +1018,11 @@ public class DoraMetricsApi {
    * <p>See {@link #listDORADeploymentsWithHttpInfo}.
    *
    * @param body (required)
-   * @return DORAListResponse
+   * @return DORADeploymentsListResponse
    * @throws ApiException if fails to make API call
    */
-  public DORAListResponse listDORADeployments(DORAListDeploymentsRequest body) throws ApiException {
+  public DORADeploymentsListResponse listDORADeployments(DORAListDeploymentsRequest body)
+      throws ApiException {
     return listDORADeploymentsWithHttpInfo(body).getData();
   }
 
@@ -1026,9 +1032,9 @@ public class DoraMetricsApi {
    * <p>See {@link #listDORADeploymentsWithHttpInfoAsync}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;DORAListResponse&gt;
+   * @return CompletableFuture&lt;DORADeploymentsListResponse&gt;
    */
-  public CompletableFuture<DORAListResponse> listDORADeploymentsAsync(
+  public CompletableFuture<DORADeploymentsListResponse> listDORADeploymentsAsync(
       DORAListDeploymentsRequest body) {
     return listDORADeploymentsWithHttpInfoAsync(body)
         .thenApply(
@@ -1041,7 +1047,7 @@ public class DoraMetricsApi {
    * Use this API endpoint to get a list of deployment events.
    *
    * @param body (required)
-   * @return ApiResponse&lt;DORAListResponse&gt;
+   * @return ApiResponse&lt;DORADeploymentsListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -1053,7 +1059,7 @@ public class DoraMetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DORAListResponse> listDORADeploymentsWithHttpInfo(
+  public ApiResponse<DORADeploymentsListResponse> listDORADeploymentsWithHttpInfo(
       DORAListDeploymentsRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -1084,7 +1090,7 @@ public class DoraMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<DORAListResponse>() {});
+        new GenericType<DORADeploymentsListResponse>() {});
   }
 
   /**
@@ -1093,15 +1099,16 @@ public class DoraMetricsApi {
    * <p>See {@link #listDORADeploymentsWithHttpInfo}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;DORAListResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;DORADeploymentsListResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DORAListResponse>> listDORADeploymentsWithHttpInfoAsync(
-      DORAListDeploymentsRequest body) {
+  public CompletableFuture<ApiResponse<DORADeploymentsListResponse>>
+      listDORADeploymentsWithHttpInfoAsync(DORAListDeploymentsRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<DORAListResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DORADeploymentsListResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'body' when calling listDORADeployments"));
@@ -1124,7 +1131,8 @@ public class DoraMetricsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<DORAListResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DORADeploymentsListResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1136,7 +1144,7 @@ public class DoraMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<DORAListResponse>() {});
+        new GenericType<DORADeploymentsListResponse>() {});
   }
 
   /**
@@ -1145,10 +1153,11 @@ public class DoraMetricsApi {
    * <p>See {@link #listDORAFailuresWithHttpInfo}.
    *
    * @param body (required)
-   * @return DORAListResponse
+   * @return DORAFailuresListResponse
    * @throws ApiException if fails to make API call
    */
-  public DORAListResponse listDORAFailures(DORAListFailuresRequest body) throws ApiException {
+  public DORAFailuresListResponse listDORAFailures(DORAListFailuresRequest body)
+      throws ApiException {
     return listDORAFailuresWithHttpInfo(body).getData();
   }
 
@@ -1158,9 +1167,10 @@ public class DoraMetricsApi {
    * <p>See {@link #listDORAFailuresWithHttpInfoAsync}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;DORAListResponse&gt;
+   * @return CompletableFuture&lt;DORAFailuresListResponse&gt;
    */
-  public CompletableFuture<DORAListResponse> listDORAFailuresAsync(DORAListFailuresRequest body) {
+  public CompletableFuture<DORAFailuresListResponse> listDORAFailuresAsync(
+      DORAListFailuresRequest body) {
     return listDORAFailuresWithHttpInfoAsync(body)
         .thenApply(
             response -> {
@@ -1172,7 +1182,7 @@ public class DoraMetricsApi {
    * Use this API endpoint to get a list of failure events.
    *
    * @param body (required)
-   * @return ApiResponse&lt;DORAListResponse&gt;
+   * @return ApiResponse&lt;DORAFailuresListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -1184,8 +1194,8 @@ public class DoraMetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DORAListResponse> listDORAFailuresWithHttpInfo(DORAListFailuresRequest body)
-      throws ApiException {
+  public ApiResponse<DORAFailuresListResponse> listDORAFailuresWithHttpInfo(
+      DORAListFailuresRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1215,7 +1225,7 @@ public class DoraMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<DORAListResponse>() {});
+        new GenericType<DORAFailuresListResponse>() {});
   }
 
   /**
@@ -1224,15 +1234,15 @@ public class DoraMetricsApi {
    * <p>See {@link #listDORAFailuresWithHttpInfo}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;DORAListResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;DORAFailuresListResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DORAListResponse>> listDORAFailuresWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<DORAFailuresListResponse>> listDORAFailuresWithHttpInfoAsync(
       DORAListFailuresRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<DORAListResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DORAFailuresListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'body' when calling listDORAFailures"));
@@ -1255,7 +1265,7 @@ public class DoraMetricsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<DORAListResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DORAFailuresListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1267,6 +1277,6 @@ public class DoraMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<DORAListResponse>() {});
+        new GenericType<DORAFailuresListResponse>() {});
   }
 }
