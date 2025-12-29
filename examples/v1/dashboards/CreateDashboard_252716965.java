@@ -9,7 +9,6 @@ import com.datadog.api.client.v1.model.DashboardLayoutType;
 import com.datadog.api.client.v1.model.DistributionWidgetDefinition;
 import com.datadog.api.client.v1.model.DistributionWidgetDefinitionType;
 import com.datadog.api.client.v1.model.DistributionWidgetHistogramRequestQuery;
-import com.datadog.api.client.v1.model.DistributionWidgetHistogramRequestType;
 import com.datadog.api.client.v1.model.DistributionWidgetRequest;
 import com.datadog.api.client.v1.model.DistributionWidgetXAxis;
 import com.datadog.api.client.v1.model.DistributionWidgetYAxis;
@@ -18,6 +17,7 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionMetricQueryDefinition;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetCustomLink;
 import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetHistogramRequestType;
 import com.datadog.api.client.v1.model.WidgetLayout;
 import com.datadog.api.client.v1.model.WidgetStyle;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
@@ -70,9 +70,7 @@ public class Example {
                                                                 FormulaAndFunctionMetricDataSource
                                                                     .METRICS)
                                                             .name("query1")))
-                                                .requestType(
-                                                    DistributionWidgetHistogramRequestType
-                                                        .HISTOGRAM)
+                                                .requestType(WidgetHistogramRequestType.HISTOGRAM)
                                                 .style(new WidgetStyle().palette("dog_classic"))))))
                         .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(2L))))
             .layoutType(DashboardLayoutType.ORDERED);
