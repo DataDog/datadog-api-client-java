@@ -4,6 +4,10 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.ApplicationSecurityPolicyCreateRequest;
+import com.datadog.api.client.v2.model.ApplicationSecurityPolicyListResponse;
+import com.datadog.api.client.v2.model.ApplicationSecurityPolicyResponse;
+import com.datadog.api.client.v2.model.ApplicationSecurityPolicyUpdateRequest;
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleCreateRequest;
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleListResponse;
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleResponse;
@@ -342,6 +346,147 @@ public class ApplicationSecurityApi {
   }
 
   /**
+   * Create a WAF Policy.
+   *
+   * <p>See {@link #createApplicationSecurityWafPolicyWithHttpInfo}.
+   *
+   * @param body The new WAF policy. (required)
+   * @return ApplicationSecurityPolicyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ApplicationSecurityPolicyResponse createApplicationSecurityWafPolicy(
+      ApplicationSecurityPolicyCreateRequest body) throws ApiException {
+    return createApplicationSecurityWafPolicyWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a WAF Policy.
+   *
+   * <p>See {@link #createApplicationSecurityWafPolicyWithHttpInfoAsync}.
+   *
+   * @param body The new WAF policy. (required)
+   * @return CompletableFuture&lt;ApplicationSecurityPolicyResponse&gt;
+   */
+  public CompletableFuture<ApplicationSecurityPolicyResponse>
+      createApplicationSecurityWafPolicyAsync(ApplicationSecurityPolicyCreateRequest body) {
+    return createApplicationSecurityWafPolicyWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new WAF policy.
+   *
+   * @param body The new WAF policy. (required)
+   * @return ApiResponse&lt;ApplicationSecurityPolicyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ApplicationSecurityPolicyResponse>
+      createApplicationSecurityWafPolicyWithHttpInfo(ApplicationSecurityPolicyCreateRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createApplicationSecurityWafPolicy");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/remote_config/products/asm/waf/policies";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ApplicationSecurityApi.createApplicationSecurityWafPolicy",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationSecurityPolicyResponse>() {});
+  }
+
+  /**
+   * Create a WAF Policy.
+   *
+   * <p>See {@link #createApplicationSecurityWafPolicyWithHttpInfo}.
+   *
+   * @param body The new WAF policy. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationSecurityPolicyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ApplicationSecurityPolicyResponse>>
+      createApplicationSecurityWafPolicyWithHttpInfoAsync(
+          ApplicationSecurityPolicyCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ApplicationSecurityPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createApplicationSecurityWafPolicy"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/remote_config/products/asm/waf/policies";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ApplicationSecurityApi.createApplicationSecurityWafPolicy",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ApplicationSecurityPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationSecurityPolicyResponse>() {});
+  }
+
+  /**
    * Delete a WAF Custom Rule.
    *
    * <p>See {@link #deleteApplicationSecurityWafCustomRuleWithHttpInfo}.
@@ -605,6 +750,145 @@ public class ApplicationSecurityApi {
       builder =
           apiClient.createBuilder(
               "v2.ApplicationSecurityApi.deleteApplicationSecurityWafExclusionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a WAF Policy.
+   *
+   * <p>See {@link #deleteApplicationSecurityWafPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteApplicationSecurityWafPolicy(String policyId) throws ApiException {
+    deleteApplicationSecurityWafPolicyWithHttpInfo(policyId);
+  }
+
+  /**
+   * Delete a WAF Policy.
+   *
+   * <p>See {@link #deleteApplicationSecurityWafPolicyWithHttpInfoAsync}.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteApplicationSecurityWafPolicyAsync(String policyId) {
+    return deleteApplicationSecurityWafPolicyWithHttpInfoAsync(policyId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a specific WAF policy.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteApplicationSecurityWafPolicyWithHttpInfo(String policyId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'policyId' when calling"
+              + " deleteApplicationSecurityWafPolicy");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/remote_config/products/asm/waf/policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ApplicationSecurityApi.deleteApplicationSecurityWafPolicy",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a WAF Policy.
+   *
+   * <p>See {@link #deleteApplicationSecurityWafPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteApplicationSecurityWafPolicyWithHttpInfoAsync(
+      String policyId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'policyId' when calling"
+                  + " deleteApplicationSecurityWafPolicy"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/remote_config/products/asm/waf/policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ApplicationSecurityApi.deleteApplicationSecurityWafPolicy",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -921,6 +1205,147 @@ public class ApplicationSecurityApi {
   }
 
   /**
+   * Get a WAF Policy.
+   *
+   * <p>See {@link #getApplicationSecurityWafPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @return ApplicationSecurityPolicyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ApplicationSecurityPolicyResponse getApplicationSecurityWafPolicy(String policyId)
+      throws ApiException {
+    return getApplicationSecurityWafPolicyWithHttpInfo(policyId).getData();
+  }
+
+  /**
+   * Get a WAF Policy.
+   *
+   * <p>See {@link #getApplicationSecurityWafPolicyWithHttpInfoAsync}.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @return CompletableFuture&lt;ApplicationSecurityPolicyResponse&gt;
+   */
+  public CompletableFuture<ApplicationSecurityPolicyResponse> getApplicationSecurityWafPolicyAsync(
+      String policyId) {
+    return getApplicationSecurityWafPolicyWithHttpInfoAsync(policyId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a WAF policy by ID.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @return ApiResponse&lt;ApplicationSecurityPolicyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ApplicationSecurityPolicyResponse> getApplicationSecurityWafPolicyWithHttpInfo(
+      String policyId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'policyId' when calling getApplicationSecurityWafPolicy");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/remote_config/products/asm/waf/policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ApplicationSecurityApi.getApplicationSecurityWafPolicy",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationSecurityPolicyResponse>() {});
+  }
+
+  /**
+   * Get a WAF Policy.
+   *
+   * <p>See {@link #getApplicationSecurityWafPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationSecurityPolicyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ApplicationSecurityPolicyResponse>>
+      getApplicationSecurityWafPolicyWithHttpInfoAsync(String policyId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      CompletableFuture<ApiResponse<ApplicationSecurityPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'policyId' when calling"
+                  + " getApplicationSecurityWafPolicy"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/remote_config/products/asm/waf/policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ApplicationSecurityApi.getApplicationSecurityWafPolicy",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ApplicationSecurityPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationSecurityPolicyResponse>() {});
+  }
+
+  /**
    * List all WAF custom rules.
    *
    * <p>See {@link #listApplicationSecurityWAFCustomRulesWithHttpInfo}.
@@ -1148,6 +1573,120 @@ public class ApplicationSecurityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ApplicationSecurityWafExclusionFiltersResponse>() {});
+  }
+
+  /**
+   * List all WAF policies.
+   *
+   * <p>See {@link #listApplicationSecurityWAFPoliciesWithHttpInfo}.
+   *
+   * @return ApplicationSecurityPolicyListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ApplicationSecurityPolicyListResponse listApplicationSecurityWAFPolicies()
+      throws ApiException {
+    return listApplicationSecurityWAFPoliciesWithHttpInfo().getData();
+  }
+
+  /**
+   * List all WAF policies.
+   *
+   * <p>See {@link #listApplicationSecurityWAFPoliciesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ApplicationSecurityPolicyListResponse&gt;
+   */
+  public CompletableFuture<ApplicationSecurityPolicyListResponse>
+      listApplicationSecurityWAFPoliciesAsync() {
+    return listApplicationSecurityWAFPoliciesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a list of WAF policies.
+   *
+   * @return ApiResponse&lt;ApplicationSecurityPolicyListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ApplicationSecurityPolicyListResponse>
+      listApplicationSecurityWAFPoliciesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/remote_config/products/asm/waf/policies";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ApplicationSecurityApi.listApplicationSecurityWAFPolicies",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationSecurityPolicyListResponse>() {});
+  }
+
+  /**
+   * List all WAF policies.
+   *
+   * <p>See {@link #listApplicationSecurityWAFPoliciesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationSecurityPolicyListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ApplicationSecurityPolicyListResponse>>
+      listApplicationSecurityWAFPoliciesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/remote_config/products/asm/waf/policies";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ApplicationSecurityApi.listApplicationSecurityWAFPolicies",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ApplicationSecurityPolicyListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationSecurityPolicyListResponse>() {});
   }
 
   /**
@@ -1505,5 +2044,176 @@ public class ApplicationSecurityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ApplicationSecurityWafExclusionFilterResponse>() {});
+  }
+
+  /**
+   * Update a WAF Policy.
+   *
+   * <p>See {@link #updateApplicationSecurityWafPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @param body New WAF Policy. (required)
+   * @return ApplicationSecurityPolicyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ApplicationSecurityPolicyResponse updateApplicationSecurityWafPolicy(
+      String policyId, ApplicationSecurityPolicyUpdateRequest body) throws ApiException {
+    return updateApplicationSecurityWafPolicyWithHttpInfo(policyId, body).getData();
+  }
+
+  /**
+   * Update a WAF Policy.
+   *
+   * <p>See {@link #updateApplicationSecurityWafPolicyWithHttpInfoAsync}.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @param body New WAF Policy. (required)
+   * @return CompletableFuture&lt;ApplicationSecurityPolicyResponse&gt;
+   */
+  public CompletableFuture<ApplicationSecurityPolicyResponse>
+      updateApplicationSecurityWafPolicyAsync(
+          String policyId, ApplicationSecurityPolicyUpdateRequest body) {
+    return updateApplicationSecurityWafPolicyWithHttpInfoAsync(policyId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a specific WAF policy. Returns the Policy object when the request is successful.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @param body New WAF Policy. (required)
+   * @return ApiResponse&lt;ApplicationSecurityPolicyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ApplicationSecurityPolicyResponse>
+      updateApplicationSecurityWafPolicyWithHttpInfo(
+          String policyId, ApplicationSecurityPolicyUpdateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'policyId' when calling"
+              + " updateApplicationSecurityWafPolicy");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling updateApplicationSecurityWafPolicy");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/remote_config/products/asm/waf/policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ApplicationSecurityApi.updateApplicationSecurityWafPolicy",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationSecurityPolicyResponse>() {});
+  }
+
+  /**
+   * Update a WAF Policy.
+   *
+   * <p>See {@link #updateApplicationSecurityWafPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the policy. (required)
+   * @param body New WAF Policy. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationSecurityPolicyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ApplicationSecurityPolicyResponse>>
+      updateApplicationSecurityWafPolicyWithHttpInfoAsync(
+          String policyId, ApplicationSecurityPolicyUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      CompletableFuture<ApiResponse<ApplicationSecurityPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'policyId' when calling"
+                  + " updateApplicationSecurityWafPolicy"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ApplicationSecurityPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateApplicationSecurityWafPolicy"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/remote_config/products/asm/waf/policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ApplicationSecurityApi.updateApplicationSecurityWafPolicy",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ApplicationSecurityPolicyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationSecurityPolicyResponse>() {});
   }
 }
