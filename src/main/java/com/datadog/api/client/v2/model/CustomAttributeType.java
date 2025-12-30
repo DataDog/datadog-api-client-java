@@ -23,11 +23,12 @@ import java.util.Set;
 public class CustomAttributeType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("URL", "TEXT", "NUMBER"));
+      new HashSet<String>(Arrays.asList("URL", "TEXT", "NUMBER", "SELECT"));
 
   public static final CustomAttributeType URL = new CustomAttributeType("URL");
   public static final CustomAttributeType TEXT = new CustomAttributeType("TEXT");
   public static final CustomAttributeType NUMBER = new CustomAttributeType("NUMBER");
+  public static final CustomAttributeType SELECT = new CustomAttributeType("SELECT");
 
   CustomAttributeType(String value) {
     super(value, allowedValues);
