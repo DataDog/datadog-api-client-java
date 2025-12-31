@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,72 +16,39 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Represents a key-value pair used to configure low-level <code>librdkafka</code> client options
- * for Kafka sources, such as timeouts, buffer sizes, and security settings.
- */
-@JsonPropertyOrder({
-  ObservabilityPipelineKafkaSourceLibrdkafkaOption.JSON_PROPERTY_NAME,
-  ObservabilityPipelineKafkaSourceLibrdkafkaOption.JSON_PROPERTY_VALUE
-})
+/** Specifies the SASL mechanism for authenticating with a Kafka cluster. */
+@JsonPropertyOrder({ObservabilityPipelineKafkaSasl.JSON_PROPERTY_MECHANISM})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
+public class ObservabilityPipelineKafkaSasl {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_MECHANISM = "mechanism";
+  private ObservabilityPipelineKafkaSaslMechanism mechanism;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private String value;
-
-  public ObservabilityPipelineKafkaSourceLibrdkafkaOption() {}
-
-  @JsonCreator
-  public ObservabilityPipelineKafkaSourceLibrdkafkaOption(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
-    this.name = name;
-    this.value = value;
-  }
-
-  public ObservabilityPipelineKafkaSourceLibrdkafkaOption name(String name) {
-    this.name = name;
+  public ObservabilityPipelineKafkaSasl mechanism(
+      ObservabilityPipelineKafkaSaslMechanism mechanism) {
+    this.mechanism = mechanism;
+    this.unparsed |= !mechanism.isValid();
     return this;
   }
 
   /**
-   * The name of the <code>librdkafka</code> configuration option to set.
+   * SASL mechanism used for Kafka authentication.
    *
-   * @return name
+   * @return mechanism
    */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MECHANISM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineKafkaSaslMechanism getMechanism() {
+    return mechanism;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ObservabilityPipelineKafkaSourceLibrdkafkaOption value(String value) {
-    this.value = value;
-    return this;
-  }
-
-  /**
-   * The value assigned to the specified <code>librdkafka</code> configuration option.
-   *
-   * @return value
-   */
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setMechanism(ObservabilityPipelineKafkaSaslMechanism mechanism) {
+    if (!mechanism.isValid()) {
+      this.unparsed = true;
+    }
+    this.mechanism = mechanism;
   }
 
   /**
@@ -97,11 +63,10 @@ public class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineKafkaSourceLibrdkafkaOption
+   * @return ObservabilityPipelineKafkaSasl
    */
   @JsonAnySetter
-  public ObservabilityPipelineKafkaSourceLibrdkafkaOption putAdditionalProperty(
-      String key, Object value) {
+  public ObservabilityPipelineKafkaSasl putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -132,7 +97,7 @@ public class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineKafkaSourceLibrdkafkaOption object is equal to o. */
+  /** Return true if this ObservabilityPipelineKafkaSasl object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,27 +106,23 @@ public class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineKafkaSourceLibrdkafkaOption
-        observabilityPipelineKafkaSourceLibrdkafkaOption =
-            (ObservabilityPipelineKafkaSourceLibrdkafkaOption) o;
-    return Objects.equals(this.name, observabilityPipelineKafkaSourceLibrdkafkaOption.name)
-        && Objects.equals(this.value, observabilityPipelineKafkaSourceLibrdkafkaOption.value)
+    ObservabilityPipelineKafkaSasl observabilityPipelineKafkaSasl =
+        (ObservabilityPipelineKafkaSasl) o;
+    return Objects.equals(this.mechanism, observabilityPipelineKafkaSasl.mechanism)
         && Objects.equals(
-            this.additionalProperties,
-            observabilityPipelineKafkaSourceLibrdkafkaOption.additionalProperties);
+            this.additionalProperties, observabilityPipelineKafkaSasl.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value, additionalProperties);
+    return Objects.hash(mechanism, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineKafkaSourceLibrdkafkaOption {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("class ObservabilityPipelineKafkaSasl {\n");
+    sb.append("    mechanism: ").append(toIndentedString(mechanism)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

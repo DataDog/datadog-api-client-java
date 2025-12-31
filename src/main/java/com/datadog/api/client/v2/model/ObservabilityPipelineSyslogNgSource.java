@@ -20,6 +20,8 @@ import java.util.Objects;
 /**
  * The <code>syslog_ng</code> source listens for logs over TCP or UDP from a <code>syslog-ng</code>
  * server using the syslog protocol.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSyslogNgSource.JSON_PROPERTY_ID,

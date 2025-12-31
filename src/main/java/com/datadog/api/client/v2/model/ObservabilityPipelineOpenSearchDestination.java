@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>opensearch</code> destination writes logs to an OpenSearch cluster. */
+/**
+ * The <code>opensearch</code> destination writes logs to an OpenSearch cluster.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_BULK_INDEX,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_ID,
