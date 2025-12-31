@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>sentinel_one</code> destination sends logs to SentinelOne. */
+/**
+ * The <code>sentinel_one</code> destination sends logs to SentinelOne.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineSentinelOneDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineSentinelOneDestination.JSON_PROPERTY_INPUTS,

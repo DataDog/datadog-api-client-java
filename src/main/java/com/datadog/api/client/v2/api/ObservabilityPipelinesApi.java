@@ -111,7 +111,7 @@ public class ObservabilityPipelinesApi {
           400, "Missing the required parameter 'body' when calling createPipeline");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/remote_config/products/obs_pipelines/pipelines";
+    String localVarPath = "/api/v2/obs-pipelines/pipelines";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -166,7 +166,7 @@ public class ObservabilityPipelinesApi {
       return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/remote_config/products/obs_pipelines/pipelines";
+    String localVarPath = "/api/v2/obs-pipelines/pipelines";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -618,7 +618,7 @@ public class ObservabilityPipelinesApi {
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     // create path and map variables
-    String localVarPath = "/api/v2/remote_config/products/obs_pipelines/pipelines";
+    String localVarPath = "/api/v2/obs-pipelines/pipelines";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -670,7 +670,7 @@ public class ObservabilityPipelinesApi {
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     // create path and map variables
-    String localVarPath = "/api/v2/remote_config/products/obs_pipelines/pipelines";
+    String localVarPath = "/api/v2/obs-pipelines/pipelines";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -946,7 +946,7 @@ public class ObservabilityPipelinesApi {
           400, "Missing the required parameter 'body' when calling validatePipeline");
     }
     // create path and map variables
-    String localVarPath = "/api/v2/remote_config/products/obs_pipelines/pipelines/validate";
+    String localVarPath = "/api/v2/obs-pipelines/pipelines/validate";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1001,7 +1001,7 @@ public class ObservabilityPipelinesApi {
       return result;
     }
     // create path and map variables
-    String localVarPath = "/api/v2/remote_config/products/obs_pipelines/pipelines/validate";
+    String localVarPath = "/api/v2/obs-pipelines/pipelines/validate";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
