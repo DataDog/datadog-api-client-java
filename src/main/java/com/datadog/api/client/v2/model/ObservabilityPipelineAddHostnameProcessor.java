@@ -13,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>sample</code> processor allows probabilistic sampling of logs at a fixed rate. */
+/** The <code>add_hostname</code> processor adds the hostname to log events. */
 @JsonPropertyOrder({
-  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_DISPLAY_NAME,
-  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_ENABLED,
-  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_GROUP_BY,
-  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_ID,
-  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_INCLUDE,
-  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_PERCENTAGE,
-  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_TYPE
+  ObservabilityPipelineAddHostnameProcessor.JSON_PROPERTY_DISPLAY_NAME,
+  ObservabilityPipelineAddHostnameProcessor.JSON_PROPERTY_ENABLED,
+  ObservabilityPipelineAddHostnameProcessor.JSON_PROPERTY_ID,
+  ObservabilityPipelineAddHostnameProcessor.JSON_PROPERTY_INCLUDE,
+  ObservabilityPipelineAddHostnameProcessor.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineSampleProcessor {
+public class ObservabilityPipelineAddHostnameProcessor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
   private String displayName;
@@ -39,41 +35,33 @@ public class ObservabilityPipelineSampleProcessor {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
-  public static final String JSON_PROPERTY_GROUP_BY = "group_by";
-  private List<String> groupBy = null;
-
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
 
-  public static final String JSON_PROPERTY_PERCENTAGE = "percentage";
-  private Double percentage;
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineSampleProcessorType type =
-      ObservabilityPipelineSampleProcessorType.SAMPLE;
+  private ObservabilityPipelineAddHostnameProcessorType type =
+      ObservabilityPipelineAddHostnameProcessorType.ADD_HOSTNAME;
 
-  public ObservabilityPipelineSampleProcessor() {}
+  public ObservabilityPipelineAddHostnameProcessor() {}
 
   @JsonCreator
-  public ObservabilityPipelineSampleProcessor(
+  public ObservabilityPipelineAddHostnameProcessor(
       @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PERCENTAGE) Double percentage,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineSampleProcessorType type) {
+          ObservabilityPipelineAddHostnameProcessorType type) {
     this.enabled = enabled;
     this.id = id;
     this.include = include;
-    this.percentage = percentage;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public ObservabilityPipelineSampleProcessor displayName(String displayName) {
+  public ObservabilityPipelineAddHostnameProcessor displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
@@ -94,7 +82,7 @@ public class ObservabilityPipelineSampleProcessor {
     this.displayName = displayName;
   }
 
-  public ObservabilityPipelineSampleProcessor enabled(Boolean enabled) {
+  public ObservabilityPipelineAddHostnameProcessor enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
@@ -114,36 +102,7 @@ public class ObservabilityPipelineSampleProcessor {
     this.enabled = enabled;
   }
 
-  public ObservabilityPipelineSampleProcessor groupBy(List<String> groupBy) {
-    this.groupBy = groupBy;
-    return this;
-  }
-
-  public ObservabilityPipelineSampleProcessor addGroupByItem(String groupByItem) {
-    if (this.groupBy == null) {
-      this.groupBy = new ArrayList<>();
-    }
-    this.groupBy.add(groupByItem);
-    return this;
-  }
-
-  /**
-   * Optional list of fields to group events by. Each group is sampled independently.
-   *
-   * @return groupBy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getGroupBy() {
-    return groupBy;
-  }
-
-  public void setGroupBy(List<String> groupBy) {
-    this.groupBy = groupBy;
-  }
-
-  public ObservabilityPipelineSampleProcessor id(String id) {
+  public ObservabilityPipelineAddHostnameProcessor id(String id) {
     this.id = id;
     return this;
   }
@@ -164,7 +123,7 @@ public class ObservabilityPipelineSampleProcessor {
     this.id = id;
   }
 
-  public ObservabilityPipelineSampleProcessor include(String include) {
+  public ObservabilityPipelineAddHostnameProcessor include(String include) {
     this.include = include;
     return this;
   }
@@ -184,44 +143,25 @@ public class ObservabilityPipelineSampleProcessor {
     this.include = include;
   }
 
-  public ObservabilityPipelineSampleProcessor percentage(Double percentage) {
-    this.percentage = percentage;
-    return this;
-  }
-
-  /**
-   * The percentage of logs to sample.
-   *
-   * @return percentage
-   */
-  @JsonProperty(JSON_PROPERTY_PERCENTAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getPercentage() {
-    return percentage;
-  }
-
-  public void setPercentage(Double percentage) {
-    this.percentage = percentage;
-  }
-
-  public ObservabilityPipelineSampleProcessor type(ObservabilityPipelineSampleProcessorType type) {
+  public ObservabilityPipelineAddHostnameProcessor type(
+      ObservabilityPipelineAddHostnameProcessorType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The processor type. The value should always be <code>sample</code>.
+   * The processor type. The value should always be <code>add_hostname</code>.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineSampleProcessorType getType() {
+  public ObservabilityPipelineAddHostnameProcessorType getType() {
     return type;
   }
 
-  public void setType(ObservabilityPipelineSampleProcessorType type) {
+  public void setType(ObservabilityPipelineAddHostnameProcessorType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -240,10 +180,10 @@ public class ObservabilityPipelineSampleProcessor {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineSampleProcessor
+   * @return ObservabilityPipelineAddHostnameProcessor
    */
   @JsonAnySetter
-  public ObservabilityPipelineSampleProcessor putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineAddHostnameProcessor putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -274,7 +214,7 @@ public class ObservabilityPipelineSampleProcessor {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineSampleProcessor object is equal to o. */
+  /** Return true if this ObservabilityPipelineAddHostnameProcessor object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -283,35 +223,31 @@ public class ObservabilityPipelineSampleProcessor {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineSampleProcessor observabilityPipelineSampleProcessor =
-        (ObservabilityPipelineSampleProcessor) o;
-    return Objects.equals(this.displayName, observabilityPipelineSampleProcessor.displayName)
-        && Objects.equals(this.enabled, observabilityPipelineSampleProcessor.enabled)
-        && Objects.equals(this.groupBy, observabilityPipelineSampleProcessor.groupBy)
-        && Objects.equals(this.id, observabilityPipelineSampleProcessor.id)
-        && Objects.equals(this.include, observabilityPipelineSampleProcessor.include)
-        && Objects.equals(this.percentage, observabilityPipelineSampleProcessor.percentage)
-        && Objects.equals(this.type, observabilityPipelineSampleProcessor.type)
+    ObservabilityPipelineAddHostnameProcessor observabilityPipelineAddHostnameProcessor =
+        (ObservabilityPipelineAddHostnameProcessor) o;
+    return Objects.equals(this.displayName, observabilityPipelineAddHostnameProcessor.displayName)
+        && Objects.equals(this.enabled, observabilityPipelineAddHostnameProcessor.enabled)
+        && Objects.equals(this.id, observabilityPipelineAddHostnameProcessor.id)
+        && Objects.equals(this.include, observabilityPipelineAddHostnameProcessor.include)
+        && Objects.equals(this.type, observabilityPipelineAddHostnameProcessor.type)
         && Objects.equals(
-            this.additionalProperties, observabilityPipelineSampleProcessor.additionalProperties);
+            this.additionalProperties,
+            observabilityPipelineAddHostnameProcessor.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        displayName, enabled, groupBy, id, include, percentage, type, additionalProperties);
+    return Objects.hash(displayName, enabled, id, include, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineSampleProcessor {\n");
+    sb.append("class ObservabilityPipelineAddHostnameProcessor {\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
-    sb.append("    percentage: ").append(toIndentedString(percentage)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
