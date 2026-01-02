@@ -666,6 +666,74 @@ public class ApiClient {
                                       new HashSet<String>()));
                             }
                           }))));
+          put(
+              "v2.ProductAnalyticsApi.submitProductAnalyticsEvent",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The regional site for customers.",
+                                      "datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "datadoghq.com",
+                                              "us3.datadoghq.com",
+                                              "us5.datadoghq.com",
+                                              "ap1.datadoghq.com",
+                                              "ap2.datadoghq.com",
+                                              "datadoghq.eu"))));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "browser-intake",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "browser-intake-datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "browser-intake",
+                                      new HashSet<String>()));
+                            }
+                          }))));
         }
       };
   protected Map<String, Integer> operationServerIndex = new HashMap<String, Integer>();
