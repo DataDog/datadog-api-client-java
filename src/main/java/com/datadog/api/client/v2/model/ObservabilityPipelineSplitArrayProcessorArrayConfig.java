@@ -17,69 +17,69 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Options for defining a custom regex pattern. */
+/** Configuration for a single array split operation. */
 @JsonPropertyOrder({
-  ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.JSON_PROPERTY_DESCRIPTION,
-  ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.JSON_PROPERTY_RULE
+  ObservabilityPipelineSplitArrayProcessorArrayConfig.JSON_PROPERTY_FIELD,
+  ObservabilityPipelineSplitArrayProcessorArrayConfig.JSON_PROPERTY_INCLUDE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {
+public class ObservabilityPipelineSplitArrayProcessorArrayConfig {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  public static final String JSON_PROPERTY_FIELD = "field";
+  private String field;
 
-  public static final String JSON_PROPERTY_RULE = "rule";
-  private String rule;
+  public static final String JSON_PROPERTY_INCLUDE = "include";
+  private String include;
 
-  public ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions() {}
+  public ObservabilityPipelineSplitArrayProcessorArrayConfig() {}
 
   @JsonCreator
-  public ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions(
-      @JsonProperty(required = true, value = JSON_PROPERTY_RULE) String rule) {
-    this.rule = rule;
+  public ObservabilityPipelineSplitArrayProcessorArrayConfig(
+      @JsonProperty(required = true, value = JSON_PROPERTY_FIELD) String field,
+      @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include) {
+    this.field = field;
+    this.include = include;
   }
 
-  public ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions description(
-      String description) {
-    this.description = description;
+  public ObservabilityPipelineSplitArrayProcessorArrayConfig field(String field) {
+    this.field = field;
     return this;
   }
 
   /**
-   * Human-readable description providing context about a sensitive data scanner rule
+   * The path to the array field to split.
    *
-   * @return description
+   * @return field
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions rule(String rule) {
-    this.rule = rule;
-    return this;
-  }
-
-  /**
-   * A regular expression used to detect sensitive values. Must be a valid regex.
-   *
-   * @return rule
-   */
-  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getRule() {
-    return rule;
+  public String getField() {
+    return field;
   }
 
-  public void setRule(String rule) {
-    this.rule = rule;
+  public void setField(String field) {
+    this.field = field;
+  }
+
+  public ObservabilityPipelineSplitArrayProcessorArrayConfig include(String include) {
+    this.include = include;
+    return this;
+  }
+
+  /**
+   * A Datadog search query used to determine which logs this array split operation targets.
+   *
+   * @return include
+   */
+  @JsonProperty(JSON_PROPERTY_INCLUDE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getInclude() {
+    return include;
+  }
+
+  public void setInclude(String include) {
+    this.include = include;
   }
 
   /**
@@ -94,11 +94,11 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions
+   * @return ObservabilityPipelineSplitArrayProcessorArrayConfig
    */
   @JsonAnySetter
-  public ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions
-      putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineSplitArrayProcessorArrayConfig putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -130,8 +130,7 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
   }
 
   /**
-   * Return true if this ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions
-   * object is equal to o.
+   * Return true if this ObservabilityPipelineSplitArrayProcessorArrayConfig object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -141,31 +140,27 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions
-        observabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions =
-            (ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions) o;
-    return Objects.equals(
-            this.description,
-            observabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.description)
-        && Objects.equals(
-            this.rule, observabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.rule)
+    ObservabilityPipelineSplitArrayProcessorArrayConfig
+        observabilityPipelineSplitArrayProcessorArrayConfig =
+            (ObservabilityPipelineSplitArrayProcessorArrayConfig) o;
+    return Objects.equals(this.field, observabilityPipelineSplitArrayProcessorArrayConfig.field)
+        && Objects.equals(this.include, observabilityPipelineSplitArrayProcessorArrayConfig.include)
         && Objects.equals(
             this.additionalProperties,
-            observabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions
-                .additionalProperties);
+            observabilityPipelineSplitArrayProcessorArrayConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, rule, additionalProperties);
+    return Objects.hash(field, include, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
+    sb.append("class ObservabilityPipelineSplitArrayProcessorArrayConfig {\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

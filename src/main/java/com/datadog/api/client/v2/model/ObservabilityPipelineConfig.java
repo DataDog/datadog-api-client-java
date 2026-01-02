@@ -22,7 +22,7 @@ import java.util.Objects;
 /** Specifies the pipeline's configuration, including its sources, processors, and destinations. */
 @JsonPropertyOrder({
   ObservabilityPipelineConfig.JSON_PROPERTY_DESTINATIONS,
-  ObservabilityPipelineConfig.JSON_PROPERTY_PROCESSORS,
+  ObservabilityPipelineConfig.JSON_PROPERTY_PROCESSOR_GROUPS,
   ObservabilityPipelineConfig.JSON_PROPERTY_SOURCES
 })
 @jakarta.annotation.Generated(
@@ -32,8 +32,8 @@ public class ObservabilityPipelineConfig {
   public static final String JSON_PROPERTY_DESTINATIONS = "destinations";
   private List<ObservabilityPipelineConfigDestinationItem> destinations = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_PROCESSORS = "processors";
-  private List<ObservabilityPipelineConfigProcessorGroup> processors = null;
+  public static final String JSON_PROPERTY_PROCESSOR_GROUPS = "processor_groups";
+  private List<ObservabilityPipelineConfigProcessorGroup> processorGroups = null;
 
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<ObservabilityPipelineConfigSourceItem> sources = new ArrayList<>();
@@ -81,39 +81,39 @@ public class ObservabilityPipelineConfig {
     this.destinations = destinations;
   }
 
-  public ObservabilityPipelineConfig processors(
-      List<ObservabilityPipelineConfigProcessorGroup> processors) {
-    this.processors = processors;
-    for (ObservabilityPipelineConfigProcessorGroup item : processors) {
+  public ObservabilityPipelineConfig processorGroups(
+      List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
+    this.processorGroups = processorGroups;
+    for (ObservabilityPipelineConfigProcessorGroup item : processorGroups) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public ObservabilityPipelineConfig addProcessorsItem(
-      ObservabilityPipelineConfigProcessorGroup processorsItem) {
-    if (this.processors == null) {
-      this.processors = new ArrayList<>();
+  public ObservabilityPipelineConfig addProcessorGroupsItem(
+      ObservabilityPipelineConfigProcessorGroup processorGroupsItem) {
+    if (this.processorGroups == null) {
+      this.processorGroups = new ArrayList<>();
     }
-    this.processors.add(processorsItem);
-    this.unparsed |= processorsItem.unparsed;
+    this.processorGroups.add(processorGroupsItem);
+    this.unparsed |= processorGroupsItem.unparsed;
     return this;
   }
 
   /**
    * A list of processor groups that transform or enrich log data.
    *
-   * @return processors
+   * @return processorGroups
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROCESSORS)
+  @JsonProperty(JSON_PROPERTY_PROCESSOR_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ObservabilityPipelineConfigProcessorGroup> getProcessors() {
-    return processors;
+  public List<ObservabilityPipelineConfigProcessorGroup> getProcessorGroups() {
+    return processorGroups;
   }
 
-  public void setProcessors(List<ObservabilityPipelineConfigProcessorGroup> processors) {
-    this.processors = processors;
+  public void setProcessorGroups(List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
+    this.processorGroups = processorGroups;
   }
 
   public ObservabilityPipelineConfig sources(List<ObservabilityPipelineConfigSourceItem> sources) {
@@ -203,7 +203,7 @@ public class ObservabilityPipelineConfig {
     }
     ObservabilityPipelineConfig observabilityPipelineConfig = (ObservabilityPipelineConfig) o;
     return Objects.equals(this.destinations, observabilityPipelineConfig.destinations)
-        && Objects.equals(this.processors, observabilityPipelineConfig.processors)
+        && Objects.equals(this.processorGroups, observabilityPipelineConfig.processorGroups)
         && Objects.equals(this.sources, observabilityPipelineConfig.sources)
         && Objects.equals(
             this.additionalProperties, observabilityPipelineConfig.additionalProperties);
@@ -211,7 +211,7 @@ public class ObservabilityPipelineConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinations, processors, sources, additionalProperties);
+    return Objects.hash(destinations, processorGroups, sources, additionalProperties);
   }
 
   @Override
@@ -219,7 +219,7 @@ public class ObservabilityPipelineConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineConfig {\n");
     sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
-    sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
+    sb.append("    processorGroups: ").append(toIndentedString(processorGroups)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
