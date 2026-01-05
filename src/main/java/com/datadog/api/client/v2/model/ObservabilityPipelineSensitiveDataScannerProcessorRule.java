@@ -51,7 +51,7 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorRule {
   private ObservabilityPipelineSensitiveDataScannerProcessorScope scope;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<String> tags = new ArrayList<>();
+  private List<String> tags = null;
 
   public ObservabilityPipelineSensitiveDataScannerProcessorRule() {}
 
@@ -63,8 +63,7 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorRule {
       @JsonProperty(required = true, value = JSON_PROPERTY_PATTERN)
           ObservabilityPipelineSensitiveDataScannerProcessorPattern pattern,
       @JsonProperty(required = true, value = JSON_PROPERTY_SCOPE)
-          ObservabilityPipelineSensitiveDataScannerProcessorScope scope,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags) {
+          ObservabilityPipelineSensitiveDataScannerProcessorScope scope) {
     this.name = name;
     this.onMatch = onMatch;
     this.unparsed |= onMatch.unparsed;
@@ -72,7 +71,6 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorRule {
     this.unparsed |= pattern.unparsed;
     this.scope = scope;
     this.unparsed |= scope.unparsed;
-    this.tags = tags;
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessorRule keywordOptions(
@@ -192,6 +190,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorRule {
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessorRule addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
     this.tags.add(tagsItem);
     return this;
   }
@@ -201,8 +202,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorRule {
    *
    * @return tags
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
     return tags;
   }
