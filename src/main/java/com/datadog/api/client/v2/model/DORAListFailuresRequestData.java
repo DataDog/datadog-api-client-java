@@ -30,8 +30,7 @@ public class DORAListFailuresRequestData {
   private DORAListFailuresRequestAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private DORAListFailuresRequestDataType type =
-      DORAListFailuresRequestDataType.DORA_FAILURES_LIST_REQUEST;
+  private DORAListFailuresRequestDataType type;
 
   public DORAListFailuresRequestData() {}
 

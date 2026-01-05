@@ -63,6 +63,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "estimated_indexed_spans_usage",
               "estimated_ingested_spans_usage",
               "fargate_usage",
+              "flex_stored_logs",
               "functions_usage",
               "incident_management_monthly_active_users_usage",
               "indexed_spans_usage",
@@ -177,6 +178,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("estimated_ingested_spans_usage");
   public static final HourlyUsageAttributionUsageType FARGATE_USAGE =
       new HourlyUsageAttributionUsageType("fargate_usage");
+  public static final HourlyUsageAttributionUsageType FLEX_STORED_LOGS =
+      new HourlyUsageAttributionUsageType("flex_stored_logs");
   public static final HourlyUsageAttributionUsageType FUNCTIONS_USAGE =
       new HourlyUsageAttributionUsageType("functions_usage");
   public static final HourlyUsageAttributionUsageType

@@ -12,38 +12,51 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for fetching a single failure event. */
-@JsonPropertyOrder({DORAFailureFetchResponse.JSON_PROPERTY_DATA})
+/** Response for the DORA list endpoints. */
+@JsonPropertyOrder({DORAListResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAFailureFetchResponse {
+public class DORAListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private DORAIncidentObject data;
+  private List<DORAEvent> data = null;
 
-  public DORAFailureFetchResponse data(DORAIncidentObject data) {
+  public DORAListResponse data(List<DORAEvent> data) {
     this.data = data;
-    this.unparsed |= data.unparsed;
+    for (DORAEvent item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public DORAListResponse addDataItem(DORAEvent dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * A DORA incident event.
+   * The list of DORA events.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAIncidentObject getData() {
+  public List<DORAEvent> getData() {
     return data;
   }
 
-  public void setData(DORAIncidentObject data) {
+  public void setData(List<DORAEvent> data) {
     this.data = data;
   }
 
@@ -59,10 +72,10 @@ public class DORAFailureFetchResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAFailureFetchResponse
+   * @return DORAListResponse
    */
   @JsonAnySetter
-  public DORAFailureFetchResponse putAdditionalProperty(String key, Object value) {
+  public DORAListResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +106,7 @@ public class DORAFailureFetchResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAFailureFetchResponse object is equal to o. */
+  /** Return true if this DORAListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,9 +115,9 @@ public class DORAFailureFetchResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAFailureFetchResponse doraFailureFetchResponse = (DORAFailureFetchResponse) o;
-    return Objects.equals(this.data, doraFailureFetchResponse.data)
-        && Objects.equals(this.additionalProperties, doraFailureFetchResponse.additionalProperties);
+    DORAListResponse doraListResponse = (DORAListResponse) o;
+    return Objects.equals(this.data, doraListResponse.data)
+        && Objects.equals(this.additionalProperties, doraListResponse.additionalProperties);
   }
 
   @Override
@@ -115,7 +128,7 @@ public class DORAFailureFetchResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAFailureFetchResponse {\n");
+    sb.append("class DORAListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

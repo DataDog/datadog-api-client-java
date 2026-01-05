@@ -30,8 +30,7 @@ public class DORAListDeploymentsRequestData {
   private DORAListDeploymentsRequestAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private DORAListDeploymentsRequestDataType type =
-      DORAListDeploymentsRequestDataType.DORA_DEPLOYMENTS_LIST_REQUEST;
+  private DORAListDeploymentsRequestDataType type;
 
   public DORAListDeploymentsRequestData() {}
 
