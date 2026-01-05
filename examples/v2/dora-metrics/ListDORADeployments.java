@@ -3,11 +3,11 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.DoraMetricsApi;
-import com.datadog.api.client.v2.model.DORADeploymentsListResponse;
 import com.datadog.api.client.v2.model.DORAListDeploymentsRequest;
 import com.datadog.api.client.v2.model.DORAListDeploymentsRequestAttributes;
 import com.datadog.api.client.v2.model.DORAListDeploymentsRequestData;
 import com.datadog.api.client.v2.model.DORAListDeploymentsRequestDataType;
+import com.datadog.api.client.v2.model.DORAListResponse;
 import java.time.OffsetDateTime;
 
 public class Example {
@@ -27,7 +27,7 @@ public class Example {
                     .type(DORAListDeploymentsRequestDataType.DORA_DEPLOYMENTS_LIST_REQUEST));
 
     try {
-      DORADeploymentsListResponse result = apiInstance.listDORADeployments(body);
+      DORAListResponse result = apiInstance.listDORADeployments(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DoraMetricsApi#listDORADeployments");
