@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v2.model;
+package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -12,52 +12,69 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for the DORA list endpoints. */
-@JsonPropertyOrder({DORAListResponse.JSON_PROPERTY_DATA})
+/** Sort configuration for network queries. */
+@JsonPropertyOrder({
+  SankeyNetworkQuerySort.JSON_PROPERTY_FIELD,
+  SankeyNetworkQuerySort.JSON_PROPERTY_ORDER
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAListResponse {
+public class SankeyNetworkQuerySort {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<DORAEvent> data = null;
+  public static final String JSON_PROPERTY_FIELD = "field";
+  private String field;
 
-  public DORAListResponse data(List<DORAEvent> data) {
-    this.data = data;
-    for (DORAEvent item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
+  public static final String JSON_PROPERTY_ORDER = "order";
+  private WidgetSort order;
 
-  public DORAListResponse addDataItem(DORAEvent dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+  public SankeyNetworkQuerySort field(String field) {
+    this.field = field;
     return this;
   }
 
   /**
-   * The list of DORA events.
+   * Field to sort by.
    *
-   * @return data
+   * @return field
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DORAEvent> getData() {
-    return data;
+  public String getField() {
+    return field;
   }
 
-  public void setData(List<DORAEvent> data) {
-    this.data = data;
+  public void setField(String field) {
+    this.field = field;
+  }
+
+  public SankeyNetworkQuerySort order(WidgetSort order) {
+    this.order = order;
+    this.unparsed |= !order.isValid();
+    return this;
+  }
+
+  /**
+   * Widget sorting methods.
+   *
+   * @return order
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetSort getOrder() {
+    return order;
+  }
+
+  public void setOrder(WidgetSort order) {
+    if (!order.isValid()) {
+      this.unparsed = true;
+    }
+    this.order = order;
   }
 
   /**
@@ -72,10 +89,10 @@ public class DORAListResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAListResponse
+   * @return SankeyNetworkQuerySort
    */
   @JsonAnySetter
-  public DORAListResponse putAdditionalProperty(String key, Object value) {
+  public SankeyNetworkQuerySort putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -106,7 +123,7 @@ public class DORAListResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAListResponse object is equal to o. */
+  /** Return true if this SankeyNetworkQuerySort object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,21 +132,23 @@ public class DORAListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAListResponse doraListResponse = (DORAListResponse) o;
-    return Objects.equals(this.data, doraListResponse.data)
-        && Objects.equals(this.additionalProperties, doraListResponse.additionalProperties);
+    SankeyNetworkQuerySort sankeyNetworkQuerySort = (SankeyNetworkQuerySort) o;
+    return Objects.equals(this.field, sankeyNetworkQuerySort.field)
+        && Objects.equals(this.order, sankeyNetworkQuerySort.order)
+        && Objects.equals(this.additionalProperties, sankeyNetworkQuerySort.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(field, order, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAListResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class SankeyNetworkQuerySort {\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

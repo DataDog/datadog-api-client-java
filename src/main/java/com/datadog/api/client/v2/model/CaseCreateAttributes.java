@@ -19,7 +19,6 @@ import java.util.Objects;
 
 /** Case creation attributes */
 @JsonPropertyOrder({
-  CaseCreateAttributes.JSON_PROPERTY_CUSTOM_ATTRIBUTES,
   CaseCreateAttributes.JSON_PROPERTY_DESCRIPTION,
   CaseCreateAttributes.JSON_PROPERTY_PRIORITY,
   CaseCreateAttributes.JSON_PROPERTY_TITLE,
@@ -29,9 +28,6 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CaseCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTES = "custom_attributes";
-  private Map<String, CustomAttributeValue> customAttributes = null;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -52,36 +48,6 @@ public class CaseCreateAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE_ID) String typeId) {
     this.title = title;
     this.typeId = typeId;
-  }
-
-  public CaseCreateAttributes customAttributes(Map<String, CustomAttributeValue> customAttributes) {
-    this.customAttributes = customAttributes;
-    return this;
-  }
-
-  public CaseCreateAttributes putCustomAttributesItem(
-      String key, CustomAttributeValue customAttributesItem) {
-    if (this.customAttributes == null) {
-      this.customAttributes = new HashMap<>();
-    }
-    this.customAttributes.put(key, customAttributesItem);
-    return this;
-  }
-
-  /**
-   * Case custom attributes
-   *
-   * @return customAttributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, CustomAttributeValue> getCustomAttributes() {
-    return customAttributes;
-  }
-
-  public void setCustomAttributes(Map<String, CustomAttributeValue> customAttributes) {
-    this.customAttributes = customAttributes;
   }
 
   public CaseCreateAttributes description(String description) {
@@ -226,8 +192,7 @@ public class CaseCreateAttributes {
       return false;
     }
     CaseCreateAttributes caseCreateAttributes = (CaseCreateAttributes) o;
-    return Objects.equals(this.customAttributes, caseCreateAttributes.customAttributes)
-        && Objects.equals(this.description, caseCreateAttributes.description)
+    return Objects.equals(this.description, caseCreateAttributes.description)
         && Objects.equals(this.priority, caseCreateAttributes.priority)
         && Objects.equals(this.title, caseCreateAttributes.title)
         && Objects.equals(this.typeId, caseCreateAttributes.typeId)
@@ -236,15 +201,13 @@ public class CaseCreateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        customAttributes, description, priority, title, typeId, additionalProperties);
+    return Objects.hash(description, priority, title, typeId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CaseCreateAttributes {\n");
-    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
