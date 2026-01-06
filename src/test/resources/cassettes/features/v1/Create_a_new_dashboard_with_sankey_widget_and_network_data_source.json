@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_sankey_widget_and_network_data_source-1767367605\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"network\",\"group_by\":[\"source\",\"destination\"],\"limit\":100,\"query_string\":\"*\"},\"request_type\":\"netflow_sankey\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"sankey\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"ngh-vn6-nqq\",\"title\":\"Test-Create_a_new_dashboard_with_sankey_widget_and_network_data_source-1767367605\",\"description\":\"\",\"author_handle\":\"sophie.cao@datadoghq.com\",\"author_name\":\"Sophie Cao\",\"layout_type\":\"free\",\"url\":\"/dashboard/ngh-vn6-nqq/test-createanewdashboardwithsankeywidgetandnetworkdatasource-1767367605\",\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"network\",\"group_by\":[\"source\",\"destination\"],\"limit\":100,\"query_string\":\"*\"},\"request_type\":\"netflow_sankey\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"sankey\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":4009219214466684}],\"notify_list\":[],\"created_at\":\"2026-01-02T15:26:46.118136+00:00\",\"modified_at\":\"2026-01-02T15:26:46.118136+00:00\",\"restricted_roles\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "05785a12-bb7d-2936-0e2f-bb3622fc33d9"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/ngh-vn6-nqq",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"ngh-vn6-nqq\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9c0d340a-b4d7-8451-b849-b8f5cb338e4d"
+  }
+]

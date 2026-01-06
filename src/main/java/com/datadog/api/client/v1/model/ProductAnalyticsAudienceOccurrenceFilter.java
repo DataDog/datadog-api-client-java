@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v2.model;
+package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -16,35 +16,61 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for the DORA fetch endpoints. */
-@JsonPropertyOrder({DORAFetchResponse.JSON_PROPERTY_DATA})
+/** */
+@JsonPropertyOrder({
+  ProductAnalyticsAudienceOccurrenceFilter.JSON_PROPERTY_OPERATOR,
+  ProductAnalyticsAudienceOccurrenceFilter.JSON_PROPERTY_VALUE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAFetchResponse {
+public class ProductAnalyticsAudienceOccurrenceFilter {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private DORAEvent data;
+  public static final String JSON_PROPERTY_OPERATOR = "operator";
+  private String operator;
 
-  public DORAFetchResponse data(DORAEvent data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private String value;
+
+  public ProductAnalyticsAudienceOccurrenceFilter operator(String operator) {
+    this.operator = operator;
     return this;
   }
 
   /**
-   * A DORA event.
+   * Getoperator
    *
-   * @return data
+   * @return operator
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAEvent getData() {
-    return data;
+  public String getOperator() {
+    return operator;
   }
 
-  public void setData(DORAEvent data) {
-    this.data = data;
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public ProductAnalyticsAudienceOccurrenceFilter value(String value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * Getvalue
+   *
+   * @return value
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
   /**
@@ -59,10 +85,10 @@ public class DORAFetchResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAFetchResponse
+   * @return ProductAnalyticsAudienceOccurrenceFilter
    */
   @JsonAnySetter
-  public DORAFetchResponse putAdditionalProperty(String key, Object value) {
+  public ProductAnalyticsAudienceOccurrenceFilter putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +119,7 @@ public class DORAFetchResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAFetchResponse object is equal to o. */
+  /** Return true if this ProductAnalyticsAudienceOccurrenceFilter object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,21 +128,26 @@ public class DORAFetchResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAFetchResponse doraFetchResponse = (DORAFetchResponse) o;
-    return Objects.equals(this.data, doraFetchResponse.data)
-        && Objects.equals(this.additionalProperties, doraFetchResponse.additionalProperties);
+    ProductAnalyticsAudienceOccurrenceFilter productAnalyticsAudienceOccurrenceFilter =
+        (ProductAnalyticsAudienceOccurrenceFilter) o;
+    return Objects.equals(this.operator, productAnalyticsAudienceOccurrenceFilter.operator)
+        && Objects.equals(this.value, productAnalyticsAudienceOccurrenceFilter.value)
+        && Objects.equals(
+            this.additionalProperties,
+            productAnalyticsAudienceOccurrenceFilter.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(operator, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAFetchResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class ProductAnalyticsAudienceOccurrenceFilter {\n");
+    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
