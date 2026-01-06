@@ -8,86 +8,83 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The JSON:API data. */
+/** Synthetics suite search response data attributes */
 @JsonPropertyOrder({
-  DORAListDeploymentsRequestData.JSON_PROPERTY_ATTRIBUTES,
-  DORAListDeploymentsRequestData.JSON_PROPERTY_TYPE
+  SyntheticsSuiteSearchResponseDataAttributes.JSON_PROPERTY_SUITES,
+  SyntheticsSuiteSearchResponseDataAttributes.JSON_PROPERTY_TOTAL
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAListDeploymentsRequestData {
+public class SyntheticsSuiteSearchResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private DORAListDeploymentsRequestAttributes attributes;
+  public static final String JSON_PROPERTY_SUITES = "suites";
+  private List<SyntheticsSuite> suites = null;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private DORAListDeploymentsRequestDataType type =
-      DORAListDeploymentsRequestDataType.DORA_DEPLOYMENTS_LIST_REQUEST;
+  public static final String JSON_PROPERTY_TOTAL = "total";
+  private Integer total;
 
-  public DORAListDeploymentsRequestData() {}
-
-  @JsonCreator
-  public DORAListDeploymentsRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public SyntheticsSuiteSearchResponseDataAttributes suites(List<SyntheticsSuite> suites) {
+    this.suites = suites;
+    for (SyntheticsSuite item : suites) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
   }
 
-  public DORAListDeploymentsRequestData attributes(
-      DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public SyntheticsSuiteSearchResponseDataAttributes addSuitesItem(SyntheticsSuite suitesItem) {
+    if (this.suites == null) {
+      this.suites = new ArrayList<>();
+    }
+    this.suites.add(suitesItem);
+    this.unparsed |= suitesItem.unparsed;
     return this;
   }
 
   /**
-   * Attributes to get a list of deployments.
+   * Getsuites
    *
-   * @return attributes
-   */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DORAListDeploymentsRequestAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public DORAListDeploymentsRequestData type(DORAListDeploymentsRequestDataType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The definition of <code>DORAListDeploymentsRequestDataType</code> object.
-   *
-   * @return type
+   * @return suites
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_SUITES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAListDeploymentsRequestDataType getType() {
-    return type;
+  public List<SyntheticsSuite> getSuites() {
+    return suites;
   }
 
-  public void setType(DORAListDeploymentsRequestDataType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setSuites(List<SyntheticsSuite> suites) {
+    this.suites = suites;
+  }
+
+  public SyntheticsSuiteSearchResponseDataAttributes total(Integer total) {
+    this.total = total;
+    return this;
+  }
+
+  /**
+   * Gettotal maximum: 2147483647
+   *
+   * @return total
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getTotal() {
+    return total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
   }
 
   /**
@@ -102,10 +99,11 @@ public class DORAListDeploymentsRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAListDeploymentsRequestData
+   * @return SyntheticsSuiteSearchResponseDataAttributes
    */
   @JsonAnySetter
-  public DORAListDeploymentsRequestData putAdditionalProperty(String key, Object value) {
+  public SyntheticsSuiteSearchResponseDataAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +134,7 @@ public class DORAListDeploymentsRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAListDeploymentsRequestData object is equal to o. */
+  /** Return true if this SyntheticsSuiteSearchResponseDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,25 +143,26 @@ public class DORAListDeploymentsRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAListDeploymentsRequestData doraListDeploymentsRequestData =
-        (DORAListDeploymentsRequestData) o;
-    return Objects.equals(this.attributes, doraListDeploymentsRequestData.attributes)
-        && Objects.equals(this.type, doraListDeploymentsRequestData.type)
+    SyntheticsSuiteSearchResponseDataAttributes syntheticsSuiteSearchResponseDataAttributes =
+        (SyntheticsSuiteSearchResponseDataAttributes) o;
+    return Objects.equals(this.suites, syntheticsSuiteSearchResponseDataAttributes.suites)
+        && Objects.equals(this.total, syntheticsSuiteSearchResponseDataAttributes.total)
         && Objects.equals(
-            this.additionalProperties, doraListDeploymentsRequestData.additionalProperties);
+            this.additionalProperties,
+            syntheticsSuiteSearchResponseDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(suites, total, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAListDeploymentsRequestData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class SyntheticsSuiteSearchResponseDataAttributes {\n");
+    sb.append("    suites: ").append(toIndentedString(suites)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

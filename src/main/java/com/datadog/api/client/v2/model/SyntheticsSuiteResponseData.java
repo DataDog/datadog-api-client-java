@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,77 +16,35 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The JSON:API data. */
-@JsonPropertyOrder({
-  DORAListDeploymentsRequestData.JSON_PROPERTY_ATTRIBUTES,
-  DORAListDeploymentsRequestData.JSON_PROPERTY_TYPE
-})
+/** Synthetics suite response data */
+@JsonPropertyOrder({SyntheticsSuiteResponseData.JSON_PROPERTY_ATTRIBUTES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAListDeploymentsRequestData {
+public class SyntheticsSuiteResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private DORAListDeploymentsRequestAttributes attributes;
+  private SyntheticsSuite attributes;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private DORAListDeploymentsRequestDataType type =
-      DORAListDeploymentsRequestDataType.DORA_DEPLOYMENTS_LIST_REQUEST;
-
-  public DORAListDeploymentsRequestData() {}
-
-  @JsonCreator
-  public DORAListDeploymentsRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-  }
-
-  public DORAListDeploymentsRequestData attributes(
-      DORAListDeploymentsRequestAttributes attributes) {
+  public SyntheticsSuiteResponseData attributes(SyntheticsSuite attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes to get a list of deployments.
+   * Object containing details about a Synthetic suite.
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DORAListDeploymentsRequestAttributes getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsSuite getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(DORAListDeploymentsRequestAttributes attributes) {
+  public void setAttributes(SyntheticsSuite attributes) {
     this.attributes = attributes;
-  }
-
-  public DORAListDeploymentsRequestData type(DORAListDeploymentsRequestDataType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The definition of <code>DORAListDeploymentsRequestDataType</code> object.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAListDeploymentsRequestDataType getType() {
-    return type;
-  }
-
-  public void setType(DORAListDeploymentsRequestDataType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
   }
 
   /**
@@ -102,10 +59,10 @@ public class DORAListDeploymentsRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAListDeploymentsRequestData
+   * @return SyntheticsSuiteResponseData
    */
   @JsonAnySetter
-  public DORAListDeploymentsRequestData putAdditionalProperty(String key, Object value) {
+  public SyntheticsSuiteResponseData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +93,7 @@ public class DORAListDeploymentsRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAListDeploymentsRequestData object is equal to o. */
+  /** Return true if this SyntheticsSuiteResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,25 +102,22 @@ public class DORAListDeploymentsRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAListDeploymentsRequestData doraListDeploymentsRequestData =
-        (DORAListDeploymentsRequestData) o;
-    return Objects.equals(this.attributes, doraListDeploymentsRequestData.attributes)
-        && Objects.equals(this.type, doraListDeploymentsRequestData.type)
+    SyntheticsSuiteResponseData syntheticsSuiteResponseData = (SyntheticsSuiteResponseData) o;
+    return Objects.equals(this.attributes, syntheticsSuiteResponseData.attributes)
         && Objects.equals(
-            this.additionalProperties, doraListDeploymentsRequestData.additionalProperties);
+            this.additionalProperties, syntheticsSuiteResponseData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAListDeploymentsRequestData {\n");
+    sb.append("class SyntheticsSuiteResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

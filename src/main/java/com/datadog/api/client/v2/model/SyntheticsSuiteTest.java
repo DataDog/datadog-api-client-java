@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,86 +17,73 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A DORA event. */
+/** Object containing details about a Synthetic test included in a Synthetic suite. */
 @JsonPropertyOrder({
-  DORAEvent.JSON_PROPERTY_ATTRIBUTES,
-  DORAEvent.JSON_PROPERTY_ID,
-  DORAEvent.JSON_PROPERTY_TYPE
+  SyntheticsSuiteTest.JSON_PROPERTY_ALERTING_CRITICALITY,
+  SyntheticsSuiteTest.JSON_PROPERTY_PUBLIC_ID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAEvent {
+public class SyntheticsSuiteTest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private Object attributes;
+  public static final String JSON_PROPERTY_ALERTING_CRITICALITY = "alerting_criticality";
+  private SyntheticsSuiteTestAlertingCriticality alertingCriticality;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  public SyntheticsSuiteTest() {}
 
-  public DORAEvent attributes(Object attributes) {
-    this.attributes = attributes;
+  @JsonCreator
+  public SyntheticsSuiteTest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PUBLIC_ID) String publicId) {
+    this.publicId = publicId;
+  }
+
+  public SyntheticsSuiteTest alertingCriticality(
+      SyntheticsSuiteTestAlertingCriticality alertingCriticality) {
+    this.alertingCriticality = alertingCriticality;
+    this.unparsed |= !alertingCriticality.isValid();
     return this;
   }
 
   /**
-   * The attributes of the event.
+   * Alerting criticality for each the test.
    *
-   * @return attributes
+   * @return alertingCriticality
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_ALERTING_CRITICALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getAttributes() {
-    return attributes;
+  public SyntheticsSuiteTestAlertingCriticality getAlertingCriticality() {
+    return alertingCriticality;
   }
 
-  public void setAttributes(Object attributes) {
-    this.attributes = attributes;
+  public void setAlertingCriticality(SyntheticsSuiteTestAlertingCriticality alertingCriticality) {
+    if (!alertingCriticality.isValid()) {
+      this.unparsed = true;
+    }
+    this.alertingCriticality = alertingCriticality;
   }
 
-  public DORAEvent id(String id) {
-    this.id = id;
+  public SyntheticsSuiteTest publicId(String publicId) {
+    this.publicId = publicId;
     return this;
   }
 
   /**
-   * The ID of the event.
+   * GetpublicId
    *
-   * @return id
+   * @return publicId
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getPublicId() {
+    return publicId;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public DORAEvent type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * The type of the event.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
   }
 
   /**
@@ -110,10 +98,10 @@ public class DORAEvent {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAEvent
+   * @return SyntheticsSuiteTest
    */
   @JsonAnySetter
-  public DORAEvent putAdditionalProperty(String key, Object value) {
+  public SyntheticsSuiteTest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +132,7 @@ public class DORAEvent {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAEvent object is equal to o. */
+  /** Return true if this SyntheticsSuiteTest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,25 +141,25 @@ public class DORAEvent {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAEvent doraEvent = (DORAEvent) o;
-    return Objects.equals(this.attributes, doraEvent.attributes)
-        && Objects.equals(this.id, doraEvent.id)
-        && Objects.equals(this.type, doraEvent.type)
-        && Objects.equals(this.additionalProperties, doraEvent.additionalProperties);
+    SyntheticsSuiteTest syntheticsSuiteTest = (SyntheticsSuiteTest) o;
+    return Objects.equals(this.alertingCriticality, syntheticsSuiteTest.alertingCriticality)
+        && Objects.equals(this.publicId, syntheticsSuiteTest.publicId)
+        && Objects.equals(this.additionalProperties, syntheticsSuiteTest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(alertingCriticality, publicId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAEvent {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class SyntheticsSuiteTest {\n");
+    sb.append("    alertingCriticality: ")
+        .append(toIndentedString(alertingCriticality))
+        .append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

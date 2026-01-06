@@ -18,24 +18,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for the DORA list endpoints. */
-@JsonPropertyOrder({DORAListResponse.JSON_PROPERTY_DATA})
+/** Response for the list failures endpoint. */
+@JsonPropertyOrder({DORAFailuresListResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAListResponse {
+public class DORAFailuresListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<DORAEvent> data = null;
+  private List<DORAIncidentObject> data = null;
 
-  public DORAListResponse data(List<DORAEvent> data) {
+  public DORAFailuresListResponse data(List<DORAIncidentObject> data) {
     this.data = data;
-    for (DORAEvent item : data) {
+    for (DORAIncidentObject item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public DORAListResponse addDataItem(DORAEvent dataItem) {
+  public DORAFailuresListResponse addDataItem(DORAIncidentObject dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -45,18 +45,18 @@ public class DORAListResponse {
   }
 
   /**
-   * The list of DORA events.
+   * The list of DORA incident events.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DORAEvent> getData() {
+  public List<DORAIncidentObject> getData() {
     return data;
   }
 
-  public void setData(List<DORAEvent> data) {
+  public void setData(List<DORAIncidentObject> data) {
     this.data = data;
   }
 
@@ -72,10 +72,10 @@ public class DORAListResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAListResponse
+   * @return DORAFailuresListResponse
    */
   @JsonAnySetter
-  public DORAListResponse putAdditionalProperty(String key, Object value) {
+  public DORAFailuresListResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -106,7 +106,7 @@ public class DORAListResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAListResponse object is equal to o. */
+  /** Return true if this DORAFailuresListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,9 +115,9 @@ public class DORAListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAListResponse doraListResponse = (DORAListResponse) o;
-    return Objects.equals(this.data, doraListResponse.data)
-        && Objects.equals(this.additionalProperties, doraListResponse.additionalProperties);
+    DORAFailuresListResponse doraFailuresListResponse = (DORAFailuresListResponse) o;
+    return Objects.equals(this.data, doraFailuresListResponse.data)
+        && Objects.equals(this.additionalProperties, doraFailuresListResponse.additionalProperties);
   }
 
   @Override
@@ -128,7 +128,7 @@ public class DORAListResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAListResponse {\n");
+    sb.append("class DORAFailuresListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

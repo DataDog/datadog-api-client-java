@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,74 +15,90 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The JSON:API data. */
+/** Synthetics suite search response data */
 @JsonPropertyOrder({
-  DORAListDeploymentsRequestData.JSON_PROPERTY_ATTRIBUTES,
-  DORAListDeploymentsRequestData.JSON_PROPERTY_TYPE
+  SyntheticsSuiteSearchResponseData.JSON_PROPERTY_ATTRIBUTES,
+  SyntheticsSuiteSearchResponseData.JSON_PROPERTY_ID,
+  SyntheticsSuiteSearchResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAListDeploymentsRequestData {
+public class SyntheticsSuiteSearchResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private DORAListDeploymentsRequestAttributes attributes;
+  private SyntheticsSuiteSearchResponseDataAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private DORAListDeploymentsRequestDataType type =
-      DORAListDeploymentsRequestDataType.DORA_DEPLOYMENTS_LIST_REQUEST;
+  private SuiteSearchResponseType type = SuiteSearchResponseType.SUITES_SEARCH;
 
-  public DORAListDeploymentsRequestData() {}
-
-  @JsonCreator
-  public DORAListDeploymentsRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-  }
-
-  public DORAListDeploymentsRequestData attributes(
-      DORAListDeploymentsRequestAttributes attributes) {
+  public SyntheticsSuiteSearchResponseData attributes(
+      SyntheticsSuiteSearchResponseDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes to get a list of deployments.
+   * Synthetics suite search response data attributes
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DORAListDeploymentsRequestAttributes getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsSuiteSearchResponseDataAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(DORAListDeploymentsRequestAttributes attributes) {
+  public void setAttributes(SyntheticsSuiteSearchResponseDataAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public DORAListDeploymentsRequestData type(DORAListDeploymentsRequestDataType type) {
+  public SyntheticsSuiteSearchResponseData id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Getid
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public SyntheticsSuiteSearchResponseData type(SuiteSearchResponseType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>DORAListDeploymentsRequestDataType</code> object.
+   * Gettype
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAListDeploymentsRequestDataType getType() {
+  public SuiteSearchResponseType getType() {
     return type;
   }
 
-  public void setType(DORAListDeploymentsRequestDataType type) {
+  public void setType(SuiteSearchResponseType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -102,10 +117,10 @@ public class DORAListDeploymentsRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAListDeploymentsRequestData
+   * @return SyntheticsSuiteSearchResponseData
    */
   @JsonAnySetter
-  public DORAListDeploymentsRequestData putAdditionalProperty(String key, Object value) {
+  public SyntheticsSuiteSearchResponseData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +151,7 @@ public class DORAListDeploymentsRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAListDeploymentsRequestData object is equal to o. */
+  /** Return true if this SyntheticsSuiteSearchResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,24 +160,26 @@ public class DORAListDeploymentsRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAListDeploymentsRequestData doraListDeploymentsRequestData =
-        (DORAListDeploymentsRequestData) o;
-    return Objects.equals(this.attributes, doraListDeploymentsRequestData.attributes)
-        && Objects.equals(this.type, doraListDeploymentsRequestData.type)
+    SyntheticsSuiteSearchResponseData syntheticsSuiteSearchResponseData =
+        (SyntheticsSuiteSearchResponseData) o;
+    return Objects.equals(this.attributes, syntheticsSuiteSearchResponseData.attributes)
+        && Objects.equals(this.id, syntheticsSuiteSearchResponseData.id)
+        && Objects.equals(this.type, syntheticsSuiteSearchResponseData.type)
         && Objects.equals(
-            this.additionalProperties, doraListDeploymentsRequestData.additionalProperties);
+            this.additionalProperties, syntheticsSuiteSearchResponseData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAListDeploymentsRequestData {\n");
+    sb.append("class SyntheticsSuiteSearchResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

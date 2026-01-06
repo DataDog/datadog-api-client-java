@@ -17,73 +17,96 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The JSON:API data. */
+/** */
 @JsonPropertyOrder({
-  DORAListDeploymentsRequestData.JSON_PROPERTY_ATTRIBUTES,
-  DORAListDeploymentsRequestData.JSON_PROPERTY_TYPE
+  DeletedSuitesRequestDelete.JSON_PROPERTY_ATTRIBUTES,
+  DeletedSuitesRequestDelete.JSON_PROPERTY_ID,
+  DeletedSuitesRequestDelete.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAListDeploymentsRequestData {
+public class DeletedSuitesRequestDelete {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private DORAListDeploymentsRequestAttributes attributes;
+  private DeletedSuitesRequestDeleteAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private DORAListDeploymentsRequestDataType type =
-      DORAListDeploymentsRequestDataType.DORA_DEPLOYMENTS_LIST_REQUEST;
+  private DeletedSuitesRequestType type = DeletedSuitesRequestType.DELETE_SUITES_REQUEST;
 
-  public DORAListDeploymentsRequestData() {}
+  public DeletedSuitesRequestDelete() {}
 
   @JsonCreator
-  public DORAListDeploymentsRequestData(
+  public DeletedSuitesRequestDelete(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          DORAListDeploymentsRequestAttributes attributes) {
+          DeletedSuitesRequestDeleteAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
   }
 
-  public DORAListDeploymentsRequestData attributes(
-      DORAListDeploymentsRequestAttributes attributes) {
+  public DeletedSuitesRequestDelete attributes(DeletedSuitesRequestDeleteAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes to get a list of deployments.
+   * Getattributes
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DORAListDeploymentsRequestAttributes getAttributes() {
+  public DeletedSuitesRequestDeleteAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(DORAListDeploymentsRequestAttributes attributes) {
+  public void setAttributes(DeletedSuitesRequestDeleteAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public DORAListDeploymentsRequestData type(DORAListDeploymentsRequestDataType type) {
+  public DeletedSuitesRequestDelete id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Getid
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public DeletedSuitesRequestDelete type(DeletedSuitesRequestType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>DORAListDeploymentsRequestDataType</code> object.
+   * Gettype
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAListDeploymentsRequestDataType getType() {
+  public DeletedSuitesRequestType getType() {
     return type;
   }
 
-  public void setType(DORAListDeploymentsRequestDataType type) {
+  public void setType(DeletedSuitesRequestType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -102,10 +125,10 @@ public class DORAListDeploymentsRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAListDeploymentsRequestData
+   * @return DeletedSuitesRequestDelete
    */
   @JsonAnySetter
-  public DORAListDeploymentsRequestData putAdditionalProperty(String key, Object value) {
+  public DeletedSuitesRequestDelete putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +159,7 @@ public class DORAListDeploymentsRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAListDeploymentsRequestData object is equal to o. */
+  /** Return true if this DeletedSuitesRequestDelete object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,24 +168,25 @@ public class DORAListDeploymentsRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAListDeploymentsRequestData doraListDeploymentsRequestData =
-        (DORAListDeploymentsRequestData) o;
-    return Objects.equals(this.attributes, doraListDeploymentsRequestData.attributes)
-        && Objects.equals(this.type, doraListDeploymentsRequestData.type)
+    DeletedSuitesRequestDelete deletedSuitesRequestDelete = (DeletedSuitesRequestDelete) o;
+    return Objects.equals(this.attributes, deletedSuitesRequestDelete.attributes)
+        && Objects.equals(this.id, deletedSuitesRequestDelete.id)
+        && Objects.equals(this.type, deletedSuitesRequestDelete.type)
         && Objects.equals(
-            this.additionalProperties, doraListDeploymentsRequestData.additionalProperties);
+            this.additionalProperties, deletedSuitesRequestDelete.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAListDeploymentsRequestData {\n");
+    sb.append("class DeletedSuitesRequestDelete {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

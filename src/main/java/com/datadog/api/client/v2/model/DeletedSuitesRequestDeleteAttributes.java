@@ -13,81 +13,80 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The JSON:API data. */
+/** */
 @JsonPropertyOrder({
-  DORAListDeploymentsRequestData.JSON_PROPERTY_ATTRIBUTES,
-  DORAListDeploymentsRequestData.JSON_PROPERTY_TYPE
+  DeletedSuitesRequestDeleteAttributes.JSON_PROPERTY_FORCE_DELETE_DEPENDENCIES,
+  DeletedSuitesRequestDeleteAttributes.JSON_PROPERTY_PUBLIC_IDS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAListDeploymentsRequestData {
+public class DeletedSuitesRequestDeleteAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private DORAListDeploymentsRequestAttributes attributes;
+  public static final String JSON_PROPERTY_FORCE_DELETE_DEPENDENCIES = "force_delete_dependencies";
+  private Boolean forceDeleteDependencies;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private DORAListDeploymentsRequestDataType type =
-      DORAListDeploymentsRequestDataType.DORA_DEPLOYMENTS_LIST_REQUEST;
+  public static final String JSON_PROPERTY_PUBLIC_IDS = "public_ids";
+  private List<String> publicIds = new ArrayList<>();
 
-  public DORAListDeploymentsRequestData() {}
+  public DeletedSuitesRequestDeleteAttributes() {}
 
   @JsonCreator
-  public DORAListDeploymentsRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public DeletedSuitesRequestDeleteAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PUBLIC_IDS) List<String> publicIds) {
+    this.publicIds = publicIds;
   }
 
-  public DORAListDeploymentsRequestData attributes(
-      DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public DeletedSuitesRequestDeleteAttributes forceDeleteDependencies(
+      Boolean forceDeleteDependencies) {
+    this.forceDeleteDependencies = forceDeleteDependencies;
     return this;
   }
 
   /**
-   * Attributes to get a list of deployments.
+   * GetforceDeleteDependencies
    *
-   * @return attributes
-   */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DORAListDeploymentsRequestAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public DORAListDeploymentsRequestData type(DORAListDeploymentsRequestDataType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The definition of <code>DORAListDeploymentsRequestDataType</code> object.
-   *
-   * @return type
+   * @return forceDeleteDependencies
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_FORCE_DELETE_DEPENDENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAListDeploymentsRequestDataType getType() {
-    return type;
+  public Boolean getForceDeleteDependencies() {
+    return forceDeleteDependencies;
   }
 
-  public void setType(DORAListDeploymentsRequestDataType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setForceDeleteDependencies(Boolean forceDeleteDependencies) {
+    this.forceDeleteDependencies = forceDeleteDependencies;
+  }
+
+  public DeletedSuitesRequestDeleteAttributes publicIds(List<String> publicIds) {
+    this.publicIds = publicIds;
+    return this;
+  }
+
+  public DeletedSuitesRequestDeleteAttributes addPublicIdsItem(String publicIdsItem) {
+    this.publicIds.add(publicIdsItem);
+    return this;
+  }
+
+  /**
+   * GetpublicIds
+   *
+   * @return publicIds
+   */
+  @JsonProperty(JSON_PROPERTY_PUBLIC_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getPublicIds() {
+    return publicIds;
+  }
+
+  public void setPublicIds(List<String> publicIds) {
+    this.publicIds = publicIds;
   }
 
   /**
@@ -102,10 +101,10 @@ public class DORAListDeploymentsRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAListDeploymentsRequestData
+   * @return DeletedSuitesRequestDeleteAttributes
    */
   @JsonAnySetter
-  public DORAListDeploymentsRequestData putAdditionalProperty(String key, Object value) {
+  public DeletedSuitesRequestDeleteAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +135,7 @@ public class DORAListDeploymentsRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAListDeploymentsRequestData object is equal to o. */
+  /** Return true if this DeletedSuitesRequestDeleteAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,25 +144,29 @@ public class DORAListDeploymentsRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAListDeploymentsRequestData doraListDeploymentsRequestData =
-        (DORAListDeploymentsRequestData) o;
-    return Objects.equals(this.attributes, doraListDeploymentsRequestData.attributes)
-        && Objects.equals(this.type, doraListDeploymentsRequestData.type)
+    DeletedSuitesRequestDeleteAttributes deletedSuitesRequestDeleteAttributes =
+        (DeletedSuitesRequestDeleteAttributes) o;
+    return Objects.equals(
+            this.forceDeleteDependencies,
+            deletedSuitesRequestDeleteAttributes.forceDeleteDependencies)
+        && Objects.equals(this.publicIds, deletedSuitesRequestDeleteAttributes.publicIds)
         && Objects.equals(
-            this.additionalProperties, doraListDeploymentsRequestData.additionalProperties);
+            this.additionalProperties, deletedSuitesRequestDeleteAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(forceDeleteDependencies, publicIds, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAListDeploymentsRequestData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class DeletedSuitesRequestDeleteAttributes {\n");
+    sb.append("    forceDeleteDependencies: ")
+        .append(toIndentedString(forceDeleteDependencies))
+        .append("\n");
+    sb.append("    publicIds: ").append(toIndentedString(publicIds)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
