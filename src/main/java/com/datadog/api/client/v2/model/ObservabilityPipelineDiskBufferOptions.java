@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,77 +16,98 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The JSON:API data. */
+/** Options for configuring a disk buffer. */
 @JsonPropertyOrder({
-  DORAListDeploymentsRequestData.JSON_PROPERTY_ATTRIBUTES,
-  DORAListDeploymentsRequestData.JSON_PROPERTY_TYPE
+  ObservabilityPipelineDiskBufferOptions.JSON_PROPERTY_MAX_SIZE,
+  ObservabilityPipelineDiskBufferOptions.JSON_PROPERTY_TYPE,
+  ObservabilityPipelineDiskBufferOptions.JSON_PROPERTY_WHEN_FULL
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAListDeploymentsRequestData {
+public class ObservabilityPipelineDiskBufferOptions {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private DORAListDeploymentsRequestAttributes attributes;
+  public static final String JSON_PROPERTY_MAX_SIZE = "max_size";
+  private Long maxSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private DORAListDeploymentsRequestDataType type =
-      DORAListDeploymentsRequestDataType.DORA_DEPLOYMENTS_LIST_REQUEST;
+  private ObservabilityPipelineBufferOptionsDiskType type =
+      ObservabilityPipelineBufferOptionsDiskType.DISK;
 
-  public DORAListDeploymentsRequestData() {}
+  public static final String JSON_PROPERTY_WHEN_FULL = "when_full";
+  private ObservabilityPipelineBufferOptionsWhenFull whenFull =
+      ObservabilityPipelineBufferOptionsWhenFull.BLOCK;
 
-  @JsonCreator
-  public DORAListDeploymentsRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-  }
-
-  public DORAListDeploymentsRequestData attributes(
-      DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public ObservabilityPipelineDiskBufferOptions maxSize(Long maxSize) {
+    this.maxSize = maxSize;
     return this;
   }
 
   /**
-   * Attributes to get a list of deployments.
+   * Maximum size of the disk buffer.
    *
-   * @return attributes
+   * @return maxSize
    */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DORAListDeploymentsRequestAttributes getAttributes() {
-    return attributes;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMaxSize() {
+    return maxSize;
   }
 
-  public void setAttributes(DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
+  public void setMaxSize(Long maxSize) {
+    this.maxSize = maxSize;
   }
 
-  public DORAListDeploymentsRequestData type(DORAListDeploymentsRequestDataType type) {
+  public ObservabilityPipelineDiskBufferOptions type(
+      ObservabilityPipelineBufferOptionsDiskType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>DORAListDeploymentsRequestDataType</code> object.
+   * The type of the buffer that will be configured, a disk buffer.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAListDeploymentsRequestDataType getType() {
+  public ObservabilityPipelineBufferOptionsDiskType getType() {
     return type;
   }
 
-  public void setType(DORAListDeploymentsRequestDataType type) {
+  public void setType(ObservabilityPipelineBufferOptionsDiskType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
     this.type = type;
+  }
+
+  public ObservabilityPipelineDiskBufferOptions whenFull(
+      ObservabilityPipelineBufferOptionsWhenFull whenFull) {
+    this.whenFull = whenFull;
+    this.unparsed |= !whenFull.isValid();
+    return this;
+  }
+
+  /**
+   * Behavior when the buffer is full (block and stop accepting new events, or drop new events)
+   *
+   * @return whenFull
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WHEN_FULL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptionsWhenFull getWhenFull() {
+    return whenFull;
+  }
+
+  public void setWhenFull(ObservabilityPipelineBufferOptionsWhenFull whenFull) {
+    if (!whenFull.isValid()) {
+      this.unparsed = true;
+    }
+    this.whenFull = whenFull;
   }
 
   /**
@@ -102,10 +122,10 @@ public class DORAListDeploymentsRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAListDeploymentsRequestData
+   * @return ObservabilityPipelineDiskBufferOptions
    */
   @JsonAnySetter
-  public DORAListDeploymentsRequestData putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineDiskBufferOptions putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +156,7 @@ public class DORAListDeploymentsRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAListDeploymentsRequestData object is equal to o. */
+  /** Return true if this ObservabilityPipelineDiskBufferOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,25 +165,27 @@ public class DORAListDeploymentsRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAListDeploymentsRequestData doraListDeploymentsRequestData =
-        (DORAListDeploymentsRequestData) o;
-    return Objects.equals(this.attributes, doraListDeploymentsRequestData.attributes)
-        && Objects.equals(this.type, doraListDeploymentsRequestData.type)
+    ObservabilityPipelineDiskBufferOptions observabilityPipelineDiskBufferOptions =
+        (ObservabilityPipelineDiskBufferOptions) o;
+    return Objects.equals(this.maxSize, observabilityPipelineDiskBufferOptions.maxSize)
+        && Objects.equals(this.type, observabilityPipelineDiskBufferOptions.type)
+        && Objects.equals(this.whenFull, observabilityPipelineDiskBufferOptions.whenFull)
         && Objects.equals(
-            this.additionalProperties, doraListDeploymentsRequestData.additionalProperties);
+            this.additionalProperties, observabilityPipelineDiskBufferOptions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(maxSize, type, whenFull, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAListDeploymentsRequestData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class ObservabilityPipelineDiskBufferOptions {\n");
+    sb.append("    maxSize: ").append(toIndentedString(maxSize)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    whenFull: ").append(toIndentedString(whenFull)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

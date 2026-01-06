@@ -16,34 +16,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for the DORA fetch endpoints. */
-@JsonPropertyOrder({DORAFetchResponse.JSON_PROPERTY_DATA})
+/** Response for fetching a single failure event. */
+@JsonPropertyOrder({DORAFailureFetchResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAFetchResponse {
+public class DORAFailureFetchResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private DORAEvent data;
+  private DORAIncidentObject data;
 
-  public DORAFetchResponse data(DORAEvent data) {
+  public DORAFailureFetchResponse data(DORAIncidentObject data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * A DORA event.
+   * A DORA incident event.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAEvent getData() {
+  public DORAIncidentObject getData() {
     return data;
   }
 
-  public void setData(DORAEvent data) {
+  public void setData(DORAIncidentObject data) {
     this.data = data;
   }
 
@@ -59,10 +59,10 @@ public class DORAFetchResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAFetchResponse
+   * @return DORAFailureFetchResponse
    */
   @JsonAnySetter
-  public DORAFetchResponse putAdditionalProperty(String key, Object value) {
+  public DORAFailureFetchResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +93,7 @@ public class DORAFetchResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAFetchResponse object is equal to o. */
+  /** Return true if this DORAFailureFetchResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,9 +102,9 @@ public class DORAFetchResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAFetchResponse doraFetchResponse = (DORAFetchResponse) o;
-    return Objects.equals(this.data, doraFetchResponse.data)
-        && Objects.equals(this.additionalProperties, doraFetchResponse.additionalProperties);
+    DORAFailureFetchResponse doraFailureFetchResponse = (DORAFailureFetchResponse) o;
+    return Objects.equals(this.data, doraFailureFetchResponse.data)
+        && Objects.equals(this.additionalProperties, doraFailureFetchResponse.additionalProperties);
   }
 
   @Override
@@ -115,7 +115,7 @@ public class DORAFetchResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAFetchResponse {\n");
+    sb.append("class DORAFailureFetchResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

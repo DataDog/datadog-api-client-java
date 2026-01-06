@@ -22,6 +22,7 @@ import java.util.Objects;
 /** The <code>google_pubsub</code> destination publishes logs to a Google Cloud Pub/Sub topic. */
 @JsonPropertyOrder({
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_AUTH,
+  ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_ENCODING,
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_INPUTS,
@@ -36,6 +37,9 @@ public class ObservabilityPipelineGooglePubSubDestination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH = "auth";
   private ObservabilityPipelineGcpAuth auth;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_ENCODING = "encoding";
   private ObservabilityPipelineGooglePubSubDestinationEncoding encoding;
@@ -101,6 +105,29 @@ public class ObservabilityPipelineGooglePubSubDestination {
 
   public void setAuth(ObservabilityPipelineGcpAuth auth) {
     this.auth = auth;
+  }
+
+  public ObservabilityPipelineGooglePubSubDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineGooglePubSubDestination encoding(
@@ -319,6 +346,7 @@ public class ObservabilityPipelineGooglePubSubDestination {
     ObservabilityPipelineGooglePubSubDestination observabilityPipelineGooglePubSubDestination =
         (ObservabilityPipelineGooglePubSubDestination) o;
     return Objects.equals(this.auth, observabilityPipelineGooglePubSubDestination.auth)
+        && Objects.equals(this.buffer, observabilityPipelineGooglePubSubDestination.buffer)
         && Objects.equals(this.encoding, observabilityPipelineGooglePubSubDestination.encoding)
         && Objects.equals(this.id, observabilityPipelineGooglePubSubDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineGooglePubSubDestination.inputs)
@@ -334,7 +362,7 @@ public class ObservabilityPipelineGooglePubSubDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
-        auth, encoding, id, inputs, project, tls, topic, type, additionalProperties);
+        auth, buffer, encoding, id, inputs, project, tls, topic, type, additionalProperties);
   }
 
   @Override
@@ -342,6 +370,7 @@ public class ObservabilityPipelineGooglePubSubDestination {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineGooglePubSubDestination {\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");

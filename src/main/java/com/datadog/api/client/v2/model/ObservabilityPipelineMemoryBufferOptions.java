@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,73 +16,63 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The JSON:API data. */
+/** Options for configuring a memory buffer by byte size. */
 @JsonPropertyOrder({
-  DORAListDeploymentsRequestData.JSON_PROPERTY_ATTRIBUTES,
-  DORAListDeploymentsRequestData.JSON_PROPERTY_TYPE
+  ObservabilityPipelineMemoryBufferOptions.JSON_PROPERTY_MAX_SIZE,
+  ObservabilityPipelineMemoryBufferOptions.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAListDeploymentsRequestData {
+public class ObservabilityPipelineMemoryBufferOptions {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private DORAListDeploymentsRequestAttributes attributes;
+  public static final String JSON_PROPERTY_MAX_SIZE = "max_size";
+  private Long maxSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private DORAListDeploymentsRequestDataType type =
-      DORAListDeploymentsRequestDataType.DORA_DEPLOYMENTS_LIST_REQUEST;
+  private ObservabilityPipelineBufferOptionsMemoryType type =
+      ObservabilityPipelineBufferOptionsMemoryType.MEMORY;
 
-  public DORAListDeploymentsRequestData() {}
-
-  @JsonCreator
-  public DORAListDeploymentsRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-  }
-
-  public DORAListDeploymentsRequestData attributes(
-      DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public ObservabilityPipelineMemoryBufferOptions maxSize(Long maxSize) {
+    this.maxSize = maxSize;
     return this;
   }
 
   /**
-   * Attributes to get a list of deployments.
+   * Maximum size of the disk buffer.
    *
-   * @return attributes
+   * @return maxSize
    */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DORAListDeploymentsRequestAttributes getAttributes() {
-    return attributes;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMaxSize() {
+    return maxSize;
   }
 
-  public void setAttributes(DORAListDeploymentsRequestAttributes attributes) {
-    this.attributes = attributes;
+  public void setMaxSize(Long maxSize) {
+    this.maxSize = maxSize;
   }
 
-  public DORAListDeploymentsRequestData type(DORAListDeploymentsRequestDataType type) {
+  public ObservabilityPipelineMemoryBufferOptions type(
+      ObservabilityPipelineBufferOptionsMemoryType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>DORAListDeploymentsRequestDataType</code> object.
+   * The type of the buffer that will be configured, a memory buffer.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAListDeploymentsRequestDataType getType() {
+  public ObservabilityPipelineBufferOptionsMemoryType getType() {
     return type;
   }
 
-  public void setType(DORAListDeploymentsRequestDataType type) {
+  public void setType(ObservabilityPipelineBufferOptionsMemoryType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -102,10 +91,10 @@ public class DORAListDeploymentsRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAListDeploymentsRequestData
+   * @return ObservabilityPipelineMemoryBufferOptions
    */
   @JsonAnySetter
-  public DORAListDeploymentsRequestData putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineMemoryBufferOptions putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +125,7 @@ public class DORAListDeploymentsRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAListDeploymentsRequestData object is equal to o. */
+  /** Return true if this ObservabilityPipelineMemoryBufferOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,24 +134,25 @@ public class DORAListDeploymentsRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAListDeploymentsRequestData doraListDeploymentsRequestData =
-        (DORAListDeploymentsRequestData) o;
-    return Objects.equals(this.attributes, doraListDeploymentsRequestData.attributes)
-        && Objects.equals(this.type, doraListDeploymentsRequestData.type)
+    ObservabilityPipelineMemoryBufferOptions observabilityPipelineMemoryBufferOptions =
+        (ObservabilityPipelineMemoryBufferOptions) o;
+    return Objects.equals(this.maxSize, observabilityPipelineMemoryBufferOptions.maxSize)
+        && Objects.equals(this.type, observabilityPipelineMemoryBufferOptions.type)
         && Objects.equals(
-            this.additionalProperties, doraListDeploymentsRequestData.additionalProperties);
+            this.additionalProperties,
+            observabilityPipelineMemoryBufferOptions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(maxSize, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAListDeploymentsRequestData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class ObservabilityPipelineMemoryBufferOptions {\n");
+    sb.append("    maxSize: ").append(toIndentedString(maxSize)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

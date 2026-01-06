@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The <code>new_relic</code> destination sends logs to the New Relic platform. */
 @JsonPropertyOrder({
+  ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_REGION,
@@ -30,6 +31,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineNewRelicDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -59,6 +63,29 @@ public class ObservabilityPipelineNewRelicDestination {
     this.unparsed |= !region.isValid();
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineNewRelicDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineNewRelicDestination id(String id) {
@@ -213,7 +240,8 @@ public class ObservabilityPipelineNewRelicDestination {
     }
     ObservabilityPipelineNewRelicDestination observabilityPipelineNewRelicDestination =
         (ObservabilityPipelineNewRelicDestination) o;
-    return Objects.equals(this.id, observabilityPipelineNewRelicDestination.id)
+    return Objects.equals(this.buffer, observabilityPipelineNewRelicDestination.buffer)
+        && Objects.equals(this.id, observabilityPipelineNewRelicDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineNewRelicDestination.inputs)
         && Objects.equals(this.region, observabilityPipelineNewRelicDestination.region)
         && Objects.equals(this.type, observabilityPipelineNewRelicDestination.type)
@@ -224,13 +252,14 @@ public class ObservabilityPipelineNewRelicDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, inputs, region, type, additionalProperties);
+    return Objects.hash(buffer, id, inputs, region, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineNewRelicDestination {\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");

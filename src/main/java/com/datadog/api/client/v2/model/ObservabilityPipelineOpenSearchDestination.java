@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The <code>opensearch</code> destination writes logs to an OpenSearch cluster. */
 @JsonPropertyOrder({
+  ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_BULK_INDEX,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_INPUTS,
@@ -30,6 +31,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineOpenSearchDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
+
   public static final String JSON_PROPERTY_BULK_INDEX = "bulk_index";
   private String bulkIndex;
 
@@ -55,6 +59,29 @@ public class ObservabilityPipelineOpenSearchDestination {
     this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineOpenSearchDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineOpenSearchDestination bulkIndex(String bulkIndex) {
@@ -206,7 +233,8 @@ public class ObservabilityPipelineOpenSearchDestination {
     }
     ObservabilityPipelineOpenSearchDestination observabilityPipelineOpenSearchDestination =
         (ObservabilityPipelineOpenSearchDestination) o;
-    return Objects.equals(this.bulkIndex, observabilityPipelineOpenSearchDestination.bulkIndex)
+    return Objects.equals(this.buffer, observabilityPipelineOpenSearchDestination.buffer)
+        && Objects.equals(this.bulkIndex, observabilityPipelineOpenSearchDestination.bulkIndex)
         && Objects.equals(this.id, observabilityPipelineOpenSearchDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineOpenSearchDestination.inputs)
         && Objects.equals(this.type, observabilityPipelineOpenSearchDestination.type)
@@ -217,13 +245,14 @@ public class ObservabilityPipelineOpenSearchDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bulkIndex, id, inputs, type, additionalProperties);
+    return Objects.hash(buffer, bulkIndex, id, inputs, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineOpenSearchDestination {\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    bulkIndex: ").append(toIndentedString(bulkIndex)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
