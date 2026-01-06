@@ -16,35 +16,91 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response for the DORA fetch endpoints. */
-@JsonPropertyOrder({DORAFetchResponse.JSON_PROPERTY_DATA})
+/** A DORA incident event. */
+@JsonPropertyOrder({
+  DORAIncidentObject.JSON_PROPERTY_ATTRIBUTES,
+  DORAIncidentObject.JSON_PROPERTY_ID,
+  DORAIncidentObject.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAFetchResponse {
+public class DORAIncidentObject {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private DORAEvent data;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private DORAIncidentObjectAttributes attributes;
 
-  public DORAFetchResponse data(DORAEvent data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private DORAFailureType type = DORAFailureType.DORA_FAILURE;
+
+  public DORAIncidentObject attributes(DORAIncidentObjectAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * A DORA event.
+   * The attributes of the incident event.
    *
-   * @return data
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAEvent getData() {
-    return data;
+  public DORAIncidentObjectAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setData(DORAEvent data) {
-    this.data = data;
+  public void setAttributes(DORAIncidentObjectAttributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public DORAIncidentObject id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the incident event.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public DORAIncidentObject type(DORAFailureType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * JSON:API type for DORA failure events.
+   *
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DORAFailureType getType() {
+    return type;
+  }
+
+  public void setType(DORAFailureType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -59,10 +115,10 @@ public class DORAFetchResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAFetchResponse
+   * @return DORAIncidentObject
    */
   @JsonAnySetter
-  public DORAFetchResponse putAdditionalProperty(String key, Object value) {
+  public DORAIncidentObject putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +149,7 @@ public class DORAFetchResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAFetchResponse object is equal to o. */
+  /** Return true if this DORAIncidentObject object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,21 +158,25 @@ public class DORAFetchResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAFetchResponse doraFetchResponse = (DORAFetchResponse) o;
-    return Objects.equals(this.data, doraFetchResponse.data)
-        && Objects.equals(this.additionalProperties, doraFetchResponse.additionalProperties);
+    DORAIncidentObject doraIncidentObject = (DORAIncidentObject) o;
+    return Objects.equals(this.attributes, doraIncidentObject.attributes)
+        && Objects.equals(this.id, doraIncidentObject.id)
+        && Objects.equals(this.type, doraIncidentObject.type)
+        && Objects.equals(this.additionalProperties, doraIncidentObject.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAFetchResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class DORAIncidentObject {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
