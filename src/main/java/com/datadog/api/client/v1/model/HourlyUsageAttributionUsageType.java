@@ -38,6 +38,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "appsec_usage",
               "asm_serverless_traced_invocations_usage",
               "asm_serverless_traced_invocations_percentage",
+              "bits_ai_investigations_usage",
               "browser_usage",
               "ci_pipeline_indexed_spans_usage",
               "ci_test_indexed_spans_usage",
@@ -128,6 +129,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("asm_serverless_traced_invocations_usage");
   public static final HourlyUsageAttributionUsageType ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
       new HourlyUsageAttributionUsageType("asm_serverless_traced_invocations_percentage");
+  public static final HourlyUsageAttributionUsageType BITS_AI_INVESTIGATIONS_USAGE =
+      new HourlyUsageAttributionUsageType("bits_ai_investigations_usage");
   public static final HourlyUsageAttributionUsageType BROWSER_USAGE =
       new HourlyUsageAttributionUsageType("browser_usage");
   public static final HourlyUsageAttributionUsageType CI_PIPELINE_INDEXED_SPANS_USAGE =
