@@ -3,7 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
-import com.datadog.api.client.v1.model.SyntheticsTestDetails;
+import com.datadog.api.client.v1.model.SyntheticsTestDetailsWithoutSteps;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     try {
-      SyntheticsTestDetails result = apiInstance.getTest("public_id");
+      SyntheticsTestDetailsWithoutSteps result = apiInstance.getTest("public_id");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SyntheticsApi#getTest");

@@ -26,6 +26,7 @@ import com.datadog.api.client.v1.model.SyntheticsPatchTestBody;
 import com.datadog.api.client.v1.model.SyntheticsPrivateLocation;
 import com.datadog.api.client.v1.model.SyntheticsPrivateLocationCreationResponse;
 import com.datadog.api.client.v1.model.SyntheticsTestDetails;
+import com.datadog.api.client.v1.model.SyntheticsTestDetailsWithoutSteps;
 import com.datadog.api.client.v1.model.SyntheticsTestUptime;
 import com.datadog.api.client.v1.model.SyntheticsTriggerBody;
 import com.datadog.api.client.v1.model.SyntheticsTriggerCITestsResponse;
@@ -3168,10 +3169,10 @@ public class SyntheticsApi {
    * <p>See {@link #getTestWithHttpInfo}.
    *
    * @param publicId The public ID of the test to get details from. (required)
-   * @return SyntheticsTestDetails
+   * @return SyntheticsTestDetailsWithoutSteps
    * @throws ApiException if fails to make API call
    */
-  public SyntheticsTestDetails getTest(String publicId) throws ApiException {
+  public SyntheticsTestDetailsWithoutSteps getTest(String publicId) throws ApiException {
     return getTestWithHttpInfo(publicId).getData();
   }
 
@@ -3181,9 +3182,9 @@ public class SyntheticsApi {
    * <p>See {@link #getTestWithHttpInfoAsync}.
    *
    * @param publicId The public ID of the test to get details from. (required)
-   * @return CompletableFuture&lt;SyntheticsTestDetails&gt;
+   * @return CompletableFuture&lt;SyntheticsTestDetailsWithoutSteps&gt;
    */
-  public CompletableFuture<SyntheticsTestDetails> getTestAsync(String publicId) {
+  public CompletableFuture<SyntheticsTestDetailsWithoutSteps> getTestAsync(String publicId) {
     return getTestWithHttpInfoAsync(publicId)
         .thenApply(
             response -> {
@@ -3195,7 +3196,7 @@ public class SyntheticsApi {
    * Get the detailed configuration associated with a Synthetic test.
    *
    * @param publicId The public ID of the test to get details from. (required)
-   * @return ApiResponse&lt;SyntheticsTestDetails&gt;
+   * @return ApiResponse&lt;SyntheticsTestDetailsWithoutSteps&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -3207,7 +3208,7 @@ public class SyntheticsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId)
+  public ApiResponse<SyntheticsTestDetailsWithoutSteps> getTestWithHttpInfo(String publicId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -3239,7 +3240,7 @@ public class SyntheticsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<SyntheticsTestDetails>() {});
+        new GenericType<SyntheticsTestDetailsWithoutSteps>() {});
   }
 
   /**
@@ -3248,15 +3249,16 @@ public class SyntheticsApi {
    * <p>See {@link #getTestWithHttpInfo}.
    *
    * @param publicId The public ID of the test to get details from. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsTestDetails&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsTestDetailsWithoutSteps&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SyntheticsTestDetails>> getTestWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<SyntheticsTestDetailsWithoutSteps>> getTestWithHttpInfoAsync(
       String publicId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'publicId' is set
     if (publicId == null) {
-      CompletableFuture<ApiResponse<SyntheticsTestDetails>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<SyntheticsTestDetailsWithoutSteps>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(400, "Missing the required parameter 'publicId' when calling getTest"));
       return result;
@@ -3280,7 +3282,8 @@ public class SyntheticsApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<SyntheticsTestDetails>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<SyntheticsTestDetailsWithoutSteps>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -3292,7 +3295,7 @@ public class SyntheticsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<SyntheticsTestDetails>() {});
+        new GenericType<SyntheticsTestDetailsWithoutSteps>() {});
   }
 
   /**
@@ -3609,9 +3612,9 @@ public class SyntheticsApi {
    *
    * <p>See {@link #listTestsWithHttpInfo}.
    *
-   * @return PaginationIterable&lt;SyntheticsTestDetails&gt;
+   * @return PaginationIterable&lt;SyntheticsTestDetailsWithoutSteps&gt;
    */
-  public PaginationIterable<SyntheticsTestDetails> listTestsWithPagination() {
+  public PaginationIterable<SyntheticsTestDetailsWithoutSteps> listTestsWithPagination() {
     ListTestsOptionalParameters parameters = new ListTestsOptionalParameters();
     return listTestsWithPagination(parameters);
   }
@@ -3623,7 +3626,7 @@ public class SyntheticsApi {
    *
    * @return SyntheticsListTestsResponse
    */
-  public PaginationIterable<SyntheticsTestDetails> listTestsWithPagination(
+  public PaginationIterable<SyntheticsTestDetailsWithoutSteps> listTestsWithPagination(
       ListTestsOptionalParameters parameters) {
     String resultsPath = "getTests";
     String valueGetterPath = "";

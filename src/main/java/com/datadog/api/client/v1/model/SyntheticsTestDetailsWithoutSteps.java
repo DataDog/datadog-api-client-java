@@ -18,25 +18,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object containing details about your Synthetic test. */
+/** Object containing details about your Synthetic test, without test steps. */
 @JsonPropertyOrder({
-  SyntheticsTestDetails.JSON_PROPERTY_CONFIG,
-  SyntheticsTestDetails.JSON_PROPERTY_CREATOR,
-  SyntheticsTestDetails.JSON_PROPERTY_LOCATIONS,
-  SyntheticsTestDetails.JSON_PROPERTY_MESSAGE,
-  SyntheticsTestDetails.JSON_PROPERTY_MONITOR_ID,
-  SyntheticsTestDetails.JSON_PROPERTY_NAME,
-  SyntheticsTestDetails.JSON_PROPERTY_OPTIONS,
-  SyntheticsTestDetails.JSON_PROPERTY_PUBLIC_ID,
-  SyntheticsTestDetails.JSON_PROPERTY_STATUS,
-  SyntheticsTestDetails.JSON_PROPERTY_STEPS,
-  SyntheticsTestDetails.JSON_PROPERTY_SUBTYPE,
-  SyntheticsTestDetails.JSON_PROPERTY_TAGS,
-  SyntheticsTestDetails.JSON_PROPERTY_TYPE
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_CONFIG,
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_CREATOR,
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_LOCATIONS,
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_MESSAGE,
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_MONITOR_ID,
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_NAME,
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_OPTIONS,
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_PUBLIC_ID,
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_STATUS,
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_SUBTYPE,
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_TAGS,
+  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsTestDetails {
+public class SyntheticsTestDetailsWithoutSteps {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private SyntheticsTestConfig config;
@@ -65,9 +64,6 @@ public class SyntheticsTestDetails {
   public static final String JSON_PROPERTY_STATUS = "status";
   private SyntheticsTestPauseStatus status;
 
-  public static final String JSON_PROPERTY_STEPS = "steps";
-  private List<SyntheticsStep> steps = null;
-
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private SyntheticsTestDetailsSubType subtype;
 
@@ -77,7 +73,7 @@ public class SyntheticsTestDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsTestDetailsType type;
 
-  public SyntheticsTestDetails config(SyntheticsTestConfig config) {
+  public SyntheticsTestDetailsWithoutSteps config(SyntheticsTestConfig config) {
     this.config = config;
     this.unparsed |= config.unparsed;
     return this;
@@ -111,12 +107,12 @@ public class SyntheticsTestDetails {
     return creator;
   }
 
-  public SyntheticsTestDetails locations(List<String> locations) {
+  public SyntheticsTestDetailsWithoutSteps locations(List<String> locations) {
     this.locations = locations;
     return this;
   }
 
-  public SyntheticsTestDetails addLocationsItem(String locationsItem) {
+  public SyntheticsTestDetailsWithoutSteps addLocationsItem(String locationsItem) {
     if (this.locations == null) {
       this.locations = new ArrayList<>();
     }
@@ -140,7 +136,7 @@ public class SyntheticsTestDetails {
     this.locations = locations;
   }
 
-  public SyntheticsTestDetails message(String message) {
+  public SyntheticsTestDetailsWithoutSteps message(String message) {
     this.message = message;
     return this;
   }
@@ -173,7 +169,7 @@ public class SyntheticsTestDetails {
     return monitorId;
   }
 
-  public SyntheticsTestDetails name(String name) {
+  public SyntheticsTestDetailsWithoutSteps name(String name) {
     this.name = name;
     return this;
   }
@@ -194,7 +190,7 @@ public class SyntheticsTestDetails {
     this.name = name;
   }
 
-  public SyntheticsTestDetails options(SyntheticsTestOptions options) {
+  public SyntheticsTestDetailsWithoutSteps options(SyntheticsTestOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
     return this;
@@ -228,7 +224,7 @@ public class SyntheticsTestDetails {
     return publicId;
   }
 
-  public SyntheticsTestDetails status(SyntheticsTestPauseStatus status) {
+  public SyntheticsTestDetailsWithoutSteps status(SyntheticsTestPauseStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
     return this;
@@ -254,40 +250,7 @@ public class SyntheticsTestDetails {
     this.status = status;
   }
 
-  public SyntheticsTestDetails steps(List<SyntheticsStep> steps) {
-    this.steps = steps;
-    for (SyntheticsStep item : steps) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public SyntheticsTestDetails addStepsItem(SyntheticsStep stepsItem) {
-    if (this.steps == null) {
-      this.steps = new ArrayList<>();
-    }
-    this.steps.add(stepsItem);
-    this.unparsed |= stepsItem.unparsed;
-    return this;
-  }
-
-  /**
-   * The steps of the test if they exist.
-   *
-   * @return steps
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STEPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsStep> getSteps() {
-    return steps;
-  }
-
-  public void setSteps(List<SyntheticsStep> steps) {
-    this.steps = steps;
-  }
-
-  public SyntheticsTestDetails subtype(SyntheticsTestDetailsSubType subtype) {
+  public SyntheticsTestDetailsWithoutSteps subtype(SyntheticsTestDetailsSubType subtype) {
     this.subtype = subtype;
     this.unparsed |= !subtype.isValid();
     return this;
@@ -314,12 +277,12 @@ public class SyntheticsTestDetails {
     this.subtype = subtype;
   }
 
-  public SyntheticsTestDetails tags(List<String> tags) {
+  public SyntheticsTestDetailsWithoutSteps tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public SyntheticsTestDetails addTagsItem(String tagsItem) {
+  public SyntheticsTestDetailsWithoutSteps addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -343,7 +306,7 @@ public class SyntheticsTestDetails {
     this.tags = tags;
   }
 
-  public SyntheticsTestDetails type(SyntheticsTestDetailsType type) {
+  public SyntheticsTestDetailsWithoutSteps type(SyntheticsTestDetailsType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -380,10 +343,10 @@ public class SyntheticsTestDetails {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsTestDetails
+   * @return SyntheticsTestDetailsWithoutSteps
    */
   @JsonAnySetter
-  public SyntheticsTestDetails putAdditionalProperty(String key, Object value) {
+  public SyntheticsTestDetailsWithoutSteps putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -414,7 +377,7 @@ public class SyntheticsTestDetails {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTestDetails object is equal to o. */
+  /** Return true if this SyntheticsTestDetailsWithoutSteps object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -423,21 +386,22 @@ public class SyntheticsTestDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestDetails syntheticsTestDetails = (SyntheticsTestDetails) o;
-    return Objects.equals(this.config, syntheticsTestDetails.config)
-        && Objects.equals(this.creator, syntheticsTestDetails.creator)
-        && Objects.equals(this.locations, syntheticsTestDetails.locations)
-        && Objects.equals(this.message, syntheticsTestDetails.message)
-        && Objects.equals(this.monitorId, syntheticsTestDetails.monitorId)
-        && Objects.equals(this.name, syntheticsTestDetails.name)
-        && Objects.equals(this.options, syntheticsTestDetails.options)
-        && Objects.equals(this.publicId, syntheticsTestDetails.publicId)
-        && Objects.equals(this.status, syntheticsTestDetails.status)
-        && Objects.equals(this.steps, syntheticsTestDetails.steps)
-        && Objects.equals(this.subtype, syntheticsTestDetails.subtype)
-        && Objects.equals(this.tags, syntheticsTestDetails.tags)
-        && Objects.equals(this.type, syntheticsTestDetails.type)
-        && Objects.equals(this.additionalProperties, syntheticsTestDetails.additionalProperties);
+    SyntheticsTestDetailsWithoutSteps syntheticsTestDetailsWithoutSteps =
+        (SyntheticsTestDetailsWithoutSteps) o;
+    return Objects.equals(this.config, syntheticsTestDetailsWithoutSteps.config)
+        && Objects.equals(this.creator, syntheticsTestDetailsWithoutSteps.creator)
+        && Objects.equals(this.locations, syntheticsTestDetailsWithoutSteps.locations)
+        && Objects.equals(this.message, syntheticsTestDetailsWithoutSteps.message)
+        && Objects.equals(this.monitorId, syntheticsTestDetailsWithoutSteps.monitorId)
+        && Objects.equals(this.name, syntheticsTestDetailsWithoutSteps.name)
+        && Objects.equals(this.options, syntheticsTestDetailsWithoutSteps.options)
+        && Objects.equals(this.publicId, syntheticsTestDetailsWithoutSteps.publicId)
+        && Objects.equals(this.status, syntheticsTestDetailsWithoutSteps.status)
+        && Objects.equals(this.subtype, syntheticsTestDetailsWithoutSteps.subtype)
+        && Objects.equals(this.tags, syntheticsTestDetailsWithoutSteps.tags)
+        && Objects.equals(this.type, syntheticsTestDetailsWithoutSteps.type)
+        && Objects.equals(
+            this.additionalProperties, syntheticsTestDetailsWithoutSteps.additionalProperties);
   }
 
   @Override
@@ -452,7 +416,6 @@ public class SyntheticsTestDetails {
         options,
         publicId,
         status,
-        steps,
         subtype,
         tags,
         type,
@@ -462,7 +425,7 @@ public class SyntheticsTestDetails {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTestDetails {\n");
+    sb.append("class SyntheticsTestDetailsWithoutSteps {\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    locations: ").append(toIndentedString(locations)).append("\n");
@@ -472,7 +435,6 @@ public class SyntheticsTestDetails {
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
