@@ -36,6 +36,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_BITS_AI_INVESTIGATIONS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_BITS_AI_INVESTIGATIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_PERCENTAGE,
@@ -226,6 +228,14 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
       "asm_serverless_traced_invocations_usage";
   private Double asmServerlessTracedInvocationsUsage;
+
+  public static final String JSON_PROPERTY_BITS_AI_INVESTIGATIONS_PERCENTAGE =
+      "bits_ai_investigations_percentage";
+  private Double bitsAiInvestigationsPercentage;
+
+  public static final String JSON_PROPERTY_BITS_AI_INVESTIGATIONS_USAGE =
+      "bits_ai_investigations_usage";
+  private Double bitsAiInvestigationsUsage;
 
   public static final String JSON_PROPERTY_BROWSER_PERCENTAGE = "browser_percentage";
   private Double browserPercentage;
@@ -1014,6 +1024,49 @@ public class MonthlyUsageAttributionValues {
 
   public void setAsmServerlessTracedInvocationsUsage(Double asmServerlessTracedInvocationsUsage) {
     this.asmServerlessTracedInvocationsUsage = asmServerlessTracedInvocationsUsage;
+  }
+
+  public MonthlyUsageAttributionValues bitsAiInvestigationsPercentage(
+      Double bitsAiInvestigationsPercentage) {
+    this.bitsAiInvestigationsPercentage = bitsAiInvestigationsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Bits AI <code>SRE</code> investigation usage by tag(s).
+   *
+   * @return bitsAiInvestigationsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BITS_AI_INVESTIGATIONS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getBitsAiInvestigationsPercentage() {
+    return bitsAiInvestigationsPercentage;
+  }
+
+  public void setBitsAiInvestigationsPercentage(Double bitsAiInvestigationsPercentage) {
+    this.bitsAiInvestigationsPercentage = bitsAiInvestigationsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues bitsAiInvestigationsUsage(Double bitsAiInvestigationsUsage) {
+    this.bitsAiInvestigationsUsage = bitsAiInvestigationsUsage;
+    return this;
+  }
+
+  /**
+   * The Bits AI <code>SRE</code> investigation usage by tag(s).
+   *
+   * @return bitsAiInvestigationsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BITS_AI_INVESTIGATIONS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getBitsAiInvestigationsUsage() {
+    return bitsAiInvestigationsUsage;
+  }
+
+  public void setBitsAiInvestigationsUsage(Double bitsAiInvestigationsUsage) {
+    this.bitsAiInvestigationsUsage = bitsAiInvestigationsUsage;
   }
 
   public MonthlyUsageAttributionValues browserPercentage(Double browserPercentage) {
@@ -4126,6 +4179,11 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.asmServerlessTracedInvocationsUsage,
             monthlyUsageAttributionValues.asmServerlessTracedInvocationsUsage)
+        && Objects.equals(
+            this.bitsAiInvestigationsPercentage,
+            monthlyUsageAttributionValues.bitsAiInvestigationsPercentage)
+        && Objects.equals(
+            this.bitsAiInvestigationsUsage, monthlyUsageAttributionValues.bitsAiInvestigationsUsage)
         && Objects.equals(this.browserPercentage, monthlyUsageAttributionValues.browserPercentage)
         && Objects.equals(this.browserUsage, monthlyUsageAttributionValues.browserUsage)
         && Objects.equals(
@@ -4448,6 +4506,8 @@ public class MonthlyUsageAttributionValues {
         appsecUsage,
         asmServerlessTracedInvocationsPercentage,
         asmServerlessTracedInvocationsUsage,
+        bitsAiInvestigationsPercentage,
+        bitsAiInvestigationsUsage,
         browserPercentage,
         browserUsage,
         ciPipelineIndexedSpansPercentage,
@@ -4618,6 +4678,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    asmServerlessTracedInvocationsUsage: ")
         .append(toIndentedString(asmServerlessTracedInvocationsUsage))
+        .append("\n");
+    sb.append("    bitsAiInvestigationsPercentage: ")
+        .append(toIndentedString(bitsAiInvestigationsPercentage))
+        .append("\n");
+    sb.append("    bitsAiInvestigationsUsage: ")
+        .append(toIndentedString(bitsAiInvestigationsUsage))
         .append("\n");
     sb.append("    browserPercentage: ").append(toIndentedString(browserPercentage)).append("\n");
     sb.append("    browserUsage: ").append(toIndentedString(browserUsage)).append("\n");

@@ -42,6 +42,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "appsec_percentage",
               "asm_serverless_traced_invocations_usage",
               "asm_serverless_traced_invocations_percentage",
+              "bits_ai_investigations_usage",
+              "bits_ai_investigations_percentage",
               "browser_usage",
               "browser_percentage",
               "ci_visibility_itr_usage",
@@ -219,6 +221,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
           new MonthlyUsageAttributionSupportedMetrics(
               "asm_serverless_traced_invocations_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics BITS_AI_INVESTIGATIONS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("bits_ai_investigations_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics BITS_AI_INVESTIGATIONS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("bits_ai_investigations_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics BROWSER_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("browser_usage");
   public static final MonthlyUsageAttributionSupportedMetrics BROWSER_PERCENTAGE =
