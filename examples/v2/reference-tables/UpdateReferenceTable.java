@@ -51,7 +51,6 @@ public class Example {
                                                 .name("name")
                                                 .type(ReferenceTableSchemaFieldType.STRING)))
                                     .primaryKeys(Collections.singletonList("id")))
-                            .syncEnabled(false)
                             .tags(Collections.singletonList("test_tag")))
                     .type(PatchTableRequestDataType.REFERENCE_TABLE));
 
