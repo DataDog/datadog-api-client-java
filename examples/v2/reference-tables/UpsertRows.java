@@ -21,11 +21,7 @@ public class Example {
                 Collections.singletonList(
                     new BatchUpsertRowsRequestData()
                         .attributes(
-                            new BatchUpsertRowsRequestDataAttributes()
-                                .values(
-                                    Map.ofEntries(
-                                        Map.entry("example_key_value", "primary_key_value"),
-                                        Map.entry("name", "row_name"))))
+                            new BatchUpsertRowsRequestDataAttributes().values(Map.ofEntries()))
                         .id("primary_key_value")
                         .type(TableRowResourceDataType.ROW)));
 

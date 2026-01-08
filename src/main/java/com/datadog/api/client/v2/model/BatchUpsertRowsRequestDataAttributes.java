@@ -24,38 +24,43 @@ import java.util.Objects;
 public class BatchUpsertRowsRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_VALUES = "values";
-  private Map<String, Object> values = new HashMap<String, Object>();
+  private Map<String, BatchUpsertRowsRequestDataAttributesValue> values =
+      new HashMap<String, BatchUpsertRowsRequestDataAttributesValue>();
 
   public BatchUpsertRowsRequestDataAttributes() {}
 
   @JsonCreator
   public BatchUpsertRowsRequestDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_VALUES) Map<String, Object> values) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUES)
+          Map<String, BatchUpsertRowsRequestDataAttributesValue> values) {
     this.values = values;
   }
 
-  public BatchUpsertRowsRequestDataAttributes values(Map<String, Object> values) {
+  public BatchUpsertRowsRequestDataAttributes values(
+      Map<String, BatchUpsertRowsRequestDataAttributesValue> values) {
     this.values = values;
     return this;
   }
 
-  public BatchUpsertRowsRequestDataAttributes putValuesItem(String key, Object valuesItem) {
+  public BatchUpsertRowsRequestDataAttributes putValuesItem(
+      String key, BatchUpsertRowsRequestDataAttributesValue valuesItem) {
     this.values.put(key, valuesItem);
     return this;
   }
 
   /**
-   * Key-value pairs representing row data, where keys are field names from the schema.
+   * Key-value pairs representing row data, where keys are schema field names and values match the
+   * corresponding column types.
    *
    * @return values
    */
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Map<String, Object> getValues() {
+  public Map<String, BatchUpsertRowsRequestDataAttributesValue> getValues() {
     return values;
   }
 
-  public void setValues(Map<String, Object> values) {
+  public void setValues(Map<String, BatchUpsertRowsRequestDataAttributesValue> values) {
     this.values = values;
   }
 
