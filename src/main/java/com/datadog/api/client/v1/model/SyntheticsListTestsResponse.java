@@ -25,17 +25,17 @@ import java.util.Objects;
 public class SyntheticsListTestsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TESTS = "tests";
-  private List<SyntheticsTestDetails> tests = null;
+  private List<SyntheticsTestDetailsWithoutSteps> tests = null;
 
-  public SyntheticsListTestsResponse tests(List<SyntheticsTestDetails> tests) {
+  public SyntheticsListTestsResponse tests(List<SyntheticsTestDetailsWithoutSteps> tests) {
     this.tests = tests;
-    for (SyntheticsTestDetails item : tests) {
+    for (SyntheticsTestDetailsWithoutSteps item : tests) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public SyntheticsListTestsResponse addTestsItem(SyntheticsTestDetails testsItem) {
+  public SyntheticsListTestsResponse addTestsItem(SyntheticsTestDetailsWithoutSteps testsItem) {
     if (this.tests == null) {
       this.tests = new ArrayList<>();
     }
@@ -52,11 +52,11 @@ public class SyntheticsListTestsResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TESTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsTestDetails> getTests() {
+  public List<SyntheticsTestDetailsWithoutSteps> getTests() {
     return tests;
   }
 
-  public void setTests(List<SyntheticsTestDetails> tests) {
+  public void setTests(List<SyntheticsTestDetailsWithoutSteps> tests) {
     this.tests = tests;
   }
 

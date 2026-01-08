@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v1.api.SyntheticsApi;
 import com.datadog.api.client.v1.api.SyntheticsApi.ListTestsOptionalParameters;
-import com.datadog.api.client.v1.model.SyntheticsTestDetails;
+import com.datadog.api.client.v1.model.SyntheticsTestDetailsWithoutSteps;
 
 public class Example {
   public static void main(String[] args) {
@@ -13,10 +13,10 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     try {
-      PaginationIterable<SyntheticsTestDetails> iterable =
+      PaginationIterable<SyntheticsTestDetailsWithoutSteps> iterable =
           apiInstance.listTestsWithPagination(new ListTestsOptionalParameters().pageSize(2L));
 
-      for (SyntheticsTestDetails item : iterable) {
+      for (SyntheticsTestDetailsWithoutSteps item : iterable) {
         System.out.println(item);
       }
     } catch (RuntimeException e) {
