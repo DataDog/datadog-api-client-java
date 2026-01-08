@@ -7,12 +7,12 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines",
+      "path": "/api/v2/obs-pipelines/pipelines",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"c40401e0-dc2c-11f0-bf6d-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"processor-group-0\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"display_name\":\"My Processor Group\",\"enabled\":true,\"id\":\"processor-group-0\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"display_name\":\"My Filter Processor\",\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
+      "body": "{\"data\":{\"id\":\"36c0a3e0-ec7d-11f0-a7fc-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"processor-group-0\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"display_name\":\"My Processor Group\",\"enabled\":true,\"id\":\"processor-group-0\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"display_name\":\"My Filter Processor\",\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d6a6f7a2-f347-564f-cbfb-e972ad921c97"
+    "id": "9ecc9b2e-1386-d424-2d27-09de086642db"
   },
   {
     "httpRequest": {
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/c40401e0-dc2c-11f0-bf6d-da7ad0900002",
+      "path": "/api/v2/obs-pipelines/pipelines/36c0a3e0-ec7d-11f0-a7fc-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"c40401e0-dc2c-11f0-bf6d-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Updated Pipeline Name\",\"config\":{\"destinations\":[{\"id\":\"updated-datadog-logs-destination-id\",\"inputs\":[\"my-processor-group\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"enabled\":true,\"id\":\"my-processor-group\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
+      "body": "{\"data\":{\"id\":\"36c0a3e0-ec7d-11f0-a7fc-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Updated Pipeline Name\",\"config\":{\"destinations\":[{\"id\":\"updated-datadog-logs-destination-id\",\"inputs\":[\"my-processor-group\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"enabled\":true,\"id\":\"my-processor-group\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2c680eeb-05d9-7617-92c8-d73c172cec9c"
+    "id": "dba2746c-4b9d-1727-9294-da24d14bfeba"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/c40401e0-dc2c-11f0-bf6d-da7ad0900002",
+      "path": "/api/v2/obs-pipelines/pipelines/36c0a3e0-ec7d-11f0-a7fc-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b1525989-2e82-ec96-14f9-7184147ea0f7"
+    "id": "f28cda25-9016-2e9a-0665-36c8c4ccdcda"
   }
 ]

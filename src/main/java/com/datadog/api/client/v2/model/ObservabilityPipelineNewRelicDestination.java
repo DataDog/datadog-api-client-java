@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>new_relic</code> destination sends logs to the New Relic platform. */
+/**
+ * The <code>new_relic</code> destination sends logs to the New Relic platform.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_INPUTS,

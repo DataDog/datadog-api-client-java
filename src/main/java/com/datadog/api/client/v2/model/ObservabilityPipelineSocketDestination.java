@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>socket</code> destination sends logs over TCP or UDP to a remote server. */
+/**
+ * The <code>socket</code> destination sends logs over TCP or UDP to a remote server.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineSocketDestination.JSON_PROPERTY_ENCODING,
   ObservabilityPipelineSocketDestination.JSON_PROPERTY_FRAMING,

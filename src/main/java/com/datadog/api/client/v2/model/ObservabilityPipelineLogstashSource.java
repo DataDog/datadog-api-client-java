@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>logstash</code> source ingests logs from a Logstash forwarder. */
+/**
+ * The <code>logstash</code> source ingests logs from a Logstash forwarder.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineLogstashSource.JSON_PROPERTY_ID,
   ObservabilityPipelineLogstashSource.JSON_PROPERTY_TLS,

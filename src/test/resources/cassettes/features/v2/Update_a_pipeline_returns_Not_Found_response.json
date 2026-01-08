@@ -7,7 +7,7 @@
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "path": "/api/v2/obs-pipelines/pipelines/3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "keepAlive": false,
       "secure": true
     },
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e34d84ff-45f4-43b4-0953-04142fd8332a"
+    "id": "089fee1d-abba-518e-75be-ce1a90edc48f"
   }
 ]

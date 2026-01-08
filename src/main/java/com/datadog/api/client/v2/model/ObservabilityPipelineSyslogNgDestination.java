@@ -22,6 +22,8 @@ import java.util.Objects;
 /**
  * The <code>syslog_ng</code> destination forwards logs to an external <code>syslog-ng</code> server
  * over TCP or UDP using the syslog protocol.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSyslogNgDestination.JSON_PROPERTY_ID,
