@@ -11,7 +11,6 @@ import com.datadog.api.client.v2.model.AWSAccountResponse;
 import com.datadog.api.client.v2.model.AWSAccountType;
 import com.datadog.api.client.v2.model.AWSAuthConfig;
 import com.datadog.api.client.v2.model.AWSAuthConfigKeys;
-import com.datadog.api.client.v2.model.AWSCCMConfig;
 import com.datadog.api.client.v2.model.AWSLambdaForwarderConfig;
 import com.datadog.api.client.v2.model.AWSLambdaForwarderConfigLogSourceConfig;
 import com.datadog.api.client.v2.model.AWSLogSourceTagFilter;
@@ -20,7 +19,6 @@ import com.datadog.api.client.v2.model.AWSMetricsConfig;
 import com.datadog.api.client.v2.model.AWSNamespaceTagFilter;
 import com.datadog.api.client.v2.model.AWSResourcesConfig;
 import com.datadog.api.client.v2.model.AWSTracesConfig;
-import com.datadog.api.client.v2.model.DataExportConfig;
 import java.util.Collections;
 
 public class Example {
@@ -43,16 +41,6 @@ public class Example {
                                             "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY")))
                             .awsAccountId("123456789012")
                             .awsPartition(AWSAccountPartition.AWS)
-                            .ccmConfig(
-                                new AWSCCMConfig()
-                                    .dataExportConfigs(
-                                        Collections.singletonList(
-                                            new DataExportConfig()
-                                                .bucketName("my-bucket")
-                                                .bucketRegion("us-east-1")
-                                                .reportName("my-report")
-                                                .reportPrefix("reports")
-                                                .reportType("CUR2.0"))))
                             .logsConfig(
                                 new AWSLogsConfig()
                                     .lambdaForwarder(

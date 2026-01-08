@@ -11,7 +11,6 @@ import com.datadog.api.client.v2.model.AWSAccountUpdateRequestAttributes;
 import com.datadog.api.client.v2.model.AWSAccountUpdateRequestData;
 import com.datadog.api.client.v2.model.AWSAuthConfig;
 import com.datadog.api.client.v2.model.AWSAuthConfigRole;
-import com.datadog.api.client.v2.model.AWSCCMConfig;
 import com.datadog.api.client.v2.model.AWSLambdaForwarderConfig;
 import com.datadog.api.client.v2.model.AWSLambdaForwarderConfigLogSourceConfig;
 import com.datadog.api.client.v2.model.AWSLogSourceTagFilter;
@@ -20,7 +19,6 @@ import com.datadog.api.client.v2.model.AWSMetricsConfig;
 import com.datadog.api.client.v2.model.AWSNamespaceTagFilter;
 import com.datadog.api.client.v2.model.AWSResourcesConfig;
 import com.datadog.api.client.v2.model.AWSTracesConfig;
-import com.datadog.api.client.v2.model.DataExportConfig;
 import java.util.Collections;
 
 public class Example {
@@ -43,16 +41,6 @@ public class Example {
                                     new AWSAuthConfigRole().roleName("DatadogIntegrationRole")))
                             .awsAccountId("123456789012")
                             .awsPartition(AWSAccountPartition.AWS)
-                            .ccmConfig(
-                                new AWSCCMConfig()
-                                    .dataExportConfigs(
-                                        Collections.singletonList(
-                                            new DataExportConfig()
-                                                .bucketName("updated-bucket")
-                                                .bucketRegion("us-west-2")
-                                                .reportName("updated-report")
-                                                .reportPrefix("cost-reports")
-                                                .reportType("CUR2.0"))))
                             .logsConfig(
                                 new AWSLogsConfig()
                                     .lambdaForwarder(
