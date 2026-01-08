@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 2.49.0/2026-01-08
+
+### Added
+* Add new bits_ai usage attribution type to Usage Attribution Public API Documentation [#3357](https://github.com/DataDog/datadog-api-client-java/pull/3357)
+* Add Product Analytics Server-Side Events API endpoint [#3352](https://github.com/DataDog/datadog-api-client-java/pull/3352)
+* Update /api/v2/cases endpoint to add custom attributes support [#3350](https://github.com/DataDog/datadog-api-client-java/pull/3350)
+* Documentation for team notifications API [#3346](https://github.com/DataDog/datadog-api-client-java/pull/3346)
+* [RQ-7160] Add llm_spans and deprecate llm_observability [#3332](https://github.com/DataDog/datadog-api-client-java/pull/3332)
+* Add display_name to Observability Pipeline processors [#3330](https://github.com/DataDog/datadog-api-client-java/pull/3330)
+* Add a new includeDiscovered query parameter to Software Catalog APIs [#3327](https://github.com/DataDog/datadog-api-client-java/pull/3327)
+* Add routes for managing On-Call user notification rules [#3325](https://github.com/DataDog/datadog-api-client-java/pull/3325)
+* Add anomaly detection options to security monitoring rules [#3322](https://github.com/DataDog/datadog-api-client-java/pull/3322)
+* Remove preview/unstable tags from GitHub team sync and connections endpoints [#3320](https://github.com/DataDog/datadog-api-client-java/pull/3320)
+* Added spec for flex_stored_logs [#3314](https://github.com/DataDog/datadog-api-client-java/pull/3314)
+* Add documentation for synthetics global variable jsonpatch endpoint [#3267](https://github.com/DataDog/datadog-api-client-java/pull/3267)
+
+### Changed
+* Remove steps from certain expected synthetics api response [#3356](https://github.com/DataDog/datadog-api-client-java/pull/3356)
+* Add documentation for GET, POST, PATCH, and DELETE api/v2/incidents/incident_id/attachments endpoints [#3296](https://github.com/DataDog/datadog-api-client-java/pull/3296)
+
 ## 2.48.0/2025-12-17
 
 ### Changed
