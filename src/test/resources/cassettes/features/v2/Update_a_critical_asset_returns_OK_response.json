@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"creation_author_id\":367742,\"creation_date\":1758896636212,\"query\":\"security:monitoring\",\"rule_query\":\"source:k9\",\"severity\":\"medium\",\"tags\":[\"team:security\"],\"update_author_id\":367742,\"update_date\":1758896636212,\"version\":1},\"type\":\"critical_assets\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/critical_assets",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"2e1a5425-7a69-4b22-adad-5ce715029124\",\"type\":\"critical_assets\",\"attributes\":{\"creation_author_id\":1445416,\"creation_date\":1767380964724,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"enabled\":true,\"query\":\"security:monitoring\",\"rule_query\":\"source:k9\",\"severity\":\"medium\",\"tags\":[\"team:security\"],\"update_author_id\":1445416,\"update_date\":1767380964724,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f3d321c2-b99c-8758-0bd8-93ef06a460d6"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"query\":\"no:alert\",\"rule_query\":\"type:(log_detection OR signal_correlation OR workload_security OR application_security) ruleId:djg-ktx-ipq\",\"severity\":\"decrease\",\"tags\":[\"env:production\"],\"version\":1},\"type\":\"critical_assets\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security_monitoring/configuration/critical_assets/2e1a5425-7a69-4b22-adad-5ce715029124",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"2e1a5425-7a69-4b22-adad-5ce715029124\",\"type\":\"critical_assets\",\"attributes\":{\"creation_author_id\":1445416,\"creation_date\":1767380964724,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"enabled\":false,\"query\":\"no:alert\",\"rule_query\":\"type:(log_detection OR signal_correlation OR workload_security OR application_security) ruleId:djg-ktx-ipq\",\"severity\":\"decrease\",\"tags\":[\"env:production\"],\"update_author_id\":1445416,\"update_date\":1767380964839,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"version\":2}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c6c3f35d-a262-dd28-2bda-eb1c6f806c95"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/critical_assets/2e1a5425-7a69-4b22-adad-5ce715029124",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "301d400a-757c-a73e-6eb9-532cf44615b4"
+  }
+]
