@@ -8866,9 +8866,6 @@ public class SecurityMonitoringApi {
   /**
    * Get a list of security findings that match a search query.
    *
-   * <p>This endpoint requires one of the following permissions: - <code>
-   * security_monitoring_findings_read</code> - <code>appsec_vm_read</code>
-   *
    * <h3>Query Syntax</h3>
    *
    * <p>This endpoint uses the logs query syntax. Findings attributes (living in the custom.
@@ -8891,13 +8888,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<ListSecurityFindingsResponse> listSecurityFindingsWithHttpInfo(
       ListSecurityFindingsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listSecurityFindings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
     String pageCursor = parameters.pageCursor;
@@ -8944,17 +8934,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<ListSecurityFindingsResponse>>
       listSecurityFindingsWithHttpInfoAsync(ListSecurityFindingsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listSecurityFindings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ListSecurityFindingsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
     String pageCursor = parameters.pageCursor;
@@ -12577,9 +12556,6 @@ public class SecurityMonitoringApi {
   /**
    * Get a list of security findings that match a search query.
    *
-   * <p>This endpoint requires one of the following permissions: - <code>
-   * security_monitoring_findings_read</code> - <code>appsec_vm_read</code>
-   *
    * <h3>Query Syntax</h3>
    *
    * <p>The API uses the logs query syntax. Findings attributes (living in the custom. namespace)
@@ -12602,13 +12578,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<ListSecurityFindingsResponse> searchSecurityFindingsWithHttpInfo(
       SecurityFindingsSearchRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "searchSecurityFindings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -12651,17 +12620,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<ListSecurityFindingsResponse>>
       searchSecurityFindingsWithHttpInfoAsync(SecurityFindingsSearchRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "searchSecurityFindings";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ListSecurityFindingsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
