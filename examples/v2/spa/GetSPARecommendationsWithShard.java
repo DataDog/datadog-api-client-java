@@ -1,4 +1,4 @@
-// Get SPA Recommendations returns "OK" response
+// Get SPA Recommendations with a shard parameter returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -8,14 +8,15 @@ import com.datadog.api.client.v2.model.RecommendationDocument;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.getSPARecommendations", true);
+    defaultClient.setUnstableOperationEnabled("v2.getSPARecommendationsWithShard", true);
     SpaApi apiInstance = new SpaApi(defaultClient);
 
     try {
-      RecommendationDocument result = apiInstance.getSPARecommendations("service");
+      RecommendationDocument result =
+          apiInstance.getSPARecommendationsWithShard("shard", "service");
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SpaApi#getSPARecommendations");
+      System.err.println("Exception when calling SpaApi#getSPARecommendationsWithShard");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
