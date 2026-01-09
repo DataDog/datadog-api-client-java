@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"domain_prefix\":\"dd-integrations-tests-1596605167a144b9\",\"enabled\":true,\"name\":\"[DD Integration Tests] 1596605167a144b9\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/statuspages",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"763a57ab-77be-42f3-ab01-3446904814aa\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[],\"created_at\":\"2026-01-09T15:10:32.045556Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"dd-integrations-tests-1596605167a144b9\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-01-09T15:10:32.045556Z\",\"name\":\"[DD Integration Tests] 1596605167a144b9\",\"page_url\":\"https://frog.datadoghq.com/status-pages/763a57ab-77be-42f3-ab01-3446904814aa/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "37ab2c44-6189-c3ee-358a-e8d531feb474"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/statuspages/763a57ab-77be-42f3-ab01-3446904814aa",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fc775c90-51b7-1d28-3e66-0907491cbb7c"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"name\":\"c9c5ea54880643a9\",\"type\":\"component\"}],\"domain_prefix\":\"dd-integration-tests-c9c5ea54880643a9\",\"enabled\":true,\"name\":\"[DD Integration Tests] c9c5ea54880643a9\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/statuspages",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4042dd87-6324-4c15-a7f0-a11726434782\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"5ddcb366-1172-4703-9f33-9375a24d0e98\",\"name\":\"c9c5ea54880643a9\",\"type\":\"component\",\"status\":\"operational\",\"position\":0}],\"created_at\":\"2026-01-09T15:10:33.076426Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"dd-integration-tests-c9c5ea54880643a9\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-01-09T15:10:33.076426Z\",\"name\":\"[DD Integration Tests] c9c5ea54880643a9\",\"page_url\":\"https://frog.datadoghq.com/status-pages/4042dd87-6324-4c15-a7f0-a11726434782/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "496f98b4-8fb1-1c34-e0a1-b7c30233333d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/statuspages/4042dd87-6324-4c15-a7f0-a11726434782/components/5ddcb366-1172-4703-9f33-9375a24d0e98",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8dd82c85-9516-08c6-9592-a8ddc3137559"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/statuspages/4042dd87-6324-4c15-a7f0-a11726434782",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "43f1c522-7cce-6846-2a38-fa9360f0d236"
+  }
+]

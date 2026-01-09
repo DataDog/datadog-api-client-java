@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"name\":\"c516461d84658757\",\"type\":\"component\"}],\"domain_prefix\":\"dd-integration-tests-c516461d84658757\",\"enabled\":true,\"name\":\"[DD Integration Tests] c516461d84658757\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/statuspages",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4a0b33cf-63b3-4157-bc15-9b51998e83cc\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"a2c27d85-60eb-42cf-95d7-8929fae0ff5f\",\"name\":\"c516461d84658757\",\"type\":\"component\",\"status\":\"operational\",\"position\":0}],\"created_at\":\"2026-01-09T15:10:40.571898Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"dd-integration-tests-c516461d84658757\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-01-09T15:10:40.571898Z\",\"name\":\"[DD Integration Tests] c516461d84658757\",\"page_url\":\"https://frog.datadoghq.com/status-pages/4a0b33cf-63b3-4157-bc15-9b51998e83cc/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b12349b9-74a4-9078-a4e1-c44cc373a34c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/statuspages/4a0b33cf-63b3-4157-bc15-9b51998e83cc/components",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"a2c27d85-60eb-42cf-95d7-8929fae0ff5f\",\"type\":\"components\",\"attributes\":{\"created_at\":\"2026-01-09T15:10:40.571898Z\",\"modified_at\":\"2026-01-09T15:10:40.571898Z\",\"name\":\"c516461d84658757\",\"position\":0,\"status\":\"operational\",\"type\":\"component\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"group\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"4a0b33cf-63b3-4157-bc15-9b51998e83cc\",\"type\":\"status_pages\"}}}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c0ccd952-6ea9-19f4-f2ca-d9605dfd53c8"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/statuspages/4a0b33cf-63b3-4157-bc15-9b51998e83cc",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5c71f6aa-a622-6f89-39ab-a46bbfe56b10"
+  }
+]

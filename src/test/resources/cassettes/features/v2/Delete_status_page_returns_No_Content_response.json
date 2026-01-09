@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"name\":\"40b563f89cb4c39d\",\"type\":\"component\"}],\"domain_prefix\":\"dd-integration-tests-40b563f89cb4c39d\",\"enabled\":true,\"name\":\"[DD Integration Tests] 40b563f89cb4c39d\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/statuspages",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"48d99313-e0c7-4191-89a2-a53a8bc6b789\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"d2fc15ec-3955-4215-8d2f-70ec54d42ab8\",\"name\":\"40b563f89cb4c39d\",\"type\":\"component\",\"status\":\"operational\",\"position\":0}],\"created_at\":\"2026-01-09T15:10:35.73108Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"dd-integration-tests-40b563f89cb4c39d\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-01-09T15:10:35.73108Z\",\"name\":\"[DD Integration Tests] 40b563f89cb4c39d\",\"page_url\":\"https://frog.datadoghq.com/status-pages/48d99313-e0c7-4191-89a2-a53a8bc6b789/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5bc63b76-d811-1ba6-ff6a-0030d170ef56"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/statuspages/48d99313-e0c7-4191-89a2-a53a8bc6b789",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8092dc56-e60c-a8c7-a502-f14f6ab27cd5"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/statuspages/48d99313-e0c7-4191-89a2-a53a8bc6b789",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"status page not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8092dc56-e60c-a8c7-a502-f14f6ab27cd6"
+  }
+]
