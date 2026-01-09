@@ -791,14 +791,12 @@ public class ApiClient {
           put("v2.listFindings", false);
           put("v2.listMultipleRulesets", false);
           put("v2.listScannedAssetsMetadata", false);
-          put("v2.listSecurityFindings", false);
           put("v2.listSecurityMonitoringHistsignals", false);
           put("v2.listThreatHuntingJobs", false);
           put("v2.listVulnerabilities", false);
           put("v2.listVulnerableAssets", false);
           put("v2.muteFindings", false);
           put("v2.runThreatHuntingJob", false);
-          put("v2.searchSecurityFindings", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
           put("v2.createDataset", false);
           put("v2.deleteDataset", false);
