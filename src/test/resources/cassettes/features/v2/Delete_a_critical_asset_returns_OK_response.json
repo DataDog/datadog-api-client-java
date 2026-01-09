@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"creation_author_id\":367742,\"creation_date\":1758896636212,\"query\":\"security:monitoring\",\"rule_query\":\"source:k9\",\"severity\":\"medium\",\"tags\":[\"team:security\"],\"update_author_id\":367742,\"update_date\":1758896636212,\"version\":1},\"type\":\"critical_assets\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/critical_assets",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ddd704c3-8603-42d8-823c-2c101ef59207\",\"type\":\"critical_assets\",\"attributes\":{\"creation_author_id\":1445416,\"creation_date\":1767380948181,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"enabled\":true,\"query\":\"security:monitoring\",\"rule_query\":\"source:k9\",\"severity\":\"medium\",\"tags\":[\"team:security\"],\"update_author_id\":1445416,\"update_date\":1767380948181,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f3d321c2-b99c-8758-0bd8-93ef06a460d7"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/critical_assets/ddd704c3-8603-42d8-823c-2c101ef59207",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0115053a-dc87-9ef1-c1c9-faf86700f8c4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/critical_assets/ddd704c3-8603-42d8-823c-2c101ef59207",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"not_found(Critical asset with ID ddd704c3-8603-42d8-823c-2c101ef59207 not found)\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0115053a-dc87-9ef1-c1c9-faf86700f8c5"
+  }
+]
