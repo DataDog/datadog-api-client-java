@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>datadog_logs</code> destination forwards logs to Datadog Log Management. */
+/**
+ * The <code>datadog_logs</code> destination forwards logs to Datadog Log Management.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineDatadogLogsDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineDatadogLogsDestination.JSON_PROPERTY_INPUTS,

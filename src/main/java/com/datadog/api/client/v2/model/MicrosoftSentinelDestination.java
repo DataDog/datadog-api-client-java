@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>microsoft_sentinel</code> destination forwards logs to Microsoft Sentinel. */
+/**
+ * The <code>microsoft_sentinel</code> destination forwards logs to Microsoft Sentinel.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   MicrosoftSentinelDestination.JSON_PROPERTY_CLIENT_ID,
   MicrosoftSentinelDestination.JSON_PROPERTY_DCR_IMMUTABLE_ID,

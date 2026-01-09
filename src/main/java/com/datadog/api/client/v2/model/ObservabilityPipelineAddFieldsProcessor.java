@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>add_fields</code> processor adds static key-value fields to logs. */
+/**
+ * The <code>add_fields</code> processor adds static key-value fields to logs.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineAddFieldsProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineAddFieldsProcessor.JSON_PROPERTY_ENABLED,
@@ -97,7 +101,7 @@ public class ObservabilityPipelineAddFieldsProcessor {
   }
 
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    *
    * @return enabled
    */
@@ -149,8 +153,8 @@ public class ObservabilityPipelineAddFieldsProcessor {
   }
 
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of
-   * the pipeline (for example, as the <code>input</code> to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
    *
    * @return id
    */

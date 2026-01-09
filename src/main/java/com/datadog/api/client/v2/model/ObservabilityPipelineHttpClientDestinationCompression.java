@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,39 +17,49 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Specifies the SASL mechanism for authenticating with a Kafka cluster. */
-@JsonPropertyOrder({ObservabilityPipelineKafkaSourceSasl.JSON_PROPERTY_MECHANISM})
+/** Compression configuration for HTTP requests. */
+@JsonPropertyOrder({ObservabilityPipelineHttpClientDestinationCompression.JSON_PROPERTY_ALGORITHM})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineKafkaSourceSasl {
+public class ObservabilityPipelineHttpClientDestinationCompression {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_MECHANISM = "mechanism";
-  private ObservabilityPipelinePipelineKafkaSourceSaslMechanism mechanism;
+  public static final String JSON_PROPERTY_ALGORITHM = "algorithm";
+  private ObservabilityPipelineHttpClientDestinationCompressionAlgorithm algorithm;
 
-  public ObservabilityPipelineKafkaSourceSasl mechanism(
-      ObservabilityPipelinePipelineKafkaSourceSaslMechanism mechanism) {
-    this.mechanism = mechanism;
-    this.unparsed |= !mechanism.isValid();
+  public ObservabilityPipelineHttpClientDestinationCompression() {}
+
+  @JsonCreator
+  public ObservabilityPipelineHttpClientDestinationCompression(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ALGORITHM)
+          ObservabilityPipelineHttpClientDestinationCompressionAlgorithm algorithm) {
+    this.algorithm = algorithm;
+    this.unparsed |= !algorithm.isValid();
+  }
+
+  public ObservabilityPipelineHttpClientDestinationCompression algorithm(
+      ObservabilityPipelineHttpClientDestinationCompressionAlgorithm algorithm) {
+    this.algorithm = algorithm;
+    this.unparsed |= !algorithm.isValid();
     return this;
   }
 
   /**
-   * SASL mechanism used for Kafka authentication.
+   * Compression algorithm.
    *
-   * @return mechanism
+   * @return algorithm
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MECHANISM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelinePipelineKafkaSourceSaslMechanism getMechanism() {
-    return mechanism;
+  @JsonProperty(JSON_PROPERTY_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineHttpClientDestinationCompressionAlgorithm getAlgorithm() {
+    return algorithm;
   }
 
-  public void setMechanism(ObservabilityPipelinePipelineKafkaSourceSaslMechanism mechanism) {
-    if (!mechanism.isValid()) {
+  public void setAlgorithm(
+      ObservabilityPipelineHttpClientDestinationCompressionAlgorithm algorithm) {
+    if (!algorithm.isValid()) {
       this.unparsed = true;
     }
-    this.mechanism = mechanism;
+    this.algorithm = algorithm;
   }
 
   /**
@@ -63,10 +74,11 @@ public class ObservabilityPipelineKafkaSourceSasl {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineKafkaSourceSasl
+   * @return ObservabilityPipelineHttpClientDestinationCompression
    */
   @JsonAnySetter
-  public ObservabilityPipelineKafkaSourceSasl putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineHttpClientDestinationCompression putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -97,7 +109,9 @@ public class ObservabilityPipelineKafkaSourceSasl {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineKafkaSourceSasl object is equal to o. */
+  /**
+   * Return true if this ObservabilityPipelineHttpClientDestinationCompression object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -106,23 +120,26 @@ public class ObservabilityPipelineKafkaSourceSasl {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineKafkaSourceSasl observabilityPipelineKafkaSourceSasl =
-        (ObservabilityPipelineKafkaSourceSasl) o;
-    return Objects.equals(this.mechanism, observabilityPipelineKafkaSourceSasl.mechanism)
+    ObservabilityPipelineHttpClientDestinationCompression
+        observabilityPipelineHttpClientDestinationCompression =
+            (ObservabilityPipelineHttpClientDestinationCompression) o;
+    return Objects.equals(
+            this.algorithm, observabilityPipelineHttpClientDestinationCompression.algorithm)
         && Objects.equals(
-            this.additionalProperties, observabilityPipelineKafkaSourceSasl.additionalProperties);
+            this.additionalProperties,
+            observabilityPipelineHttpClientDestinationCompression.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mechanism, additionalProperties);
+    return Objects.hash(algorithm, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineKafkaSourceSasl {\n");
-    sb.append("    mechanism: ").append(toIndentedString(mechanism)).append("\n");
+    sb.append("class ObservabilityPipelineHttpClientDestinationCompression {\n");
+    sb.append("    algorithm: ").append(toIndentedString(algorithm)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
