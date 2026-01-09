@@ -1,0 +1,104 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"name\":\"1ce8205a4e6ea1ed\",\"type\":\"component\"}],\"domain_prefix\":\"dd-integration-tests-1ce8205a4e6ea1ed\",\"enabled\":true,\"name\":\"[DD Integration Tests] 1ce8205a4e6ea1ed\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/statuspages",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"57c413b7-a3b0-465e-99a0-1ed82e39ab7a\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"93d7ec73-4666-4fb7-b4fd-a679c66df580\",\"name\":\"1ce8205a4e6ea1ed\",\"type\":\"component\",\"status\":\"operational\",\"position\":0}],\"created_at\":\"2026-01-09T18:43:17.896426Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"dd-integration-tests-1ce8205a4e6ea1ed\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-01-09T18:43:17.896426Z\",\"name\":\"[DD Integration Tests] 1ce8205a4e6ea1ed\",\"page_url\":\"https://frog.datadoghq.com/status-pages/57c413b7-a3b0-465e-99a0-1ed82e39ab7a/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8436c48e-74a6-37b8-e131-cd418a4fad50"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"1ce8205a4e6ea1ed\",\"position\":0,\"type\":\"component\"},\"type\":\"components\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/statuspages/57c413b7-a3b0-465e-99a0-1ed82e39ab7a/components",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4abc57bc-67da-4d19-b7c0-4a302a9430b0\",\"type\":\"components\",\"attributes\":{\"created_at\":\"2026-01-09T18:43:18.336904Z\",\"modified_at\":\"2026-01-09T18:43:18.336904Z\",\"name\":\"1ce8205a4e6ea1ed\",\"position\":0,\"status\":\"operational\",\"type\":\"component\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"group\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"57c413b7-a3b0-465e-99a0-1ed82e39ab7a\",\"type\":\"status_pages\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4ff7ff3c-bec0-242a-b72f-9631a952ffb3"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/statuspages/57c413b7-a3b0-465e-99a0-1ed82e39ab7a/components/4abc57bc-67da-4d19-b7c0-4a302a9430b0",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "23dd1964-d459-d9da-8c05-d8e2e2bdf53e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/statuspages/57c413b7-a3b0-465e-99a0-1ed82e39ab7a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "92765a8d-3737-f4d5-59b4-fedfe71f2312"
+  }
+]
