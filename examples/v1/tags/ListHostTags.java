@@ -1,4 +1,4 @@
-// Get Tags returns "OK" response
+// Get All Host Tags returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
