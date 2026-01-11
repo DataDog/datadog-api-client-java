@@ -22,6 +22,7 @@ import java.util.Objects;
 /** The <code>google_chronicle</code> destination sends logs to Google Chronicle. */
 @JsonPropertyOrder({
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_AUTH,
+  ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_CUSTOMER_ID,
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_ENCODING,
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_ID,
@@ -35,6 +36,9 @@ public class ObservabilityPipelineGoogleChronicleDestination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH = "auth";
   private ObservabilityPipelineGcpAuth auth;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_CUSTOMER_ID = "customer_id";
   private String customerId;
@@ -91,6 +95,29 @@ public class ObservabilityPipelineGoogleChronicleDestination {
 
   public void setAuth(ObservabilityPipelineGcpAuth auth) {
     this.auth = auth;
+  }
+
+  public ObservabilityPipelineGoogleChronicleDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineGoogleChronicleDestination customerId(String customerId) {
@@ -290,6 +317,7 @@ public class ObservabilityPipelineGoogleChronicleDestination {
         observabilityPipelineGoogleChronicleDestination =
             (ObservabilityPipelineGoogleChronicleDestination) o;
     return Objects.equals(this.auth, observabilityPipelineGoogleChronicleDestination.auth)
+        && Objects.equals(this.buffer, observabilityPipelineGoogleChronicleDestination.buffer)
         && Objects.equals(
             this.customerId, observabilityPipelineGoogleChronicleDestination.customerId)
         && Objects.equals(this.encoding, observabilityPipelineGoogleChronicleDestination.encoding)
@@ -305,7 +333,7 @@ public class ObservabilityPipelineGoogleChronicleDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
-        auth, customerId, encoding, id, inputs, logType, type, additionalProperties);
+        auth, buffer, customerId, encoding, id, inputs, logType, type, additionalProperties);
   }
 
   @Override
@@ -313,6 +341,7 @@ public class ObservabilityPipelineGoogleChronicleDestination {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineGoogleChronicleDestination {\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

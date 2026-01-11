@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** The <code>microsoft_sentinel</code> destination forwards logs to Microsoft Sentinel. */
 @JsonPropertyOrder({
+  MicrosoftSentinelDestination.JSON_PROPERTY_BUFFER,
   MicrosoftSentinelDestination.JSON_PROPERTY_CLIENT_ID,
   MicrosoftSentinelDestination.JSON_PROPERTY_DCR_IMMUTABLE_ID,
   MicrosoftSentinelDestination.JSON_PROPERTY_ID,
@@ -33,6 +34,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MicrosoftSentinelDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
+
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
@@ -75,6 +79,28 @@ public class MicrosoftSentinelDestination {
     this.tenantId = tenantId;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public MicrosoftSentinelDestination buffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public MicrosoftSentinelDestination clientId(String clientId) {
@@ -282,7 +308,8 @@ public class MicrosoftSentinelDestination {
       return false;
     }
     MicrosoftSentinelDestination microsoftSentinelDestination = (MicrosoftSentinelDestination) o;
-    return Objects.equals(this.clientId, microsoftSentinelDestination.clientId)
+    return Objects.equals(this.buffer, microsoftSentinelDestination.buffer)
+        && Objects.equals(this.clientId, microsoftSentinelDestination.clientId)
         && Objects.equals(this.dcrImmutableId, microsoftSentinelDestination.dcrImmutableId)
         && Objects.equals(this.id, microsoftSentinelDestination.id)
         && Objects.equals(this.inputs, microsoftSentinelDestination.inputs)
@@ -296,13 +323,14 @@ public class MicrosoftSentinelDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
-        clientId, dcrImmutableId, id, inputs, table, tenantId, type, additionalProperties);
+        buffer, clientId, dcrImmutableId, id, inputs, table, tenantId, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MicrosoftSentinelDestination {\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    dcrImmutableId: ").append(toIndentedString(dcrImmutableId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

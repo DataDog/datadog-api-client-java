@@ -22,6 +22,7 @@ import java.util.Objects;
 /** The <code>amazon_opensearch</code> destination writes logs to Amazon OpenSearch. */
 @JsonPropertyOrder({
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_AUTH,
+  ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_BULK_INDEX,
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineAmazonOpenSearchDestination.JSON_PROPERTY_INPUTS,
@@ -33,6 +34,9 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH = "auth";
   private ObservabilityPipelineAmazonOpenSearchDestinationAuth auth;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_BULK_INDEX = "bulk_index";
   private String bulkIndex;
@@ -86,6 +90,29 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
 
   public void setAuth(ObservabilityPipelineAmazonOpenSearchDestinationAuth auth) {
     this.auth = auth;
+  }
+
+  public ObservabilityPipelineAmazonOpenSearchDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineAmazonOpenSearchDestination bulkIndex(String bulkIndex) {
@@ -239,6 +266,7 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
         observabilityPipelineAmazonOpenSearchDestination =
             (ObservabilityPipelineAmazonOpenSearchDestination) o;
     return Objects.equals(this.auth, observabilityPipelineAmazonOpenSearchDestination.auth)
+        && Objects.equals(this.buffer, observabilityPipelineAmazonOpenSearchDestination.buffer)
         && Objects.equals(
             this.bulkIndex, observabilityPipelineAmazonOpenSearchDestination.bulkIndex)
         && Objects.equals(this.id, observabilityPipelineAmazonOpenSearchDestination.id)
@@ -251,7 +279,7 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, bulkIndex, id, inputs, type, additionalProperties);
+    return Objects.hash(auth, buffer, bulkIndex, id, inputs, type, additionalProperties);
   }
 
   @Override
@@ -259,6 +287,7 @@ public class ObservabilityPipelineAmazonOpenSearchDestination {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineAmazonOpenSearchDestination {\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    bulkIndex: ").append(toIndentedString(bulkIndex)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");

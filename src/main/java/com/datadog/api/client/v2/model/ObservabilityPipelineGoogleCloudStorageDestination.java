@@ -27,6 +27,7 @@ import java.util.Objects;
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_ACL,
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_BUCKET,
+  ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_KEY_PREFIX,
@@ -46,6 +47,9 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
 
   public static final String JSON_PROPERTY_BUCKET = "bucket";
   private String bucket;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -153,6 +157,29 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
 
   public void setBucket(String bucket) {
     this.bucket = bucket;
+  }
+
+  public ObservabilityPipelineGoogleCloudStorageDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineGoogleCloudStorageDestination id(String id) {
@@ -371,6 +398,7 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
     return Objects.equals(this.acl, observabilityPipelineGoogleCloudStorageDestination.acl)
         && Objects.equals(this.auth, observabilityPipelineGoogleCloudStorageDestination.auth)
         && Objects.equals(this.bucket, observabilityPipelineGoogleCloudStorageDestination.bucket)
+        && Objects.equals(this.buffer, observabilityPipelineGoogleCloudStorageDestination.buffer)
         && Objects.equals(this.id, observabilityPipelineGoogleCloudStorageDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineGoogleCloudStorageDestination.inputs)
         && Objects.equals(
@@ -391,6 +419,7 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
         acl,
         auth,
         bucket,
+        buffer,
         id,
         inputs,
         keyPrefix,
@@ -407,6 +436,7 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
     sb.append("    acl: ").append(toIndentedString(acl)).append("\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    keyPrefix: ").append(toIndentedString(keyPrefix)).append("\n");
