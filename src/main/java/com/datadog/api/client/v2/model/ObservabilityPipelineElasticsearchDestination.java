@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>elasticsearch</code> destination writes logs to an Elasticsearch cluster. */
+/**
+ * The <code>elasticsearch</code> destination writes logs to an Elasticsearch cluster.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_API_VERSION,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_BULK_INDEX,

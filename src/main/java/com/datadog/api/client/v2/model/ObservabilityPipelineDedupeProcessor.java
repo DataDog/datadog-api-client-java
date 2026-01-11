@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>dedupe</code> processor removes duplicate fields in log events. */
+/**
+ * The <code>dedupe</code> processor removes duplicate fields in log events.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineDedupeProcessor.JSON_PROPERTY_ENABLED,
