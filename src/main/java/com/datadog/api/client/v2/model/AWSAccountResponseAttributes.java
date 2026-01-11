@@ -28,7 +28,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
   AWSAccountResponseAttributes.JSON_PROPERTY_AWS_ACCOUNT_ID,
   AWSAccountResponseAttributes.JSON_PROPERTY_AWS_PARTITION,
   AWSAccountResponseAttributes.JSON_PROPERTY_AWS_REGIONS,
-  AWSAccountResponseAttributes.JSON_PROPERTY_CCM_CONFIG,
   AWSAccountResponseAttributes.JSON_PROPERTY_CREATED_AT,
   AWSAccountResponseAttributes.JSON_PROPERTY_LOGS_CONFIG,
   AWSAccountResponseAttributes.JSON_PROPERTY_METRICS_CONFIG,
@@ -54,9 +53,6 @@ public class AWSAccountResponseAttributes {
 
   public static final String JSON_PROPERTY_AWS_REGIONS = "aws_regions";
   private AWSRegions awsRegions;
-
-  public static final String JSON_PROPERTY_CCM_CONFIG = "ccm_config";
-  private AWSCCMConfig ccmConfig;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -216,28 +212,6 @@ public class AWSAccountResponseAttributes {
 
   public void setAwsRegions(AWSRegions awsRegions) {
     this.awsRegions = awsRegions;
-  }
-
-  public AWSAccountResponseAttributes ccmConfig(AWSCCMConfig ccmConfig) {
-    this.ccmConfig = ccmConfig;
-    this.unparsed |= ccmConfig.unparsed;
-    return this;
-  }
-
-  /**
-   * AWS Cloud Cost Management config.
-   *
-   * @return ccmConfig
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCM_CONFIG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AWSCCMConfig getCcmConfig() {
-    return ccmConfig;
-  }
-
-  public void setCcmConfig(AWSCCMConfig ccmConfig) {
-    this.ccmConfig = ccmConfig;
   }
 
   /**
@@ -413,7 +387,6 @@ public class AWSAccountResponseAttributes {
         && Objects.equals(this.awsAccountId, awsAccountResponseAttributes.awsAccountId)
         && Objects.equals(this.awsPartition, awsAccountResponseAttributes.awsPartition)
         && Objects.equals(this.awsRegions, awsAccountResponseAttributes.awsRegions)
-        && Objects.equals(this.ccmConfig, awsAccountResponseAttributes.ccmConfig)
         && Objects.equals(this.createdAt, awsAccountResponseAttributes.createdAt)
         && Objects.equals(this.logsConfig, awsAccountResponseAttributes.logsConfig)
         && Objects.equals(this.metricsConfig, awsAccountResponseAttributes.metricsConfig)
@@ -432,7 +405,6 @@ public class AWSAccountResponseAttributes {
         awsAccountId,
         awsPartition,
         awsRegions,
-        ccmConfig,
         createdAt,
         logsConfig,
         metricsConfig,
@@ -451,7 +423,6 @@ public class AWSAccountResponseAttributes {
     sb.append("    awsAccountId: ").append(toIndentedString(awsAccountId)).append("\n");
     sb.append("    awsPartition: ").append(toIndentedString(awsPartition)).append("\n");
     sb.append("    awsRegions: ").append(toIndentedString(awsRegions)).append("\n");
-    sb.append("    ccmConfig: ").append(toIndentedString(ccmConfig)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    logsConfig: ").append(toIndentedString(logsConfig)).append("\n");
     sb.append("    metricsConfig: ").append(toIndentedString(metricsConfig)).append("\n");
