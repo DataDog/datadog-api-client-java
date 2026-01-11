@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>http_server</code> source collects logs over HTTP POST from external services. */
+/**
+ * The <code>http_server</code> source collects logs over HTTP POST from external services.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineHttpServerSource.JSON_PROPERTY_AUTH_STRATEGY,
   ObservabilityPipelineHttpServerSource.JSON_PROPERTY_DECODING,

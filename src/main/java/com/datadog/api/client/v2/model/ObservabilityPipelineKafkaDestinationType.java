@@ -1,0 +1,62 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v2.model;
+
+import com.datadog.api.client.ModelEnum;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+/** The destination type. The value should always be <code>kafka</code>. */
+@JsonSerialize(
+    using =
+        ObservabilityPipelineKafkaDestinationType
+            .ObservabilityPipelineKafkaDestinationTypeSerializer.class)
+public class ObservabilityPipelineKafkaDestinationType extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("kafka"));
+
+  public static final ObservabilityPipelineKafkaDestinationType KAFKA =
+      new ObservabilityPipelineKafkaDestinationType("kafka");
+
+  ObservabilityPipelineKafkaDestinationType(String value) {
+    super(value, allowedValues);
+  }
+
+  public static class ObservabilityPipelineKafkaDestinationTypeSerializer
+      extends StdSerializer<ObservabilityPipelineKafkaDestinationType> {
+    public ObservabilityPipelineKafkaDestinationTypeSerializer(
+        Class<ObservabilityPipelineKafkaDestinationType> t) {
+      super(t);
+    }
+
+    public ObservabilityPipelineKafkaDestinationTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        ObservabilityPipelineKafkaDestinationType value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
+  @JsonCreator
+  public static ObservabilityPipelineKafkaDestinationType fromValue(String value) {
+    return new ObservabilityPipelineKafkaDestinationType(value);
+  }
+}

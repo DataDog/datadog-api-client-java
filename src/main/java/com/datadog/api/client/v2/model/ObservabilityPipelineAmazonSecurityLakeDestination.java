@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>amazon_security_lake</code> destination sends your logs to Amazon Security Lake. */
+/**
+ * The <code>amazon_security_lake</code> destination sends your logs to Amazon Security Lake.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineAmazonSecurityLakeDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineAmazonSecurityLakeDestination.JSON_PROPERTY_BUCKET,

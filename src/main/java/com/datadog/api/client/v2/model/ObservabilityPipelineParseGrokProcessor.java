@@ -22,6 +22,8 @@ import java.util.Objects;
 /**
  * The <code>parse_grok</code> processor extracts structured fields from unstructured log messages
  * using Grok patterns.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineParseGrokProcessor.JSON_PROPERTY_DISABLE_LIBRARY_RULES,
