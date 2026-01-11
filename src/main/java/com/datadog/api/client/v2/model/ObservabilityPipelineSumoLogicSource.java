@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>sumo_logic</code> source receives logs from Sumo Logic collectors. */
+/**
+ * The <code>sumo_logic</code> source receives logs from Sumo Logic collectors.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineSumoLogicSource.JSON_PROPERTY_ID,
   ObservabilityPipelineSumoLogicSource.JSON_PROPERTY_TYPE

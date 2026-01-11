@@ -22,6 +22,8 @@ import java.util.Objects;
 /**
  * The <code>rsyslog</code> destination forwards logs to an external <code>rsyslog</code> server
  * over TCP or UDP using the syslog protocol.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineRsyslogDestination.JSON_PROPERTY_ID,

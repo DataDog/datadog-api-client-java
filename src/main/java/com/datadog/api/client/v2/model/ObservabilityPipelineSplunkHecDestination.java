@@ -22,6 +22,8 @@ import java.util.Objects;
 /**
  * The <code>splunk_hec</code> destination forwards logs to Splunk using the HTTP Event Collector
  * (HEC).
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_AUTO_EXTRACT_TIMESTAMP,

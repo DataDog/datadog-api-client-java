@@ -22,6 +22,8 @@ import java.util.Objects;
 /**
  * The <code>throttle</code> processor limits the number of events that pass through over a given
  * time window.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineThrottleProcessor.JSON_PROPERTY_DISPLAY_NAME,

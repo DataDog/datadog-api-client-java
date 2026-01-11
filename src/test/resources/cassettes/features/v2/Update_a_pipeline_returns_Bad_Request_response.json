@@ -7,12 +7,12 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines",
+      "path": "/api/v2/obs-pipelines/pipelines",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"c28a5ad0-dc2c-11f0-bdee-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"processor-group-0\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"display_name\":\"My Processor Group\",\"enabled\":true,\"id\":\"processor-group-0\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"display_name\":\"My Filter Processor\",\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
+      "body": "{\"data\":{\"id\":\"3574771e-ec7d-11f0-8887-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"processor-group-0\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"display_name\":\"My Processor Group\",\"enabled\":true,\"id\":\"processor-group-0\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"display_name\":\"My Filter Processor\",\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d6a6f7a2-f347-564f-cbfb-e972ad921c99"
+    "id": "9ecc9b2e-1386-d424-2d27-09de086642dd"
   },
   {
     "httpRequest": {
@@ -37,7 +37,7 @@
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/c28a5ad0-dc2c-11f0-bdee-da7ad0900002",
+      "path": "/api/v2/obs-pipelines/pipelines/3574771e-ec7d-11f0-8887-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6acef4da-c6d9-3beb-fcdd-2b5a9ed501e8"
+    "id": "9a28b63c-c076-494d-75a2-1add01e21145"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/c28a5ad0-dc2c-11f0-bdee-da7ad0900002",
+      "path": "/api/v2/obs-pipelines/pipelines/3574771e-ec7d-11f0-8887-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a5a337ff-4b63-4eb5-2643-23ba383eee73"
+    "id": "9061beae-7d1c-38ef-0964-511777e7a636"
   }
 ]

@@ -22,6 +22,8 @@ import java.util.Objects;
 /**
  * The <code>sensitive_data_scanner</code> processor detects and optionally redacts sensitive data
  * in log events.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSensitiveDataScannerProcessor.JSON_PROPERTY_DISPLAY_NAME,
