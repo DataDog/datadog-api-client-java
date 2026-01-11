@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>sumo_logic</code> source receives logs from Sumo Logic collectors. */
+/**
+ * The <code>sumo_logic</code> source receives logs from Sumo Logic collectors.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineSumoLogicSource.JSON_PROPERTY_ID,
   ObservabilityPipelineSumoLogicSource.JSON_PROPERTY_TYPE
@@ -51,8 +55,8 @@ public class ObservabilityPipelineSumoLogicSource {
   }
 
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of
-   * the pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
    *
    * @return id
    */

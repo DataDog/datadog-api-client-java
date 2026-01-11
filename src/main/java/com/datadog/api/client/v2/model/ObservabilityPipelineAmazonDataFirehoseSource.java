@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>amazon_data_firehose</code> source ingests logs from AWS Data Firehose. */
+/**
+ * The <code>amazon_data_firehose</code> source ingests logs from AWS Data Firehose.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineAmazonDataFirehoseSource.JSON_PROPERTY_AUTH,
   ObservabilityPipelineAmazonDataFirehoseSource.JSON_PROPERTY_ID,
@@ -82,8 +86,8 @@ public class ObservabilityPipelineAmazonDataFirehoseSource {
   }
 
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of
-   * the pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
    *
    * @return id
    */

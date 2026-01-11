@@ -23,6 +23,8 @@ import java.util.Objects;
  * The <code>custom_processor</code> processor transforms events using <a
  * href="https://vector.dev/docs/reference/vrl/">Vector Remap Language (VRL)</a> scripts with
  * advanced filtering capabilities.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineCustomProcessor.JSON_PROPERTY_DISPLAY_NAME,
@@ -101,7 +103,7 @@ public class ObservabilityPipelineCustomProcessor {
   }
 
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    *
    * @return enabled
    */

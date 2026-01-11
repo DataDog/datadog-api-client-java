@@ -22,6 +22,8 @@ import java.util.Objects;
 /**
  * The <code>crowdstrike_next_gen_siem</code> destination forwards logs to CrowdStrike Next Gen
  * SIEM.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_COMPRESSION,

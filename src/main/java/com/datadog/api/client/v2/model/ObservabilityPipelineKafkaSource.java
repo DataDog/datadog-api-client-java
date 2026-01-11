@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>kafka</code> source ingests data from Apache Kafka topics. */
+/**
+ * The <code>kafka</code> source ingests data from Apache Kafka topics.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineKafkaSource.JSON_PROPERTY_GROUP_ID,
   ObservabilityPipelineKafkaSource.JSON_PROPERTY_ID,
@@ -40,10 +44,10 @@ public class ObservabilityPipelineKafkaSource {
   private String id;
 
   public static final String JSON_PROPERTY_LIBRDKAFKA_OPTIONS = "librdkafka_options";
-  private List<ObservabilityPipelineKafkaSourceLibrdkafkaOption> librdkafkaOptions = null;
+  private List<ObservabilityPipelineKafkaLibrdkafkaOption> librdkafkaOptions = null;
 
   public static final String JSON_PROPERTY_SASL = "sasl";
-  private ObservabilityPipelineKafkaSourceSasl sasl;
+  private ObservabilityPipelineKafkaSasl sasl;
 
   public static final String JSON_PROPERTY_TLS = "tls";
   private ObservabilityPipelineTls tls;
@@ -96,8 +100,8 @@ public class ObservabilityPipelineKafkaSource {
   }
 
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of
-   * the pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
    *
    * @return id
    */
@@ -112,16 +116,16 @@ public class ObservabilityPipelineKafkaSource {
   }
 
   public ObservabilityPipelineKafkaSource librdkafkaOptions(
-      List<ObservabilityPipelineKafkaSourceLibrdkafkaOption> librdkafkaOptions) {
+      List<ObservabilityPipelineKafkaLibrdkafkaOption> librdkafkaOptions) {
     this.librdkafkaOptions = librdkafkaOptions;
-    for (ObservabilityPipelineKafkaSourceLibrdkafkaOption item : librdkafkaOptions) {
+    for (ObservabilityPipelineKafkaLibrdkafkaOption item : librdkafkaOptions) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public ObservabilityPipelineKafkaSource addLibrdkafkaOptionsItem(
-      ObservabilityPipelineKafkaSourceLibrdkafkaOption librdkafkaOptionsItem) {
+      ObservabilityPipelineKafkaLibrdkafkaOption librdkafkaOptionsItem) {
     if (this.librdkafkaOptions == null) {
       this.librdkafkaOptions = new ArrayList<>();
     }
@@ -138,16 +142,16 @@ public class ObservabilityPipelineKafkaSource {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIBRDKAFKA_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ObservabilityPipelineKafkaSourceLibrdkafkaOption> getLibrdkafkaOptions() {
+  public List<ObservabilityPipelineKafkaLibrdkafkaOption> getLibrdkafkaOptions() {
     return librdkafkaOptions;
   }
 
   public void setLibrdkafkaOptions(
-      List<ObservabilityPipelineKafkaSourceLibrdkafkaOption> librdkafkaOptions) {
+      List<ObservabilityPipelineKafkaLibrdkafkaOption> librdkafkaOptions) {
     this.librdkafkaOptions = librdkafkaOptions;
   }
 
-  public ObservabilityPipelineKafkaSource sasl(ObservabilityPipelineKafkaSourceSasl sasl) {
+  public ObservabilityPipelineKafkaSource sasl(ObservabilityPipelineKafkaSasl sasl) {
     this.sasl = sasl;
     this.unparsed |= sasl.unparsed;
     return this;
@@ -161,11 +165,11 @@ public class ObservabilityPipelineKafkaSource {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SASL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineKafkaSourceSasl getSasl() {
+  public ObservabilityPipelineKafkaSasl getSasl() {
     return sasl;
   }
 
-  public void setSasl(ObservabilityPipelineKafkaSourceSasl sasl) {
+  public void setSasl(ObservabilityPipelineKafkaSasl sasl) {
     this.sasl = sasl;
   }
 
