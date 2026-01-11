@@ -19,12 +19,16 @@ import java.util.Objects;
 
 /** Options for defining a custom regex pattern. */
 @JsonPropertyOrder({
+  ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.JSON_PROPERTY_DESCRIPTION,
   ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.JSON_PROPERTY_RULE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_RULE = "rule";
   private String rule;
 
@@ -34,6 +38,28 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
   public ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions(
       @JsonProperty(required = true, value = JSON_PROPERTY_RULE) String rule) {
     this.rule = rule;
+  }
+
+  public ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions description(
+      String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Human-readable description providing context about a sensitive data scanner rule
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions rule(String rule) {
@@ -119,6 +145,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
         observabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions =
             (ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions) o;
     return Objects.equals(
+            this.description,
+            observabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.description)
+        && Objects.equals(
             this.rule, observabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.rule)
         && Objects.equals(
             this.additionalProperties,
@@ -128,13 +157,14 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
 
   @Override
   public int hashCode() {
-    return Objects.hash(rule, additionalProperties);
+    return Objects.hash(description, rule, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
