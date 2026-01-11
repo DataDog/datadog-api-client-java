@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_API_VERSION,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_BULK_INDEX,
+  ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_DATA_STREAM,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_TYPE
@@ -36,6 +37,9 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   public static final String JSON_PROPERTY_BULK_INDEX = "bulk_index";
   private String bulkIndex;
+
+  public static final String JSON_PROPERTY_DATA_STREAM = "data_stream";
+  private ObservabilityPipelineElasticsearchDestinationDataStream dataStream;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -106,6 +110,29 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   public void setBulkIndex(String bulkIndex) {
     this.bulkIndex = bulkIndex;
+  }
+
+  public ObservabilityPipelineElasticsearchDestination dataStream(
+      ObservabilityPipelineElasticsearchDestinationDataStream dataStream) {
+    this.dataStream = dataStream;
+    this.unparsed |= dataStream.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration options for writing to Elasticsearch Data Streams instead of a fixed index.
+   *
+   * @return dataStream
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_STREAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineElasticsearchDestinationDataStream getDataStream() {
+    return dataStream;
+  }
+
+  public void setDataStream(ObservabilityPipelineElasticsearchDestinationDataStream dataStream) {
+    this.dataStream = dataStream;
   }
 
   public ObservabilityPipelineElasticsearchDestination id(String id) {
@@ -238,6 +265,7 @@ public class ObservabilityPipelineElasticsearchDestination {
         (ObservabilityPipelineElasticsearchDestination) o;
     return Objects.equals(this.apiVersion, observabilityPipelineElasticsearchDestination.apiVersion)
         && Objects.equals(this.bulkIndex, observabilityPipelineElasticsearchDestination.bulkIndex)
+        && Objects.equals(this.dataStream, observabilityPipelineElasticsearchDestination.dataStream)
         && Objects.equals(this.id, observabilityPipelineElasticsearchDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineElasticsearchDestination.inputs)
         && Objects.equals(this.type, observabilityPipelineElasticsearchDestination.type)
@@ -248,7 +276,7 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiVersion, bulkIndex, id, inputs, type, additionalProperties);
+    return Objects.hash(apiVersion, bulkIndex, dataStream, id, inputs, type, additionalProperties);
   }
 
   @Override
@@ -257,6 +285,7 @@ public class ObservabilityPipelineElasticsearchDestination {
     sb.append("class ObservabilityPipelineElasticsearchDestination {\n");
     sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
     sb.append("    bulkIndex: ").append(toIndentedString(bulkIndex)).append("\n");
+    sb.append("    dataStream: ").append(toIndentedString(dataStream)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

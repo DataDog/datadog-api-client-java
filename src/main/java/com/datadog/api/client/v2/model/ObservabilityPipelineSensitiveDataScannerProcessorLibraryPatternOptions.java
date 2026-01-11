@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** Options for selecting a predefined library pattern and enabling keyword support. */
 @JsonPropertyOrder({
+  ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions.JSON_PROPERTY_DESCRIPTION,
   ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions.JSON_PROPERTY_ID,
   ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions
       .JSON_PROPERTY_USE_RECOMMENDED_KEYWORDS
@@ -27,6 +28,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -39,6 +43,28 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOpt
   public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id) {
     this.id = id;
+  }
+
+  public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions description(
+      String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Human-readable description providing context about a sensitive data scanner rule
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions id(String id) {
@@ -146,6 +172,9 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOpt
         observabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions =
             (ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions) o;
     return Objects.equals(
+            this.description,
+            observabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions.description)
+        && Objects.equals(
             this.id, observabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions.id)
         && Objects.equals(
             this.useRecommendedKeywords,
@@ -159,13 +188,14 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOpt
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, useRecommendedKeywords, additionalProperties);
+    return Objects.hash(description, id, useRecommendedKeywords, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    useRecommendedKeywords: ")
         .append(toIndentedString(useRecommendedKeywords))
