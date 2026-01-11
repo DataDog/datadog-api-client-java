@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"943312c7-755d-4167-9bd4-bd87603c1784\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2025-09-05T02:18:47.87671627Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2025-09-05T02:18:47.876716352Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
+      "body": "{\"data\":{\"id\":\"b80f34a0-3fb4-47ea-8ff5-f261b870edb1\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-01-07T15:19:22.803184531Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-01-07T15:19:22.803184613Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,7 +33,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"An incident has been declared.\\n\\nTitle: Sample Incident Title\\nSeverity: SEV-2\\nAffected Services: web-service, database-service\\nStatus: active\\n\\nPlease join the incident channel for updates.\",\"name\":\"Test-Create_incident_notification_template_returns_Created_response-1757038727\",\"subject\":\"SEV-2 Incident: Sample Incident Title\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"943312c7-755d-4167-9bd4-bd87603c1784\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
+        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"An incident has been declared.\\n\\nTitle: Sample Incident Title\\nSeverity: SEV-2\\nAffected Services: web-service, database-service\\nStatus: active\\n\\nPlease join the incident channel for updates.\",\"name\":\"Test-Create_incident_notification_template_returns_Created_response-1767799162\",\"subject\":\"SEV-2 Incident: Sample Incident Title\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"b80f34a0-3fb4-47ea-8ff5-f261b870edb1\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ffbd2758-c695-4879-8355-07371b09aeea\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"An incident has been declared.\\n\\nTitle: Sample Incident Title\\nSeverity: SEV-2\\nAffected Services: web-service, database-service\\nStatus: active\\n\\nPlease join the incident channel for updates.\",\"created\":\"2025-09-05T02:18:48.112073Z\",\"modified\":\"2025-09-05T02:18:48.112073Z\",\"name\":\"Test-Create_incident_notification_template_returns_Created_response-1757038727\",\"subject\":\"SEV-2 Incident: Sample Incident Title\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"943312c7-755d-4167-9bd4-bd87603c1784\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"b7d37bf0-4028-4456-af48-ce278eebe1cf\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"An incident has been declared.\\n\\nTitle: Sample Incident Title\\nSeverity: SEV-2\\nAffected Services: web-service, database-service\\nStatus: active\\n\\nPlease join the incident channel for updates.\",\"created\":\"2026-01-07T15:19:23.167582Z\",\"modified\":\"2026-01-07T15:19:23.167582Z\",\"name\":\"Test-Create_incident_notification_template_returns_Created_response-1767799162\",\"subject\":\"SEV-2 Incident: Sample Incident Title\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"b80f34a0-3fb4-47ea-8ff5-f261b870edb1\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d227954b-3a2d-fd42-2958-7303ffa1c9e4"
+    "id": "681bdb39-f0bb-0fc7-d35b-2c99fdc7051e"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/notification-templates/ffbd2758-c695-4879-8355-07371b09aeea",
+      "path": "/api/v2/incidents/config/notification-templates/b7d37bf0-4028-4456-af48-ce278eebe1cf",
       "keepAlive": false,
       "secure": true
     },
@@ -78,13 +78,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cc62ba70-349d-2aa5-41ec-6d6952278a1a"
+    "id": "c934928e-6cf7-9724-49dd-5e6d8375f0dc"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/943312c7-755d-4167-9bd4-bd87603c1784",
+      "path": "/api/v2/incidents/config/types/b80f34a0-3fb4-47ea-8ff5-f261b870edb1",
       "keepAlive": false,
       "secure": true
     },
@@ -99,6 +99,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e4267e0a-de74-c014-f3ba-6c5a74687822"
+    "id": "9f235a17-4c5b-448c-2569-4ab823f7e5ab"
   }
 ]

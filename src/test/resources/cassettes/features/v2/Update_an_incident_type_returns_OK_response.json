@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"366ac7cc-9884-4a7f-a751-9d885f3136ed\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2024-11-04T19:02:38.74682603Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2024-11-04T19:02:38.74682603Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"}}}",
+      "body": "{\"data\":{\"id\":\"9872ea18-a70b-4130-98bc-88e4d9ba1436\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-01-07T15:20:05.632473701Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-01-07T15:20:05.632473808Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,16 +33,16 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Security Incident-updated\"},\"id\":\"366ac7cc-9884-4a7f-a751-9d885f3136ed\",\"type\":\"incident_types\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Security Incident-updated\"},\"id\":\"9872ea18-a70b-4130-98bc-88e4d9ba1436\",\"type\":\"incident_types\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/incidents/config/types/366ac7cc-9884-4a7f-a751-9d885f3136ed",
+      "path": "/api/v2/incidents/config/types/9872ea18-a70b-4130-98bc-88e4d9ba1436",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"366ac7cc-9884-4a7f-a751-9d885f3136ed\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2024-11-04T19:02:38.746826Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2024-11-04T19:02:38.837509595Z\",\"name\":\"Security Incident-updated\",\"prefix\":\"IR\"}}}",
+      "body": "{\"data\":{\"id\":\"9872ea18-a70b-4130-98bc-88e4d9ba1436\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-01-07T15:20:05.632473Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-01-07T15:20:06.019037Z\",\"name\":\"Security Incident-updated\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3967b776-5046-b074-f6ea-27cac459228d"
+    "id": "4c2fee62-bc56-b5c3-da81-fd0f5c573d1f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/366ac7cc-9884-4a7f-a751-9d885f3136ed",
+      "path": "/api/v2/incidents/config/types/9872ea18-a70b-4130-98bc-88e4d9ba1436",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "406748d3-5f30-533e-e410-312cbc2d6af8"
+    "id": "867ab1cb-8021-ed8d-879c-5e01c7c9233b"
   }
 ]

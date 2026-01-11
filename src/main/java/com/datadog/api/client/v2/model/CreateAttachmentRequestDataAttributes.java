@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The attributes for creating an attachment. */
 @JsonPropertyOrder({
   CreateAttachmentRequestDataAttributes.JSON_PROPERTY_ATTACHMENT,
   CreateAttachmentRequestDataAttributes.JSON_PROPERTY_ATTACHMENT_TYPE
@@ -39,7 +39,7 @@ public class CreateAttachmentRequestDataAttributes {
   }
 
   /**
-   * Getattachment
+   * The attachment object for creating an attachment.
    *
    * @return attachment
    */
@@ -62,7 +62,7 @@ public class CreateAttachmentRequestDataAttributes {
   }
 
   /**
-   * GetattachmentType
+   * The type of the attachment.
    *
    * @return attachmentType
    */
