@@ -8864,12 +8864,15 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a list of security findings that match a search query.
+   * Get a list of security findings that match a search query. <a
+   * href="https://docs.datadoghq.com/security/guide/findings-schema/">See the schema for security
+   * findings</a>.
    *
    * <h3>Query Syntax</h3>
    *
-   * <p>This endpoint uses the logs query syntax. Findings attributes (living in the custom.
-   * namespace) are prefixed by @ when queried. Tags are queried without a prefix.
+   * <p>This endpoint uses the logs query syntax. Findings attributes (living in the
+   * attributes.attributes. namespace) are prefixed by @ when queried. Tags are queried without a
+   * prefix.
    *
    * <p>Example: <code>@severity:(critical OR high) @status:open team:platform</code>
    *
@@ -12554,12 +12557,15 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a list of security findings that match a search query.
+   * Get a list of security findings that match a search query. <a
+   * href="https://docs.datadoghq.com/security/guide/findings-schema/">See the schema for security
+   * findings</a>.
    *
    * <h3>Query Syntax</h3>
    *
-   * <p>The API uses the logs query syntax. Findings attributes (living in the custom. namespace)
-   * are prefixed by @ when queried. Tags are queried without a prefix.
+   * <p>The API uses the logs query syntax. Findings attributes (living in the
+   * attributes.attributes. namespace) are prefixed by @ when queried. Tags are queried without a
+   * prefix.
    *
    * <p>Example: <code>@severity:(critical OR high) @status:open team:platform</code>
    *
