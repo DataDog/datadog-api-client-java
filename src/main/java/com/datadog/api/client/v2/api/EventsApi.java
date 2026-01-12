@@ -103,9 +103,6 @@ public class EventsApi {
    * <p>❌ For use cases involving other event categories, use the V1 endpoint or reach out to <a
    * href="https://www.datadoghq.com/support/">support</a>.
    *
-   * <p>❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint
-   * for notification functionality.
-   *
    * @param body Event creation request payload. (required)
    * @return ApiResponse&lt;EventCreateResponsePayload&gt;
    * @throws ApiException if fails to make API call
