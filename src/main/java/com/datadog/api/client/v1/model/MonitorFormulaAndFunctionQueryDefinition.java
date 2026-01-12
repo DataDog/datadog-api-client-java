@@ -194,6 +194,61 @@ public class MonitorFormulaAndFunctionQueryDefinition extends AbstractOpenApiSch
             e);
       }
 
+      // deserialize MonitorFormulaAndFunctionDataQualityQueryDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(Integer.class)
+            || MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(Long.class)
+            || MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(Float.class)
+            || MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(Double.class)
+            || MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(Boolean.class)
+            || MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(Integer.class)
+                        || MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(Float.class)
+                        || MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (MonitorFormulaAndFunctionDataQualityQueryDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(MonitorFormulaAndFunctionDataQualityQueryDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((MonitorFormulaAndFunctionDataQualityQueryDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'MonitorFormulaAndFunctionDataQualityQueryDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'MonitorFormulaAndFunctionDataQualityQueryDefinition'",
+            e);
+      }
+
       MonitorFormulaAndFunctionQueryDefinition ret = new MonitorFormulaAndFunctionQueryDefinition();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -234,6 +289,12 @@ public class MonitorFormulaAndFunctionQueryDefinition extends AbstractOpenApiSch
     setActualInstance(o);
   }
 
+  public MonitorFormulaAndFunctionQueryDefinition(
+      MonitorFormulaAndFunctionDataQualityQueryDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "MonitorFormulaAndFunctionEventQueryDefinition",
@@ -241,6 +302,9 @@ public class MonitorFormulaAndFunctionQueryDefinition extends AbstractOpenApiSch
     schemas.put(
         "MonitorFormulaAndFunctionCostQueryDefinition",
         new GenericType<MonitorFormulaAndFunctionCostQueryDefinition>() {});
+    schemas.put(
+        "MonitorFormulaAndFunctionDataQualityQueryDefinition",
+        new GenericType<MonitorFormulaAndFunctionDataQualityQueryDefinition>() {});
     JSON.registerDescendants(
         MonitorFormulaAndFunctionQueryDefinition.class, Collections.unmodifiableMap(schemas));
   }
@@ -253,7 +317,8 @@ public class MonitorFormulaAndFunctionQueryDefinition extends AbstractOpenApiSch
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: MonitorFormulaAndFunctionEventQueryDefinition,
-   * MonitorFormulaAndFunctionCostQueryDefinition
+   * MonitorFormulaAndFunctionCostQueryDefinition,
+   * MonitorFormulaAndFunctionDataQualityQueryDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -270,6 +335,13 @@ public class MonitorFormulaAndFunctionQueryDefinition extends AbstractOpenApiSch
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        MonitorFormulaAndFunctionDataQualityQueryDefinition.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -277,15 +349,18 @@ public class MonitorFormulaAndFunctionQueryDefinition extends AbstractOpenApiSch
     }
     throw new RuntimeException(
         "Invalid instance type. Must be MonitorFormulaAndFunctionEventQueryDefinition,"
-            + " MonitorFormulaAndFunctionCostQueryDefinition");
+            + " MonitorFormulaAndFunctionCostQueryDefinition,"
+            + " MonitorFormulaAndFunctionDataQualityQueryDefinition");
   }
 
   /**
    * Get the actual instance, which can be the following:
-   * MonitorFormulaAndFunctionEventQueryDefinition, MonitorFormulaAndFunctionCostQueryDefinition
+   * MonitorFormulaAndFunctionEventQueryDefinition, MonitorFormulaAndFunctionCostQueryDefinition,
+   * MonitorFormulaAndFunctionDataQualityQueryDefinition
    *
    * @return The actual instance (MonitorFormulaAndFunctionEventQueryDefinition,
-   *     MonitorFormulaAndFunctionCostQueryDefinition)
+   *     MonitorFormulaAndFunctionCostQueryDefinition,
+   *     MonitorFormulaAndFunctionDataQualityQueryDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -318,5 +393,19 @@ public class MonitorFormulaAndFunctionQueryDefinition extends AbstractOpenApiSch
   public MonitorFormulaAndFunctionCostQueryDefinition
       getMonitorFormulaAndFunctionCostQueryDefinition() throws ClassCastException {
     return (MonitorFormulaAndFunctionCostQueryDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `MonitorFormulaAndFunctionDataQualityQueryDefinition`. If the actual
+   * instance is not `MonitorFormulaAndFunctionDataQualityQueryDefinition`, the ClassCastException
+   * will be thrown.
+   *
+   * @return The actual instance of `MonitorFormulaAndFunctionDataQualityQueryDefinition`
+   * @throws ClassCastException if the instance is not
+   *     `MonitorFormulaAndFunctionDataQualityQueryDefinition`
+   */
+  public MonitorFormulaAndFunctionDataQualityQueryDefinition
+      getMonitorFormulaAndFunctionDataQualityQueryDefinition() throws ClassCastException {
+    return (MonitorFormulaAndFunctionDataQualityQueryDefinition) super.getActualInstance();
   }
 }
