@@ -13,18 +13,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>sample</code> processor allows probabilistic sampling of logs at a fixed rate. */
+/**
+ * The <code>sample</code> processor allows probabilistic sampling of logs at a fixed rate.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_ENABLED,
+  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_GROUP_BY,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_PERCENTAGE,
-  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_RATE,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -37,6 +43,9 @@ public class ObservabilityPipelineSampleProcessor {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
+  public static final String JSON_PROPERTY_GROUP_BY = "group_by";
+  private List<String> groupBy = null;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -45,9 +54,6 @@ public class ObservabilityPipelineSampleProcessor {
 
   public static final String JSON_PROPERTY_PERCENTAGE = "percentage";
   private Double percentage;
-
-  public static final String JSON_PROPERTY_RATE = "rate";
-  private Long rate;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineSampleProcessorType type =
@@ -60,11 +66,13 @@ public class ObservabilityPipelineSampleProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PERCENTAGE) Double percentage,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineSampleProcessorType type) {
     this.enabled = enabled;
     this.id = id;
     this.include = include;
+    this.percentage = percentage;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -96,7 +104,7 @@ public class ObservabilityPipelineSampleProcessor {
   }
 
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    *
    * @return enabled
    */
@@ -110,14 +118,43 @@ public class ObservabilityPipelineSampleProcessor {
     this.enabled = enabled;
   }
 
+  public ObservabilityPipelineSampleProcessor groupBy(List<String> groupBy) {
+    this.groupBy = groupBy;
+    return this;
+  }
+
+  public ObservabilityPipelineSampleProcessor addGroupByItem(String groupByItem) {
+    if (this.groupBy == null) {
+      this.groupBy = new ArrayList<>();
+    }
+    this.groupBy.add(groupByItem);
+    return this;
+  }
+
+  /**
+   * Optional list of fields to group events by. Each group is sampled independently.
+   *
+   * @return groupBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getGroupBy() {
+    return groupBy;
+  }
+
+  public void setGroupBy(List<String> groupBy) {
+    this.groupBy = groupBy;
+  }
+
   public ObservabilityPipelineSampleProcessor id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of
-   * the pipeline (for example, as the <code>input</code> to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
    *
    * @return id
    */
@@ -161,36 +198,14 @@ public class ObservabilityPipelineSampleProcessor {
    *
    * @return percentage
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERCENTAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getPercentage() {
     return percentage;
   }
 
   public void setPercentage(Double percentage) {
     this.percentage = percentage;
-  }
-
-  public ObservabilityPipelineSampleProcessor rate(Long rate) {
-    this.rate = rate;
-    return this;
-  }
-
-  /**
-   * Number of events to sample (1 in N). minimum: 1
-   *
-   * @return rate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRate() {
-    return rate;
-  }
-
-  public void setRate(Long rate) {
-    this.rate = rate;
   }
 
   public ObservabilityPipelineSampleProcessor type(ObservabilityPipelineSampleProcessorType type) {
@@ -276,10 +291,10 @@ public class ObservabilityPipelineSampleProcessor {
         (ObservabilityPipelineSampleProcessor) o;
     return Objects.equals(this.displayName, observabilityPipelineSampleProcessor.displayName)
         && Objects.equals(this.enabled, observabilityPipelineSampleProcessor.enabled)
+        && Objects.equals(this.groupBy, observabilityPipelineSampleProcessor.groupBy)
         && Objects.equals(this.id, observabilityPipelineSampleProcessor.id)
         && Objects.equals(this.include, observabilityPipelineSampleProcessor.include)
         && Objects.equals(this.percentage, observabilityPipelineSampleProcessor.percentage)
-        && Objects.equals(this.rate, observabilityPipelineSampleProcessor.rate)
         && Objects.equals(this.type, observabilityPipelineSampleProcessor.type)
         && Objects.equals(
             this.additionalProperties, observabilityPipelineSampleProcessor.additionalProperties);
@@ -288,7 +303,7 @@ public class ObservabilityPipelineSampleProcessor {
   @Override
   public int hashCode() {
     return Objects.hash(
-        displayName, enabled, id, include, percentage, rate, type, additionalProperties);
+        displayName, enabled, groupBy, id, include, percentage, type, additionalProperties);
   }
 
   @Override
@@ -297,10 +312,10 @@ public class ObservabilityPipelineSampleProcessor {
     sb.append("class ObservabilityPipelineSampleProcessor {\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    percentage: ").append(toIndentedString(percentage)).append("\n");
-    sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

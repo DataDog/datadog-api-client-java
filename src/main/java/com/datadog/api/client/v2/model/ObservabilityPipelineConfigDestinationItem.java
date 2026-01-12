@@ -90,55 +90,109 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize ObservabilityPipelineDatadogLogsDestination
+      // deserialize ObservabilityPipelineHttpClientDestination
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineDatadogLogsDestination.class.equals(Integer.class)
-            || ObservabilityPipelineDatadogLogsDestination.class.equals(Long.class)
-            || ObservabilityPipelineDatadogLogsDestination.class.equals(Float.class)
-            || ObservabilityPipelineDatadogLogsDestination.class.equals(Double.class)
-            || ObservabilityPipelineDatadogLogsDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineDatadogLogsDestination.class.equals(String.class)) {
+        if (ObservabilityPipelineHttpClientDestination.class.equals(Integer.class)
+            || ObservabilityPipelineHttpClientDestination.class.equals(Long.class)
+            || ObservabilityPipelineHttpClientDestination.class.equals(Float.class)
+            || ObservabilityPipelineHttpClientDestination.class.equals(Double.class)
+            || ObservabilityPipelineHttpClientDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineHttpClientDestination.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((ObservabilityPipelineDatadogLogsDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineDatadogLogsDestination.class.equals(Long.class))
+                ((ObservabilityPipelineHttpClientDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineHttpClientDestination.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((ObservabilityPipelineDatadogLogsDestination.class.equals(Float.class)
-                        || ObservabilityPipelineDatadogLogsDestination.class.equals(Double.class))
+                ((ObservabilityPipelineHttpClientDestination.class.equals(Float.class)
+                        || ObservabilityPipelineHttpClientDestination.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (ObservabilityPipelineDatadogLogsDestination.class.equals(Boolean.class)
+                (ObservabilityPipelineHttpClientDestination.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
             attemptParsing |=
-                (ObservabilityPipelineDatadogLogsDestination.class.equals(String.class)
+                (ObservabilityPipelineHttpClientDestination.class.equals(String.class)
                     && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
           tmp =
               tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineDatadogLogsDestination.class);
+                  .readValueAs(ObservabilityPipelineHttpClientDestination.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineDatadogLogsDestination) tmp).unparsed) {
+          if (!((ObservabilityPipelineHttpClientDestination) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
           log.log(
               Level.FINER,
-              "Input data matches schema 'ObservabilityPipelineDatadogLogsDestination'");
+              "Input data matches schema 'ObservabilityPipelineHttpClientDestination'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
         log.log(
             Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineDatadogLogsDestination'",
+            "Input data does not match schema 'ObservabilityPipelineHttpClientDestination'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineAmazonOpenSearchDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Integer.class)
+            || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Long.class)
+            || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Float.class)
+            || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Double.class)
+            || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Float.class)
+                        || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineAmazonOpenSearchDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineAmazonOpenSearchDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineAmazonOpenSearchDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineAmazonOpenSearchDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineAmazonOpenSearchDestination'",
             e);
       }
 
@@ -193,6 +247,368 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             e);
       }
 
+      // deserialize ObservabilityPipelineAmazonSecurityLakeDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Integer.class)
+            || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Long.class)
+            || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Float.class)
+            || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Double.class)
+            || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Float.class)
+                        || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineAmazonSecurityLakeDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineAmazonSecurityLakeDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineAmazonSecurityLakeDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineAmazonSecurityLakeDestination'",
+            e);
+      }
+
+      // deserialize AzureStorageDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (AzureStorageDestination.class.equals(Integer.class)
+            || AzureStorageDestination.class.equals(Long.class)
+            || AzureStorageDestination.class.equals(Float.class)
+            || AzureStorageDestination.class.equals(Double.class)
+            || AzureStorageDestination.class.equals(Boolean.class)
+            || AzureStorageDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((AzureStorageDestination.class.equals(Integer.class)
+                        || AzureStorageDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((AzureStorageDestination.class.equals(Float.class)
+                        || AzureStorageDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (AzureStorageDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (AzureStorageDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(AzureStorageDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((AzureStorageDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'AzureStorageDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'AzureStorageDestination'", e);
+      }
+
+      // deserialize ObservabilityPipelineCloudPremDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineCloudPremDestination.class.equals(Integer.class)
+            || ObservabilityPipelineCloudPremDestination.class.equals(Long.class)
+            || ObservabilityPipelineCloudPremDestination.class.equals(Float.class)
+            || ObservabilityPipelineCloudPremDestination.class.equals(Double.class)
+            || ObservabilityPipelineCloudPremDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineCloudPremDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineCloudPremDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineCloudPremDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineCloudPremDestination.class.equals(Float.class)
+                        || ObservabilityPipelineCloudPremDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineCloudPremDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineCloudPremDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineCloudPremDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineCloudPremDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ObservabilityPipelineCloudPremDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineCloudPremDestination'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineCrowdStrikeNextGenSiemDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Integer.class)
+            || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Long.class)
+            || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Float.class)
+            || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Double.class)
+            || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Float.class)
+                        || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineCrowdStrikeNextGenSiemDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineCrowdStrikeNextGenSiemDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'ObservabilityPipelineCrowdStrikeNextGenSiemDestination'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineDatadogLogsDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineDatadogLogsDestination.class.equals(Integer.class)
+            || ObservabilityPipelineDatadogLogsDestination.class.equals(Long.class)
+            || ObservabilityPipelineDatadogLogsDestination.class.equals(Float.class)
+            || ObservabilityPipelineDatadogLogsDestination.class.equals(Double.class)
+            || ObservabilityPipelineDatadogLogsDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineDatadogLogsDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineDatadogLogsDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineDatadogLogsDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineDatadogLogsDestination.class.equals(Float.class)
+                        || ObservabilityPipelineDatadogLogsDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineDatadogLogsDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineDatadogLogsDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineDatadogLogsDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineDatadogLogsDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineDatadogLogsDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineDatadogLogsDestination'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineElasticsearchDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineElasticsearchDestination.class.equals(Integer.class)
+            || ObservabilityPipelineElasticsearchDestination.class.equals(Long.class)
+            || ObservabilityPipelineElasticsearchDestination.class.equals(Float.class)
+            || ObservabilityPipelineElasticsearchDestination.class.equals(Double.class)
+            || ObservabilityPipelineElasticsearchDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineElasticsearchDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineElasticsearchDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineElasticsearchDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineElasticsearchDestination.class.equals(Float.class)
+                        || ObservabilityPipelineElasticsearchDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineElasticsearchDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineElasticsearchDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineElasticsearchDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineElasticsearchDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineElasticsearchDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineElasticsearchDestination'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineGoogleChronicleDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineGoogleChronicleDestination.class.equals(Integer.class)
+            || ObservabilityPipelineGoogleChronicleDestination.class.equals(Long.class)
+            || ObservabilityPipelineGoogleChronicleDestination.class.equals(Float.class)
+            || ObservabilityPipelineGoogleChronicleDestination.class.equals(Double.class)
+            || ObservabilityPipelineGoogleChronicleDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineGoogleChronicleDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineGoogleChronicleDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineGoogleChronicleDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineGoogleChronicleDestination.class.equals(Float.class)
+                        || ObservabilityPipelineGoogleChronicleDestination.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineGoogleChronicleDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineGoogleChronicleDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineGoogleChronicleDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineGoogleChronicleDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineGoogleChronicleDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineGoogleChronicleDestination'",
+            e);
+      }
+
       // deserialize ObservabilityPipelineGoogleCloudStorageDestination
       try {
         boolean attemptParsing = true;
@@ -244,6 +660,409 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
         log.log(
             Level.FINER,
             "Input data does not match schema 'ObservabilityPipelineGoogleCloudStorageDestination'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineGooglePubSubDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineGooglePubSubDestination.class.equals(Integer.class)
+            || ObservabilityPipelineGooglePubSubDestination.class.equals(Long.class)
+            || ObservabilityPipelineGooglePubSubDestination.class.equals(Float.class)
+            || ObservabilityPipelineGooglePubSubDestination.class.equals(Double.class)
+            || ObservabilityPipelineGooglePubSubDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineGooglePubSubDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineGooglePubSubDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineGooglePubSubDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineGooglePubSubDestination.class.equals(Float.class)
+                        || ObservabilityPipelineGooglePubSubDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineGooglePubSubDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineGooglePubSubDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineGooglePubSubDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineGooglePubSubDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineGooglePubSubDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineGooglePubSubDestination'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineKafkaDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineKafkaDestination.class.equals(Integer.class)
+            || ObservabilityPipelineKafkaDestination.class.equals(Long.class)
+            || ObservabilityPipelineKafkaDestination.class.equals(Float.class)
+            || ObservabilityPipelineKafkaDestination.class.equals(Double.class)
+            || ObservabilityPipelineKafkaDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineKafkaDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineKafkaDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineKafkaDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineKafkaDestination.class.equals(Float.class)
+                        || ObservabilityPipelineKafkaDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineKafkaDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineKafkaDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineKafkaDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineKafkaDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineKafkaDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineKafkaDestination'",
+            e);
+      }
+
+      // deserialize MicrosoftSentinelDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (MicrosoftSentinelDestination.class.equals(Integer.class)
+            || MicrosoftSentinelDestination.class.equals(Long.class)
+            || MicrosoftSentinelDestination.class.equals(Float.class)
+            || MicrosoftSentinelDestination.class.equals(Double.class)
+            || MicrosoftSentinelDestination.class.equals(Boolean.class)
+            || MicrosoftSentinelDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((MicrosoftSentinelDestination.class.equals(Integer.class)
+                        || MicrosoftSentinelDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((MicrosoftSentinelDestination.class.equals(Float.class)
+                        || MicrosoftSentinelDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (MicrosoftSentinelDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (MicrosoftSentinelDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(MicrosoftSentinelDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((MicrosoftSentinelDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'MicrosoftSentinelDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'MicrosoftSentinelDestination'", e);
+      }
+
+      // deserialize ObservabilityPipelineNewRelicDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineNewRelicDestination.class.equals(Integer.class)
+            || ObservabilityPipelineNewRelicDestination.class.equals(Long.class)
+            || ObservabilityPipelineNewRelicDestination.class.equals(Float.class)
+            || ObservabilityPipelineNewRelicDestination.class.equals(Double.class)
+            || ObservabilityPipelineNewRelicDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineNewRelicDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineNewRelicDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineNewRelicDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineNewRelicDestination.class.equals(Float.class)
+                        || ObservabilityPipelineNewRelicDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineNewRelicDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineNewRelicDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineNewRelicDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineNewRelicDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ObservabilityPipelineNewRelicDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineNewRelicDestination'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineOpenSearchDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineOpenSearchDestination.class.equals(Integer.class)
+            || ObservabilityPipelineOpenSearchDestination.class.equals(Long.class)
+            || ObservabilityPipelineOpenSearchDestination.class.equals(Float.class)
+            || ObservabilityPipelineOpenSearchDestination.class.equals(Double.class)
+            || ObservabilityPipelineOpenSearchDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineOpenSearchDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineOpenSearchDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineOpenSearchDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineOpenSearchDestination.class.equals(Float.class)
+                        || ObservabilityPipelineOpenSearchDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineOpenSearchDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineOpenSearchDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineOpenSearchDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineOpenSearchDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineOpenSearchDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineOpenSearchDestination'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineRsyslogDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineRsyslogDestination.class.equals(Integer.class)
+            || ObservabilityPipelineRsyslogDestination.class.equals(Long.class)
+            || ObservabilityPipelineRsyslogDestination.class.equals(Float.class)
+            || ObservabilityPipelineRsyslogDestination.class.equals(Double.class)
+            || ObservabilityPipelineRsyslogDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineRsyslogDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineRsyslogDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineRsyslogDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineRsyslogDestination.class.equals(Float.class)
+                        || ObservabilityPipelineRsyslogDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineRsyslogDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineRsyslogDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineRsyslogDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineRsyslogDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ObservabilityPipelineRsyslogDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineRsyslogDestination'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineSentinelOneDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineSentinelOneDestination.class.equals(Integer.class)
+            || ObservabilityPipelineSentinelOneDestination.class.equals(Long.class)
+            || ObservabilityPipelineSentinelOneDestination.class.equals(Float.class)
+            || ObservabilityPipelineSentinelOneDestination.class.equals(Double.class)
+            || ObservabilityPipelineSentinelOneDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineSentinelOneDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineSentinelOneDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineSentinelOneDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineSentinelOneDestination.class.equals(Float.class)
+                        || ObservabilityPipelineSentinelOneDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineSentinelOneDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineSentinelOneDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineSentinelOneDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineSentinelOneDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineSentinelOneDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineSentinelOneDestination'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineSocketDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineSocketDestination.class.equals(Integer.class)
+            || ObservabilityPipelineSocketDestination.class.equals(Long.class)
+            || ObservabilityPipelineSocketDestination.class.equals(Float.class)
+            || ObservabilityPipelineSocketDestination.class.equals(Double.class)
+            || ObservabilityPipelineSocketDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineSocketDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineSocketDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineSocketDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineSocketDestination.class.equals(Float.class)
+                        || ObservabilityPipelineSocketDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineSocketDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineSocketDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineSocketDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineSocketDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ObservabilityPipelineSocketDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineSocketDestination'",
             e);
       }
 
@@ -349,109 +1168,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             e);
       }
 
-      // deserialize ObservabilityPipelineElasticsearchDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineElasticsearchDestination.class.equals(Integer.class)
-            || ObservabilityPipelineElasticsearchDestination.class.equals(Long.class)
-            || ObservabilityPipelineElasticsearchDestination.class.equals(Float.class)
-            || ObservabilityPipelineElasticsearchDestination.class.equals(Double.class)
-            || ObservabilityPipelineElasticsearchDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineElasticsearchDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineElasticsearchDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineElasticsearchDestination.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineElasticsearchDestination.class.equals(Float.class)
-                        || ObservabilityPipelineElasticsearchDestination.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineElasticsearchDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineElasticsearchDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineElasticsearchDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineElasticsearchDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER,
-              "Input data matches schema 'ObservabilityPipelineElasticsearchDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineElasticsearchDestination'",
-            e);
-      }
-
-      // deserialize ObservabilityPipelineRsyslogDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineRsyslogDestination.class.equals(Integer.class)
-            || ObservabilityPipelineRsyslogDestination.class.equals(Long.class)
-            || ObservabilityPipelineRsyslogDestination.class.equals(Float.class)
-            || ObservabilityPipelineRsyslogDestination.class.equals(Double.class)
-            || ObservabilityPipelineRsyslogDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineRsyslogDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineRsyslogDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineRsyslogDestination.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineRsyslogDestination.class.equals(Float.class)
-                        || ObservabilityPipelineRsyslogDestination.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineRsyslogDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineRsyslogDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineRsyslogDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineRsyslogDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER, "Input data matches schema 'ObservabilityPipelineRsyslogDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineRsyslogDestination'",
-            e);
-      }
-
       // deserialize ObservabilityPipelineSyslogNgDestination
       try {
         boolean attemptParsing = true;
@@ -503,567 +1219,56 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             e);
       }
 
-      // deserialize AzureStorageDestination
+      // deserialize ObservabilityPipelineDatadogMetricsDestination
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (AzureStorageDestination.class.equals(Integer.class)
-            || AzureStorageDestination.class.equals(Long.class)
-            || AzureStorageDestination.class.equals(Float.class)
-            || AzureStorageDestination.class.equals(Double.class)
-            || AzureStorageDestination.class.equals(Boolean.class)
-            || AzureStorageDestination.class.equals(String.class)) {
+        if (ObservabilityPipelineDatadogMetricsDestination.class.equals(Integer.class)
+            || ObservabilityPipelineDatadogMetricsDestination.class.equals(Long.class)
+            || ObservabilityPipelineDatadogMetricsDestination.class.equals(Float.class)
+            || ObservabilityPipelineDatadogMetricsDestination.class.equals(Double.class)
+            || ObservabilityPipelineDatadogMetricsDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineDatadogMetricsDestination.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((AzureStorageDestination.class.equals(Integer.class)
-                        || AzureStorageDestination.class.equals(Long.class))
+                ((ObservabilityPipelineDatadogMetricsDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineDatadogMetricsDestination.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((AzureStorageDestination.class.equals(Float.class)
-                        || AzureStorageDestination.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (AzureStorageDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (AzureStorageDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(AzureStorageDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((AzureStorageDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'AzureStorageDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'AzureStorageDestination'", e);
-      }
-
-      // deserialize MicrosoftSentinelDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (MicrosoftSentinelDestination.class.equals(Integer.class)
-            || MicrosoftSentinelDestination.class.equals(Long.class)
-            || MicrosoftSentinelDestination.class.equals(Float.class)
-            || MicrosoftSentinelDestination.class.equals(Double.class)
-            || MicrosoftSentinelDestination.class.equals(Boolean.class)
-            || MicrosoftSentinelDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((MicrosoftSentinelDestination.class.equals(Integer.class)
-                        || MicrosoftSentinelDestination.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((MicrosoftSentinelDestination.class.equals(Float.class)
-                        || MicrosoftSentinelDestination.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (MicrosoftSentinelDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (MicrosoftSentinelDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(MicrosoftSentinelDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((MicrosoftSentinelDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'MicrosoftSentinelDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'MicrosoftSentinelDestination'", e);
-      }
-
-      // deserialize ObservabilityPipelineGoogleChronicleDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineGoogleChronicleDestination.class.equals(Integer.class)
-            || ObservabilityPipelineGoogleChronicleDestination.class.equals(Long.class)
-            || ObservabilityPipelineGoogleChronicleDestination.class.equals(Float.class)
-            || ObservabilityPipelineGoogleChronicleDestination.class.equals(Double.class)
-            || ObservabilityPipelineGoogleChronicleDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineGoogleChronicleDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineGoogleChronicleDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineGoogleChronicleDestination.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineGoogleChronicleDestination.class.equals(Float.class)
-                        || ObservabilityPipelineGoogleChronicleDestination.class.equals(
+                ((ObservabilityPipelineDatadogMetricsDestination.class.equals(Float.class)
+                        || ObservabilityPipelineDatadogMetricsDestination.class.equals(
                             Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (ObservabilityPipelineGoogleChronicleDestination.class.equals(Boolean.class)
+                (ObservabilityPipelineDatadogMetricsDestination.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
             attemptParsing |=
-                (ObservabilityPipelineGoogleChronicleDestination.class.equals(String.class)
+                (ObservabilityPipelineDatadogMetricsDestination.class.equals(String.class)
                     && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
           tmp =
               tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineGoogleChronicleDestination.class);
+                  .readValueAs(ObservabilityPipelineDatadogMetricsDestination.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineGoogleChronicleDestination) tmp).unparsed) {
+          if (!((ObservabilityPipelineDatadogMetricsDestination) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
           log.log(
               Level.FINER,
-              "Input data matches schema 'ObservabilityPipelineGoogleChronicleDestination'");
+              "Input data matches schema 'ObservabilityPipelineDatadogMetricsDestination'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
         log.log(
             Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineGoogleChronicleDestination'",
-            e);
-      }
-
-      // deserialize ObservabilityPipelineNewRelicDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineNewRelicDestination.class.equals(Integer.class)
-            || ObservabilityPipelineNewRelicDestination.class.equals(Long.class)
-            || ObservabilityPipelineNewRelicDestination.class.equals(Float.class)
-            || ObservabilityPipelineNewRelicDestination.class.equals(Double.class)
-            || ObservabilityPipelineNewRelicDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineNewRelicDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineNewRelicDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineNewRelicDestination.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineNewRelicDestination.class.equals(Float.class)
-                        || ObservabilityPipelineNewRelicDestination.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineNewRelicDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineNewRelicDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineNewRelicDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineNewRelicDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER, "Input data matches schema 'ObservabilityPipelineNewRelicDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineNewRelicDestination'",
-            e);
-      }
-
-      // deserialize ObservabilityPipelineSentinelOneDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineSentinelOneDestination.class.equals(Integer.class)
-            || ObservabilityPipelineSentinelOneDestination.class.equals(Long.class)
-            || ObservabilityPipelineSentinelOneDestination.class.equals(Float.class)
-            || ObservabilityPipelineSentinelOneDestination.class.equals(Double.class)
-            || ObservabilityPipelineSentinelOneDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineSentinelOneDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineSentinelOneDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineSentinelOneDestination.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineSentinelOneDestination.class.equals(Float.class)
-                        || ObservabilityPipelineSentinelOneDestination.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineSentinelOneDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineSentinelOneDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineSentinelOneDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineSentinelOneDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER,
-              "Input data matches schema 'ObservabilityPipelineSentinelOneDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineSentinelOneDestination'",
-            e);
-      }
-
-      // deserialize ObservabilityPipelineOpenSearchDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineOpenSearchDestination.class.equals(Integer.class)
-            || ObservabilityPipelineOpenSearchDestination.class.equals(Long.class)
-            || ObservabilityPipelineOpenSearchDestination.class.equals(Float.class)
-            || ObservabilityPipelineOpenSearchDestination.class.equals(Double.class)
-            || ObservabilityPipelineOpenSearchDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineOpenSearchDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineOpenSearchDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineOpenSearchDestination.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineOpenSearchDestination.class.equals(Float.class)
-                        || ObservabilityPipelineOpenSearchDestination.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineOpenSearchDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineOpenSearchDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineOpenSearchDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineOpenSearchDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER,
-              "Input data matches schema 'ObservabilityPipelineOpenSearchDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineOpenSearchDestination'",
-            e);
-      }
-
-      // deserialize ObservabilityPipelineAmazonOpenSearchDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Integer.class)
-            || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Long.class)
-            || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Float.class)
-            || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Double.class)
-            || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(
-                            Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Float.class)
-                        || ObservabilityPipelineAmazonOpenSearchDestination.class.equals(
-                            Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineAmazonOpenSearchDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineAmazonOpenSearchDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineAmazonOpenSearchDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineAmazonOpenSearchDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER,
-              "Input data matches schema 'ObservabilityPipelineAmazonOpenSearchDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineAmazonOpenSearchDestination'",
-            e);
-      }
-
-      // deserialize ObservabilityPipelineSocketDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineSocketDestination.class.equals(Integer.class)
-            || ObservabilityPipelineSocketDestination.class.equals(Long.class)
-            || ObservabilityPipelineSocketDestination.class.equals(Float.class)
-            || ObservabilityPipelineSocketDestination.class.equals(Double.class)
-            || ObservabilityPipelineSocketDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineSocketDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineSocketDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineSocketDestination.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineSocketDestination.class.equals(Float.class)
-                        || ObservabilityPipelineSocketDestination.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineSocketDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineSocketDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineSocketDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineSocketDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER, "Input data matches schema 'ObservabilityPipelineSocketDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineSocketDestination'",
-            e);
-      }
-
-      // deserialize ObservabilityPipelineAmazonSecurityLakeDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Integer.class)
-            || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Long.class)
-            || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Float.class)
-            || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Double.class)
-            || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(
-                            Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Float.class)
-                        || ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(
-                            Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineAmazonSecurityLakeDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineAmazonSecurityLakeDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineAmazonSecurityLakeDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER,
-              "Input data matches schema 'ObservabilityPipelineAmazonSecurityLakeDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineAmazonSecurityLakeDestination'",
-            e);
-      }
-
-      // deserialize ObservabilityPipelineCrowdStrikeNextGenSiemDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Integer.class)
-            || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Long.class)
-            || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Float.class)
-            || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Double.class)
-            || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(
-                            Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Float.class)
-                        || ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(
-                            Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineCrowdStrikeNextGenSiemDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER,
-              "Input data matches schema 'ObservabilityPipelineCrowdStrikeNextGenSiemDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema"
-                + " 'ObservabilityPipelineCrowdStrikeNextGenSiemDestination'",
-            e);
-      }
-
-      // deserialize ObservabilityPipelineGooglePubSubDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineGooglePubSubDestination.class.equals(Integer.class)
-            || ObservabilityPipelineGooglePubSubDestination.class.equals(Long.class)
-            || ObservabilityPipelineGooglePubSubDestination.class.equals(Float.class)
-            || ObservabilityPipelineGooglePubSubDestination.class.equals(Double.class)
-            || ObservabilityPipelineGooglePubSubDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineGooglePubSubDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineGooglePubSubDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineGooglePubSubDestination.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineGooglePubSubDestination.class.equals(Float.class)
-                        || ObservabilityPipelineGooglePubSubDestination.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineGooglePubSubDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineGooglePubSubDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineGooglePubSubDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineGooglePubSubDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER,
-              "Input data matches schema 'ObservabilityPipelineGooglePubSubDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineGooglePubSubDestination'",
+            "Input data does not match schema 'ObservabilityPipelineDatadogMetricsDestination'",
             e);
       }
 
@@ -1098,7 +1303,13 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
     super("oneOf", Boolean.FALSE);
   }
 
-  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineDatadogLogsDestination o) {
+  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineHttpClientDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(
+      ObservabilityPipelineAmazonOpenSearchDestination o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -1109,7 +1320,87 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   }
 
   public ObservabilityPipelineConfigDestinationItem(
+      ObservabilityPipelineAmazonSecurityLakeDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(AzureStorageDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineCloudPremDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(
+      ObservabilityPipelineCrowdStrikeNextGenSiemDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineDatadogLogsDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(
+      ObservabilityPipelineElasticsearchDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(
+      ObservabilityPipelineGoogleChronicleDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(
       ObservabilityPipelineGoogleCloudStorageDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(
+      ObservabilityPipelineGooglePubSubDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineKafkaDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(MicrosoftSentinelDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineNewRelicDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineOpenSearchDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineRsyslogDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineSentinelOneDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineSocketDestination o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -1124,92 +1415,71 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
     setActualInstance(o);
   }
 
-  public ObservabilityPipelineConfigDestinationItem(
-      ObservabilityPipelineElasticsearchDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineRsyslogDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineSyslogNgDestination o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
-  public ObservabilityPipelineConfigDestinationItem(AzureStorageDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public ObservabilityPipelineConfigDestinationItem(MicrosoftSentinelDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public ObservabilityPipelineConfigDestinationItem(
-      ObservabilityPipelineGoogleChronicleDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineNewRelicDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineSentinelOneDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineOpenSearchDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public ObservabilityPipelineConfigDestinationItem(
-      ObservabilityPipelineAmazonOpenSearchDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineSocketDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public ObservabilityPipelineConfigDestinationItem(
-      ObservabilityPipelineAmazonSecurityLakeDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public ObservabilityPipelineConfigDestinationItem(
-      ObservabilityPipelineCrowdStrikeNextGenSiemDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public ObservabilityPipelineConfigDestinationItem(
-      ObservabilityPipelineGooglePubSubDestination o) {
+      ObservabilityPipelineDatadogMetricsDestination o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
   static {
     schemas.put(
-        "ObservabilityPipelineDatadogLogsDestination",
-        new GenericType<ObservabilityPipelineDatadogLogsDestination>() {});
+        "ObservabilityPipelineHttpClientDestination",
+        new GenericType<ObservabilityPipelineHttpClientDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineAmazonOpenSearchDestination",
+        new GenericType<ObservabilityPipelineAmazonOpenSearchDestination>() {});
     schemas.put(
         "ObservabilityPipelineAmazonS3Destination",
         new GenericType<ObservabilityPipelineAmazonS3Destination>() {});
     schemas.put(
+        "ObservabilityPipelineAmazonSecurityLakeDestination",
+        new GenericType<ObservabilityPipelineAmazonSecurityLakeDestination>() {});
+    schemas.put("AzureStorageDestination", new GenericType<AzureStorageDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineCloudPremDestination",
+        new GenericType<ObservabilityPipelineCloudPremDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
+        new GenericType<ObservabilityPipelineCrowdStrikeNextGenSiemDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineDatadogLogsDestination",
+        new GenericType<ObservabilityPipelineDatadogLogsDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineElasticsearchDestination",
+        new GenericType<ObservabilityPipelineElasticsearchDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineGoogleChronicleDestination",
+        new GenericType<ObservabilityPipelineGoogleChronicleDestination>() {});
+    schemas.put(
         "ObservabilityPipelineGoogleCloudStorageDestination",
         new GenericType<ObservabilityPipelineGoogleCloudStorageDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineGooglePubSubDestination",
+        new GenericType<ObservabilityPipelineGooglePubSubDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineKafkaDestination",
+        new GenericType<ObservabilityPipelineKafkaDestination>() {});
+    schemas.put("MicrosoftSentinelDestination", new GenericType<MicrosoftSentinelDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineNewRelicDestination",
+        new GenericType<ObservabilityPipelineNewRelicDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineOpenSearchDestination",
+        new GenericType<ObservabilityPipelineOpenSearchDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineRsyslogDestination",
+        new GenericType<ObservabilityPipelineRsyslogDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineSentinelOneDestination",
+        new GenericType<ObservabilityPipelineSentinelOneDestination>() {});
+    schemas.put(
+        "ObservabilityPipelineSocketDestination",
+        new GenericType<ObservabilityPipelineSocketDestination>() {});
     schemas.put(
         "ObservabilityPipelineSplunkHecDestination",
         new GenericType<ObservabilityPipelineSplunkHecDestination>() {});
@@ -1217,43 +1487,11 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
         "ObservabilityPipelineSumoLogicDestination",
         new GenericType<ObservabilityPipelineSumoLogicDestination>() {});
     schemas.put(
-        "ObservabilityPipelineElasticsearchDestination",
-        new GenericType<ObservabilityPipelineElasticsearchDestination>() {});
-    schemas.put(
-        "ObservabilityPipelineRsyslogDestination",
-        new GenericType<ObservabilityPipelineRsyslogDestination>() {});
-    schemas.put(
         "ObservabilityPipelineSyslogNgDestination",
         new GenericType<ObservabilityPipelineSyslogNgDestination>() {});
-    schemas.put("AzureStorageDestination", new GenericType<AzureStorageDestination>() {});
-    schemas.put("MicrosoftSentinelDestination", new GenericType<MicrosoftSentinelDestination>() {});
     schemas.put(
-        "ObservabilityPipelineGoogleChronicleDestination",
-        new GenericType<ObservabilityPipelineGoogleChronicleDestination>() {});
-    schemas.put(
-        "ObservabilityPipelineNewRelicDestination",
-        new GenericType<ObservabilityPipelineNewRelicDestination>() {});
-    schemas.put(
-        "ObservabilityPipelineSentinelOneDestination",
-        new GenericType<ObservabilityPipelineSentinelOneDestination>() {});
-    schemas.put(
-        "ObservabilityPipelineOpenSearchDestination",
-        new GenericType<ObservabilityPipelineOpenSearchDestination>() {});
-    schemas.put(
-        "ObservabilityPipelineAmazonOpenSearchDestination",
-        new GenericType<ObservabilityPipelineAmazonOpenSearchDestination>() {});
-    schemas.put(
-        "ObservabilityPipelineSocketDestination",
-        new GenericType<ObservabilityPipelineSocketDestination>() {});
-    schemas.put(
-        "ObservabilityPipelineAmazonSecurityLakeDestination",
-        new GenericType<ObservabilityPipelineAmazonSecurityLakeDestination>() {});
-    schemas.put(
-        "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
-        new GenericType<ObservabilityPipelineCrowdStrikeNextGenSiemDestination>() {});
-    schemas.put(
-        "ObservabilityPipelineGooglePubSubDestination",
-        new GenericType<ObservabilityPipelineGooglePubSubDestination>() {});
+        "ObservabilityPipelineDatadogMetricsDestination",
+        new GenericType<ObservabilityPipelineDatadogMetricsDestination>() {});
     JSON.registerDescendants(
         ObservabilityPipelineConfigDestinationItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -1265,17 +1503,20 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: ObservabilityPipelineDatadogLogsDestination,
-   * ObservabilityPipelineAmazonS3Destination, ObservabilityPipelineGoogleCloudStorageDestination,
-   * ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
-   * ObservabilityPipelineElasticsearchDestination, ObservabilityPipelineRsyslogDestination,
-   * ObservabilityPipelineSyslogNgDestination, AzureStorageDestination,
-   * MicrosoftSentinelDestination, ObservabilityPipelineGoogleChronicleDestination,
-   * ObservabilityPipelineNewRelicDestination, ObservabilityPipelineSentinelOneDestination,
-   * ObservabilityPipelineOpenSearchDestination, ObservabilityPipelineAmazonOpenSearchDestination,
-   * ObservabilityPipelineSocketDestination, ObservabilityPipelineAmazonSecurityLakeDestination,
+   * against the oneOf child schemas: ObservabilityPipelineHttpClientDestination,
+   * ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineAmazonS3Destination,
+   * ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,
+   * ObservabilityPipelineCloudPremDestination,
    * ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
-   * ObservabilityPipelineGooglePubSubDestination
+   * ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineElasticsearchDestination,
+   * ObservabilityPipelineGoogleChronicleDestination,
+   * ObservabilityPipelineGoogleCloudStorageDestination,
+   * ObservabilityPipelineGooglePubSubDestination, ObservabilityPipelineKafkaDestination,
+   * MicrosoftSentinelDestination, ObservabilityPipelineNewRelicDestination,
+   * ObservabilityPipelineOpenSearchDestination, ObservabilityPipelineRsyslogDestination,
+   * ObservabilityPipelineSentinelOneDestination, ObservabilityPipelineSocketDestination,
+   * ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
+   * ObservabilityPipelineSyslogNgDestination, ObservabilityPipelineDatadogMetricsDestination
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1283,7 +1524,14 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   @Override
   public void setActualInstance(Object instance) {
     if (JSON.isInstanceOf(
-        ObservabilityPipelineDatadogLogsDestination.class, instance, new HashSet<Class<?>>())) {
+        ObservabilityPipelineHttpClientDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineAmazonOpenSearchDestination.class,
+        instance,
+        new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1293,9 +1541,86 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
       return;
     }
     if (JSON.isInstanceOf(
+        ObservabilityPipelineAmazonSecurityLakeDestination.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(AzureStorageDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineCloudPremDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineDatadogLogsDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineElasticsearchDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineGoogleChronicleDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
         ObservabilityPipelineGoogleCloudStorageDestination.class,
         instance,
         new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineGooglePubSubDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineKafkaDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(MicrosoftSentinelDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineNewRelicDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineOpenSearchDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineRsyslogDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineSentinelOneDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineSocketDestination.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1310,76 +1635,12 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
       return;
     }
     if (JSON.isInstanceOf(
-        ObservabilityPipelineElasticsearchDestination.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(
-        ObservabilityPipelineRsyslogDestination.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(
         ObservabilityPipelineSyslogNgDestination.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(AzureStorageDestination.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(MicrosoftSentinelDestination.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
     if (JSON.isInstanceOf(
-        ObservabilityPipelineGoogleChronicleDestination.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(
-        ObservabilityPipelineNewRelicDestination.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(
-        ObservabilityPipelineSentinelOneDestination.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(
-        ObservabilityPipelineOpenSearchDestination.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(
-        ObservabilityPipelineAmazonOpenSearchDestination.class,
-        instance,
-        new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(
-        ObservabilityPipelineSocketDestination.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(
-        ObservabilityPipelineAmazonSecurityLakeDestination.class,
-        instance,
-        new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(
-        ObservabilityPipelineCrowdStrikeNextGenSiemDestination.class,
-        instance,
-        new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(
-        ObservabilityPipelineGooglePubSubDestination.class, instance, new HashSet<Class<?>>())) {
+        ObservabilityPipelineDatadogMetricsDestination.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1389,56 +1650,151 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be ObservabilityPipelineDatadogLogsDestination,"
-            + " ObservabilityPipelineAmazonS3Destination,"
-            + " ObservabilityPipelineGoogleCloudStorageDestination,"
-            + " ObservabilityPipelineSplunkHecDestination,"
-            + " ObservabilityPipelineSumoLogicDestination,"
-            + " ObservabilityPipelineElasticsearchDestination,"
-            + " ObservabilityPipelineRsyslogDestination, ObservabilityPipelineSyslogNgDestination,"
-            + " AzureStorageDestination, MicrosoftSentinelDestination,"
-            + " ObservabilityPipelineGoogleChronicleDestination,"
-            + " ObservabilityPipelineNewRelicDestination,"
-            + " ObservabilityPipelineSentinelOneDestination,"
-            + " ObservabilityPipelineOpenSearchDestination,"
+        "Invalid instance type. Must be ObservabilityPipelineHttpClientDestination,"
             + " ObservabilityPipelineAmazonOpenSearchDestination,"
-            + " ObservabilityPipelineSocketDestination,"
-            + " ObservabilityPipelineAmazonSecurityLakeDestination,"
+            + " ObservabilityPipelineAmazonS3Destination,"
+            + " ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,"
+            + " ObservabilityPipelineCloudPremDestination,"
             + " ObservabilityPipelineCrowdStrikeNextGenSiemDestination,"
-            + " ObservabilityPipelineGooglePubSubDestination");
+            + " ObservabilityPipelineDatadogLogsDestination,"
+            + " ObservabilityPipelineElasticsearchDestination,"
+            + " ObservabilityPipelineGoogleChronicleDestination,"
+            + " ObservabilityPipelineGoogleCloudStorageDestination,"
+            + " ObservabilityPipelineGooglePubSubDestination,"
+            + " ObservabilityPipelineKafkaDestination, MicrosoftSentinelDestination,"
+            + " ObservabilityPipelineNewRelicDestination,"
+            + " ObservabilityPipelineOpenSearchDestination,"
+            + " ObservabilityPipelineRsyslogDestination,"
+            + " ObservabilityPipelineSentinelOneDestination,"
+            + " ObservabilityPipelineSocketDestination, ObservabilityPipelineSplunkHecDestination,"
+            + " ObservabilityPipelineSumoLogicDestination,"
+            + " ObservabilityPipelineSyslogNgDestination,"
+            + " ObservabilityPipelineDatadogMetricsDestination");
   }
 
   /**
    * Get the actual instance, which can be the following:
-   * ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineAmazonS3Destination,
-   * ObservabilityPipelineGoogleCloudStorageDestination, ObservabilityPipelineSplunkHecDestination,
-   * ObservabilityPipelineSumoLogicDestination, ObservabilityPipelineElasticsearchDestination,
-   * ObservabilityPipelineRsyslogDestination, ObservabilityPipelineSyslogNgDestination,
-   * AzureStorageDestination, MicrosoftSentinelDestination,
-   * ObservabilityPipelineGoogleChronicleDestination, ObservabilityPipelineNewRelicDestination,
-   * ObservabilityPipelineSentinelOneDestination, ObservabilityPipelineOpenSearchDestination,
-   * ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineSocketDestination,
-   * ObservabilityPipelineAmazonSecurityLakeDestination,
+   * ObservabilityPipelineHttpClientDestination, ObservabilityPipelineAmazonOpenSearchDestination,
+   * ObservabilityPipelineAmazonS3Destination, ObservabilityPipelineAmazonSecurityLakeDestination,
+   * AzureStorageDestination, ObservabilityPipelineCloudPremDestination,
    * ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
-   * ObservabilityPipelineGooglePubSubDestination
+   * ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineElasticsearchDestination,
+   * ObservabilityPipelineGoogleChronicleDestination,
+   * ObservabilityPipelineGoogleCloudStorageDestination,
+   * ObservabilityPipelineGooglePubSubDestination, ObservabilityPipelineKafkaDestination,
+   * MicrosoftSentinelDestination, ObservabilityPipelineNewRelicDestination,
+   * ObservabilityPipelineOpenSearchDestination, ObservabilityPipelineRsyslogDestination,
+   * ObservabilityPipelineSentinelOneDestination, ObservabilityPipelineSocketDestination,
+   * ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
+   * ObservabilityPipelineSyslogNgDestination, ObservabilityPipelineDatadogMetricsDestination
    *
-   * @return The actual instance (ObservabilityPipelineDatadogLogsDestination,
-   *     ObservabilityPipelineAmazonS3Destination,
-   *     ObservabilityPipelineGoogleCloudStorageDestination,
-   *     ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
-   *     ObservabilityPipelineElasticsearchDestination, ObservabilityPipelineRsyslogDestination,
-   *     ObservabilityPipelineSyslogNgDestination, AzureStorageDestination,
-   *     MicrosoftSentinelDestination, ObservabilityPipelineGoogleChronicleDestination,
-   *     ObservabilityPipelineNewRelicDestination, ObservabilityPipelineSentinelOneDestination,
-   *     ObservabilityPipelineOpenSearchDestination,
-   *     ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineSocketDestination,
-   *     ObservabilityPipelineAmazonSecurityLakeDestination,
+   * @return The actual instance (ObservabilityPipelineHttpClientDestination,
+   *     ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineAmazonS3Destination,
+   *     ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,
+   *     ObservabilityPipelineCloudPremDestination,
    *     ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
-   *     ObservabilityPipelineGooglePubSubDestination)
+   *     ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineElasticsearchDestination,
+   *     ObservabilityPipelineGoogleChronicleDestination,
+   *     ObservabilityPipelineGoogleCloudStorageDestination,
+   *     ObservabilityPipelineGooglePubSubDestination, ObservabilityPipelineKafkaDestination,
+   *     MicrosoftSentinelDestination, ObservabilityPipelineNewRelicDestination,
+   *     ObservabilityPipelineOpenSearchDestination, ObservabilityPipelineRsyslogDestination,
+   *     ObservabilityPipelineSentinelOneDestination, ObservabilityPipelineSocketDestination,
+   *     ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
+   *     ObservabilityPipelineSyslogNgDestination, ObservabilityPipelineDatadogMetricsDestination)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineHttpClientDestination`. If the actual instance
+   * is not `ObservabilityPipelineHttpClientDestination`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineHttpClientDestination`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineHttpClientDestination`
+   */
+  public ObservabilityPipelineHttpClientDestination getObservabilityPipelineHttpClientDestination()
+      throws ClassCastException {
+    return (ObservabilityPipelineHttpClientDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineAmazonOpenSearchDestination`. If the actual
+   * instance is not `ObservabilityPipelineAmazonOpenSearchDestination`, the ClassCastException will
+   * be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineAmazonOpenSearchDestination`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineAmazonOpenSearchDestination`
+   */
+  public ObservabilityPipelineAmazonOpenSearchDestination
+      getObservabilityPipelineAmazonOpenSearchDestination() throws ClassCastException {
+    return (ObservabilityPipelineAmazonOpenSearchDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineAmazonS3Destination`. If the actual instance
+   * is not `ObservabilityPipelineAmazonS3Destination`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineAmazonS3Destination`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineAmazonS3Destination`
+   */
+  public ObservabilityPipelineAmazonS3Destination getObservabilityPipelineAmazonS3Destination()
+      throws ClassCastException {
+    return (ObservabilityPipelineAmazonS3Destination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineAmazonSecurityLakeDestination`. If the actual
+   * instance is not `ObservabilityPipelineAmazonSecurityLakeDestination`, the ClassCastException
+   * will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineAmazonSecurityLakeDestination`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineAmazonSecurityLakeDestination`
+   */
+  public ObservabilityPipelineAmazonSecurityLakeDestination
+      getObservabilityPipelineAmazonSecurityLakeDestination() throws ClassCastException {
+    return (ObservabilityPipelineAmazonSecurityLakeDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `AzureStorageDestination`. If the actual instance is not
+   * `AzureStorageDestination`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `AzureStorageDestination`
+   * @throws ClassCastException if the instance is not `AzureStorageDestination`
+   */
+  public AzureStorageDestination getAzureStorageDestination() throws ClassCastException {
+    return (AzureStorageDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineCloudPremDestination`. If the actual instance
+   * is not `ObservabilityPipelineCloudPremDestination`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineCloudPremDestination`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineCloudPremDestination`
+   */
+  public ObservabilityPipelineCloudPremDestination getObservabilityPipelineCloudPremDestination()
+      throws ClassCastException {
+    return (ObservabilityPipelineCloudPremDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineCrowdStrikeNextGenSiemDestination`. If the
+   * actual instance is not `ObservabilityPipelineCrowdStrikeNextGenSiemDestination`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineCrowdStrikeNextGenSiemDestination`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineCrowdStrikeNextGenSiemDestination`
+   */
+  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination
+      getObservabilityPipelineCrowdStrikeNextGenSiemDestination() throws ClassCastException {
+    return (ObservabilityPipelineCrowdStrikeNextGenSiemDestination) super.getActualInstance();
   }
 
   /**
@@ -1455,15 +1811,31 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   }
 
   /**
-   * Get the actual instance of `ObservabilityPipelineAmazonS3Destination`. If the actual instance
-   * is not `ObservabilityPipelineAmazonS3Destination`, the ClassCastException will be thrown.
+   * Get the actual instance of `ObservabilityPipelineElasticsearchDestination`. If the actual
+   * instance is not `ObservabilityPipelineElasticsearchDestination`, the ClassCastException will be
+   * thrown.
    *
-   * @return The actual instance of `ObservabilityPipelineAmazonS3Destination`
-   * @throws ClassCastException if the instance is not `ObservabilityPipelineAmazonS3Destination`
+   * @return The actual instance of `ObservabilityPipelineElasticsearchDestination`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineElasticsearchDestination`
    */
-  public ObservabilityPipelineAmazonS3Destination getObservabilityPipelineAmazonS3Destination()
-      throws ClassCastException {
-    return (ObservabilityPipelineAmazonS3Destination) super.getActualInstance();
+  public ObservabilityPipelineElasticsearchDestination
+      getObservabilityPipelineElasticsearchDestination() throws ClassCastException {
+    return (ObservabilityPipelineElasticsearchDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineGoogleChronicleDestination`. If the actual
+   * instance is not `ObservabilityPipelineGoogleChronicleDestination`, the ClassCastException will
+   * be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineGoogleChronicleDestination`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineGoogleChronicleDestination`
+   */
+  public ObservabilityPipelineGoogleChronicleDestination
+      getObservabilityPipelineGoogleChronicleDestination() throws ClassCastException {
+    return (ObservabilityPipelineGoogleChronicleDestination) super.getActualInstance();
   }
 
   /**
@@ -1478,6 +1850,104 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   public ObservabilityPipelineGoogleCloudStorageDestination
       getObservabilityPipelineGoogleCloudStorageDestination() throws ClassCastException {
     return (ObservabilityPipelineGoogleCloudStorageDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineGooglePubSubDestination`. If the actual
+   * instance is not `ObservabilityPipelineGooglePubSubDestination`, the ClassCastException will be
+   * thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineGooglePubSubDestination`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineGooglePubSubDestination`
+   */
+  public ObservabilityPipelineGooglePubSubDestination
+      getObservabilityPipelineGooglePubSubDestination() throws ClassCastException {
+    return (ObservabilityPipelineGooglePubSubDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineKafkaDestination`. If the actual instance is
+   * not `ObservabilityPipelineKafkaDestination`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineKafkaDestination`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineKafkaDestination`
+   */
+  public ObservabilityPipelineKafkaDestination getObservabilityPipelineKafkaDestination()
+      throws ClassCastException {
+    return (ObservabilityPipelineKafkaDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `MicrosoftSentinelDestination`. If the actual instance is not
+   * `MicrosoftSentinelDestination`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `MicrosoftSentinelDestination`
+   * @throws ClassCastException if the instance is not `MicrosoftSentinelDestination`
+   */
+  public MicrosoftSentinelDestination getMicrosoftSentinelDestination() throws ClassCastException {
+    return (MicrosoftSentinelDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineNewRelicDestination`. If the actual instance
+   * is not `ObservabilityPipelineNewRelicDestination`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineNewRelicDestination`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineNewRelicDestination`
+   */
+  public ObservabilityPipelineNewRelicDestination getObservabilityPipelineNewRelicDestination()
+      throws ClassCastException {
+    return (ObservabilityPipelineNewRelicDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineOpenSearchDestination`. If the actual instance
+   * is not `ObservabilityPipelineOpenSearchDestination`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineOpenSearchDestination`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineOpenSearchDestination`
+   */
+  public ObservabilityPipelineOpenSearchDestination getObservabilityPipelineOpenSearchDestination()
+      throws ClassCastException {
+    return (ObservabilityPipelineOpenSearchDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineRsyslogDestination`. If the actual instance is
+   * not `ObservabilityPipelineRsyslogDestination`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineRsyslogDestination`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineRsyslogDestination`
+   */
+  public ObservabilityPipelineRsyslogDestination getObservabilityPipelineRsyslogDestination()
+      throws ClassCastException {
+    return (ObservabilityPipelineRsyslogDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineSentinelOneDestination`. If the actual
+   * instance is not `ObservabilityPipelineSentinelOneDestination`, the ClassCastException will be
+   * thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineSentinelOneDestination`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineSentinelOneDestination`
+   */
+  public ObservabilityPipelineSentinelOneDestination
+      getObservabilityPipelineSentinelOneDestination() throws ClassCastException {
+    return (ObservabilityPipelineSentinelOneDestination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineSocketDestination`. If the actual instance is
+   * not `ObservabilityPipelineSocketDestination`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineSocketDestination`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineSocketDestination`
+   */
+  public ObservabilityPipelineSocketDestination getObservabilityPipelineSocketDestination()
+      throws ClassCastException {
+    return (ObservabilityPipelineSocketDestination) super.getActualInstance();
   }
 
   /**
@@ -1505,32 +1975,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   }
 
   /**
-   * Get the actual instance of `ObservabilityPipelineElasticsearchDestination`. If the actual
-   * instance is not `ObservabilityPipelineElasticsearchDestination`, the ClassCastException will be
-   * thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineElasticsearchDestination`
-   * @throws ClassCastException if the instance is not
-   *     `ObservabilityPipelineElasticsearchDestination`
-   */
-  public ObservabilityPipelineElasticsearchDestination
-      getObservabilityPipelineElasticsearchDestination() throws ClassCastException {
-    return (ObservabilityPipelineElasticsearchDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineRsyslogDestination`. If the actual instance is
-   * not `ObservabilityPipelineRsyslogDestination`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineRsyslogDestination`
-   * @throws ClassCastException if the instance is not `ObservabilityPipelineRsyslogDestination`
-   */
-  public ObservabilityPipelineRsyslogDestination getObservabilityPipelineRsyslogDestination()
-      throws ClassCastException {
-    return (ObservabilityPipelineRsyslogDestination) super.getActualInstance();
-  }
-
-  /**
    * Get the actual instance of `ObservabilityPipelineSyslogNgDestination`. If the actual instance
    * is not `ObservabilityPipelineSyslogNgDestination`, the ClassCastException will be thrown.
    *
@@ -1543,143 +1987,16 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   }
 
   /**
-   * Get the actual instance of `AzureStorageDestination`. If the actual instance is not
-   * `AzureStorageDestination`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `AzureStorageDestination`
-   * @throws ClassCastException if the instance is not `AzureStorageDestination`
-   */
-  public AzureStorageDestination getAzureStorageDestination() throws ClassCastException {
-    return (AzureStorageDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `MicrosoftSentinelDestination`. If the actual instance is not
-   * `MicrosoftSentinelDestination`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `MicrosoftSentinelDestination`
-   * @throws ClassCastException if the instance is not `MicrosoftSentinelDestination`
-   */
-  public MicrosoftSentinelDestination getMicrosoftSentinelDestination() throws ClassCastException {
-    return (MicrosoftSentinelDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineGoogleChronicleDestination`. If the actual
-   * instance is not `ObservabilityPipelineGoogleChronicleDestination`, the ClassCastException will
+   * Get the actual instance of `ObservabilityPipelineDatadogMetricsDestination`. If the actual
+   * instance is not `ObservabilityPipelineDatadogMetricsDestination`, the ClassCastException will
    * be thrown.
    *
-   * @return The actual instance of `ObservabilityPipelineGoogleChronicleDestination`
+   * @return The actual instance of `ObservabilityPipelineDatadogMetricsDestination`
    * @throws ClassCastException if the instance is not
-   *     `ObservabilityPipelineGoogleChronicleDestination`
+   *     `ObservabilityPipelineDatadogMetricsDestination`
    */
-  public ObservabilityPipelineGoogleChronicleDestination
-      getObservabilityPipelineGoogleChronicleDestination() throws ClassCastException {
-    return (ObservabilityPipelineGoogleChronicleDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineNewRelicDestination`. If the actual instance
-   * is not `ObservabilityPipelineNewRelicDestination`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineNewRelicDestination`
-   * @throws ClassCastException if the instance is not `ObservabilityPipelineNewRelicDestination`
-   */
-  public ObservabilityPipelineNewRelicDestination getObservabilityPipelineNewRelicDestination()
-      throws ClassCastException {
-    return (ObservabilityPipelineNewRelicDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineSentinelOneDestination`. If the actual
-   * instance is not `ObservabilityPipelineSentinelOneDestination`, the ClassCastException will be
-   * thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineSentinelOneDestination`
-   * @throws ClassCastException if the instance is not `ObservabilityPipelineSentinelOneDestination`
-   */
-  public ObservabilityPipelineSentinelOneDestination
-      getObservabilityPipelineSentinelOneDestination() throws ClassCastException {
-    return (ObservabilityPipelineSentinelOneDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineOpenSearchDestination`. If the actual instance
-   * is not `ObservabilityPipelineOpenSearchDestination`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineOpenSearchDestination`
-   * @throws ClassCastException if the instance is not `ObservabilityPipelineOpenSearchDestination`
-   */
-  public ObservabilityPipelineOpenSearchDestination getObservabilityPipelineOpenSearchDestination()
-      throws ClassCastException {
-    return (ObservabilityPipelineOpenSearchDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineAmazonOpenSearchDestination`. If the actual
-   * instance is not `ObservabilityPipelineAmazonOpenSearchDestination`, the ClassCastException will
-   * be thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineAmazonOpenSearchDestination`
-   * @throws ClassCastException if the instance is not
-   *     `ObservabilityPipelineAmazonOpenSearchDestination`
-   */
-  public ObservabilityPipelineAmazonOpenSearchDestination
-      getObservabilityPipelineAmazonOpenSearchDestination() throws ClassCastException {
-    return (ObservabilityPipelineAmazonOpenSearchDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineSocketDestination`. If the actual instance is
-   * not `ObservabilityPipelineSocketDestination`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineSocketDestination`
-   * @throws ClassCastException if the instance is not `ObservabilityPipelineSocketDestination`
-   */
-  public ObservabilityPipelineSocketDestination getObservabilityPipelineSocketDestination()
-      throws ClassCastException {
-    return (ObservabilityPipelineSocketDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineAmazonSecurityLakeDestination`. If the actual
-   * instance is not `ObservabilityPipelineAmazonSecurityLakeDestination`, the ClassCastException
-   * will be thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineAmazonSecurityLakeDestination`
-   * @throws ClassCastException if the instance is not
-   *     `ObservabilityPipelineAmazonSecurityLakeDestination`
-   */
-  public ObservabilityPipelineAmazonSecurityLakeDestination
-      getObservabilityPipelineAmazonSecurityLakeDestination() throws ClassCastException {
-    return (ObservabilityPipelineAmazonSecurityLakeDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineCrowdStrikeNextGenSiemDestination`. If the
-   * actual instance is not `ObservabilityPipelineCrowdStrikeNextGenSiemDestination`, the
-   * ClassCastException will be thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineCrowdStrikeNextGenSiemDestination`
-   * @throws ClassCastException if the instance is not
-   *     `ObservabilityPipelineCrowdStrikeNextGenSiemDestination`
-   */
-  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination
-      getObservabilityPipelineCrowdStrikeNextGenSiemDestination() throws ClassCastException {
-    return (ObservabilityPipelineCrowdStrikeNextGenSiemDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineGooglePubSubDestination`. If the actual
-   * instance is not `ObservabilityPipelineGooglePubSubDestination`, the ClassCastException will be
-   * thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineGooglePubSubDestination`
-   * @throws ClassCastException if the instance is not
-   *     `ObservabilityPipelineGooglePubSubDestination`
-   */
-  public ObservabilityPipelineGooglePubSubDestination
-      getObservabilityPipelineGooglePubSubDestination() throws ClassCastException {
-    return (ObservabilityPipelineGooglePubSubDestination) super.getActualInstance();
+  public ObservabilityPipelineDatadogMetricsDestination
+      getObservabilityPipelineDatadogMetricsDestination() throws ClassCastException {
+    return (ObservabilityPipelineDatadogMetricsDestination) super.getActualInstance();
   }
 }

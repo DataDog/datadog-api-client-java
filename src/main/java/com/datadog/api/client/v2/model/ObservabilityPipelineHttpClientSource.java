@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>http_client</code> source scrapes logs from HTTP endpoints at regular intervals. */
+/**
+ * The <code>http_client</code> source scrapes logs from HTTP endpoints at regular intervals.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineHttpClientSource.JSON_PROPERTY_AUTH_STRATEGY,
   ObservabilityPipelineHttpClientSource.JSON_PROPERTY_DECODING,
@@ -125,8 +129,8 @@ public class ObservabilityPipelineHttpClientSource {
   }
 
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of
-   * the pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
    *
    * @return id
    */

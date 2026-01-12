@@ -3,7 +3,7 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines",
+      "path": "/api/v2/obs-pipelines/pipelines",
       "queryStringParameters": {
         "page[size]": [
           "0"
@@ -28,6 +28,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "986c80b1-2bab-98f5-4c61-f0c3e4c7fb8c"
+    "id": "560cc035-2b0e-950a-431f-343291637299"
   }
 ]

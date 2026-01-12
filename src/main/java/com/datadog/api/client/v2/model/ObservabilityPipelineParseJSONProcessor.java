@@ -20,6 +20,8 @@ import java.util.Objects;
 /**
  * The <code>parse_json</code> processor extracts JSON from a specified field and flattens it into
  * the event. This is useful when logs contain embedded JSON as a string.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineParseJSONProcessor.JSON_PROPERTY_DISPLAY_NAME,
@@ -97,7 +99,7 @@ public class ObservabilityPipelineParseJSONProcessor {
   }
 
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    *
    * @return enabled
    */
