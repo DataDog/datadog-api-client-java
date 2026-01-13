@@ -167,6 +167,51 @@ public class SyntheticsAPIStep extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'SyntheticsAPIWaitStep'", e);
       }
 
+      // deserialize SyntheticsAPISubtestStep
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SyntheticsAPISubtestStep.class.equals(Integer.class)
+            || SyntheticsAPISubtestStep.class.equals(Long.class)
+            || SyntheticsAPISubtestStep.class.equals(Float.class)
+            || SyntheticsAPISubtestStep.class.equals(Double.class)
+            || SyntheticsAPISubtestStep.class.equals(Boolean.class)
+            || SyntheticsAPISubtestStep.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SyntheticsAPISubtestStep.class.equals(Integer.class)
+                        || SyntheticsAPISubtestStep.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SyntheticsAPISubtestStep.class.equals(Float.class)
+                        || SyntheticsAPISubtestStep.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SyntheticsAPISubtestStep.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SyntheticsAPISubtestStep.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SyntheticsAPISubtestStep.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SyntheticsAPISubtestStep) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SyntheticsAPISubtestStep'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'SyntheticsAPISubtestStep'", e);
+      }
+
       SyntheticsAPIStep ret = new SyntheticsAPIStep();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -205,9 +250,15 @@ public class SyntheticsAPIStep extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public SyntheticsAPIStep(SyntheticsAPISubtestStep o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("SyntheticsAPITestStep", new GenericType<SyntheticsAPITestStep>() {});
     schemas.put("SyntheticsAPIWaitStep", new GenericType<SyntheticsAPIWaitStep>() {});
+    schemas.put("SyntheticsAPISubtestStep", new GenericType<SyntheticsAPISubtestStep>() {});
     JSON.registerDescendants(SyntheticsAPIStep.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -218,7 +269,8 @@ public class SyntheticsAPIStep extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: SyntheticsAPITestStep, SyntheticsAPIWaitStep
+   * against the oneOf child schemas: SyntheticsAPITestStep, SyntheticsAPIWaitStep,
+   * SyntheticsAPISubtestStep
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -233,20 +285,26 @@ public class SyntheticsAPIStep extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(SyntheticsAPISubtestStep.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be SyntheticsAPITestStep, SyntheticsAPIWaitStep");
+        "Invalid instance type. Must be SyntheticsAPITestStep, SyntheticsAPIWaitStep,"
+            + " SyntheticsAPISubtestStep");
   }
 
   /**
    * Get the actual instance, which can be the following: SyntheticsAPITestStep,
-   * SyntheticsAPIWaitStep
+   * SyntheticsAPIWaitStep, SyntheticsAPISubtestStep
    *
-   * @return The actual instance (SyntheticsAPITestStep, SyntheticsAPIWaitStep)
+   * @return The actual instance (SyntheticsAPITestStep, SyntheticsAPIWaitStep,
+   *     SyntheticsAPISubtestStep)
    */
   @Override
   public Object getActualInstance() {
@@ -273,5 +331,16 @@ public class SyntheticsAPIStep extends AbstractOpenApiSchema {
    */
   public SyntheticsAPIWaitStep getSyntheticsAPIWaitStep() throws ClassCastException {
     return (SyntheticsAPIWaitStep) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SyntheticsAPISubtestStep`. If the actual instance is not
+   * `SyntheticsAPISubtestStep`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SyntheticsAPISubtestStep`
+   * @throws ClassCastException if the instance is not `SyntheticsAPISubtestStep`
+   */
+  public SyntheticsAPISubtestStep getSyntheticsAPISubtestStep() throws ClassCastException {
+    return (SyntheticsAPISubtestStep) super.getActualInstance();
   }
 }
