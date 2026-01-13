@@ -22,6 +22,7 @@ import java.util.Objects;
  * executor components.
  */
 @JsonPropertyOrder({
+  RecommendationAttributes.JSON_PROPERTY_CONFIDENCE_LEVEL,
   RecommendationAttributes.JSON_PROPERTY_DRIVER,
   RecommendationAttributes.JSON_PROPERTY_EXECUTOR
 })
@@ -29,6 +30,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RecommendationAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONFIDENCE_LEVEL = "confidence_level";
+  private Double confidenceLevel;
+
   public static final String JSON_PROPERTY_DRIVER = "driver";
   private ComponentRecommendation driver;
 
@@ -46,6 +50,27 @@ public class RecommendationAttributes {
     this.unparsed |= driver.unparsed;
     this.executor = executor;
     this.unparsed |= executor.unparsed;
+  }
+
+  public RecommendationAttributes confidenceLevel(Double confidenceLevel) {
+    this.confidenceLevel = confidenceLevel;
+    return this;
+  }
+
+  /**
+   * GetconfidenceLevel
+   *
+   * @return confidenceLevel
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIDENCE_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getConfidenceLevel() {
+    return confidenceLevel;
+  }
+
+  public void setConfidenceLevel(Double confidenceLevel) {
+    this.confidenceLevel = confidenceLevel;
   }
 
   public RecommendationAttributes driver(ComponentRecommendation driver) {
@@ -148,20 +173,22 @@ public class RecommendationAttributes {
       return false;
     }
     RecommendationAttributes recommendationAttributes = (RecommendationAttributes) o;
-    return Objects.equals(this.driver, recommendationAttributes.driver)
+    return Objects.equals(this.confidenceLevel, recommendationAttributes.confidenceLevel)
+        && Objects.equals(this.driver, recommendationAttributes.driver)
         && Objects.equals(this.executor, recommendationAttributes.executor)
         && Objects.equals(this.additionalProperties, recommendationAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(driver, executor, additionalProperties);
+    return Objects.hash(confidenceLevel, driver, executor, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecommendationAttributes {\n");
+    sb.append("    confidenceLevel: ").append(toIndentedString(confidenceLevel)).append("\n");
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
     sb.append("    executor: ").append(toIndentedString(executor)).append("\n");
     sb.append("    additionalProperties: ")
