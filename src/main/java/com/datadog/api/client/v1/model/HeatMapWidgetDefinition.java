@@ -27,6 +27,7 @@ import java.util.Objects;
   HeatMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   HeatMapWidgetDefinition.JSON_PROPERTY_EVENTS,
   HeatMapWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
+  HeatMapWidgetDefinition.JSON_PROPERTY_MARKERS,
   HeatMapWidgetDefinition.JSON_PROPERTY_REQUESTS,
   HeatMapWidgetDefinition.JSON_PROPERTY_SHOW_LEGEND,
   HeatMapWidgetDefinition.JSON_PROPERTY_TIME,
@@ -34,6 +35,7 @@ import java.util.Objects;
   HeatMapWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
   HeatMapWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   HeatMapWidgetDefinition.JSON_PROPERTY_TYPE,
+  HeatMapWidgetDefinition.JSON_PROPERTY_XAXIS,
   HeatMapWidgetDefinition.JSON_PROPERTY_YAXIS
 })
 @jakarta.annotation.Generated(
@@ -48,6 +50,9 @@ public class HeatMapWidgetDefinition {
 
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private String legendSize;
+
+  public static final String JSON_PROPERTY_MARKERS = "markers";
+  private List<WidgetMarker> markers = null;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<HeatMapWidgetRequest> requests = new ArrayList<>();
@@ -69,6 +74,9 @@ public class HeatMapWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private HeatMapWidgetDefinitionType type = HeatMapWidgetDefinitionType.HEATMAP;
+
+  public static final String JSON_PROPERTY_XAXIS = "xaxis";
+  private HeatMapWidgetXAxis xaxis;
 
   public static final String JSON_PROPERTY_YAXIS = "yaxis";
   private WidgetAxis yaxis;
@@ -170,6 +178,39 @@ public class HeatMapWidgetDefinition {
 
   public void setLegendSize(String legendSize) {
     this.legendSize = legendSize;
+  }
+
+  public HeatMapWidgetDefinition markers(List<WidgetMarker> markers) {
+    this.markers = markers;
+    for (WidgetMarker item : markers) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public HeatMapWidgetDefinition addMarkersItem(WidgetMarker markersItem) {
+    if (this.markers == null) {
+      this.markers = new ArrayList<>();
+    }
+    this.markers.add(markersItem);
+    this.unparsed |= markersItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of markers.
+   *
+   * @return markers
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MARKERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetMarker> getMarkers() {
+    return markers;
+  }
+
+  public void setMarkers(List<WidgetMarker> markers) {
+    this.markers = markers;
   }
 
   public HeatMapWidgetDefinition requests(List<HeatMapWidgetRequest> requests) {
@@ -335,6 +376,28 @@ public class HeatMapWidgetDefinition {
     this.type = type;
   }
 
+  public HeatMapWidgetDefinition xaxis(HeatMapWidgetXAxis xaxis) {
+    this.xaxis = xaxis;
+    this.unparsed |= xaxis.unparsed;
+    return this;
+  }
+
+  /**
+   * X Axis controls for the heat map widget.
+   *
+   * @return xaxis
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_XAXIS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public HeatMapWidgetXAxis getXaxis() {
+    return xaxis;
+  }
+
+  public void setXaxis(HeatMapWidgetXAxis xaxis) {
+    this.xaxis = xaxis;
+  }
+
   public HeatMapWidgetDefinition yaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
     this.unparsed |= yaxis.unparsed;
@@ -416,6 +479,7 @@ public class HeatMapWidgetDefinition {
     return Objects.equals(this.customLinks, heatMapWidgetDefinition.customLinks)
         && Objects.equals(this.events, heatMapWidgetDefinition.events)
         && Objects.equals(this.legendSize, heatMapWidgetDefinition.legendSize)
+        && Objects.equals(this.markers, heatMapWidgetDefinition.markers)
         && Objects.equals(this.requests, heatMapWidgetDefinition.requests)
         && Objects.equals(this.showLegend, heatMapWidgetDefinition.showLegend)
         && Objects.equals(this.time, heatMapWidgetDefinition.time)
@@ -423,6 +487,7 @@ public class HeatMapWidgetDefinition {
         && Objects.equals(this.titleAlign, heatMapWidgetDefinition.titleAlign)
         && Objects.equals(this.titleSize, heatMapWidgetDefinition.titleSize)
         && Objects.equals(this.type, heatMapWidgetDefinition.type)
+        && Objects.equals(this.xaxis, heatMapWidgetDefinition.xaxis)
         && Objects.equals(this.yaxis, heatMapWidgetDefinition.yaxis)
         && Objects.equals(this.additionalProperties, heatMapWidgetDefinition.additionalProperties);
   }
@@ -433,6 +498,7 @@ public class HeatMapWidgetDefinition {
         customLinks,
         events,
         legendSize,
+        markers,
         requests,
         showLegend,
         time,
@@ -440,6 +506,7 @@ public class HeatMapWidgetDefinition {
         titleAlign,
         titleSize,
         type,
+        xaxis,
         yaxis,
         additionalProperties);
   }
@@ -451,6 +518,7 @@ public class HeatMapWidgetDefinition {
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
+    sb.append("    markers: ").append(toIndentedString(markers)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    showLegend: ").append(toIndentedString(showLegend)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
@@ -458,6 +526,7 @@ public class HeatMapWidgetDefinition {
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
     sb.append("    titleSize: ").append(toIndentedString(titleSize)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    xaxis: ").append(toIndentedString(xaxis)).append("\n");
     sb.append("    yaxis: ").append(toIndentedString(yaxis)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
