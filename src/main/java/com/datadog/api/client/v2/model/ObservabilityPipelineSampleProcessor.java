@@ -24,7 +24,6 @@ import java.util.Objects;
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_INCLUDE,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_PERCENTAGE,
-  ObservabilityPipelineSampleProcessor.JSON_PROPERTY_RATE,
   ObservabilityPipelineSampleProcessor.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -46,9 +45,6 @@ public class ObservabilityPipelineSampleProcessor {
   public static final String JSON_PROPERTY_PERCENTAGE = "percentage";
   private Double percentage;
 
-  public static final String JSON_PROPERTY_RATE = "rate";
-  private Long rate;
-
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineSampleProcessorType type =
       ObservabilityPipelineSampleProcessorType.SAMPLE;
@@ -60,11 +56,13 @@ public class ObservabilityPipelineSampleProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PERCENTAGE) Double percentage,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ObservabilityPipelineSampleProcessorType type) {
     this.enabled = enabled;
     this.id = id;
     this.include = include;
+    this.percentage = percentage;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -161,36 +159,14 @@ public class ObservabilityPipelineSampleProcessor {
    *
    * @return percentage
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERCENTAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getPercentage() {
     return percentage;
   }
 
   public void setPercentage(Double percentage) {
     this.percentage = percentage;
-  }
-
-  public ObservabilityPipelineSampleProcessor rate(Long rate) {
-    this.rate = rate;
-    return this;
-  }
-
-  /**
-   * Number of events to sample (1 in N). minimum: 1
-   *
-   * @return rate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRate() {
-    return rate;
-  }
-
-  public void setRate(Long rate) {
-    this.rate = rate;
   }
 
   public ObservabilityPipelineSampleProcessor type(ObservabilityPipelineSampleProcessorType type) {
@@ -279,7 +255,6 @@ public class ObservabilityPipelineSampleProcessor {
         && Objects.equals(this.id, observabilityPipelineSampleProcessor.id)
         && Objects.equals(this.include, observabilityPipelineSampleProcessor.include)
         && Objects.equals(this.percentage, observabilityPipelineSampleProcessor.percentage)
-        && Objects.equals(this.rate, observabilityPipelineSampleProcessor.rate)
         && Objects.equals(this.type, observabilityPipelineSampleProcessor.type)
         && Objects.equals(
             this.additionalProperties, observabilityPipelineSampleProcessor.additionalProperties);
@@ -287,8 +262,7 @@ public class ObservabilityPipelineSampleProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        displayName, enabled, id, include, percentage, rate, type, additionalProperties);
+    return Objects.hash(displayName, enabled, id, include, percentage, type, additionalProperties);
   }
 
   @Override
@@ -300,7 +274,6 @@ public class ObservabilityPipelineSampleProcessor {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
     sb.append("    percentage: ").append(toIndentedString(percentage)).append("\n");
-    sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
