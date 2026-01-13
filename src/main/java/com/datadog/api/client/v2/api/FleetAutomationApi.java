@@ -1437,7 +1437,7 @@ public class FleetAutomationApi {
     /**
      * Set pageNumber.
      *
-     * @param pageNumber Page number for pagination (must be greater than 0). (optional)
+     * @param pageNumber Page number for pagination (starts at 0). (optional, default to 0)
      * @return ListFleetAgentsOptionalParameters
      */
     public ListFleetAgentsOptionalParameters pageNumber(Long pageNumber) {
