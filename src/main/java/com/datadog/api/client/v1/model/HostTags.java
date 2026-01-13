@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Set of tags to associate with your host. */
+/** Host name and an array of its tags */
 @JsonPropertyOrder({HostTags.JSON_PROPERTY_HOST, HostTags.JSON_PROPERTY_TAGS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -65,7 +65,7 @@ public class HostTags {
   }
 
   /**
-   * A list of tags to apply to the host.
+   * A list of tags associated with a host.
    *
    * @return tags
    */
