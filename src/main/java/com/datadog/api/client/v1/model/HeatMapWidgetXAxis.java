@@ -32,8 +32,7 @@ public class HeatMapWidgetXAxis {
 
   /**
    * Number of time buckets to target, also known as the resolution of the time bins. This is only
-   * applicable for distribution of points (group distributions use the roll-up modifier). minimum:
-   * 1
+   * applicable for distribution of points (group distributions use the roll-up modifier).
    *
    * @return numBuckets
    */
