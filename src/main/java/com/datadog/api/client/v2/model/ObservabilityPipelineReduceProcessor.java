@@ -22,6 +22,8 @@ import java.util.Objects;
 /**
  * The <code>reduce</code> processor aggregates and merges logs based on matching keys and merge
  * strategies.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineReduceProcessor.JSON_PROPERTY_DISPLAY_NAME,

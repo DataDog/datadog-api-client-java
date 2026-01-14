@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>http_client</code> source scrapes logs from HTTP endpoints at regular intervals. */
+/**
+ * The <code>http_client</code> source scrapes logs from HTTP endpoints at regular intervals.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineHttpClientSource.JSON_PROPERTY_AUTH_STRATEGY,
   ObservabilityPipelineHttpClientSource.JSON_PROPERTY_DECODING,

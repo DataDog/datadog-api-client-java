@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>fluent_bit</code> source ingests logs from Fluent Bit. */
+/**
+ * The <code>fluent_bit</code> source ingests logs from Fluent Bit.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineFluentBitSource.JSON_PROPERTY_ID,
   ObservabilityPipelineFluentBitSource.JSON_PROPERTY_TLS,

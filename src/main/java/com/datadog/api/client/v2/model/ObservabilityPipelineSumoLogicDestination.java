@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>sumo_logic</code> destination forwards logs to Sumo Logic. */
+/**
+ * The <code>sumo_logic</code> destination forwards logs to Sumo Logic.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_ENCODING,
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_HEADER_CUSTOM_FIELDS,
