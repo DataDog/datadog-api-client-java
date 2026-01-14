@@ -9266,6 +9266,7 @@ public class SecurityMonitoringApi {
   public static class ListSecurityMonitoringRulesOptionalParameters {
     private Long pageSize;
     private Long pageNumber;
+    private String query;
 
     /**
      * Set pageSize.
@@ -9287,6 +9288,18 @@ public class SecurityMonitoringApi {
      */
     public ListSecurityMonitoringRulesOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set query.
+     *
+     * @param query A search query to filter security rules. You can filter by attributes such as
+     *     <code>type</code>, <code>source</code>, <code>tags</code>. (optional)
+     * @return ListSecurityMonitoringRulesOptionalParameters
+     */
+    public ListSecurityMonitoringRulesOptionalParameters query(String query) {
+      this.query = query;
       return this;
     }
   }
@@ -9372,6 +9385,7 @@ public class SecurityMonitoringApi {
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
+    String query = parameters.query;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/rules";
 
@@ -9380,6 +9394,7 @@ public class SecurityMonitoringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -9415,6 +9430,7 @@ public class SecurityMonitoringApi {
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
+    String query = parameters.query;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/rules";
 
@@ -9423,6 +9439,7 @@ public class SecurityMonitoringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
 
     Invocation.Builder builder;
     try {
