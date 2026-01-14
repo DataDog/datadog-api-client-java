@@ -7,7 +7,7 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines",
+      "path": "/api/v2/obs-pipelines/pipelines",
       "keepAlive": false,
       "secure": true
     },
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "95a57011-26df-3343-b440-f0295430ff3b"
+    "id": "f570a090-dc8d-8dc9-a94c-5375590acb1d"
   }
 ]

@@ -20,6 +20,8 @@ import java.util.Objects;
 /**
  * The <code>rsyslog</code> source listens for logs over TCP or UDP from an <code>rsyslog</code>
  * server using the syslog protocol.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineRsyslogSource.JSON_PROPERTY_ID,

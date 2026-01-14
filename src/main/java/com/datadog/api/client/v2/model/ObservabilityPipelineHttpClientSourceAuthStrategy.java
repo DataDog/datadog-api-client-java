@@ -26,8 +26,10 @@ import java.util.Set;
 public class ObservabilityPipelineHttpClientSourceAuthStrategy extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("basic", "bearer"));
+      new HashSet<String>(Arrays.asList("none", "basic", "bearer"));
 
+  public static final ObservabilityPipelineHttpClientSourceAuthStrategy NONE =
+      new ObservabilityPipelineHttpClientSourceAuthStrategy("none");
   public static final ObservabilityPipelineHttpClientSourceAuthStrategy BASIC =
       new ObservabilityPipelineHttpClientSourceAuthStrategy("basic");
   public static final ObservabilityPipelineHttpClientSourceAuthStrategy BEARER =
