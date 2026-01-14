@@ -21,6 +21,8 @@ import java.util.Objects;
 
 /**
  * The <code>datadog_tags</code> processor includes or excludes specific Datadog tags in your logs.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineDatadogTagsProcessor.JSON_PROPERTY_ACTION,

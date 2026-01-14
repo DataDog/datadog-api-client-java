@@ -20,6 +20,8 @@ import java.util.Objects;
 /**
  * The <code>splunk_tcp</code> source receives logs from a Splunk Universal Forwarder over TCP. TLS
  * is supported for secure transmission.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_ID,
