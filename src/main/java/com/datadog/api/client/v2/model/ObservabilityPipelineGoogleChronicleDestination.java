@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>google_chronicle</code> destination sends logs to Google Chronicle. */
+/**
+ * The <code>google_chronicle</code> destination sends logs to Google Chronicle.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_CUSTOMER_ID,

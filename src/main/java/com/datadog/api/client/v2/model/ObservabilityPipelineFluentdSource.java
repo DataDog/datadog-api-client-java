@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>fluentd</code> source ingests logs from a Fluentd-compatible service. */
+/**
+ * The <code>fluentd</code> source ingests logs from a Fluentd-compatible service.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineFluentdSource.JSON_PROPERTY_ID,
   ObservabilityPipelineFluentdSource.JSON_PROPERTY_TLS,
@@ -55,8 +59,8 @@ public class ObservabilityPipelineFluentdSource {
   }
 
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of
-   * the pipeline (for example, as the <code>input</code> to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
    *
    * @return id
    */

@@ -20,6 +20,8 @@ import java.util.Objects;
 /**
  * The <code>amazon_s3</code> source ingests logs from an Amazon S3 bucket. It supports AWS
  * authentication and TLS encryption.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_AUTH,
@@ -91,8 +93,8 @@ public class ObservabilityPipelineAmazonS3Source {
   }
 
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of
-   * the pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
    *
    * @return id
    */

@@ -47,7 +47,7 @@ public class Example {
                                                     .type(
                                                         ObservabilityPipelineDatadogLogsDestinationType
                                                             .DATADOG_LOGS))))
-                                    .processors(
+                                    .processorGroups(
                                         Collections.singletonList(
                                             new ObservabilityPipelineConfigProcessorGroup()
                                                 .enabled(true)

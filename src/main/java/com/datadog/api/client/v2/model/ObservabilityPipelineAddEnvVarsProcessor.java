@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>add_env_vars</code> processor adds environment variable values to log events. */
+/**
+ * The <code>add_env_vars</code> processor adds environment variable values to log events.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineAddEnvVarsProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineAddEnvVarsProcessor.JSON_PROPERTY_ENABLED,
@@ -97,7 +101,7 @@ public class ObservabilityPipelineAddEnvVarsProcessor {
   }
 
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    *
    * @return enabled
    */

@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>remove_fields</code> processor deletes specified fields from logs. */
+/**
+ * The <code>remove_fields</code> processor deletes specified fields from logs.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineRemoveFieldsProcessor.JSON_PROPERTY_DISPLAY_NAME,
   ObservabilityPipelineRemoveFieldsProcessor.JSON_PROPERTY_ENABLED,
@@ -96,7 +100,7 @@ public class ObservabilityPipelineRemoveFieldsProcessor {
   }
 
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    *
    * @return enabled
    */
@@ -141,8 +145,8 @@ public class ObservabilityPipelineRemoveFieldsProcessor {
   }
 
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of
-   * the pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
    *
    * @return id
    */

@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>azure_storage</code> destination forwards logs to an Azure Blob Storage container. */
+/**
+ * The <code>azure_storage</code> destination forwards logs to an Azure Blob Storage container.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   AzureStorageDestination.JSON_PROPERTY_BLOB_PREFIX,
   AzureStorageDestination.JSON_PROPERTY_CONTAINER_NAME,

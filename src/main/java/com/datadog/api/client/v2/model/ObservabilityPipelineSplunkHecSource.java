@@ -17,7 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The <code>splunk_hec</code> source implements the Splunk HTTP Event Collector (HEC) API. */
+/**
+ * The <code>splunk_hec</code> source implements the Splunk HTTP Event Collector (HEC) API.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_ID,
   ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_TLS,
@@ -55,8 +59,8 @@ public class ObservabilityPipelineSplunkHecSource {
   }
 
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of
-   * the pipeline (e.g., as input to downstream components).
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
    *
    * @return id
    */

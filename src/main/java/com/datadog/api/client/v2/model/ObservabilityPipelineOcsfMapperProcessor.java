@@ -22,6 +22,8 @@ import java.util.Objects;
 /**
  * The <code>ocsf_mapper</code> processor transforms logs into the OCSF schema using a predefined
  * mapping configuration.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineOcsfMapperProcessor.JSON_PROPERTY_DISPLAY_NAME,
@@ -100,7 +102,7 @@ public class ObservabilityPipelineOcsfMapperProcessor {
   }
 
   /**
-   * Whether this processor is enabled.
+   * Indicates whether the processor is enabled.
    *
    * @return enabled
    */

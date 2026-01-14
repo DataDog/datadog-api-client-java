@@ -22,6 +22,8 @@ import java.util.Objects;
 /** Specifies the pipeline's configuration, including its sources, processors, and destinations. */
 @JsonPropertyOrder({
   ObservabilityPipelineConfig.JSON_PROPERTY_DESTINATIONS,
+  ObservabilityPipelineConfig.JSON_PROPERTY_PIPELINE_TYPE,
+  ObservabilityPipelineConfig.JSON_PROPERTY_PROCESSOR_GROUPS,
   ObservabilityPipelineConfig.JSON_PROPERTY_PROCESSORS,
   ObservabilityPipelineConfig.JSON_PROPERTY_SOURCES
 })
@@ -31,6 +33,13 @@ public class ObservabilityPipelineConfig {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESTINATIONS = "destinations";
   private List<ObservabilityPipelineConfigDestinationItem> destinations = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_PIPELINE_TYPE = "pipeline_type";
+  private ObservabilityPipelineConfigPipelineType pipelineType =
+      ObservabilityPipelineConfigPipelineType.LOGS;
+
+  public static final String JSON_PROPERTY_PROCESSOR_GROUPS = "processor_groups";
+  private List<ObservabilityPipelineConfigProcessorGroup> processorGroups = null;
 
   public static final String JSON_PROPERTY_PROCESSORS = "processors";
   private List<ObservabilityPipelineConfigProcessorGroup> processors = null;
@@ -81,6 +90,67 @@ public class ObservabilityPipelineConfig {
     this.destinations = destinations;
   }
 
+  public ObservabilityPipelineConfig pipelineType(
+      ObservabilityPipelineConfigPipelineType pipelineType) {
+    this.pipelineType = pipelineType;
+    this.unparsed |= !pipelineType.isValid();
+    return this;
+  }
+
+  /**
+   * The type of data being ingested. Defaults to <code>logs</code> if not specified.
+   *
+   * @return pipelineType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PIPELINE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineConfigPipelineType getPipelineType() {
+    return pipelineType;
+  }
+
+  public void setPipelineType(ObservabilityPipelineConfigPipelineType pipelineType) {
+    if (!pipelineType.isValid()) {
+      this.unparsed = true;
+    }
+    this.pipelineType = pipelineType;
+  }
+
+  public ObservabilityPipelineConfig processorGroups(
+      List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
+    this.processorGroups = processorGroups;
+    for (ObservabilityPipelineConfigProcessorGroup item : processorGroups) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public ObservabilityPipelineConfig addProcessorGroupsItem(
+      ObservabilityPipelineConfigProcessorGroup processorGroupsItem) {
+    if (this.processorGroups == null) {
+      this.processorGroups = new ArrayList<>();
+    }
+    this.processorGroups.add(processorGroupsItem);
+    this.unparsed |= processorGroupsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * A list of processor groups that transform or enrich log data.
+   *
+   * @return processorGroups
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROCESSOR_GROUPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ObservabilityPipelineConfigProcessorGroup> getProcessorGroups() {
+    return processorGroups;
+  }
+
+  public void setProcessorGroups(List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
+    this.processorGroups = processorGroups;
+  }
+
   public ObservabilityPipelineConfig processors(
       List<ObservabilityPipelineConfigProcessorGroup> processors) {
     this.processors = processors;
@@ -103,8 +173,13 @@ public class ObservabilityPipelineConfig {
   /**
    * A list of processor groups that transform or enrich log data.
    *
+   * <p><strong>Deprecated:</strong> This field is deprecated, you should now use the
+   * processor_groups field.
+   *
    * @return processors
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,6 +187,7 @@ public class ObservabilityPipelineConfig {
     return processors;
   }
 
+  @Deprecated
   public void setProcessors(List<ObservabilityPipelineConfigProcessorGroup> processors) {
     this.processors = processors;
   }
@@ -203,6 +279,8 @@ public class ObservabilityPipelineConfig {
     }
     ObservabilityPipelineConfig observabilityPipelineConfig = (ObservabilityPipelineConfig) o;
     return Objects.equals(this.destinations, observabilityPipelineConfig.destinations)
+        && Objects.equals(this.pipelineType, observabilityPipelineConfig.pipelineType)
+        && Objects.equals(this.processorGroups, observabilityPipelineConfig.processorGroups)
         && Objects.equals(this.processors, observabilityPipelineConfig.processors)
         && Objects.equals(this.sources, observabilityPipelineConfig.sources)
         && Objects.equals(
@@ -211,7 +289,8 @@ public class ObservabilityPipelineConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinations, processors, sources, additionalProperties);
+    return Objects.hash(
+        destinations, pipelineType, processorGroups, processors, sources, additionalProperties);
   }
 
   @Override
@@ -219,6 +298,8 @@ public class ObservabilityPipelineConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineConfig {\n");
     sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
+    sb.append("    pipelineType: ").append(toIndentedString(pipelineType)).append("\n");
+    sb.append("    processorGroups: ").append(toIndentedString(processorGroups)).append("\n");
     sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("    additionalProperties: ")
