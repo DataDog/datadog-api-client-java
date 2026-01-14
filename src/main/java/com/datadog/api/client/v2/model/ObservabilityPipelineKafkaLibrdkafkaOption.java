@@ -19,15 +19,15 @@ import java.util.Objects;
 
 /**
  * Represents a key-value pair used to configure low-level <code>librdkafka</code> client options
- * for Kafka sources, such as timeouts, buffer sizes, and security settings.
+ * for Kafka source and destination, such as timeouts, buffer sizes, and security settings.
  */
 @JsonPropertyOrder({
-  ObservabilityPipelineKafkaSourceLibrdkafkaOption.JSON_PROPERTY_NAME,
-  ObservabilityPipelineKafkaSourceLibrdkafkaOption.JSON_PROPERTY_VALUE
+  ObservabilityPipelineKafkaLibrdkafkaOption.JSON_PROPERTY_NAME,
+  ObservabilityPipelineKafkaLibrdkafkaOption.JSON_PROPERTY_VALUE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
+public class ObservabilityPipelineKafkaLibrdkafkaOption {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -35,17 +35,17 @@ public class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
 
-  public ObservabilityPipelineKafkaSourceLibrdkafkaOption() {}
+  public ObservabilityPipelineKafkaLibrdkafkaOption() {}
 
   @JsonCreator
-  public ObservabilityPipelineKafkaSourceLibrdkafkaOption(
+  public ObservabilityPipelineKafkaLibrdkafkaOption(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
     this.name = name;
     this.value = value;
   }
 
-  public ObservabilityPipelineKafkaSourceLibrdkafkaOption name(String name) {
+  public ObservabilityPipelineKafkaLibrdkafkaOption name(String name) {
     this.name = name;
     return this;
   }
@@ -65,7 +65,7 @@ public class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
     this.name = name;
   }
 
-  public ObservabilityPipelineKafkaSourceLibrdkafkaOption value(String value) {
+  public ObservabilityPipelineKafkaLibrdkafkaOption value(String value) {
     this.value = value;
     return this;
   }
@@ -97,10 +97,10 @@ public class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineKafkaSourceLibrdkafkaOption
+   * @return ObservabilityPipelineKafkaLibrdkafkaOption
    */
   @JsonAnySetter
-  public ObservabilityPipelineKafkaSourceLibrdkafkaOption putAdditionalProperty(
+  public ObservabilityPipelineKafkaLibrdkafkaOption putAdditionalProperty(
       String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
@@ -132,7 +132,7 @@ public class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineKafkaSourceLibrdkafkaOption object is equal to o. */
+  /** Return true if this ObservabilityPipelineKafkaLibrdkafkaOption object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,14 +141,13 @@ public class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineKafkaSourceLibrdkafkaOption
-        observabilityPipelineKafkaSourceLibrdkafkaOption =
-            (ObservabilityPipelineKafkaSourceLibrdkafkaOption) o;
-    return Objects.equals(this.name, observabilityPipelineKafkaSourceLibrdkafkaOption.name)
-        && Objects.equals(this.value, observabilityPipelineKafkaSourceLibrdkafkaOption.value)
+    ObservabilityPipelineKafkaLibrdkafkaOption observabilityPipelineKafkaLibrdkafkaOption =
+        (ObservabilityPipelineKafkaLibrdkafkaOption) o;
+    return Objects.equals(this.name, observabilityPipelineKafkaLibrdkafkaOption.name)
+        && Objects.equals(this.value, observabilityPipelineKafkaLibrdkafkaOption.value)
         && Objects.equals(
             this.additionalProperties,
-            observabilityPipelineKafkaSourceLibrdkafkaOption.additionalProperties);
+            observabilityPipelineKafkaLibrdkafkaOption.additionalProperties);
   }
 
   @Override
@@ -159,7 +158,7 @@ public class ObservabilityPipelineKafkaSourceLibrdkafkaOption {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineKafkaSourceLibrdkafkaOption {\n");
+    sb.append("class ObservabilityPipelineKafkaLibrdkafkaOption {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ")

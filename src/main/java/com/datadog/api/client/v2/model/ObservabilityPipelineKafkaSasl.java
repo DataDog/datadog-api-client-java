@@ -17,16 +17,16 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Specifies the SASL mechanism for authenticating with a Kafka cluster. */
-@JsonPropertyOrder({ObservabilityPipelineKafkaSourceSasl.JSON_PROPERTY_MECHANISM})
+@JsonPropertyOrder({ObservabilityPipelineKafkaSasl.JSON_PROPERTY_MECHANISM})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineKafkaSourceSasl {
+public class ObservabilityPipelineKafkaSasl {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MECHANISM = "mechanism";
-  private ObservabilityPipelinePipelineKafkaSourceSaslMechanism mechanism;
+  private ObservabilityPipelineKafkaSaslMechanism mechanism;
 
-  public ObservabilityPipelineKafkaSourceSasl mechanism(
-      ObservabilityPipelinePipelineKafkaSourceSaslMechanism mechanism) {
+  public ObservabilityPipelineKafkaSasl mechanism(
+      ObservabilityPipelineKafkaSaslMechanism mechanism) {
     this.mechanism = mechanism;
     this.unparsed |= !mechanism.isValid();
     return this;
@@ -40,11 +40,11 @@ public class ObservabilityPipelineKafkaSourceSasl {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MECHANISM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelinePipelineKafkaSourceSaslMechanism getMechanism() {
+  public ObservabilityPipelineKafkaSaslMechanism getMechanism() {
     return mechanism;
   }
 
-  public void setMechanism(ObservabilityPipelinePipelineKafkaSourceSaslMechanism mechanism) {
+  public void setMechanism(ObservabilityPipelineKafkaSaslMechanism mechanism) {
     if (!mechanism.isValid()) {
       this.unparsed = true;
     }
@@ -63,10 +63,10 @@ public class ObservabilityPipelineKafkaSourceSasl {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineKafkaSourceSasl
+   * @return ObservabilityPipelineKafkaSasl
    */
   @JsonAnySetter
-  public ObservabilityPipelineKafkaSourceSasl putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineKafkaSasl putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -97,7 +97,7 @@ public class ObservabilityPipelineKafkaSourceSasl {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineKafkaSourceSasl object is equal to o. */
+  /** Return true if this ObservabilityPipelineKafkaSasl object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -106,11 +106,11 @@ public class ObservabilityPipelineKafkaSourceSasl {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineKafkaSourceSasl observabilityPipelineKafkaSourceSasl =
-        (ObservabilityPipelineKafkaSourceSasl) o;
-    return Objects.equals(this.mechanism, observabilityPipelineKafkaSourceSasl.mechanism)
+    ObservabilityPipelineKafkaSasl observabilityPipelineKafkaSasl =
+        (ObservabilityPipelineKafkaSasl) o;
+    return Objects.equals(this.mechanism, observabilityPipelineKafkaSasl.mechanism)
         && Objects.equals(
-            this.additionalProperties, observabilityPipelineKafkaSourceSasl.additionalProperties);
+            this.additionalProperties, observabilityPipelineKafkaSasl.additionalProperties);
   }
 
   @Override
@@ -121,7 +121,7 @@ public class ObservabilityPipelineKafkaSourceSasl {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineKafkaSourceSasl {\n");
+    sb.append("class ObservabilityPipelineKafkaSasl {\n");
     sb.append("    mechanism: ").append(toIndentedString(mechanism)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
