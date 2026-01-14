@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"bfe664a4-dc2c-11f0-bdec-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"processor-group-0\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"display_name\":\"My Processor Group\",\"enabled\":true,\"id\":\"processor-group-0\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"display_name\":\"My Filter Processor\",\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
+      "body": "{\"data\":{\"id\":\"9b06af3e-eb06-11f0-a801-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"processor-group-0\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"display_name\":\"My Processor Group\",\"enabled\":true,\"id\":\"processor-group-0\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"display_name\":\"My Filter Processor\",\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,12 +33,12 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/bfe664a4-dc2c-11f0-bdec-da7ad0900002",
+      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/9b06af3e-eb06-11f0-a801-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"bfe664a4-dc2c-11f0-bdec-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"processor-group-0\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"display_name\":\"My Processor Group\",\"enabled\":true,\"id\":\"processor-group-0\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"display_name\":\"My Filter Processor\",\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
+      "body": "{\"data\":{\"id\":\"9b06af3e-eb06-11f0-a801-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"processor-group-0\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"display_name\":\"My Processor Group\",\"enabled\":true,\"id\":\"processor-group-0\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"display_name\":\"My Filter Processor\",\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "21f7e5ab-ea39-6e8e-5605-c43a9e3acdd0"
+    "id": "dfade3e1-aa94-a909-eab0-6e448e5fe470"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/bfe664a4-dc2c-11f0-bdec-da7ad0900002",
+      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/9b06af3e-eb06-11f0-a801-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "83781d2a-55f3-79d9-1709-474817512e21"
+    "id": "d43271d2-45b2-2ad8-0d65-05da2c1be8a5"
   }
 ]
