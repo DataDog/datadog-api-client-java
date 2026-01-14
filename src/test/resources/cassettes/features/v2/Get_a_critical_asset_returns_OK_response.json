@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"query\":\"security:monitoring\",\"rule_query\":\"source:k9\",\"severity\":\"medium\",\"tags\":[\"team:security\"]},\"type\":\"critical_assets\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/critical_assets",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"a9dfa43c-734a-4984-bed6-68934254cb59\",\"type\":\"critical_assets\",\"attributes\":{\"creation_author_id\":2320499,\"creation_date\":1768246896448,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"enabled\":true,\"query\":\"security:monitoring\",\"rule_query\":\"source:k9\",\"severity\":\"medium\",\"tags\":[\"team:security\"],\"update_author_id\":2320499,\"update_date\":1768246896448,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6ffb5b4d-a3b7-6fa1-1d1c-e0464f43c9e7"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/security_monitoring/configuration/critical_assets/a9dfa43c-734a-4984-bed6-68934254cb59",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"a9dfa43c-734a-4984-bed6-68934254cb59\",\"type\":\"critical_assets\",\"attributes\":{\"creation_author_id\":2320499,\"creation_date\":1768246896448,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"enabled\":true,\"query\":\"security:monitoring\",\"rule_query\":\"source:k9\",\"severity\":\"medium\",\"tags\":[\"team:security\"],\"update_author_id\":2320499,\"update_date\":1768246896448,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a17a7db1-db02-19ec-65f1-31d37d6cfb58"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/critical_assets/a9dfa43c-734a-4984-bed6-68934254cb59",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9f625e57-3f34-bf12-72dc-2e32954df60d"
+  }
+]
