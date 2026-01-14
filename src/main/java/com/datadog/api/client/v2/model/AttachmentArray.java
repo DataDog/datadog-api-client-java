@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A list of incident attachments. */
 @JsonPropertyOrder({AttachmentArray.JSON_PROPERTY_DATA, AttachmentArray.JSON_PROPERTY_INCLUDED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

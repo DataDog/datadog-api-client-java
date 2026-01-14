@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"attachment\":{\"documentUrl\":\"https://app.datadoghq.com/notebook/124/Postmortem-IR-124\",\"title\":\"Postmortem-IR-124\"}},\"id\":\"00000000-abcd-0002-0000-000000000000\",\"type\":\"incident_attachments\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/incidents/00000000-0000-0000-0000-00000000000/attachments/00000000-0000-0000-0000-000000000000",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"malformed incident ID\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "af749864-be21-6f67-bba6-65947d395e8f"
+  }
+]

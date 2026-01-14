@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The updated attachment object. */
 @JsonPropertyOrder({
   PatchAttachmentRequestDataAttributesAttachment.JSON_PROPERTY_DOCUMENT_URL,
   PatchAttachmentRequestDataAttributesAttachment.JSON_PROPERTY_TITLE
@@ -37,7 +37,7 @@ public class PatchAttachmentRequestDataAttributesAttachment {
   }
 
   /**
-   * GetdocumentUrl
+   * The updated URL for the attachment.
    *
    * @return documentUrl
    */
@@ -58,7 +58,7 @@ public class PatchAttachmentRequestDataAttributesAttachment {
   }
 
   /**
-   * Gettitle
+   * The updated title for the attachment.
    *
    * @return title
    */
