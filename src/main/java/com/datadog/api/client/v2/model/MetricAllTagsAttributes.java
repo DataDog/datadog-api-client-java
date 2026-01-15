@@ -18,14 +18,49 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object containing the definition of a metric's tags. */
-@JsonPropertyOrder({MetricAllTagsAttributes.JSON_PROPERTY_TAGS})
+/** Object containing the definition of a metric's indexed and ingested tags. */
+@JsonPropertyOrder({
+  MetricAllTagsAttributes.JSON_PROPERTY_INGESTED_TAGS,
+  MetricAllTagsAttributes.JSON_PROPERTY_TAGS
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricAllTagsAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_INGESTED_TAGS = "ingested_tags";
+  private List<String> ingestedTags = null;
+
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public MetricAllTagsAttributes ingestedTags(List<String> ingestedTags) {
+    this.ingestedTags = ingestedTags;
+    return this;
+  }
+
+  public MetricAllTagsAttributes addIngestedTagsItem(String ingestedTagsItem) {
+    if (this.ingestedTags == null) {
+      this.ingestedTags = new ArrayList<>();
+    }
+    this.ingestedTags.add(ingestedTagsItem);
+    return this;
+  }
+
+  /**
+   * List of ingested tags that are not indexed.
+   *
+   * @return ingestedTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INGESTED_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIngestedTags() {
+    return ingestedTags;
+  }
+
+  public void setIngestedTags(List<String> ingestedTags) {
+    this.ingestedTags = ingestedTags;
+  }
 
   public MetricAllTagsAttributes tags(List<String> tags) {
     this.tags = tags;
@@ -41,7 +76,7 @@ public class MetricAllTagsAttributes {
   }
 
   /**
-   * List of indexed tag value pairs.
+   * List of indexed tags.
    *
    * @return tags
    */
@@ -112,19 +147,21 @@ public class MetricAllTagsAttributes {
       return false;
     }
     MetricAllTagsAttributes metricAllTagsAttributes = (MetricAllTagsAttributes) o;
-    return Objects.equals(this.tags, metricAllTagsAttributes.tags)
+    return Objects.equals(this.ingestedTags, metricAllTagsAttributes.ingestedTags)
+        && Objects.equals(this.tags, metricAllTagsAttributes.tags)
         && Objects.equals(this.additionalProperties, metricAllTagsAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, additionalProperties);
+    return Objects.hash(ingestedTags, tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricAllTagsAttributes {\n");
+    sb.append("    ingestedTags: ").append(toIndentedString(ingestedTags)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

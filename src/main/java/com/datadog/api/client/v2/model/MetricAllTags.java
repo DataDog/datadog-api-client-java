@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object for a single metric's indexed tags. */
+/** Object for a single metric's indexed and ingested tags. */
 @JsonPropertyOrder({
   MetricAllTags.JSON_PROPERTY_ATTRIBUTES,
   MetricAllTags.JSON_PROPERTY_ID,
@@ -42,7 +42,7 @@ public class MetricAllTags {
   }
 
   /**
-   * Object containing the definition of a metric's tags.
+   * Object containing the definition of a metric's indexed and ingested tags.
    *
    * @return attributes
    */
