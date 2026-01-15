@@ -1,0 +1,88 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_organization_handle_returns_OK_response-1768443700\",\"space_resource_name\":\"spaces/AAQA-zFIks8\"}},\"type\":\"google-chat-organization-handle\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/google-chat/organizations/e54cb570-c674-529c-769d-84b312288ed7/organization-handles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"e4e62f90-9ec7-459b-ac0a-62157eefeb2c\",\"type\":\"google-chat-organization-handle\",\"attributes\":{\"name\":\"Test-Update_organization_handle_returns_OK_response-1768443700\",\"space_display_name\":\"api-test-space\",\"space_resource_name\":\"spaces/AAQA-zFIks8\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fe839fb4-f1ca-e889-f326-a1293fcb7d62"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_organization_handle_returns_OK_response-1768443700--updated\"}},\"type\":\"google-chat-organization-handle\"}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/integration/google-chat/organizations/e54cb570-c674-529c-769d-84b312288ed7/organization-handles/e4e62f90-9ec7-459b-ac0a-62157eefeb2c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"e4e62f90-9ec7-459b-ac0a-62157eefeb2c\",\"type\":\"google-chat-organization-handle\",\"attributes\":{\"name\":\"Test-Update_organization_handle_returns_OK_response-1768443700--updated\",\"space_display_name\":\"api-test-space\",\"space_resource_name\":\"spaces/AAQA-zFIks8\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7ae42810-ec47-4bcc-9a91-fecf317801bc"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/google-chat/organizations/%7Borganization_binding_id%7D/organization-handles/e4e62f90-9ec7-459b-ac0a-62157eefeb2c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Invalid Parameter\",\"detail\":\"invalid parameter \\\"google_chat_organization_binding_id\\\" in \\\"path\\\"; expected type \\\"uuid\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5c571ca9-22ae-d828-2261-18dcd9d0bb04"
+  }
+]
