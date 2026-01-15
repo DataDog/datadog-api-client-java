@@ -253,6 +253,7 @@ public class MonitorsApi {
    *   <li>database-monitoring: <code>database-monitoring alert</code>
    *   <li>network-performance: <code>network-performance alert</code>
    *   <li>cloud cost: <code>cost alert</code>
+   *   <li>network-path: <code>network-path alert</code>
    * </ul>
    *
    * <p><strong>Notes</strong>: - Synthetic monitors are created through the Synthetics API. See the
@@ -562,6 +563,27 @@ public class MonitorsApi {
    *         <li>for <code>anomaly</code> supports <code>&gt;=</code>
    *         <li>for <code>forecast</code> supports <code>&gt;</code>
    *       </ul>
+   *   <li><code>#</code> an integer or decimal number used to set the threshold.
+   * </ul>
+   *
+   * <p><strong>Network Path Alert Query</strong>
+   *
+   * <p>Example: <code>
+   * network-path(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #
+   * </code>
+   *
+   * <ul>
+   *   <li><code>query</code> The search query - following the <a
+   *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
+   *   <li><code>index_name</code> The data type to monitor on - supports <code>netpath-path</code>
+   *       and <code>netpath-hop</code>.
+   *   <li><code>rollup_method</code> The stats roll-up method - supports <code>count</code>, <code>
+   *       avg</code>, and <code>cardinality</code>.
+   *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
+   *       specify the measure or the facet name you want to use.
+   *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
+   *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
