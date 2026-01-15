@@ -57,6 +57,10 @@ import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestData;
 import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestDataAttributes;
 import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestPage;
 import com.datadog.api.client.v2.model.SecurityFindingsSort;
+import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetCreateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetUpdateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetsResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringListRulesResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertResponse;
@@ -1606,6 +1610,149 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Create a critical asset.
+   *
+   * <p>See {@link #createSecurityMonitoringCriticalAssetWithHttpInfo}.
+   *
+   * @param body The definition of the new critical asset. (required)
+   * @return SecurityMonitoringCriticalAssetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringCriticalAssetResponse createSecurityMonitoringCriticalAsset(
+      SecurityMonitoringCriticalAssetCreateRequest body) throws ApiException {
+    return createSecurityMonitoringCriticalAssetWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a critical asset.
+   *
+   * <p>See {@link #createSecurityMonitoringCriticalAssetWithHttpInfoAsync}.
+   *
+   * @param body The definition of the new critical asset. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringCriticalAssetResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringCriticalAssetResponse>
+      createSecurityMonitoringCriticalAssetAsync(
+          SecurityMonitoringCriticalAssetCreateRequest body) {
+    return createSecurityMonitoringCriticalAssetWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new critical asset.
+   *
+   * @param body The definition of the new critical asset. (required)
+   * @return ApiResponse&lt;SecurityMonitoringCriticalAssetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringCriticalAssetResponse>
+      createSecurityMonitoringCriticalAssetWithHttpInfo(
+          SecurityMonitoringCriticalAssetCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createSecurityMonitoringCriticalAsset");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/critical_assets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityMonitoringCriticalAsset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringCriticalAssetResponse>() {});
+  }
+
+  /**
+   * Create a critical asset.
+   *
+   * <p>See {@link #createSecurityMonitoringCriticalAssetWithHttpInfo}.
+   *
+   * @param body The definition of the new critical asset. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringCriticalAssetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetResponse>>
+      createSecurityMonitoringCriticalAssetWithHttpInfoAsync(
+          SecurityMonitoringCriticalAssetCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityMonitoringCriticalAsset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/critical_assets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityMonitoringCriticalAsset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringCriticalAssetResponse>() {});
+  }
+
+  /**
    * Create a detection rule.
    *
    * <p>See {@link #createSecurityMonitoringRuleWithHttpInfo}.
@@ -2448,6 +2595,149 @@ public class SecurityMonitoringApi {
       builder =
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.deleteSecurityFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a critical asset.
+   *
+   * <p>See {@link #deleteSecurityMonitoringCriticalAssetWithHttpInfo}.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityMonitoringCriticalAsset(String criticalAssetId) throws ApiException {
+    deleteSecurityMonitoringCriticalAssetWithHttpInfo(criticalAssetId);
+  }
+
+  /**
+   * Delete a critical asset.
+   *
+   * <p>See {@link #deleteSecurityMonitoringCriticalAssetWithHttpInfoAsync}.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityMonitoringCriticalAssetAsync(
+      String criticalAssetId) {
+    return deleteSecurityMonitoringCriticalAssetWithHttpInfoAsync(criticalAssetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a specific critical asset.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityMonitoringCriticalAssetWithHttpInfo(String criticalAssetId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'criticalAssetId' is set
+    if (criticalAssetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'criticalAssetId' when calling"
+              + " deleteSecurityMonitoringCriticalAsset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}"
+            .replaceAll(
+                "\\{" + "critical_asset_id" + "\\}",
+                apiClient.escapeString(criticalAssetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityMonitoringCriticalAsset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a critical asset.
+   *
+   * <p>See {@link #deleteSecurityMonitoringCriticalAssetWithHttpInfo}.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteSecurityMonitoringCriticalAssetWithHttpInfoAsync(String criticalAssetId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'criticalAssetId' is set
+    if (criticalAssetId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'criticalAssetId' when calling"
+                  + " deleteSecurityMonitoringCriticalAsset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}"
+            .replaceAll(
+                "\\{" + "critical_asset_id" + "\\}",
+                apiClient.escapeString(criticalAssetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityMonitoringCriticalAsset",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3815,6 +4105,148 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get critical assets affecting a specific rule.
+   *
+   * <p>See {@link #getCriticalAssetsAffectingRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return SecurityMonitoringCriticalAssetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringCriticalAssetsResponse getCriticalAssetsAffectingRule(String ruleId)
+      throws ApiException {
+    return getCriticalAssetsAffectingRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Get critical assets affecting a specific rule.
+   *
+   * <p>See {@link #getCriticalAssetsAffectingRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringCriticalAssetsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringCriticalAssetsResponse>
+      getCriticalAssetsAffectingRuleAsync(String ruleId) {
+    return getCriticalAssetsAffectingRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of critical assets that affect a specific existing rule by the rule's ID.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return ApiResponse&lt;SecurityMonitoringCriticalAssetsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringCriticalAssetsResponse>
+      getCriticalAssetsAffectingRuleWithHttpInfo(String ruleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling getCriticalAssetsAffectingRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/critical_assets/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getCriticalAssetsAffectingRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringCriticalAssetsResponse>() {});
+  }
+
+  /**
+   * Get critical assets affecting a specific rule.
+   *
+   * <p>See {@link #getCriticalAssetsAffectingRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringCriticalAssetsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetsResponse>>
+      getCriticalAssetsAffectingRuleWithHttpInfoAsync(String ruleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " getCriticalAssetsAffectingRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/critical_assets/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getCriticalAssetsAffectingRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringCriticalAssetsResponse>() {});
+  }
+
+  /**
    * Get a custom framework.
    *
    * <p>See {@link #getCustomFrameworkWithHttpInfo}.
@@ -5158,6 +5590,153 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityFilterResponse>() {});
+  }
+
+  /**
+   * Get a critical asset.
+   *
+   * <p>See {@link #getSecurityMonitoringCriticalAssetWithHttpInfo}.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @return SecurityMonitoringCriticalAssetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringCriticalAssetResponse getSecurityMonitoringCriticalAsset(
+      String criticalAssetId) throws ApiException {
+    return getSecurityMonitoringCriticalAssetWithHttpInfo(criticalAssetId).getData();
+  }
+
+  /**
+   * Get a critical asset.
+   *
+   * <p>See {@link #getSecurityMonitoringCriticalAssetWithHttpInfoAsync}.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringCriticalAssetResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringCriticalAssetResponse>
+      getSecurityMonitoringCriticalAssetAsync(String criticalAssetId) {
+    return getSecurityMonitoringCriticalAssetWithHttpInfoAsync(criticalAssetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of a specific critical asset.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @return ApiResponse&lt;SecurityMonitoringCriticalAssetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringCriticalAssetResponse>
+      getSecurityMonitoringCriticalAssetWithHttpInfo(String criticalAssetId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'criticalAssetId' is set
+    if (criticalAssetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'criticalAssetId' when calling"
+              + " getSecurityMonitoringCriticalAsset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}"
+            .replaceAll(
+                "\\{" + "critical_asset_id" + "\\}",
+                apiClient.escapeString(criticalAssetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityMonitoringCriticalAsset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringCriticalAssetResponse>() {});
+  }
+
+  /**
+   * Get a critical asset.
+   *
+   * <p>See {@link #getSecurityMonitoringCriticalAssetWithHttpInfo}.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringCriticalAssetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetResponse>>
+      getSecurityMonitoringCriticalAssetWithHttpInfoAsync(String criticalAssetId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'criticalAssetId' is set
+    if (criticalAssetId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'criticalAssetId' when calling"
+                  + " getSecurityMonitoringCriticalAsset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}"
+            .replaceAll(
+                "\\{" + "critical_asset_id" + "\\}",
+                apiClient.escapeString(criticalAssetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityMonitoringCriticalAsset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringCriticalAssetResponse>() {});
   }
 
   /**
@@ -8979,6 +9558,183 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListSecurityFindingsResponse>() {});
+  }
+
+  /** Manage optional parameters to listSecurityMonitoringCriticalAssets. */
+  public static class ListSecurityMonitoringCriticalAssetsOptionalParameters {
+    private String query;
+
+    /**
+     * Set query.
+     *
+     * @param query Query string. (optional)
+     * @return ListSecurityMonitoringCriticalAssetsOptionalParameters
+     */
+    public ListSecurityMonitoringCriticalAssetsOptionalParameters query(String query) {
+      this.query = query;
+      return this;
+    }
+  }
+
+  /**
+   * Get all critical assets.
+   *
+   * <p>See {@link #listSecurityMonitoringCriticalAssetsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringCriticalAssetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringCriticalAssetsResponse listSecurityMonitoringCriticalAssets()
+      throws ApiException {
+    return listSecurityMonitoringCriticalAssetsWithHttpInfo(
+            new ListSecurityMonitoringCriticalAssetsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get all critical assets.
+   *
+   * <p>See {@link #listSecurityMonitoringCriticalAssetsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityMonitoringCriticalAssetsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringCriticalAssetsResponse>
+      listSecurityMonitoringCriticalAssetsAsync() {
+    return listSecurityMonitoringCriticalAssetsWithHttpInfoAsync(
+            new ListSecurityMonitoringCriticalAssetsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all critical assets.
+   *
+   * <p>See {@link #listSecurityMonitoringCriticalAssetsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringCriticalAssetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringCriticalAssetsResponse listSecurityMonitoringCriticalAssets(
+      ListSecurityMonitoringCriticalAssetsOptionalParameters parameters) throws ApiException {
+    return listSecurityMonitoringCriticalAssetsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all critical assets.
+   *
+   * <p>See {@link #listSecurityMonitoringCriticalAssetsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SecurityMonitoringCriticalAssetsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringCriticalAssetsResponse>
+      listSecurityMonitoringCriticalAssetsAsync(
+          ListSecurityMonitoringCriticalAssetsOptionalParameters parameters) {
+    return listSecurityMonitoringCriticalAssetsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of all critical assets.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringCriticalAssetsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringCriticalAssetsResponse>
+      listSecurityMonitoringCriticalAssetsWithHttpInfo(
+          ListSecurityMonitoringCriticalAssetsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String query = parameters.query;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/critical_assets";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityMonitoringCriticalAssets",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringCriticalAssetsResponse>() {});
+  }
+
+  /**
+   * Get all critical assets.
+   *
+   * <p>See {@link #listSecurityMonitoringCriticalAssetsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringCriticalAssetsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetsResponse>>
+      listSecurityMonitoringCriticalAssetsWithHttpInfoAsync(
+          ListSecurityMonitoringCriticalAssetsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String query = parameters.query;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/critical_assets";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityMonitoringCriticalAssets",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringCriticalAssetsResponse>() {});
   }
 
   /** Manage optional parameters to listSecurityMonitoringHistsignals. */
@@ -13907,6 +14663,184 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityFilterResponse>() {});
+  }
+
+  /**
+   * Update a critical asset.
+   *
+   * <p>See {@link #updateSecurityMonitoringCriticalAssetWithHttpInfo}.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @param body New definition of the critical asset. Supports partial updates. (required)
+   * @return SecurityMonitoringCriticalAssetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringCriticalAssetResponse updateSecurityMonitoringCriticalAsset(
+      String criticalAssetId, SecurityMonitoringCriticalAssetUpdateRequest body)
+      throws ApiException {
+    return updateSecurityMonitoringCriticalAssetWithHttpInfo(criticalAssetId, body).getData();
+  }
+
+  /**
+   * Update a critical asset.
+   *
+   * <p>See {@link #updateSecurityMonitoringCriticalAssetWithHttpInfoAsync}.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @param body New definition of the critical asset. Supports partial updates. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringCriticalAssetResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringCriticalAssetResponse>
+      updateSecurityMonitoringCriticalAssetAsync(
+          String criticalAssetId, SecurityMonitoringCriticalAssetUpdateRequest body) {
+    return updateSecurityMonitoringCriticalAssetWithHttpInfoAsync(criticalAssetId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a specific critical asset.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @param body New definition of the critical asset. Supports partial updates. (required)
+   * @return ApiResponse&lt;SecurityMonitoringCriticalAssetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringCriticalAssetResponse>
+      updateSecurityMonitoringCriticalAssetWithHttpInfo(
+          String criticalAssetId, SecurityMonitoringCriticalAssetUpdateRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'criticalAssetId' is set
+    if (criticalAssetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'criticalAssetId' when calling"
+              + " updateSecurityMonitoringCriticalAsset");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateSecurityMonitoringCriticalAsset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}"
+            .replaceAll(
+                "\\{" + "critical_asset_id" + "\\}",
+                apiClient.escapeString(criticalAssetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateSecurityMonitoringCriticalAsset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringCriticalAssetResponse>() {});
+  }
+
+  /**
+   * Update a critical asset.
+   *
+   * <p>See {@link #updateSecurityMonitoringCriticalAssetWithHttpInfo}.
+   *
+   * @param criticalAssetId The ID of the critical asset. (required)
+   * @param body New definition of the critical asset. Supports partial updates. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringCriticalAssetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetResponse>>
+      updateSecurityMonitoringCriticalAssetWithHttpInfoAsync(
+          String criticalAssetId, SecurityMonitoringCriticalAssetUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'criticalAssetId' is set
+    if (criticalAssetId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'criticalAssetId' when calling"
+                  + " updateSecurityMonitoringCriticalAsset"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityMonitoringCriticalAsset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/critical_assets/{critical_asset_id}"
+            .replaceAll(
+                "\\{" + "critical_asset_id" + "\\}",
+                apiClient.escapeString(criticalAssetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateSecurityMonitoringCriticalAsset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringCriticalAssetResponse>() {});
   }
 
   /**
