@@ -1654,8 +1654,7 @@ public class MetricsApi {
      * Set filterQueried.
      *
      * @param filterQueried (Preview) Filter custom metrics that have or have not been queried in
-     *     the specified window[seconds]. If no window is provided or the window is less than 2
-     *     hours, a default of 2 hours will be applied. (optional)
+     *     the past 30 days. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterQueried(Boolean filterQueried) {
