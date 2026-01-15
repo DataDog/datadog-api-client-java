@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 2.50.0/2026-01-15
+
+### Added
+* Add subtest for synthetics multistep tests [#3383](https://github.com/DataDog/datadog-api-client-java/pull/3383)
+* feat - Add data-quality alert monitor type support [#3381](https://github.com/DataDog/datadog-api-client-java/pull/3381)
+* Add a new end point that allows the SPA recommendation to be called without the shard parameter [#3374](https://github.com/DataDog/datadog-api-client-java/pull/3374)
+* Add Critical Assets specs to security_monitoring feature [#3370](https://github.com/DataDog/datadog-api-client-java/pull/3370)
+* Add new Observability Pipelines components [#3365](https://github.com/DataDog/datadog-api-client-java/pull/3365)
+* Specify accepted types for UpsertRows values [#3358](https://github.com/DataDog/datadog-api-client-java/pull/3358)
+* Add subtest for synthetics multistep tests [#3347](https://github.com/DataDog/datadog-api-client-java/pull/3347)
+* Add `query` param in rules list endpoint [#3339](https://github.com/DataDog/datadog-api-client-java/pull/3339)
+* Add Security Findings Public API beta endpoints [#3326](https://github.com/DataDog/datadog-api-client-java/pull/3326)
+* Add bar chart widget to Dashboards API [#3293](https://github.com/DataDog/datadog-api-client-java/pull/3293)
+* Update distribution and heatmap's `markers` ,`num_buckets` properties and allowed request/query [#3292](https://github.com/DataDog/datadog-api-client-java/pull/3292)
+* Add region_filter_configs and is_global_location_enabled to v2 GCP API [#3285](https://github.com/DataDog/datadog-api-client-java/pull/3285)
+
+### Deprecated
+* Update docs for Security Finding API endpoints [#3379](https://github.com/DataDog/datadog-api-client-java/pull/3379)
+
+### Removed
+* Revert - Update specs for AWS account updates and creation for CCM configs [#3368](https://github.com/DataDog/datadog-api-client-java/pull/3368)
+
+### Fixed
+* remove duplicate sync_enabled field for PATCH Reference Tables request schema [#3262](https://github.com/DataDog/datadog-api-client-java/pull/3262)
+
 ## 2.49.0/2026-01-08
 
 ### Added
