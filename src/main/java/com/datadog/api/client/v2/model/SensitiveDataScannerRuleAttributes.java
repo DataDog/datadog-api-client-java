@@ -28,6 +28,7 @@ import java.util.Objects;
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_NAMESPACES,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_PATTERN,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_PRIORITY,
+  SensitiveDataScannerRuleAttributes.JSON_PROPERTY_SUPPRESSIONS,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_TAGS,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_TEXT_REPLACEMENT
 })
@@ -59,6 +60,9 @@ public class SensitiveDataScannerRuleAttributes {
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private Long priority;
+
+  public static final String JSON_PROPERTY_SUPPRESSIONS = "suppressions";
+  private SensitiveDataScannerSuppressions suppressions;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -259,6 +263,31 @@ public class SensitiveDataScannerRuleAttributes {
     this.priority = priority;
   }
 
+  public SensitiveDataScannerRuleAttributes suppressions(
+      SensitiveDataScannerSuppressions suppressions) {
+    this.suppressions = suppressions;
+    this.unparsed |= suppressions.unparsed;
+    return this;
+  }
+
+  /**
+   * Object describing the suppressions for a rule. There are three types of suppressions, <code>
+   * starts_with</code>, <code>ends_with</code>, and <code>exact_match</code>. Suppressed matches
+   * are not obfuscated, counted in metrics, or displayed in the Findings page.
+   *
+   * @return suppressions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUPPRESSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SensitiveDataScannerSuppressions getSuppressions() {
+    return suppressions;
+  }
+
+  public void setSuppressions(SensitiveDataScannerSuppressions suppressions) {
+    this.suppressions = suppressions;
+  }
+
   public SensitiveDataScannerRuleAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -379,6 +408,7 @@ public class SensitiveDataScannerRuleAttributes {
         && Objects.equals(this.namespaces, sensitiveDataScannerRuleAttributes.namespaces)
         && Objects.equals(this.pattern, sensitiveDataScannerRuleAttributes.pattern)
         && Objects.equals(this.priority, sensitiveDataScannerRuleAttributes.priority)
+        && Objects.equals(this.suppressions, sensitiveDataScannerRuleAttributes.suppressions)
         && Objects.equals(this.tags, sensitiveDataScannerRuleAttributes.tags)
         && Objects.equals(this.textReplacement, sensitiveDataScannerRuleAttributes.textReplacement)
         && Objects.equals(
@@ -396,6 +426,7 @@ public class SensitiveDataScannerRuleAttributes {
         namespaces,
         pattern,
         priority,
+        suppressions,
         tags,
         textReplacement,
         additionalProperties);
@@ -415,6 +446,7 @@ public class SensitiveDataScannerRuleAttributes {
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    suppressions: ").append(toIndentedString(suppressions)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    textReplacement: ").append(toIndentedString(textReplacement)).append("\n");
     sb.append("    additionalProperties: ")
