@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response object that includes a single metric's indexed tags. */
+/** Response object that includes a single metric's indexed and ingested tags. */
 @JsonPropertyOrder({MetricAllTagsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class MetricAllTagsResponse {
   }
 
   /**
-   * Object for a single metric's indexed tags.
+   * Object for a single metric's indexed and ingested tags.
    *
    * @return data
    */
