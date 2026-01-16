@@ -337,10 +337,13 @@ public class IssueCaseAttributes {
   }
 
   /**
-   * Case status
+   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and
+   * CLOSED statuses. Use <code>status_name</code> instead.
    *
    * @return status
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -348,6 +351,7 @@ public class IssueCaseAttributes {
     return status;
   }
 
+  @Deprecated
   public void setStatus(CaseStatus status) {
     if (!status.isValid()) {
       this.unparsed = true;

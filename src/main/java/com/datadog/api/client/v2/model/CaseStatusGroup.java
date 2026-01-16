@@ -18,42 +18,39 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED
- * statuses. Use <code>status_name</code> instead.
- */
-@JsonSerialize(using = CaseStatus.CaseStatusSerializer.class)
-public class CaseStatus extends ModelEnum<String> {
+/** Status group of the case. */
+@JsonSerialize(using = CaseStatusGroup.CaseStatusGroupSerializer.class)
+public class CaseStatusGroup extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("OPEN", "IN_PROGRESS", "CLOSED"));
+      new HashSet<String>(Arrays.asList("SG_OPEN", "SG_IN_PROGRESS", "SG_CLOSED"));
 
-  public static final CaseStatus OPEN = new CaseStatus("OPEN");
-  public static final CaseStatus IN_PROGRESS = new CaseStatus("IN_PROGRESS");
-  public static final CaseStatus CLOSED = new CaseStatus("CLOSED");
+  public static final CaseStatusGroup SG_OPEN = new CaseStatusGroup("SG_OPEN");
+  public static final CaseStatusGroup SG_IN_PROGRESS = new CaseStatusGroup("SG_IN_PROGRESS");
+  public static final CaseStatusGroup SG_CLOSED = new CaseStatusGroup("SG_CLOSED");
 
-  CaseStatus(String value) {
+  CaseStatusGroup(String value) {
     super(value, allowedValues);
   }
 
-  public static class CaseStatusSerializer extends StdSerializer<CaseStatus> {
-    public CaseStatusSerializer(Class<CaseStatus> t) {
+  public static class CaseStatusGroupSerializer extends StdSerializer<CaseStatusGroup> {
+    public CaseStatusGroupSerializer(Class<CaseStatusGroup> t) {
       super(t);
     }
 
-    public CaseStatusSerializer() {
+    public CaseStatusGroupSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(CaseStatus value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(CaseStatusGroup value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static CaseStatus fromValue(String value) {
-    return new CaseStatus(value);
+  public static CaseStatusGroup fromValue(String value) {
+    return new CaseStatusGroup(value);
   }
 }

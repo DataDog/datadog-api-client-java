@@ -22,6 +22,7 @@ import java.util.Objects;
   CaseCreateAttributes.JSON_PROPERTY_CUSTOM_ATTRIBUTES,
   CaseCreateAttributes.JSON_PROPERTY_DESCRIPTION,
   CaseCreateAttributes.JSON_PROPERTY_PRIORITY,
+  CaseCreateAttributes.JSON_PROPERTY_STATUS_NAME,
   CaseCreateAttributes.JSON_PROPERTY_TITLE,
   CaseCreateAttributes.JSON_PROPERTY_TYPE_ID
 })
@@ -37,6 +38,9 @@ public class CaseCreateAttributes {
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private CasePriority priority = CasePriority.NOT_DEFINED;
+
+  public static final String JSON_PROPERTY_STATUS_NAME = "status_name";
+  private String statusName;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -128,6 +132,27 @@ public class CaseCreateAttributes {
       this.unparsed = true;
     }
     this.priority = priority;
+  }
+
+  public CaseCreateAttributes statusName(String statusName) {
+    this.statusName = statusName;
+    return this;
+  }
+
+  /**
+   * Status of the case. Must be one of the existing statuses for the case's type.
+   *
+   * @return statusName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatusName() {
+    return statusName;
+  }
+
+  public void setStatusName(String statusName) {
+    this.statusName = statusName;
   }
 
   public CaseCreateAttributes title(String title) {
@@ -229,6 +254,7 @@ public class CaseCreateAttributes {
     return Objects.equals(this.customAttributes, caseCreateAttributes.customAttributes)
         && Objects.equals(this.description, caseCreateAttributes.description)
         && Objects.equals(this.priority, caseCreateAttributes.priority)
+        && Objects.equals(this.statusName, caseCreateAttributes.statusName)
         && Objects.equals(this.title, caseCreateAttributes.title)
         && Objects.equals(this.typeId, caseCreateAttributes.typeId)
         && Objects.equals(this.additionalProperties, caseCreateAttributes.additionalProperties);
@@ -237,7 +263,7 @@ public class CaseCreateAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        customAttributes, description, priority, title, typeId, additionalProperties);
+        customAttributes, description, priority, statusName, title, typeId, additionalProperties);
   }
 
   @Override
@@ -247,6 +273,7 @@ public class CaseCreateAttributes {
     sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    statusName: ").append(toIndentedString(statusName)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    typeId: ").append(toIndentedString(typeId)).append("\n");
     sb.append("    additionalProperties: ")
