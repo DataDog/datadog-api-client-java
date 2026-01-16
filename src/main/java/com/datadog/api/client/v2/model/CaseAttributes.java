@@ -33,6 +33,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   CaseAttributes.JSON_PROPERTY_PRIORITY,
   CaseAttributes.JSON_PROPERTY_SERVICE_NOW_TICKET,
   CaseAttributes.JSON_PROPERTY_STATUS,
+  CaseAttributes.JSON_PROPERTY_STATUS_GROUP,
+  CaseAttributes.JSON_PROPERTY_STATUS_NAME,
   CaseAttributes.JSON_PROPERTY_TITLE,
   CaseAttributes.JSON_PROPERTY_TYPE,
   CaseAttributes.JSON_PROPERTY_TYPE_ID
@@ -77,6 +79,12 @@ public class CaseAttributes {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private CaseStatus status;
+
+  public static final String JSON_PROPERTY_STATUS_GROUP = "status_group";
+  private CaseStatusGroup statusGroup;
+
+  public static final String JSON_PROPERTY_STATUS_NAME = "status_name";
+  private String statusName;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -362,10 +370,13 @@ public class CaseAttributes {
   }
 
   /**
-   * Case status
+   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and
+   * CLOSED statuses. Use <code>status_name</code> instead.
    *
    * @return status
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -373,11 +384,58 @@ public class CaseAttributes {
     return status;
   }
 
+  @Deprecated
   public void setStatus(CaseStatus status) {
     if (!status.isValid()) {
       this.unparsed = true;
     }
     this.status = status;
+  }
+
+  public CaseAttributes statusGroup(CaseStatusGroup statusGroup) {
+    this.statusGroup = statusGroup;
+    this.unparsed |= !statusGroup.isValid();
+    return this;
+  }
+
+  /**
+   * Status group of the case.
+   *
+   * @return statusGroup
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CaseStatusGroup getStatusGroup() {
+    return statusGroup;
+  }
+
+  public void setStatusGroup(CaseStatusGroup statusGroup) {
+    if (!statusGroup.isValid()) {
+      this.unparsed = true;
+    }
+    this.statusGroup = statusGroup;
+  }
+
+  public CaseAttributes statusName(String statusName) {
+    this.statusName = statusName;
+    return this;
+  }
+
+  /**
+   * Status of the case. Must be one of the existing statuses for the case's type.
+   *
+   * @return statusName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatusName() {
+    return statusName;
+  }
+
+  public void setStatusName(String statusName) {
+    this.statusName = statusName;
   }
 
   public CaseAttributes title(String title) {
@@ -518,6 +576,8 @@ public class CaseAttributes {
         && Objects.equals(this.priority, caseAttributes.priority)
         && Objects.equals(this.serviceNowTicket, caseAttributes.serviceNowTicket)
         && Objects.equals(this.status, caseAttributes.status)
+        && Objects.equals(this.statusGroup, caseAttributes.statusGroup)
+        && Objects.equals(this.statusName, caseAttributes.statusName)
         && Objects.equals(this.title, caseAttributes.title)
         && Objects.equals(this.type, caseAttributes.type)
         && Objects.equals(this.typeId, caseAttributes.typeId)
@@ -539,6 +599,8 @@ public class CaseAttributes {
         priority,
         serviceNowTicket,
         status,
+        statusGroup,
+        statusName,
         title,
         type,
         typeId,
@@ -561,6 +623,8 @@ public class CaseAttributes {
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    serviceNowTicket: ").append(toIndentedString(serviceNowTicket)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusGroup: ").append(toIndentedString(statusGroup)).append("\n");
+    sb.append("    statusName: ").append(toIndentedString(statusName)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    typeId: ").append(toIndentedString(typeId)).append("\n");

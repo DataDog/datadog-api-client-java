@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,7 +17,10 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Case update status attributes */
-@JsonPropertyOrder({CaseUpdateStatusAttributes.JSON_PROPERTY_STATUS})
+@JsonPropertyOrder({
+  CaseUpdateStatusAttributes.JSON_PROPERTY_STATUS,
+  CaseUpdateStatusAttributes.JSON_PROPERTY_STATUS_NAME
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CaseUpdateStatusAttributes {
@@ -26,14 +28,8 @@ public class CaseUpdateStatusAttributes {
   public static final String JSON_PROPERTY_STATUS = "status";
   private CaseStatus status;
 
-  public CaseUpdateStatusAttributes() {}
-
-  @JsonCreator
-  public CaseUpdateStatusAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS) CaseStatus status) {
-    this.status = status;
-    this.unparsed |= !status.isValid();
-  }
+  public static final String JSON_PROPERTY_STATUS_NAME = "status_name";
+  private String statusName;
 
   public CaseUpdateStatusAttributes status(CaseStatus status) {
     this.status = status;
@@ -42,21 +38,47 @@ public class CaseUpdateStatusAttributes {
   }
 
   /**
-   * Case status
+   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and
+   * CLOSED statuses. Use <code>status_name</code> instead.
    *
    * @return status
+   * @deprecated
    */
+  @Deprecated
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CaseStatus getStatus() {
     return status;
   }
 
+  @Deprecated
   public void setStatus(CaseStatus status) {
     if (!status.isValid()) {
       this.unparsed = true;
     }
     this.status = status;
+  }
+
+  public CaseUpdateStatusAttributes statusName(String statusName) {
+    this.statusName = statusName;
+    return this;
+  }
+
+  /**
+   * Status of the case. Must be one of the existing statuses for the case's type.
+   *
+   * @return statusName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatusName() {
+    return statusName;
+  }
+
+  public void setStatusName(String statusName) {
+    this.statusName = statusName;
   }
 
   /**
@@ -116,13 +138,14 @@ public class CaseUpdateStatusAttributes {
     }
     CaseUpdateStatusAttributes caseUpdateStatusAttributes = (CaseUpdateStatusAttributes) o;
     return Objects.equals(this.status, caseUpdateStatusAttributes.status)
+        && Objects.equals(this.statusName, caseUpdateStatusAttributes.statusName)
         && Objects.equals(
             this.additionalProperties, caseUpdateStatusAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, additionalProperties);
+    return Objects.hash(status, statusName, additionalProperties);
   }
 
   @Override
@@ -130,6 +153,7 @@ public class CaseUpdateStatusAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class CaseUpdateStatusAttributes {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusName: ").append(toIndentedString(statusName)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
