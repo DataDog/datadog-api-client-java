@@ -8,10 +8,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"attributes\":{},\"type\":\"sensitive_data_scanner_configuration\",\"relationships\":{\"groups\":{\"data\":[]}}},\"meta\":{\"version\":275277,\"count_limit\":250,\"group_count_limit\":20,\"is_pci_compliant\":false,\"has_highlight_enabled\":true,\"has_multi_pass_enabled\":true,\"has_cascading_enabled\":false,\"is_configuration_superseded\":false,\"is_float_sampling_rate_enabled\":false,\"min_sampling_rate\":10.0}}\n",
+      "body": "{\"data\":{\"attributes\":{},\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"relationships\":{\"groups\":{\"data\":[{\"id\":\"c609e375-e508-400c-8773-dfb9f09becfb\",\"type\":\"sensitive_data_scanner_group\"},{\"id\":\"b8be3920-9549-43f8-bb5d-ac1c80982096\",\"type\":\"sensitive_data_scanner_group\"},{\"id\":\"47c9a117-47ea-4981-b136-52e57d2e5ed3\",\"type\":\"sensitive_data_scanner_group\"},{\"id\":\"16a6f749-aa80-49ae-991f-bd90b91111c7\",\"type\":\"sensitive_data_scanner_group\"},{\"id\":\"643aa475-4d47-40b9-9687-6c1a423d5f19\",\"type\":\"sensitive_data_scanner_group\"}]}},\"type\":\"sensitive_data_scanner_configuration\"},\"included\":[{\"attributes\":{\"description\":\"\",\"filter\":{\"query\":\"*\"},\"is_enabled\":false,\"name\":\"Example-Create_Scanning_Group_returns_OK_response_1768580144\",\"product_list\":[\"logs\"],\"samplings\":[]},\"id\":\"c609e375-e508-400c-8773-dfb9f09becfb\",\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}},\"type\":\"sensitive_data_scanner_group\"},{\"attributes\":{\"description\":\"\",\"filter\":{\"query\":\"*\"},\"is_enabled\":false,\"name\":\"Example-Create_Scanning_Group_returns_OK_response_1768580144\",\"product_list\":[\"logs\"],\"samplings\":[]},\"id\":\"b8be3920-9549-43f8-bb5d-ac1c80982096\",\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}},\"type\":\"sensitive_data_scanner_group\"},{\"attributes\":{\"description\":\"\",\"filter\":{\"query\":\"*\"},\"is_enabled\":false,\"name\":\"Example-Create_Scanning_Group_returns_OK_response_1768580144\",\"product_list\":[\"logs\"],\"samplings\":[]},\"id\":\"47c9a117-47ea-4981-b136-52e57d2e5ed3\",\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}},\"type\":\"sensitive_data_scanner_group\"},{\"attributes\":{\"description\":\"\",\"filter\":{\"query\":\"*\"},\"is_enabled\":false,\"name\":\"Example-Create_Scanning_Group_returns_OK_response_1768580144\",\"product_list\":[\"logs\"],\"samplings\":[]},\"id\":\"16a6f749-aa80-49ae-991f-bd90b91111c7\",\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}},\"type\":\"sensitive_data_scanner_group\"},{\"attributes\":{\"description\":\"\",\"filter\":{\"query\":\"*\"},\"is_enabled\":false,\"name\":\"Example-Create_Scanning_Group_returns_OK_response_1768580144\",\"product_list\":[\"logs\"],\"samplings\":[]},\"id\":\"643aa475-4d47-40b9-9687-6c1a423d5f19\",\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}},\"type\":\"sensitive_data_scanner_group\"}],\"meta\":{\"count_limit\":500,\"group_count_limit\":20,\"has_cascading_enabled\":false,\"has_highlight_enabled\":true,\"has_multi_pass_enabled\":true,\"is_configuration_superseded\":false,\"is_float_sampling_rate_enabled\":false,\"is_pci_compliant\":false,\"min_sampling_rate\":10,\"rule_count_limit\":500,\"version\":276746}}",
       "headers": {
         "Content-Type": [
-          "application/json"
+          "application/vnd.api+json"
         ]
       },
       "statusCode": 200,
@@ -38,14 +38,14 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"18cc2267-f3cc-4c15-917d-d3efb15deb03\",\"attributes\":{\"name\":\"my-test-group\",\"is_enabled\":false,\"filter\":{\"query\":\"*\"},\"product_list\":[\"logs\"],\"samplings\":[{\"product\":\"logs\",\"rate\":100.0}]},\"type\":\"sensitive_data_scanner_group\",\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}}},\"meta\":{\"version\":275278}}\n",
+      "body": "{\"data\":{\"id\":\"cf99d196-3fca-444d-938f-ac7fcf49e529\",\"type\":\"sensitive_data_scanner_group\",\"attributes\":{\"description\":\"\",\"filter\":{\"query\":\"*\"},\"is_enabled\":false,\"name\":\"my-test-group\",\"product_list\":[\"logs\"],\"samplings\":[{\"product\":\"logs\",\"rate\":100}]},\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}}},\"meta\":{\"version\":276747}}",
       "headers": {
         "Content-Type": [
-          "application/json"
+          "application/vnd.api+json"
         ]
       },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
+      "statusCode": 201,
+      "reasonPhrase": "Created"
     },
     "times": {
       "remainingTimes": 1
@@ -59,7 +59,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Create_Scanning_Rule_with_should_save_match_returns_OK_response-1756240304\",\"pattern\":\"pattern\",\"priority\":1,\"tags\":[\"sensitive_data:true\"],\"text_replacement\":{\"replacement_string\":\"REDACTED\",\"should_save_match\":true,\"type\":\"replacement_string\"}},\"relationships\":{\"group\":{\"data\":{\"id\":\"18cc2267-f3cc-4c15-917d-d3efb15deb03\",\"type\":\"sensitive_data_scanner_group\"}}},\"type\":\"sensitive_data_scanner_rule\"},\"meta\":{}}"
+        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Create_Scanning_Rule_with_should_save_match_returns_OK_response-1768586054\",\"pattern\":\"pattern\",\"priority\":1,\"tags\":[\"sensitive_data:true\"],\"text_replacement\":{\"replacement_string\":\"REDACTED\",\"should_save_match\":true,\"type\":\"replacement_string\"}},\"relationships\":{\"group\":{\"data\":{\"id\":\"cf99d196-3fca-444d-938f-ac7fcf49e529\",\"type\":\"sensitive_data_scanner_group\"}}},\"type\":\"sensitive_data_scanner_rule\"},\"meta\":{}}"
       },
       "headers": {},
       "method": "POST",
@@ -68,14 +68,14 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"0e517b8a-04c1-4ae0-b57b-22b8e081190c\",\"attributes\":{\"name\":\"Test-Create_Scanning_Rule_with_should_save_match_returns_OK_response-1756240304\",\"namespaces\":[],\"excluded_namespaces\":[],\"pattern\":\"pattern\",\"text_replacement\":{\"replacement_string\":\"REDACTED\",\"should_save_match\":true,\"type\":\"replacement_string\"},\"tags\":[\"sensitive_data:true\"],\"labels\":[],\"is_enabled\":true,\"priority\":1},\"type\":\"sensitive_data_scanner_rule\",\"relationships\":{\"group\":{\"data\":{\"id\":\"18cc2267-f3cc-4c15-917d-d3efb15deb03\",\"type\":\"sensitive_data_scanner_group\"}}}},\"meta\":{\"version\":275279}}\n",
+      "body": "{\"data\":{\"id\":\"698d4de4-97b3-4cbd-b725-bfa2bb30039c\",\"type\":\"sensitive_data_scanner_rule\",\"attributes\":{\"excluded_namespaces\":[],\"is_enabled\":true,\"labels\":[],\"name\":\"Test-Create_Scanning_Rule_with_should_save_match_returns_OK_response-1768586054\",\"namespaces\":[],\"pattern\":\"pattern\",\"priority\":1,\"tags\":[\"sensitive_data:true\"],\"text_replacement\":{\"type\":\"replacement_string\",\"replacement_string\":\"REDACTED\",\"should_save_match\":true}},\"relationships\":{\"group\":{\"data\":{\"id\":\"cf99d196-3fca-444d-938f-ac7fcf49e529\",\"type\":\"sensitive_data_scanner_group\"}}}},\"meta\":{\"version\":276748}}",
       "headers": {
         "Content-Type": [
-          "application/json"
+          "application/vnd.api+json"
         ]
       },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
+      "statusCode": 201,
+      "reasonPhrase": "Created"
     },
     "times": {
       "remainingTimes": 1
@@ -83,7 +83,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d5695745-b55e-b2d2-1a8b-ce6beb63aa60"
+    "id": "b2d0abb9-f805-4d37-c1ce-9ecabe95ceae"
   },
   {
     "httpRequest": {
@@ -93,15 +93,15 @@
       },
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/sensitive-data-scanner/config/rules/0e517b8a-04c1-4ae0-b57b-22b8e081190c",
+      "path": "/api/v2/sensitive-data-scanner/config/rules/698d4de4-97b3-4cbd-b725-bfa2bb30039c",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"version\":275280}}\n",
+      "body": "{\"meta\":{\"version\":276749}}",
       "headers": {
         "Content-Type": [
-          "application/json"
+          "application/vnd.api+json"
         ]
       },
       "statusCode": 200,
@@ -113,7 +113,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9cb4750b-c912-e7e7-baa6-31b157a5f623"
+    "id": "c4c5eb1d-cdc5-f568-699c-23af5b1ef211"
   },
   {
     "httpRequest": {
@@ -123,15 +123,15 @@
       },
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/sensitive-data-scanner/config/groups/18cc2267-f3cc-4c15-917d-d3efb15deb03",
+      "path": "/api/v2/sensitive-data-scanner/config/groups/cf99d196-3fca-444d-938f-ac7fcf49e529",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"version\":275281}}\n",
+      "body": "{\"meta\":{\"version\":276750}}",
       "headers": {
         "Content-Type": [
-          "application/json"
+          "application/vnd.api+json"
         ]
       },
       "statusCode": 200,
@@ -143,6 +143,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e79ae3f1-26ed-be85-15ec-0a35094e9e3f"
+    "id": "25919858-3486-2f0d-0a1b-82d368c5beee"
   }
 ]
