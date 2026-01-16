@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"ccm_config\":{\"data_export_configs\":[{\"bucket_name\":\"billing-updated\",\"bucket_region\":\"us-west-2\",\"report_name\":\"cost-report-updated\",\"report_prefix\":\"reports-updated\",\"report_type\":\"CUR2.0\"}]}},\"type\":\"ccm_config\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/integration/aws/accounts/873c7e78-8915-4c7a-a3a7-33a57adf54f4/ccm_config",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"873c7e78-8915-4c7a-a3a7-33a57adf54f4\",\"type\":\"ccm_config\",\"attributes\":{\"data_export_configs\":[{\"report_name\":\"cost-report-updated\",\"report_prefix\":\"reports-updated\",\"report_type\":\"CUR2.0\",\"bucket_name\":\"billing-updated\",\"bucket_region\":\"us-west-2\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "42739e46-e452-1079-7039-0b9f25d757f1"
+  }
+]

@@ -850,6 +850,10 @@ public class ApiClient {
           put("v2.updateIncidentNotificationTemplate", false);
           put("v2.updateIncidentTodo", false);
           put("v2.updateIncidentType", false);
+          put("v2.createAWSAccountCCMConfig", false);
+          put("v2.deleteAWSAccountCCMConfig", false);
+          put("v2.getAWSAccountCCMConfig", false);
+          put("v2.updateAWSAccountCCMConfig", false);
           put("v2.addRoleToRestrictionQuery", false);
           put("v2.createRestrictionQuery", false);
           put("v2.deleteRestrictionQuery", false);

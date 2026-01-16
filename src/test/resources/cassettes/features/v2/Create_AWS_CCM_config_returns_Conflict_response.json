@@ -1,0 +1,62 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"ccm_config\":{\"data_export_configs\":[{\"bucket_name\":\"billing\",\"bucket_region\":\"us-east-1\",\"report_name\":\"cost-and-usage-report\",\"report_prefix\":\"reports\",\"report_type\":\"CUR2.0\"}]}},\"type\":\"ccm_config\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/aws/accounts/873c7e78-8915-4c7a-a3a7-33a57adf54f4/ccm_config",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"409\",\"title\":\"Account already exists\",\"detail\":\"CCM config already exists for this account\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 409,
+      "reasonPhrase": "Conflict"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ffdcad94-880b-0e7c-65da-14719b629b39"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"ccm_config\":{\"data_export_configs\":[{\"bucket_name\":\"billing\",\"bucket_region\":\"us-east-1\",\"report_name\":\"cost-and-usage-report\",\"report_prefix\":\"reports\",\"report_type\":\"CUR2.0\"}]}},\"type\":\"ccm_config\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/aws/accounts/873c7e78-8915-4c7a-a3a7-33a57adf54f4/ccm_config",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"409\",\"title\":\"Account already exists\",\"detail\":\"CCM config already exists for this account\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 409,
+      "reasonPhrase": "Conflict"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ffdcad94-880b-0e7c-65da-14719b629b3a"
+  }
+]
