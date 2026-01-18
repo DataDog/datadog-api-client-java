@@ -17,6 +17,9 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createIncidentAttachment", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
+    // there is a valid "incident" in the system
+    String INCIDENT_DATA_ID = System.getenv("INCIDENT_DATA_ID");
+
     CreateAttachmentRequest body =
         new CreateAttachmentRequest()
             .data(
@@ -26,14 +29,13 @@ public class Example {
                             .attachment(
                                 new CreateAttachmentRequestDataAttributesAttachment()
                                     .documentUrl(
-                                        "https://app.datadoghq.com/notebook/123/Postmortem-IR-123")
-                                    .title("Postmortem-IR-123"))
+                                        "https://app.datadoghq.com/notebook/ExampleIncident/Example-Incident")
+                                    .title("Example-Incident"))
                             .attachmentType(AttachmentDataAttributesAttachmentType.POSTMORTEM))
-                    .id("00000000-0000-0000-0000-000000000000")
                     .type(IncidentAttachmentType.INCIDENT_ATTACHMENTS));
 
     try {
-      Attachment result = apiInstance.createIncidentAttachment("incident_id", body);
+      Attachment result = apiInstance.createIncidentAttachment(INCIDENT_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IncidentsApi#createIncidentAttachment");

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attachment data for a create request. */
 @JsonPropertyOrder({
   CreateAttachmentRequestData.JSON_PROPERTY_ATTRIBUTES,
   CreateAttachmentRequestData.JSON_PROPERTY_ID,
@@ -52,7 +52,7 @@ public class CreateAttachmentRequestData {
   }
 
   /**
-   * Getattributes
+   * The attributes for creating an attachment.
    *
    * @return attributes
    */

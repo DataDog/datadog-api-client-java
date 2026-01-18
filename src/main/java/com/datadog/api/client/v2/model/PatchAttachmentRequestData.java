@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attachment data for an update request. */
 @JsonPropertyOrder({
   PatchAttachmentRequestData.JSON_PROPERTY_ATTRIBUTES,
   PatchAttachmentRequestData.JSON_PROPERTY_ID,
@@ -52,7 +52,7 @@ public class PatchAttachmentRequestData {
   }
 
   /**
-   * Getattributes
+   * The attributes for updating an attachment.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class PatchAttachmentRequestData {
   }
 
   /**
-   * Getid
+   * The unique identifier of the attachment.
    *
    * @return id
    */

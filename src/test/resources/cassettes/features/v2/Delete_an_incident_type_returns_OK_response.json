@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"dbf7f2e1-8f37-4624-9762-6e744db257aa\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2024-11-04T19:02:22.674338166Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2024-11-04T19:02:22.674338166Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"}}}",
+      "body": "{\"data\":{\"id\":\"66c380e5-8177-4c5f-afc3-8f1ee5a429bd\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-01-07T15:19:26.031409185Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-01-07T15:19:26.031409267Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,7 +33,7 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/dbf7f2e1-8f37-4624-9762-6e744db257aa",
+      "path": "/api/v2/incidents/config/types/66c380e5-8177-4c5f-afc3-8f1ee5a429bd",
       "keepAlive": false,
       "secure": true
     },
@@ -48,20 +48,25 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ee735fea-f0c7-4690-d419-1605f40650b7"
+    "id": "f4068234-5bf8-4f80-abfb-569c631b4b6d"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/dbf7f2e1-8f37-4624-9762-6e744db257aa",
+      "path": "/api/v2/incidents/config/types/66c380e5-8177-4c5f-afc3-8f1ee5a429bd",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
-      "statusCode": 204,
-      "reasonPhrase": "No Content"
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
     },
     "times": {
       "remainingTimes": 1
@@ -69,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ee735fea-f0c7-4690-d419-1605f40650b8"
+    "id": "f4068234-5bf8-4f80-abfb-569c631b4b6e"
   }
 ]
