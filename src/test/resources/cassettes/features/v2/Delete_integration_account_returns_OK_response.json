@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_integration_account_returns_OK_response-1768522913\",\"secrets\":{\"api_key_token\":\"test_secret_token_value\"},\"settings\":{\"account_sid\":\"ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"alerts\":true,\"api_key\":\"SKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"call_summaries\":true,\"ccm_enabled\":true,\"censor_logs\":true,\"events\":true,\"messages\":true}},\"type\":\"Account\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/web-integrations/twilio/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"2ef78fa1-8ebd-4dc8-8db7-1516563d9a35\",\"type\":\"Account\",\"attributes\":{\"name\":\"Test-Delete_integration_account_returns_OK_response-1768522913\",\"settings\":{\"account_sid\":\"ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"alerts\":true,\"api_key\":\"SKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"call_summaries\":true,\"ccm_enabled\":true,\"censor_logs\":true,\"events\":true,\"messages\":true}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a2197037-fd4b-273c-0921-261676cde17c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/web-integrations/twilio/accounts/2ef78fa1-8ebd-4dc8-8db7-1516563d9a35",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ca5b2b00-8182-544f-6e90-27ea25d21c13"
+  }
+]

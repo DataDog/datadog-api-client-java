@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,86 +17,76 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Pagination metadata. */
+/** Attributes for a web integration account. */
 @JsonPropertyOrder({
-  SecurityMonitoringSuppressionsPageMeta.JSON_PROPERTY_PAGE_NUMBER,
-  SecurityMonitoringSuppressionsPageMeta.JSON_PROPERTY_PAGE_SIZE,
-  SecurityMonitoringSuppressionsPageMeta.JSON_PROPERTY_TOTAL_COUNT
+  WebIntegrationAccountAttributes.JSON_PROPERTY_NAME,
+  WebIntegrationAccountAttributes.JSON_PROPERTY_SETTINGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringSuppressionsPageMeta {
+public class WebIntegrationAccountAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PAGE_NUMBER = "pageNumber";
-  private Long pageNumber;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public static final String JSON_PROPERTY_PAGE_SIZE = "pageSize";
-  private Long pageSize;
+  public static final String JSON_PROPERTY_SETTINGS = "settings";
+  private Map<String, Object> settings = new HashMap<String, Object>();
 
-  public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
-  private Long totalCount;
+  public WebIntegrationAccountAttributes() {}
 
-  public SecurityMonitoringSuppressionsPageMeta pageNumber(Long pageNumber) {
-    this.pageNumber = pageNumber;
+  @JsonCreator
+  public WebIntegrationAccountAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SETTINGS) Map<String, Object> settings) {
+    this.name = name;
+    this.settings = settings;
+  }
+
+  public WebIntegrationAccountAttributes name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Current page number.
+   * The name of the account.
    *
-   * @return pageNumber
+   * @return name
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getPageNumber() {
-    return pageNumber;
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
   }
 
-  public void setPageNumber(Long pageNumber) {
-    this.pageNumber = pageNumber;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public SecurityMonitoringSuppressionsPageMeta pageSize(Long pageSize) {
-    this.pageSize = pageSize;
+  public WebIntegrationAccountAttributes settings(Map<String, Object> settings) {
+    this.settings = settings;
+    return this;
+  }
+
+  public WebIntegrationAccountAttributes putSettingsItem(String key, Object settingsItem) {
+    this.settings.put(key, settingsItem);
     return this;
   }
 
   /**
-   * Current page size.
+   * Integration-specific settings for the account. The structure and required fields vary by
+   * integration type. Use the schema endpoint to retrieve the specific requirements for each
+   * integration.
    *
-   * @return pageSize
+   * @return settings
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getPageSize() {
-    return pageSize;
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Map<String, Object> getSettings() {
+    return settings;
   }
 
-  public void setPageSize(Long pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public SecurityMonitoringSuppressionsPageMeta totalCount(Long totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-  /**
-   * Total count of suppressions.
-   *
-   * @return totalCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Long totalCount) {
-    this.totalCount = totalCount;
+  public void setSettings(Map<String, Object> settings) {
+    this.settings = settings;
   }
 
   /**
@@ -110,10 +101,10 @@ public class SecurityMonitoringSuppressionsPageMeta {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SecurityMonitoringSuppressionsPageMeta
+   * @return WebIntegrationAccountAttributes
    */
   @JsonAnySetter
-  public SecurityMonitoringSuppressionsPageMeta putAdditionalProperty(String key, Object value) {
+  public WebIntegrationAccountAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +135,7 @@ public class SecurityMonitoringSuppressionsPageMeta {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringSuppressionsPageMeta object is equal to o. */
+  /** Return true if this WebIntegrationAccountAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,27 +144,25 @@ public class SecurityMonitoringSuppressionsPageMeta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSuppressionsPageMeta securityMonitoringSuppressionsPageMeta =
-        (SecurityMonitoringSuppressionsPageMeta) o;
-    return Objects.equals(this.pageNumber, securityMonitoringSuppressionsPageMeta.pageNumber)
-        && Objects.equals(this.pageSize, securityMonitoringSuppressionsPageMeta.pageSize)
-        && Objects.equals(this.totalCount, securityMonitoringSuppressionsPageMeta.totalCount)
+    WebIntegrationAccountAttributes webIntegrationAccountAttributes =
+        (WebIntegrationAccountAttributes) o;
+    return Objects.equals(this.name, webIntegrationAccountAttributes.name)
+        && Objects.equals(this.settings, webIntegrationAccountAttributes.settings)
         && Objects.equals(
-            this.additionalProperties, securityMonitoringSuppressionsPageMeta.additionalProperties);
+            this.additionalProperties, webIntegrationAccountAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, totalCount, additionalProperties);
+    return Objects.hash(name, settings, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringSuppressionsPageMeta {\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
+    sb.append("class WebIntegrationAccountAttributes {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_integration_account_returns_Created_response-1768522912\",\"secrets\":{\"api_key_token\":\"test_secret_token\"},\"settings\":{\"account_sid\":\"ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"alerts\":true,\"api_key\":\"SKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"call_summaries\":true,\"ccm_enabled\":true,\"censor_logs\":true,\"events\":true,\"messages\":true}},\"type\":\"Account\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/web-integrations/twilio/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"591eebe4-998f-49f0-b5db-a6b76e3ff392\",\"type\":\"Account\",\"attributes\":{\"name\":\"Test-Create_integration_account_returns_Created_response-1768522912\",\"settings\":{\"account_sid\":\"ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"alerts\":true,\"api_key\":\"SKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"call_summaries\":true,\"ccm_enabled\":true,\"censor_logs\":true,\"events\":true,\"messages\":true}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "657e1bc8-d7c7-b991-aec2-3fcee4c48443"
+  }
+]

@@ -8,87 +8,53 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response object containing the available suppression rules with pagination metadata. */
-@JsonPropertyOrder({
-  SecurityMonitoringPaginatedSuppressionsResponse.JSON_PROPERTY_DATA,
-  SecurityMonitoringPaginatedSuppressionsResponse.JSON_PROPERTY_META
-})
+/** Payload for creating a web integration account. */
+@JsonPropertyOrder({WebIntegrationAccountCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringPaginatedSuppressionsResponse {
+public class WebIntegrationAccountCreateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<SecurityMonitoringSuppression> data = null;
+  private WebIntegrationAccountCreateRequestData data;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private SecurityMonitoringSuppressionsMeta meta;
+  public WebIntegrationAccountCreateRequest() {}
 
-  public SecurityMonitoringPaginatedSuppressionsResponse data(
-      List<SecurityMonitoringSuppression> data) {
+  @JsonCreator
+  public WebIntegrationAccountCreateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          WebIntegrationAccountCreateRequestData data) {
     this.data = data;
-    for (SecurityMonitoringSuppression item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
+    this.unparsed |= data.unparsed;
   }
 
-  public SecurityMonitoringPaginatedSuppressionsResponse addDataItem(
-      SecurityMonitoringSuppression dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+  public WebIntegrationAccountCreateRequest data(WebIntegrationAccountCreateRequestData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * A list of suppressions objects.
+   * Data object for creating a web integration account.
    *
    * @return data
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringSuppression> getData() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public WebIntegrationAccountCreateRequestData getData() {
     return data;
   }
 
-  public void setData(List<SecurityMonitoringSuppression> data) {
+  public void setData(WebIntegrationAccountCreateRequestData data) {
     this.data = data;
-  }
-
-  public SecurityMonitoringPaginatedSuppressionsResponse meta(
-      SecurityMonitoringSuppressionsMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * Metadata for the suppression list response.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringSuppressionsMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(SecurityMonitoringSuppressionsMeta meta) {
-    this.meta = meta;
   }
 
   /**
@@ -103,11 +69,10 @@ public class SecurityMonitoringPaginatedSuppressionsResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SecurityMonitoringPaginatedSuppressionsResponse
+   * @return WebIntegrationAccountCreateRequest
    */
   @JsonAnySetter
-  public SecurityMonitoringPaginatedSuppressionsResponse putAdditionalProperty(
-      String key, Object value) {
+  public WebIntegrationAccountCreateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -138,7 +103,7 @@ public class SecurityMonitoringPaginatedSuppressionsResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringPaginatedSuppressionsResponse object is equal to o. */
+  /** Return true if this WebIntegrationAccountCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,27 +112,23 @@ public class SecurityMonitoringPaginatedSuppressionsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringPaginatedSuppressionsResponse
-        securityMonitoringPaginatedSuppressionsResponse =
-            (SecurityMonitoringPaginatedSuppressionsResponse) o;
-    return Objects.equals(this.data, securityMonitoringPaginatedSuppressionsResponse.data)
-        && Objects.equals(this.meta, securityMonitoringPaginatedSuppressionsResponse.meta)
+    WebIntegrationAccountCreateRequest webIntegrationAccountCreateRequest =
+        (WebIntegrationAccountCreateRequest) o;
+    return Objects.equals(this.data, webIntegrationAccountCreateRequest.data)
         && Objects.equals(
-            this.additionalProperties,
-            securityMonitoringPaginatedSuppressionsResponse.additionalProperties);
+            this.additionalProperties, webIntegrationAccountCreateRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringPaginatedSuppressionsResponse {\n");
+    sb.append("class WebIntegrationAccountCreateRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

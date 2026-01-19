@@ -16,35 +16,62 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Metadata for the suppression list response. */
-@JsonPropertyOrder({SecurityMonitoringSuppressionsMeta.JSON_PROPERTY_PAGE})
+/** Response containing a single web integration account. */
+@JsonPropertyOrder({
+  WebIntegrationAccountResponse.JSON_PROPERTY_DATA,
+  WebIntegrationAccountResponse.JSON_PROPERTY_INTEGRATION_NAME
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringSuppressionsMeta {
+public class WebIntegrationAccountResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PAGE = "page";
-  private SecurityMonitoringSuppressionsPageMeta page;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private WebIntegrationAccountResponseData data;
 
-  public SecurityMonitoringSuppressionsMeta page(SecurityMonitoringSuppressionsPageMeta page) {
-    this.page = page;
-    this.unparsed |= page.unparsed;
+  public static final String JSON_PROPERTY_INTEGRATION_NAME = "integration_name";
+  private String integrationName;
+
+  public WebIntegrationAccountResponse data(WebIntegrationAccountResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Pagination metadata.
+   * Data object for a web integration account response.
    *
-   * @return page
+   * @return data
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringSuppressionsPageMeta getPage() {
-    return page;
+  public WebIntegrationAccountResponseData getData() {
+    return data;
   }
 
-  public void setPage(SecurityMonitoringSuppressionsPageMeta page) {
-    this.page = page;
+  public void setData(WebIntegrationAccountResponseData data) {
+    this.data = data;
+  }
+
+  public WebIntegrationAccountResponse integrationName(String integrationName) {
+    this.integrationName = integrationName;
+    return this;
+  }
+
+  /**
+   * The name of the integration.
+   *
+   * @return integrationName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTEGRATION_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIntegrationName() {
+    return integrationName;
+  }
+
+  public void setIntegrationName(String integrationName) {
+    this.integrationName = integrationName;
   }
 
   /**
@@ -59,10 +86,10 @@ public class SecurityMonitoringSuppressionsMeta {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SecurityMonitoringSuppressionsMeta
+   * @return WebIntegrationAccountResponse
    */
   @JsonAnySetter
-  public SecurityMonitoringSuppressionsMeta putAdditionalProperty(String key, Object value) {
+  public WebIntegrationAccountResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +120,7 @@ public class SecurityMonitoringSuppressionsMeta {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringSuppressionsMeta object is equal to o. */
+  /** Return true if this WebIntegrationAccountResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,23 +129,24 @@ public class SecurityMonitoringSuppressionsMeta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSuppressionsMeta securityMonitoringSuppressionsMeta =
-        (SecurityMonitoringSuppressionsMeta) o;
-    return Objects.equals(this.page, securityMonitoringSuppressionsMeta.page)
+    WebIntegrationAccountResponse webIntegrationAccountResponse = (WebIntegrationAccountResponse) o;
+    return Objects.equals(this.data, webIntegrationAccountResponse.data)
+        && Objects.equals(this.integrationName, webIntegrationAccountResponse.integrationName)
         && Objects.equals(
-            this.additionalProperties, securityMonitoringSuppressionsMeta.additionalProperties);
+            this.additionalProperties, webIntegrationAccountResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, additionalProperties);
+    return Objects.hash(data, integrationName, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringSuppressionsMeta {\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("class WebIntegrationAccountResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    integrationName: ").append(toIndentedString(integrationName)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
