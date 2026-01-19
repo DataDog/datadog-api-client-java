@@ -851,6 +851,13 @@ public class ApiClient {
           put("v2.updateIncidentNotificationTemplate", false);
           put("v2.updateIncidentTodo", false);
           put("v2.updateIncidentType", false);
+          put("v2.createJiraIssueTemplate", false);
+          put("v2.deleteJiraAccount", false);
+          put("v2.deleteJiraIssueTemplate", false);
+          put("v2.getJiraIssueTemplate", false);
+          put("v2.listJiraAccounts", false);
+          put("v2.listJiraIssueTemplates", false);
+          put("v2.updateJiraIssueTemplate", false);
           put("v2.addRoleToRestrictionQuery", false);
           put("v2.createRestrictionQuery", false);
           put("v2.deleteRestrictionQuery", false);
