@@ -2005,8 +2005,11 @@ public class OnCallApi {
     /**
      * Set filterAtTs.
      *
-     * @param filterAtTs Retrieves the on-call user at the given timestamp (ISO-8601). Defaults to
-     *     the current time if omitted." (optional)
+     * @param filterAtTs Retrieves the on-call user at the given timestamp in RFC3339 format (for
+     *     example, <code>2025-05-07T02:53:01Z</code> or <code>2025-05-07T02:53:01+00:00</code>).
+     *     When using timezone offsets with <code>+</code> or <code>-</code>, ensure proper URL
+     *     encoding (<code>+</code> should be encoded as <code>%2B</code>). Defaults to the current
+     *     time if omitted. (optional)
      * @return GetScheduleOnCallUserOptionalParameters
      */
     public GetScheduleOnCallUserOptionalParameters filterAtTs(String filterAtTs) {
