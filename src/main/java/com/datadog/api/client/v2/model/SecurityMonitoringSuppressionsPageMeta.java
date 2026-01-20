@@ -15,94 +15,87 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.UUID;
 
-/** Synthetics suite search response data */
+/** Pagination metadata. */
 @JsonPropertyOrder({
-  SyntheticsSuiteSearchResponseData.JSON_PROPERTY_ATTRIBUTES,
-  SyntheticsSuiteSearchResponseData.JSON_PROPERTY_ID,
-  SyntheticsSuiteSearchResponseData.JSON_PROPERTY_TYPE
+  SecurityMonitoringSuppressionsPageMeta.JSON_PROPERTY_PAGE_NUMBER,
+  SecurityMonitoringSuppressionsPageMeta.JSON_PROPERTY_PAGE_SIZE,
+  SecurityMonitoringSuppressionsPageMeta.JSON_PROPERTY_TOTAL_COUNT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsSuiteSearchResponseData {
+public class SecurityMonitoringSuppressionsPageMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private SyntheticsSuiteSearchResponseDataAttributes attributes;
+  public static final String JSON_PROPERTY_PAGE_NUMBER = "pageNumber";
+  private Long pageNumber;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
+  public static final String JSON_PROPERTY_PAGE_SIZE = "pageSize";
+  private Long pageSize;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private SuiteSearchResponseType type = SuiteSearchResponseType.SUITES_SEARCH;
+  public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
+  private Long totalCount;
 
-  public SyntheticsSuiteSearchResponseData attributes(
-      SyntheticsSuiteSearchResponseDataAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public SecurityMonitoringSuppressionsPageMeta pageNumber(Long pageNumber) {
+    this.pageNumber = pageNumber;
     return this;
   }
 
   /**
-   * Synthetics suite search response data attributes
+   * Current page number.
    *
-   * @return attributes
+   * @return pageNumber
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsSuiteSearchResponseDataAttributes getAttributes() {
-    return attributes;
+  public Long getPageNumber() {
+    return pageNumber;
   }
 
-  public void setAttributes(SyntheticsSuiteSearchResponseDataAttributes attributes) {
-    this.attributes = attributes;
+  public void setPageNumber(Long pageNumber) {
+    this.pageNumber = pageNumber;
   }
 
-  public SyntheticsSuiteSearchResponseData id(UUID id) {
-    this.id = id;
+  public SecurityMonitoringSuppressionsPageMeta pageSize(Long pageSize) {
+    this.pageSize = pageSize;
     return this;
   }
 
   /**
-   * Getid
+   * Current page size.
    *
-   * @return id
+   * @return pageSize
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public UUID getId() {
-    return id;
+  public Long getPageSize() {
+    return pageSize;
   }
 
-  public void setId(UUID id) {
-    this.id = id;
+  public void setPageSize(Long pageSize) {
+    this.pageSize = pageSize;
   }
 
-  public SyntheticsSuiteSearchResponseData type(SuiteSearchResponseType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public SecurityMonitoringSuppressionsPageMeta totalCount(Long totalCount) {
+    this.totalCount = totalCount;
     return this;
   }
 
   /**
-   * Gettype
+   * Total count of suppressions.
    *
-   * @return type
+   * @return totalCount
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SuiteSearchResponseType getType() {
-    return type;
+  public Long getTotalCount() {
+    return totalCount;
   }
 
-  public void setType(SuiteSearchResponseType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setTotalCount(Long totalCount) {
+    this.totalCount = totalCount;
   }
 
   /**
@@ -117,10 +110,10 @@ public class SyntheticsSuiteSearchResponseData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsSuiteSearchResponseData
+   * @return SecurityMonitoringSuppressionsPageMeta
    */
   @JsonAnySetter
-  public SyntheticsSuiteSearchResponseData putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringSuppressionsPageMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -151,7 +144,7 @@ public class SyntheticsSuiteSearchResponseData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsSuiteSearchResponseData object is equal to o. */
+  /** Return true if this SecurityMonitoringSuppressionsPageMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -160,27 +153,27 @@ public class SyntheticsSuiteSearchResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsSuiteSearchResponseData syntheticsSuiteSearchResponseData =
-        (SyntheticsSuiteSearchResponseData) o;
-    return Objects.equals(this.attributes, syntheticsSuiteSearchResponseData.attributes)
-        && Objects.equals(this.id, syntheticsSuiteSearchResponseData.id)
-        && Objects.equals(this.type, syntheticsSuiteSearchResponseData.type)
+    SecurityMonitoringSuppressionsPageMeta securityMonitoringSuppressionsPageMeta =
+        (SecurityMonitoringSuppressionsPageMeta) o;
+    return Objects.equals(this.pageNumber, securityMonitoringSuppressionsPageMeta.pageNumber)
+        && Objects.equals(this.pageSize, securityMonitoringSuppressionsPageMeta.pageSize)
+        && Objects.equals(this.totalCount, securityMonitoringSuppressionsPageMeta.totalCount)
         && Objects.equals(
-            this.additionalProperties, syntheticsSuiteSearchResponseData.additionalProperties);
+            this.additionalProperties, securityMonitoringSuppressionsPageMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(pageNumber, pageSize, totalCount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsSuiteSearchResponseData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class SecurityMonitoringSuppressionsPageMeta {\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
