@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,43 +16,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
-@JsonPropertyOrder({SuiteCreateEditRequest.JSON_PROPERTY_DATA})
+/** Response containing the modified query with applied filters. */
+@JsonPropertyOrder({SecurityMonitoringRuleLivetailResponse.JSON_PROPERTY_QUERY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SuiteCreateEditRequest {
+public class SecurityMonitoringRuleLivetailResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private SuiteCreateEdit data;
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query;
 
-  public SuiteCreateEditRequest() {}
-
-  @JsonCreator
-  public SuiteCreateEditRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) SuiteCreateEdit data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
-
-  public SuiteCreateEditRequest data(SuiteCreateEdit data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public SecurityMonitoringRuleLivetailResponse query(String query) {
+    this.query = query;
     return this;
   }
 
   /**
-   * Getdata
+   * The modified query with all filters applied.
    *
-   * @return data
+   * @return query
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SuiteCreateEdit getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQuery() {
+    return query;
   }
 
-  public void setData(SuiteCreateEdit data) {
-    this.data = data;
+  public void setQuery(String query) {
+    this.query = query;
   }
 
   /**
@@ -68,10 +58,10 @@ public class SuiteCreateEditRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SuiteCreateEditRequest
+   * @return SecurityMonitoringRuleLivetailResponse
    */
   @JsonAnySetter
-  public SuiteCreateEditRequest putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringRuleLivetailResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -102,7 +92,7 @@ public class SuiteCreateEditRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SuiteCreateEditRequest object is equal to o. */
+  /** Return true if this SecurityMonitoringRuleLivetailResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,21 +101,23 @@ public class SuiteCreateEditRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SuiteCreateEditRequest suiteCreateEditRequest = (SuiteCreateEditRequest) o;
-    return Objects.equals(this.data, suiteCreateEditRequest.data)
-        && Objects.equals(this.additionalProperties, suiteCreateEditRequest.additionalProperties);
+    SecurityMonitoringRuleLivetailResponse securityMonitoringRuleLivetailResponse =
+        (SecurityMonitoringRuleLivetailResponse) o;
+    return Objects.equals(this.query, securityMonitoringRuleLivetailResponse.query)
+        && Objects.equals(
+            this.additionalProperties, securityMonitoringRuleLivetailResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(query, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SuiteCreateEditRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class SecurityMonitoringRuleLivetailResponse {\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
