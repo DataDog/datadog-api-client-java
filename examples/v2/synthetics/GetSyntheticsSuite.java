@@ -1,22 +1,20 @@
-// Get all suppression rules returns "OK" response
+// Synthetics: Get a suite returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.SecurityMonitoringApi;
-import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionsResponse;
+import com.datadog.api.client.v2.api.SyntheticsApi;
+import com.datadog.api.client.v2.model.SyntheticsSuiteResponse;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
+    SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     try {
-      SecurityMonitoringSuppressionsResponse result =
-          apiInstance.listSecurityMonitoringSuppressions();
+      SyntheticsSuiteResponse result = apiInstance.getSyntheticsSuite("public_id");
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println(
-          "Exception when calling SecurityMonitoringApi#listSecurityMonitoringSuppressions");
+      System.err.println("Exception when calling SyntheticsApi#getSyntheticsSuite");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

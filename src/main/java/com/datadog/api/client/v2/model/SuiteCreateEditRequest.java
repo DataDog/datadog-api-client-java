@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,35 +17,43 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Metadata for the suppression list response. */
-@JsonPropertyOrder({SecurityMonitoringSuppressionsMeta.JSON_PROPERTY_PAGE})
+/** */
+@JsonPropertyOrder({SuiteCreateEditRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringSuppressionsMeta {
+public class SuiteCreateEditRequest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PAGE = "page";
-  private SecurityMonitoringSuppressionsPageMeta page;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private SuiteCreateEdit data;
 
-  public SecurityMonitoringSuppressionsMeta page(SecurityMonitoringSuppressionsPageMeta page) {
-    this.page = page;
-    this.unparsed |= page.unparsed;
+  public SuiteCreateEditRequest() {}
+
+  @JsonCreator
+  public SuiteCreateEditRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) SuiteCreateEdit data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public SuiteCreateEditRequest data(SuiteCreateEdit data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Pagination metadata.
+   * Getdata
    *
-   * @return page
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringSuppressionsPageMeta getPage() {
-    return page;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SuiteCreateEdit getData() {
+    return data;
   }
 
-  public void setPage(SecurityMonitoringSuppressionsPageMeta page) {
-    this.page = page;
+  public void setData(SuiteCreateEdit data) {
+    this.data = data;
   }
 
   /**
@@ -59,10 +68,10 @@ public class SecurityMonitoringSuppressionsMeta {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SecurityMonitoringSuppressionsMeta
+   * @return SuiteCreateEditRequest
    */
   @JsonAnySetter
-  public SecurityMonitoringSuppressionsMeta putAdditionalProperty(String key, Object value) {
+  public SuiteCreateEditRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +102,7 @@ public class SecurityMonitoringSuppressionsMeta {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringSuppressionsMeta object is equal to o. */
+  /** Return true if this SuiteCreateEditRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,23 +111,21 @@ public class SecurityMonitoringSuppressionsMeta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSuppressionsMeta securityMonitoringSuppressionsMeta =
-        (SecurityMonitoringSuppressionsMeta) o;
-    return Objects.equals(this.page, securityMonitoringSuppressionsMeta.page)
-        && Objects.equals(
-            this.additionalProperties, securityMonitoringSuppressionsMeta.additionalProperties);
+    SuiteCreateEditRequest suiteCreateEditRequest = (SuiteCreateEditRequest) o;
+    return Objects.equals(this.data, suiteCreateEditRequest.data)
+        && Objects.equals(this.additionalProperties, suiteCreateEditRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringSuppressionsMeta {\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("class SuiteCreateEditRequest {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

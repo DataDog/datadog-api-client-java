@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Delete_a_suppression_rule_returns_OK_response-1768411743\",\"enabled\":true,\"name\":\"suppression Test-Delete_a_suppression_rule_returns_OK_response-1768411743\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"technique:T1110-brute-force\",\"source:cloudtrail\"]},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Delete_a_suppression_rule_returns_OK_response-1762518446\",\"enabled\":true,\"name\":\"Test-Delete_a_suppression_rule_returns_OK_response-1762518446\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"technique:T1110-brute-force\",\"source:cloudtrail\"]},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"itm-ljs-0qw\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1768411744411,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Delete_a_suppression_rule_returns_OK_response-1768411743\",\"editable\":true,\"enabled\":true,\"name\":\"suppression Test-Delete_a_suppression_rule_returns_OK_response-1768411743\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1768411744411,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}}",
+      "body": "{\"data\":{\"id\":\"uea-lab-big\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1762518447002,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Delete_a_suppression_rule_returns_OK_response-1762518446\",\"editable\":true,\"enabled\":true,\"name\":\"Test-Delete_a_suppression_rule_returns_OK_response-1762518446\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1762518447002,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "54e5a340-5de4-8285-a606-324efbc11f5d"
+    "id": "f181dced-eb3e-bfdd-020a-40965b7229b2"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/itm-ljs-0qw",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/uea-lab-big",
       "keepAlive": false,
       "secure": true
     },
@@ -48,18 +48,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e9742d91-8c62-9396-15fd-0a073429f463"
+    "id": "2b54ce26-df1a-55f2-8376-9da4db5d8f64"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/itm-ljs-0qw",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/uea-lab-big",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Suppression with ID itm-ljs-0qw not found)\"]}",
+      "body": "{\"errors\":[\"not_found(Suppression with ID uea-lab-big not found)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e9742d91-8c62-9396-15fd-0a073429f464"
+    "id": "2b54ce26-df1a-55f2-8376-9da4db5d8f65"
   }
 ]

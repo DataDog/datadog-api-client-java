@@ -8,87 +8,82 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response object containing the available suppression rules with pagination metadata. */
+/** Object containing details about a Synthetic test included in a Synthetic suite. */
 @JsonPropertyOrder({
-  SecurityMonitoringPaginatedSuppressionsResponse.JSON_PROPERTY_DATA,
-  SecurityMonitoringPaginatedSuppressionsResponse.JSON_PROPERTY_META
+  SyntheticsSuiteTest.JSON_PROPERTY_ALERTING_CRITICALITY,
+  SyntheticsSuiteTest.JSON_PROPERTY_PUBLIC_ID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringPaginatedSuppressionsResponse {
+public class SyntheticsSuiteTest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<SecurityMonitoringSuppression> data = null;
+  public static final String JSON_PROPERTY_ALERTING_CRITICALITY = "alerting_criticality";
+  private SyntheticsSuiteTestAlertingCriticality alertingCriticality;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private SecurityMonitoringSuppressionsMeta meta;
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
-  public SecurityMonitoringPaginatedSuppressionsResponse data(
-      List<SecurityMonitoringSuppression> data) {
-    this.data = data;
-    for (SecurityMonitoringSuppression item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
+  public SyntheticsSuiteTest() {}
+
+  @JsonCreator
+  public SyntheticsSuiteTest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PUBLIC_ID) String publicId) {
+    this.publicId = publicId;
   }
 
-  public SecurityMonitoringPaginatedSuppressionsResponse addDataItem(
-      SecurityMonitoringSuppression dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+  public SyntheticsSuiteTest alertingCriticality(
+      SyntheticsSuiteTestAlertingCriticality alertingCriticality) {
+    this.alertingCriticality = alertingCriticality;
+    this.unparsed |= !alertingCriticality.isValid();
     return this;
   }
 
   /**
-   * A list of suppressions objects.
+   * Alerting criticality for each the test.
    *
-   * @return data
+   * @return alertingCriticality
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_ALERTING_CRITICALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringSuppression> getData() {
-    return data;
+  public SyntheticsSuiteTestAlertingCriticality getAlertingCriticality() {
+    return alertingCriticality;
   }
 
-  public void setData(List<SecurityMonitoringSuppression> data) {
-    this.data = data;
+  public void setAlertingCriticality(SyntheticsSuiteTestAlertingCriticality alertingCriticality) {
+    if (!alertingCriticality.isValid()) {
+      this.unparsed = true;
+    }
+    this.alertingCriticality = alertingCriticality;
   }
 
-  public SecurityMonitoringPaginatedSuppressionsResponse meta(
-      SecurityMonitoringSuppressionsMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
+  public SyntheticsSuiteTest publicId(String publicId) {
+    this.publicId = publicId;
     return this;
   }
 
   /**
-   * Metadata for the suppression list response.
+   * GetpublicId
    *
-   * @return meta
+   * @return publicId
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringSuppressionsMeta getMeta() {
-    return meta;
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getPublicId() {
+    return publicId;
   }
 
-  public void setMeta(SecurityMonitoringSuppressionsMeta meta) {
-    this.meta = meta;
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
   }
 
   /**
@@ -103,11 +98,10 @@ public class SecurityMonitoringPaginatedSuppressionsResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SecurityMonitoringPaginatedSuppressionsResponse
+   * @return SyntheticsSuiteTest
    */
   @JsonAnySetter
-  public SecurityMonitoringPaginatedSuppressionsResponse putAdditionalProperty(
-      String key, Object value) {
+  public SyntheticsSuiteTest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -138,7 +132,7 @@ public class SecurityMonitoringPaginatedSuppressionsResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringPaginatedSuppressionsResponse object is equal to o. */
+  /** Return true if this SyntheticsSuiteTest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,27 +141,25 @@ public class SecurityMonitoringPaginatedSuppressionsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringPaginatedSuppressionsResponse
-        securityMonitoringPaginatedSuppressionsResponse =
-            (SecurityMonitoringPaginatedSuppressionsResponse) o;
-    return Objects.equals(this.data, securityMonitoringPaginatedSuppressionsResponse.data)
-        && Objects.equals(this.meta, securityMonitoringPaginatedSuppressionsResponse.meta)
-        && Objects.equals(
-            this.additionalProperties,
-            securityMonitoringPaginatedSuppressionsResponse.additionalProperties);
+    SyntheticsSuiteTest syntheticsSuiteTest = (SyntheticsSuiteTest) o;
+    return Objects.equals(this.alertingCriticality, syntheticsSuiteTest.alertingCriticality)
+        && Objects.equals(this.publicId, syntheticsSuiteTest.publicId)
+        && Objects.equals(this.additionalProperties, syntheticsSuiteTest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(alertingCriticality, publicId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringPaginatedSuppressionsResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("class SyntheticsSuiteTest {\n");
+    sb.append("    alertingCriticality: ")
+        .append(toIndentedString(alertingCriticality))
+        .append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

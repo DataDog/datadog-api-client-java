@@ -62,7 +62,6 @@ import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetsResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringListRulesResponse;
-import com.datadog.api.client.v2.model.SecurityMonitoringPaginatedSuppressionsResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
@@ -83,7 +82,6 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSignalsListResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsSort;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionResponse;
-import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionSort;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionsResponse;
 import com.datadog.api.client.v2.model.ThreatHuntingJobResponse;
@@ -10545,9 +10543,6 @@ public class SecurityMonitoringApi {
   /** Manage optional parameters to listSecurityMonitoringSuppressions. */
   public static class ListSecurityMonitoringSuppressionsOptionalParameters {
     private String query;
-    private SecurityMonitoringSuppressionSort sort;
-    private Long pageSize;
-    private Long pageNumber;
 
     /**
      * Set query.
@@ -10559,42 +10554,6 @@ public class SecurityMonitoringApi {
       this.query = query;
       return this;
     }
-
-    /**
-     * Set sort.
-     *
-     * @param sort Attribute used to sort the list of suppression rules. Prefix with <code>-</code>
-     *     to sort in descending order. (optional)
-     * @return ListSecurityMonitoringSuppressionsOptionalParameters
-     */
-    public ListSecurityMonitoringSuppressionsOptionalParameters sort(
-        SecurityMonitoringSuppressionSort sort) {
-      this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Set pageSize.
-     *
-     * @param pageSize Size for a given page. Use <code>-1</code> to return all items. (optional,
-     *     default to -1)
-     * @return ListSecurityMonitoringSuppressionsOptionalParameters
-     */
-    public ListSecurityMonitoringSuppressionsOptionalParameters pageSize(Long pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    /**
-     * Set pageNumber.
-     *
-     * @param pageNumber Specific page number to return. (optional, default to 0)
-     * @return ListSecurityMonitoringSuppressionsOptionalParameters
-     */
-    public ListSecurityMonitoringSuppressionsOptionalParameters pageNumber(Long pageNumber) {
-      this.pageNumber = pageNumber;
-      return this;
-    }
   }
 
   /**
@@ -10602,10 +10561,10 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #listSecurityMonitoringSuppressionsWithHttpInfo}.
    *
-   * @return SecurityMonitoringPaginatedSuppressionsResponse
+   * @return SecurityMonitoringSuppressionsResponse
    * @throws ApiException if fails to make API call
    */
-  public SecurityMonitoringPaginatedSuppressionsResponse listSecurityMonitoringSuppressions()
+  public SecurityMonitoringSuppressionsResponse listSecurityMonitoringSuppressions()
       throws ApiException {
     return listSecurityMonitoringSuppressionsWithHttpInfo(
             new ListSecurityMonitoringSuppressionsOptionalParameters())
@@ -10617,9 +10576,9 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #listSecurityMonitoringSuppressionsWithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;SecurityMonitoringPaginatedSuppressionsResponse&gt;
+   * @return CompletableFuture&lt;SecurityMonitoringSuppressionsResponse&gt;
    */
-  public CompletableFuture<SecurityMonitoringPaginatedSuppressionsResponse>
+  public CompletableFuture<SecurityMonitoringSuppressionsResponse>
       listSecurityMonitoringSuppressionsAsync() {
     return listSecurityMonitoringSuppressionsWithHttpInfoAsync(
             new ListSecurityMonitoringSuppressionsOptionalParameters())
@@ -10635,10 +10594,10 @@ public class SecurityMonitoringApi {
    * <p>See {@link #listSecurityMonitoringSuppressionsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return SecurityMonitoringPaginatedSuppressionsResponse
+   * @return SecurityMonitoringSuppressionsResponse
    * @throws ApiException if fails to make API call
    */
-  public SecurityMonitoringPaginatedSuppressionsResponse listSecurityMonitoringSuppressions(
+  public SecurityMonitoringSuppressionsResponse listSecurityMonitoringSuppressions(
       ListSecurityMonitoringSuppressionsOptionalParameters parameters) throws ApiException {
     return listSecurityMonitoringSuppressionsWithHttpInfo(parameters).getData();
   }
@@ -10649,9 +10608,9 @@ public class SecurityMonitoringApi {
    * <p>See {@link #listSecurityMonitoringSuppressionsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;SecurityMonitoringPaginatedSuppressionsResponse&gt;
+   * @return CompletableFuture&lt;SecurityMonitoringSuppressionsResponse&gt;
    */
-  public CompletableFuture<SecurityMonitoringPaginatedSuppressionsResponse>
+  public CompletableFuture<SecurityMonitoringSuppressionsResponse>
       listSecurityMonitoringSuppressionsAsync(
           ListSecurityMonitoringSuppressionsOptionalParameters parameters) {
     return listSecurityMonitoringSuppressionsWithHttpInfoAsync(parameters)
@@ -10665,7 +10624,7 @@ public class SecurityMonitoringApi {
    * Get the list of all suppression rules.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;SecurityMonitoringPaginatedSuppressionsResponse&gt;
+   * @return ApiResponse&lt;SecurityMonitoringSuppressionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -10676,14 +10635,11 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SecurityMonitoringPaginatedSuppressionsResponse>
+  public ApiResponse<SecurityMonitoringSuppressionsResponse>
       listSecurityMonitoringSuppressionsWithHttpInfo(
           ListSecurityMonitoringSuppressionsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String query = parameters.query;
-    SecurityMonitoringSuppressionSort sort = parameters.sort;
-    Long pageSize = parameters.pageSize;
-    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/configuration/suppressions";
 
@@ -10691,9 +10647,6 @@ public class SecurityMonitoringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -10712,7 +10665,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<SecurityMonitoringPaginatedSuppressionsResponse>() {});
+        new GenericType<SecurityMonitoringSuppressionsResponse>() {});
   }
 
   /**
@@ -10721,17 +10674,13 @@ public class SecurityMonitoringApi {
    * <p>See {@link #listSecurityMonitoringSuppressionsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return
-   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringPaginatedSuppressionsResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSuppressionsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SecurityMonitoringPaginatedSuppressionsResponse>>
+  public CompletableFuture<ApiResponse<SecurityMonitoringSuppressionsResponse>>
       listSecurityMonitoringSuppressionsWithHttpInfoAsync(
           ListSecurityMonitoringSuppressionsOptionalParameters parameters) {
     Object localVarPostBody = null;
     String query = parameters.query;
-    SecurityMonitoringSuppressionSort sort = parameters.sort;
-    Long pageSize = parameters.pageSize;
-    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/configuration/suppressions";
 
@@ -10739,9 +10688,6 @@ public class SecurityMonitoringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
 
     Invocation.Builder builder;
     try {
@@ -10755,7 +10701,7 @@ public class SecurityMonitoringApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<SecurityMonitoringPaginatedSuppressionsResponse>> result =
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionsResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -10768,7 +10714,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<SecurityMonitoringPaginatedSuppressionsResponse>() {});
+        new GenericType<SecurityMonitoringSuppressionsResponse>() {});
   }
 
   /** Manage optional parameters to listThreatHuntingJobs. */
