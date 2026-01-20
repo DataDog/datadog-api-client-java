@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,43 +16,35 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
-@JsonPropertyOrder({DeletedSuitesRequestDeleteRequest.JSON_PROPERTY_DATA})
+/** Metadata for the suppression list response. */
+@JsonPropertyOrder({SecurityMonitoringSuppressionsMeta.JSON_PROPERTY_PAGE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DeletedSuitesRequestDeleteRequest {
+public class SecurityMonitoringSuppressionsMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private DeletedSuitesRequestDelete data;
+  public static final String JSON_PROPERTY_PAGE = "page";
+  private SecurityMonitoringSuppressionsPageMeta page;
 
-  public DeletedSuitesRequestDeleteRequest() {}
-
-  @JsonCreator
-  public DeletedSuitesRequestDeleteRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) DeletedSuitesRequestDelete data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
-
-  public DeletedSuitesRequestDeleteRequest data(DeletedSuitesRequestDelete data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public SecurityMonitoringSuppressionsMeta page(SecurityMonitoringSuppressionsPageMeta page) {
+    this.page = page;
+    this.unparsed |= page.unparsed;
     return this;
   }
 
   /**
-   * Getdata
+   * Pagination metadata.
    *
-   * @return data
+   * @return page
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DeletedSuitesRequestDelete getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringSuppressionsPageMeta getPage() {
+    return page;
   }
 
-  public void setData(DeletedSuitesRequestDelete data) {
-    this.data = data;
+  public void setPage(SecurityMonitoringSuppressionsPageMeta page) {
+    this.page = page;
   }
 
   /**
@@ -68,10 +59,10 @@ public class DeletedSuitesRequestDeleteRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DeletedSuitesRequestDeleteRequest
+   * @return SecurityMonitoringSuppressionsMeta
    */
   @JsonAnySetter
-  public DeletedSuitesRequestDeleteRequest putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringSuppressionsMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -102,7 +93,7 @@ public class DeletedSuitesRequestDeleteRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DeletedSuitesRequestDeleteRequest object is equal to o. */
+  /** Return true if this SecurityMonitoringSuppressionsMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,23 +102,23 @@ public class DeletedSuitesRequestDeleteRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeletedSuitesRequestDeleteRequest deletedSuitesRequestDeleteRequest =
-        (DeletedSuitesRequestDeleteRequest) o;
-    return Objects.equals(this.data, deletedSuitesRequestDeleteRequest.data)
+    SecurityMonitoringSuppressionsMeta securityMonitoringSuppressionsMeta =
+        (SecurityMonitoringSuppressionsMeta) o;
+    return Objects.equals(this.page, securityMonitoringSuppressionsMeta.page)
         && Objects.equals(
-            this.additionalProperties, deletedSuitesRequestDeleteRequest.additionalProperties);
+            this.additionalProperties, securityMonitoringSuppressionsMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(page, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeletedSuitesRequestDeleteRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class SecurityMonitoringSuppressionsMeta {\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

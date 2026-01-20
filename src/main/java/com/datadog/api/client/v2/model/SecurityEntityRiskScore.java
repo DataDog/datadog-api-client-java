@@ -17,69 +17,99 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
-@JsonPropertyOrder({SuiteCreateEdit.JSON_PROPERTY_ATTRIBUTES, SuiteCreateEdit.JSON_PROPERTY_TYPE})
+/** An entity risk score containing security risk assessment information */
+@JsonPropertyOrder({
+  SecurityEntityRiskScore.JSON_PROPERTY_ATTRIBUTES,
+  SecurityEntityRiskScore.JSON_PROPERTY_ID,
+  SecurityEntityRiskScore.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SuiteCreateEdit {
+public class SecurityEntityRiskScore {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private SyntheticsSuite attributes;
+  private SecurityEntityRiskScoreAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SyntheticsSuiteTypes type = SyntheticsSuiteTypes.SUITES;
+  private SecurityEntityRiskScoreType type;
 
-  public SuiteCreateEdit() {}
+  public SecurityEntityRiskScore() {}
 
   @JsonCreator
-  public SuiteCreateEdit(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES) SyntheticsSuite attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsSuiteTypes type) {
+  public SecurityEntityRiskScore(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          SecurityEntityRiskScoreAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SecurityEntityRiskScoreType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public SuiteCreateEdit attributes(SyntheticsSuite attributes) {
+  public SecurityEntityRiskScore attributes(SecurityEntityRiskScoreAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Object containing details about a Synthetic suite.
+   * Attributes of an entity risk score
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsSuite getAttributes() {
+  public SecurityEntityRiskScoreAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(SyntheticsSuite attributes) {
+  public void setAttributes(SecurityEntityRiskScoreAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public SuiteCreateEdit type(SyntheticsSuiteTypes type) {
+  public SecurityEntityRiskScore id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Unique identifier for the entity
+   *
+   * @return id
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public SecurityEntityRiskScore type(SecurityEntityRiskScoreType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Type for the Synthetics suites responses, <code>suites</code>.
+   * Resource type
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsSuiteTypes getType() {
+  public SecurityEntityRiskScoreType getType() {
     return type;
   }
 
-  public void setType(SyntheticsSuiteTypes type) {
+  public void setType(SecurityEntityRiskScoreType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -98,10 +128,10 @@ public class SuiteCreateEdit {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SuiteCreateEdit
+   * @return SecurityEntityRiskScore
    */
   @JsonAnySetter
-  public SuiteCreateEdit putAdditionalProperty(String key, Object value) {
+  public SecurityEntityRiskScore putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -132,7 +162,7 @@ public class SuiteCreateEdit {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SuiteCreateEdit object is equal to o. */
+  /** Return true if this SecurityEntityRiskScore object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,22 +171,24 @@ public class SuiteCreateEdit {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SuiteCreateEdit suiteCreateEdit = (SuiteCreateEdit) o;
-    return Objects.equals(this.attributes, suiteCreateEdit.attributes)
-        && Objects.equals(this.type, suiteCreateEdit.type)
-        && Objects.equals(this.additionalProperties, suiteCreateEdit.additionalProperties);
+    SecurityEntityRiskScore securityEntityRiskScore = (SecurityEntityRiskScore) o;
+    return Objects.equals(this.attributes, securityEntityRiskScore.attributes)
+        && Objects.equals(this.id, securityEntityRiskScore.id)
+        && Objects.equals(this.type, securityEntityRiskScore.type)
+        && Objects.equals(this.additionalProperties, securityEntityRiskScore.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SuiteCreateEdit {\n");
+    sb.append("class SecurityEntityRiskScore {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
