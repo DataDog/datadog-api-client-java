@@ -27,6 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineDatadogLogsDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineDatadogLogsDestination.JSON_PROPERTY_INPUTS,
+  ObservabilityPipelineDatadogLogsDestination.JSON_PROPERTY_ROUTES,
   ObservabilityPipelineDatadogLogsDestination.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -38,6 +39,9 @@ public class ObservabilityPipelineDatadogLogsDestination {
 
   public static final String JSON_PROPERTY_INPUTS = "inputs";
   private List<String> inputs = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_ROUTES = "routes";
+  private List<ObservabilityPipelineDatadogLogsDestinationRoute> routes = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineDatadogLogsDestinationType type =
@@ -100,6 +104,41 @@ public class ObservabilityPipelineDatadogLogsDestination {
 
   public void setInputs(List<String> inputs) {
     this.inputs = inputs;
+  }
+
+  public ObservabilityPipelineDatadogLogsDestination routes(
+      List<ObservabilityPipelineDatadogLogsDestinationRoute> routes) {
+    this.routes = routes;
+    for (ObservabilityPipelineDatadogLogsDestinationRoute item : routes) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public ObservabilityPipelineDatadogLogsDestination addRoutesItem(
+      ObservabilityPipelineDatadogLogsDestinationRoute routesItem) {
+    if (this.routes == null) {
+      this.routes = new ArrayList<>();
+    }
+    this.routes.add(routesItem);
+    this.unparsed |= routesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * A list of routing rules that forward matching logs to Datadog using dedicated API keys.
+   *
+   * @return routes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ROUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ObservabilityPipelineDatadogLogsDestinationRoute> getRoutes() {
+    return routes;
+  }
+
+  public void setRoutes(List<ObservabilityPipelineDatadogLogsDestinationRoute> routes) {
+    this.routes = routes;
   }
 
   public ObservabilityPipelineDatadogLogsDestination type(
@@ -187,6 +226,7 @@ public class ObservabilityPipelineDatadogLogsDestination {
         (ObservabilityPipelineDatadogLogsDestination) o;
     return Objects.equals(this.id, observabilityPipelineDatadogLogsDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineDatadogLogsDestination.inputs)
+        && Objects.equals(this.routes, observabilityPipelineDatadogLogsDestination.routes)
         && Objects.equals(this.type, observabilityPipelineDatadogLogsDestination.type)
         && Objects.equals(
             this.additionalProperties,
@@ -195,7 +235,7 @@ public class ObservabilityPipelineDatadogLogsDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, inputs, type, additionalProperties);
+    return Objects.hash(id, inputs, routes, type, additionalProperties);
   }
 
   @Override
@@ -204,6 +244,7 @@ public class ObservabilityPipelineDatadogLogsDestination {
     sb.append("class ObservabilityPipelineDatadogLogsDestination {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
+    sb.append("    routes: ").append(toIndentedString(routes)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
