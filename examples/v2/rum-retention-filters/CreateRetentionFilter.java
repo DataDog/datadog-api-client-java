@@ -25,7 +25,7 @@ public class Example {
                             .name("Test creating retention filter")
                             .eventType(RumRetentionFilterEventType.SESSION)
                             .query("custom_query")
-                            .sampleRate(50L)
+                            .sampleRate(50.0)
                             .enabled(true)));
 
     try {

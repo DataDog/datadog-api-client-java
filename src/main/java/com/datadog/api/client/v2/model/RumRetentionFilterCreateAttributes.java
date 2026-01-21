@@ -42,7 +42,7 @@ public class RumRetentionFilterCreateAttributes {
   private String query;
 
   public static final String JSON_PROPERTY_SAMPLE_RATE = "sample_rate";
-  private Long sampleRate;
+  private Double sampleRate;
 
   public RumRetentionFilterCreateAttributes() {}
 
@@ -51,7 +51,7 @@ public class RumRetentionFilterCreateAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_EVENT_TYPE)
           RumRetentionFilterEventType eventType,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SAMPLE_RATE) Long sampleRate) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_SAMPLE_RATE) Double sampleRate) {
     this.eventType = eventType;
     this.unparsed |= !eventType.isValid();
     this.name = name;
@@ -144,23 +144,23 @@ public class RumRetentionFilterCreateAttributes {
     this.query = query;
   }
 
-  public RumRetentionFilterCreateAttributes sampleRate(Long sampleRate) {
+  public RumRetentionFilterCreateAttributes sampleRate(Double sampleRate) {
     this.sampleRate = sampleRate;
     return this;
   }
 
   /**
-   * The sample rate for a RUM retention filter, between 0 and 100. minimum: 0 maximum: 100
+   * The sample rate for a RUM retention filter, between 0.1 and 100. minimum: 0.1 maximum: 100
    *
    * @return sampleRate
    */
   @JsonProperty(JSON_PROPERTY_SAMPLE_RATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getSampleRate() {
+  public Double getSampleRate() {
     return sampleRate;
   }
 
-  public void setSampleRate(Long sampleRate) {
+  public void setSampleRate(Double sampleRate) {
     this.sampleRate = sampleRate;
   }
 
