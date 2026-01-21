@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"6faef319-c810-435b-bdf3-57efb391e56e\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2024-11-04T19:02:20.505437063Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2024-11-04T19:02:20.505437063Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"}}}",
+      "body": "{\"data\":{\"id\":\"311bd438-9e1e-4920-8d9a-902c036e2530\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-01-19T20:15:47.514049947Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-01-19T20:15:47.514050021Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,7 +33,7 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/6faef319-c810-435b-bdf3-57efb391e56e",
+      "path": "/api/v2/incidents/config/types/311bd438-9e1e-4920-8d9a-902c036e2530",
       "keepAlive": false,
       "secure": true
     },
@@ -48,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ff0c00d4-7c22-c297-0055-e35d911d4a47"
+    "id": "725b4b6b-76a4-7a42-b58f-987177a23911"
   }
 ]

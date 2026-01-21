@@ -10,8 +10,14 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.deleteIncidentAttachment", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
+    // there is a valid "incident" in the system
+    String INCIDENT_DATA_ID = System.getenv("INCIDENT_DATA_ID");
+
+    // there is a valid "incident_attachment" in the system
+    String INCIDENT_ATTACHMENT_DATA_ID = System.getenv("INCIDENT_ATTACHMENT_DATA_ID");
+
     try {
-      apiInstance.deleteIncidentAttachment("incident_id", "00000000-0000-0000-0000-000000000002");
+      apiInstance.deleteIncidentAttachment(INCIDENT_DATA_ID, INCIDENT_ATTACHMENT_DATA_ID);
     } catch (ApiException e) {
       System.err.println("Exception when calling IncidentsApi#deleteIncidentAttachment");
       System.err.println("Status code: " + e.getCode());

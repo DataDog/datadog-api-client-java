@@ -16,6 +16,12 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.updateIncidentAttachment", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
+    // there is a valid "incident" in the system
+    String INCIDENT_DATA_ID = System.getenv("INCIDENT_DATA_ID");
+
+    // there is a valid "incident_attachment" in the system
+    String INCIDENT_ATTACHMENT_DATA_ID = System.getenv("INCIDENT_ATTACHMENT_DATA_ID");
+
     PatchAttachmentRequest body =
         new PatchAttachmentRequest()
             .data(
@@ -25,14 +31,14 @@ public class Example {
                             .attachment(
                                 new PatchAttachmentRequestDataAttributesAttachment()
                                     .documentUrl(
-                                        "https://app.datadoghq.com/notebook/124/Postmortem-IR-124")
-                                    .title("Postmortem-IR-124")))
+                                        "https://app.datadoghq.com/notebook/124/Example-Incident")
+                                    .title("Example-Incident")))
+                    .id(INCIDENT_ATTACHMENT_DATA_ID)
                     .type(IncidentAttachmentType.INCIDENT_ATTACHMENTS));
 
     try {
       Attachment result =
-          apiInstance.updateIncidentAttachment(
-              "incident_id", "00000000-0000-0000-0000-000000000002", body);
+          apiInstance.updateIncidentAttachment(INCIDENT_DATA_ID, INCIDENT_ATTACHMENT_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IncidentsApi#updateIncidentAttachment");

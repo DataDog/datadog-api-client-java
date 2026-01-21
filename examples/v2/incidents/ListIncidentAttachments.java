@@ -11,8 +11,11 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.listIncidentAttachments", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
+    // there is a valid "incident" in the system
+    String INCIDENT_DATA_ID = System.getenv("INCIDENT_DATA_ID");
+
     try {
-      AttachmentArray result = apiInstance.listIncidentAttachments("incident_id");
+      AttachmentArray result = apiInstance.listIncidentAttachments(INCIDENT_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IncidentsApi#listIncidentAttachments");

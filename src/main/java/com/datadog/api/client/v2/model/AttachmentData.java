@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attachment data from a response. */
 @JsonPropertyOrder({
   AttachmentData.JSON_PROPERTY_ATTRIBUTES,
   AttachmentData.JSON_PROPERTY_ID,
@@ -66,7 +66,7 @@ public class AttachmentData {
   }
 
   /**
-   * Getattributes
+   * The attachment's attributes.
    *
    * @return attributes
    */
@@ -86,7 +86,7 @@ public class AttachmentData {
   }
 
   /**
-   * Getid
+   * The unique identifier of the attachment.
    *
    * @return id
    */
@@ -107,7 +107,7 @@ public class AttachmentData {
   }
 
   /**
-   * Getrelationships
+   * The attachment's resource relationships.
    *
    * @return relationships
    */
