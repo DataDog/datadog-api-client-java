@@ -900,6 +900,7 @@ public class ApiClient {
           put("v2.listScorecardRules", false);
           put("v2.updateScorecardOutcomesAsync", false);
           put("v2.updateScorecardRule", false);
+          put("v2.listEntityRiskScores", false);
           put("v2.createIncidentService", false);
           put("v2.deleteIncidentService", false);
           put("v2.getIncidentService", false);
