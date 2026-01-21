@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Filter monitor notifications by tags. A monitor notification must match all tags. */
+/** Filters monitor notifications by a list of tag key:value pairs. */
 @JsonPropertyOrder({MonitorNotificationRuleFilterTags.JSON_PROPERTY_TAGS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,8 +43,8 @@ public class MonitorNotificationRuleFilterTags {
   }
 
   /**
-   * A list of tags (key:value pairs), which can be used to filter monitor notifications on monitor
-   * and group tags.
+   * A list of tag key:value pairs (e.g. <code>team:product</code>). All tags must match (AND
+   * semantics).
    *
    * @return tags
    */
