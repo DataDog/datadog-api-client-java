@@ -1987,6 +1987,89 @@ public class MetricsApi {
         new GenericType<MetricsAndMetricTagConfigurationsResponse>() {});
   }
 
+  /** Manage optional parameters to listTagsByMetricName. */
+  public static class ListTagsByMetricNameOptionalParameters {
+    private Long windowSeconds;
+    private String filterTags;
+    private String filterMatch;
+    private Boolean filterIncludeTagValues;
+    private Boolean filterAllowPartial;
+    private Integer pageLimit;
+
+    /**
+     * Set windowSeconds.
+     *
+     * @param windowSeconds The number of seconds of look back (from now) to query for tag data.
+     *     Default value is 14400 (4 hours), minimum value is 14400 (4 hours). (optional)
+     * @return ListTagsByMetricNameOptionalParameters
+     */
+    public ListTagsByMetricNameOptionalParameters windowSeconds(Long windowSeconds) {
+      this.windowSeconds = windowSeconds;
+      return this;
+    }
+
+    /**
+     * Set filterTags.
+     *
+     * @param filterTags Filter results to tags from data points that have the specified tags. For
+     *     example, <code>filter[tags]=env:staging,host:123</code> returns tags only from data
+     *     points with both <code>env:staging</code> and <code>host:123</code>. (optional)
+     * @return ListTagsByMetricNameOptionalParameters
+     */
+    public ListTagsByMetricNameOptionalParameters filterTags(String filterTags) {
+      this.filterTags = filterTags;
+      return this;
+    }
+
+    /**
+     * Set filterMatch.
+     *
+     * @param filterMatch Filter returned tags to those matching a substring. For example, <code>
+     *     filter[match]=env</code> returns tags like <code>env:prod</code>, <code>
+     *     environment:staging</code>, etc. (optional)
+     * @return ListTagsByMetricNameOptionalParameters
+     */
+    public ListTagsByMetricNameOptionalParameters filterMatch(String filterMatch) {
+      this.filterMatch = filterMatch;
+      return this;
+    }
+
+    /**
+     * Set filterIncludeTagValues.
+     *
+     * @param filterIncludeTagValues Whether to include tag values in the response. Defaults to
+     *     true. (optional)
+     * @return ListTagsByMetricNameOptionalParameters
+     */
+    public ListTagsByMetricNameOptionalParameters filterIncludeTagValues(
+        Boolean filterIncludeTagValues) {
+      this.filterIncludeTagValues = filterIncludeTagValues;
+      return this;
+    }
+
+    /**
+     * Set filterAllowPartial.
+     *
+     * @param filterAllowPartial Whether to allow partial results. Defaults to false. (optional)
+     * @return ListTagsByMetricNameOptionalParameters
+     */
+    public ListTagsByMetricNameOptionalParameters filterAllowPartial(Boolean filterAllowPartial) {
+      this.filterAllowPartial = filterAllowPartial;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of results to return. (optional, default to 1000000)
+     * @return ListTagsByMetricNameOptionalParameters
+     */
+    public ListTagsByMetricNameOptionalParameters pageLimit(Integer pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+  }
+
   /**
    * List tags by metric name.
    *
@@ -1997,7 +2080,9 @@ public class MetricsApi {
    * @throws ApiException if fails to make API call
    */
   public MetricAllTagsResponse listTagsByMetricName(String metricName) throws ApiException {
-    return listTagsByMetricNameWithHttpInfo(metricName).getData();
+    return listTagsByMetricNameWithHttpInfo(
+            metricName, new ListTagsByMetricNameOptionalParameters())
+        .getData();
   }
 
   /**
@@ -2009,7 +2094,8 @@ public class MetricsApi {
    * @return CompletableFuture&lt;MetricAllTagsResponse&gt;
    */
   public CompletableFuture<MetricAllTagsResponse> listTagsByMetricNameAsync(String metricName) {
-    return listTagsByMetricNameWithHttpInfoAsync(metricName)
+    return listTagsByMetricNameWithHttpInfoAsync(
+            metricName, new ListTagsByMetricNameOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -2017,9 +2103,44 @@ public class MetricsApi {
   }
 
   /**
-   * View indexed tag key-value pairs for a given metric name over the previous hour.
+   * List tags by metric name.
+   *
+   * <p>See {@link #listTagsByMetricNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return MetricAllTagsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MetricAllTagsResponse listTagsByMetricName(
+      String metricName, ListTagsByMetricNameOptionalParameters parameters) throws ApiException {
+    return listTagsByMetricNameWithHttpInfo(metricName, parameters).getData();
+  }
+
+  /**
+   * List tags by metric name.
+   *
+   * <p>See {@link #listTagsByMetricNameWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;MetricAllTagsResponse&gt;
+   */
+  public CompletableFuture<MetricAllTagsResponse> listTagsByMetricNameAsync(
+      String metricName, ListTagsByMetricNameOptionalParameters parameters) {
+    return listTagsByMetricNameWithHttpInfoAsync(metricName, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * View indexed and ingested tags for a given metric name. Results are filtered by the <code>
+   * window[seconds]</code> parameter, which defaults to 14400 (4 hours).
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricAllTagsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2033,8 +2154,8 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricAllTagsResponse> listTagsByMetricNameWithHttpInfo(String metricName)
-      throws ApiException {
+  public ApiResponse<MetricAllTagsResponse> listTagsByMetricNameWithHttpInfo(
+      String metricName, ListTagsByMetricNameOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -2042,19 +2163,35 @@ public class MetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'metricName' when calling listTagsByMetricName");
     }
+    Long windowSeconds = parameters.windowSeconds;
+    String filterTags = parameters.filterTags;
+    String filterMatch = parameters.filterMatch;
+    Boolean filterIncludeTagValues = parameters.filterIncludeTagValues;
+    Boolean filterAllowPartial = parameters.filterAllowPartial;
+    Integer pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath =
         "/api/v2/metrics/{metric_name}/all-tags"
             .replaceAll(
                 "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[match]", filterMatch));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_tag_values]", filterIncludeTagValues));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[allow_partial]", filterAllowPartial));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.MetricsApi.listTagsByMetricName",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -2076,10 +2213,12 @@ public class MetricsApi {
    * <p>See {@link #listTagsByMetricNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MetricAllTagsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricAllTagsResponse>>
-      listTagsByMetricNameWithHttpInfoAsync(String metricName) {
+      listTagsByMetricNameWithHttpInfoAsync(
+          String metricName, ListTagsByMetricNameOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -2091,13 +2230,29 @@ public class MetricsApi {
               "Missing the required parameter 'metricName' when calling listTagsByMetricName"));
       return result;
     }
+    Long windowSeconds = parameters.windowSeconds;
+    String filterTags = parameters.filterTags;
+    String filterMatch = parameters.filterMatch;
+    Boolean filterIncludeTagValues = parameters.filterIncludeTagValues;
+    Boolean filterAllowPartial = parameters.filterAllowPartial;
+    Integer pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath =
         "/api/v2/metrics/{metric_name}/all-tags"
             .replaceAll(
                 "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[match]", filterMatch));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_tag_values]", filterIncludeTagValues));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[allow_partial]", filterAllowPartial));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
     Invocation.Builder builder;
     try {
@@ -2105,7 +2260,7 @@ public class MetricsApi {
           apiClient.createBuilder(
               "v2.MetricsApi.listTagsByMetricName",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
