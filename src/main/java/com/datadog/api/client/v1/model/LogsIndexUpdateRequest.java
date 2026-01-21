@@ -28,7 +28,8 @@ import java.util.Objects;
   LogsIndexUpdateRequest.JSON_PROPERTY_EXCLUSION_FILTERS,
   LogsIndexUpdateRequest.JSON_PROPERTY_FILTER,
   LogsIndexUpdateRequest.JSON_PROPERTY_NUM_FLEX_LOGS_RETENTION_DAYS,
-  LogsIndexUpdateRequest.JSON_PROPERTY_NUM_RETENTION_DAYS
+  LogsIndexUpdateRequest.JSON_PROPERTY_NUM_RETENTION_DAYS,
+  LogsIndexUpdateRequest.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -59,6 +60,9 @@ public class LogsIndexUpdateRequest {
 
   public static final String JSON_PROPERTY_NUM_RETENTION_DAYS = "num_retention_days";
   private Long numRetentionDays;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public LogsIndexUpdateRequest() {}
 
@@ -269,6 +273,35 @@ public class LogsIndexUpdateRequest {
     this.numRetentionDays = numRetentionDays;
   }
 
+  public LogsIndexUpdateRequest tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public LogsIndexUpdateRequest addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * A list of tags associated with the index. Tags must be in <code>key:value</code> format.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -336,6 +369,7 @@ public class LogsIndexUpdateRequest {
         && Objects.equals(
             this.numFlexLogsRetentionDays, logsIndexUpdateRequest.numFlexLogsRetentionDays)
         && Objects.equals(this.numRetentionDays, logsIndexUpdateRequest.numRetentionDays)
+        && Objects.equals(this.tags, logsIndexUpdateRequest.tags)
         && Objects.equals(this.additionalProperties, logsIndexUpdateRequest.additionalProperties);
   }
 
@@ -350,6 +384,7 @@ public class LogsIndexUpdateRequest {
         filter,
         numFlexLogsRetentionDays,
         numRetentionDays,
+        tags,
         additionalProperties);
   }
 
@@ -369,6 +404,7 @@ public class LogsIndexUpdateRequest {
         .append(toIndentedString(numFlexLogsRetentionDays))
         .append("\n");
     sb.append("    numRetentionDays: ").append(toIndentedString(numRetentionDays)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

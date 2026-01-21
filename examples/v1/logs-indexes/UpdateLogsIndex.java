@@ -9,6 +9,7 @@ import com.datadog.api.client.v1.model.LogsExclusionFilter;
 import com.datadog.api.client.v1.model.LogsFilter;
 import com.datadog.api.client.v1.model.LogsIndex;
 import com.datadog.api.client.v1.model.LogsIndexUpdateRequest;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -29,7 +30,8 @@ public class Example {
                         .name("payment")))
             .filter(new LogsFilter().query("source:python"))
             .numFlexLogsRetentionDays(360L)
-            .numRetentionDays(15L);
+            .numRetentionDays(15L)
+            .tags(Arrays.asList("team:backend", "env:production"));
 
     try {
       LogsIndex result = apiInstance.updateLogsIndex("name", body);
