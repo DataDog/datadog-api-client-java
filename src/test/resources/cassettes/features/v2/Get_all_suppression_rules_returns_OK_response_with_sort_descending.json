@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"enabled\":true,\"name\":\"suppression Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"technique:T1110-brute-force\",\"source:cloudtrail\"]},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1769009707\",\"enabled\":true,\"name\":\"suppression 4668d111f32d9934\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"technique:T1110-brute-force\",\"source:cloudtrail\"]},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"osw-qyf-tqn\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1768410753455,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"editable\":true,\"enabled\":true,\"name\":\"suppression Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1768410753455,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"version\":1}}}",
+      "body": "{\"data\":{\"id\":\"mru-avx-npf\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1769009707069,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1769009707\",\"editable\":true,\"enabled\":true,\"name\":\"suppression 4668d111f32d9934\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1769009707069,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6804f189-09de-0950-bf78-086b20b556ca"
+    "id": "60bfb47a-f585-762a-878c-d233bed0b9e3"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"enabled\":true,\"name\":\"suppression2 Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"technique:T1110-brute-force\",\"source:cloudtrail\"]},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1769009707\",\"enabled\":true,\"name\":\"suppression2 4668d111f32d9934\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"technique:T1110-brute-force\",\"source:cloudtrail\"]},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"pe9-gdi-ee2\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1768410753872,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"editable\":true,\"enabled\":true,\"name\":\"suppression2 Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1768410753872,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"version\":1}}}",
+      "body": "{\"data\":{\"id\":\"qjl-xxu-vlo\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1769009707163,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1769009707\",\"editable\":true,\"enabled\":true,\"name\":\"suppression2 4668d111f32d9934\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1769009707163,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,7 +57,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f50d4629-2389-7973-c040-32367fac199a"
+    "id": "bc0e866a-5b83-45b2-b9b4-f33a0a798d39"
   },
   {
     "httpRequest": {
@@ -69,14 +69,14 @@
           "-name"
         ],
         "query": [
-          "id:osw-qyf-tqn OR id:pe9-gdi-ee2"
+          "id:mru-avx-npf OR id:qjl-xxu-vlo"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"id\":\"pe9-gdi-ee2\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1768410753872,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"editable\":true,\"enabled\":true,\"name\":\"suppression2 Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1768410753872,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"version\":1}},{\"id\":\"osw-qyf-tqn\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1768410753455,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"editable\":true,\"enabled\":true,\"name\":\"suppression Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1768410753\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1768410753455,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"version\":1}}],\"meta\":{\"page\":{\"totalCount\":2,\"pageSize\":2,\"pageNumber\":0}}}",
+      "body": "{\"data\":[{\"id\":\"qjl-xxu-vlo\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1769009707163,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1769009707\",\"editable\":true,\"enabled\":true,\"name\":\"suppression2 4668d111f32d9934\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1769009707163,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}},{\"id\":\"mru-avx-npf\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1769009707069,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Get_all_suppression_rules_returns_OK_response_with_sort_descending-1769009707\",\"editable\":true,\"enabled\":true,\"name\":\"suppression 4668d111f32d9934\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1769009707069,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}],\"meta\":{\"page\":{\"totalCount\":2,\"pageSize\":2,\"pageNumber\":0}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -91,13 +91,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5bee98ca-76eb-3a3d-746f-51d6d1f1ce66"
+    "id": "c52ea552-4feb-b027-1b88-be45e114dc55"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/pe9-gdi-ee2",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/qjl-xxu-vlo",
       "keepAlive": false,
       "secure": true
     },
@@ -112,13 +112,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4d20b729-7b38-f715-f7df-aec60621d5e6"
+    "id": "59531c32-8ded-fd29-da8b-25d9e04bc950"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/osw-qyf-tqn",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/mru-avx-npf",
       "keepAlive": false,
       "secure": true
     },
@@ -133,6 +133,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f1eaffca-6f0d-6fc1-5a7a-6948b4a19559"
+    "id": "177a9b01-6aa8-a4b3-2455-8e444dbd968f"
   }
 ]
