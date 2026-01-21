@@ -63,6 +63,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetUpdateRequ
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetsResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringListRulesResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringPaginatedSuppressionsResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleBulkExportPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
@@ -98,6 +99,7 @@ import com.datadog.api.client.v2.model.VulnerabilityTool;
 import com.datadog.api.client.v2.model.VulnerabilityType;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
+import java.io.File;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -443,6 +445,145 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Bulk export security monitoring rules.
+   *
+   * <p>See {@link #bulkExportSecurityMonitoringRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return File
+   * @throws ApiException if fails to make API call
+   */
+  public File bulkExportSecurityMonitoringRules(SecurityMonitoringRuleBulkExportPayload body)
+      throws ApiException {
+    return bulkExportSecurityMonitoringRulesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Bulk export security monitoring rules.
+   *
+   * <p>See {@link #bulkExportSecurityMonitoringRulesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;File&gt;
+   */
+  public CompletableFuture<File> bulkExportSecurityMonitoringRulesAsync(
+      SecurityMonitoringRuleBulkExportPayload body) {
+    return bulkExportSecurityMonitoringRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Export a list of security monitoring rules as a ZIP file containing JSON rule definitions. The
+   * endpoint accepts a list of rule IDs and returns a ZIP archive where each rule is saved as a
+   * separate JSON file named after the rule.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;File&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<File> bulkExportSecurityMonitoringRulesWithHttpInfo(
+      SecurityMonitoringRuleBulkExportPayload body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling bulkExportSecurityMonitoringRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/rules/bulk_export";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.bulkExportSecurityMonitoringRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/zip", "application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<File>() {});
+  }
+
+  /**
+   * Bulk export security monitoring rules.
+   *
+   * <p>See {@link #bulkExportSecurityMonitoringRulesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;File&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<File>> bulkExportSecurityMonitoringRulesWithHttpInfoAsync(
+      SecurityMonitoringRuleBulkExportPayload body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<File>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " bulkExportSecurityMonitoringRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/rules/bulk_export";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.bulkExportSecurityMonitoringRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/zip", "application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<File>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<File>() {});
   }
 
   /**
