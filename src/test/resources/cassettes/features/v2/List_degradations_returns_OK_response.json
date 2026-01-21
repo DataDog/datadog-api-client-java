@@ -1,0 +1,130 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"components\":[{\"name\":\"Login\",\"position\":0,\"type\":\"component\"},{\"name\":\"Settings\",\"position\":1,\"type\":\"component\"}],\"name\":\"Application\",\"type\":\"group\"}],\"domain_prefix\":\"status-page-af0603c6bb50c13f\",\"enabled\":true,\"name\":\"A Status Page\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/statuspages",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"19846f06-cd73-44f5-aed1-73dbaa31d58d\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"b2c0e2dd-69e3-4e5a-b8d3-45a26d9428f7\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"0e309a2e-7cac-47d2-90c9-0301ed7e55e7\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"b0d0261c-d58d-438b-98aa-1828a0aaac36\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-01-14T18:34:30.242647Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"status-page-af0603c6bb50c13f\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-01-14T18:34:30.242647Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/19846f06-cd73-44f5-aed1-73dbaa31d58d/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "64f615ef-4f1b-51ab-dc0a-526313630bba"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"components_affected\":[{\"id\":\"0e309a2e-7cac-47d2-90c9-0301ed7e55e7\",\"status\":\"major_outage\"}],\"description\":\"Our API is experiencing elevated latency. We are investigating the issue.\",\"status\":\"investigating\",\"title\":\"Elevated API Latency\"},\"type\":\"degradations\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/statuspages/19846f06-cd73-44f5-aed1-73dbaa31d58d/degradations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"3679c370-8e6c-4779-89ca-2952c68800ac\",\"type\":\"degradations\",\"attributes\":{\"components_affected\":[{\"id\":\"0e309a2e-7cac-47d2-90c9-0301ed7e55e7\",\"name\":\"Login\",\"status\":\"major_outage\"}],\"created_at\":\"2026-01-14T18:34:30.903058Z\",\"description\":\"Our API is experiencing elevated latency. We are investigating the issue.\",\"modified_at\":\"2026-01-14T18:34:30.903058Z\",\"status\":\"investigating\",\"title\":\"Elevated API Latency\",\"updates\":[{\"id\":\"214cdbcb-f1e3-48fb-a8bc-7211fdb02922\",\"created_at\":\"2026-01-14T18:34:30.903058Z\",\"modified_at\":\"2026-01-14T18:34:30.903058Z\",\"status\":\"investigating\",\"description\":\"Our API is experiencing elevated latency. We are investigating the issue.\",\"components_affected\":[{\"id\":\"0e309a2e-7cac-47d2-90c9-0301ed7e55e7\",\"name\":\"Login\",\"status\":\"major_outage\"}]}]},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"19846f06-cd73-44f5-aed1-73dbaa31d58d\",\"type\":\"status_pages\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fd956adf-0da3-63c9-bdc6-024b3062cfd4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/statuspages/degradations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"3679c370-8e6c-4779-89ca-2952c68800ac\",\"type\":\"degradations\",\"attributes\":{\"components_affected\":[{\"id\":\"0e309a2e-7cac-47d2-90c9-0301ed7e55e7\",\"name\":\"Login\",\"status\":\"major_outage\"}],\"created_at\":\"2026-01-14T18:34:30.903058Z\",\"description\":\"Our API is experiencing elevated latency. We are investigating the issue.\",\"modified_at\":\"2026-01-14T18:34:30.903058Z\",\"status\":\"investigating\",\"title\":\"Elevated API Latency\",\"updates\":[{\"id\":\"214cdbcb-f1e3-48fb-a8bc-7211fdb02922\",\"created_at\":\"2026-01-14T18:34:30.903058Z\",\"modified_at\":\"2026-01-14T18:34:30.903058Z\",\"status\":\"investigating\",\"description\":\"Our API is experiencing elevated latency. We are investigating the issue.\",\"components_affected\":[{\"id\":\"0e309a2e-7cac-47d2-90c9-0301ed7e55e7\",\"name\":\"Login\",\"status\":\"major_outage\"}]}]},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"19846f06-cd73-44f5-aed1-73dbaa31d58d\",\"type\":\"status_pages\"}}}}],\"meta\":{\"page\":{\"type\":\"offset_limit\",\"offset\":0,\"limit\":50,\"total\":1,\"first_offset\":0,\"prev_offset\":null,\"next_offset\":null,\"last_offset\":0}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3de108df-35d0-fa48-2f82-799dc5cb1120"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/statuspages/19846f06-cd73-44f5-aed1-73dbaa31d58d/degradations/3679c370-8e6c-4779-89ca-2952c68800ac",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7d07ec20-4501-17de-81fe-ae71d7604dd8"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/statuspages/19846f06-cd73-44f5-aed1-73dbaa31d58d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c3192ae1-fcae-2399-3965-cfba5dd620f0"
+  }
+]
