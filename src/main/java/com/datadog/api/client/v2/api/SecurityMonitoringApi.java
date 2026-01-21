@@ -66,6 +66,8 @@ import com.datadog.api.client.v2.model.SecurityMonitoringPaginatedSuppressionsRe
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleLivetailRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleLivetailResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestResponse;
@@ -13145,6 +13147,148 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Preview a rule query with applied filters.
+   *
+   * <p>See {@link #previewSecurityMonitoringRuleQueryWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringRuleLivetailResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringRuleLivetailResponse previewSecurityMonitoringRuleQuery(
+      SecurityMonitoringRuleLivetailRequest body) throws ApiException {
+    return previewSecurityMonitoringRuleQueryWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Preview a rule query with applied filters.
+   *
+   * <p>See {@link #previewSecurityMonitoringRuleQueryWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleLivetailResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringRuleLivetailResponse>
+      previewSecurityMonitoringRuleQueryAsync(SecurityMonitoringRuleLivetailRequest body) {
+    return previewSecurityMonitoringRuleQueryWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Preview a security monitoring rule query with security filters, group by fields, and distinct
+   * fields applied. This endpoint is used in the rule editor to show how the query will be
+   * transformed after applying additional filters.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleLivetailResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringRuleLivetailResponse>
+      previewSecurityMonitoringRuleQueryWithHttpInfo(SecurityMonitoringRuleLivetailRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling previewSecurityMonitoringRuleQuery");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/livetail";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.previewSecurityMonitoringRuleQuery",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleLivetailResponse>() {});
+  }
+
+  /**
+   * Preview a rule query with applied filters.
+   *
+   * <p>See {@link #previewSecurityMonitoringRuleQueryWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringRuleLivetailResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringRuleLivetailResponse>>
+      previewSecurityMonitoringRuleQueryWithHttpInfoAsync(
+          SecurityMonitoringRuleLivetailRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleLivetailResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " previewSecurityMonitoringRuleQuery"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/livetail";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.previewSecurityMonitoringRuleQuery",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleLivetailResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleLivetailResponse>() {});
   }
 
   /**
