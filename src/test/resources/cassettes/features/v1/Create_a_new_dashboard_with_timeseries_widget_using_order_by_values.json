@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_timeseries_widget_using_order_by_values-1768952390 with order_by values\",\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"q\":\"avg:system.cpu.user{*} by {host}\",\"style\":{\"order_by\":\"values\",\"palette\":\"warm\"}}],\"type\":\"timeseries\"}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"5ee-dqv-ruw\",\"title\":\"Test-Create_a_new_dashboard_with_timeseries_widget_using_order_by_values-1768952390 with order_by values\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":\"frog\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/5ee-dqv-ruw/test-createanewdashboardwithtimeserieswidgetusingorderbyvalues-1768952390-with-o\",\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"q\":\"avg:system.cpu.user{*} by {host}\",\"style\":{\"order_by\":\"values\",\"palette\":\"warm\"}}],\"type\":\"timeseries\"},\"id\":8314193502199768}],\"notify_list\":null,\"created_at\":\"2026-01-20T23:39:51.018015+00:00\",\"modified_at\":\"2026-01-20T23:39:51.018015+00:00\",\"restricted_roles\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "234d406c-2755-1e9a-049a-34be4f0dfc42"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/5ee-dqv-ruw",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"5ee-dqv-ruw\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d72a5f38-3cf3-59ed-2726-0704c0e048a9"
+  }
+]
