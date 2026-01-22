@@ -26,6 +26,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_BULK_INDEX,
+  ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_DATA_STREAM,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_TYPE
@@ -36,6 +37,9 @@ public class ObservabilityPipelineOpenSearchDestination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BULK_INDEX = "bulk_index";
   private String bulkIndex;
+
+  public static final String JSON_PROPERTY_DATA_STREAM = "data_stream";
+  private ObservabilityPipelineOpenSearchDestinationDataStream dataStream;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -80,6 +84,29 @@ public class ObservabilityPipelineOpenSearchDestination {
 
   public void setBulkIndex(String bulkIndex) {
     this.bulkIndex = bulkIndex;
+  }
+
+  public ObservabilityPipelineOpenSearchDestination dataStream(
+      ObservabilityPipelineOpenSearchDestinationDataStream dataStream) {
+    this.dataStream = dataStream;
+    this.unparsed |= dataStream.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+   *
+   * @return dataStream
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_STREAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineOpenSearchDestinationDataStream getDataStream() {
+    return dataStream;
+  }
+
+  public void setDataStream(ObservabilityPipelineOpenSearchDestinationDataStream dataStream) {
+    this.dataStream = dataStream;
   }
 
   public ObservabilityPipelineOpenSearchDestination id(String id) {
@@ -211,6 +238,7 @@ public class ObservabilityPipelineOpenSearchDestination {
     ObservabilityPipelineOpenSearchDestination observabilityPipelineOpenSearchDestination =
         (ObservabilityPipelineOpenSearchDestination) o;
     return Objects.equals(this.bulkIndex, observabilityPipelineOpenSearchDestination.bulkIndex)
+        && Objects.equals(this.dataStream, observabilityPipelineOpenSearchDestination.dataStream)
         && Objects.equals(this.id, observabilityPipelineOpenSearchDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineOpenSearchDestination.inputs)
         && Objects.equals(this.type, observabilityPipelineOpenSearchDestination.type)
@@ -221,7 +249,7 @@ public class ObservabilityPipelineOpenSearchDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bulkIndex, id, inputs, type, additionalProperties);
+    return Objects.hash(bulkIndex, dataStream, id, inputs, type, additionalProperties);
   }
 
   @Override
@@ -229,6 +257,7 @@ public class ObservabilityPipelineOpenSearchDestination {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineOpenSearchDestination {\n");
     sb.append("    bulkIndex: ").append(toIndentedString(bulkIndex)).append("\n");
+    sb.append("    dataStream: ").append(toIndentedString(dataStream)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
