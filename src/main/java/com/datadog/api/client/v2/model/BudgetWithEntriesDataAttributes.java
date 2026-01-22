@@ -18,23 +18,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The attributes of a budget. */
+/** */
 @JsonPropertyOrder({
-  BudgetAttributes.JSON_PROPERTY_CREATED_AT,
-  BudgetAttributes.JSON_PROPERTY_CREATED_BY,
-  BudgetAttributes.JSON_PROPERTY_END_MONTH,
-  BudgetAttributes.JSON_PROPERTY_ENTRIES,
-  BudgetAttributes.JSON_PROPERTY_METRICS_QUERY,
-  BudgetAttributes.JSON_PROPERTY_NAME,
-  BudgetAttributes.JSON_PROPERTY_ORG_ID,
-  BudgetAttributes.JSON_PROPERTY_START_MONTH,
-  BudgetAttributes.JSON_PROPERTY_TOTAL_AMOUNT,
-  BudgetAttributes.JSON_PROPERTY_UPDATED_AT,
-  BudgetAttributes.JSON_PROPERTY_UPDATED_BY
+  BudgetWithEntriesDataAttributes.JSON_PROPERTY_CREATED_AT,
+  BudgetWithEntriesDataAttributes.JSON_PROPERTY_CREATED_BY,
+  BudgetWithEntriesDataAttributes.JSON_PROPERTY_END_MONTH,
+  BudgetWithEntriesDataAttributes.JSON_PROPERTY_ENTRIES,
+  BudgetWithEntriesDataAttributes.JSON_PROPERTY_METRICS_QUERY,
+  BudgetWithEntriesDataAttributes.JSON_PROPERTY_NAME,
+  BudgetWithEntriesDataAttributes.JSON_PROPERTY_ORG_ID,
+  BudgetWithEntriesDataAttributes.JSON_PROPERTY_START_MONTH,
+  BudgetWithEntriesDataAttributes.JSON_PROPERTY_TOTAL_AMOUNT,
+  BudgetWithEntriesDataAttributes.JSON_PROPERTY_UPDATED_AT,
+  BudgetWithEntriesDataAttributes.JSON_PROPERTY_UPDATED_BY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class BudgetAttributes {
+public class BudgetWithEntriesDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private Long createdAt;
@@ -69,13 +69,13 @@ public class BudgetAttributes {
   public static final String JSON_PROPERTY_UPDATED_BY = "updated_by";
   private String updatedBy;
 
-  public BudgetAttributes createdAt(Long createdAt) {
+  public BudgetWithEntriesDataAttributes createdAt(Long createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * The timestamp when the budget was created.
+   * GetcreatedAt
    *
    * @return createdAt
    */
@@ -90,13 +90,13 @@ public class BudgetAttributes {
     this.createdAt = createdAt;
   }
 
-  public BudgetAttributes createdBy(String createdBy) {
+  public BudgetWithEntriesDataAttributes createdBy(String createdBy) {
     this.createdBy = createdBy;
     return this;
   }
 
   /**
-   * The id of the user that created the budget.
+   * GetcreatedBy
    *
    * @return createdBy
    */
@@ -111,13 +111,13 @@ public class BudgetAttributes {
     this.createdBy = createdBy;
   }
 
-  public BudgetAttributes endMonth(Long endMonth) {
+  public BudgetWithEntriesDataAttributes endMonth(Long endMonth) {
     this.endMonth = endMonth;
     return this;
   }
 
   /**
-   * The month when the budget ends.
+   * GetendMonth
    *
    * @return endMonth
    */
@@ -132,7 +132,8 @@ public class BudgetAttributes {
     this.endMonth = endMonth;
   }
 
-  public BudgetAttributes entries(List<BudgetWithEntriesDataAttributesEntriesItems> entries) {
+  public BudgetWithEntriesDataAttributes entries(
+      List<BudgetWithEntriesDataAttributesEntriesItems> entries) {
     this.entries = entries;
     for (BudgetWithEntriesDataAttributesEntriesItems item : entries) {
       this.unparsed |= item.unparsed;
@@ -140,7 +141,8 @@ public class BudgetAttributes {
     return this;
   }
 
-  public BudgetAttributes addEntriesItem(BudgetWithEntriesDataAttributesEntriesItems entriesItem) {
+  public BudgetWithEntriesDataAttributes addEntriesItem(
+      BudgetWithEntriesDataAttributesEntriesItems entriesItem) {
     if (this.entries == null) {
       this.entries = new ArrayList<>();
     }
@@ -165,13 +167,13 @@ public class BudgetAttributes {
     this.entries = entries;
   }
 
-  public BudgetAttributes metricsQuery(String metricsQuery) {
+  public BudgetWithEntriesDataAttributes metricsQuery(String metricsQuery) {
     this.metricsQuery = metricsQuery;
     return this;
   }
 
   /**
-   * The cost query used to track against the budget.
+   * GetmetricsQuery
    *
    * @return metricsQuery
    */
@@ -186,13 +188,13 @@ public class BudgetAttributes {
     this.metricsQuery = metricsQuery;
   }
 
-  public BudgetAttributes name(String name) {
+  public BudgetWithEntriesDataAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the budget.
+   * Getname
    *
    * @return name
    */
@@ -207,13 +209,13 @@ public class BudgetAttributes {
     this.name = name;
   }
 
-  public BudgetAttributes orgId(Long orgId) {
+  public BudgetWithEntriesDataAttributes orgId(Long orgId) {
     this.orgId = orgId;
     return this;
   }
 
   /**
-   * The id of the org the budget belongs to.
+   * GetorgId
    *
    * @return orgId
    */
@@ -228,13 +230,13 @@ public class BudgetAttributes {
     this.orgId = orgId;
   }
 
-  public BudgetAttributes startMonth(Long startMonth) {
+  public BudgetWithEntriesDataAttributes startMonth(Long startMonth) {
     this.startMonth = startMonth;
     return this;
   }
 
   /**
-   * The month when the budget starts.
+   * GetstartMonth
    *
    * @return startMonth
    */
@@ -249,13 +251,13 @@ public class BudgetAttributes {
     this.startMonth = startMonth;
   }
 
-  public BudgetAttributes totalAmount(Double totalAmount) {
+  public BudgetWithEntriesDataAttributes totalAmount(Double totalAmount) {
     this.totalAmount = totalAmount;
     return this;
   }
 
   /**
-   * The sum of all budget entries' amounts.
+   * GettotalAmount
    *
    * @return totalAmount
    */
@@ -270,13 +272,13 @@ public class BudgetAttributes {
     this.totalAmount = totalAmount;
   }
 
-  public BudgetAttributes updatedAt(Long updatedAt) {
+  public BudgetWithEntriesDataAttributes updatedAt(Long updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * The timestamp when the budget was last updated.
+   * GetupdatedAt
    *
    * @return updatedAt
    */
@@ -291,13 +293,13 @@ public class BudgetAttributes {
     this.updatedAt = updatedAt;
   }
 
-  public BudgetAttributes updatedBy(String updatedBy) {
+  public BudgetWithEntriesDataAttributes updatedBy(String updatedBy) {
     this.updatedBy = updatedBy;
     return this;
   }
 
   /**
-   * The id of the user that created the budget.
+   * GetupdatedBy
    *
    * @return updatedBy
    */
@@ -324,10 +326,10 @@ public class BudgetAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return BudgetAttributes
+   * @return BudgetWithEntriesDataAttributes
    */
   @JsonAnySetter
-  public BudgetAttributes putAdditionalProperty(String key, Object value) {
+  public BudgetWithEntriesDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -358,7 +360,7 @@ public class BudgetAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this BudgetAttributes object is equal to o. */
+  /** Return true if this BudgetWithEntriesDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -367,19 +369,21 @@ public class BudgetAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BudgetAttributes budgetAttributes = (BudgetAttributes) o;
-    return Objects.equals(this.createdAt, budgetAttributes.createdAt)
-        && Objects.equals(this.createdBy, budgetAttributes.createdBy)
-        && Objects.equals(this.endMonth, budgetAttributes.endMonth)
-        && Objects.equals(this.entries, budgetAttributes.entries)
-        && Objects.equals(this.metricsQuery, budgetAttributes.metricsQuery)
-        && Objects.equals(this.name, budgetAttributes.name)
-        && Objects.equals(this.orgId, budgetAttributes.orgId)
-        && Objects.equals(this.startMonth, budgetAttributes.startMonth)
-        && Objects.equals(this.totalAmount, budgetAttributes.totalAmount)
-        && Objects.equals(this.updatedAt, budgetAttributes.updatedAt)
-        && Objects.equals(this.updatedBy, budgetAttributes.updatedBy)
-        && Objects.equals(this.additionalProperties, budgetAttributes.additionalProperties);
+    BudgetWithEntriesDataAttributes budgetWithEntriesDataAttributes =
+        (BudgetWithEntriesDataAttributes) o;
+    return Objects.equals(this.createdAt, budgetWithEntriesDataAttributes.createdAt)
+        && Objects.equals(this.createdBy, budgetWithEntriesDataAttributes.createdBy)
+        && Objects.equals(this.endMonth, budgetWithEntriesDataAttributes.endMonth)
+        && Objects.equals(this.entries, budgetWithEntriesDataAttributes.entries)
+        && Objects.equals(this.metricsQuery, budgetWithEntriesDataAttributes.metricsQuery)
+        && Objects.equals(this.name, budgetWithEntriesDataAttributes.name)
+        && Objects.equals(this.orgId, budgetWithEntriesDataAttributes.orgId)
+        && Objects.equals(this.startMonth, budgetWithEntriesDataAttributes.startMonth)
+        && Objects.equals(this.totalAmount, budgetWithEntriesDataAttributes.totalAmount)
+        && Objects.equals(this.updatedAt, budgetWithEntriesDataAttributes.updatedAt)
+        && Objects.equals(this.updatedBy, budgetWithEntriesDataAttributes.updatedBy)
+        && Objects.equals(
+            this.additionalProperties, budgetWithEntriesDataAttributes.additionalProperties);
   }
 
   @Override
@@ -402,7 +406,7 @@ public class BudgetAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BudgetAttributes {\n");
+    sb.append("class BudgetWithEntriesDataAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    endMonth: ").append(toIndentedString(endMonth)).append("\n");

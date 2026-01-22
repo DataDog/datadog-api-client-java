@@ -18,98 +18,69 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The entry of a budget. */
+/** */
 @JsonPropertyOrder({
-  BudgetEntry.JSON_PROPERTY_AMOUNT,
-  BudgetEntry.JSON_PROPERTY_MONTH,
-  BudgetEntry.JSON_PROPERTY_TAG_FILTERS
+  BudgetValidationResponseDataAttributes.JSON_PROPERTY_ERRORS,
+  BudgetValidationResponseDataAttributes.JSON_PROPERTY_VALID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class BudgetEntry {
+public class BudgetValidationResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AMOUNT = "amount";
-  private Double amount;
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  private List<String> errors = null;
 
-  public static final String JSON_PROPERTY_MONTH = "month";
-  private Long month;
+  public static final String JSON_PROPERTY_VALID = "valid";
+  private Boolean valid;
 
-  public static final String JSON_PROPERTY_TAG_FILTERS = "tag_filters";
-  private List<TagFilter> tagFilters = null;
-
-  public BudgetEntry amount(Double amount) {
-    this.amount = amount;
+  public BudgetValidationResponseDataAttributes errors(List<String> errors) {
+    this.errors = errors;
     return this;
   }
 
-  /**
-   * The <code>amount</code> of the budget entry.
-   *
-   * @return amount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getAmount() {
-    return amount;
-  }
-
-  public void setAmount(Double amount) {
-    this.amount = amount;
-  }
-
-  public BudgetEntry month(Long month) {
-    this.month = month;
-    return this;
-  }
-
-  /**
-   * The <code>month</code> of the budget entry.
-   *
-   * @return month
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MONTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMonth() {
-    return month;
-  }
-
-  public void setMonth(Long month) {
-    this.month = month;
-  }
-
-  public BudgetEntry tagFilters(List<TagFilter> tagFilters) {
-    this.tagFilters = tagFilters;
-    for (TagFilter item : tagFilters) {
-      this.unparsed |= item.unparsed;
+  public BudgetValidationResponseDataAttributes addErrorsItem(String errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
     }
-    return this;
-  }
-
-  public BudgetEntry addTagFiltersItem(TagFilter tagFiltersItem) {
-    if (this.tagFilters == null) {
-      this.tagFilters = new ArrayList<>();
-    }
-    this.tagFilters.add(tagFiltersItem);
-    this.unparsed |= tagFiltersItem.unparsed;
+    this.errors.add(errorsItem);
     return this;
   }
 
   /**
-   * The <code>tag_filters</code> of the budget entry.
+   * Geterrors
    *
-   * @return tagFilters
+   * @return errors
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAG_FILTERS)
+  @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<TagFilter> getTagFilters() {
-    return tagFilters;
+  public List<String> getErrors() {
+    return errors;
   }
 
-  public void setTagFilters(List<TagFilter> tagFilters) {
-    this.tagFilters = tagFilters;
+  public void setErrors(List<String> errors) {
+    this.errors = errors;
+  }
+
+  public BudgetValidationResponseDataAttributes valid(Boolean valid) {
+    this.valid = valid;
+    return this;
+  }
+
+  /**
+   * Getvalid
+   *
+   * @return valid
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getValid() {
+    return valid;
+  }
+
+  public void setValid(Boolean valid) {
+    this.valid = valid;
   }
 
   /**
@@ -124,10 +95,10 @@ public class BudgetEntry {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return BudgetEntry
+   * @return BudgetValidationResponseDataAttributes
    */
   @JsonAnySetter
-  public BudgetEntry putAdditionalProperty(String key, Object value) {
+  public BudgetValidationResponseDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -158,7 +129,7 @@ public class BudgetEntry {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this BudgetEntry object is equal to o. */
+  /** Return true if this BudgetValidationResponseDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -167,25 +138,25 @@ public class BudgetEntry {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BudgetEntry budgetEntry = (BudgetEntry) o;
-    return Objects.equals(this.amount, budgetEntry.amount)
-        && Objects.equals(this.month, budgetEntry.month)
-        && Objects.equals(this.tagFilters, budgetEntry.tagFilters)
-        && Objects.equals(this.additionalProperties, budgetEntry.additionalProperties);
+    BudgetValidationResponseDataAttributes budgetValidationResponseDataAttributes =
+        (BudgetValidationResponseDataAttributes) o;
+    return Objects.equals(this.errors, budgetValidationResponseDataAttributes.errors)
+        && Objects.equals(this.valid, budgetValidationResponseDataAttributes.valid)
+        && Objects.equals(
+            this.additionalProperties, budgetValidationResponseDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, month, tagFilters, additionalProperties);
+    return Objects.hash(errors, valid, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BudgetEntry {\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    month: ").append(toIndentedString(month)).append("\n");
-    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
+    sb.append("class BudgetValidationResponseDataAttributes {\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    valid: ").append(toIndentedString(valid)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
