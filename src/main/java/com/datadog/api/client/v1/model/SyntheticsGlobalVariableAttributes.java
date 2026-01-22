@@ -42,10 +42,12 @@ public class SyntheticsGlobalVariableAttributes {
 
   /**
    * A list of role identifiers that can be pulled from the Roles API, for restricting read and
-   * write access.
+   * write access. This field is deprecated. Use the restriction policies API to manage permissions.
    *
    * @return restrictedRoles
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -53,6 +55,7 @@ public class SyntheticsGlobalVariableAttributes {
     return restrictedRoles;
   }
 
+  @Deprecated
   public void setRestrictedRoles(List<String> restrictedRoles) {
     this.restrictedRoles = restrictedRoles;
   }
