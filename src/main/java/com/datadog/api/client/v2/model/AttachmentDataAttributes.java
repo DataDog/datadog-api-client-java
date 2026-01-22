@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The attachment's attributes. */
 @JsonPropertyOrder({
   AttachmentDataAttributes.JSON_PROPERTY_ATTACHMENT,
   AttachmentDataAttributes.JSON_PROPERTY_ATTACHMENT_TYPE,
@@ -43,7 +43,7 @@ public class AttachmentDataAttributes {
   }
 
   /**
-   * Getattachment
+   * The attachment object.
    *
    * @return attachment
    */
@@ -66,7 +66,7 @@ public class AttachmentDataAttributes {
   }
 
   /**
-   * GetattachmentType
+   * The type of the attachment.
    *
    * @return attachmentType
    */
@@ -90,7 +90,7 @@ public class AttachmentDataAttributes {
   }
 
   /**
-   * Getmodified
+   * Timestamp when the attachment was last modified.
    *
    * @return modified
    */

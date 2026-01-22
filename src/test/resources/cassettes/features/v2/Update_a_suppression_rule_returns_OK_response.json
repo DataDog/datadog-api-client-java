@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1769009707\",\"enabled\":true,\"name\":\"suppression 181539185fcb1be7\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"technique:T1110-brute-force\",\"source:cloudtrail\"]},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1768411745\",\"enabled\":true,\"name\":\"suppression Test-Update_a_suppression_rule_returns_OK_response-1768411745\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"technique:T1110-brute-force\",\"source:cloudtrail\"]},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"h6t-xj1-5jw\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1769009707555,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1769009707\",\"editable\":true,\"enabled\":true,\"name\":\"suppression 181539185fcb1be7\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1769009707555,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}}",
+      "body": "{\"data\":{\"id\":\"ucv-bpf-4bc\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1768411745950,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1768411745\",\"editable\":true,\"enabled\":true,\"name\":\"suppression Test-Update_a_suppression_rule_returns_OK_response-1768411745\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1768411745950,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":1}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "317fbf00-8ad6-f66b-5cfc-5ffeed9b1004"
+    "id": "011620d6-2878-5fbd-5639-07e61fe5e4e2"
   },
   {
     "httpRequest": {
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/h6t-xj1-5jw",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/ucv-bpf-4bc",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"h6t-xj1-5jw\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1769009707555,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1769009707\",\"editable\":true,\"enabled\":true,\"name\":\"suppression 181539185fcb1be7\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:staging status:low\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1769009707651,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":2}}}",
+      "body": "{\"data\":{\"id\":\"ucv-bpf-4bc\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1768411745950,\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"data_exclusion_query\":\"\",\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1768411745\",\"editable\":true,\"enabled\":true,\"name\":\"suppression Test-Update_a_suppression_rule_returns_OK_response-1768411745\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:staging status:low\",\"tags\":[\"source:cloudtrail\",\"technique:T1110-brute-force\"],\"update_date\":1768411746111,\"updater\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"},\"version\":2}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "05ee6b5f-7591-b714-88d9-cd5077010873"
+    "id": "2195b1a9-82a2-a39e-a977-4a4bf2194053"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/h6t-xj1-5jw",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/ucv-bpf-4bc",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "65ed8abf-f958-dd3e-fbf7-af9ade0607ac"
+    "id": "52852935-bffe-e564-35b8-1f47b1b1dead"
   }
 ]

@@ -16,36 +16,62 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
-@JsonPropertyOrder({AttachmentDataRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER})
+/** The attachment's resource relationships. */
+@JsonPropertyOrder({
+  AttachmentDataRelationships.JSON_PROPERTY_INCIDENT,
+  AttachmentDataRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AttachmentDataRelationships {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_LAST_MODIFIED_BY_USER = "last_modified_by_user";
-  private AttachmentDataRelationshipsLastModifiedByUser lastModifiedByUser;
+  public static final String JSON_PROPERTY_INCIDENT = "incident";
+  private RelationshipToIncident incident;
 
-  public AttachmentDataRelationships lastModifiedByUser(
-      AttachmentDataRelationshipsLastModifiedByUser lastModifiedByUser) {
+  public static final String JSON_PROPERTY_LAST_MODIFIED_BY_USER = "last_modified_by_user";
+  private RelationshipToUser lastModifiedByUser;
+
+  public AttachmentDataRelationships incident(RelationshipToIncident incident) {
+    this.incident = incident;
+    this.unparsed |= incident.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship to incident.
+   *
+   * @return incident
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToIncident getIncident() {
+    return incident;
+  }
+
+  public void setIncident(RelationshipToIncident incident) {
+    this.incident = incident;
+  }
+
+  public AttachmentDataRelationships lastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
     this.unparsed |= lastModifiedByUser.unparsed;
     return this;
   }
 
   /**
-   * GetlastModifiedByUser
+   * Relationship to user.
    *
    * @return lastModifiedByUser
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AttachmentDataRelationshipsLastModifiedByUser getLastModifiedByUser() {
+  public RelationshipToUser getLastModifiedByUser() {
     return lastModifiedByUser;
   }
 
-  public void setLastModifiedByUser(
-      AttachmentDataRelationshipsLastModifiedByUser lastModifiedByUser) {
+  public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
   }
 
@@ -105,20 +131,22 @@ public class AttachmentDataRelationships {
       return false;
     }
     AttachmentDataRelationships attachmentDataRelationships = (AttachmentDataRelationships) o;
-    return Objects.equals(this.lastModifiedByUser, attachmentDataRelationships.lastModifiedByUser)
+    return Objects.equals(this.incident, attachmentDataRelationships.incident)
+        && Objects.equals(this.lastModifiedByUser, attachmentDataRelationships.lastModifiedByUser)
         && Objects.equals(
             this.additionalProperties, attachmentDataRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastModifiedByUser, additionalProperties);
+    return Objects.hash(incident, lastModifiedByUser, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachmentDataRelationships {\n");
+    sb.append("    incident: ").append(toIndentedString(incident)).append("\n");
     sb.append("    lastModifiedByUser: ").append(toIndentedString(lastModifiedByUser)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

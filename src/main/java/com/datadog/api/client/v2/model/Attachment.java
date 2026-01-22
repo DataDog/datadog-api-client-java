@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** An attachment response containing the attachment data and related objects. */
 @JsonPropertyOrder({Attachment.JSON_PROPERTY_DATA, Attachment.JSON_PROPERTY_INCLUDED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -37,7 +37,7 @@ public class Attachment {
   }
 
   /**
-   * Getdata
+   * Attachment data from a response.
    *
    * @return data
    */

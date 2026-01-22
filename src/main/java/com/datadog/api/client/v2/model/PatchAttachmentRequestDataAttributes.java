@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The attributes for updating an attachment. */
 @JsonPropertyOrder({PatchAttachmentRequestDataAttributes.JSON_PROPERTY_ATTACHMENT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -33,7 +33,7 @@ public class PatchAttachmentRequestDataAttributes {
   }
 
   /**
-   * Getattachment
+   * The updated attachment object.
    *
    * @return attachment
    */

@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"33eb6b19-1034-4233-9bfa-03e4ffbc18ca\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2025-09-09T18:32:22.588970617Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2025-09-09T18:32:22.588970732Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
+      "body": "{\"data\":{\"id\":\"df9dd594-214a-4ff6-ad38-ce2eed607f33\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-01-19T20:16:07.114979137Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-01-19T20:16:07.114979235Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,7 +33,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"conditions\":[{\"field\":\"severity\",\"values\":[\"SEV-1\",\"SEV-2\"]}],\"enabled\":true,\"handles\":[\"@test-email@company.com\"],\"trigger\":\"incident_created_trigger\",\"visibility\":\"organization\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"33eb6b19-1034-4233-9bfa-03e4ffbc18ca\",\"type\":\"incident_types\"}}},\"type\":\"incident_notification_rules\"}}"
+        "json": "{\"data\":{\"attributes\":{\"conditions\":[{\"field\":\"severity\",\"values\":[\"SEV-1\",\"SEV-2\"]}],\"enabled\":true,\"handles\":[\"@test-email@company.com\"],\"trigger\":\"incident_created_trigger\",\"visibility\":\"organization\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"df9dd594-214a-4ff6-ad38-ce2eed607f33\",\"type\":\"incident_types\"}}},\"type\":\"incident_notification_rules\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"94e7cf01-bf6e-4ad5-bb87-e91880318851\",\"type\":\"incident_notification_rules\",\"attributes\":{\"conditions\":[{\"field\":\"severity\",\"values\":[\"SEV-1\",\"SEV-2\"]}],\"created\":\"2025-09-09T18:32:22.776194917Z\",\"enabled\":true,\"handles\":[\"@test-email@company.com\"],\"modified\":\"2025-09-09T18:32:22.776194917Z\",\"renotify_on\":[],\"trigger\":\"incident_created_trigger\",\"visibility\":\"organization\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"33eb6b19-1034-4233-9bfa-03e4ffbc18ca\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"ee710f27-a197-4fc5-b83e-cae632c7dc36\",\"type\":\"incident_notification_rules\",\"attributes\":{\"conditions\":[{\"field\":\"severity\",\"values\":[\"SEV-1\",\"SEV-2\"]}],\"created\":\"2026-01-19T20:16:07.401071384Z\",\"enabled\":true,\"handles\":[\"@test-email@company.com\"],\"modified\":\"2026-01-19T20:16:07.401071384Z\",\"renotify_on\":[],\"trigger\":\"incident_created_trigger\",\"visibility\":\"organization\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"df9dd594-214a-4ff6-ad38-ce2eed607f33\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,7 +57,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "476cf1a8-bd40-281b-dd59-b40242924096"
+    "id": "3d99c715-1c9b-9592-5325-4b12f2dc2e8f"
   },
   {
     "httpRequest": {
@@ -68,7 +68,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"id\":\"94e7cf01-bf6e-4ad5-bb87-e91880318851\",\"type\":\"incident_notification_rules\",\"attributes\":{\"conditions\":[{\"field\":\"severity\",\"values\":[\"SEV-1\",\"SEV-2\"]}],\"created\":\"2025-09-09T18:32:22.776194Z\",\"enabled\":true,\"handles\":[\"@test-email@company.com\"],\"modified\":\"2025-09-09T18:32:22.776194Z\",\"renotify_on\":[],\"trigger\":\"incident_created_trigger\",\"visibility\":\"organization\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"33eb6b19-1034-4233-9bfa-03e4ffbc18ca\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}],\"meta\":{\"pagination\":{\"offset\":0,\"next_offset\":1,\"size\":1}}}",
+      "body": "{\"data\":[{\"id\":\"ee710f27-a197-4fc5-b83e-cae632c7dc36\",\"type\":\"incident_notification_rules\",\"attributes\":{\"conditions\":[{\"field\":\"severity\",\"values\":[\"SEV-1\",\"SEV-2\"]}],\"created\":\"2026-01-19T20:16:07.401071Z\",\"enabled\":true,\"handles\":[\"@test-email@company.com\"],\"modified\":\"2026-01-19T20:16:07.401071Z\",\"renotify_on\":[],\"trigger\":\"incident_created_trigger\",\"visibility\":\"organization\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"df9dd594-214a-4ff6-ad38-ce2eed607f33\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}],\"meta\":{\"pagination\":{\"offset\":0,\"next_offset\":1,\"size\":1}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -89,7 +89,7 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/notification-rules/94e7cf01-bf6e-4ad5-bb87-e91880318851",
+      "path": "/api/v2/incidents/config/notification-rules/ee710f27-a197-4fc5-b83e-cae632c7dc36",
       "keepAlive": false,
       "secure": true
     },
@@ -104,13 +104,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6fe3884f-0feb-6835-0b39-4c96a5f11dd4"
+    "id": "8d7aa356-451e-f891-815e-3d6b0fc70547"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/33eb6b19-1034-4233-9bfa-03e4ffbc18ca",
+      "path": "/api/v2/incidents/config/types/df9dd594-214a-4ff6-ad38-ce2eed607f33",
       "keepAlive": false,
       "secure": true
     },
@@ -125,6 +125,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b19c730b-f843-5d97-0ff8-898b819b2b01"
+    "id": "76beabd3-3297-eecd-5059-0e2a1ff28100"
   }
 ]

@@ -1893,7 +1893,7 @@ public class IncidentsApi {
    * @param attachmentId The ID of the attachment. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteIncidentAttachment(String incidentId, Object attachmentId) throws ApiException {
+  public void deleteIncidentAttachment(String incidentId, String attachmentId) throws ApiException {
     deleteIncidentAttachmentWithHttpInfo(incidentId, attachmentId);
   }
 
@@ -1907,7 +1907,7 @@ public class IncidentsApi {
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteIncidentAttachmentAsync(
-      String incidentId, Object attachmentId) {
+      String incidentId, String attachmentId) {
     return deleteIncidentAttachmentWithHttpInfoAsync(incidentId, attachmentId)
         .thenApply(
             response -> {
@@ -1932,7 +1932,7 @@ public class IncidentsApi {
    *     </table>
    */
   public ApiResponse<Void> deleteIncidentAttachmentWithHttpInfo(
-      String incidentId, Object attachmentId) throws ApiException {
+      String incidentId, String attachmentId) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "deleteIncidentAttachment";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1994,7 +1994,7 @@ public class IncidentsApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteIncidentAttachmentWithHttpInfoAsync(
-      String incidentId, Object attachmentId) {
+      String incidentId, String attachmentId) {
     // Check if unstable operation is enabled
     String operationId = "deleteIncidentAttachment";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -6619,7 +6619,7 @@ public class IncidentsApi {
    * @throws ApiException if fails to make API call
    */
   public Attachment updateIncidentAttachment(
-      String incidentId, Object attachmentId, PatchAttachmentRequest body) throws ApiException {
+      String incidentId, String attachmentId, PatchAttachmentRequest body) throws ApiException {
     return updateIncidentAttachmentWithHttpInfo(
             incidentId, attachmentId, body, new UpdateIncidentAttachmentOptionalParameters())
         .getData();
@@ -6636,7 +6636,7 @@ public class IncidentsApi {
    * @return CompletableFuture&lt;Attachment&gt;
    */
   public CompletableFuture<Attachment> updateIncidentAttachmentAsync(
-      String incidentId, Object attachmentId, PatchAttachmentRequest body) {
+      String incidentId, String attachmentId, PatchAttachmentRequest body) {
     return updateIncidentAttachmentWithHttpInfoAsync(
             incidentId, attachmentId, body, new UpdateIncidentAttachmentOptionalParameters())
         .thenApply(
@@ -6659,7 +6659,7 @@ public class IncidentsApi {
    */
   public Attachment updateIncidentAttachment(
       String incidentId,
-      Object attachmentId,
+      String attachmentId,
       PatchAttachmentRequest body,
       UpdateIncidentAttachmentOptionalParameters parameters)
       throws ApiException {
@@ -6680,7 +6680,7 @@ public class IncidentsApi {
    */
   public CompletableFuture<Attachment> updateIncidentAttachmentAsync(
       String incidentId,
-      Object attachmentId,
+      String attachmentId,
       PatchAttachmentRequest body,
       UpdateIncidentAttachmentOptionalParameters parameters) {
     return updateIncidentAttachmentWithHttpInfoAsync(incidentId, attachmentId, body, parameters)
@@ -6710,7 +6710,7 @@ public class IncidentsApi {
    */
   public ApiResponse<Attachment> updateIncidentAttachmentWithHttpInfo(
       String incidentId,
-      Object attachmentId,
+      String attachmentId,
       PatchAttachmentRequest body,
       UpdateIncidentAttachmentOptionalParameters parameters)
       throws ApiException {
@@ -6788,7 +6788,7 @@ public class IncidentsApi {
    */
   public CompletableFuture<ApiResponse<Attachment>> updateIncidentAttachmentWithHttpInfoAsync(
       String incidentId,
-      Object attachmentId,
+      String attachmentId,
       PatchAttachmentRequest body,
       UpdateIncidentAttachmentOptionalParameters parameters) {
     // Check if unstable operation is enabled

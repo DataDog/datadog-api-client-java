@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"d067e172-1ce4-4b59-ae6e-3f867e98c81e\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2025-09-05T02:19:08.514411675Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2025-09-05T02:19:08.514411774Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
+      "body": "{\"data\":{\"id\":\"f3cd4435-48ee-4b07-bf6f-bfabd4d61b78\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-01-19T20:15:55.998248893Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-01-19T20:15:55.998248991Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,7 +33,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1757038748\",\"subject\":\"Test Subject\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"d067e172-1ce4-4b59-ae6e-3f867e98c81e\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
+        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1768853755\",\"subject\":\"Test Subject\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"f3cd4435-48ee-4b07-bf6f-bfabd4d61b78\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"15bb5f88-fdc8-45be-9b38-348cb42d421e\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"created\":\"2025-09-05T02:19:08.730505Z\",\"modified\":\"2025-09-05T02:19:08.730505Z\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1757038748\",\"subject\":\"Test Subject\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"d067e172-1ce4-4b59-ae6e-3f867e98c81e\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"defd8fff-8d3c-47fa-a7ae-b1aa3ddc552b\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"created\":\"2026-01-19T20:15:56.26957Z\",\"modified\":\"2026-01-19T20:15:56.26957Z\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1768853755\",\"subject\":\"Test Subject\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"f3cd4435-48ee-4b07-bf6f-bfabd4d61b78\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8b9b9531-c285-eb4a-8c91-ea4652e57bee"
+    "id": "4e03eaae-7add-18db-db5d-6f19a5410484"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/notification-templates/15bb5f88-fdc8-45be-9b38-348cb42d421e",
+      "path": "/api/v2/incidents/config/notification-templates/defd8fff-8d3c-47fa-a7ae-b1aa3ddc552b",
       "keepAlive": false,
       "secure": true
     },
@@ -78,13 +78,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1376cac6-af4f-788b-c760-cdc56734c358"
+    "id": "fb2aeac4-cd88-7782-cd20-3e1f5b0a8599"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/notification-templates/15bb5f88-fdc8-45be-9b38-348cb42d421e",
+      "path": "/api/v2/incidents/config/notification-templates/defd8fff-8d3c-47fa-a7ae-b1aa3ddc552b",
       "keepAlive": false,
       "secure": true
     },
@@ -104,13 +104,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1376cac6-af4f-788b-c760-cdc56734c359"
+    "id": "fb2aeac4-cd88-7782-cd20-3e1f5b0a859a"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/d067e172-1ce4-4b59-ae6e-3f867e98c81e",
+      "path": "/api/v2/incidents/config/types/f3cd4435-48ee-4b07-bf6f-bfabd4d61b78",
       "keepAlive": false,
       "secure": true
     },
@@ -125,6 +125,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8c898490-3eae-2862-f367-5e1f82e42d40"
+    "id": "8e21cc22-1d11-92d3-8305-c8dcfe815224"
   }
 ]
