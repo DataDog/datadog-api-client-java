@@ -922,6 +922,7 @@ public class ApiClient {
           put("v2.listIncidentTeams", false);
           put("v2.updateIncidentTeam", false);
           put("v2.searchFlakyTests", false);
+          put("v2.updateFlakyTests", false);
         }
       };
   protected static final java.util.logging.Logger logger =
