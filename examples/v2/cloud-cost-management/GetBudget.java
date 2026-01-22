@@ -1,9 +1,9 @@
-// Get a budget returns "OK" response
+// Get budget returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CloudCostManagementApi;
-import com.datadog.api.client.v2.model.BudgetWithEntries;
+import com.datadog.api.client.v2.model.BudgetValidationRequest;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Example {
     CloudCostManagementApi apiInstance = new CloudCostManagementApi(defaultClient);
 
     try {
-      BudgetWithEntries result = apiInstance.getBudget("budget_id");
+      BudgetValidationRequest result = apiInstance.getBudget("budget_id");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CloudCostManagementApi#getBudget");

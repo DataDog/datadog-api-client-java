@@ -17,61 +17,66 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A budget. */
+/** */
 @JsonPropertyOrder({
-  Budget.JSON_PROPERTY_ATTRIBUTES,
-  Budget.JSON_PROPERTY_ID,
-  Budget.JSON_PROPERTY_TYPE
+  BudgetValidationResponseData.JSON_PROPERTY_ATTRIBUTES,
+  BudgetValidationResponseData.JSON_PROPERTY_ID,
+  BudgetValidationResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Budget {
+public class BudgetValidationResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private BudgetAttributes attributes;
+  private BudgetValidationResponseDataAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private BudgetValidationResponseDataType type =
+      BudgetValidationResponseDataType.BUDGET_VALIDATION;
 
-  public Budget() {}
+  public BudgetValidationResponseData() {}
 
   @JsonCreator
-  public Budget(@JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
+  public BudgetValidationResponseData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          BudgetValidationResponseDataType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
-  public Budget attributes(BudgetAttributes attributes) {
+  public BudgetValidationResponseData attributes(
+      BudgetValidationResponseDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * The attributes of a budget.
+   * Getattributes
    *
    * @return attributes
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public BudgetAttributes getAttributes() {
+  public BudgetValidationResponseDataAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(BudgetAttributes attributes) {
+  public void setAttributes(BudgetValidationResponseDataAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public Budget id(String id) {
+  public BudgetValidationResponseData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The id of the budget.
+   * Getid
    *
    * @return id
    */
@@ -86,23 +91,27 @@ public class Budget {
     this.id = id;
   }
 
-  public Budget type(String type) {
+  public BudgetValidationResponseData type(BudgetValidationResponseDataType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The type of the object, must be <code>budget</code>.
+   * Budget validation resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getType() {
+  public BudgetValidationResponseDataType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(BudgetValidationResponseDataType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
@@ -118,10 +127,10 @@ public class Budget {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return Budget
+   * @return BudgetValidationResponseData
    */
   @JsonAnySetter
-  public Budget putAdditionalProperty(String key, Object value) {
+  public BudgetValidationResponseData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -152,7 +161,7 @@ public class Budget {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this Budget object is equal to o. */
+  /** Return true if this BudgetValidationResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -161,11 +170,12 @@ public class Budget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Budget budget = (Budget) o;
-    return Objects.equals(this.attributes, budget.attributes)
-        && Objects.equals(this.id, budget.id)
-        && Objects.equals(this.type, budget.type)
-        && Objects.equals(this.additionalProperties, budget.additionalProperties);
+    BudgetValidationResponseData budgetValidationResponseData = (BudgetValidationResponseData) o;
+    return Objects.equals(this.attributes, budgetValidationResponseData.attributes)
+        && Objects.equals(this.id, budgetValidationResponseData.id)
+        && Objects.equals(this.type, budgetValidationResponseData.type)
+        && Objects.equals(
+            this.additionalProperties, budgetValidationResponseData.additionalProperties);
   }
 
   @Override
@@ -176,7 +186,7 @@ public class Budget {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Budget {\n");
+    sb.append("class BudgetValidationResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

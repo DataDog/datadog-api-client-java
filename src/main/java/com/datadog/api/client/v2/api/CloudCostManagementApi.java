@@ -16,6 +16,8 @@ import com.datadog.api.client.v2.model.AzureUCConfigPatchRequest;
 import com.datadog.api.client.v2.model.AzureUCConfigPostRequest;
 import com.datadog.api.client.v2.model.AzureUCConfigsResponse;
 import com.datadog.api.client.v2.model.BudgetArray;
+import com.datadog.api.client.v2.model.BudgetValidationRequest;
+import com.datadog.api.client.v2.model.BudgetValidationResponse;
 import com.datadog.api.client.v2.model.BudgetWithEntries;
 import com.datadog.api.client.v2.model.CreateRulesetRequest;
 import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
@@ -35,6 +37,7 @@ import com.datadog.api.client.v2.model.RulesetResp;
 import com.datadog.api.client.v2.model.RulesetRespArray;
 import com.datadog.api.client.v2.model.UCConfigPair;
 import com.datadog.api.client.v2.model.UpdateRulesetRequest;
+import com.datadog.api.client.v2.model.ValidationResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -752,7 +755,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Delete a budget.
+   * Delete budget.
    *
    * <p>See {@link #deleteBudgetWithHttpInfo}.
    *
@@ -764,7 +767,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Delete a budget.
+   * Delete budget.
    *
    * <p>See {@link #deleteBudgetWithHttpInfoAsync}.
    *
@@ -780,7 +783,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Delete a budget.
+   * Delete a budget
    *
    * @param budgetId Budget id. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -790,7 +793,6 @@ public class CloudCostManagementApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -817,7 +819,7 @@ public class CloudCostManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -830,7 +832,7 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Delete a budget.
+   * Delete budget.
    *
    * <p>See {@link #deleteBudgetWithHttpInfo}.
    *
@@ -865,7 +867,7 @@ public class CloudCostManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1705,27 +1707,27 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Get a budget.
+   * Get budget.
    *
    * <p>See {@link #getBudgetWithHttpInfo}.
    *
    * @param budgetId Budget id. (required)
-   * @return BudgetWithEntries
+   * @return BudgetValidationRequest
    * @throws ApiException if fails to make API call
    */
-  public BudgetWithEntries getBudget(String budgetId) throws ApiException {
+  public BudgetValidationRequest getBudget(String budgetId) throws ApiException {
     return getBudgetWithHttpInfo(budgetId).getData();
   }
 
   /**
-   * Get a budget.
+   * Get budget.
    *
    * <p>See {@link #getBudgetWithHttpInfoAsync}.
    *
    * @param budgetId Budget id. (required)
-   * @return CompletableFuture&lt;BudgetWithEntries&gt;
+   * @return CompletableFuture&lt;BudgetValidationRequest&gt;
    */
-  public CompletableFuture<BudgetWithEntries> getBudgetAsync(String budgetId) {
+  public CompletableFuture<BudgetValidationRequest> getBudgetAsync(String budgetId) {
     return getBudgetWithHttpInfoAsync(budgetId)
         .thenApply(
             response -> {
@@ -1734,22 +1736,21 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Get a budget.
+   * Get a budget
    *
    * @param budgetId Budget id. (required)
-   * @return ApiResponse&lt;BudgetWithEntries&gt;
+   * @return ApiResponse&lt;BudgetValidationRequest&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<BudgetWithEntries> getBudgetWithHttpInfo(String budgetId) throws ApiException {
+  public ApiResponse<BudgetValidationRequest> getBudgetWithHttpInfo(String budgetId)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'budgetId' is set
@@ -1772,7 +1773,7 @@ public class CloudCostManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1781,24 +1782,24 @@ public class CloudCostManagementApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<BudgetWithEntries>() {});
+        new GenericType<BudgetValidationRequest>() {});
   }
 
   /**
-   * Get a budget.
+   * Get budget.
    *
    * <p>See {@link #getBudgetWithHttpInfo}.
    *
    * @param budgetId Budget id. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;BudgetWithEntries&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;BudgetValidationRequest&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<BudgetWithEntries>> getBudgetWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<BudgetValidationRequest>> getBudgetWithHttpInfoAsync(
       String budgetId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'budgetId' is set
     if (budgetId == null) {
-      CompletableFuture<ApiResponse<BudgetWithEntries>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<BudgetValidationRequest>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'budgetId' when calling getBudget"));
@@ -1821,9 +1822,9 @@ public class CloudCostManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<BudgetWithEntries>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<BudgetValidationRequest>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1835,7 +1836,7 @@ public class CloudCostManagementApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<BudgetWithEntries>() {});
+        new GenericType<BudgetValidationRequest>() {});
   }
 
   /**
@@ -2712,7 +2713,7 @@ public class CloudCostManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -2748,7 +2749,7 @@ public class CloudCostManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<BudgetArray>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -4834,7 +4835,7 @@ public class CloudCostManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "PUT",
         builder,
@@ -4880,7 +4881,7 @@ public class CloudCostManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<BudgetWithEntries>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -4895,6 +4896,242 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<BudgetWithEntries>() {});
+  }
+
+  /**
+   * Validate budget.
+   *
+   * <p>See {@link #validateBudgetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return BudgetValidationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public BudgetValidationResponse validateBudget(BudgetValidationRequest body) throws ApiException {
+    return validateBudgetWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Validate budget.
+   *
+   * <p>See {@link #validateBudgetWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;BudgetValidationResponse&gt;
+   */
+  public CompletableFuture<BudgetValidationResponse> validateBudgetAsync(
+      BudgetValidationRequest body) {
+    return validateBudgetWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Validate a budget configuration without creating or modifying it
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;BudgetValidationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<BudgetValidationResponse> validateBudgetWithHttpInfo(
+      BudgetValidationRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling validateBudget");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/budget/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.validateBudget",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BudgetValidationResponse>() {});
+  }
+
+  /**
+   * Validate budget.
+   *
+   * <p>See {@link #validateBudgetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;BudgetValidationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<BudgetValidationResponse>> validateBudgetWithHttpInfoAsync(
+      BudgetValidationRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<BudgetValidationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling validateBudget"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/budget/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.validateBudget",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<BudgetValidationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BudgetValidationResponse>() {});
+  }
+
+  /**
+   * Validate CSV budget.
+   *
+   * <p>See {@link #validateCsvBudgetWithHttpInfo}.
+   *
+   * @return ValidationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ValidationResponse validateCsvBudget() throws ApiException {
+    return validateCsvBudgetWithHttpInfo().getData();
+  }
+
+  /**
+   * Validate CSV budget.
+   *
+   * <p>See {@link #validateCsvBudgetWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ValidationResponse&gt;
+   */
+  public CompletableFuture<ValidationResponse> validateCsvBudgetAsync() {
+    return validateCsvBudgetWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @return ApiResponse&lt;ValidationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ValidationResponse> validateCsvBudgetWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/budget/csv/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.validateCsvBudget",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ValidationResponse>() {});
+  }
+
+  /**
+   * Validate CSV budget.
+   *
+   * <p>See {@link #validateCsvBudgetWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;ValidationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ValidationResponse>> validateCsvBudgetWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/budget/csv/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.validateCsvBudget",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ValidationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ValidationResponse>() {});
   }
 
   /**

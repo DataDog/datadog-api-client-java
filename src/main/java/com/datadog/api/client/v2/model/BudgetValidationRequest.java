@@ -8,59 +8,42 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** An array of budgets. */
-@JsonPropertyOrder({BudgetArray.JSON_PROPERTY_DATA})
+/** */
+@JsonPropertyOrder({BudgetValidationRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class BudgetArray {
+public class BudgetValidationRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<Budget> data = new ArrayList<>();
+  private BudgetValidationRequestData data;
 
-  public BudgetArray() {}
-
-  @JsonCreator
-  public BudgetArray(@JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<Budget> data) {
+  public BudgetValidationRequest data(BudgetValidationRequestData data) {
     this.data = data;
-  }
-
-  public BudgetArray data(List<Budget> data) {
-    this.data = data;
-    for (Budget item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public BudgetArray addDataItem(Budget dataItem) {
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * The <code>BudgetArray</code> <code>data</code>.
+   * Getdata
    *
    * @return data
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<Budget> getData() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BudgetValidationRequestData getData() {
     return data;
   }
 
-  public void setData(List<Budget> data) {
+  public void setData(BudgetValidationRequestData data) {
     this.data = data;
   }
 
@@ -76,10 +59,10 @@ public class BudgetArray {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return BudgetArray
+   * @return BudgetValidationRequest
    */
   @JsonAnySetter
-  public BudgetArray putAdditionalProperty(String key, Object value) {
+  public BudgetValidationRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -110,7 +93,7 @@ public class BudgetArray {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this BudgetArray object is equal to o. */
+  /** Return true if this BudgetValidationRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -119,9 +102,9 @@ public class BudgetArray {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BudgetArray budgetArray = (BudgetArray) o;
-    return Objects.equals(this.data, budgetArray.data)
-        && Objects.equals(this.additionalProperties, budgetArray.additionalProperties);
+    BudgetValidationRequest budgetValidationRequest = (BudgetValidationRequest) o;
+    return Objects.equals(this.data, budgetValidationRequest.data)
+        && Objects.equals(this.additionalProperties, budgetValidationRequest.additionalProperties);
   }
 
   @Override
@@ -132,7 +115,7 @@ public class BudgetArray {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BudgetArray {\n");
+    sb.append("class BudgetValidationRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
