@@ -8,6 +8,7 @@ import com.datadog.api.client.v1.model.LogsExclusion;
 import com.datadog.api.client.v1.model.LogsExclusionFilter;
 import com.datadog.api.client.v1.model.LogsFilter;
 import com.datadog.api.client.v1.model.LogsIndex;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -28,7 +29,8 @@ public class Example {
             .filter(new LogsFilter().query("source:python"))
             .name("main")
             .numFlexLogsRetentionDays(360L)
-            .numRetentionDays(15L);
+            .numRetentionDays(15L)
+            .tags(Arrays.asList("team:backend", "env:production"));
 
     try {
       LogsIndex result = apiInstance.createLogsIndex(body);
