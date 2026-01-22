@@ -8,60 +8,69 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** An array of budgets. */
-@JsonPropertyOrder({BudgetArray.JSON_PROPERTY_DATA})
+/** */
+@JsonPropertyOrder({
+  BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems.JSON_PROPERTY_TAG_KEY,
+  BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems.JSON_PROPERTY_TAG_VALUE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class BudgetArray {
+public class BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<Budget> data = new ArrayList<>();
+  public static final String JSON_PROPERTY_TAG_KEY = "tag_key";
+  private String tagKey;
 
-  public BudgetArray() {}
+  public static final String JSON_PROPERTY_TAG_VALUE = "tag_value";
+  private String tagValue;
 
-  @JsonCreator
-  public BudgetArray(@JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<Budget> data) {
-    this.data = data;
-  }
-
-  public BudgetArray data(List<Budget> data) {
-    this.data = data;
-    for (Budget item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public BudgetArray addDataItem(Budget dataItem) {
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+  public BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems tagKey(String tagKey) {
+    this.tagKey = tagKey;
     return this;
   }
 
   /**
-   * The <code>BudgetArray</code> <code>data</code>.
+   * GettagKey
    *
-   * @return data
+   * @return tagKey
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<Budget> getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAG_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTagKey() {
+    return tagKey;
   }
 
-  public void setData(List<Budget> data) {
-    this.data = data;
+  public void setTagKey(String tagKey) {
+    this.tagKey = tagKey;
+  }
+
+  public BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems tagValue(String tagValue) {
+    this.tagValue = tagValue;
+    return this;
+  }
+
+  /**
+   * GettagValue
+   *
+   * @return tagValue
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAG_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTagValue() {
+    return tagValue;
+  }
+
+  public void setTagValue(String tagValue) {
+    this.tagValue = tagValue;
   }
 
   /**
@@ -76,10 +85,11 @@ public class BudgetArray {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return BudgetArray
+   * @return BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems
    */
   @JsonAnySetter
-  public BudgetArray putAdditionalProperty(String key, Object value) {
+  public BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -110,7 +120,10 @@ public class BudgetArray {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this BudgetArray object is equal to o. */
+  /**
+   * Return true if this BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems object is equal
+   * to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -119,21 +132,29 @@ public class BudgetArray {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BudgetArray budgetArray = (BudgetArray) o;
-    return Objects.equals(this.data, budgetArray.data)
-        && Objects.equals(this.additionalProperties, budgetArray.additionalProperties);
+    BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems
+        budgetWithEntriesDataAttributesEntriesItemsTagFiltersItems =
+            (BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems) o;
+    return Objects.equals(
+            this.tagKey, budgetWithEntriesDataAttributesEntriesItemsTagFiltersItems.tagKey)
+        && Objects.equals(
+            this.tagValue, budgetWithEntriesDataAttributesEntriesItemsTagFiltersItems.tagValue)
+        && Objects.equals(
+            this.additionalProperties,
+            budgetWithEntriesDataAttributesEntriesItemsTagFiltersItems.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(tagKey, tagValue, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BudgetArray {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems {\n");
+    sb.append("    tagKey: ").append(toIndentedString(tagKey)).append("\n");
+    sb.append("    tagValue: ").append(toIndentedString(tagValue)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

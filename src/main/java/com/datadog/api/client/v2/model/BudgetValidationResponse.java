@@ -16,58 +16,35 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Tag filter for the budget's entries. */
-@JsonPropertyOrder({TagFilter.JSON_PROPERTY_TAG_KEY, TagFilter.JSON_PROPERTY_TAG_VALUE})
+/** */
+@JsonPropertyOrder({BudgetValidationResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TagFilter {
+public class BudgetValidationResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_TAG_KEY = "tag_key";
-  private String tagKey;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private BudgetValidationResponseData data;
 
-  public static final String JSON_PROPERTY_TAG_VALUE = "tag_value";
-  private String tagValue;
-
-  public TagFilter tagKey(String tagKey) {
-    this.tagKey = tagKey;
+  public BudgetValidationResponse data(BudgetValidationResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * The key of the tag.
+   * Getdata
    *
-   * @return tagKey
+   * @return data
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAG_KEY)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTagKey() {
-    return tagKey;
+  public BudgetValidationResponseData getData() {
+    return data;
   }
 
-  public void setTagKey(String tagKey) {
-    this.tagKey = tagKey;
-  }
-
-  public TagFilter tagValue(String tagValue) {
-    this.tagValue = tagValue;
-    return this;
-  }
-
-  /**
-   * The value of the tag.
-   *
-   * @return tagValue
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAG_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTagValue() {
-    return tagValue;
-  }
-
-  public void setTagValue(String tagValue) {
-    this.tagValue = tagValue;
+  public void setData(BudgetValidationResponseData data) {
+    this.data = data;
   }
 
   /**
@@ -82,10 +59,10 @@ public class TagFilter {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TagFilter
+   * @return BudgetValidationResponse
    */
   @JsonAnySetter
-  public TagFilter putAdditionalProperty(String key, Object value) {
+  public BudgetValidationResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -116,7 +93,7 @@ public class TagFilter {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TagFilter object is equal to o. */
+  /** Return true if this BudgetValidationResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -125,23 +102,21 @@ public class TagFilter {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagFilter tagFilter = (TagFilter) o;
-    return Objects.equals(this.tagKey, tagFilter.tagKey)
-        && Objects.equals(this.tagValue, tagFilter.tagValue)
-        && Objects.equals(this.additionalProperties, tagFilter.additionalProperties);
+    BudgetValidationResponse budgetValidationResponse = (BudgetValidationResponse) o;
+    return Objects.equals(this.data, budgetValidationResponse.data)
+        && Objects.equals(this.additionalProperties, budgetValidationResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tagKey, tagValue, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagFilter {\n");
-    sb.append("    tagKey: ").append(toIndentedString(tagKey)).append("\n");
-    sb.append("    tagValue: ").append(toIndentedString(tagValue)).append("\n");
+    sb.append("class BudgetValidationResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

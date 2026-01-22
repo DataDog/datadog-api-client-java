@@ -4,10 +4,10 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CloudCostManagementApi;
 import com.datadog.api.client.v2.model.BudgetAttributes;
-import com.datadog.api.client.v2.model.BudgetEntry;
 import com.datadog.api.client.v2.model.BudgetWithEntries;
 import com.datadog.api.client.v2.model.BudgetWithEntriesData;
-import com.datadog.api.client.v2.model.TagFilter;
+import com.datadog.api.client.v2.model.BudgetWithEntriesDataAttributesEntriesItems;
+import com.datadog.api.client.v2.model.BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems;
 import java.util.Collections;
 
 public class Example {
@@ -26,14 +26,10 @@ public class Example {
                             .endMonth(202502L)
                             .entries(
                                 Collections.singletonList(
-                                    new BudgetEntry()
-                                        .amount(500.0)
-                                        .month(202501L)
+                                    new BudgetWithEntriesDataAttributesEntriesItems()
                                         .tagFilters(
                                             Collections.singletonList(
-                                                new TagFilter()
-                                                    .tagKey("service")
-                                                    .tagValue("ec2")))))
+                                                new BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems()))))
                             .metricsQuery("aws.cost.amortized{service:ec2} by {service}")
                             .name("my budget")
                             .orgId(123L)
@@ -41,7 +37,8 @@ public class Example {
                             .totalAmount(1000.0)
                             .updatedAt(1738258683590L)
                             .updatedBy("00000000-0a0a-0a0a-aaa0-00000000000a"))
-                    .id("00000000-0a0a-0a0a-aaa0-00000000000a"));
+                    .id("00000000-0a0a-0a0a-aaa0-00000000000a")
+                    .type(""));
 
     try {
       BudgetWithEntries result = apiInstance.upsertBudget(body);
