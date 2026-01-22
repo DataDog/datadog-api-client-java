@@ -1,4 +1,4 @@
-// Create Jira issues for security findings returns "Created" response
+// Create Jira issue for security findings returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -26,7 +26,7 @@ public class Example {
     CreateJiraIssueRequestArray body =
         new CreateJiraIssueRequestArray()
             .data(
-                Arrays.asList(
+                Collections.singletonList(
                     new CreateJiraIssueRequestData()
                         .attributes(
                             new CreateJiraIssueRequestDataAttributes()
@@ -37,32 +37,14 @@ public class Example {
                                 .findings(
                                     new Findings()
                                         .data(
-                                            Collections.singletonList(
-                                                new FindingData()
-                                                    .id(
-                                                        "eWswLWJsdC1hZm5-aS0wMjRlYTgwMzVkZTU1MGIwYQ==")
-                                                    .type(FindingDataType.FINDINGS))))
-                                .project(
-                                    new CaseManagementProject()
-                                        .data(
-                                            new CaseManagementProjectData()
-                                                .id("959a6f71-bac8-4027-b1d3-2264f569296f")
-                                                .type(CaseManagementProjectDataType.PROJECTS))))
-                        .type(JiraIssuesDataType.JIRA_ISSUES),
-                    new CreateJiraIssueRequestData()
-                        .attributes(
-                            new CreateJiraIssueRequestDataAttributes()
-                                .title("A title")
-                                .description("A description"))
-                        .relationships(
-                            new CreateJiraIssueRequestDataRelationships()
-                                .findings(
-                                    new Findings()
-                                        .data(
-                                            Collections.singletonList(
+                                            Arrays.asList(
                                                 new FindingData()
                                                     .id(
                                                         "a3ZoLXNjbS14eXV-aS0wNWY5MGYwMGE4NDg2ODdlOA==")
+                                                    .type(FindingDataType.FINDINGS),
+                                                new FindingData()
+                                                    .id(
+                                                        "eWswLWJsdC1hZm5-aS0wMjRlYTgwMzVkZTU1MGIwYQ==")
                                                     .type(FindingDataType.FINDINGS))))
                                 .project(
                                     new CaseManagementProject()

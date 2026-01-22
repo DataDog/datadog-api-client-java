@@ -346,13 +346,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<FindingCaseResponse> attachJiraIssueWithHttpInfo(AttachJiraIssueRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "attachJiraIssue";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -395,16 +388,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<FindingCaseResponse>> attachJiraIssueWithHttpInfoAsync(
       AttachJiraIssueRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "attachJiraIssue";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FindingCaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1513,13 +1496,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<FindingCaseResponseArray> createJiraIssuesWithHttpInfo(
       CreateJiraIssueRequestArray body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createJiraIssues";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1562,16 +1538,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<FindingCaseResponseArray>> createJiraIssuesWithHttpInfoAsync(
       CreateJiraIssueRequestArray body) {
-    // Check if unstable operation is enabled
-    String operationId = "createJiraIssues";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<FindingCaseResponseArray>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set

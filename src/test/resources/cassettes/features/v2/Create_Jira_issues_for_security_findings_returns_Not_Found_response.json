@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"attributes\":{},\"relationships\":{\"findings\":{\"data\":[{\"id\":\"ZGZhMDI3ZjdjMDM3YjJmNzcxNTlhZGMwMjdmZWNiNTZ-MTVlYTNmYWU3NjNlOTNlYTE2YjM4N2JmZmI4Yjk5N2Y=\",\"type\":\"findings\"}]},\"project\":{\"data\":{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"projects\"}}},\"type\":\"jira_issues\"}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/findings/jira_issues",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"finding not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5a0057c5-0a17-ca5c-d4c3-2ddbc0e5054c"
+  }
+]

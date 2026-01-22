@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"attributes\":{},\"relationships\":{\"findings\":{\"data\":[]},\"project\":{\"data\":{\"id\":\"7f198869-c7ef-4afc-97cf-da5cdc13b5c3\",\"type\":\"projects\"}}},\"type\":\"jira_issues\"}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/findings/jira_issues",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"no finding provided\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b1ea1e59-1255-1888-ac07-e95b75f3804b"
+  }
+]
