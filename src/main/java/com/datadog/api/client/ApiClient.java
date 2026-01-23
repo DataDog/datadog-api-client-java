@@ -911,8 +911,18 @@ public class ApiClient {
           put("v2.getSLOReportJobStatus", false);
           put("v2.getSPARecommendations", false);
           put("v2.getSPARecommendationsWithShard", false);
+          put("v2.createCustomRule", false);
+          put("v2.createCustomRuleRevision", false);
           put("v2.createSCAResolveVulnerableSymbols", false);
           put("v2.createSCAResult", false);
+          put("v2.deleteCustomRule", false);
+          put("v2.deleteCustomRuleset", false);
+          put("v2.getCustomRule", false);
+          put("v2.getCustomRuleRevision", false);
+          put("v2.getCustomRuleset", false);
+          put("v2.listCustomRuleRevisions", false);
+          put("v2.revertCustomRuleRevision", false);
+          put("v2.updateCustomRuleset", false);
           put("v2.addMemberTeam", false);
           put("v2.listMemberTeams", false);
           put("v2.removeMemberTeam", false);
