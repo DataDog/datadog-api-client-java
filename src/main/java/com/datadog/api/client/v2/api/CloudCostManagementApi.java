@@ -1712,10 +1712,10 @@ public class CloudCostManagementApi {
    * <p>See {@link #getBudgetWithHttpInfo}.
    *
    * @param budgetId Budget id. (required)
-   * @return BudgetValidationRequest
+   * @return BudgetWithEntries
    * @throws ApiException if fails to make API call
    */
-  public BudgetValidationRequest getBudget(String budgetId) throws ApiException {
+  public BudgetWithEntries getBudget(String budgetId) throws ApiException {
     return getBudgetWithHttpInfo(budgetId).getData();
   }
 
@@ -1725,9 +1725,9 @@ public class CloudCostManagementApi {
    * <p>See {@link #getBudgetWithHttpInfoAsync}.
    *
    * @param budgetId Budget id. (required)
-   * @return CompletableFuture&lt;BudgetValidationRequest&gt;
+   * @return CompletableFuture&lt;BudgetWithEntries&gt;
    */
-  public CompletableFuture<BudgetValidationRequest> getBudgetAsync(String budgetId) {
+  public CompletableFuture<BudgetWithEntries> getBudgetAsync(String budgetId) {
     return getBudgetWithHttpInfoAsync(budgetId)
         .thenApply(
             response -> {
@@ -1739,7 +1739,7 @@ public class CloudCostManagementApi {
    * Get a budget
    *
    * @param budgetId Budget id. (required)
-   * @return ApiResponse&lt;BudgetValidationRequest&gt;
+   * @return ApiResponse&lt;BudgetWithEntries&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -1749,8 +1749,7 @@ public class CloudCostManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<BudgetValidationRequest> getBudgetWithHttpInfo(String budgetId)
-      throws ApiException {
+  public ApiResponse<BudgetWithEntries> getBudgetWithHttpInfo(String budgetId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'budgetId' is set
@@ -1782,7 +1781,7 @@ public class CloudCostManagementApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<BudgetValidationRequest>() {});
+        new GenericType<BudgetWithEntries>() {});
   }
 
   /**
@@ -1791,15 +1790,15 @@ public class CloudCostManagementApi {
    * <p>See {@link #getBudgetWithHttpInfo}.
    *
    * @param budgetId Budget id. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;BudgetValidationRequest&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;BudgetWithEntries&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<BudgetValidationRequest>> getBudgetWithHttpInfoAsync(
+  public CompletableFuture<ApiResponse<BudgetWithEntries>> getBudgetWithHttpInfoAsync(
       String budgetId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'budgetId' is set
     if (budgetId == null) {
-      CompletableFuture<ApiResponse<BudgetValidationRequest>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<BudgetWithEntries>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'budgetId' when calling getBudget"));
@@ -1824,7 +1823,7 @@ public class CloudCostManagementApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<BudgetValidationRequest>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<BudgetWithEntries>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1836,7 +1835,7 @@ public class CloudCostManagementApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<BudgetValidationRequest>() {});
+        new GenericType<BudgetWithEntries>() {});
   }
 
   /**
