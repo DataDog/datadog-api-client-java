@@ -10,7 +10,12 @@ import com.datadog.api.client.v2.model.AttachmentArray;
 import com.datadog.api.client.v2.model.CreateAttachmentRequest;
 import com.datadog.api.client.v2.model.CreateIncidentNotificationRuleRequest;
 import com.datadog.api.client.v2.model.CreateIncidentNotificationTemplateRequest;
+import com.datadog.api.client.v2.model.GlobalIncidentSettingsRequest;
+import com.datadog.api.client.v2.model.GlobalIncidentSettingsResponse;
 import com.datadog.api.client.v2.model.IncidentCreateRequest;
+import com.datadog.api.client.v2.model.IncidentHandleRequest;
+import com.datadog.api.client.v2.model.IncidentHandleResponse;
+import com.datadog.api.client.v2.model.IncidentHandlesResponse;
 import com.datadog.api.client.v2.model.IncidentImpactCreateRequest;
 import com.datadog.api.client.v2.model.IncidentImpactRelatedObject;
 import com.datadog.api.client.v2.model.IncidentImpactResponse;
@@ -82,6 +87,222 @@ public class IncidentsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /** Manage optional parameters to createGlobalIncidentHandle. */
+  public static class CreateGlobalIncidentHandleOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include in the response
+     *     (optional)
+     * @return CreateGlobalIncidentHandleOptionalParameters
+     */
+    public CreateGlobalIncidentHandleOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Create global incident handle.
+   *
+   * <p>See {@link #createGlobalIncidentHandleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return IncidentHandleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentHandleResponse createGlobalIncidentHandle(IncidentHandleRequest body)
+      throws ApiException {
+    return createGlobalIncidentHandleWithHttpInfo(
+            body, new CreateGlobalIncidentHandleOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create global incident handle.
+   *
+   * <p>See {@link #createGlobalIncidentHandleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;IncidentHandleResponse&gt;
+   */
+  public CompletableFuture<IncidentHandleResponse> createGlobalIncidentHandleAsync(
+      IncidentHandleRequest body) {
+    return createGlobalIncidentHandleWithHttpInfoAsync(
+            body, new CreateGlobalIncidentHandleOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create global incident handle.
+   *
+   * <p>See {@link #createGlobalIncidentHandleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentHandleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentHandleResponse createGlobalIncidentHandle(
+      IncidentHandleRequest body, CreateGlobalIncidentHandleOptionalParameters parameters)
+      throws ApiException {
+    return createGlobalIncidentHandleWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Create global incident handle.
+   *
+   * <p>See {@link #createGlobalIncidentHandleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentHandleResponse&gt;
+   */
+  public CompletableFuture<IncidentHandleResponse> createGlobalIncidentHandleAsync(
+      IncidentHandleRequest body, CreateGlobalIncidentHandleOptionalParameters parameters) {
+    return createGlobalIncidentHandleWithHttpInfoAsync(body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new global incident handle.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentHandleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentHandleResponse> createGlobalIncidentHandleWithHttpInfo(
+      IncidentHandleRequest body, CreateGlobalIncidentHandleOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createGlobalIncidentHandle";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createGlobalIncidentHandle");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.createGlobalIncidentHandle",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentHandleResponse>() {});
+  }
+
+  /**
+   * Create global incident handle.
+   *
+   * <p>See {@link #createGlobalIncidentHandleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentHandleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentHandleResponse>>
+      createGlobalIncidentHandleWithHttpInfoAsync(
+          IncidentHandleRequest body, CreateGlobalIncidentHandleOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "createGlobalIncidentHandle";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentHandleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentHandleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createGlobalIncidentHandle"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.createGlobalIncidentHandle",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentHandleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentHandleResponse>() {});
   }
 
   /**
@@ -1732,6 +1953,131 @@ public class IncidentsApi {
   }
 
   /**
+   * Delete global incident handle.
+   *
+   * <p>See {@link #deleteGlobalIncidentHandleWithHttpInfo}.
+   *
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteGlobalIncidentHandle() throws ApiException {
+    deleteGlobalIncidentHandleWithHttpInfo();
+  }
+
+  /**
+   * Delete global incident handle.
+   *
+   * <p>See {@link #deleteGlobalIncidentHandleWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteGlobalIncidentHandleAsync() {
+    return deleteGlobalIncidentHandleWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a global incident handle.
+   *
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteGlobalIncidentHandleWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteGlobalIncidentHandle";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.deleteGlobalIncidentHandle",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete global incident handle.
+   *
+   * <p>See {@link #deleteGlobalIncidentHandleWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteGlobalIncidentHandleWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "deleteGlobalIncidentHandle";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.deleteGlobalIncidentHandle",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete an existing incident.
    *
    * <p>See {@link #deleteIncidentWithHttpInfo}.
@@ -3182,6 +3528,136 @@ public class IncidentsApi {
         null);
   }
 
+  /**
+   * Get global incident settings.
+   *
+   * <p>See {@link #getGlobalIncidentSettingsWithHttpInfo}.
+   *
+   * @return GlobalIncidentSettingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GlobalIncidentSettingsResponse getGlobalIncidentSettings() throws ApiException {
+    return getGlobalIncidentSettingsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get global incident settings.
+   *
+   * <p>See {@link #getGlobalIncidentSettingsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;GlobalIncidentSettingsResponse&gt;
+   */
+  public CompletableFuture<GlobalIncidentSettingsResponse> getGlobalIncidentSettingsAsync() {
+    return getGlobalIncidentSettingsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve global incident settings for the organization.
+   *
+   * @return ApiResponse&lt;GlobalIncidentSettingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GlobalIncidentSettingsResponse> getGlobalIncidentSettingsWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getGlobalIncidentSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/settings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.getGlobalIncidentSettings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GlobalIncidentSettingsResponse>() {});
+  }
+
+  /**
+   * Get global incident settings.
+   *
+   * <p>See {@link #getGlobalIncidentSettingsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;GlobalIncidentSettingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GlobalIncidentSettingsResponse>>
+      getGlobalIncidentSettingsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getGlobalIncidentSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<GlobalIncidentSettingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/settings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.getGlobalIncidentSettings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GlobalIncidentSettingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GlobalIncidentSettingsResponse>() {});
+  }
+
   /** Manage optional parameters to getIncident. */
   public static class GetIncidentOptionalParameters {
     private List<IncidentRelatedObject> include;
@@ -4368,6 +4844,195 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentTypeResponse>() {});
+  }
+
+  /** Manage optional parameters to listGlobalIncidentHandles. */
+  public static class ListGlobalIncidentHandlesOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include in the response
+     *     (optional)
+     * @return ListGlobalIncidentHandlesOptionalParameters
+     */
+    public ListGlobalIncidentHandlesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * List global incident handles.
+   *
+   * <p>See {@link #listGlobalIncidentHandlesWithHttpInfo}.
+   *
+   * @return IncidentHandlesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentHandlesResponse listGlobalIncidentHandles() throws ApiException {
+    return listGlobalIncidentHandlesWithHttpInfo(new ListGlobalIncidentHandlesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List global incident handles.
+   *
+   * <p>See {@link #listGlobalIncidentHandlesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;IncidentHandlesResponse&gt;
+   */
+  public CompletableFuture<IncidentHandlesResponse> listGlobalIncidentHandlesAsync() {
+    return listGlobalIncidentHandlesWithHttpInfoAsync(
+            new ListGlobalIncidentHandlesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List global incident handles.
+   *
+   * <p>See {@link #listGlobalIncidentHandlesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return IncidentHandlesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentHandlesResponse listGlobalIncidentHandles(
+      ListGlobalIncidentHandlesOptionalParameters parameters) throws ApiException {
+    return listGlobalIncidentHandlesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List global incident handles.
+   *
+   * <p>See {@link #listGlobalIncidentHandlesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentHandlesResponse&gt;
+   */
+  public CompletableFuture<IncidentHandlesResponse> listGlobalIncidentHandlesAsync(
+      ListGlobalIncidentHandlesOptionalParameters parameters) {
+    return listGlobalIncidentHandlesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a list of global incident handles.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentHandlesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentHandlesResponse> listGlobalIncidentHandlesWithHttpInfo(
+      ListGlobalIncidentHandlesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listGlobalIncidentHandles";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.listGlobalIncidentHandles",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentHandlesResponse>() {});
+  }
+
+  /**
+   * List global incident handles.
+   *
+   * <p>See {@link #listGlobalIncidentHandlesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentHandlesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentHandlesResponse>>
+      listGlobalIncidentHandlesWithHttpInfoAsync(
+          ListGlobalIncidentHandlesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listGlobalIncidentHandles";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentHandlesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.listGlobalIncidentHandles",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentHandlesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentHandlesResponse>() {});
   }
 
   /** Manage optional parameters to listIncidentAttachments. */
@@ -6345,6 +7010,375 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentSearchResponse>() {});
+  }
+
+  /** Manage optional parameters to updateGlobalIncidentHandle. */
+  public static class UpdateGlobalIncidentHandleOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include in the response
+     *     (optional)
+     * @return UpdateGlobalIncidentHandleOptionalParameters
+     */
+    public UpdateGlobalIncidentHandleOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Update global incident handle.
+   *
+   * <p>See {@link #updateGlobalIncidentHandleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return IncidentHandleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentHandleResponse updateGlobalIncidentHandle(IncidentHandleRequest body)
+      throws ApiException {
+    return updateGlobalIncidentHandleWithHttpInfo(
+            body, new UpdateGlobalIncidentHandleOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Update global incident handle.
+   *
+   * <p>See {@link #updateGlobalIncidentHandleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;IncidentHandleResponse&gt;
+   */
+  public CompletableFuture<IncidentHandleResponse> updateGlobalIncidentHandleAsync(
+      IncidentHandleRequest body) {
+    return updateGlobalIncidentHandleWithHttpInfoAsync(
+            body, new UpdateGlobalIncidentHandleOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update global incident handle.
+   *
+   * <p>See {@link #updateGlobalIncidentHandleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentHandleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentHandleResponse updateGlobalIncidentHandle(
+      IncidentHandleRequest body, UpdateGlobalIncidentHandleOptionalParameters parameters)
+      throws ApiException {
+    return updateGlobalIncidentHandleWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Update global incident handle.
+   *
+   * <p>See {@link #updateGlobalIncidentHandleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentHandleResponse&gt;
+   */
+  public CompletableFuture<IncidentHandleResponse> updateGlobalIncidentHandleAsync(
+      IncidentHandleRequest body, UpdateGlobalIncidentHandleOptionalParameters parameters) {
+    return updateGlobalIncidentHandleWithHttpInfoAsync(body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing global incident handle.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentHandleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentHandleResponse> updateGlobalIncidentHandleWithHttpInfo(
+      IncidentHandleRequest body, UpdateGlobalIncidentHandleOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateGlobalIncidentHandle";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateGlobalIncidentHandle");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.updateGlobalIncidentHandle",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentHandleResponse>() {});
+  }
+
+  /**
+   * Update global incident handle.
+   *
+   * <p>See {@link #updateGlobalIncidentHandleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentHandleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentHandleResponse>>
+      updateGlobalIncidentHandleWithHttpInfoAsync(
+          IncidentHandleRequest body, UpdateGlobalIncidentHandleOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "updateGlobalIncidentHandle";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentHandleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentHandleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateGlobalIncidentHandle"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/incident-handles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.updateGlobalIncidentHandle",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentHandleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentHandleResponse>() {});
+  }
+
+  /**
+   * Update global incident settings.
+   *
+   * <p>See {@link #updateGlobalIncidentSettingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return GlobalIncidentSettingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GlobalIncidentSettingsResponse updateGlobalIncidentSettings(
+      GlobalIncidentSettingsRequest body) throws ApiException {
+    return updateGlobalIncidentSettingsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Update global incident settings.
+   *
+   * <p>See {@link #updateGlobalIncidentSettingsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;GlobalIncidentSettingsResponse&gt;
+   */
+  public CompletableFuture<GlobalIncidentSettingsResponse> updateGlobalIncidentSettingsAsync(
+      GlobalIncidentSettingsRequest body) {
+    return updateGlobalIncidentSettingsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update global incident settings for the organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;GlobalIncidentSettingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GlobalIncidentSettingsResponse> updateGlobalIncidentSettingsWithHttpInfo(
+      GlobalIncidentSettingsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateGlobalIncidentSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateGlobalIncidentSettings");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/settings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.updateGlobalIncidentSettings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GlobalIncidentSettingsResponse>() {});
+  }
+
+  /**
+   * Update global incident settings.
+   *
+   * <p>See {@link #updateGlobalIncidentSettingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GlobalIncidentSettingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GlobalIncidentSettingsResponse>>
+      updateGlobalIncidentSettingsWithHttpInfoAsync(GlobalIncidentSettingsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateGlobalIncidentSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<GlobalIncidentSettingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<GlobalIncidentSettingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateGlobalIncidentSettings"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/global/settings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.updateGlobalIncidentSettings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GlobalIncidentSettingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GlobalIncidentSettingsResponse>() {});
   }
 
   /** Manage optional parameters to updateIncident. */
