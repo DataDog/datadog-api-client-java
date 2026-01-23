@@ -3,7 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CloudCostManagementApi;
-import com.datadog.api.client.v2.model.BudgetValidationRequest;
+import com.datadog.api.client.v2.model.BudgetWithEntries;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Example {
     CloudCostManagementApi apiInstance = new CloudCostManagementApi(defaultClient);
 
     try {
-      BudgetValidationRequest result = apiInstance.getBudget("budget_id");
+      BudgetWithEntries result = apiInstance.getBudget("budget_id");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CloudCostManagementApi#getBudget");
