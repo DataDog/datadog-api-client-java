@@ -274,7 +274,7 @@ public class World {
       }
     }
     parametersArray = new ArrayList<>();
-    pathParameters = new HashMap<>();  // Clear path parameters for new request
+    pathParameters = new HashMap<>(); // Clear path parameters for new request
   }
 
   public void addRequestParameter(String parameterName, String value)
@@ -458,7 +458,9 @@ public class World {
 
     Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, step.getOperationName());
     if (undoSettings != null) {
-      undo.add(getRequestUndo(apiVersion, undoSettings, responseData, givenParametersArray.get(0), pathParameters));
+      undo.add(
+          getRequestUndo(
+              apiVersion, undoSettings, responseData, givenParametersArray.get(0), pathParameters));
     }
 
     if (step.source != null) {
@@ -471,7 +473,11 @@ public class World {
   }
 
   public Callable<?> getRequestUndo(
-      String apiVersion, Undo undoSettings, Object responseData, Object requestData, Map<String, Object> pathParameters)
+      String apiVersion,
+      Undo undoSettings,
+      Object responseData,
+      Object requestData,
+      Map<String, Object> pathParameters)
       throws Exception {
     // find API service based on undo tag value
     Class<?> undoAPIClass =
@@ -579,7 +585,9 @@ public class World {
       } catch (Exception e) {
         throw new Exception(e.getCause());
       }
-      undo.add(getRequestUndo(apiVersion, undoSettings, responseData, parametersArray.get(0), pathParameters));
+      undo.add(
+          getRequestUndo(
+              apiVersion, undoSettings, responseData, parametersArray.get(0), pathParameters));
     }
   }
 
