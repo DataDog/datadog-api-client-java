@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"components\":[{\"components\":[{\"name\":\"Login\",\"position\":0,\"type\":\"component\"},{\"name\":\"Settings\",\"position\":1,\"type\":\"component\"}],\"name\":\"Application\",\"type\":\"group\"}],\"domain_prefix\":\"status-page-634e6c2db3b869de\",\"enabled\":true,\"name\":\"A Status Page\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"components\":[{\"name\":\"Login\",\"position\":0,\"type\":\"component\"},{\"name\":\"Settings\",\"position\":1,\"type\":\"component\"}],\"name\":\"Application\",\"type\":\"group\"}],\"domain_prefix\":\"f577abf9d8b6cac4\",\"enabled\":true,\"name\":\"A Status Page\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"5ca46325-bac2-4a5e-aa26-5e7d5e1c029e\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"d8b8c3c9-595a-4499-a21e-1f04e853d1a7\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"933d9347-1271-45f0-bd1d-ce3701e35bef\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"5da24db1-597c-4c01-8f61-5ff87ec805b2\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-01-14T18:34:29.150095Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"status-page-634e6c2db3b869de\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-01-14T18:34:29.150095Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/5ca46325-bac2-4a5e-aa26-5e7d5e1c029e/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"02b22755-8a22-449f-817b-c4f649f37ebd\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"bac73feb-3b3a-4f9b-81ad-b5532acfc96b\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"d993969d-ca6c-4b74-aed6-7a0f93016e7f\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"457c3e35-56a5-472f-a284-4e2222c77631\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-01-21T21:23:47.079687Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"f577abf9d8b6cac4\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-01-21T21:23:47.079687Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/02b22755-8a22-449f-817b-c4f649f37ebd/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "87a8e73a-8631-1303-5023-092a662e07f3"
+    "id": "bbb8f085-02a3-c04e-2916-0d7ca0a5e9e1"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/statuspages/5ca46325-bac2-4a5e-aa26-5e7d5e1c029e/components",
+      "path": "/api/v2/statuspages/02b22755-8a22-449f-817b-c4f649f37ebd/components",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"id\":\"d8b8c3c9-595a-4499-a21e-1f04e853d1a7\",\"type\":\"components\",\"attributes\":{\"components\":[{\"id\":\"933d9347-1271-45f0-bd1d-ce3701e35bef\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"5da24db1-597c-4c01-8f61-5ff87ec805b2\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}],\"created_at\":\"2026-01-14T18:34:29.150095Z\",\"modified_at\":\"2026-01-14T18:34:29.150095Z\",\"name\":\"Application\",\"position\":0,\"type\":\"group\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"group\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"5ca46325-bac2-4a5e-aa26-5e7d5e1c029e\",\"type\":\"status_pages\"}}}}]}",
+      "body": "{\"data\":[{\"id\":\"bac73feb-3b3a-4f9b-81ad-b5532acfc96b\",\"type\":\"components\",\"attributes\":{\"components\":[{\"id\":\"d993969d-ca6c-4b74-aed6-7a0f93016e7f\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"457c3e35-56a5-472f-a284-4e2222c77631\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}],\"created_at\":\"2026-01-21T21:23:47.079687Z\",\"modified_at\":\"2026-01-21T21:23:47.079687Z\",\"name\":\"Application\",\"position\":0,\"type\":\"group\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"group\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"02b22755-8a22-449f-817b-c4f649f37ebd\",\"type\":\"status_pages\"}}}}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "324d09b8-60c8-a63b-ab94-ba662fdc3f25"
+    "id": "934801c4-3520-5366-511b-fa086b1e8e1f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/statuspages/5ca46325-bac2-4a5e-aa26-5e7d5e1c029e",
+      "path": "/api/v2/statuspages/02b22755-8a22-449f-817b-c4f649f37ebd",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4bfcbd03-f726-0171-fc90-103a0941f204"
+    "id": "3c587298-d5b7-6f34-a8f4-7d4bf6299415"
   }
 ]
