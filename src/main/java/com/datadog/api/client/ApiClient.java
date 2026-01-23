@@ -862,6 +862,15 @@ public class ApiClient {
           put("v2.listJiraAccounts", false);
           put("v2.listJiraIssueTemplates", false);
           put("v2.updateJiraIssueTemplate", false);
+          put("v2.createServiceNowTemplate", false);
+          put("v2.deleteServiceNowTemplate", false);
+          put("v2.getServiceNowTemplate", false);
+          put("v2.listServiceNowAssignmentGroups", false);
+          put("v2.listServiceNowBusinessServices", false);
+          put("v2.listServiceNowInstances", false);
+          put("v2.listServiceNowTemplates", false);
+          put("v2.listServiceNowUsers", false);
+          put("v2.updateServiceNowTemplate", false);
           put("v2.addRoleToRestrictionQuery", false);
           put("v2.createRestrictionQuery", false);
           put("v2.deleteRestrictionQuery", false);
