@@ -7,10 +7,12 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.SLOReportPostResponse;
 import com.datadog.api.client.v2.model.SLOReportStatusGetResponse;
 import com.datadog.api.client.v2.model.SloReportCreateRequest;
+import com.datadog.api.client.v2.model.SloStatusResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -503,5 +505,272 @@ public class ServiceLevelObjectivesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SLOReportStatusGetResponse>() {});
+  }
+
+  /** Manage optional parameters to getSloStatus. */
+  public static class GetSloStatusOptionalParameters {
+    private Boolean disableCorrections;
+
+    /**
+     * Set disableCorrections.
+     *
+     * @param disableCorrections Whether to exclude correction windows from the SLO status
+     *     calculation. Defaults to false. (optional, default to false)
+     * @return GetSloStatusOptionalParameters
+     */
+    public GetSloStatusOptionalParameters disableCorrections(Boolean disableCorrections) {
+      this.disableCorrections = disableCorrections;
+      return this;
+    }
+  }
+
+  /**
+   * Get SLO status.
+   *
+   * <p>See {@link #getSloStatusWithHttpInfo}.
+   *
+   * @param sloId The ID of the SLO. (required)
+   * @param fromTs The starting timestamp for the SLO status query in epoch seconds. (required)
+   * @param toTs The ending timestamp for the SLO status query in epoch seconds. (required)
+   * @return SloStatusResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SloStatusResponse getSloStatus(String sloId, Long fromTs, Long toTs) throws ApiException {
+    return getSloStatusWithHttpInfo(sloId, fromTs, toTs, new GetSloStatusOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get SLO status.
+   *
+   * <p>See {@link #getSloStatusWithHttpInfoAsync}.
+   *
+   * @param sloId The ID of the SLO. (required)
+   * @param fromTs The starting timestamp for the SLO status query in epoch seconds. (required)
+   * @param toTs The ending timestamp for the SLO status query in epoch seconds. (required)
+   * @return CompletableFuture&lt;SloStatusResponse&gt;
+   */
+  public CompletableFuture<SloStatusResponse> getSloStatusAsync(
+      String sloId, Long fromTs, Long toTs) {
+    return getSloStatusWithHttpInfoAsync(sloId, fromTs, toTs, new GetSloStatusOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get SLO status.
+   *
+   * <p>See {@link #getSloStatusWithHttpInfo}.
+   *
+   * @param sloId The ID of the SLO. (required)
+   * @param fromTs The starting timestamp for the SLO status query in epoch seconds. (required)
+   * @param toTs The ending timestamp for the SLO status query in epoch seconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SloStatusResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SloStatusResponse getSloStatus(
+      String sloId, Long fromTs, Long toTs, GetSloStatusOptionalParameters parameters)
+      throws ApiException {
+    return getSloStatusWithHttpInfo(sloId, fromTs, toTs, parameters).getData();
+  }
+
+  /**
+   * Get SLO status.
+   *
+   * <p>See {@link #getSloStatusWithHttpInfoAsync}.
+   *
+   * @param sloId The ID of the SLO. (required)
+   * @param fromTs The starting timestamp for the SLO status query in epoch seconds. (required)
+   * @param toTs The ending timestamp for the SLO status query in epoch seconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SloStatusResponse&gt;
+   */
+  public CompletableFuture<SloStatusResponse> getSloStatusAsync(
+      String sloId, Long fromTs, Long toTs, GetSloStatusOptionalParameters parameters) {
+    return getSloStatusWithHttpInfoAsync(sloId, fromTs, toTs, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the status of a Service Level Objective (SLO) for a given time period.
+   *
+   * <p>This endpoint returns the current SLI value, error budget remaining, and other status
+   * information for the specified SLO.
+   *
+   * @param sloId The ID of the SLO. (required)
+   * @param fromTs The starting timestamp for the SLO status query in epoch seconds. (required)
+   * @param toTs The ending timestamp for the SLO status query in epoch seconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SloStatusResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SloStatusResponse> getSloStatusWithHttpInfo(
+      String sloId, Long fromTs, Long toTs, GetSloStatusOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSloStatus";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'sloId' is set
+    if (sloId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'sloId' when calling getSloStatus");
+    }
+
+    // verify the required parameter 'fromTs' is set
+    if (fromTs == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'fromTs' when calling getSloStatus");
+    }
+
+    // verify the required parameter 'toTs' is set
+    if (toTs == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'toTs' when calling getSloStatus");
+    }
+    Boolean disableCorrections = parameters.disableCorrections;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/slo/{slo_id}/status"
+            .replaceAll("\\{" + "slo_id" + "\\}", apiClient.escapeString(sloId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "disable_corrections", disableCorrections));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceLevelObjectivesApi.getSloStatus",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SloStatusResponse>() {});
+  }
+
+  /**
+   * Get SLO status.
+   *
+   * <p>See {@link #getSloStatusWithHttpInfo}.
+   *
+   * @param sloId The ID of the SLO. (required)
+   * @param fromTs The starting timestamp for the SLO status query in epoch seconds. (required)
+   * @param toTs The ending timestamp for the SLO status query in epoch seconds. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SloStatusResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SloStatusResponse>> getSloStatusWithHttpInfoAsync(
+      String sloId, Long fromTs, Long toTs, GetSloStatusOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getSloStatus";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SloStatusResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'sloId' is set
+    if (sloId == null) {
+      CompletableFuture<ApiResponse<SloStatusResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'sloId' when calling getSloStatus"));
+      return result;
+    }
+
+    // verify the required parameter 'fromTs' is set
+    if (fromTs == null) {
+      CompletableFuture<ApiResponse<SloStatusResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'fromTs' when calling getSloStatus"));
+      return result;
+    }
+
+    // verify the required parameter 'toTs' is set
+    if (toTs == null) {
+      CompletableFuture<ApiResponse<SloStatusResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'toTs' when calling getSloStatus"));
+      return result;
+    }
+    Boolean disableCorrections = parameters.disableCorrections;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/slo/{slo_id}/status"
+            .replaceAll("\\{" + "slo_id" + "\\}", apiClient.escapeString(sloId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "disable_corrections", disableCorrections));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceLevelObjectivesApi.getSloStatus",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SloStatusResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SloStatusResponse>() {});
   }
 }
