@@ -39,6 +39,9 @@ public class World {
   // Templating context
   public Map<String, Object> context;
 
+  // Path parameters for undo operations
+  public Map<String, Object> pathParameters;
+
   // Request information
   Class<?> requestParametersClass;
   Object requestParameters;
@@ -109,6 +112,7 @@ public class World {
 
   public World() {
     context = new HashMap<>();
+    pathParameters = new HashMap<>();
     undo = new ArrayList<>();
     sleepAfterRequestInterval =
         System.getenv("SLEEP_AFTER_REQUEST") != null
@@ -270,6 +274,7 @@ public class World {
       }
     }
     parametersArray = new ArrayList<>();
+    pathParameters = new HashMap<>();  // Clear path parameters for new request
   }
 
   public void addRequestParameter(String parameterName, String value)
@@ -303,6 +308,11 @@ public class World {
     }
 
     Object data = fromJSON(getObjectMapper(), fieldType, templated(value, context));
+
+    // Store path parameter for undo operations
+    pathParameters.put(parameterName, data);
+    pathParameters.put(propertyName, data);
+
     if (isOptional) {
       if (fieldType == File.class) {
         String apiVersion = getVersion();
@@ -349,6 +359,11 @@ public class World {
     }
 
     Object data = lookup(context, fixturePath);
+
+    // Store path parameter for undo operations
+    pathParameters.put(parameterName, data);
+    pathParameters.put(propertyName, data);
+
     if (isOptional) {
       requestParametersClass.getMethod(propertyName, fieldType).invoke(requestParameters, data);
     } else {
@@ -443,7 +458,7 @@ public class World {
 
     Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, step.getOperationName());
     if (undoSettings != null) {
-      undo.add(getRequestUndo(apiVersion, undoSettings, responseData, givenParametersArray.get(0)));
+      undo.add(getRequestUndo(apiVersion, undoSettings, responseData, givenParametersArray.get(0), pathParameters));
     }
 
     if (step.source != null) {
@@ -456,7 +471,7 @@ public class World {
   }
 
   public Callable<?> getRequestUndo(
-      String apiVersion, Undo undoSettings, Object responseData, Object requestData)
+      String apiVersion, Undo undoSettings, Object responseData, Object requestData, Map<String, Object> pathParameters)
       throws Exception {
     // find API service based on undo tag value
     Class<?> undoAPIClass =
@@ -495,7 +510,7 @@ public class World {
       // Build request from undo parameters and response data
       Map<String, Object> undoRequestParams =
           undoSettings.undo.getRequestParameters(
-              responseData, requestData, undoOperation, getObjectMapper());
+              responseData, requestData, undoOperation, getObjectMapper(), pathParameters);
       for (Class c : undoAPIClass.getClasses()) {
         if (c.getName().endsWith(undoSettings.undo.operationId + "OptionalParameters")) {
           undoRequestParams.put("parameters", c.getConstructor().newInstance());
@@ -564,7 +579,7 @@ public class World {
       } catch (Exception e) {
         throw new Exception(e.getCause());
       }
-      undo.add(getRequestUndo(apiVersion, undoSettings, responseData, parametersArray.get(0)));
+      undo.add(getRequestUndo(apiVersion, undoSettings, responseData, parametersArray.get(0), pathParameters));
     }
   }
 

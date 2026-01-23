@@ -30,12 +30,14 @@ public class Undo {
     public List<Parameter> parameters;
 
     public Map<String, Object> getRequestParameters(
-        Object responseData, Object requestData, Method requestBuilder, ObjectMapper mapper) {
+        Object responseData, Object requestData, Method requestBuilder, ObjectMapper mapper, Map<String, Object> pathParameters) {
       Map<String, Object> requestParams = new HashMap<String, Object>();
       for (int i = 0; i < parameters.size(); i++) {
         Undo.UndoMethod.Parameter p = parameters.get(i);
-        Object data = new Object();
-        if (p.origin == null) {
+        Object data;
+        if (p.origin != null && p.origin.equals("path")) {
+          data = pathParameters;
+        } else if (p.origin == null) {
           data = responseData;
         } else if (p.origin.equals("request")) {
           data = requestData;
@@ -45,11 +47,25 @@ public class Undo {
 
         try {
           if (p.source != null) {
-            requestParams.put(World.toPropertyName(p.name), World.lookup(data, p.source));
+            if (p.origin != null && p.origin.equals("path")) {
+              // For path parameters, try both original parameter name and property name
+              String propertyName = World.toPropertyName(p.name);
+              if (pathParameters.containsKey(p.source)) {
+                requestParams.put(propertyName, pathParameters.get(p.source));
+              } else if (pathParameters.containsKey(World.toPropertyName(p.source))) {
+                requestParams.put(propertyName, pathParameters.get(World.toPropertyName(p.source)));
+              } else {
+                throw new RuntimeException("Path parameter '" + p.source + "' not found");
+              }
+            } else {
+              requestParams.put(World.toPropertyName(p.name), World.lookup(data, p.source));
+            }
           } else if (p.template != null) {
             Class<?>[] types = requestBuilder.getParameterTypes();
             Object param = World.fromJSON(mapper, types[i], World.templated(p.template, data));
             requestParams.put(World.toPropertyName(p.name), param);
+          } else if (p.origin != null && p.origin.equals("path")) {
+            throw new RuntimeException("Path origin requires 'source' field");
           }
         } catch (java.lang.IllegalAccessException e) {
           throw new RuntimeException(e);
