@@ -813,6 +813,7 @@ public class ApiClient {
           put("v2.updateDeploymentRule", false);
           put("v2.createHamrOrgConnection", false);
           put("v2.getHamrOrgConnection", false);
+          put("v2.createGlobalIncidentHandle", false);
           put("v2.createIncident", false);
           put("v2.createIncidentAttachment", false);
           put("v2.createIncidentIntegration", false);
@@ -821,6 +822,7 @@ public class ApiClient {
           put("v2.createIncidentPostmortemAttachment", false);
           put("v2.createIncidentTodo", false);
           put("v2.createIncidentType", false);
+          put("v2.deleteGlobalIncidentHandle", false);
           put("v2.deleteIncident", false);
           put("v2.deleteIncidentAttachment", false);
           put("v2.deleteIncidentIntegration", false);
@@ -828,12 +830,14 @@ public class ApiClient {
           put("v2.deleteIncidentNotificationTemplate", false);
           put("v2.deleteIncidentTodo", false);
           put("v2.deleteIncidentType", false);
+          put("v2.getGlobalIncidentSettings", false);
           put("v2.getIncident", false);
           put("v2.getIncidentIntegration", false);
           put("v2.getIncidentNotificationRule", false);
           put("v2.getIncidentNotificationTemplate", false);
           put("v2.getIncidentTodo", false);
           put("v2.getIncidentType", false);
+          put("v2.listGlobalIncidentHandles", false);
           put("v2.listIncidentAttachments", false);
           put("v2.listIncidentIntegrations", false);
           put("v2.listIncidentNotificationRules", false);
@@ -842,6 +846,8 @@ public class ApiClient {
           put("v2.listIncidentTodos", false);
           put("v2.listIncidentTypes", false);
           put("v2.searchIncidents", false);
+          put("v2.updateGlobalIncidentHandle", false);
+          put("v2.updateGlobalIncidentSettings", false);
           put("v2.updateIncident", false);
           put("v2.updateIncidentAttachment", false);
           put("v2.updateIncidentIntegration", false);
