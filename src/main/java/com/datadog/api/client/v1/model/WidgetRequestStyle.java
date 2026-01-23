@@ -20,6 +20,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   WidgetRequestStyle.JSON_PROPERTY_LINE_TYPE,
   WidgetRequestStyle.JSON_PROPERTY_LINE_WIDTH,
+  WidgetRequestStyle.JSON_PROPERTY_ORDER_BY,
   WidgetRequestStyle.JSON_PROPERTY_PALETTE
 })
 @jakarta.annotation.Generated(
@@ -31,6 +32,9 @@ public class WidgetRequestStyle {
 
   public static final String JSON_PROPERTY_LINE_WIDTH = "line_width";
   private WidgetLineWidth lineWidth;
+
+  public static final String JSON_PROPERTY_ORDER_BY = "order_by";
+  private WidgetStyleOrderBy orderBy;
 
   public static final String JSON_PROPERTY_PALETTE = "palette";
   private String palette;
@@ -83,6 +87,33 @@ public class WidgetRequestStyle {
       this.unparsed = true;
     }
     this.lineWidth = lineWidth;
+  }
+
+  public WidgetRequestStyle orderBy(WidgetStyleOrderBy orderBy) {
+    this.orderBy = orderBy;
+    this.unparsed |= !orderBy.isValid();
+    return this;
+  }
+
+  /**
+   * How to order series in timeseries visualizations. - <code>tags</code>: Order series
+   * alphabetically by tag name (default behavior) - <code>values</code>: Order series by their
+   * current metric values (typically descending)
+   *
+   * @return orderBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORDER_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetStyleOrderBy getOrderBy() {
+    return orderBy;
+  }
+
+  public void setOrderBy(WidgetStyleOrderBy orderBy) {
+    if (!orderBy.isValid()) {
+      this.unparsed = true;
+    }
+    this.orderBy = orderBy;
   }
 
   public WidgetRequestStyle palette(String palette) {
@@ -164,13 +195,14 @@ public class WidgetRequestStyle {
     WidgetRequestStyle widgetRequestStyle = (WidgetRequestStyle) o;
     return Objects.equals(this.lineType, widgetRequestStyle.lineType)
         && Objects.equals(this.lineWidth, widgetRequestStyle.lineWidth)
+        && Objects.equals(this.orderBy, widgetRequestStyle.orderBy)
         && Objects.equals(this.palette, widgetRequestStyle.palette)
         && Objects.equals(this.additionalProperties, widgetRequestStyle.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lineType, lineWidth, palette, additionalProperties);
+    return Objects.hash(lineType, lineWidth, orderBy, palette, additionalProperties);
   }
 
   @Override
@@ -179,6 +211,7 @@ public class WidgetRequestStyle {
     sb.append("class WidgetRequestStyle {\n");
     sb.append("    lineType: ").append(toIndentedString(lineType)).append("\n");
     sb.append("    lineWidth: ").append(toIndentedString(lineWidth)).append("\n");
+    sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    palette: ").append(toIndentedString(palette)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
