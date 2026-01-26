@@ -816,6 +816,7 @@ public class ApiClient {
           put("v2.createGlobalIncidentHandle", false);
           put("v2.createIncident", false);
           put("v2.createIncidentAttachment", false);
+          put("v2.createIncidentConfigRule", false);
           put("v2.createIncidentIntegration", false);
           put("v2.createIncidentNotificationRule", false);
           put("v2.createIncidentNotificationTemplate", false);
@@ -825,6 +826,7 @@ public class ApiClient {
           put("v2.deleteGlobalIncidentHandle", false);
           put("v2.deleteIncident", false);
           put("v2.deleteIncidentAttachment", false);
+          put("v2.deleteIncidentConfigRule", false);
           put("v2.deleteIncidentIntegration", false);
           put("v2.deleteIncidentNotificationRule", false);
           put("v2.deleteIncidentNotificationTemplate", false);
@@ -832,6 +834,7 @@ public class ApiClient {
           put("v2.deleteIncidentType", false);
           put("v2.getGlobalIncidentSettings", false);
           put("v2.getIncident", false);
+          put("v2.getIncidentConfigRule", false);
           put("v2.getIncidentIntegration", false);
           put("v2.getIncidentNotificationRule", false);
           put("v2.getIncidentNotificationTemplate", false);
@@ -839,6 +842,7 @@ public class ApiClient {
           put("v2.getIncidentType", false);
           put("v2.listGlobalIncidentHandles", false);
           put("v2.listIncidentAttachments", false);
+          put("v2.listIncidentConfigRules", false);
           put("v2.listIncidentIntegrations", false);
           put("v2.listIncidentNotificationRules", false);
           put("v2.listIncidentNotificationTemplates", false);
@@ -850,6 +854,7 @@ public class ApiClient {
           put("v2.updateGlobalIncidentSettings", false);
           put("v2.updateIncident", false);
           put("v2.updateIncidentAttachment", false);
+          put("v2.updateIncidentConfigRule", false);
           put("v2.updateIncidentIntegration", false);
           put("v2.updateIncidentNotificationRule", false);
           put("v2.updateIncidentNotificationTemplate", false);
