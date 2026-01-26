@@ -86,6 +86,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "estimated_ingested_spans_percentage",
               "fargate_usage",
               "fargate_percentage",
+              "flex_logs_starter_usage",
+              "flex_logs_starter_percentage",
               "flex_stored_logs_usage",
               "flex_stored_logs_percentage",
               "functions_usage",
@@ -310,6 +312,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("fargate_usage");
   public static final MonthlyUsageAttributionSupportedMetrics FARGATE_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("fargate_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics FLEX_LOGS_STARTER_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("flex_logs_starter_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics FLEX_LOGS_STARTER_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("flex_logs_starter_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics FLEX_STORED_LOGS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("flex_stored_logs_usage");
   public static final MonthlyUsageAttributionSupportedMetrics FLEX_STORED_LOGS_PERCENTAGE =
