@@ -24,15 +24,7 @@ import java.util.Set;
 public class MonitorOptionsNotificationPresets extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "show_all",
-              "hide_query",
-              "hide_handles",
-              "hide_all",
-              "hide_query_and_handles",
-              "show_only_snapshot",
-              "hide_handles_and_footer"));
+      new HashSet<String>(Arrays.asList("show_all", "hide_query", "hide_handles", "hide_all"));
 
   public static final MonitorOptionsNotificationPresets SHOW_ALL =
       new MonitorOptionsNotificationPresets("show_all");
@@ -42,12 +34,6 @@ public class MonitorOptionsNotificationPresets extends ModelEnum<String> {
       new MonitorOptionsNotificationPresets("hide_handles");
   public static final MonitorOptionsNotificationPresets HIDE_ALL =
       new MonitorOptionsNotificationPresets("hide_all");
-  public static final MonitorOptionsNotificationPresets HIDE_QUERY_AND_HANDLES =
-      new MonitorOptionsNotificationPresets("hide_query_and_handles");
-  public static final MonitorOptionsNotificationPresets SHOW_ONLY_SNAPSHOT =
-      new MonitorOptionsNotificationPresets("show_only_snapshot");
-  public static final MonitorOptionsNotificationPresets HIDE_HANDLES_AND_FOOTER =
-      new MonitorOptionsNotificationPresets("hide_handles_and_footer");
 
   MonitorOptionsNotificationPresets(String value) {
     super(value, allowedValues);
