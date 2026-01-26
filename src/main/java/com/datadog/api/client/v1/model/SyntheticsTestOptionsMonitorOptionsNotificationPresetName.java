@@ -26,15 +26,7 @@ import java.util.Set;
 public class SyntheticsTestOptionsMonitorOptionsNotificationPresetName extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "show_all",
-              "hide_all",
-              "hide_query",
-              "hide_handles",
-              "hide_query_and_handles",
-              "show_only_snapshot",
-              "hide_handles_and_footer"));
+      new HashSet<String>(Arrays.asList("show_all", "hide_all", "hide_query", "hide_handles"));
 
   public static final SyntheticsTestOptionsMonitorOptionsNotificationPresetName SHOW_ALL =
       new SyntheticsTestOptionsMonitorOptionsNotificationPresetName("show_all");
@@ -44,14 +36,6 @@ public class SyntheticsTestOptionsMonitorOptionsNotificationPresetName extends M
       new SyntheticsTestOptionsMonitorOptionsNotificationPresetName("hide_query");
   public static final SyntheticsTestOptionsMonitorOptionsNotificationPresetName HIDE_HANDLES =
       new SyntheticsTestOptionsMonitorOptionsNotificationPresetName("hide_handles");
-  public static final SyntheticsTestOptionsMonitorOptionsNotificationPresetName
-      HIDE_QUERY_AND_HANDLES =
-          new SyntheticsTestOptionsMonitorOptionsNotificationPresetName("hide_query_and_handles");
-  public static final SyntheticsTestOptionsMonitorOptionsNotificationPresetName SHOW_ONLY_SNAPSHOT =
-      new SyntheticsTestOptionsMonitorOptionsNotificationPresetName("show_only_snapshot");
-  public static final SyntheticsTestOptionsMonitorOptionsNotificationPresetName
-      HIDE_HANDLES_AND_FOOTER =
-          new SyntheticsTestOptionsMonitorOptionsNotificationPresetName("hide_handles_and_footer");
 
   SyntheticsTestOptionsMonitorOptionsNotificationPresetName(String value) {
     super(value, allowedValues);
