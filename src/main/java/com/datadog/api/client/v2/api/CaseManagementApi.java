@@ -23,6 +23,7 @@ import com.datadog.api.client.v2.model.ProjectCreateRequest;
 import com.datadog.api.client.v2.model.ProjectResponse;
 import com.datadog.api.client.v2.model.ProjectsResponse;
 import com.datadog.api.client.v2.model.TimelineResponse;
+import com.datadog.api.client.v2.model.WatchersResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -1627,6 +1628,160 @@ public class CaseManagementApi {
         new GenericType<ProjectsResponse>() {});
   }
 
+  /**
+   * Get case watchers.
+   *
+   * <p>See {@link #listCaseWatchersWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @return WatchersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public WatchersResponse listCaseWatchers(String caseId) throws ApiException {
+    return listCaseWatchersWithHttpInfo(caseId).getData();
+  }
+
+  /**
+   * Get case watchers.
+   *
+   * <p>See {@link #listCaseWatchersWithHttpInfoAsync}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @return CompletableFuture&lt;WatchersResponse&gt;
+   */
+  public CompletableFuture<WatchersResponse> listCaseWatchersAsync(String caseId) {
+    return listCaseWatchersWithHttpInfoAsync(caseId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all users watching a case
+   *
+   * @param caseId Case's UUID or key (required)
+   * @return ApiResponse&lt;WatchersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<WatchersResponse> listCaseWatchersWithHttpInfo(String caseId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCaseWatchers";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseId' when calling listCaseWatchers");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/watchers"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.listCaseWatchers",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<WatchersResponse>() {});
+  }
+
+  /**
+   * Get case watchers.
+   *
+   * <p>See {@link #listCaseWatchersWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;WatchersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<WatchersResponse>> listCaseWatchersWithHttpInfoAsync(
+      String caseId) {
+    // Check if unstable operation is enabled
+    String operationId = "listCaseWatchers";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<WatchersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<WatchersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'caseId' when calling listCaseWatchers"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/watchers"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.listCaseWatchers",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<WatchersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<WatchersResponse>() {});
+  }
+
   /** Manage optional parameters to searchCases. */
   public static class SearchCasesOptionalParameters {
     private Long pageSize;
@@ -2224,6 +2379,180 @@ public class CaseManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CaseResponse>() {});
+  }
+
+  /**
+   * Remove user as watcher.
+   *
+   * <p>See {@link #unwatchCaseWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param userId User UUID (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void unwatchCase(String caseId, String userId) throws ApiException {
+    unwatchCaseWithHttpInfo(caseId, userId);
+  }
+
+  /**
+   * Remove user as watcher.
+   *
+   * <p>See {@link #unwatchCaseWithHttpInfoAsync}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param userId User UUID (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> unwatchCaseAsync(String caseId, String userId) {
+    return unwatchCaseWithHttpInfoAsync(caseId, userId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove a user from the watchers list for a case
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param userId User UUID (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> unwatchCaseWithHttpInfo(String caseId, String userId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "unwatchCase";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseId' when calling unwatchCase");
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling unwatchCase");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/watchers/{user_id}"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.unwatchCase",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove user as watcher.
+   *
+   * <p>See {@link #unwatchCaseWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param userId User UUID (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> unwatchCaseWithHttpInfoAsync(
+      String caseId, String userId) {
+    // Check if unstable operation is enabled
+    String operationId = "unwatchCase";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'caseId' when calling unwatchCase"));
+      return result;
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userId' when calling unwatchCase"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/watchers/{user_id}"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.unwatchCase",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -3203,5 +3532,174 @@ public class CaseManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CaseResponse>() {});
+  }
+
+  /**
+   * Add user as watcher.
+   *
+   * <p>See {@link #watchCaseWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param userId User UUID (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void watchCase(String caseId, String userId) throws ApiException {
+    watchCaseWithHttpInfo(caseId, userId);
+  }
+
+  /**
+   * Add user as watcher.
+   *
+   * <p>See {@link #watchCaseWithHttpInfoAsync}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param userId User UUID (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> watchCaseAsync(String caseId, String userId) {
+    return watchCaseWithHttpInfoAsync(caseId, userId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Add a user as a watcher for a case
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param userId User UUID (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> watchCaseWithHttpInfo(String caseId, String userId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "watchCase";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling watchCase");
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling watchCase");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/watchers/{user_id}"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.watchCase",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Add user as watcher.
+   *
+   * <p>See {@link #watchCaseWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param userId User UUID (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> watchCaseWithHttpInfoAsync(
+      String caseId, String userId) {
+    // Check if unstable operation is enabled
+    String operationId = "watchCase";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'caseId' when calling watchCase"));
+      return result;
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'userId' when calling watchCase"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/watchers/{user_id}"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.watchCase",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 }
