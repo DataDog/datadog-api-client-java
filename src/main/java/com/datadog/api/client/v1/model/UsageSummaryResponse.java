@@ -46,6 +46,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_BROWSER_RUM_UNITS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM_SUM,
@@ -338,6 +340,14 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_BROWSER_RUM_UNITS_AGG_SUM = "browser_rum_units_agg_sum";
   private Long browserRumUnitsAggSum;
+
+  public static final String JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST_SUM =
+      "ccm_spend_monitored_ent_last_sum";
+  private Long ccmSpendMonitoredEntLastSum;
+
+  public static final String JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST_SUM =
+      "ccm_spend_monitored_pro_last_sum";
+  private Long ccmSpendMonitoredProLastSum;
 
   public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_AGG_SUM =
       "ci_pipeline_indexed_spans_agg_sum";
@@ -1603,6 +1613,50 @@ public class UsageSummaryResponse {
   @Deprecated
   public void setBrowserRumUnitsAggSum(Long browserRumUnitsAggSum) {
     this.browserRumUnitsAggSum = browserRumUnitsAggSum;
+  }
+
+  public UsageSummaryResponse ccmSpendMonitoredEntLastSum(Long ccmSpendMonitoredEntLastSum) {
+    this.ccmSpendMonitoredEntLastSum = ccmSpendMonitoredEntLastSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of the last value of the amount of cloud spend monitored for Enterprise in the
+   * current month for all organizations.
+   *
+   * @return ccmSpendMonitoredEntLastSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmSpendMonitoredEntLastSum() {
+    return ccmSpendMonitoredEntLastSum;
+  }
+
+  public void setCcmSpendMonitoredEntLastSum(Long ccmSpendMonitoredEntLastSum) {
+    this.ccmSpendMonitoredEntLastSum = ccmSpendMonitoredEntLastSum;
+  }
+
+  public UsageSummaryResponse ccmSpendMonitoredProLastSum(Long ccmSpendMonitoredProLastSum) {
+    this.ccmSpendMonitoredProLastSum = ccmSpendMonitoredProLastSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of the last value of the amount of cloud spend monitored for Pro in the current
+   * month for all organizations.
+   *
+   * @return ccmSpendMonitoredProLastSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmSpendMonitoredProLastSum() {
+    return ccmSpendMonitoredProLastSum;
+  }
+
+  public void setCcmSpendMonitoredProLastSum(Long ccmSpendMonitoredProLastSum) {
+    this.ccmSpendMonitoredProLastSum = ccmSpendMonitoredProLastSum;
   }
 
   public UsageSummaryResponse ciPipelineIndexedSpansAggSum(Long ciPipelineIndexedSpansAggSum) {
@@ -6323,6 +6377,10 @@ public class UsageSummaryResponse {
             usageSummaryResponse.browserRumReplaySessionCountAggSum)
         && Objects.equals(this.browserRumUnitsAggSum, usageSummaryResponse.browserRumUnitsAggSum)
         && Objects.equals(
+            this.ccmSpendMonitoredEntLastSum, usageSummaryResponse.ccmSpendMonitoredEntLastSum)
+        && Objects.equals(
+            this.ccmSpendMonitoredProLastSum, usageSummaryResponse.ccmSpendMonitoredProLastSum)
+        && Objects.equals(
             this.ciPipelineIndexedSpansAggSum, usageSummaryResponse.ciPipelineIndexedSpansAggSum)
         && Objects.equals(
             this.ciTestIndexedSpansAggSum, usageSummaryResponse.ciTestIndexedSpansAggSum)
@@ -6795,6 +6853,8 @@ public class UsageSummaryResponse {
         browserRumLiteSessionCountAggSum,
         browserRumReplaySessionCountAggSum,
         browserRumUnitsAggSum,
+        ccmSpendMonitoredEntLastSum,
+        ccmSpendMonitoredProLastSum,
         ciPipelineIndexedSpansAggSum,
         ciTestIndexedSpansAggSum,
         ciVisibilityItrCommittersHwmSum,
@@ -7056,6 +7116,12 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    browserRumUnitsAggSum: ")
         .append(toIndentedString(browserRumUnitsAggSum))
+        .append("\n");
+    sb.append("    ccmSpendMonitoredEntLastSum: ")
+        .append(toIndentedString(ccmSpendMonitoredEntLastSum))
+        .append("\n");
+    sb.append("    ccmSpendMonitoredProLastSum: ")
+        .append(toIndentedString(ccmSpendMonitoredProLastSum))
         .append("\n");
     sb.append("    ciPipelineIndexedSpansAggSum: ")
         .append(toIndentedString(ciPipelineIndexedSpansAggSum))
