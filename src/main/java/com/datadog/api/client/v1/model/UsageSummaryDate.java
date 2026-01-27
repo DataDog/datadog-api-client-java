@@ -42,6 +42,8 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_BROWSER_RUM_UNITS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST,
   UsageSummaryDate.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM,
   UsageSummaryDate.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM,
   UsageSummaryDate.JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM,
@@ -312,6 +314,14 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_BROWSER_RUM_UNITS_SUM = "browser_rum_units_sum";
   private Long browserRumUnitsSum;
+
+  public static final String JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST =
+      "ccm_spend_monitored_ent_last";
+  private Long ccmSpendMonitoredEntLast;
+
+  public static final String JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST =
+      "ccm_spend_monitored_pro_last";
+  private Long ccmSpendMonitoredProLast;
 
   public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM =
       "ci_pipeline_indexed_spans_sum";
@@ -1486,6 +1496,50 @@ public class UsageSummaryDate {
   @Deprecated
   public void setBrowserRumUnitsSum(Long browserRumUnitsSum) {
     this.browserRumUnitsSum = browserRumUnitsSum;
+  }
+
+  public UsageSummaryDate ccmSpendMonitoredEntLast(Long ccmSpendMonitoredEntLast) {
+    this.ccmSpendMonitoredEntLast = ccmSpendMonitoredEntLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of the amount of cloud spend monitored for Enterprise over all hours in
+   * the current date for all organizations.
+   *
+   * @return ccmSpendMonitoredEntLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmSpendMonitoredEntLast() {
+    return ccmSpendMonitoredEntLast;
+  }
+
+  public void setCcmSpendMonitoredEntLast(Long ccmSpendMonitoredEntLast) {
+    this.ccmSpendMonitoredEntLast = ccmSpendMonitoredEntLast;
+  }
+
+  public UsageSummaryDate ccmSpendMonitoredProLast(Long ccmSpendMonitoredProLast) {
+    this.ccmSpendMonitoredProLast = ccmSpendMonitoredProLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of the amount of cloud spend monitored for Pro over all hours in the
+   * current date for all organizations.
+   *
+   * @return ccmSpendMonitoredProLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmSpendMonitoredProLast() {
+    return ccmSpendMonitoredProLast;
+  }
+
+  public void setCcmSpendMonitoredProLast(Long ccmSpendMonitoredProLast) {
+    this.ccmSpendMonitoredProLast = ccmSpendMonitoredProLast;
   }
 
   public UsageSummaryDate ciPipelineIndexedSpansSum(Long ciPipelineIndexedSpansSum) {
@@ -5897,6 +5951,8 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.browserRumReplaySessionCountSum, usageSummaryDate.browserRumReplaySessionCountSum)
         && Objects.equals(this.browserRumUnitsSum, usageSummaryDate.browserRumUnitsSum)
+        && Objects.equals(this.ccmSpendMonitoredEntLast, usageSummaryDate.ccmSpendMonitoredEntLast)
+        && Objects.equals(this.ccmSpendMonitoredProLast, usageSummaryDate.ccmSpendMonitoredProLast)
         && Objects.equals(
             this.ciPipelineIndexedSpansSum, usageSummaryDate.ciPipelineIndexedSpansSum)
         && Objects.equals(this.ciTestIndexedSpansSum, usageSummaryDate.ciTestIndexedSpansSum)
@@ -6281,6 +6337,8 @@ public class UsageSummaryDate {
         browserRumLiteSessionCountSum,
         browserRumReplaySessionCountSum,
         browserRumUnitsSum,
+        ccmSpendMonitoredEntLast,
+        ccmSpendMonitoredProLast,
         ciPipelineIndexedSpansSum,
         ciTestIndexedSpansSum,
         ciVisibilityItrCommittersHwm,
@@ -6526,6 +6584,12 @@ public class UsageSummaryDate {
         .append(toIndentedString(browserRumReplaySessionCountSum))
         .append("\n");
     sb.append("    browserRumUnitsSum: ").append(toIndentedString(browserRumUnitsSum)).append("\n");
+    sb.append("    ccmSpendMonitoredEntLast: ")
+        .append(toIndentedString(ccmSpendMonitoredEntLast))
+        .append("\n");
+    sb.append("    ccmSpendMonitoredProLast: ")
+        .append(toIndentedString(ccmSpendMonitoredProLast))
+        .append("\n");
     sb.append("    ciPipelineIndexedSpansSum: ")
         .append(toIndentedString(ciPipelineIndexedSpansSum))
         .append("\n");
