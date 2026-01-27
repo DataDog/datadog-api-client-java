@@ -84,6 +84,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_FLEX_LOGS_STARTER_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_FLEX_LOGS_STARTER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FLEX_STORED_LOGS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FLEX_STORED_LOGS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_PERCENTAGE,
@@ -393,6 +395,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_FARGATE_USAGE = "fargate_usage";
   private Double fargateUsage;
+
+  public static final String JSON_PROPERTY_FLEX_LOGS_STARTER_PERCENTAGE =
+      "flex_logs_starter_percentage";
+  private Double flexLogsStarterPercentage;
+
+  public static final String JSON_PROPERTY_FLEX_LOGS_STARTER_USAGE = "flex_logs_starter_usage";
+  private Double flexLogsStarterUsage;
 
   public static final String JSON_PROPERTY_FLEX_STORED_LOGS_PERCENTAGE =
       "flex_stored_logs_percentage";
@@ -2045,6 +2054,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setFargateUsage(Double fargateUsage) {
     this.fargateUsage = fargateUsage;
+  }
+
+  public MonthlyUsageAttributionValues flexLogsStarterPercentage(Double flexLogsStarterPercentage) {
+    this.flexLogsStarterPercentage = flexLogsStarterPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Flex Logs Starter usage by tags.
+   *
+   * @return flexLogsStarterPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getFlexLogsStarterPercentage() {
+    return flexLogsStarterPercentage;
+  }
+
+  public void setFlexLogsStarterPercentage(Double flexLogsStarterPercentage) {
+    this.flexLogsStarterPercentage = flexLogsStarterPercentage;
+  }
+
+  public MonthlyUsageAttributionValues flexLogsStarterUsage(Double flexLogsStarterUsage) {
+    this.flexLogsStarterUsage = flexLogsStarterUsage;
+    return this;
+  }
+
+  /**
+   * The Flex Logs Starter usage by tags.
+   *
+   * @return flexLogsStarterUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getFlexLogsStarterUsage() {
+    return flexLogsStarterUsage;
+  }
+
+  public void setFlexLogsStarterUsage(Double flexLogsStarterUsage) {
+    this.flexLogsStarterUsage = flexLogsStarterUsage;
   }
 
   public MonthlyUsageAttributionValues flexStoredLogsPercentage(Double flexStoredLogsPercentage) {
@@ -4274,6 +4325,10 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(this.fargatePercentage, monthlyUsageAttributionValues.fargatePercentage)
         && Objects.equals(this.fargateUsage, monthlyUsageAttributionValues.fargateUsage)
         && Objects.equals(
+            this.flexLogsStarterPercentage, monthlyUsageAttributionValues.flexLogsStarterPercentage)
+        && Objects.equals(
+            this.flexLogsStarterUsage, monthlyUsageAttributionValues.flexLogsStarterUsage)
+        && Objects.equals(
             this.flexStoredLogsPercentage, monthlyUsageAttributionValues.flexStoredLogsPercentage)
         && Objects.equals(
             this.flexStoredLogsUsage, monthlyUsageAttributionValues.flexStoredLogsUsage)
@@ -4554,6 +4609,8 @@ public class MonthlyUsageAttributionValues {
         estimatedIngestedSpansUsage,
         fargatePercentage,
         fargateUsage,
+        flexLogsStarterPercentage,
+        flexLogsStarterUsage,
         flexStoredLogsPercentage,
         flexStoredLogsUsage,
         functionsPercentage,
@@ -4793,6 +4850,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    fargatePercentage: ").append(toIndentedString(fargatePercentage)).append("\n");
     sb.append("    fargateUsage: ").append(toIndentedString(fargateUsage)).append("\n");
+    sb.append("    flexLogsStarterPercentage: ")
+        .append(toIndentedString(flexLogsStarterPercentage))
+        .append("\n");
+    sb.append("    flexLogsStarterUsage: ")
+        .append(toIndentedString(flexLogsStarterUsage))
+        .append("\n");
     sb.append("    flexStoredLogsPercentage: ")
         .append(toIndentedString(flexStoredLogsPercentage))
         .append("\n");
