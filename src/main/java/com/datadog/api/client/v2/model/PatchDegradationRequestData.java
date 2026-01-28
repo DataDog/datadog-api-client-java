@@ -41,8 +41,14 @@ public class PatchDegradationRequestData {
 
   @JsonCreator
   public PatchDegradationRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          PatchDegradationRequestDataAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           PatchDegradationRequestDataType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -58,9 +64,8 @@ public class PatchDegradationRequestData {
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public PatchDegradationRequestDataAttributes getAttributes() {
     return attributes;
   }
@@ -79,9 +84,8 @@ public class PatchDegradationRequestData {
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public UUID getId() {
     return id;
   }

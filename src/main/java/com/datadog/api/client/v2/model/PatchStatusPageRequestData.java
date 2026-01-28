@@ -41,7 +41,13 @@ public class PatchStatusPageRequestData {
 
   @JsonCreator
   public PatchStatusPageRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          PatchStatusPageRequestDataAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) StatusPageDataType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -57,9 +63,8 @@ public class PatchStatusPageRequestData {
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public PatchStatusPageRequestDataAttributes getAttributes() {
     return attributes;
   }
@@ -78,9 +83,8 @@ public class PatchStatusPageRequestData {
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public UUID getId() {
     return id;
   }

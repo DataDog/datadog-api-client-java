@@ -40,8 +40,12 @@ public class CreateComponentRequestData {
 
   @JsonCreator
   public CreateComponentRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          CreateComponentRequestDataAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           StatusPagesComponentGroupType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -57,9 +61,8 @@ public class CreateComponentRequestData {
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CreateComponentRequestDataAttributes getAttributes() {
     return attributes;
   }

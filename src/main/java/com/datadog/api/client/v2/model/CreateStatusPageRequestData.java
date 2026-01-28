@@ -36,7 +36,11 @@ public class CreateStatusPageRequestData {
 
   @JsonCreator
   public CreateStatusPageRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          CreateStatusPageRequestDataAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) StatusPageDataType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -52,9 +56,8 @@ public class CreateStatusPageRequestData {
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CreateStatusPageRequestDataAttributes getAttributes() {
     return attributes;
   }

@@ -36,8 +36,12 @@ public class CreateDegradationRequestData {
 
   @JsonCreator
   public CreateDegradationRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          CreateDegradationRequestDataAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           PatchDegradationRequestDataType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -54,9 +58,8 @@ public class CreateDegradationRequestData {
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CreateDegradationRequestDataAttributes getAttributes() {
     return attributes;
   }
