@@ -20,6 +20,7 @@ import com.datadog.api.client.v2.model.CaseUpdateStatusRequest;
 import com.datadog.api.client.v2.model.CaseUpdateTitleRequest;
 import com.datadog.api.client.v2.model.CasesResponse;
 import com.datadog.api.client.v2.model.ProjectCreateRequest;
+import com.datadog.api.client.v2.model.ProjectFavoritesResponse;
 import com.datadog.api.client.v2.model.ProjectResponse;
 import com.datadog.api.client.v2.model.ProjectsResponse;
 import com.datadog.api.client.v2.model.TimelineResponse;
@@ -1247,6 +1248,157 @@ public class CaseManagementApi {
   }
 
   /**
+   * Add project to favorites.
+   *
+   * <p>See {@link #favoriteProjectWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void favoriteProject(String projectId) throws ApiException {
+    favoriteProjectWithHttpInfo(projectId);
+  }
+
+  /**
+   * Add project to favorites.
+   *
+   * <p>See {@link #favoriteProjectWithHttpInfoAsync}.
+   *
+   * @param projectId Project UUID (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> favoriteProjectAsync(String projectId) {
+    return favoriteProjectWithHttpInfoAsync(projectId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Add a project to the current user's favorites
+   *
+   * @param projectId Project UUID (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> favoriteProjectWithHttpInfo(String projectId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "favoriteProject";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'projectId' when calling favoriteProject");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/projects/{project_id}/favorites"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.favoriteProject",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Add project to favorites.
+   *
+   * <p>See {@link #favoriteProjectWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> favoriteProjectWithHttpInfoAsync(String projectId) {
+    // Check if unstable operation is enabled
+    String operationId = "favoriteProject";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'projectId' when calling favoriteProject"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/projects/{project_id}/favorites"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.favoriteProject",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Get the details of a case.
    *
    * <p>See {@link #getCaseWithHttpInfo}.
@@ -1625,6 +1777,136 @@ public class CaseManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ProjectsResponse>() {});
+  }
+
+  /**
+   * Get user&#39;s project favorites.
+   *
+   * <p>See {@link #listUserProjectFavoritesWithHttpInfo}.
+   *
+   * @return ProjectFavoritesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProjectFavoritesResponse listUserProjectFavorites() throws ApiException {
+    return listUserProjectFavoritesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get user&#39;s project favorites.
+   *
+   * <p>See {@link #listUserProjectFavoritesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ProjectFavoritesResponse&gt;
+   */
+  public CompletableFuture<ProjectFavoritesResponse> listUserProjectFavoritesAsync() {
+    return listUserProjectFavoritesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all projects marked as favorite by the current user
+   *
+   * @return ApiResponse&lt;ProjectFavoritesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProjectFavoritesResponse> listUserProjectFavoritesWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listUserProjectFavorites";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/projects/favorites";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.listUserProjectFavorites",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProjectFavoritesResponse>() {});
+  }
+
+  /**
+   * Get user&#39;s project favorites.
+   *
+   * <p>See {@link #listUserProjectFavoritesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;ProjectFavoritesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProjectFavoritesResponse>>
+      listUserProjectFavoritesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listUserProjectFavorites";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ProjectFavoritesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/projects/favorites";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.listUserProjectFavorites",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProjectFavoritesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProjectFavoritesResponse>() {});
   }
 
   /** Manage optional parameters to searchCases. */
@@ -2224,6 +2506,157 @@ public class CaseManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CaseResponse>() {});
+  }
+
+  /**
+   * Remove project from favorites.
+   *
+   * <p>See {@link #unfavoriteProjectWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void unfavoriteProject(String projectId) throws ApiException {
+    unfavoriteProjectWithHttpInfo(projectId);
+  }
+
+  /**
+   * Remove project from favorites.
+   *
+   * <p>See {@link #unfavoriteProjectWithHttpInfoAsync}.
+   *
+   * @param projectId Project UUID (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> unfavoriteProjectAsync(String projectId) {
+    return unfavoriteProjectWithHttpInfoAsync(projectId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove a project from the current user's favorites
+   *
+   * @param projectId Project UUID (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> unfavoriteProjectWithHttpInfo(String projectId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "unfavoriteProject";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'projectId' when calling unfavoriteProject");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/projects/{project_id}/favorites"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.unfavoriteProject",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove project from favorites.
+   *
+   * <p>See {@link #unfavoriteProjectWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> unfavoriteProjectWithHttpInfoAsync(String projectId) {
+    // Check if unstable operation is enabled
+    String operationId = "unfavoriteProject";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'projectId' when calling unfavoriteProject"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/projects/{project_id}/favorites"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.unfavoriteProject",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
