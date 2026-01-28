@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-95c34d7fe6d963ff\",\"name\":\"test-name-95c34d7fe6d963ff\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-5e6a036c358c6bff\",\"name\":\"test-name-5e6a036c358c6bff\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,10 +12,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"2d0e6d4e-405b-11ee-84bc-da7ad0900002\",\"attributes\":{\"name\":\"test-name-95c34d7fe6d963ff\",\"handle\":\"test-handle-95c34d7fe6d963ff\",\"summary\":null,\"description\":null,\"avatar\":null,\"banner\":null,\"visible_modules\":[],\"hidden_modules\":[],\"created_at\":\"2023-08-21T19:44:43.718259+00:00\",\"modified_at\":\"2023-08-21T19:44:43.718264+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/2d0e6d4e-405b-11ee-84bc-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/2d0e6d4e-405b-11ee-84bc-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"id\":\"66d6e3d2-f7ea-4946-bc93-b11db5b9bed4\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":12,\"created_at\":\"2026-01-23T11:00:12.132142+00:00\",\"description\":null,\"handle\":\"test-handle-5e6a036c358c6bff\",\"hidden_modules\":null,\"is_managed\":false,\"link_count\":0,\"modified_at\":\"2026-01-23T11:00:12.132142+00:00\",\"name\":\"test-name-5e6a036c358c6bff\",\"summary\":null,\"user_count\":0,\"visible_modules\":null},\"relationships\":{\"team_links\":{\"data\":[],\"links\":{\"related\":\"/api/v2/team/66d6e3d2-f7ea-4946-bc93-b11db5b9bed4/links\"}},\"user_team_permissions\":{\"data\":null,\"links\":{\"related\":\"/api/v2/team/66d6e3d2-f7ea-4946-bc93-b11db5b9bed4/permission-settings\"}}}}}",
       "headers": {
         "Content-Type": [
-          "application/json"
+          "application/vnd.api+json"
         ]
       },
       "statusCode": 201,
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "14b54f43-642c-f26f-dd0b-de2c81c4c00f"
+    "id": "00068138-9fa9-8b8b-0ae8-e31f523c6647"
   },
   {
     "httpRequest": {
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/team/2d0e6d4e-405b-11ee-84bc-da7ad0900002/links",
+      "path": "/api/v2/team/66d6e3d2-f7ea-4946-bc93-b11db5b9bed4/links",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team_links\",\"id\":\"2d348dee-405b-11ee-b5db-da7ad0900002\",\"attributes\":{\"team_id\":\"2d0e6d4e-405b-11ee-84bc-da7ad0900002\",\"label\":\"Link label\",\"url\":\"https://example.com\",\"position\":0}}}\n",
+      "body": "{\"data\":{\"type\":\"team_links\",\"id\":\"b0c50a40-f84a-11f0-a7c6-da7ad0900002\",\"attributes\":{\"team_id\":\"66d6e3d2-f7ea-4946-bc93-b11db5b9bed4\",\"label\":\"Link label\",\"url\":\"https://example.com\",\"position\":0}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "96b35eef-1292-8033-358d-a4edeb2f4c83"
+    "id": "08edb3be-a0fe-0d8b-05eb-1385e52b7be0"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/2d0e6d4e-405b-11ee-84bc-da7ad0900002/links/2d348dee-405b-11ee-b5db-da7ad0900002",
+      "path": "/api/v2/team/66d6e3d2-f7ea-4946-bc93-b11db5b9bed4/links/b0c50a40-f84a-11f0-a7c6-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -78,13 +78,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a26fbc5a-2d87-f345-bec5-c68f206ce8c4"
+    "id": "6b0a2065-3444-97ac-5984-3293e3dda0f1"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/2d0e6d4e-405b-11ee-84bc-da7ad0900002",
+      "path": "/api/v2/team/66d6e3d2-f7ea-4946-bc93-b11db5b9bed4",
       "keepAlive": false,
       "secure": true
     },
@@ -99,6 +99,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3692338f-5522-fb0b-6b32-c510f8247e38"
+    "id": "ae0032e1-7a7e-a8c1-6029-1533d949aa45"
   }
 ]
