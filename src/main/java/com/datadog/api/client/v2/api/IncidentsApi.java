@@ -1477,6 +1477,10 @@ public class IncidentsApi {
   /**
    * Create a postmortem attachment for an incident.
    *
+   * <p>The endpoint accepts markdown for notebooks created in Confluence or Google Docs.
+   * Postmortems created from notebooks need to be formatted using frontend notebook cells, in
+   * addition to markdown format.
+   *
    * @param incidentId The ID of the incident (required)
    * @param body (required)
    * @return ApiResponse&lt;Attachment&gt;
