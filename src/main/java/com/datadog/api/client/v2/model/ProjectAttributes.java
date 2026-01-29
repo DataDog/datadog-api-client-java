@@ -12,21 +12,93 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Project attributes */
-@JsonPropertyOrder({ProjectAttributes.JSON_PROPERTY_KEY, ProjectAttributes.JSON_PROPERTY_NAME})
+@JsonPropertyOrder({
+  ProjectAttributes.JSON_PROPERTY_COLUMNS_CONFIG,
+  ProjectAttributes.JSON_PROPERTY_ENABLED_CUSTOM_CASE_TYPES,
+  ProjectAttributes.JSON_PROPERTY_KEY,
+  ProjectAttributes.JSON_PROPERTY_NAME,
+  ProjectAttributes.JSON_PROPERTY_RESTRICTED,
+  ProjectAttributes.JSON_PROPERTY_SETTINGS
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProjectAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COLUMNS_CONFIG = "columns_config";
+  private ProjectColumnsConfig columnsConfig;
+
+  public static final String JSON_PROPERTY_ENABLED_CUSTOM_CASE_TYPES = "enabled_custom_case_types";
+  private List<String> enabledCustomCaseTypes = null;
+
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_RESTRICTED = "restricted";
+  private Boolean restricted;
+
+  public static final String JSON_PROPERTY_SETTINGS = "settings";
+  private ProjectSettings settings;
+
+  public ProjectAttributes columnsConfig(ProjectColumnsConfig columnsConfig) {
+    this.columnsConfig = columnsConfig;
+    this.unparsed |= columnsConfig.unparsed;
+    return this;
+  }
+
+  /**
+   * Project columns configuration
+   *
+   * @return columnsConfig
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COLUMNS_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProjectColumnsConfig getColumnsConfig() {
+    return columnsConfig;
+  }
+
+  public void setColumnsConfig(ProjectColumnsConfig columnsConfig) {
+    this.columnsConfig = columnsConfig;
+  }
+
+  public ProjectAttributes enabledCustomCaseTypes(List<String> enabledCustomCaseTypes) {
+    this.enabledCustomCaseTypes = enabledCustomCaseTypes;
+    return this;
+  }
+
+  public ProjectAttributes addEnabledCustomCaseTypesItem(String enabledCustomCaseTypesItem) {
+    if (this.enabledCustomCaseTypes == null) {
+      this.enabledCustomCaseTypes = new ArrayList<>();
+    }
+    this.enabledCustomCaseTypes.add(enabledCustomCaseTypesItem);
+    return this;
+  }
+
+  /**
+   * List of enabled custom case type IDs
+   *
+   * @return enabledCustomCaseTypes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED_CUSTOM_CASE_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getEnabledCustomCaseTypes() {
+    return enabledCustomCaseTypes;
+  }
+
+  public void setEnabledCustomCaseTypes(List<String> enabledCustomCaseTypes) {
+    this.enabledCustomCaseTypes = enabledCustomCaseTypes;
+  }
 
   public ProjectAttributes key(String key) {
     this.key = key;
@@ -68,6 +140,49 @@ public class ProjectAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ProjectAttributes restricted(Boolean restricted) {
+    this.restricted = restricted;
+    return this;
+  }
+
+  /**
+   * Whether the project is restricted
+   *
+   * @return restricted
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESTRICTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRestricted() {
+    return restricted;
+  }
+
+  public void setRestricted(Boolean restricted) {
+    this.restricted = restricted;
+  }
+
+  public ProjectAttributes settings(ProjectSettings settings) {
+    this.settings = settings;
+    this.unparsed |= settings.unparsed;
+    return this;
+  }
+
+  /**
+   * Project settings
+   *
+   * @return settings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProjectSettings getSettings() {
+    return settings;
+  }
+
+  public void setSettings(ProjectSettings settings) {
+    this.settings = settings;
   }
 
   /**
@@ -126,22 +241,39 @@ public class ProjectAttributes {
       return false;
     }
     ProjectAttributes projectAttributes = (ProjectAttributes) o;
-    return Objects.equals(this.key, projectAttributes.key)
+    return Objects.equals(this.columnsConfig, projectAttributes.columnsConfig)
+        && Objects.equals(this.enabledCustomCaseTypes, projectAttributes.enabledCustomCaseTypes)
+        && Objects.equals(this.key, projectAttributes.key)
         && Objects.equals(this.name, projectAttributes.name)
+        && Objects.equals(this.restricted, projectAttributes.restricted)
+        && Objects.equals(this.settings, projectAttributes.settings)
         && Objects.equals(this.additionalProperties, projectAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, name, additionalProperties);
+    return Objects.hash(
+        columnsConfig,
+        enabledCustomCaseTypes,
+        key,
+        name,
+        restricted,
+        settings,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectAttributes {\n");
+    sb.append("    columnsConfig: ").append(toIndentedString(columnsConfig)).append("\n");
+    sb.append("    enabledCustomCaseTypes: ")
+        .append(toIndentedString(enabledCustomCaseTypes))
+        .append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    restricted: ").append(toIndentedString(restricted)).append("\n");
+    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

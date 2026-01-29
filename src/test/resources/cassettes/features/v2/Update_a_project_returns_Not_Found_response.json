@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Updated Project Name\"},\"type\":\"project\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/cases/projects/67d80aa3-36ff-44b9-a694-c501a7591737",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"code\":\"resource_not_found\",\"title\":\"failed to get project: project not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fd06a24e-02f7-5cd5-e2ee-12a39e3e71f5"
+  }
+]

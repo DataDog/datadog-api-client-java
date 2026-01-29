@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Updated Project Name Test-Update_a_project_returns_OK_response-1769604677\"},\"type\":\"project\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/cases/projects/d4bbe1af-f36e-42f1-87c1-493ca35c320e",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\",\"attributes\":{\"key\":\"DDFC\",\"name\":\"Updated Project Name Test-Update_a_project_returns_OK_response-1769604677\",\"restricted\":false,\"settings\":{\"notification\":{\"enabled\":true,\"destinations\":[1],\"notify_on_case_assignment\":true,\"notify_on_case_unassignment\":true,\"notify_on_case_closed\":true,\"notify_on_case_priority_change\":true,\"notify_on_case_comment\":true,\"notify_on_case_comment_mention\":true,\"notify_on_case_status_change\":true}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ffdb25f8-fbb5-aa11-aff2-88ef72bb8828"
+  }
+]
