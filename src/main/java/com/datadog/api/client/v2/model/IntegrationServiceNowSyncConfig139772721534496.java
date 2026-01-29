@@ -1,0 +1,199 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v2.model;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+/** */
+@JsonPropertyOrder({
+  IntegrationServiceNowSyncConfig139772721534496.JSON_PROPERTY_COMMENTS,
+  IntegrationServiceNowSyncConfig139772721534496.JSON_PROPERTY_PRIORITY,
+  IntegrationServiceNowSyncConfig139772721534496.JSON_PROPERTY_STATUS
+})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class IntegrationServiceNowSyncConfig139772721534496 {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMMENTS = "comments";
+  private SyncProperty comments;
+
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
+  private IntegrationServiceNowSyncConfigPriority priority;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private SyncPropertyWithMapping status;
+
+  public IntegrationServiceNowSyncConfig139772721534496 comments(SyncProperty comments) {
+    this.comments = comments;
+    this.unparsed |= comments.unparsed;
+    return this;
+  }
+
+  /**
+   * Sync property configuration
+   *
+   * @return comments
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyncProperty getComments() {
+    return comments;
+  }
+
+  public void setComments(SyncProperty comments) {
+    this.comments = comments;
+  }
+
+  public IntegrationServiceNowSyncConfig139772721534496 priority(
+      IntegrationServiceNowSyncConfigPriority priority) {
+    this.priority = priority;
+    this.unparsed |= priority.unparsed;
+    return this;
+  }
+
+  /**
+   * Getpriority
+   *
+   * @return priority
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IntegrationServiceNowSyncConfigPriority getPriority() {
+    return priority;
+  }
+
+  public void setPriority(IntegrationServiceNowSyncConfigPriority priority) {
+    this.priority = priority;
+  }
+
+  public IntegrationServiceNowSyncConfig139772721534496 status(SyncPropertyWithMapping status) {
+    this.status = status;
+    this.unparsed |= status.unparsed;
+    return this;
+  }
+
+  /**
+   * Sync property with mapping configuration
+   *
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyncPropertyWithMapping getStatus() {
+    return status;
+  }
+
+  public void setStatus(SyncPropertyWithMapping status) {
+    this.status = status;
+  }
+
+  /**
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return IntegrationServiceNowSyncConfig139772721534496
+   */
+  @JsonAnySetter
+  public IntegrationServiceNowSyncConfig139772721534496 putAdditionalProperty(
+      String key, Object value) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return The additional properties
+   */
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+      return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
+  /** Return true if this IntegrationServiceNowSyncConfig139772721534496 object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    IntegrationServiceNowSyncConfig139772721534496 integrationServiceNowSyncConfig139772721534496 =
+        (IntegrationServiceNowSyncConfig139772721534496) o;
+    return Objects.equals(this.comments, integrationServiceNowSyncConfig139772721534496.comments)
+        && Objects.equals(this.priority, integrationServiceNowSyncConfig139772721534496.priority)
+        && Objects.equals(this.status, integrationServiceNowSyncConfig139772721534496.status)
+        && Objects.equals(
+            this.additionalProperties,
+            integrationServiceNowSyncConfig139772721534496.additionalProperties);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(comments, priority, status, additionalProperties);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class IntegrationServiceNowSyncConfig139772721534496 {\n");
+    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    additionalProperties: ")
+        .append(toIndentedString(additionalProperties))
+        .append("\n");
+    sb.append('}');
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
