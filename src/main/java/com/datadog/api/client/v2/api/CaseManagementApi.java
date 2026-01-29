@@ -10,6 +10,10 @@ import com.datadog.api.client.v2.model.CaseAssignRequest;
 import com.datadog.api.client.v2.model.CaseCommentRequest;
 import com.datadog.api.client.v2.model.CaseCreateRequest;
 import com.datadog.api.client.v2.model.CaseEmptyRequest;
+import com.datadog.api.client.v2.model.CaseNotificationRuleCreateRequest;
+import com.datadog.api.client.v2.model.CaseNotificationRuleResponse;
+import com.datadog.api.client.v2.model.CaseNotificationRuleUpdateRequest;
+import com.datadog.api.client.v2.model.CaseNotificationRulesResponse;
 import com.datadog.api.client.v2.model.CaseResponse;
 import com.datadog.api.client.v2.model.CaseSortableField;
 import com.datadog.api.client.v2.model.CaseUpdateAttributesRequest;
@@ -21,6 +25,7 @@ import com.datadog.api.client.v2.model.CaseUpdateTitleRequest;
 import com.datadog.api.client.v2.model.CasesResponse;
 import com.datadog.api.client.v2.model.ProjectCreateRequest;
 import com.datadog.api.client.v2.model.ProjectResponse;
+import com.datadog.api.client.v2.model.ProjectUpdateRequest;
 import com.datadog.api.client.v2.model.ProjectsResponse;
 import com.datadog.api.client.v2.model.TimelineResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -790,6 +795,172 @@ public class CaseManagementApi {
   }
 
   /**
+   * Create a notification rule.
+   *
+   * <p>See {@link #createProjectNotificationRuleWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @param body Notification rule payload (required)
+   * @return CaseNotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CaseNotificationRuleResponse createProjectNotificationRule(
+      String projectId, CaseNotificationRuleCreateRequest body) throws ApiException {
+    return createProjectNotificationRuleWithHttpInfo(projectId, body).getData();
+  }
+
+  /**
+   * Create a notification rule.
+   *
+   * <p>See {@link #createProjectNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param projectId Project UUID (required)
+   * @param body Notification rule payload (required)
+   * @return CompletableFuture&lt;CaseNotificationRuleResponse&gt;
+   */
+  public CompletableFuture<CaseNotificationRuleResponse> createProjectNotificationRuleAsync(
+      String projectId, CaseNotificationRuleCreateRequest body) {
+    return createProjectNotificationRuleWithHttpInfoAsync(projectId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a notification rule for a project.
+   *
+   * @param projectId Project UUID (required)
+   * @param body Notification rule payload (required)
+   * @return ApiResponse&lt;CaseNotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CaseNotificationRuleResponse> createProjectNotificationRuleWithHttpInfo(
+      String projectId, CaseNotificationRuleCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'projectId' when calling createProjectNotificationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createProjectNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/projects/{project_id}/notification_rules"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.createProjectNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CaseNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Create a notification rule.
+   *
+   * <p>See {@link #createProjectNotificationRuleWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @param body Notification rule payload (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CaseNotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CaseNotificationRuleResponse>>
+      createProjectNotificationRuleWithHttpInfoAsync(
+          String projectId, CaseNotificationRuleCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<CaseNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'projectId' when calling"
+                  + " createProjectNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CaseNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createProjectNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/projects/{project_id}/notification_rules"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.createProjectNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CaseNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CaseNotificationRuleResponse>() {});
+  }
+
+  /**
    * Delete case comment.
    *
    * <p>See {@link #deleteCaseCommentWithHttpInfo}.
@@ -1247,6 +1418,174 @@ public class CaseManagementApi {
   }
 
   /**
+   * Delete a notification rule.
+   *
+   * <p>See {@link #deleteProjectNotificationRuleWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @param notificationRuleId Notification Rule UUID (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteProjectNotificationRule(String projectId, String notificationRuleId)
+      throws ApiException {
+    deleteProjectNotificationRuleWithHttpInfo(projectId, notificationRuleId);
+  }
+
+  /**
+   * Delete a notification rule.
+   *
+   * <p>See {@link #deleteProjectNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param projectId Project UUID (required)
+   * @param notificationRuleId Notification Rule UUID (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteProjectNotificationRuleAsync(
+      String projectId, String notificationRuleId) {
+    return deleteProjectNotificationRuleWithHttpInfoAsync(projectId, notificationRuleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a notification rule using the notification rule's <code>id</code>.
+   *
+   * @param projectId Project UUID (required)
+   * @param notificationRuleId Notification Rule UUID (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteProjectNotificationRuleWithHttpInfo(
+      String projectId, String notificationRuleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'projectId' when calling deleteProjectNotificationRule");
+    }
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'notificationRuleId' when calling"
+              + " deleteProjectNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.deleteProjectNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a notification rule.
+   *
+   * <p>See {@link #deleteProjectNotificationRuleWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @param notificationRuleId Notification Rule UUID (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteProjectNotificationRuleWithHttpInfoAsync(
+      String projectId, String notificationRuleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'projectId' when calling"
+                  + " deleteProjectNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'notificationRuleId' when calling"
+                  + " deleteProjectNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.deleteProjectNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Get the details of a case.
    *
    * <p>See {@link #getCaseWithHttpInfo}.
@@ -1513,6 +1852,150 @@ public class CaseManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ProjectResponse>() {});
+  }
+
+  /**
+   * Get notification rules.
+   *
+   * <p>See {@link #getProjectNotificationRulesWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @return CaseNotificationRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CaseNotificationRulesResponse getProjectNotificationRules(String projectId)
+      throws ApiException {
+    return getProjectNotificationRulesWithHttpInfo(projectId).getData();
+  }
+
+  /**
+   * Get notification rules.
+   *
+   * <p>See {@link #getProjectNotificationRulesWithHttpInfoAsync}.
+   *
+   * @param projectId Project UUID (required)
+   * @return CompletableFuture&lt;CaseNotificationRulesResponse&gt;
+   */
+  public CompletableFuture<CaseNotificationRulesResponse> getProjectNotificationRulesAsync(
+      String projectId) {
+    return getProjectNotificationRulesWithHttpInfoAsync(projectId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all notification rules for a project.
+   *
+   * @param projectId Project UUID (required)
+   * @return ApiResponse&lt;CaseNotificationRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CaseNotificationRulesResponse> getProjectNotificationRulesWithHttpInfo(
+      String projectId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'projectId' when calling getProjectNotificationRules");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/projects/{project_id}/notification_rules"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.getProjectNotificationRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CaseNotificationRulesResponse>() {});
+  }
+
+  /**
+   * Get notification rules.
+   *
+   * <p>See {@link #getProjectNotificationRulesWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CaseNotificationRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CaseNotificationRulesResponse>>
+      getProjectNotificationRulesWithHttpInfoAsync(String projectId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<CaseNotificationRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'projectId' when calling"
+                  + " getProjectNotificationRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/projects/{project_id}/notification_rules"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.getProjectNotificationRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CaseNotificationRulesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CaseNotificationRulesResponse>() {});
   }
 
   /**
@@ -3046,6 +3529,356 @@ public class CaseManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CaseResponse>() {});
+  }
+
+  /**
+   * Update a project.
+   *
+   * <p>See {@link #updateProjectWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @param body Project payload (required)
+   * @return ProjectResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProjectResponse updateProject(String projectId, ProjectUpdateRequest body)
+      throws ApiException {
+    return updateProjectWithHttpInfo(projectId, body).getData();
+  }
+
+  /**
+   * Update a project.
+   *
+   * <p>See {@link #updateProjectWithHttpInfoAsync}.
+   *
+   * @param projectId Project UUID (required)
+   * @param body Project payload (required)
+   * @return CompletableFuture&lt;ProjectResponse&gt;
+   */
+  public CompletableFuture<ProjectResponse> updateProjectAsync(
+      String projectId, ProjectUpdateRequest body) {
+    return updateProjectWithHttpInfoAsync(projectId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a project.
+   *
+   * @param projectId Project UUID (required)
+   * @param body Project payload (required)
+   * @return ApiResponse&lt;ProjectResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProjectResponse> updateProjectWithHttpInfo(
+      String projectId, ProjectUpdateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'projectId' when calling updateProject");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateProject");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/projects/{project_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.updateProject",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProjectResponse>() {});
+  }
+
+  /**
+   * Update a project.
+   *
+   * <p>See {@link #updateProjectWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @param body Project payload (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProjectResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProjectResponse>> updateProjectWithHttpInfoAsync(
+      String projectId, ProjectUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'projectId' when calling updateProject"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateProject"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/projects/{project_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.updateProject",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProjectResponse>() {});
+  }
+
+  /**
+   * Update a notification rule.
+   *
+   * <p>See {@link #updateProjectNotificationRuleWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @param notificationRuleId Notification Rule UUID (required)
+   * @param body Notification rule payload (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateProjectNotificationRule(
+      String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body)
+      throws ApiException {
+    updateProjectNotificationRuleWithHttpInfo(projectId, notificationRuleId, body);
+  }
+
+  /**
+   * Update a notification rule.
+   *
+   * <p>See {@link #updateProjectNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param projectId Project UUID (required)
+   * @param notificationRuleId Notification Rule UUID (required)
+   * @param body Notification rule payload (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateProjectNotificationRuleAsync(
+      String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body) {
+    return updateProjectNotificationRuleWithHttpInfoAsync(projectId, notificationRuleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a notification rule.
+   *
+   * @param projectId Project UUID (required)
+   * @param notificationRuleId Notification Rule UUID (required)
+   * @param body Notification rule payload (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateProjectNotificationRuleWithHttpInfo(
+      String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'projectId' when calling updateProjectNotificationRule");
+    }
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'notificationRuleId' when calling"
+              + " updateProjectNotificationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateProjectNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.updateProjectNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update a notification rule.
+   *
+   * <p>See {@link #updateProjectNotificationRuleWithHttpInfo}.
+   *
+   * @param projectId Project UUID (required)
+   * @param notificationRuleId Notification Rule UUID (required)
+   * @param body Notification rule payload (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateProjectNotificationRuleWithHttpInfoAsync(
+      String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'projectId' when calling"
+                  + " updateProjectNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'notificationRuleId' when calling"
+                  + " updateProjectNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateProjectNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
+            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.updateProjectNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**

@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,45 +18,61 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Project creation attributes */
+/** Project update attributes */
 @JsonPropertyOrder({
-  ProjectCreateAttributes.JSON_PROPERTY_ENABLED_CUSTOM_CASE_TYPES,
-  ProjectCreateAttributes.JSON_PROPERTY_KEY,
-  ProjectCreateAttributes.JSON_PROPERTY_NAME,
-  ProjectCreateAttributes.JSON_PROPERTY_TEAM_UUID
+  ProjectUpdateAttributes.JSON_PROPERTY_COLUMNS_CONFIG,
+  ProjectUpdateAttributes.JSON_PROPERTY_ENABLED_CUSTOM_CASE_TYPES,
+  ProjectUpdateAttributes.JSON_PROPERTY_NAME,
+  ProjectUpdateAttributes.JSON_PROPERTY_SETTINGS,
+  ProjectUpdateAttributes.JSON_PROPERTY_TEAM_UUID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ProjectCreateAttributes {
+public class ProjectUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COLUMNS_CONFIG = "columns_config";
+  private ProjectColumnsConfig columnsConfig;
+
   public static final String JSON_PROPERTY_ENABLED_CUSTOM_CASE_TYPES = "enabled_custom_case_types";
   private List<String> enabledCustomCaseTypes = null;
-
-  public static final String JSON_PROPERTY_KEY = "key";
-  private String key;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_SETTINGS = "settings";
+  private ProjectSettings settings;
+
   public static final String JSON_PROPERTY_TEAM_UUID = "team_uuid";
   private String teamUuid;
 
-  public ProjectCreateAttributes() {}
-
-  @JsonCreator
-  public ProjectCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_KEY) String key,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.key = key;
-    this.name = name;
+  public ProjectUpdateAttributes columnsConfig(ProjectColumnsConfig columnsConfig) {
+    this.columnsConfig = columnsConfig;
+    this.unparsed |= columnsConfig.unparsed;
+    return this;
   }
 
-  public ProjectCreateAttributes enabledCustomCaseTypes(List<String> enabledCustomCaseTypes) {
+  /**
+   * Project columns configuration
+   *
+   * @return columnsConfig
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COLUMNS_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProjectColumnsConfig getColumnsConfig() {
+    return columnsConfig;
+  }
+
+  public void setColumnsConfig(ProjectColumnsConfig columnsConfig) {
+    this.columnsConfig = columnsConfig;
+  }
+
+  public ProjectUpdateAttributes enabledCustomCaseTypes(List<String> enabledCustomCaseTypes) {
     this.enabledCustomCaseTypes = enabledCustomCaseTypes;
     return this;
   }
 
-  public ProjectCreateAttributes addEnabledCustomCaseTypesItem(String enabledCustomCaseTypesItem) {
+  public ProjectUpdateAttributes addEnabledCustomCaseTypesItem(String enabledCustomCaseTypesItem) {
     if (this.enabledCustomCaseTypes == null) {
       this.enabledCustomCaseTypes = new ArrayList<>();
     }
@@ -81,27 +96,7 @@ public class ProjectCreateAttributes {
     this.enabledCustomCaseTypes = enabledCustomCaseTypes;
   }
 
-  public ProjectCreateAttributes key(String key) {
-    this.key = key;
-    return this;
-  }
-
-  /**
-   * Project's key. Cannot be "CASE"
-   *
-   * @return key
-   */
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getKey() {
-    return key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public ProjectCreateAttributes name(String name) {
+  public ProjectUpdateAttributes name(String name) {
     this.name = name;
     return this;
   }
@@ -111,8 +106,9 @@ public class ProjectCreateAttributes {
    *
    * @return name
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
     return name;
   }
@@ -121,7 +117,29 @@ public class ProjectCreateAttributes {
     this.name = name;
   }
 
-  public ProjectCreateAttributes teamUuid(String teamUuid) {
+  public ProjectUpdateAttributes settings(ProjectSettings settings) {
+    this.settings = settings;
+    this.unparsed |= settings.unparsed;
+    return this;
+  }
+
+  /**
+   * Project settings
+   *
+   * @return settings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProjectSettings getSettings() {
+    return settings;
+  }
+
+  public void setSettings(ProjectSettings settings) {
+    this.settings = settings;
+  }
+
+  public ProjectUpdateAttributes teamUuid(String teamUuid) {
     this.teamUuid = teamUuid;
     return this;
   }
@@ -154,10 +172,10 @@ public class ProjectCreateAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ProjectCreateAttributes
+   * @return ProjectUpdateAttributes
    */
   @JsonAnySetter
-  public ProjectCreateAttributes putAdditionalProperty(String key, Object value) {
+  public ProjectUpdateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -188,7 +206,7 @@ public class ProjectCreateAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ProjectCreateAttributes object is equal to o. */
+  /** Return true if this ProjectUpdateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -197,29 +215,32 @@ public class ProjectCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectCreateAttributes projectCreateAttributes = (ProjectCreateAttributes) o;
-    return Objects.equals(
-            this.enabledCustomCaseTypes, projectCreateAttributes.enabledCustomCaseTypes)
-        && Objects.equals(this.key, projectCreateAttributes.key)
-        && Objects.equals(this.name, projectCreateAttributes.name)
-        && Objects.equals(this.teamUuid, projectCreateAttributes.teamUuid)
-        && Objects.equals(this.additionalProperties, projectCreateAttributes.additionalProperties);
+    ProjectUpdateAttributes projectUpdateAttributes = (ProjectUpdateAttributes) o;
+    return Objects.equals(this.columnsConfig, projectUpdateAttributes.columnsConfig)
+        && Objects.equals(
+            this.enabledCustomCaseTypes, projectUpdateAttributes.enabledCustomCaseTypes)
+        && Objects.equals(this.name, projectUpdateAttributes.name)
+        && Objects.equals(this.settings, projectUpdateAttributes.settings)
+        && Objects.equals(this.teamUuid, projectUpdateAttributes.teamUuid)
+        && Objects.equals(this.additionalProperties, projectUpdateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabledCustomCaseTypes, key, name, teamUuid, additionalProperties);
+    return Objects.hash(
+        columnsConfig, enabledCustomCaseTypes, name, settings, teamUuid, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectCreateAttributes {\n");
+    sb.append("class ProjectUpdateAttributes {\n");
+    sb.append("    columnsConfig: ").append(toIndentedString(columnsConfig)).append("\n");
     sb.append("    enabledCustomCaseTypes: ")
         .append(toIndentedString(enabledCustomCaseTypes))
         .append("\n");
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    teamUuid: ").append(toIndentedString(teamUuid)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
