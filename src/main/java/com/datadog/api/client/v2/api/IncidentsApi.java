@@ -31,6 +31,9 @@ import com.datadog.api.client.v2.model.IncidentNotificationTemplateArray;
 import com.datadog.api.client.v2.model.IncidentRelatedObject;
 import com.datadog.api.client.v2.model.IncidentResponse;
 import com.datadog.api.client.v2.model.IncidentResponseData;
+import com.datadog.api.client.v2.model.IncidentRuleRequest;
+import com.datadog.api.client.v2.model.IncidentRuleResponse;
+import com.datadog.api.client.v2.model.IncidentRulesResponse;
 import com.datadog.api.client.v2.model.IncidentSearchResponse;
 import com.datadog.api.client.v2.model.IncidentSearchResponseIncidentsData;
 import com.datadog.api.client.v2.model.IncidentSearchSortOrder;
@@ -704,6 +707,155 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Attachment>() {});
+  }
+
+  /**
+   * Create incident rule.
+   *
+   * <p>See {@link #createIncidentConfigRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return IncidentRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentRuleResponse createIncidentConfigRule(IncidentRuleRequest body)
+      throws ApiException {
+    return createIncidentConfigRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create incident rule.
+   *
+   * <p>See {@link #createIncidentConfigRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;IncidentRuleResponse&gt;
+   */
+  public CompletableFuture<IncidentRuleResponse> createIncidentConfigRuleAsync(
+      IncidentRuleRequest body) {
+    return createIncidentConfigRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new incident rule for the organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;IncidentRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentRuleResponse> createIncidentConfigRuleWithHttpInfo(
+      IncidentRuleRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentConfigRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createIncidentConfigRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.createIncidentConfigRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentRuleResponse>() {});
+  }
+
+  /**
+   * Create incident rule.
+   *
+   * <p>See {@link #createIncidentConfigRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentRuleResponse>>
+      createIncidentConfigRuleWithHttpInfoAsync(IncidentRuleRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentConfigRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createIncidentConfigRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.createIncidentConfigRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentRuleResponse>() {});
   }
 
   /** Manage optional parameters to createIncidentImpact. */
@@ -2411,6 +2563,157 @@ public class IncidentsApi {
   }
 
   /**
+   * Delete incident rule.
+   *
+   * <p>See {@link #deleteIncidentConfigRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteIncidentConfigRule(String ruleId) throws ApiException {
+    deleteIncidentConfigRuleWithHttpInfo(ruleId);
+  }
+
+  /**
+   * Delete incident rule.
+   *
+   * <p>See {@link #deleteIncidentConfigRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteIncidentConfigRuleAsync(String ruleId) {
+    return deleteIncidentConfigRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an incident rule.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteIncidentConfigRuleWithHttpInfo(String ruleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentConfigRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling deleteIncidentConfigRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.deleteIncidentConfigRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete incident rule.
+   *
+   * <p>See {@link #deleteIncidentConfigRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteIncidentConfigRuleWithHttpInfoAsync(
+      String ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentConfigRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling deleteIncidentConfigRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.deleteIncidentConfigRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete an incident impact.
    *
    * <p>See {@link #deleteIncidentImpactWithHttpInfo}.
@@ -3875,6 +4178,158 @@ public class IncidentsApi {
   }
 
   /**
+   * Get incident rule.
+   *
+   * <p>See {@link #getIncidentConfigRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @return IncidentRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentRuleResponse getIncidentConfigRule(String ruleId) throws ApiException {
+    return getIncidentConfigRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Get incident rule.
+   *
+   * <p>See {@link #getIncidentConfigRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @return CompletableFuture&lt;IncidentRuleResponse&gt;
+   */
+  public CompletableFuture<IncidentRuleResponse> getIncidentConfigRuleAsync(String ruleId) {
+    return getIncidentConfigRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve details of a specific incident rule.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @return ApiResponse&lt;IncidentRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentRuleResponse> getIncidentConfigRuleWithHttpInfo(String ruleId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentConfigRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling getIncidentConfigRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.getIncidentConfigRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentRuleResponse>() {});
+  }
+
+  /**
+   * Get incident rule.
+   *
+   * <p>See {@link #getIncidentConfigRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentRuleResponse>>
+      getIncidentConfigRuleWithHttpInfoAsync(String ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentConfigRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<IncidentRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'ruleId' when calling getIncidentConfigRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.getIncidentConfigRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentRuleResponse>() {});
+  }
+
+  /**
    * Get incident integration metadata details.
    *
    * <p>See {@link #getIncidentIntegrationWithHttpInfo}.
@@ -5270,6 +5725,134 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AttachmentArray>() {});
+  }
+
+  /**
+   * List incident rules.
+   *
+   * <p>See {@link #listIncidentConfigRulesWithHttpInfo}.
+   *
+   * @return IncidentRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentRulesResponse listIncidentConfigRules() throws ApiException {
+    return listIncidentConfigRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * List incident rules.
+   *
+   * <p>See {@link #listIncidentConfigRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;IncidentRulesResponse&gt;
+   */
+  public CompletableFuture<IncidentRulesResponse> listIncidentConfigRulesAsync() {
+    return listIncidentConfigRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a list of all incident rules for the organization.
+   *
+   * @return ApiResponse&lt;IncidentRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentRulesResponse> listIncidentConfigRulesWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentConfigRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.listIncidentConfigRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentRulesResponse>() {});
+  }
+
+  /**
+   * List incident rules.
+   *
+   * <p>See {@link #listIncidentConfigRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentRulesResponse>>
+      listIncidentConfigRulesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentConfigRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.listIncidentConfigRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentRulesResponse>() {});
   }
 
   /** Manage optional parameters to listIncidentImpacts. */
@@ -7905,6 +8488,180 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Attachment>() {});
+  }
+
+  /**
+   * Update incident rule.
+   *
+   * <p>See {@link #updateIncidentConfigRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @param body (required)
+   * @return IncidentRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentRuleResponse updateIncidentConfigRule(String ruleId, IncidentRuleRequest body)
+      throws ApiException {
+    return updateIncidentConfigRuleWithHttpInfo(ruleId, body).getData();
+  }
+
+  /**
+   * Update incident rule.
+   *
+   * <p>See {@link #updateIncidentConfigRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;IncidentRuleResponse&gt;
+   */
+  public CompletableFuture<IncidentRuleResponse> updateIncidentConfigRuleAsync(
+      String ruleId, IncidentRuleRequest body) {
+    return updateIncidentConfigRuleWithHttpInfoAsync(ruleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing incident rule.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;IncidentRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentRuleResponse> updateIncidentConfigRuleWithHttpInfo(
+      String ruleId, IncidentRuleRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentConfigRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling updateIncidentConfigRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateIncidentConfigRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.updateIncidentConfigRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentRuleResponse>() {});
+  }
+
+  /**
+   * Update incident rule.
+   *
+   * <p>See {@link #updateIncidentConfigRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the incident rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentRuleResponse>>
+      updateIncidentConfigRuleWithHttpInfoAsync(String ruleId, IncidentRuleRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentConfigRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<IncidentRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling updateIncidentConfigRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateIncidentConfigRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.updateIncidentConfigRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentRuleResponse>() {});
   }
 
   /**
