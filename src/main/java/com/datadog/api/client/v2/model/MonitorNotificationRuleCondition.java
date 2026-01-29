@@ -19,7 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Conditions for <code>conditional_recipients</code>. */
+/**
+ * A conditional recipient rule composed of a <code>scope</code> (the matching condition) and <code>
+ * recipients</code> (who to notify when it matches).
+ */
 @JsonPropertyOrder({
   MonitorNotificationRuleCondition.JSON_PROPERTY_RECIPIENTS,
   MonitorNotificationRuleCondition.JSON_PROPERTY_SCOPE
@@ -76,7 +79,10 @@ public class MonitorNotificationRuleCondition {
   }
 
   /**
-   * The scope to which the monitor applied.
+   * Defines the condition under which the recipients are notified. Supported formats: - Monitor
+   * status condition using <code>transition_type:&lt;status&gt;</code>, for example <code>
+   * transition_type:is_alert</code>. - A single tag key:value pair, for example <code>env:prod
+   * </code>.
    *
    * @return scope
    */
