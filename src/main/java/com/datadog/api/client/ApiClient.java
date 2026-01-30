@@ -889,12 +889,6 @@ public class ApiClient {
           put("v2.updateMonitorUserTemplate", false);
           put("v2.validateExistingMonitorUserTemplate", false);
           put("v2.validateMonitorUserTemplate", false);
-          put("v2.createPipeline", false);
-          put("v2.deletePipeline", false);
-          put("v2.getPipeline", false);
-          put("v2.listPipelines", false);
-          put("v2.updatePipeline", false);
-          put("v2.validatePipeline", false);
           put("v2.listRoleTemplates", false);
           put("v2.createConnection", false);
           put("v2.deleteConnection", false);

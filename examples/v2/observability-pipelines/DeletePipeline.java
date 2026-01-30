@@ -7,7 +7,6 @@ import com.datadog.api.client.v2.api.ObservabilityPipelinesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.deletePipeline", true);
     ObservabilityPipelinesApi apiInstance = new ObservabilityPipelinesApi(defaultClient);
 
     // there is a valid "pipeline" in the system
