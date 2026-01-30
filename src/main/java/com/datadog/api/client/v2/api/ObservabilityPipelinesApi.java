@@ -96,13 +96,6 @@ public class ObservabilityPipelinesApi {
    */
   public ApiResponse<ObservabilityPipeline> createPipelineWithHttpInfo(
       ObservabilityPipelineSpec body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createPipeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -145,16 +138,6 @@ public class ObservabilityPipelinesApi {
    */
   public CompletableFuture<ApiResponse<ObservabilityPipeline>> createPipelineWithHttpInfoAsync(
       ObservabilityPipelineSpec body) {
-    // Check if unstable operation is enabled
-    String operationId = "createPipeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ObservabilityPipeline>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -243,13 +226,6 @@ public class ObservabilityPipelinesApi {
    *     </table>
    */
   public ApiResponse<Void> deletePipelineWithHttpInfo(String pipelineId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deletePipeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'pipelineId' is set
@@ -294,16 +270,6 @@ public class ObservabilityPipelinesApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deletePipelineWithHttpInfoAsync(String pipelineId) {
-    // Check if unstable operation is enabled
-    String operationId = "deletePipeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'pipelineId' is set
@@ -395,13 +361,6 @@ public class ObservabilityPipelinesApi {
    */
   public ApiResponse<ObservabilityPipeline> getPipelineWithHttpInfo(String pipelineId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getPipeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'pipelineId' is set
@@ -447,16 +406,6 @@ public class ObservabilityPipelinesApi {
    */
   public CompletableFuture<ApiResponse<ObservabilityPipeline>> getPipelineWithHttpInfoAsync(
       String pipelineId) {
-    // Check if unstable operation is enabled
-    String operationId = "getPipeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ObservabilityPipeline>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'pipelineId' is set
@@ -607,13 +556,6 @@ public class ObservabilityPipelinesApi {
    */
   public ApiResponse<ListPipelinesResponse> listPipelinesWithHttpInfo(
       ListPipelinesOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listPipelines";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -656,16 +598,6 @@ public class ObservabilityPipelinesApi {
    */
   public CompletableFuture<ApiResponse<ListPipelinesResponse>> listPipelinesWithHttpInfoAsync(
       ListPipelinesOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listPipelines";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ListPipelinesResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -759,13 +691,6 @@ public class ObservabilityPipelinesApi {
    */
   public ApiResponse<ObservabilityPipeline> updatePipelineWithHttpInfo(
       String pipelineId, ObservabilityPipeline body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updatePipeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'pipelineId' is set
@@ -818,16 +743,6 @@ public class ObservabilityPipelinesApi {
    */
   public CompletableFuture<ApiResponse<ObservabilityPipeline>> updatePipelineWithHttpInfoAsync(
       String pipelineId, ObservabilityPipeline body) {
-    // Check if unstable operation is enabled
-    String operationId = "updatePipeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ObservabilityPipeline>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'pipelineId' is set
@@ -931,13 +846,6 @@ public class ObservabilityPipelinesApi {
    */
   public ApiResponse<ValidationResponse> validatePipelineWithHttpInfo(
       ObservabilityPipelineSpec body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "validatePipeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -980,16 +888,6 @@ public class ObservabilityPipelinesApi {
    */
   public CompletableFuture<ApiResponse<ValidationResponse>> validatePipelineWithHttpInfoAsync(
       ObservabilityPipelineSpec body) {
-    // Check if unstable operation is enabled
-    String operationId = "validatePipeline";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ValidationResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set

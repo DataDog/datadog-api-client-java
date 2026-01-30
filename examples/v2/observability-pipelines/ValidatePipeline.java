@@ -23,7 +23,6 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.validatePipeline", true);
     ObservabilityPipelinesApi apiInstance = new ObservabilityPipelinesApi(defaultClient);
 
     ObservabilityPipelineSpec body =
