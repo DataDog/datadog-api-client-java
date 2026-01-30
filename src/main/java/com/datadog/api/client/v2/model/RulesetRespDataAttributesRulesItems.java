@@ -35,8 +35,8 @@ public class RulesetRespDataAttributesRulesItems {
   private Boolean enabled;
 
   public static final String JSON_PROPERTY_MAPPING = "mapping";
-  private JsonNullable<RulesetRespDataAttributesRulesItemsMapping> mapping =
-      JsonNullable.<RulesetRespDataAttributesRulesItemsMapping>undefined();
+  private JsonNullable<DataAttributesRulesItemsMapping> mapping =
+      JsonNullable.<DataAttributesRulesItemsMapping>undefined();
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private JsonNullable<Map<String, String>> metadata =
@@ -83,37 +83,35 @@ public class RulesetRespDataAttributesRulesItems {
     this.enabled = enabled;
   }
 
-  public RulesetRespDataAttributesRulesItems mapping(
-      RulesetRespDataAttributesRulesItemsMapping mapping) {
-    this.mapping = JsonNullable.<RulesetRespDataAttributesRulesItemsMapping>of(mapping);
+  public RulesetRespDataAttributesRulesItems mapping(DataAttributesRulesItemsMapping mapping) {
+    this.mapping = JsonNullable.<DataAttributesRulesItemsMapping>of(mapping);
     return this;
   }
 
   /**
-   * The definition of <code>RulesetRespDataAttributesRulesItemsMapping</code> object.
+   * The definition of <code>DataAttributesRulesItemsMapping</code> object.
    *
    * @return mapping
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
-  public RulesetRespDataAttributesRulesItemsMapping getMapping() {
+  public DataAttributesRulesItemsMapping getMapping() {
     return mapping.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_MAPPING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<RulesetRespDataAttributesRulesItemsMapping> getMapping_JsonNullable() {
+  public JsonNullable<DataAttributesRulesItemsMapping> getMapping_JsonNullable() {
     return mapping;
   }
 
   @JsonProperty(JSON_PROPERTY_MAPPING)
-  public void setMapping_JsonNullable(
-      JsonNullable<RulesetRespDataAttributesRulesItemsMapping> mapping) {
+  public void setMapping_JsonNullable(JsonNullable<DataAttributesRulesItemsMapping> mapping) {
     this.mapping = mapping;
   }
 
-  public void setMapping(RulesetRespDataAttributesRulesItemsMapping mapping) {
-    this.mapping = JsonNullable.<RulesetRespDataAttributesRulesItemsMapping>of(mapping);
+  public void setMapping(DataAttributesRulesItemsMapping mapping) {
+    this.mapping = JsonNullable.<DataAttributesRulesItemsMapping>of(mapping);
   }
 
   public RulesetRespDataAttributesRulesItems metadata(Map<String, String> metadata) {
