@@ -517,7 +517,8 @@ public class RestrictionPoliciesApi {
    * Connections: <code>cross-org-connection</code> - Spreadsheets: <code>spreadsheet</code> -
    * On-Call Schedules: <code>on-call-schedule</code> - On-Call Escalation Policies: <code>
    * on-call-escalation-policy</code> - On-Call Team Routing Rules: <code>on-call-team-routing-rules
-   * </code> - Logs Pipelines: <code>logs-pipeline</code>
+   * </code> - Logs Pipelines: <code>logs-pipeline</code> - Case Management Projects: <code>
+   * case-management-project</code>
    *
    * <h3>Supported relations for resources</h3>
    *
@@ -538,7 +539,8 @@ public class RestrictionPoliciesApi {
    * Schedules | <code>viewer</code>, <code>overrider</code>, <code>editor</code> On-Call Escalation
    * Policies | <code>viewer</code>, <code>editor</code> On-Call Team Routing Rules | <code>viewer
    * </code>, <code>editor</code> Logs Pipelines | <code>viewer</code>, <code>processors_editor
-   * </code>, <code>editor</code>
+   * </code>, <code>editor</code> Case Management Projects | <code>viewer</code>, <code>contributor
+   * </code>, <code>manager</code>
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
