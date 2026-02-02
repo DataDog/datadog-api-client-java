@@ -61,6 +61,14 @@ import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetCreateRequ
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetsResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringDatasetCreateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringDatasetCreateResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringDatasetDependenciesRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringDatasetDependenciesResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringDatasetResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringDatasetUpdateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringDatasetsHistoryResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringDatasetsListResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringListRulesResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringPaginatedSuppressionsResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleBulkExportPayload;
@@ -106,6 +114,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -428,6 +437,168 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FindingCaseResponse>() {});
+  }
+
+  /**
+   * Get dataset dependencies.
+   *
+   * <p>See {@link #batchGetSecurityMonitoringDatasetDependenciesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringDatasetDependenciesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringDatasetDependenciesResponse
+      batchGetSecurityMonitoringDatasetDependencies(
+          SecurityMonitoringDatasetDependenciesRequest body) throws ApiException {
+    return batchGetSecurityMonitoringDatasetDependenciesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Get dataset dependencies.
+   *
+   * <p>See {@link #batchGetSecurityMonitoringDatasetDependenciesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringDatasetDependenciesResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringDatasetDependenciesResponse>
+      batchGetSecurityMonitoringDatasetDependenciesAsync(
+          SecurityMonitoringDatasetDependenciesRequest body) {
+    return batchGetSecurityMonitoringDatasetDependenciesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Batch retrieves which security rules depend on specified datasets.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringDatasetDependenciesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringDatasetDependenciesResponse>
+      batchGetSecurityMonitoringDatasetDependenciesWithHttpInfo(
+          SecurityMonitoringDatasetDependenciesRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "batchGetSecurityMonitoringDatasetDependencies";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " batchGetSecurityMonitoringDatasetDependencies");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/datasets/dependencies";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.batchGetSecurityMonitoringDatasetDependencies",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetDependenciesResponse>() {});
+  }
+
+  /**
+   * Get dataset dependencies.
+   *
+   * <p>See {@link #batchGetSecurityMonitoringDatasetDependenciesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringDatasetDependenciesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringDatasetDependenciesResponse>>
+      batchGetSecurityMonitoringDatasetDependenciesWithHttpInfoAsync(
+          SecurityMonitoringDatasetDependenciesRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "batchGetSecurityMonitoringDatasetDependencies";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetDependenciesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetDependenciesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " batchGetSecurityMonitoringDatasetDependencies"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/datasets/dependencies";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.batchGetSecurityMonitoringDatasetDependencies",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetDependenciesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetDependenciesResponse>() {});
   }
 
   /**
@@ -1862,6 +2033,164 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Create a dataset.
+   *
+   * <p>See {@link #createSecurityMonitoringDatasetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringDatasetCreateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringDatasetCreateResponse createSecurityMonitoringDataset(
+      SecurityMonitoringDatasetCreateRequest body) throws ApiException {
+    return createSecurityMonitoringDatasetWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a dataset.
+   *
+   * <p>See {@link #createSecurityMonitoringDatasetWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringDatasetCreateResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringDatasetCreateResponse>
+      createSecurityMonitoringDatasetAsync(SecurityMonitoringDatasetCreateRequest body) {
+    return createSecurityMonitoringDatasetWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new dataset for security monitoring.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringDatasetCreateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringDatasetCreateResponse>
+      createSecurityMonitoringDatasetWithHttpInfo(SecurityMonitoringDatasetCreateRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityMonitoringDataset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createSecurityMonitoringDataset");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/datasets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityMonitoringDataset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetCreateResponse>() {});
+  }
+
+  /**
+   * Create a dataset.
+   *
+   * <p>See {@link #createSecurityMonitoringDatasetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringDatasetCreateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringDatasetCreateResponse>>
+      createSecurityMonitoringDatasetWithHttpInfoAsync(
+          SecurityMonitoringDatasetCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityMonitoringDataset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetCreateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetCreateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityMonitoringDataset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/datasets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityMonitoringDataset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetCreateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetCreateResponse>() {});
+  }
+
+  /**
    * Create a detection rule.
    *
    * <p>See {@link #createSecurityMonitoringRuleWithHttpInfo}.
@@ -2853,6 +3182,162 @@ public class SecurityMonitoringApi {
               new HashMap<String, String>(),
               new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a dataset.
+   *
+   * <p>See {@link #deleteSecurityMonitoringDatasetWithHttpInfo}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityMonitoringDataset(UUID datasetId) throws ApiException {
+    deleteSecurityMonitoringDatasetWithHttpInfo(datasetId);
+  }
+
+  /**
+   * Delete a dataset.
+   *
+   * <p>See {@link #deleteSecurityMonitoringDatasetWithHttpInfoAsync}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityMonitoringDatasetAsync(UUID datasetId) {
+    return deleteSecurityMonitoringDatasetWithHttpInfoAsync(datasetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a dataset by its ID.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityMonitoringDatasetWithHttpInfo(UUID datasetId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityMonitoringDataset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'datasetId' when calling"
+              + " deleteSecurityMonitoringDataset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/datasets/{dataset_id}"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityMonitoringDataset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a dataset.
+   *
+   * <p>See {@link #deleteSecurityMonitoringDatasetWithHttpInfo}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteSecurityMonitoringDatasetWithHttpInfoAsync(
+      UUID datasetId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSecurityMonitoringDataset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'datasetId' when calling"
+                  + " deleteSecurityMonitoringDataset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/datasets/{dataset_id}"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityMonitoringDataset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -5829,6 +6314,518 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringCriticalAssetResponse>() {});
+  }
+
+  /**
+   * Get a dataset.
+   *
+   * <p>See {@link #getSecurityMonitoringDatasetWithHttpInfo}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @return SecurityMonitoringDatasetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringDatasetResponse getSecurityMonitoringDataset(UUID datasetId)
+      throws ApiException {
+    return getSecurityMonitoringDatasetWithHttpInfo(datasetId).getData();
+  }
+
+  /**
+   * Get a dataset.
+   *
+   * <p>See {@link #getSecurityMonitoringDatasetWithHttpInfoAsync}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringDatasetResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringDatasetResponse> getSecurityMonitoringDatasetAsync(
+      UUID datasetId) {
+    return getSecurityMonitoringDatasetWithHttpInfoAsync(datasetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific dataset by its ID.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @return ApiResponse&lt;SecurityMonitoringDatasetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringDatasetResponse> getSecurityMonitoringDatasetWithHttpInfo(
+      UUID datasetId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringDataset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'datasetId' when calling getSecurityMonitoringDataset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/datasets/{dataset_id}"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityMonitoringDataset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetResponse>() {});
+  }
+
+  /**
+   * Get a dataset.
+   *
+   * <p>See {@link #getSecurityMonitoringDatasetWithHttpInfo}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringDatasetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringDatasetResponse>>
+      getSecurityMonitoringDatasetWithHttpInfoAsync(UUID datasetId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringDataset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'datasetId' when calling"
+                  + " getSecurityMonitoringDataset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/datasets/{dataset_id}"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityMonitoringDataset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetResponse>() {});
+  }
+
+  /**
+   * Get a dataset by version.
+   *
+   * <p>See {@link #getSecurityMonitoringDatasetByVersionWithHttpInfo}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @param version The version of the dataset. (required)
+   * @return SecurityMonitoringDatasetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringDatasetResponse getSecurityMonitoringDatasetByVersion(
+      UUID datasetId, Integer version) throws ApiException {
+    return getSecurityMonitoringDatasetByVersionWithHttpInfo(datasetId, version).getData();
+  }
+
+  /**
+   * Get a dataset by version.
+   *
+   * <p>See {@link #getSecurityMonitoringDatasetByVersionWithHttpInfoAsync}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @param version The version of the dataset. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringDatasetResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringDatasetResponse>
+      getSecurityMonitoringDatasetByVersionAsync(UUID datasetId, Integer version) {
+    return getSecurityMonitoringDatasetByVersionWithHttpInfoAsync(datasetId, version)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific version of a dataset.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @param version The version of the dataset. (required)
+   * @return ApiResponse&lt;SecurityMonitoringDatasetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringDatasetResponse>
+      getSecurityMonitoringDatasetByVersionWithHttpInfo(UUID datasetId, Integer version)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringDatasetByVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'datasetId' when calling"
+              + " getSecurityMonitoringDatasetByVersion");
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'version' when calling"
+              + " getSecurityMonitoringDatasetByVersion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/datasets/{dataset_id}/version/{version}"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityMonitoringDatasetByVersion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetResponse>() {});
+  }
+
+  /**
+   * Get a dataset by version.
+   *
+   * <p>See {@link #getSecurityMonitoringDatasetByVersionWithHttpInfo}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @param version The version of the dataset. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringDatasetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringDatasetResponse>>
+      getSecurityMonitoringDatasetByVersionWithHttpInfoAsync(UUID datasetId, Integer version) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringDatasetByVersion";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'datasetId' when calling"
+                  + " getSecurityMonitoringDatasetByVersion"));
+      return result;
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'version' when calling"
+                  + " getSecurityMonitoringDatasetByVersion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/datasets/{dataset_id}/version/{version}"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityMonitoringDatasetByVersion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetResponse>() {});
+  }
+
+  /**
+   * Get dataset history.
+   *
+   * <p>See {@link #getSecurityMonitoringDatasetHistoryWithHttpInfo}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @return SecurityMonitoringDatasetsHistoryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringDatasetsHistoryResponse getSecurityMonitoringDatasetHistory(
+      UUID datasetId) throws ApiException {
+    return getSecurityMonitoringDatasetHistoryWithHttpInfo(datasetId).getData();
+  }
+
+  /**
+   * Get dataset history.
+   *
+   * <p>See {@link #getSecurityMonitoringDatasetHistoryWithHttpInfoAsync}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringDatasetsHistoryResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringDatasetsHistoryResponse>
+      getSecurityMonitoringDatasetHistoryAsync(UUID datasetId) {
+    return getSecurityMonitoringDatasetHistoryWithHttpInfoAsync(datasetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all historical versions of a dataset.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @return ApiResponse&lt;SecurityMonitoringDatasetsHistoryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringDatasetsHistoryResponse>
+      getSecurityMonitoringDatasetHistoryWithHttpInfo(UUID datasetId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringDatasetHistory";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'datasetId' when calling"
+              + " getSecurityMonitoringDatasetHistory");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/datasets/{dataset_id}/history"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityMonitoringDatasetHistory",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetsHistoryResponse>() {});
+  }
+
+  /**
+   * Get dataset history.
+   *
+   * <p>See {@link #getSecurityMonitoringDatasetHistoryWithHttpInfo}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringDatasetsHistoryResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringDatasetsHistoryResponse>>
+      getSecurityMonitoringDatasetHistoryWithHttpInfoAsync(UUID datasetId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSecurityMonitoringDatasetHistory";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetsHistoryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetsHistoryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'datasetId' when calling"
+                  + " getSecurityMonitoringDatasetHistory"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/datasets/{dataset_id}/history"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityMonitoringDatasetHistory",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetsHistoryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetsHistoryResponse>() {});
   }
 
   /**
@@ -9810,6 +10807,253 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringCriticalAssetsResponse>() {});
+  }
+
+  /** Manage optional parameters to listSecurityMonitoringDatasets. */
+  public static class ListSecurityMonitoringDatasetsOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private String sort;
+    private String filterQuery;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
+     *     to 10)
+     * @return ListSecurityMonitoringDatasetsOptionalParameters
+     */
+    public ListSecurityMonitoringDatasetsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListSecurityMonitoringDatasetsOptionalParameters
+     */
+    public ListSecurityMonitoringDatasetsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort datasets by name, created at, or modified at. Prefix with '-' for descending
+     *     order. (optional)
+     * @return ListSecurityMonitoringDatasetsOptionalParameters
+     */
+    public ListSecurityMonitoringDatasetsOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set filterQuery.
+     *
+     * @param filterQuery Filter datasets by name or description. (optional)
+     * @return ListSecurityMonitoringDatasetsOptionalParameters
+     */
+    public ListSecurityMonitoringDatasetsOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+  }
+
+  /**
+   * List all datasets.
+   *
+   * <p>See {@link #listSecurityMonitoringDatasetsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringDatasetsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringDatasetsListResponse listSecurityMonitoringDatasets()
+      throws ApiException {
+    return listSecurityMonitoringDatasetsWithHttpInfo(
+            new ListSecurityMonitoringDatasetsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List all datasets.
+   *
+   * <p>See {@link #listSecurityMonitoringDatasetsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityMonitoringDatasetsListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringDatasetsListResponse>
+      listSecurityMonitoringDatasetsAsync() {
+    return listSecurityMonitoringDatasetsWithHttpInfoAsync(
+            new ListSecurityMonitoringDatasetsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all datasets.
+   *
+   * <p>See {@link #listSecurityMonitoringDatasetsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringDatasetsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringDatasetsListResponse listSecurityMonitoringDatasets(
+      ListSecurityMonitoringDatasetsOptionalParameters parameters) throws ApiException {
+    return listSecurityMonitoringDatasetsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List all datasets.
+   *
+   * <p>See {@link #listSecurityMonitoringDatasetsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SecurityMonitoringDatasetsListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringDatasetsListResponse>
+      listSecurityMonitoringDatasetsAsync(
+          ListSecurityMonitoringDatasetsOptionalParameters parameters) {
+    return listSecurityMonitoringDatasetsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all datasets for the organization with optional pagination, filtering, and sorting.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringDatasetsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringDatasetsListResponse>
+      listSecurityMonitoringDatasetsWithHttpInfo(
+          ListSecurityMonitoringDatasetsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringDatasets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String sort = parameters.sort;
+    String filterQuery = parameters.filterQuery;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/datasets";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityMonitoringDatasets",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetsListResponse>() {});
+  }
+
+  /**
+   * List all datasets.
+   *
+   * <p>See {@link #listSecurityMonitoringDatasetsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringDatasetsListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringDatasetsListResponse>>
+      listSecurityMonitoringDatasetsWithHttpInfoAsync(
+          ListSecurityMonitoringDatasetsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringDatasets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String sort = parameters.sort;
+    String filterQuery = parameters.filterQuery;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/datasets";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityMonitoringDatasets",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringDatasetsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringDatasetsListResponse>() {});
   }
 
   /** Manage optional parameters to listSecurityMonitoringHistsignals. */
@@ -14968,6 +16212,187 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringCriticalAssetResponse>() {});
+  }
+
+  /**
+   * Update a dataset.
+   *
+   * <p>See {@link #updateSecurityMonitoringDatasetWithHttpInfo}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateSecurityMonitoringDataset(
+      UUID datasetId, SecurityMonitoringDatasetUpdateRequest body) throws ApiException {
+    updateSecurityMonitoringDatasetWithHttpInfo(datasetId, body);
+  }
+
+  /**
+   * Update a dataset.
+   *
+   * <p>See {@link #updateSecurityMonitoringDatasetWithHttpInfoAsync}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateSecurityMonitoringDatasetAsync(
+      UUID datasetId, SecurityMonitoringDatasetUpdateRequest body) {
+    return updateSecurityMonitoringDatasetWithHttpInfoAsync(datasetId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing dataset.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateSecurityMonitoringDatasetWithHttpInfo(
+      UUID datasetId, SecurityMonitoringDatasetUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityMonitoringDataset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'datasetId' when calling"
+              + " updateSecurityMonitoringDataset");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling updateSecurityMonitoringDataset");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/datasets/{dataset_id}"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateSecurityMonitoringDataset",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update a dataset.
+   *
+   * <p>See {@link #updateSecurityMonitoringDatasetWithHttpInfo}.
+   *
+   * @param datasetId The ID of the dataset. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateSecurityMonitoringDatasetWithHttpInfoAsync(
+      UUID datasetId, SecurityMonitoringDatasetUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateSecurityMonitoringDataset";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'datasetId' is set
+    if (datasetId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'datasetId' when calling"
+                  + " updateSecurityMonitoringDataset"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityMonitoringDataset"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/datasets/{dataset_id}"
+            .replaceAll("\\{" + "dataset_id" + "\\}", apiClient.escapeString(datasetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateSecurityMonitoringDataset",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
