@@ -890,6 +890,7 @@ public class ApiClient {
           put("v2.validateExistingMonitorUserTemplate", false);
           put("v2.validateMonitorUserTemplate", false);
           put("v2.listRoleTemplates", false);
+          put("v2.evaluatePolicyResult", false);
           put("v2.createConnection", false);
           put("v2.deleteConnection", false);
           put("v2.getAccountFacetInfo", false);
@@ -931,6 +932,12 @@ public class ApiClient {
           put("v2.listCustomRuleRevisions", false);
           put("v2.revertCustomRuleRevision", false);
           put("v2.updateCustomRuleset", false);
+          put("v2.createTagPolicy", false);
+          put("v2.deleteTagPolicy", false);
+          put("v2.getTagPolicy", false);
+          put("v2.getTagPolicyScore", false);
+          put("v2.listTagPolicies", false);
+          put("v2.updateTagPolicy", false);
           put("v2.addMemberTeam", false);
           put("v2.listMemberTeams", false);
           put("v2.removeMemberTeam", false);
