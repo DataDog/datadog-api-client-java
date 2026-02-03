@@ -75,6 +75,10 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleValidatePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignal;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalAssigneeUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalIncidentsUpdateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalInvestigationFeedbackRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalInvestigationFeedbackResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalInvestigationRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalInvestigationResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalListRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalListRequestPage;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalResponse;
@@ -2136,6 +2140,163 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
+  /**
+   * Create a security signal investigation.
+   *
+   * <p>See {@link #createSignalInvestigationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringSignalInvestigationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalInvestigationResponse createSignalInvestigation(
+      SecurityMonitoringSignalInvestigationRequest body) throws ApiException {
+    return createSignalInvestigationWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a security signal investigation.
+   *
+   * <p>See {@link #createSignalInvestigationWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSignalInvestigationResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalInvestigationResponse>
+      createSignalInvestigationAsync(SecurityMonitoringSignalInvestigationRequest body) {
+    return createSignalInvestigationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an investigation for a security signal using AI-powered analysis.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringSignalInvestigationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalInvestigationResponse>
+      createSignalInvestigationWithHttpInfo(SecurityMonitoringSignalInvestigationRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSignalInvestigation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createSignalInvestigation");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/signals/investigation";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSignalInvestigation",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalInvestigationResponse>() {});
+  }
+
+  /**
+   * Create a security signal investigation.
+   *
+   * <p>See {@link #createSignalInvestigationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalInvestigationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignalInvestigationResponse>>
+      createSignalInvestigationWithHttpInfoAsync(
+          SecurityMonitoringSignalInvestigationRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSignalInvestigation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalInvestigationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalInvestigationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createSignalInvestigation"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/signals/investigation";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSignalInvestigation",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalInvestigationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalInvestigationResponse>() {});
   }
 
   /**
@@ -4726,6 +4887,166 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GetFindingResponse>() {});
+  }
+
+  /**
+   * Get investigation feedback.
+   *
+   * <p>See {@link #getInvestigationFeedbackWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return SecurityMonitoringSignalInvestigationFeedbackResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalInvestigationFeedbackResponse getInvestigationFeedback(
+      String signalId) throws ApiException {
+    return getInvestigationFeedbackWithHttpInfo(signalId).getData();
+  }
+
+  /**
+   * Get investigation feedback.
+   *
+   * <p>See {@link #getInvestigationFeedbackWithHttpInfoAsync}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSignalInvestigationFeedbackResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalInvestigationFeedbackResponse>
+      getInvestigationFeedbackAsync(String signalId) {
+    return getInvestigationFeedbackWithHttpInfoAsync(signalId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve feedback for a security signal investigation.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return ApiResponse&lt;SecurityMonitoringSignalInvestigationFeedbackResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalInvestigationFeedbackResponse>
+      getInvestigationFeedbackWithHttpInfo(String signalId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getInvestigationFeedback";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'signalId' when calling getInvestigationFeedback");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/investigation/feedback/{signal_id}"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getInvestigationFeedback",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalInvestigationFeedbackResponse>() {});
+  }
+
+  /**
+   * Get investigation feedback.
+   *
+   * <p>See {@link #getInvestigationFeedbackWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalInvestigationFeedbackResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignalInvestigationFeedbackResponse>>
+      getInvestigationFeedbackWithHttpInfoAsync(String signalId) {
+    // Check if unstable operation is enabled
+    String operationId = "getInvestigationFeedback";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalInvestigationFeedbackResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalInvestigationFeedbackResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'signalId' when calling getInvestigationFeedback"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/investigation/feedback/{signal_id}"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getInvestigationFeedback",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalInvestigationFeedbackResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalInvestigationFeedbackResponse>() {});
   }
 
   /** Manage optional parameters to getResourceEvaluationFilters. */
@@ -14483,6 +14804,157 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UpdateCustomFrameworkResponse>() {});
+  }
+
+  /**
+   * Update investigation feedback.
+   *
+   * <p>See {@link #updateInvestigationFeedbackWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateInvestigationFeedback(SecurityMonitoringSignalInvestigationFeedbackRequest body)
+      throws ApiException {
+    updateInvestigationFeedbackWithHttpInfo(body);
+  }
+
+  /**
+   * Update investigation feedback.
+   *
+   * <p>See {@link #updateInvestigationFeedbackWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateInvestigationFeedbackAsync(
+      SecurityMonitoringSignalInvestigationFeedbackRequest body) {
+    return updateInvestigationFeedbackWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Provide feedback on a security signal investigation.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateInvestigationFeedbackWithHttpInfo(
+      SecurityMonitoringSignalInvestigationFeedbackRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateInvestigationFeedback";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateInvestigationFeedback");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/signals/investigation/feedback";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateInvestigationFeedback",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update investigation feedback.
+   *
+   * <p>See {@link #updateInvestigationFeedbackWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateInvestigationFeedbackWithHttpInfoAsync(
+      SecurityMonitoringSignalInvestigationFeedbackRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateInvestigationFeedback";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateInvestigationFeedback"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/signals/investigation/feedback";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateInvestigationFeedback",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
