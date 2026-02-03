@@ -775,6 +775,12 @@ public class ApiClient {
           put("v2.getOpenAPI", false);
           put("v2.listAPIs", false);
           put("v2.updateOpenAPI", false);
+          put("v2.acceptRecommendedEntities", false);
+          put("v2.convertCatalogEntities", false);
+          put("v2.declineRecommendedEntities", false);
+          put("v2.getIDPConfigValue", false);
+          put("v2.triggerRecommendedEntities", false);
+          put("v2.upsertIDPConfigValue", false);
           put("v2.cancelThreatHuntingJob", false);
           put("v2.convertJobResultToSignal", false);
           put("v2.deleteThreatHuntingJob", false);
