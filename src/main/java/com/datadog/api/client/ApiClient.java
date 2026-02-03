@@ -777,8 +777,10 @@ public class ApiClient {
           put("v2.updateOpenAPI", false);
           put("v2.cancelThreatHuntingJob", false);
           put("v2.convertJobResultToSignal", false);
+          put("v2.createSignalInvestigation", false);
           put("v2.deleteThreatHuntingJob", false);
           put("v2.getFinding", false);
+          put("v2.getInvestigationFeedback", false);
           put("v2.getRuleVersionHistory", false);
           put("v2.getSecretsRules", false);
           put("v2.getSecurityMonitoringHistsignal", false);
@@ -794,6 +796,7 @@ public class ApiClient {
           put("v2.muteFindings", false);
           put("v2.runThreatHuntingJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
+          put("v2.updateInvestigationFeedback", false);
           put("v2.createDataset", false);
           put("v2.deleteDataset", false);
           put("v2.getAllDatasets", false);
