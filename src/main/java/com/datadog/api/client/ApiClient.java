@@ -862,6 +862,8 @@ public class ApiClient {
           put("v2.listJiraAccounts", false);
           put("v2.listJiraIssueTemplates", false);
           put("v2.updateJiraIssueTemplate", false);
+          put("v2.createTenancyConfig", false);
+          put("v2.getTenancyConfigs", false);
           put("v2.createServiceNowTemplate", false);
           put("v2.deleteServiceNowTemplate", false);
           put("v2.getServiceNowTemplate", false);
