@@ -57,6 +57,7 @@ import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestData;
 import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestDataAttributes;
 import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestPage;
 import com.datadog.api.client.v2.model.SecurityFindingsSort;
+import com.datadog.api.client.v2.model.SecurityMonitoringContentPackStatesResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetCreateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringCriticalAssetUpdateRequest;
@@ -137,6 +138,164 @@ public class SecurityMonitoringApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Activate content pack.
+   *
+   * <p>See {@link #activateContentPackWithHttpInfo}.
+   *
+   * @param contentPackId The ID of the content pack to activate. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void activateContentPack(String contentPackId) throws ApiException {
+    activateContentPackWithHttpInfo(contentPackId);
+  }
+
+  /**
+   * Activate content pack.
+   *
+   * <p>See {@link #activateContentPackWithHttpInfoAsync}.
+   *
+   * @param contentPackId The ID of the content pack to activate. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> activateContentPackAsync(String contentPackId) {
+    return activateContentPackWithHttpInfoAsync(contentPackId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Activate a security monitoring content pack. This operation configures the necessary log
+   * filters or security filters depending on the pricing model and updates the content pack
+   * activation state.
+   *
+   * @param contentPackId The ID of the content pack to activate. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> activateContentPackWithHttpInfo(String contentPackId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "activateContentPack";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'contentPackId' is set
+    if (contentPackId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'contentPackId' when calling activateContentPack");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/content_packs/{content_pack_id}/activate"
+            .replaceAll(
+                "\\{" + "content_pack_id" + "\\}",
+                apiClient.escapeString(contentPackId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.activateContentPack",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Activate content pack.
+   *
+   * <p>See {@link #activateContentPackWithHttpInfo}.
+   *
+   * @param contentPackId The ID of the content pack to activate. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> activateContentPackWithHttpInfoAsync(
+      String contentPackId) {
+    // Check if unstable operation is enabled
+    String operationId = "activateContentPack";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'contentPackId' is set
+    if (contentPackId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'contentPackId' when calling activateContentPack"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/content_packs/{content_pack_id}/activate"
+            .replaceAll(
+                "\\{" + "content_pack_id" + "\\}",
+                apiClient.escapeString(contentPackId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.activateContentPack",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -2425,6 +2584,164 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Deactivate content pack.
+   *
+   * <p>See {@link #deactivateContentPackWithHttpInfo}.
+   *
+   * @param contentPackId The ID of the content pack to deactivate. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deactivateContentPack(String contentPackId) throws ApiException {
+    deactivateContentPackWithHttpInfo(contentPackId);
+  }
+
+  /**
+   * Deactivate content pack.
+   *
+   * <p>See {@link #deactivateContentPackWithHttpInfoAsync}.
+   *
+   * @param contentPackId The ID of the content pack to deactivate. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deactivateContentPackAsync(String contentPackId) {
+    return deactivateContentPackWithHttpInfoAsync(contentPackId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Deactivate a security monitoring content pack. This operation removes the content pack's
+   * configuration from log filters or security filters and updates the content pack activation
+   * state.
+   *
+   * @param contentPackId The ID of the content pack to deactivate. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deactivateContentPackWithHttpInfo(String contentPackId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deactivateContentPack";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'contentPackId' is set
+    if (contentPackId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'contentPackId' when calling deactivateContentPack");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/content_packs/{content_pack_id}/deactivate"
+            .replaceAll(
+                "\\{" + "content_pack_id" + "\\}",
+                apiClient.escapeString(contentPackId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deactivateContentPack",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Deactivate content pack.
+   *
+   * <p>See {@link #deactivateContentPackWithHttpInfo}.
+   *
+   * @param contentPackId The ID of the content pack to deactivate. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deactivateContentPackWithHttpInfoAsync(
+      String contentPackId) {
+    // Check if unstable operation is enabled
+    String operationId = "deactivateContentPack";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'contentPackId' is set
+    if (contentPackId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'contentPackId' when calling deactivateContentPack"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/content_packs/{content_pack_id}/deactivate"
+            .replaceAll(
+                "\\{" + "content_pack_id" + "\\}",
+                apiClient.escapeString(contentPackId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deactivateContentPack",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete a custom framework.
    *
    * <p>See {@link #deleteCustomFrameworkWithHttpInfo}.
@@ -4211,6 +4528,140 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSignalTriageUpdateResponse>() {});
+  }
+
+  /**
+   * Get content pack states.
+   *
+   * <p>See {@link #getContentPacksStatesWithHttpInfo}.
+   *
+   * @return SecurityMonitoringContentPackStatesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringContentPackStatesResponse getContentPacksStates() throws ApiException {
+    return getContentPacksStatesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get content pack states.
+   *
+   * <p>See {@link #getContentPacksStatesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityMonitoringContentPackStatesResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringContentPackStatesResponse>
+      getContentPacksStatesAsync() {
+    return getContentPacksStatesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the activation and configuration states for all security monitoring content packs. This
+   * endpoint returns status information about each content pack including activation state,
+   * integration status, and log collection status.
+   *
+   * @return ApiResponse&lt;SecurityMonitoringContentPackStatesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringContentPackStatesResponse>
+      getContentPacksStatesWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getContentPacksStates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/content_packs/states";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getContentPacksStates",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringContentPackStatesResponse>() {});
+  }
+
+  /**
+   * Get content pack states.
+   *
+   * <p>See {@link #getContentPacksStatesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringContentPackStatesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringContentPackStatesResponse>>
+      getContentPacksStatesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getContentPacksStates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringContentPackStatesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/content_packs/states";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getContentPacksStates",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringContentPackStatesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringContentPackStatesResponse>() {});
   }
 
   /**

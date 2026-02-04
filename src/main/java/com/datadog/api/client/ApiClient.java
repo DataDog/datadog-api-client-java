@@ -775,9 +775,12 @@ public class ApiClient {
           put("v2.getOpenAPI", false);
           put("v2.listAPIs", false);
           put("v2.updateOpenAPI", false);
+          put("v2.activateContentPack", false);
           put("v2.cancelThreatHuntingJob", false);
           put("v2.convertJobResultToSignal", false);
+          put("v2.deactivateContentPack", false);
           put("v2.deleteThreatHuntingJob", false);
+          put("v2.getContentPacksStates", false);
           put("v2.getFinding", false);
           put("v2.getRuleVersionHistory", false);
           put("v2.getSecretsRules", false);
