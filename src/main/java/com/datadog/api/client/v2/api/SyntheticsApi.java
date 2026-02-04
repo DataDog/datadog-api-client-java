@@ -6,11 +6,15 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.DeletedSuitesRequestDeleteRequest;
 import com.datadog.api.client.v2.model.DeletedSuitesResponse;
+import com.datadog.api.client.v2.model.DeletedTestsRequestDeleteRequest;
+import com.datadog.api.client.v2.model.DeletedTestsResponse;
 import com.datadog.api.client.v2.model.GlobalVariableJsonPatchRequest;
 import com.datadog.api.client.v2.model.GlobalVariableResponse;
 import com.datadog.api.client.v2.model.OnDemandConcurrencyCapAttributes;
 import com.datadog.api.client.v2.model.OnDemandConcurrencyCapResponse;
 import com.datadog.api.client.v2.model.SuiteCreateEditRequest;
+import com.datadog.api.client.v2.model.SyntheticsNetworkTestEditRequest;
+import com.datadog.api.client.v2.model.SyntheticsNetworkTestResponse;
 import com.datadog.api.client.v2.model.SyntheticsSuiteResponse;
 import com.datadog.api.client.v2.model.SyntheticsSuiteSearchResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -50,6 +54,139 @@ public class SyntheticsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Synthetics: Create a Network Path test.
+   *
+   * <p>See {@link #createSyntheticsNetworkTestWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SyntheticsNetworkTestResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsNetworkTestResponse createSyntheticsNetworkTest(
+      SyntheticsNetworkTestEditRequest body) throws ApiException {
+    return createSyntheticsNetworkTestWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Synthetics: Create a Network Path test.
+   *
+   * <p>See {@link #createSyntheticsNetworkTestWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SyntheticsNetworkTestResponse&gt;
+   */
+  public CompletableFuture<SyntheticsNetworkTestResponse> createSyntheticsNetworkTestAsync(
+      SyntheticsNetworkTestEditRequest body) {
+    return createSyntheticsNetworkTestWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param body (required)
+   * @return ApiResponse&lt;SyntheticsNetworkTestResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsNetworkTestResponse> createSyntheticsNetworkTestWithHttpInfo(
+      SyntheticsNetworkTestEditRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createSyntheticsNetworkTest");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/synthetics/tests/network";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.createSyntheticsNetworkTest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsNetworkTestResponse>() {});
+  }
+
+  /**
+   * Synthetics: Create a Network Path test.
+   *
+   * <p>See {@link #createSyntheticsNetworkTestWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsNetworkTestResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsNetworkTestResponse>>
+      createSyntheticsNetworkTestWithHttpInfoAsync(SyntheticsNetworkTestEditRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SyntheticsNetworkTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createSyntheticsNetworkTest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/synthetics/tests/network";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.createSyntheticsNetworkTest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsNetworkTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsNetworkTestResponse>() {});
   }
 
   /**
@@ -310,6 +447,137 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<DeletedSuitesResponse>() {});
+  }
+
+  /**
+   * Synthetics: Bulk delete tests.
+   *
+   * <p>See {@link #deleteSyntheticsTestsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return DeletedTestsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DeletedTestsResponse deleteSyntheticsTests(DeletedTestsRequestDeleteRequest body)
+      throws ApiException {
+    return deleteSyntheticsTestsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Synthetics: Bulk delete tests.
+   *
+   * <p>See {@link #deleteSyntheticsTestsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;DeletedTestsResponse&gt;
+   */
+  public CompletableFuture<DeletedTestsResponse> deleteSyntheticsTestsAsync(
+      DeletedTestsRequestDeleteRequest body) {
+    return deleteSyntheticsTestsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param body (required)
+   * @return ApiResponse&lt;DeletedTestsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DeletedTestsResponse> deleteSyntheticsTestsWithHttpInfo(
+      DeletedTestsRequestDeleteRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling deleteSyntheticsTests");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/synthetics/tests/bulk-delete";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.deleteSyntheticsTests",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeletedTestsResponse>() {});
+  }
+
+  /**
+   * Synthetics: Bulk delete tests.
+   *
+   * <p>See {@link #deleteSyntheticsTestsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DeletedTestsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DeletedTestsResponse>>
+      deleteSyntheticsTestsWithHttpInfoAsync(DeletedTestsRequestDeleteRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DeletedTestsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling deleteSyntheticsTests"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/synthetics/tests/bulk-delete";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.deleteSyntheticsTests",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DeletedTestsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeletedTestsResponse>() {});
   }
 
   /**
@@ -574,6 +842,144 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OnDemandConcurrencyCapResponse>() {});
+  }
+
+  /**
+   * Synthetics: Get a Network Path test.
+   *
+   * <p>See {@link #getSyntheticsNetworkTestWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Network Path test to get details from. (required)
+   * @return SyntheticsNetworkTestResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsNetworkTestResponse getSyntheticsNetworkTest(String publicId)
+      throws ApiException {
+    return getSyntheticsNetworkTestWithHttpInfo(publicId).getData();
+  }
+
+  /**
+   * Synthetics: Get a Network Path test.
+   *
+   * <p>See {@link #getSyntheticsNetworkTestWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Network Path test to get details from. (required)
+   * @return CompletableFuture&lt;SyntheticsNetworkTestResponse&gt;
+   */
+  public CompletableFuture<SyntheticsNetworkTestResponse> getSyntheticsNetworkTestAsync(
+      String publicId) {
+    return getSyntheticsNetworkTestWithHttpInfoAsync(publicId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param publicId The public ID of the Network Path test to get details from. (required)
+   * @return ApiResponse&lt;SyntheticsNetworkTestResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsNetworkTestResponse> getSyntheticsNetworkTestWithHttpInfo(
+      String publicId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling getSyntheticsNetworkTest");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/network/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.getSyntheticsNetworkTest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsNetworkTestResponse>() {});
+  }
+
+  /**
+   * Synthetics: Get a Network Path test.
+   *
+   * <p>See {@link #getSyntheticsNetworkTestWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Network Path test to get details from. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsNetworkTestResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsNetworkTestResponse>>
+      getSyntheticsNetworkTestWithHttpInfoAsync(String publicId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsNetworkTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling getSyntheticsNetworkTest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/network/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.getSyntheticsNetworkTest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsNetworkTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsNetworkTestResponse>() {});
   }
 
   /**
@@ -1239,5 +1645,167 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OnDemandConcurrencyCapResponse>() {});
+  }
+
+  /**
+   * Synthetics: Edit a Network Path test.
+   *
+   * <p>See {@link #updateSyntheticsNetworkTestWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Network Path test to edit. (required)
+   * @param body New Network Path test details to be saved. (required)
+   * @return SyntheticsNetworkTestResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsNetworkTestResponse updateSyntheticsNetworkTest(
+      String publicId, SyntheticsNetworkTestEditRequest body) throws ApiException {
+    return updateSyntheticsNetworkTestWithHttpInfo(publicId, body).getData();
+  }
+
+  /**
+   * Synthetics: Edit a Network Path test.
+   *
+   * <p>See {@link #updateSyntheticsNetworkTestWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Network Path test to edit. (required)
+   * @param body New Network Path test details to be saved. (required)
+   * @return CompletableFuture&lt;SyntheticsNetworkTestResponse&gt;
+   */
+  public CompletableFuture<SyntheticsNetworkTestResponse> updateSyntheticsNetworkTestAsync(
+      String publicId, SyntheticsNetworkTestEditRequest body) {
+    return updateSyntheticsNetworkTestWithHttpInfoAsync(publicId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param publicId The public ID of the Network Path test to edit. (required)
+   * @param body New Network Path test details to be saved. (required)
+   * @return ApiResponse&lt;SyntheticsNetworkTestResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsNetworkTestResponse> updateSyntheticsNetworkTestWithHttpInfo(
+      String publicId, SyntheticsNetworkTestEditRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'publicId' when calling updateSyntheticsNetworkTest");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateSyntheticsNetworkTest");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/network/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.updateSyntheticsNetworkTest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsNetworkTestResponse>() {});
+  }
+
+  /**
+   * Synthetics: Edit a Network Path test.
+   *
+   * <p>See {@link #updateSyntheticsNetworkTestWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Network Path test to edit. (required)
+   * @param body New Network Path test details to be saved. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsNetworkTestResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsNetworkTestResponse>>
+      updateSyntheticsNetworkTestWithHttpInfoAsync(
+          String publicId, SyntheticsNetworkTestEditRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsNetworkTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling"
+                  + " updateSyntheticsNetworkTest"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SyntheticsNetworkTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateSyntheticsNetworkTest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/network/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.updateSyntheticsNetworkTest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsNetworkTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsNetworkTestResponse>() {});
   }
 }
