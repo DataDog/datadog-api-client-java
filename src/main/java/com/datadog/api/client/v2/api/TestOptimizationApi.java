@@ -197,6 +197,18 @@ public class TestOptimizationApi {
   /**
    * List endpoint returning flaky tests from Flaky Test Management. Results are paginated.
    *
+   * <p>The response includes comprehensive test information including: - Test identification and
+   * metadata (module, suite, name) - Flaky state and categorization - First and last flake
+   * occurrences (timestamp, branch, commit SHA) - Test execution statistics from the last 7 days
+   * (failure rate) - Pipeline impact metrics (failed pipelines count, total lost time) - Complete
+   * status change history (optional, ordered from most recent to oldest)
+   *
+   * <p>Set <code>include_history</code> to <code>true</code> in the request to receive the status
+   * change history for each test. History is disabled by default for better performance.
+   *
+   * <p>Results support filtering by various facets including service, environment, repository,
+   * branch, and test state.
+   *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;FlakyTestsSearchResponse&gt;
    * @throws ApiException if fails to make API call

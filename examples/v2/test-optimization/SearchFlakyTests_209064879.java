@@ -1,16 +1,16 @@
-// Search flaky tests returns "OK" response with pagination
+// Search flaky tests returns "OK" response with history
 
 import com.datadog.api.client.ApiClient;
-import com.datadog.api.client.PaginationIterable;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.TestOptimizationApi;
 import com.datadog.api.client.v2.api.TestOptimizationApi.SearchFlakyTestsOptionalParameters;
-import com.datadog.api.client.v2.model.FlakyTest;
 import com.datadog.api.client.v2.model.FlakyTestsSearchFilter;
 import com.datadog.api.client.v2.model.FlakyTestsSearchPageOptions;
 import com.datadog.api.client.v2.model.FlakyTestsSearchRequest;
 import com.datadog.api.client.v2.model.FlakyTestsSearchRequestAttributes;
 import com.datadog.api.client.v2.model.FlakyTestsSearchRequestData;
 import com.datadog.api.client.v2.model.FlakyTestsSearchRequestDataType;
+import com.datadog.api.client.v2.model.FlakyTestsSearchResponse;
 import com.datadog.api.client.v2.model.FlakyTestsSearchSort;
 
 public class Example {
@@ -31,27 +31,20 @@ public class Example {
                                         """
 flaky_test_state:active @git.repository.id_v2:"github.com/datadog/shopist"
 """))
-                            .includeHistory(true)
-                            .page(
-                                new FlakyTestsSearchPageOptions()
-                                    .cursor(
-                                        "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==")
-                                    .limit(25L))
-                            .sort(FlakyTestsSearchSort.FAILURE_RATE_ASCENDING))
+                            .page(new FlakyTestsSearchPageOptions().limit(10L))
+                            .sort(FlakyTestsSearchSort.FQN_ASCENDING)
+                            .includeHistory(true))
                     .type(FlakyTestsSearchRequestDataType.SEARCH_FLAKY_TESTS_REQUEST));
 
     try {
-      PaginationIterable<FlakyTest> iterable =
-          apiInstance.searchFlakyTestsWithPagination(
-              new SearchFlakyTestsOptionalParameters().body(body));
-
-      for (FlakyTest item : iterable) {
-        System.out.println(item);
-      }
-    } catch (RuntimeException e) {
-      System.err.println(
-          "Exception when calling TestOptimizationApi#searchFlakyTestsWithPagination");
-      System.err.println("Reason: " + e.getMessage());
+      FlakyTestsSearchResponse result =
+          apiInstance.searchFlakyTests(new SearchFlakyTestsOptionalParameters().body(body));
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TestOptimizationApi#searchFlakyTests");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
     }
   }
