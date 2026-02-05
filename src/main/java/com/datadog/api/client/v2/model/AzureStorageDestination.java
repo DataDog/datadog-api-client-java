@@ -26,6 +26,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   AzureStorageDestination.JSON_PROPERTY_BLOB_PREFIX,
+  AzureStorageDestination.JSON_PROPERTY_BUFFER,
   AzureStorageDestination.JSON_PROPERTY_CONTAINER_NAME,
   AzureStorageDestination.JSON_PROPERTY_ID,
   AzureStorageDestination.JSON_PROPERTY_INPUTS,
@@ -37,6 +38,9 @@ public class AzureStorageDestination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BLOB_PREFIX = "blob_prefix";
   private String blobPrefix;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_CONTAINER_NAME = "container_name";
   private String containerName;
@@ -84,6 +88,28 @@ public class AzureStorageDestination {
 
   public void setBlobPrefix(String blobPrefix) {
     this.blobPrefix = blobPrefix;
+  }
+
+  public AzureStorageDestination buffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public AzureStorageDestination containerName(String containerName) {
@@ -232,6 +258,7 @@ public class AzureStorageDestination {
     }
     AzureStorageDestination azureStorageDestination = (AzureStorageDestination) o;
     return Objects.equals(this.blobPrefix, azureStorageDestination.blobPrefix)
+        && Objects.equals(this.buffer, azureStorageDestination.buffer)
         && Objects.equals(this.containerName, azureStorageDestination.containerName)
         && Objects.equals(this.id, azureStorageDestination.id)
         && Objects.equals(this.inputs, azureStorageDestination.inputs)
@@ -241,7 +268,7 @@ public class AzureStorageDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blobPrefix, containerName, id, inputs, type, additionalProperties);
+    return Objects.hash(blobPrefix, buffer, containerName, id, inputs, type, additionalProperties);
   }
 
   @Override
@@ -249,6 +276,7 @@ public class AzureStorageDestination {
     StringBuilder sb = new StringBuilder();
     sb.append("class AzureStorageDestination {\n");
     sb.append("    blobPrefix: ").append(toIndentedString(blobPrefix)).append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    containerName: ").append(toIndentedString(containerName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");

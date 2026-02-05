@@ -27,6 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineAmazonSecurityLakeDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineAmazonSecurityLakeDestination.JSON_PROPERTY_BUCKET,
+  ObservabilityPipelineAmazonSecurityLakeDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineAmazonSecurityLakeDestination.JSON_PROPERTY_CUSTOM_SOURCE_NAME,
   ObservabilityPipelineAmazonSecurityLakeDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineAmazonSecurityLakeDestination.JSON_PROPERTY_INPUTS,
@@ -43,6 +44,9 @@ public class ObservabilityPipelineAmazonSecurityLakeDestination {
 
   public static final String JSON_PROPERTY_BUCKET = "bucket";
   private String bucket;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_CUSTOM_SOURCE_NAME = "custom_source_name";
   private String customSourceName;
@@ -126,6 +130,29 @@ public class ObservabilityPipelineAmazonSecurityLakeDestination {
 
   public void setBucket(String bucket) {
     this.bucket = bucket;
+  }
+
+  public ObservabilityPipelineAmazonSecurityLakeDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineAmazonSecurityLakeDestination customSourceName(
@@ -324,6 +351,7 @@ public class ObservabilityPipelineAmazonSecurityLakeDestination {
             (ObservabilityPipelineAmazonSecurityLakeDestination) o;
     return Objects.equals(this.auth, observabilityPipelineAmazonSecurityLakeDestination.auth)
         && Objects.equals(this.bucket, observabilityPipelineAmazonSecurityLakeDestination.bucket)
+        && Objects.equals(this.buffer, observabilityPipelineAmazonSecurityLakeDestination.buffer)
         && Objects.equals(
             this.customSourceName,
             observabilityPipelineAmazonSecurityLakeDestination.customSourceName)
@@ -340,7 +368,16 @@ public class ObservabilityPipelineAmazonSecurityLakeDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
-        auth, bucket, customSourceName, id, inputs, region, tls, type, additionalProperties);
+        auth,
+        bucket,
+        buffer,
+        customSourceName,
+        id,
+        inputs,
+        region,
+        tls,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -349,6 +386,7 @@ public class ObservabilityPipelineAmazonSecurityLakeDestination {
     sb.append("class ObservabilityPipelineAmazonSecurityLakeDestination {\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    customSourceName: ").append(toIndentedString(customSourceName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");

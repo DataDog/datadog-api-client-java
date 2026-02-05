@@ -25,6 +25,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_ENCODING,
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_HEADER_CUSTOM_FIELDS,
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_HEADER_HOST_NAME,
@@ -38,6 +39,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSumoLogicDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
+
   public static final String JSON_PROPERTY_ENCODING = "encoding";
   private ObservabilityPipelineSumoLogicDestinationEncoding encoding;
 
@@ -76,6 +80,29 @@ public class ObservabilityPipelineSumoLogicDestination {
     this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineSumoLogicDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineSumoLogicDestination encoding(
@@ -333,7 +360,8 @@ public class ObservabilityPipelineSumoLogicDestination {
     }
     ObservabilityPipelineSumoLogicDestination observabilityPipelineSumoLogicDestination =
         (ObservabilityPipelineSumoLogicDestination) o;
-    return Objects.equals(this.encoding, observabilityPipelineSumoLogicDestination.encoding)
+    return Objects.equals(this.buffer, observabilityPipelineSumoLogicDestination.buffer)
+        && Objects.equals(this.encoding, observabilityPipelineSumoLogicDestination.encoding)
         && Objects.equals(
             this.headerCustomFields, observabilityPipelineSumoLogicDestination.headerCustomFields)
         && Objects.equals(
@@ -354,6 +382,7 @@ public class ObservabilityPipelineSumoLogicDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
+        buffer,
         encoding,
         headerCustomFields,
         headerHostName,
@@ -369,6 +398,7 @@ public class ObservabilityPipelineSumoLogicDestination {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSumoLogicDestination {\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    headerCustomFields: ").append(toIndentedString(headerCustomFields)).append("\n");
     sb.append("    headerHostName: ").append(toIndentedString(headerHostName)).append("\n");
