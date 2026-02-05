@@ -1,8 +1,9 @@
-// Update tag pipeline ruleset returns "OK" response
+// Update tag pipeline ruleset with if_tag_exists returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CloudCostManagementApi;
+import com.datadog.api.client.v2.model.DataAttributesRulesItemsIfTagExists;
 import com.datadog.api.client.v2.model.DataAttributesRulesItemsMapping;
 import com.datadog.api.client.v2.model.RulesetResp;
 import com.datadog.api.client.v2.model.UpdateRulesetRequest;
@@ -33,7 +34,8 @@ public class Example {
                                         .mapping(
                                             new DataAttributesRulesItemsMapping()
                                                 .destinationKey("team_owner")
-                                                .ifNotExists(true)
+                                                .ifTagExists(
+                                                    DataAttributesRulesItemsIfTagExists.REPLACE)
                                                 .sourceKeys(
                                                     Arrays.asList("account_name", "account_id")))
                                         .name("Account Name Mapping")
