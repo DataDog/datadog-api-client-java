@@ -47,6 +47,9 @@ import com.datadog.api.client.v2.model.IncidentsResponse;
 import com.datadog.api.client.v2.model.PatchAttachmentRequest;
 import com.datadog.api.client.v2.model.PatchIncidentNotificationTemplateRequest;
 import com.datadog.api.client.v2.model.PostmortemAttachmentRequest;
+import com.datadog.api.client.v2.model.PostmortemTemplateRequest;
+import com.datadog.api.client.v2.model.PostmortemTemplateResponse;
+import com.datadog.api.client.v2.model.PostmortemTemplatesResponse;
 import com.datadog.api.client.v2.model.PutIncidentNotificationRuleRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -1628,6 +1631,159 @@ public class IncidentsApi {
   }
 
   /**
+   * Create postmortem template.
+   *
+   * <p>See {@link #createIncidentPostmortemTemplateWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return PostmortemTemplateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PostmortemTemplateResponse createIncidentPostmortemTemplate(PostmortemTemplateRequest body)
+      throws ApiException {
+    return createIncidentPostmortemTemplateWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create postmortem template.
+   *
+   * <p>See {@link #createIncidentPostmortemTemplateWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;PostmortemTemplateResponse&gt;
+   */
+  public CompletableFuture<PostmortemTemplateResponse> createIncidentPostmortemTemplateAsync(
+      PostmortemTemplateRequest body) {
+    return createIncidentPostmortemTemplateWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new postmortem template for incidents.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;PostmortemTemplateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PostmortemTemplateResponse> createIncidentPostmortemTemplateWithHttpInfo(
+      PostmortemTemplateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentPostmortemTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createIncidentPostmortemTemplate");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/postmortem-templates";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.createIncidentPostmortemTemplate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PostmortemTemplateResponse>() {});
+  }
+
+  /**
+   * Create postmortem template.
+   *
+   * <p>See {@link #createIncidentPostmortemTemplateWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;PostmortemTemplateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PostmortemTemplateResponse>>
+      createIncidentPostmortemTemplateWithHttpInfoAsync(PostmortemTemplateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentPostmortemTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<PostmortemTemplateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<PostmortemTemplateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createIncidentPostmortemTemplate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/postmortem-templates";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.createIncidentPostmortemTemplate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PostmortemTemplateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PostmortemTemplateResponse>() {});
+  }
+
+  /**
    * Create an incident todo.
    *
    * <p>See {@link #createIncidentTodoWithHttpInfo}.
@@ -3199,6 +3355,163 @@ public class IncidentsApi {
   }
 
   /**
+   * Delete postmortem template.
+   *
+   * <p>See {@link #deleteIncidentPostmortemTemplateWithHttpInfo}.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteIncidentPostmortemTemplate(String templateId) throws ApiException {
+    deleteIncidentPostmortemTemplateWithHttpInfo(templateId);
+  }
+
+  /**
+   * Delete postmortem template.
+   *
+   * <p>See {@link #deleteIncidentPostmortemTemplateWithHttpInfoAsync}.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteIncidentPostmortemTemplateAsync(String templateId) {
+    return deleteIncidentPostmortemTemplateWithHttpInfoAsync(templateId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a postmortem template.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteIncidentPostmortemTemplateWithHttpInfo(String templateId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentPostmortemTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'templateId' when calling"
+              + " deleteIncidentPostmortemTemplate");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/postmortem-templates/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.deleteIncidentPostmortemTemplate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete postmortem template.
+   *
+   * <p>See {@link #deleteIncidentPostmortemTemplateWithHttpInfo}.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteIncidentPostmortemTemplateWithHttpInfoAsync(
+      String templateId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentPostmortemTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'templateId' when calling"
+                  + " deleteIncidentPostmortemTemplate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/postmortem-templates/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.deleteIncidentPostmortemTemplate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete an incident todo.
    *
    * <p>See {@link #deleteIncidentTodoWithHttpInfo}.
@@ -4511,6 +4824,165 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentNotificationTemplate>() {});
+  }
+
+  /**
+   * Get postmortem template.
+   *
+   * <p>See {@link #getIncidentPostmortemTemplateWithHttpInfo}.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @return PostmortemTemplateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PostmortemTemplateResponse getIncidentPostmortemTemplate(String templateId)
+      throws ApiException {
+    return getIncidentPostmortemTemplateWithHttpInfo(templateId).getData();
+  }
+
+  /**
+   * Get postmortem template.
+   *
+   * <p>See {@link #getIncidentPostmortemTemplateWithHttpInfoAsync}.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @return CompletableFuture&lt;PostmortemTemplateResponse&gt;
+   */
+  public CompletableFuture<PostmortemTemplateResponse> getIncidentPostmortemTemplateAsync(
+      String templateId) {
+    return getIncidentPostmortemTemplateWithHttpInfoAsync(templateId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve details of a specific postmortem template.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @return ApiResponse&lt;PostmortemTemplateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PostmortemTemplateResponse> getIncidentPostmortemTemplateWithHttpInfo(
+      String templateId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentPostmortemTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'templateId' when calling getIncidentPostmortemTemplate");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/postmortem-templates/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.getIncidentPostmortemTemplate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PostmortemTemplateResponse>() {});
+  }
+
+  /**
+   * Get postmortem template.
+   *
+   * <p>See {@link #getIncidentPostmortemTemplateWithHttpInfo}.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;PostmortemTemplateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PostmortemTemplateResponse>>
+      getIncidentPostmortemTemplateWithHttpInfoAsync(String templateId) {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentPostmortemTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<PostmortemTemplateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      CompletableFuture<ApiResponse<PostmortemTemplateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'templateId' when calling"
+                  + " getIncidentPostmortemTemplate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/postmortem-templates/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.getIncidentPostmortemTemplate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PostmortemTemplateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PostmortemTemplateResponse>() {});
   }
 
   /**
@@ -6053,6 +6525,136 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentNotificationTemplateArray>() {});
+  }
+
+  /**
+   * List postmortem templates.
+   *
+   * <p>See {@link #listIncidentPostmortemTemplatesWithHttpInfo}.
+   *
+   * @return PostmortemTemplatesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PostmortemTemplatesResponse listIncidentPostmortemTemplates() throws ApiException {
+    return listIncidentPostmortemTemplatesWithHttpInfo().getData();
+  }
+
+  /**
+   * List postmortem templates.
+   *
+   * <p>See {@link #listIncidentPostmortemTemplatesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;PostmortemTemplatesResponse&gt;
+   */
+  public CompletableFuture<PostmortemTemplatesResponse> listIncidentPostmortemTemplatesAsync() {
+    return listIncidentPostmortemTemplatesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a list of all postmortem templates for incidents.
+   *
+   * @return ApiResponse&lt;PostmortemTemplatesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PostmortemTemplatesResponse> listIncidentPostmortemTemplatesWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentPostmortemTemplates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/postmortem-templates";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.listIncidentPostmortemTemplates",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PostmortemTemplatesResponse>() {});
+  }
+
+  /**
+   * List postmortem templates.
+   *
+   * <p>See {@link #listIncidentPostmortemTemplatesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;PostmortemTemplatesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PostmortemTemplatesResponse>>
+      listIncidentPostmortemTemplatesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentPostmortemTemplates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<PostmortemTemplatesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/postmortem-templates";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.listIncidentPostmortemTemplates",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PostmortemTemplatesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PostmortemTemplatesResponse>() {});
   }
 
   /** Manage optional parameters to listIncidents. */
@@ -8646,6 +9248,189 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentNotificationTemplate>() {});
+  }
+
+  /**
+   * Update postmortem template.
+   *
+   * <p>See {@link #updateIncidentPostmortemTemplateWithHttpInfo}.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @param body (required)
+   * @return PostmortemTemplateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PostmortemTemplateResponse updateIncidentPostmortemTemplate(
+      String templateId, PostmortemTemplateRequest body) throws ApiException {
+    return updateIncidentPostmortemTemplateWithHttpInfo(templateId, body).getData();
+  }
+
+  /**
+   * Update postmortem template.
+   *
+   * <p>See {@link #updateIncidentPostmortemTemplateWithHttpInfoAsync}.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;PostmortemTemplateResponse&gt;
+   */
+  public CompletableFuture<PostmortemTemplateResponse> updateIncidentPostmortemTemplateAsync(
+      String templateId, PostmortemTemplateRequest body) {
+    return updateIncidentPostmortemTemplateWithHttpInfoAsync(templateId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing postmortem template.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @param body (required)
+   * @return ApiResponse&lt;PostmortemTemplateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PostmortemTemplateResponse> updateIncidentPostmortemTemplateWithHttpInfo(
+      String templateId, PostmortemTemplateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentPostmortemTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'templateId' when calling"
+              + " updateIncidentPostmortemTemplate");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling updateIncidentPostmortemTemplate");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/postmortem-templates/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.updateIncidentPostmortemTemplate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PostmortemTemplateResponse>() {});
+  }
+
+  /**
+   * Update postmortem template.
+   *
+   * <p>See {@link #updateIncidentPostmortemTemplateWithHttpInfo}.
+   *
+   * @param templateId The ID of the postmortem template (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;PostmortemTemplateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PostmortemTemplateResponse>>
+      updateIncidentPostmortemTemplateWithHttpInfoAsync(
+          String templateId, PostmortemTemplateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentPostmortemTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<PostmortemTemplateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'templateId' is set
+    if (templateId == null) {
+      CompletableFuture<ApiResponse<PostmortemTemplateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'templateId' when calling"
+                  + " updateIncidentPostmortemTemplate"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<PostmortemTemplateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateIncidentPostmortemTemplate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/postmortem-templates/{template_id}"
+            .replaceAll(
+                "\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.updateIncidentPostmortemTemplate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PostmortemTemplateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PostmortemTemplateResponse>() {});
   }
 
   /**
