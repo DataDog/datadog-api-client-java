@@ -31,6 +31,7 @@ public class Example {
                                         """
 flaky_test_state:active @git.repository.id_v2:"github.com/datadog/shopist"
 """))
+                            .includeHistory(true)
                             .page(
                                 new FlakyTestsSearchPageOptions()
                                     .cursor(
