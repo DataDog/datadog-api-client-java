@@ -26,6 +26,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_API_VERSION,
+  ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_BULK_INDEX,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_DATA_STREAM,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_ID,
@@ -38,6 +39,9 @@ public class ObservabilityPipelineElasticsearchDestination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_VERSION = "api_version";
   private ObservabilityPipelineElasticsearchDestinationApiVersion apiVersion;
+
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
 
   public static final String JSON_PROPERTY_BULK_INDEX = "bulk_index";
   private String bulkIndex;
@@ -93,6 +97,29 @@ public class ObservabilityPipelineElasticsearchDestination {
       this.unparsed = true;
     }
     this.apiVersion = apiVersion;
+  }
+
+  public ObservabilityPipelineElasticsearchDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineElasticsearchDestination bulkIndex(String bulkIndex) {
@@ -268,6 +295,7 @@ public class ObservabilityPipelineElasticsearchDestination {
     ObservabilityPipelineElasticsearchDestination observabilityPipelineElasticsearchDestination =
         (ObservabilityPipelineElasticsearchDestination) o;
     return Objects.equals(this.apiVersion, observabilityPipelineElasticsearchDestination.apiVersion)
+        && Objects.equals(this.buffer, observabilityPipelineElasticsearchDestination.buffer)
         && Objects.equals(this.bulkIndex, observabilityPipelineElasticsearchDestination.bulkIndex)
         && Objects.equals(this.dataStream, observabilityPipelineElasticsearchDestination.dataStream)
         && Objects.equals(this.id, observabilityPipelineElasticsearchDestination.id)
@@ -280,7 +308,8 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiVersion, bulkIndex, dataStream, id, inputs, type, additionalProperties);
+    return Objects.hash(
+        apiVersion, buffer, bulkIndex, dataStream, id, inputs, type, additionalProperties);
   }
 
   @Override
@@ -288,6 +317,7 @@ public class ObservabilityPipelineElasticsearchDestination {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineElasticsearchDestination {\n");
     sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    bulkIndex: ").append(toIndentedString(bulkIndex)).append("\n");
     sb.append("    dataStream: ").append(toIndentedString(dataStream)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

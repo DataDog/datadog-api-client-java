@@ -25,6 +25,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineSocketDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineSocketDestination.JSON_PROPERTY_ENCODING,
   ObservabilityPipelineSocketDestination.JSON_PROPERTY_FRAMING,
   ObservabilityPipelineSocketDestination.JSON_PROPERTY_ID,
@@ -37,6 +38,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSocketDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BUFFER = "buffer";
+  private ObservabilityPipelineBufferOptions buffer;
+
   public static final String JSON_PROPERTY_ENCODING = "encoding";
   private ObservabilityPipelineSocketDestinationEncoding encoding;
 
@@ -83,6 +87,28 @@ public class ObservabilityPipelineSocketDestination {
     this.unparsed |= !mode.isValid();
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineSocketDestination buffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
+    this.unparsed |= buffer.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for buffer settings on destination components.
+   *
+   * @return buffer
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
+  public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
+    this.buffer = buffer;
   }
 
   public ObservabilityPipelineSocketDestination encoding(
@@ -306,7 +332,8 @@ public class ObservabilityPipelineSocketDestination {
     }
     ObservabilityPipelineSocketDestination observabilityPipelineSocketDestination =
         (ObservabilityPipelineSocketDestination) o;
-    return Objects.equals(this.encoding, observabilityPipelineSocketDestination.encoding)
+    return Objects.equals(this.buffer, observabilityPipelineSocketDestination.buffer)
+        && Objects.equals(this.encoding, observabilityPipelineSocketDestination.encoding)
         && Objects.equals(this.framing, observabilityPipelineSocketDestination.framing)
         && Objects.equals(this.id, observabilityPipelineSocketDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineSocketDestination.inputs)
@@ -319,13 +346,15 @@ public class ObservabilityPipelineSocketDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(encoding, framing, id, inputs, mode, tls, type, additionalProperties);
+    return Objects.hash(
+        buffer, encoding, framing, id, inputs, mode, tls, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSocketDestination {\n");
+    sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    framing: ").append(toIndentedString(framing)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
