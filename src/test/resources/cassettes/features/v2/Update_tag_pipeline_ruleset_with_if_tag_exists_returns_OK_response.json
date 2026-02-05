@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"last_version\":3611102,\"rules\":[{\"enabled\":true,\"mapping\":{\"destination_key\":\"team_owner\",\"if_tag_exists\":\"replace\",\"source_keys\":[\"account_name\",\"account_id\"]},\"name\":\"Account Name Mapping\",\"query\":null,\"reference_table\":null}]},\"id\":\"New Ruleset\",\"type\":\"update_ruleset\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/tags/enrichment/ee10c3ff-312f-464c-b4f6-46adaa6d00a1",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ee10c3ff-312f-464c-b4f6-46adaa6d00a1\",\"type\":\"ruleset\",\"attributes\":{\"created\":{\"seconds\":1759950911,\"nanos\":31873000},\"enabled\":true,\"last_modified_user_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modified\":{\"seconds\":1759950911,\"nanos\":31873000},\"name\":\"New Ruleset\",\"position\":1,\"rules\":[{\"name\":\"Account Name Mapping\",\"enabled\":true,\"query\":null,\"mapping\":{\"source_keys\":[\"account_name\",\"account_id\"],\"destination_key\":\"team_owner\",\"if_tag_exists\":\"replace\"},\"reference_table\":null,\"metadata\":null}],\"version\":3611113}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9b94ac4e-1d52-3144-f8a8-bd0652a92284"
+  }
+]

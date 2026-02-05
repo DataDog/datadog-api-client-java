@@ -22,6 +22,7 @@ import java.util.Objects;
   UpdateRulesetRequestDataAttributesRulesItemsQuery.JSON_PROPERTY_ADDITION,
   UpdateRulesetRequestDataAttributesRulesItemsQuery.JSON_PROPERTY_CASE_INSENSITIVITY,
   UpdateRulesetRequestDataAttributesRulesItemsQuery.JSON_PROPERTY_IF_NOT_EXISTS,
+  UpdateRulesetRequestDataAttributesRulesItemsQuery.JSON_PROPERTY_IF_TAG_EXISTS,
   UpdateRulesetRequestDataAttributesRulesItemsQuery.JSON_PROPERTY_QUERY
 })
 @jakarta.annotation.Generated(
@@ -37,6 +38,9 @@ public class UpdateRulesetRequestDataAttributesRulesItemsQuery {
   public static final String JSON_PROPERTY_IF_NOT_EXISTS = "if_not_exists";
   private Boolean ifNotExists;
 
+  public static final String JSON_PROPERTY_IF_TAG_EXISTS = "if_tag_exists";
+  private DataAttributesRulesItemsIfTagExists ifTagExists;
+
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -46,13 +50,11 @@ public class UpdateRulesetRequestDataAttributesRulesItemsQuery {
   public UpdateRulesetRequestDataAttributesRulesItemsQuery(
       @JsonProperty(required = true, value = JSON_PROPERTY_ADDITION)
           UpdateRulesetRequestDataAttributesRulesItemsQueryAddition addition,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IF_NOT_EXISTS) Boolean ifNotExists,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
     this.addition = addition;
     if (addition != null) {
       this.unparsed |= addition.unparsed;
     }
-    this.ifNotExists = ifNotExists;
     this.query = query;
   }
 
@@ -110,18 +112,49 @@ public class UpdateRulesetRequestDataAttributesRulesItemsQuery {
   }
 
   /**
-   * The <code>query</code> <code>if_not_exists</code>.
+   * Deprecated. Use <code>if_tag_exists</code> instead. The <code>query</code> <code>if_not_exists
+   * </code>.
    *
    * @return ifNotExists
+   * @deprecated
    */
+  @Deprecated
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IF_NOT_EXISTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIfNotExists() {
     return ifNotExists;
   }
 
+  @Deprecated
   public void setIfNotExists(Boolean ifNotExists) {
     this.ifNotExists = ifNotExists;
+  }
+
+  public UpdateRulesetRequestDataAttributesRulesItemsQuery ifTagExists(
+      DataAttributesRulesItemsIfTagExists ifTagExists) {
+    this.ifTagExists = ifTagExists;
+    this.unparsed |= !ifTagExists.isValid();
+    return this;
+  }
+
+  /**
+   * The behavior when the tag already exists.
+   *
+   * @return ifTagExists
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IF_TAG_EXISTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DataAttributesRulesItemsIfTagExists getIfTagExists() {
+    return ifTagExists;
+  }
+
+  public void setIfTagExists(DataAttributesRulesItemsIfTagExists ifTagExists) {
+    if (!ifTagExists.isValid()) {
+      this.unparsed = true;
+    }
+    this.ifTagExists = ifTagExists;
   }
 
   public UpdateRulesetRequestDataAttributesRulesItemsQuery query(String query) {
@@ -209,6 +242,8 @@ public class UpdateRulesetRequestDataAttributesRulesItemsQuery {
             updateRulesetRequestDataAttributesRulesItemsQuery.caseInsensitivity)
         && Objects.equals(
             this.ifNotExists, updateRulesetRequestDataAttributesRulesItemsQuery.ifNotExists)
+        && Objects.equals(
+            this.ifTagExists, updateRulesetRequestDataAttributesRulesItemsQuery.ifTagExists)
         && Objects.equals(this.query, updateRulesetRequestDataAttributesRulesItemsQuery.query)
         && Objects.equals(
             this.additionalProperties,
@@ -217,7 +252,8 @@ public class UpdateRulesetRequestDataAttributesRulesItemsQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addition, caseInsensitivity, ifNotExists, query, additionalProperties);
+    return Objects.hash(
+        addition, caseInsensitivity, ifNotExists, ifTagExists, query, additionalProperties);
   }
 
   @Override
@@ -227,6 +263,7 @@ public class UpdateRulesetRequestDataAttributesRulesItemsQuery {
     sb.append("    addition: ").append(toIndentedString(addition)).append("\n");
     sb.append("    caseInsensitivity: ").append(toIndentedString(caseInsensitivity)).append("\n");
     sb.append("    ifNotExists: ").append(toIndentedString(ifNotExists)).append("\n");
+    sb.append("    ifTagExists: ").append(toIndentedString(ifTagExists)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
