@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of remediation action taken. */
+/** The type of remediation action taken. Required when the id field is provided. */
 @JsonSerialize(
     using = DORADeploymentPatchRemediationType.DORADeploymentPatchRemediationTypeSerializer.class)
 public class DORADeploymentPatchRemediationType extends ModelEnum<String> {
