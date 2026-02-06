@@ -1,0 +1,13 @@
+# Trust policy for creating releases on master branch
+# Restricted to master branch (protected ref) for security
+issuer: https://token.actions.githubusercontent.com
+subject: repo:DataDog/datadog-api-client-java:ref:refs/heads/master
+
+claim_pattern:
+  repository: DataDog/datadog-api-client-java
+  ref: refs/heads/master
+  event_name: pull_request
+  job_workflow_ref: DataDog/datadog-api-client-java/\.github/workflows/release\.yml@refs/heads/master
+
+permissions:
+  contents: write
