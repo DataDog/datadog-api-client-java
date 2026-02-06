@@ -29,7 +29,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FlakyTestAttributes.JSON_PROPERTY_FIRST_FLAKED_TS,
   FlakyTestAttributes.JSON_PROPERTY_FLAKY_CATEGORY,
   FlakyTestAttributes.JSON_PROPERTY_FLAKY_STATE,
-  FlakyTestAttributes.JSON_PROPERTY_HISTORY,
   FlakyTestAttributes.JSON_PROPERTY_LAST_FLAKED_BRANCH,
   FlakyTestAttributes.JSON_PROPERTY_LAST_FLAKED_SHA,
   FlakyTestAttributes.JSON_PROPERTY_LAST_FLAKED_TS,
@@ -68,9 +67,6 @@ public class FlakyTestAttributes {
 
   public static final String JSON_PROPERTY_FLAKY_STATE = "flaky_state";
   private FlakyTestAttributesFlakyState flakyState;
-
-  public static final String JSON_PROPERTY_HISTORY = "history";
-  private List<FlakyTestHistory> history = null;
 
   public static final String JSON_PROPERTY_LAST_FLAKED_BRANCH = "last_flaked_branch";
   private String lastFlakedBranch;
@@ -304,41 +300,6 @@ public class FlakyTestAttributes {
       this.unparsed = true;
     }
     this.flakyState = flakyState;
-  }
-
-  public FlakyTestAttributes history(List<FlakyTestHistory> history) {
-    this.history = history;
-    for (FlakyTestHistory item : history) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public FlakyTestAttributes addHistoryItem(FlakyTestHistory historyItem) {
-    if (this.history == null) {
-      this.history = new ArrayList<>();
-    }
-    this.history.add(historyItem);
-    this.unparsed |= historyItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Chronological history of status changes for this flaky test, ordered from most recent to
-   * oldest. Includes state transitions like new -&gt; quarantined -&gt; fixed, along with the
-   * associated commit SHA when available.
-   *
-   * @return history
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HISTORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<FlakyTestHistory> getHistory() {
-    return history;
-  }
-
-  public void setHistory(List<FlakyTestHistory> history) {
-    this.history = history;
   }
 
   public FlakyTestAttributes lastFlakedBranch(String lastFlakedBranch) {
@@ -650,7 +611,6 @@ public class FlakyTestAttributes {
         && Objects.equals(this.firstFlakedTs, flakyTestAttributes.firstFlakedTs)
         && Objects.equals(this.flakyCategory, flakyTestAttributes.flakyCategory)
         && Objects.equals(this.flakyState, flakyTestAttributes.flakyState)
-        && Objects.equals(this.history, flakyTestAttributes.history)
         && Objects.equals(this.lastFlakedBranch, flakyTestAttributes.lastFlakedBranch)
         && Objects.equals(this.lastFlakedSha, flakyTestAttributes.lastFlakedSha)
         && Objects.equals(this.lastFlakedTs, flakyTestAttributes.lastFlakedTs)
@@ -675,7 +635,6 @@ public class FlakyTestAttributes {
         firstFlakedTs,
         flakyCategory,
         flakyState,
-        history,
         lastFlakedBranch,
         lastFlakedSha,
         lastFlakedTs,
@@ -701,7 +660,6 @@ public class FlakyTestAttributes {
     sb.append("    firstFlakedTs: ").append(toIndentedString(firstFlakedTs)).append("\n");
     sb.append("    flakyCategory: ").append(toIndentedString(flakyCategory)).append("\n");
     sb.append("    flakyState: ").append(toIndentedString(flakyState)).append("\n");
-    sb.append("    history: ").append(toIndentedString(history)).append("\n");
     sb.append("    lastFlakedBranch: ").append(toIndentedString(lastFlakedBranch)).append("\n");
     sb.append("    lastFlakedSha: ").append(toIndentedString(lastFlakedSha)).append("\n");
     sb.append("    lastFlakedTs: ").append(toIndentedString(lastFlakedTs)).append("\n");
