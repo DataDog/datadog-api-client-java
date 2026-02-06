@@ -14,12 +14,19 @@ import com.datadog.api.client.v2.model.ApplicationKeyResponse;
 import com.datadog.api.client.v2.model.ApplicationKeyUpdateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeysSort;
 import com.datadog.api.client.v2.model.ListApplicationKeysResponse;
+import com.datadog.api.client.v2.model.PersonalAccessTokenCreateRequest;
+import com.datadog.api.client.v2.model.PersonalAccessTokenGetResponse;
+import com.datadog.api.client.v2.model.PersonalAccessTokenResponse;
+import com.datadog.api.client.v2.model.PersonalAccessTokenUpdateRequest;
+import com.datadog.api.client.v2.model.PersonalAccessTokensListResponse;
+import com.datadog.api.client.v2.model.PersonalAccessTokensSort;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -317,6 +324,161 @@ public class KeyManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ApplicationKeyResponse>() {});
+  }
+
+  /**
+   * Create personal access token.
+   *
+   * <p>See {@link #createPersonalAccessTokenWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return PersonalAccessTokenResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PersonalAccessTokenResponse createPersonalAccessToken(
+      PersonalAccessTokenCreateRequest body) throws ApiException {
+    return createPersonalAccessTokenWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create personal access token.
+   *
+   * <p>See {@link #createPersonalAccessTokenWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;PersonalAccessTokenResponse&gt;
+   */
+  public CompletableFuture<PersonalAccessTokenResponse> createPersonalAccessTokenAsync(
+      PersonalAccessTokenCreateRequest body) {
+    return createPersonalAccessTokenWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new personal access token with fine-grained permissions. The token value will be
+   * returned in the response and cannot be retrieved later. Be sure to save it securely.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;PersonalAccessTokenResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found - Personal access tokens feature is not enabled </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PersonalAccessTokenResponse> createPersonalAccessTokenWithHttpInfo(
+      PersonalAccessTokenCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createPersonalAccessToken";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createPersonalAccessToken");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/personal_access_tokens";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.KeyManagementApi.createPersonalAccessToken",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenResponse>() {});
+  }
+
+  /**
+   * Create personal access token.
+   *
+   * <p>See {@link #createPersonalAccessTokenWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;PersonalAccessTokenResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PersonalAccessTokenResponse>>
+      createPersonalAccessTokenWithHttpInfoAsync(PersonalAccessTokenCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createPersonalAccessToken";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createPersonalAccessToken"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/personal_access_tokens";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.KeyManagementApi.createPersonalAccessToken",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenResponse>() {});
   }
 
   /**
@@ -1256,6 +1418,162 @@ public class KeyManagementApi {
         new GenericType<ApplicationKeyResponse>() {});
   }
 
+  /**
+   * Get personal access token.
+   *
+   * <p>See {@link #getPersonalAccessTokenWithHttpInfo}.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return PersonalAccessTokenGetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PersonalAccessTokenGetResponse getPersonalAccessToken(UUID patUuid) throws ApiException {
+    return getPersonalAccessTokenWithHttpInfo(patUuid).getData();
+  }
+
+  /**
+   * Get personal access token.
+   *
+   * <p>See {@link #getPersonalAccessTokenWithHttpInfoAsync}.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return CompletableFuture&lt;PersonalAccessTokenGetResponse&gt;
+   */
+  public CompletableFuture<PersonalAccessTokenGetResponse> getPersonalAccessTokenAsync(
+      UUID patUuid) {
+    return getPersonalAccessTokenWithHttpInfoAsync(patUuid)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific personal access token by UUID.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return ApiResponse&lt;PersonalAccessTokenGetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PersonalAccessTokenGetResponse> getPersonalAccessTokenWithHttpInfo(
+      UUID patUuid) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getPersonalAccessToken";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'patUuid' when calling getPersonalAccessToken");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/personal_access_tokens/{pat_uuid}"
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.KeyManagementApi.getPersonalAccessToken",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenGetResponse>() {});
+  }
+
+  /**
+   * Get personal access token.
+   *
+   * <p>See {@link #getPersonalAccessTokenWithHttpInfo}.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;PersonalAccessTokenGetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PersonalAccessTokenGetResponse>>
+      getPersonalAccessTokenWithHttpInfoAsync(UUID patUuid) {
+    // Check if unstable operation is enabled
+    String operationId = "getPersonalAccessToken";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<PersonalAccessTokenGetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenGetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'patUuid' when calling getPersonalAccessToken"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/personal_access_tokens/{pat_uuid}"
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.KeyManagementApi.getPersonalAccessToken",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenGetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenGetResponse>() {});
+  }
+
   /** Manage optional parameters to listAPIKeys. */
   public static class ListAPIKeysOptionalParameters {
     private Long pageSize;
@@ -2167,6 +2485,420 @@ public class KeyManagementApi {
         new GenericType<ListApplicationKeysResponse>() {});
   }
 
+  /** Manage optional parameters to listPersonalAccessTokens. */
+  public static class ListPersonalAccessTokensOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private PersonalAccessTokensSort sort;
+    private String filter;
+    private List<UUID> filterOwnerUuid;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
+     *     to 10)
+     * @return ListPersonalAccessTokensOptionalParameters
+     */
+    public ListPersonalAccessTokensOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListPersonalAccessTokensOptionalParameters
+     */
+    public ListPersonalAccessTokensOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Personal access token attribute used to sort results. Sort order is ascending by
+     *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
+     *     (optional, default to "name")
+     * @return ListPersonalAccessTokensOptionalParameters
+     */
+    public ListPersonalAccessTokensOptionalParameters sort(PersonalAccessTokensSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set filter.
+     *
+     * @param filter Filter personal access tokens by name. (optional)
+     * @return ListPersonalAccessTokensOptionalParameters
+     */
+    public ListPersonalAccessTokensOptionalParameters filter(String filter) {
+      this.filter = filter;
+      return this;
+    }
+
+    /**
+     * Set filterOwnerUuid.
+     *
+     * @param filterOwnerUuid Filter personal access tokens by owner UUID. (optional)
+     * @return ListPersonalAccessTokensOptionalParameters
+     */
+    public ListPersonalAccessTokensOptionalParameters filterOwnerUuid(List<UUID> filterOwnerUuid) {
+      this.filterOwnerUuid = filterOwnerUuid;
+      return this;
+    }
+  }
+
+  /**
+   * List personal access tokens.
+   *
+   * <p>See {@link #listPersonalAccessTokensWithHttpInfo}.
+   *
+   * @return PersonalAccessTokensListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PersonalAccessTokensListResponse listPersonalAccessTokens() throws ApiException {
+    return listPersonalAccessTokensWithHttpInfo(new ListPersonalAccessTokensOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List personal access tokens.
+   *
+   * <p>See {@link #listPersonalAccessTokensWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;PersonalAccessTokensListResponse&gt;
+   */
+  public CompletableFuture<PersonalAccessTokensListResponse> listPersonalAccessTokensAsync() {
+    return listPersonalAccessTokensWithHttpInfoAsync(
+            new ListPersonalAccessTokensOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List personal access tokens.
+   *
+   * <p>See {@link #listPersonalAccessTokensWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return PersonalAccessTokensListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PersonalAccessTokensListResponse listPersonalAccessTokens(
+      ListPersonalAccessTokensOptionalParameters parameters) throws ApiException {
+    return listPersonalAccessTokensWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List personal access tokens.
+   *
+   * <p>See {@link #listPersonalAccessTokensWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;PersonalAccessTokensListResponse&gt;
+   */
+  public CompletableFuture<PersonalAccessTokensListResponse> listPersonalAccessTokensAsync(
+      ListPersonalAccessTokensOptionalParameters parameters) {
+    return listPersonalAccessTokensWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all personal access tokens in your organization. Supports filtering, pagination, and
+   * sorting.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;PersonalAccessTokensListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found - Personal access tokens feature is not enabled </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PersonalAccessTokensListResponse> listPersonalAccessTokensWithHttpInfo(
+      ListPersonalAccessTokensOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listPersonalAccessTokens";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    PersonalAccessTokensSort sort = parameters.sort;
+    String filter = parameters.filter;
+    List<UUID> filterOwnerUuid = parameters.filterOwnerUuid;
+    // create path and map variables
+    String localVarPath = "/api/v2/personal_access_tokens";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "filter[owner_uuid]", filterOwnerUuid));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.KeyManagementApi.listPersonalAccessTokens",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokensListResponse>() {});
+  }
+
+  /**
+   * List personal access tokens.
+   *
+   * <p>See {@link #listPersonalAccessTokensWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;PersonalAccessTokensListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PersonalAccessTokensListResponse>>
+      listPersonalAccessTokensWithHttpInfoAsync(
+          ListPersonalAccessTokensOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listPersonalAccessTokens";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<PersonalAccessTokensListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    PersonalAccessTokensSort sort = parameters.sort;
+    String filter = parameters.filter;
+    List<UUID> filterOwnerUuid = parameters.filterOwnerUuid;
+    // create path and map variables
+    String localVarPath = "/api/v2/personal_access_tokens";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "filter[owner_uuid]", filterOwnerUuid));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.KeyManagementApi.listPersonalAccessTokens",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PersonalAccessTokensListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokensListResponse>() {});
+  }
+
+  /**
+   * Revoke personal access token.
+   *
+   * <p>See {@link #revokePersonalAccessTokenWithHttpInfo}.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void revokePersonalAccessToken(UUID patUuid) throws ApiException {
+    revokePersonalAccessTokenWithHttpInfo(patUuid);
+  }
+
+  /**
+   * Revoke personal access token.
+   *
+   * <p>See {@link #revokePersonalAccessTokenWithHttpInfoAsync}.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> revokePersonalAccessTokenAsync(UUID patUuid) {
+    return revokePersonalAccessTokenWithHttpInfoAsync(patUuid)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Revoke a personal access token. Once revoked, the token can no longer be used to authenticate
+   * API requests.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> revokePersonalAccessTokenWithHttpInfo(UUID patUuid) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "revokePersonalAccessToken";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'patUuid' when calling revokePersonalAccessToken");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/personal_access_tokens/{pat_uuid}"
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.KeyManagementApi.revokePersonalAccessToken",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Revoke personal access token.
+   *
+   * <p>See {@link #revokePersonalAccessTokenWithHttpInfo}.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> revokePersonalAccessTokenWithHttpInfoAsync(
+      UUID patUuid) {
+    // Check if unstable operation is enabled
+    String operationId = "revokePersonalAccessToken";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'patUuid' when calling revokePersonalAccessToken"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/personal_access_tokens/{pat_uuid}"
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.KeyManagementApi.revokePersonalAccessToken",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
   /**
    * Edit an API key.
    *
@@ -2645,5 +3377,186 @@ public class KeyManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ApplicationKeyResponse>() {});
+  }
+
+  /**
+   * Update personal access token.
+   *
+   * <p>See {@link #updatePersonalAccessTokenWithHttpInfo}.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @param body (required)
+   * @return PersonalAccessTokenGetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PersonalAccessTokenGetResponse updatePersonalAccessToken(
+      UUID patUuid, PersonalAccessTokenUpdateRequest body) throws ApiException {
+    return updatePersonalAccessTokenWithHttpInfo(patUuid, body).getData();
+  }
+
+  /**
+   * Update personal access token.
+   *
+   * <p>See {@link #updatePersonalAccessTokenWithHttpInfoAsync}.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;PersonalAccessTokenGetResponse&gt;
+   */
+  public CompletableFuture<PersonalAccessTokenGetResponse> updatePersonalAccessTokenAsync(
+      UUID patUuid, PersonalAccessTokenUpdateRequest body) {
+    return updatePersonalAccessTokenWithHttpInfoAsync(patUuid, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the name and/or scopes of an existing personal access token. The ID in the request body
+   * must match the UUID in the path.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;PersonalAccessTokenGetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PersonalAccessTokenGetResponse> updatePersonalAccessTokenWithHttpInfo(
+      UUID patUuid, PersonalAccessTokenUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updatePersonalAccessToken";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'patUuid' when calling updatePersonalAccessToken");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updatePersonalAccessToken");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/personal_access_tokens/{pat_uuid}"
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.KeyManagementApi.updatePersonalAccessToken",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenGetResponse>() {});
+  }
+
+  /**
+   * Update personal access token.
+   *
+   * <p>See {@link #updatePersonalAccessTokenWithHttpInfo}.
+   *
+   * @param patUuid The UUID of the personal access token. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;PersonalAccessTokenGetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PersonalAccessTokenGetResponse>>
+      updatePersonalAccessTokenWithHttpInfoAsync(
+          UUID patUuid, PersonalAccessTokenUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updatePersonalAccessToken";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<PersonalAccessTokenGetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenGetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'patUuid' when calling updatePersonalAccessToken"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenGetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updatePersonalAccessToken"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/personal_access_tokens/{pat_uuid}"
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.KeyManagementApi.updatePersonalAccessToken",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenGetResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenGetResponse>() {});
   }
 }

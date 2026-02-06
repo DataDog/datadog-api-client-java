@@ -10,6 +10,10 @@ import com.datadog.api.client.v1.model.ApiKeyResponse;
 import com.datadog.api.client.v1.model.ApplicationKey;
 import com.datadog.api.client.v1.model.ApplicationKeyListResponse;
 import com.datadog.api.client.v1.model.ApplicationKeyResponse;
+import com.datadog.api.client.v1.model.ClientToken;
+import com.datadog.api.client.v1.model.ClientTokenCreateRequest;
+import com.datadog.api.client.v1.model.ClientTokenRevokeRequest;
+import com.datadog.api.client.v1.model.ClientTokenUpdateRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -308,6 +312,155 @@ public class KeyManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ApplicationKeyResponse>() {});
+  }
+
+  /**
+   * Create client token.
+   *
+   * <p>See {@link #createClientTokenWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ClientToken
+   * @throws ApiException if fails to make API call
+   */
+  public ClientToken createClientToken(ClientTokenCreateRequest body) throws ApiException {
+    return createClientTokenWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create client token.
+   *
+   * <p>See {@link #createClientTokenWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ClientToken&gt;
+   */
+  public CompletableFuture<ClientToken> createClientTokenAsync(ClientTokenCreateRequest body) {
+    return createClientTokenWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new client token (public API key) to submit data from your browser or mobile
+   * applications to Datadog.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ClientToken&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ClientToken> createClientTokenWithHttpInfo(ClientTokenCreateRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createClientToken";
+    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createClientToken");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/public_api_key";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.KeyManagementApi.createClientToken",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ClientToken>() {});
+  }
+
+  /**
+   * Create client token.
+   *
+   * <p>See {@link #createClientTokenWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ClientToken&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ClientToken>> createClientTokenWithHttpInfoAsync(
+      ClientTokenCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createClientToken";
+    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ClientToken>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ClientToken>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createClientToken"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/public_api_key";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.KeyManagementApi.createClientToken",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ClientToken>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ClientToken>() {});
   }
 
   /**
@@ -1071,6 +1224,154 @@ public class KeyManagementApi {
   }
 
   /**
+   * Revoke client token.
+   *
+   * <p>See {@link #revokeClientTokenWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void revokeClientToken(ClientTokenRevokeRequest body) throws ApiException {
+    revokeClientTokenWithHttpInfo(body);
+  }
+
+  /**
+   * Revoke client token.
+   *
+   * <p>See {@link #revokeClientTokenWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> revokeClientTokenAsync(ClientTokenRevokeRequest body) {
+    return revokeClientTokenWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Revoke a client token (public API key). Once revoked, the token can no longer be used to submit
+   * data to Datadog.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> revokeClientTokenWithHttpInfo(ClientTokenRevokeRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "revokeClientToken";
+    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling revokeClientToken");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/public_api_key";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.KeyManagementApi.revokeClientToken",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Revoke client token.
+   *
+   * <p>See {@link #revokeClientTokenWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> revokeClientTokenWithHttpInfoAsync(
+      ClientTokenRevokeRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "revokeClientToken";
+    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling revokeClientToken"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/public_api_key";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.KeyManagementApi.revokeClientToken",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Edit an API key.
    *
    * <p>See {@link #updateAPIKeyWithHttpInfo}.
@@ -1380,5 +1681,153 @@ public class KeyManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ApplicationKeyResponse>() {});
+  }
+
+  /**
+   * Update client token.
+   *
+   * <p>See {@link #updateClientTokenWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ClientToken
+   * @throws ApiException if fails to make API call
+   */
+  public ClientToken updateClientToken(ClientTokenUpdateRequest body) throws ApiException {
+    return updateClientTokenWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Update client token.
+   *
+   * <p>See {@link #updateClientTokenWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ClientToken&gt;
+   */
+  public CompletableFuture<ClientToken> updateClientTokenAsync(ClientTokenUpdateRequest body) {
+    return updateClientTokenWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the name and/or origin URLs of an existing client token (public API key).
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ClientToken&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ClientToken> updateClientTokenWithHttpInfo(ClientTokenUpdateRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateClientToken";
+    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateClientToken");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/public_api_key";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.KeyManagementApi.updateClientToken",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ClientToken>() {});
+  }
+
+  /**
+   * Update client token.
+   *
+   * <p>See {@link #updateClientTokenWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ClientToken&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ClientToken>> updateClientTokenWithHttpInfoAsync(
+      ClientTokenUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateClientToken";
+    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ClientToken>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ClientToken>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateClientToken"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/public_api_key";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.KeyManagementApi.updateClientToken",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ClientToken>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ClientToken>() {});
   }
 }
