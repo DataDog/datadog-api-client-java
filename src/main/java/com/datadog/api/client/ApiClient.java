@@ -756,6 +756,9 @@ public class ApiClient {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
+          put("v1.createClientToken", false);
+          put("v1.revokeClientToken", false);
+          put("v1.updateClientToken", false);
           put("v2.cancelFleetDeployment", false);
           put("v2.createFleetDeploymentConfigure", false);
           put("v2.createFleetDeploymentUpgrade", false);
@@ -770,6 +773,11 @@ public class ApiClient {
           put("v2.listFleetSchedules", false);
           put("v2.triggerFleetSchedule", false);
           put("v2.updateFleetSchedule", false);
+          put("v2.createPersonalAccessToken", false);
+          put("v2.getPersonalAccessToken", false);
+          put("v2.listPersonalAccessTokens", false);
+          put("v2.revokePersonalAccessToken", false);
+          put("v2.updatePersonalAccessToken", false);
           put("v2.createOpenAPI", false);
           put("v2.deleteOpenAPI", false);
           put("v2.getOpenAPI", false);
