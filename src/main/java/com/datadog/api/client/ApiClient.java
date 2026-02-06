@@ -775,6 +775,7 @@ public class ApiClient {
           put("v2.getOpenAPI", false);
           put("v2.listAPIs", false);
           put("v2.updateOpenAPI", false);
+          put("v2.listAWSCloudAuthPersonaMappings", false);
           put("v2.activateContentPack", false);
           put("v2.cancelThreatHuntingJob", false);
           put("v2.convertJobResultToSignal", false);
