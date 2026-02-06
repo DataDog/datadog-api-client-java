@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.DashboardsApi;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.TimeseriesRequestStyle;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinition;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.client.v1.model.TimeseriesWidgetRequest;
@@ -13,7 +14,6 @@ import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetDisplayType;
 import com.datadog.api.client.v1.model.WidgetLineType;
 import com.datadog.api.client.v1.model.WidgetLineWidth;
-import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import java.util.Collections;
 
 public class Example {
@@ -40,7 +40,7 @@ public class Example {
                                                         + " by {resource_name}.as_count()")
                                                 .onRightYaxis(false)
                                                 .style(
-                                                    new WidgetRequestStyle()
+                                                    new TimeseriesRequestStyle()
                                                         .palette("warm")
                                                         .lineType(WidgetLineType.SOLID)
                                                         .lineWidth(WidgetLineWidth.NORMAL))

@@ -5,13 +5,13 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.DashboardsApi;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.TimeseriesRequestStyle;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinition;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.client.v1.model.TimeseriesWidgetRequest;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetDisplayType;
-import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import com.datadog.api.client.v1.model.WidgetStyleOrderBy;
 import java.util.Collections;
 
@@ -36,7 +36,7 @@ public class Example {
                                             new TimeseriesWidgetRequest()
                                                 .q("avg:system.cpu.user{*} by {host}")
                                                 .style(
-                                                    new WidgetRequestStyle()
+                                                    new TimeseriesRequestStyle()
                                                         .palette("warm")
                                                         .orderBy(WidgetStyleOrderBy.VALUES))
                                                 .displayType(WidgetDisplayType.LINE)))))));
