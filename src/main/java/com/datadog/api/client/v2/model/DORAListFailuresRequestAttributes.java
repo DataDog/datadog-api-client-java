@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes to get a list of failures. */
+/** Attributes to get a list of incidents. */
 @JsonPropertyOrder({
   DORAListFailuresRequestAttributes.JSON_PROPERTY_FROM,
   DORAListFailuresRequestAttributes.JSON_PROPERTY_LIMIT,
