@@ -824,6 +824,7 @@ public class ApiClient {
           put("v2.createIncidentNotificationTemplate", false);
           put("v2.createIncidentPostmortemAttachment", false);
           put("v2.createIncidentPostmortemTemplate", false);
+          put("v2.createIncidentTimestampOverride", false);
           put("v2.createIncidentTodo", false);
           put("v2.createIncidentType", false);
           put("v2.deleteGlobalIncidentHandle", false);
@@ -833,6 +834,7 @@ public class ApiClient {
           put("v2.deleteIncidentNotificationRule", false);
           put("v2.deleteIncidentNotificationTemplate", false);
           put("v2.deleteIncidentPostmortemTemplate", false);
+          put("v2.deleteIncidentTimestampOverride", false);
           put("v2.deleteIncidentTodo", false);
           put("v2.deleteIncidentType", false);
           put("v2.getGlobalIncidentSettings", false);
@@ -850,6 +852,7 @@ public class ApiClient {
           put("v2.listIncidentNotificationTemplates", false);
           put("v2.listIncidentPostmortemTemplates", false);
           put("v2.listIncidents", false);
+          put("v2.listIncidentTimestampOverrides", false);
           put("v2.listIncidentTodos", false);
           put("v2.listIncidentTypes", false);
           put("v2.searchIncidents", false);
@@ -861,6 +864,7 @@ public class ApiClient {
           put("v2.updateIncidentNotificationRule", false);
           put("v2.updateIncidentNotificationTemplate", false);
           put("v2.updateIncidentPostmortemTemplate", false);
+          put("v2.updateIncidentTimestampOverride", false);
           put("v2.updateIncidentTodo", false);
           put("v2.updateIncidentType", false);
           put("v2.createJiraIssueTemplate", false);
