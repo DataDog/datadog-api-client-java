@@ -797,6 +797,7 @@ public class ApiClient {
           put("v2.muteFindings", false);
           put("v2.runThreatHuntingJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
+          put("v2.searchDashboards", false);
           put("v2.createDataset", false);
           put("v2.deleteDataset", false);
           put("v2.getAllDatasets", false);
@@ -899,6 +900,7 @@ public class ApiClient {
           put("v2.updateMonitorUserTemplate", false);
           put("v2.validateExistingMonitorUserTemplate", false);
           put("v2.validateMonitorUserTemplate", false);
+          put("v2.searchNotebooks", false);
           put("v2.listRoleTemplates", false);
           put("v2.createConnection", false);
           put("v2.deleteConnection", false);
