@@ -18,37 +18,40 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Notebook resource type */
-@JsonSerialize(using = NotebookResourceType.NotebookResourceTypeSerializer.class)
-public class NotebookResourceType extends ModelEnum<String> {
+/** Seat assignments resource type. */
+@JsonSerialize(using = SeatAssignmentsDataType.SeatAssignmentsDataTypeSerializer.class)
+public class SeatAssignmentsDataType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("notebook"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("seat-assignments"));
 
-  public static final NotebookResourceType NOTEBOOK = new NotebookResourceType("notebook");
+  public static final SeatAssignmentsDataType SEAT_ASSIGNMENTS =
+      new SeatAssignmentsDataType("seat-assignments");
 
-  NotebookResourceType(String value) {
+  SeatAssignmentsDataType(String value) {
     super(value, allowedValues);
   }
 
-  public static class NotebookResourceTypeSerializer extends StdSerializer<NotebookResourceType> {
-    public NotebookResourceTypeSerializer(Class<NotebookResourceType> t) {
+  public static class SeatAssignmentsDataTypeSerializer
+      extends StdSerializer<SeatAssignmentsDataType> {
+    public SeatAssignmentsDataTypeSerializer(Class<SeatAssignmentsDataType> t) {
       super(t);
     }
 
-    public NotebookResourceTypeSerializer() {
+    public SeatAssignmentsDataTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        NotebookResourceType value, JsonGenerator jgen, SerializerProvider provider)
+        SeatAssignmentsDataType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static NotebookResourceType fromValue(String value) {
-    return new NotebookResourceType(value);
+  public static SeatAssignmentsDataType fromValue(String value) {
+    return new SeatAssignmentsDataType(value);
   }
 }

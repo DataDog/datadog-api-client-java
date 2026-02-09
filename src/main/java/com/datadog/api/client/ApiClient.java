@@ -775,13 +775,6 @@ public class ApiClient {
           put("v2.getOpenAPI", false);
           put("v2.listAPIs", false);
           put("v2.updateOpenAPI", false);
-          put("v2.createCaseJiraIssue", false);
-          put("v2.createCaseNotebook", false);
-          put("v2.createCaseServiceNowTicket", false);
-          put("v2.linkIncident", false);
-          put("v2.linkJiraIssueToCase", false);
-          put("v2.moveCaseToProject", false);
-          put("v2.unlinkJiraIssue", false);
           put("v2.activateContentPack", false);
           put("v2.cancelThreatHuntingJob", false);
           put("v2.convertJobResultToSignal", false);
