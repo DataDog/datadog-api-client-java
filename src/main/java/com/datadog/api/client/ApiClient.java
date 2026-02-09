@@ -951,6 +951,9 @@ public class ApiClient {
           put("v2.updateIncidentTeam", false);
           put("v2.searchFlakyTests", false);
           put("v2.updateFlakyTests", false);
+          put("v2.executeWorkflowFromTemplate", false);
+          put("v2.executeWorkflowFromWebhook", false);
+          put("v2.updateWorkflowFavorite", false);
         }
       };
   protected static final java.util.logging.Logger logger =
