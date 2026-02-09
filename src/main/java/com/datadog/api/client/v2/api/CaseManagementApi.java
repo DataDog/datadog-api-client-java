@@ -23,10 +23,16 @@ import com.datadog.api.client.v2.model.CaseUpdatePriorityRequest;
 import com.datadog.api.client.v2.model.CaseUpdateStatusRequest;
 import com.datadog.api.client.v2.model.CaseUpdateTitleRequest;
 import com.datadog.api.client.v2.model.CasesResponse;
+import com.datadog.api.client.v2.model.JiraIssueCreateRequest;
+import com.datadog.api.client.v2.model.JiraIssueLinkRequest;
+import com.datadog.api.client.v2.model.NotebookCreateRequest;
 import com.datadog.api.client.v2.model.ProjectCreateRequest;
+import com.datadog.api.client.v2.model.ProjectRelationship;
 import com.datadog.api.client.v2.model.ProjectResponse;
 import com.datadog.api.client.v2.model.ProjectUpdateRequest;
 import com.datadog.api.client.v2.model.ProjectsResponse;
+import com.datadog.api.client.v2.model.RelationshipToIncidentRequest;
+import com.datadog.api.client.v2.model.ServiceNowTicketCreateRequest;
 import com.datadog.api.client.v2.model.TimelineResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -659,6 +665,528 @@ public class CaseManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CaseResponse>() {});
+  }
+
+  /**
+   * Create Jira issue for case.
+   *
+   * <p>See {@link #createCaseJiraIssueWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Jira issue creation request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void createCaseJiraIssue(String caseId, JiraIssueCreateRequest body) throws ApiException {
+    createCaseJiraIssueWithHttpInfo(caseId, body);
+  }
+
+  /**
+   * Create Jira issue for case.
+   *
+   * <p>See {@link #createCaseJiraIssueWithHttpInfoAsync}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Jira issue creation request (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> createCaseJiraIssueAsync(
+      String caseId, JiraIssueCreateRequest body) {
+    return createCaseJiraIssueWithHttpInfoAsync(caseId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new Jira issue and link it to a case
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Jira issue creation request (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> createCaseJiraIssueWithHttpInfo(
+      String caseId, JiraIssueCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createCaseJiraIssue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseId' when calling createCaseJiraIssue");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createCaseJiraIssue");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/jira_issues"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.createCaseJiraIssue",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create Jira issue for case.
+   *
+   * <p>See {@link #createCaseJiraIssueWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Jira issue creation request (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> createCaseJiraIssueWithHttpInfoAsync(
+      String caseId, JiraIssueCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createCaseJiraIssue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'caseId' when calling createCaseJiraIssue"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createCaseJiraIssue"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/jira_issues"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.createCaseJiraIssue",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create investigation notebook for case.
+   *
+   * <p>See {@link #createCaseNotebookWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Notebook creation request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void createCaseNotebook(String caseId, NotebookCreateRequest body) throws ApiException {
+    createCaseNotebookWithHttpInfo(caseId, body);
+  }
+
+  /**
+   * Create investigation notebook for case.
+   *
+   * <p>See {@link #createCaseNotebookWithHttpInfoAsync}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Notebook creation request (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> createCaseNotebookAsync(
+      String caseId, NotebookCreateRequest body) {
+    return createCaseNotebookWithHttpInfoAsync(caseId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new investigation notebook and link it to a case
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Notebook creation request (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> createCaseNotebookWithHttpInfo(String caseId, NotebookCreateRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createCaseNotebook";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseId' when calling createCaseNotebook");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createCaseNotebook");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/notebook"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.createCaseNotebook",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create investigation notebook for case.
+   *
+   * <p>See {@link #createCaseNotebookWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Notebook creation request (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> createCaseNotebookWithHttpInfoAsync(
+      String caseId, NotebookCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createCaseNotebook";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'caseId' when calling createCaseNotebook"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createCaseNotebook"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/notebook"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.createCaseNotebook",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create ServiceNow ticket for case.
+   *
+   * <p>See {@link #createCaseServiceNowTicketWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body ServiceNow ticket creation request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void createCaseServiceNowTicket(String caseId, ServiceNowTicketCreateRequest body)
+      throws ApiException {
+    createCaseServiceNowTicketWithHttpInfo(caseId, body);
+  }
+
+  /**
+   * Create ServiceNow ticket for case.
+   *
+   * <p>See {@link #createCaseServiceNowTicketWithHttpInfoAsync}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body ServiceNow ticket creation request (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> createCaseServiceNowTicketAsync(
+      String caseId, ServiceNowTicketCreateRequest body) {
+    return createCaseServiceNowTicketWithHttpInfoAsync(caseId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new ServiceNow incident ticket and link it to a case
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body ServiceNow ticket creation request (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> createCaseServiceNowTicketWithHttpInfo(
+      String caseId, ServiceNowTicketCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createCaseServiceNowTicket";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseId' when calling createCaseServiceNowTicket");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createCaseServiceNowTicket");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/servicenow_tickets"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.createCaseServiceNowTicket",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create ServiceNow ticket for case.
+   *
+   * <p>See {@link #createCaseServiceNowTicketWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body ServiceNow ticket creation request (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> createCaseServiceNowTicketWithHttpInfoAsync(
+      String caseId, ServiceNowTicketCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createCaseServiceNowTicket";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'caseId' when calling createCaseServiceNowTicket"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createCaseServiceNowTicket"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/servicenow_tickets"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.createCaseServiceNowTicket",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -2110,6 +2638,529 @@ public class CaseManagementApi {
         new GenericType<ProjectsResponse>() {});
   }
 
+  /**
+   * Link incident to case.
+   *
+   * <p>See {@link #linkIncidentWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Incident link request (required)
+   * @return CaseResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CaseResponse linkIncident(String caseId, RelationshipToIncidentRequest body)
+      throws ApiException {
+    return linkIncidentWithHttpInfo(caseId, body).getData();
+  }
+
+  /**
+   * Link incident to case.
+   *
+   * <p>See {@link #linkIncidentWithHttpInfoAsync}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Incident link request (required)
+   * @return CompletableFuture&lt;CaseResponse&gt;
+   */
+  public CompletableFuture<CaseResponse> linkIncidentAsync(
+      String caseId, RelationshipToIncidentRequest body) {
+    return linkIncidentWithHttpInfoAsync(caseId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Link an incident to a case
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Incident link request (required)
+   * @return ApiResponse&lt;CaseResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CaseResponse> linkIncidentWithHttpInfo(
+      String caseId, RelationshipToIncidentRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "linkIncident";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseId' when calling linkIncident");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling linkIncident");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/incidents"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.linkIncident",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CaseResponse>() {});
+  }
+
+  /**
+   * Link incident to case.
+   *
+   * <p>See {@link #linkIncidentWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Incident link request (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CaseResponse>> linkIncidentWithHttpInfoAsync(
+      String caseId, RelationshipToIncidentRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "linkIncident";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'caseId' when calling linkIncident"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling linkIncident"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/incidents"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.linkIncident",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CaseResponse>() {});
+  }
+
+  /**
+   * Link existing Jira issue to case.
+   *
+   * <p>See {@link #linkJiraIssueToCaseWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Jira issue link request (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void linkJiraIssueToCase(String caseId, JiraIssueLinkRequest body) throws ApiException {
+    linkJiraIssueToCaseWithHttpInfo(caseId, body);
+  }
+
+  /**
+   * Link existing Jira issue to case.
+   *
+   * <p>See {@link #linkJiraIssueToCaseWithHttpInfoAsync}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Jira issue link request (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> linkJiraIssueToCaseAsync(
+      String caseId, JiraIssueLinkRequest body) {
+    return linkJiraIssueToCaseWithHttpInfoAsync(caseId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Link an existing Jira issue to a case
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Jira issue link request (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> linkJiraIssueToCaseWithHttpInfo(String caseId, JiraIssueLinkRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "linkJiraIssueToCase";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseId' when calling linkJiraIssueToCase");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling linkJiraIssueToCase");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/jira_issues"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.linkJiraIssueToCase",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Link existing Jira issue to case.
+   *
+   * <p>See {@link #linkJiraIssueToCaseWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Jira issue link request (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> linkJiraIssueToCaseWithHttpInfoAsync(
+      String caseId, JiraIssueLinkRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "linkJiraIssueToCase";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'caseId' when calling linkJiraIssueToCase"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling linkJiraIssueToCase"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/jira_issues"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.linkJiraIssueToCase",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update case project.
+   *
+   * <p>See {@link #moveCaseToProjectWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Project update request (required)
+   * @return CaseResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CaseResponse moveCaseToProject(String caseId, ProjectRelationship body)
+      throws ApiException {
+    return moveCaseToProjectWithHttpInfo(caseId, body).getData();
+  }
+
+  /**
+   * Update case project.
+   *
+   * <p>See {@link #moveCaseToProjectWithHttpInfoAsync}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Project update request (required)
+   * @return CompletableFuture&lt;CaseResponse&gt;
+   */
+  public CompletableFuture<CaseResponse> moveCaseToProjectAsync(
+      String caseId, ProjectRelationship body) {
+    return moveCaseToProjectWithHttpInfoAsync(caseId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the project associated with a case
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Project update request (required)
+   * @return ApiResponse&lt;CaseResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CaseResponse> moveCaseToProjectWithHttpInfo(
+      String caseId, ProjectRelationship body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "moveCaseToProject";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseId' when calling moveCaseToProject");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling moveCaseToProject");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/project"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.moveCaseToProject",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CaseResponse>() {});
+  }
+
+  /**
+   * Update case project.
+   *
+   * <p>See {@link #moveCaseToProjectWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @param body Project update request (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CaseResponse>> moveCaseToProjectWithHttpInfoAsync(
+      String caseId, ProjectRelationship body) {
+    // Check if unstable operation is enabled
+    String operationId = "moveCaseToProject";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'caseId' when calling moveCaseToProject"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling moveCaseToProject"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/project"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.moveCaseToProject",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CaseResponse>() {});
+  }
+
   /** Manage optional parameters to searchCases. */
   public static class SearchCasesOptionalParameters {
     private Long pageSize;
@@ -2707,6 +3758,157 @@ public class CaseManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CaseResponse>() {});
+  }
+
+  /**
+   * Remove Jira issue link from case.
+   *
+   * <p>See {@link #unlinkJiraIssueWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void unlinkJiraIssue(String caseId) throws ApiException {
+    unlinkJiraIssueWithHttpInfo(caseId);
+  }
+
+  /**
+   * Remove Jira issue link from case.
+   *
+   * <p>See {@link #unlinkJiraIssueWithHttpInfoAsync}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> unlinkJiraIssueAsync(String caseId) {
+    return unlinkJiraIssueWithHttpInfoAsync(caseId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove the link between a Jira issue and a case
+   *
+   * @param caseId Case's UUID or key (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> unlinkJiraIssueWithHttpInfo(String caseId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "unlinkJiraIssue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'caseId' when calling unlinkJiraIssue");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/jira_issues"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CaseManagementApi.unlinkJiraIssue",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove Jira issue link from case.
+   *
+   * <p>See {@link #unlinkJiraIssueWithHttpInfo}.
+   *
+   * @param caseId Case's UUID or key (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> unlinkJiraIssueWithHttpInfoAsync(String caseId) {
+    // Check if unstable operation is enabled
+    String operationId = "unlinkJiraIssue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'caseId' is set
+    if (caseId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'caseId' when calling unlinkJiraIssue"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cases/{case_id}/relationships/jira_issues"
+            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CaseManagementApi.unlinkJiraIssue",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
