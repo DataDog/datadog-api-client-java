@@ -385,8 +385,8 @@ public class NetworkDeviceMonitoringApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Size for a given page. The maximum allowed value is 500. Defaults to 50.
+     *     (optional, default to 50)
      * @return ListDevicesOptionalParameters
      */
     public ListDevicesOptionalParameters pageSize(Long pageSize) {
@@ -397,7 +397,7 @@ public class NetworkDeviceMonitoringApi {
     /**
      * Set pageNumber.
      *
-     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @param pageNumber Specific page number to return. Defaults to 0. (optional, default to 0)
      * @return ListDevicesOptionalParameters
      */
     public ListDevicesOptionalParameters pageNumber(Long pageNumber) {
@@ -408,7 +408,8 @@ public class NetworkDeviceMonitoringApi {
     /**
      * Set sort.
      *
-     * @param sort The field to sort the devices by. (optional)
+     * @param sort The field to sort the devices by. Defaults to <code>name</code>. (optional,
+     *     default to "name")
      * @return ListDevicesOptionalParameters
      */
     public ListDevicesOptionalParameters sort(String sort) {
@@ -515,7 +516,7 @@ public class NetworkDeviceMonitoringApi {
     Long limit;
 
     if (parameters.pageSize == null) {
-      limit = 10l;
+      limit = 50l;
       parameters.pageSize(limit);
     } else {
       limit = parameters.pageSize;
