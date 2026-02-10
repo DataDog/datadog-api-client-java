@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,67 +17,44 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Options for configuring a memory buffer by queue length. */
-@JsonPropertyOrder({
-  ObservabilityPipelineMemoryBufferSizeOptions.JSON_PROPERTY_MAX_EVENTS,
-  ObservabilityPipelineMemoryBufferSizeOptions.JSON_PROPERTY_TYPE
-})
+/** Response with Google Chat space information. */
+@JsonPropertyOrder({GoogleChatAppNamedSpaceResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineMemoryBufferSizeOptions {
+public class GoogleChatAppNamedSpaceResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_MAX_EVENTS = "max_events";
-  private Long maxEvents;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private GoogleChatAppNamedSpaceResponseData data;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineBufferOptionsMemoryType type =
-      ObservabilityPipelineBufferOptionsMemoryType.MEMORY;
+  public GoogleChatAppNamedSpaceResponse() {}
 
-  public ObservabilityPipelineMemoryBufferSizeOptions maxEvents(Long maxEvents) {
-    this.maxEvents = maxEvents;
+  @JsonCreator
+  public GoogleChatAppNamedSpaceResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          GoogleChatAppNamedSpaceResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public GoogleChatAppNamedSpaceResponse data(GoogleChatAppNamedSpaceResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Maximum events for the memory buffer.
+   * Google Chat space data from a response.
    *
-   * @return maxEvents
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_EVENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMaxEvents() {
-    return maxEvents;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public GoogleChatAppNamedSpaceResponseData getData() {
+    return data;
   }
 
-  public void setMaxEvents(Long maxEvents) {
-    this.maxEvents = maxEvents;
-  }
-
-  public ObservabilityPipelineMemoryBufferSizeOptions type(
-      ObservabilityPipelineBufferOptionsMemoryType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The type of the buffer that will be configured, a memory buffer.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineBufferOptionsMemoryType getType() {
-    return type;
-  }
-
-  public void setType(ObservabilityPipelineBufferOptionsMemoryType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setData(GoogleChatAppNamedSpaceResponseData data) {
+    this.data = data;
   }
 
   /**
@@ -91,11 +69,10 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineMemoryBufferSizeOptions
+   * @return GoogleChatAppNamedSpaceResponse
    */
   @JsonAnySetter
-  public ObservabilityPipelineMemoryBufferSizeOptions putAdditionalProperty(
-      String key, Object value) {
+  public GoogleChatAppNamedSpaceResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -126,7 +103,7 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineMemoryBufferSizeOptions object is equal to o. */
+  /** Return true if this GoogleChatAppNamedSpaceResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,26 +112,23 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineMemoryBufferSizeOptions observabilityPipelineMemoryBufferSizeOptions =
-        (ObservabilityPipelineMemoryBufferSizeOptions) o;
-    return Objects.equals(this.maxEvents, observabilityPipelineMemoryBufferSizeOptions.maxEvents)
-        && Objects.equals(this.type, observabilityPipelineMemoryBufferSizeOptions.type)
+    GoogleChatAppNamedSpaceResponse googleChatAppNamedSpaceResponse =
+        (GoogleChatAppNamedSpaceResponse) o;
+    return Objects.equals(this.data, googleChatAppNamedSpaceResponse.data)
         && Objects.equals(
-            this.additionalProperties,
-            observabilityPipelineMemoryBufferSizeOptions.additionalProperties);
+            this.additionalProperties, googleChatAppNamedSpaceResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxEvents, type, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineMemoryBufferSizeOptions {\n");
-    sb.append("    maxEvents: ").append(toIndentedString(maxEvents)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class GoogleChatAppNamedSpaceResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,67 +17,71 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Options for configuring a memory buffer by queue length. */
+/** Organization handle attributes for a create request. */
 @JsonPropertyOrder({
-  ObservabilityPipelineMemoryBufferSizeOptions.JSON_PROPERTY_MAX_EVENTS,
-  ObservabilityPipelineMemoryBufferSizeOptions.JSON_PROPERTY_TYPE
+  GoogleChatCreateOrganizationHandleRequestAttributes.JSON_PROPERTY_NAME,
+  GoogleChatCreateOrganizationHandleRequestAttributes.JSON_PROPERTY_SPACE_RESOURCE_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineMemoryBufferSizeOptions {
+public class GoogleChatCreateOrganizationHandleRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_MAX_EVENTS = "max_events";
-  private Long maxEvents;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineBufferOptionsMemoryType type =
-      ObservabilityPipelineBufferOptionsMemoryType.MEMORY;
+  public static final String JSON_PROPERTY_SPACE_RESOURCE_NAME = "space_resource_name";
+  private String spaceResourceName;
 
-  public ObservabilityPipelineMemoryBufferSizeOptions maxEvents(Long maxEvents) {
-    this.maxEvents = maxEvents;
+  public GoogleChatCreateOrganizationHandleRequestAttributes() {}
+
+  @JsonCreator
+  public GoogleChatCreateOrganizationHandleRequestAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SPACE_RESOURCE_NAME)
+          String spaceResourceName) {
+    this.name = name;
+    this.spaceResourceName = spaceResourceName;
+  }
+
+  public GoogleChatCreateOrganizationHandleRequestAttributes name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Maximum events for the memory buffer.
+   * Organization handle name.
    *
-   * @return maxEvents
+   * @return name
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_EVENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMaxEvents() {
-    return maxEvents;
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
   }
 
-  public void setMaxEvents(Long maxEvents) {
-    this.maxEvents = maxEvents;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public ObservabilityPipelineMemoryBufferSizeOptions type(
-      ObservabilityPipelineBufferOptionsMemoryType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public GoogleChatCreateOrganizationHandleRequestAttributes spaceResourceName(
+      String spaceResourceName) {
+    this.spaceResourceName = spaceResourceName;
     return this;
   }
 
   /**
-   * The type of the buffer that will be configured, a memory buffer.
+   * Google space resource name.
    *
-   * @return type
+   * @return spaceResourceName
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineBufferOptionsMemoryType getType() {
-    return type;
+  @JsonProperty(JSON_PROPERTY_SPACE_RESOURCE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getSpaceResourceName() {
+    return spaceResourceName;
   }
 
-  public void setType(ObservabilityPipelineBufferOptionsMemoryType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setSpaceResourceName(String spaceResourceName) {
+    this.spaceResourceName = spaceResourceName;
   }
 
   /**
@@ -91,10 +96,10 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineMemoryBufferSizeOptions
+   * @return GoogleChatCreateOrganizationHandleRequestAttributes
    */
   @JsonAnySetter
-  public ObservabilityPipelineMemoryBufferSizeOptions putAdditionalProperty(
+  public GoogleChatCreateOrganizationHandleRequestAttributes putAdditionalProperty(
       String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
@@ -126,7 +131,9 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineMemoryBufferSizeOptions object is equal to o. */
+  /**
+   * Return true if this GoogleChatCreateOrganizationHandleRequestAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,26 +142,29 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineMemoryBufferSizeOptions observabilityPipelineMemoryBufferSizeOptions =
-        (ObservabilityPipelineMemoryBufferSizeOptions) o;
-    return Objects.equals(this.maxEvents, observabilityPipelineMemoryBufferSizeOptions.maxEvents)
-        && Objects.equals(this.type, observabilityPipelineMemoryBufferSizeOptions.type)
+    GoogleChatCreateOrganizationHandleRequestAttributes
+        googleChatCreateOrganizationHandleRequestAttributes =
+            (GoogleChatCreateOrganizationHandleRequestAttributes) o;
+    return Objects.equals(this.name, googleChatCreateOrganizationHandleRequestAttributes.name)
+        && Objects.equals(
+            this.spaceResourceName,
+            googleChatCreateOrganizationHandleRequestAttributes.spaceResourceName)
         && Objects.equals(
             this.additionalProperties,
-            observabilityPipelineMemoryBufferSizeOptions.additionalProperties);
+            googleChatCreateOrganizationHandleRequestAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxEvents, type, additionalProperties);
+    return Objects.hash(name, spaceResourceName, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineMemoryBufferSizeOptions {\n");
-    sb.append("    maxEvents: ").append(toIndentedString(maxEvents)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class GoogleChatCreateOrganizationHandleRequestAttributes {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    spaceResourceName: ").append(toIndentedString(spaceResourceName)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

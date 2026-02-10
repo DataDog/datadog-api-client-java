@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,67 +17,45 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Options for configuring a memory buffer by queue length. */
-@JsonPropertyOrder({
-  ObservabilityPipelineMemoryBufferSizeOptions.JSON_PROPERTY_MAX_EVENTS,
-  ObservabilityPipelineMemoryBufferSizeOptions.JSON_PROPERTY_TYPE
-})
+/** Organization handle data for a create request. */
+@JsonPropertyOrder({GoogleChatCreateOrganizationHandleRequestData.JSON_PROPERTY_ATTRIBUTES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineMemoryBufferSizeOptions {
+public class GoogleChatCreateOrganizationHandleRequestData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_MAX_EVENTS = "max_events";
-  private Long maxEvents;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private GoogleChatCreateOrganizationHandleRequestAttributes attributes;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineBufferOptionsMemoryType type =
-      ObservabilityPipelineBufferOptionsMemoryType.MEMORY;
+  public GoogleChatCreateOrganizationHandleRequestData() {}
 
-  public ObservabilityPipelineMemoryBufferSizeOptions maxEvents(Long maxEvents) {
-    this.maxEvents = maxEvents;
+  @JsonCreator
+  public GoogleChatCreateOrganizationHandleRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          GoogleChatCreateOrganizationHandleRequestAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+  }
+
+  public GoogleChatCreateOrganizationHandleRequestData attributes(
+      GoogleChatCreateOrganizationHandleRequestAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Maximum events for the memory buffer.
+   * Organization handle attributes for a create request.
    *
-   * @return maxEvents
+   * @return attributes
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_EVENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMaxEvents() {
-    return maxEvents;
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public GoogleChatCreateOrganizationHandleRequestAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setMaxEvents(Long maxEvents) {
-    this.maxEvents = maxEvents;
-  }
-
-  public ObservabilityPipelineMemoryBufferSizeOptions type(
-      ObservabilityPipelineBufferOptionsMemoryType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The type of the buffer that will be configured, a memory buffer.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineBufferOptionsMemoryType getType() {
-    return type;
-  }
-
-  public void setType(ObservabilityPipelineBufferOptionsMemoryType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setAttributes(GoogleChatCreateOrganizationHandleRequestAttributes attributes) {
+    this.attributes = attributes;
   }
 
   /**
@@ -91,10 +70,10 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineMemoryBufferSizeOptions
+   * @return GoogleChatCreateOrganizationHandleRequestData
    */
   @JsonAnySetter
-  public ObservabilityPipelineMemoryBufferSizeOptions putAdditionalProperty(
+  public GoogleChatCreateOrganizationHandleRequestData putAdditionalProperty(
       String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
@@ -126,7 +105,7 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineMemoryBufferSizeOptions object is equal to o. */
+  /** Return true if this GoogleChatCreateOrganizationHandleRequestData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,26 +114,24 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineMemoryBufferSizeOptions observabilityPipelineMemoryBufferSizeOptions =
-        (ObservabilityPipelineMemoryBufferSizeOptions) o;
-    return Objects.equals(this.maxEvents, observabilityPipelineMemoryBufferSizeOptions.maxEvents)
-        && Objects.equals(this.type, observabilityPipelineMemoryBufferSizeOptions.type)
+    GoogleChatCreateOrganizationHandleRequestData googleChatCreateOrganizationHandleRequestData =
+        (GoogleChatCreateOrganizationHandleRequestData) o;
+    return Objects.equals(this.attributes, googleChatCreateOrganizationHandleRequestData.attributes)
         && Objects.equals(
             this.additionalProperties,
-            observabilityPipelineMemoryBufferSizeOptions.additionalProperties);
+            googleChatCreateOrganizationHandleRequestData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxEvents, type, additionalProperties);
+    return Objects.hash(attributes, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineMemoryBufferSizeOptions {\n");
-    sb.append("    maxEvents: ").append(toIndentedString(maxEvents)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class GoogleChatCreateOrganizationHandleRequestData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
