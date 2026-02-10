@@ -3317,7 +3317,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the high-water mark of incident management monthly active users over all hours in the
+   * Shows the high-water mark of Incident Management monthly active users over all hours in the
    * current date for all organizations.
    *
    * @return incidentManagementMonthlyActiveUsersHwm
