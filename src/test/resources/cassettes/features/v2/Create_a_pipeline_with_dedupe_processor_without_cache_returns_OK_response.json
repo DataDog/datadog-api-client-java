@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"my-processor-group\"],\"type\":\"datadog_logs\"}],\"processor_groups\":[{\"enabled\":true,\"id\":\"my-processor-group\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"enabled\":true,\"fields\":[\"message\"],\"id\":\"dedupe-processor\",\"include\":\"service:my-service\",\"mode\":\"match\",\"type\":\"dedupe\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]},\"name\":\"Pipeline with Dedupe No Cache\"},\"type\":\"pipelines\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/obs-pipelines/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"3280ccb8-059d-11f1-a2aa-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Pipeline with Dedupe No Cache\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"my-processor-group\"],\"type\":\"datadog_logs\"}],\"processor_groups\":[{\"enabled\":true,\"id\":\"my-processor-group\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"enabled\":true,\"fields\":[\"message\"],\"id\":\"dedupe-processor\",\"include\":\"service:my-service\",\"mode\":\"match\",\"type\":\"dedupe\"}]}],\"processors\":[{\"enabled\":true,\"id\":\"my-processor-group\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"processors\":[{\"enabled\":true,\"fields\":[\"message\"],\"id\":\"dedupe-processor\",\"include\":\"service:my-service\",\"mode\":\"match\",\"type\":\"dedupe\"}]}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "49b5783e-7585-4803-7f43-4f9c3b65f4ef"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/obs-pipelines/pipelines/3280ccb8-059d-11f1-a2aa-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ecf742e6-6517-f10d-d4c8-57002c94f59a"
+  }
+]
