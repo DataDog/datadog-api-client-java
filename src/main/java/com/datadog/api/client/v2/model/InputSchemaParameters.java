@@ -19,6 +19,8 @@ import java.util.Objects;
 
 /** The definition of <code>InputSchemaParameters</code> object. */
 @JsonPropertyOrder({
+  InputSchemaParameters.JSON_PROPERTY_ALLOW_EXTRA_VALUES,
+  InputSchemaParameters.JSON_PROPERTY_ALLOWED_VALUES,
   InputSchemaParameters.JSON_PROPERTY_DEFAULT_VALUE,
   InputSchemaParameters.JSON_PROPERTY_DESCRIPTION,
   InputSchemaParameters.JSON_PROPERTY_LABEL,
@@ -29,6 +31,12 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class InputSchemaParameters {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ALLOW_EXTRA_VALUES = "allowExtraValues";
+  private Boolean allowExtraValues;
+
+  public static final String JSON_PROPERTY_ALLOWED_VALUES = "allowedValues";
+  private Object allowedValues = null;
+
   public static final String JSON_PROPERTY_DEFAULT_VALUE = "defaultValue";
   private Object defaultValue = null;
 
@@ -53,6 +61,48 @@ public class InputSchemaParameters {
     this.name = name;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public InputSchemaParameters allowExtraValues(Boolean allowExtraValues) {
+    this.allowExtraValues = allowExtraValues;
+    return this;
+  }
+
+  /**
+   * The <code>InputSchemaParameters</code> <code>allowExtraValues</code>.
+   *
+   * @return allowExtraValues
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_EXTRA_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAllowExtraValues() {
+    return allowExtraValues;
+  }
+
+  public void setAllowExtraValues(Boolean allowExtraValues) {
+    this.allowExtraValues = allowExtraValues;
+  }
+
+  public InputSchemaParameters allowedValues(Object allowedValues) {
+    this.allowedValues = allowedValues;
+    return this;
+  }
+
+  /**
+   * The <code>InputSchemaParameters</code> <code>allowedValues</code>.
+   *
+   * @return allowedValues
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOWED_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getAllowedValues() {
+    return allowedValues;
+  }
+
+  public void setAllowedValues(Object allowedValues) {
+    this.allowedValues = allowedValues;
   }
 
   public InputSchemaParameters defaultValue(Object defaultValue) {
@@ -218,7 +268,9 @@ public class InputSchemaParameters {
       return false;
     }
     InputSchemaParameters inputSchemaParameters = (InputSchemaParameters) o;
-    return Objects.equals(this.defaultValue, inputSchemaParameters.defaultValue)
+    return Objects.equals(this.allowExtraValues, inputSchemaParameters.allowExtraValues)
+        && Objects.equals(this.allowedValues, inputSchemaParameters.allowedValues)
+        && Objects.equals(this.defaultValue, inputSchemaParameters.defaultValue)
         && Objects.equals(this.description, inputSchemaParameters.description)
         && Objects.equals(this.label, inputSchemaParameters.label)
         && Objects.equals(this.name, inputSchemaParameters.name)
@@ -228,13 +280,23 @@ public class InputSchemaParameters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultValue, description, label, name, type, additionalProperties);
+    return Objects.hash(
+        allowExtraValues,
+        allowedValues,
+        defaultValue,
+        description,
+        label,
+        name,
+        type,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InputSchemaParameters {\n");
+    sb.append("    allowExtraValues: ").append(toIndentedString(allowExtraValues)).append("\n");
+    sb.append("    allowedValues: ").append(toIndentedString(allowedValues)).append("\n");
     sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
