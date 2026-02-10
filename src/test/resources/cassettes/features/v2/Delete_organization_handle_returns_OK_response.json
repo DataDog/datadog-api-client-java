@@ -1,0 +1,74 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_organization_handle_returns_OK_response-1770751029\",\"space_resource_name\":\"spaces/AAQA-zFIks8\"}},\"type\":\"google-chat-organization-handle\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/google-chat/organizations/e54cb570-c674-529c-769d-84b312288ed7/organization-handles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"e70e04d1-7547-47de-ad3b-41a345fd1abe\",\"type\":\"google-chat-organization-handle\",\"attributes\":{\"name\":\"Test-Delete_organization_handle_returns_OK_response-1770751029\",\"space_display_name\":\"api-test-space\",\"space_resource_name\":\"spaces/AAQA-zFIks8\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "295657c0-35e7-e8d9-3742-3f064780dd39"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/google-chat/organizations/e54cb570-c674-529c-769d-84b312288ed7/organization-handles/e70e04d1-7547-47de-ad3b-41a345fd1abe",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "43883590-a0ea-dd89-9a79-89bf95fa01b4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/google-chat/organizations/e54cb570-c674-529c-769d-84b312288ed7/organization-handles/e70e04d1-7547-47de-ad3b-41a345fd1abe",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "43883590-a0ea-dd89-9a79-89bf95fa01b5"
+  }
+]
