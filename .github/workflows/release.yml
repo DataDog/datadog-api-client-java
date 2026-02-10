@@ -1,9 +1,5 @@
 name: Release
 
-permissions:
-  contents: write
-  pull-requests: write
-
 env:
   GIT_AUTHOR_EMAIL: "packages@datadoghq.com"
   GIT_AUTHOR_NAME: "ci.datadog-api-spec"
@@ -16,23 +12,25 @@ on:
 
 jobs:
   create_release:
+    permissions:
+      contents: read
+      id-token: write  # Required for dd-octo-sts OIDC token
     name: Create release
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
     steps:
-      - name: Get GitHub App token
-        id: get_token
-        uses: actions/create-github-app-token@c1a285145b9d317df6ced56c09f525b5c2b6f755 #v1.11.1
-        with:
-          app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
-          private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
-
       - name: Checkout ${{ github.event.pull_request.base.ref }}
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          token: ${{ steps.get_token.outputs.token }}
           ref: ${{ github.event.pull_request.base.ref }}
           fetch-depth: 0
+
+      - name: Get GitHub token via dd-octo-sts
+        id: get_token
+        uses: DataDog/dd-octo-sts-action@acaa02eee7e3bb0839e4272dacb37b8f3b58ba80  # v1.0.3
+        with:
+          scope: DataDog/datadog-api-client-java
+          policy: self.github.release.master
 
       - name: Release packages
         env:
