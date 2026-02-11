@@ -15,99 +15,103 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Options for configuring a memory buffer by byte size. */
+/** */
 @JsonPropertyOrder({
-  ObservabilityPipelineMemoryBufferOptions.JSON_PROPERTY_MAX_SIZE,
-  ObservabilityPipelineMemoryBufferOptions.JSON_PROPERTY_TYPE,
-  ObservabilityPipelineMemoryBufferOptions.JSON_PROPERTY_WHEN_FULL
+  SeatUserData.JSON_PROPERTY_ATTRIBUTES,
+  SeatUserData.JSON_PROPERTY_ID,
+  SeatUserData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineMemoryBufferOptions {
+public class SeatUserData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_MAX_SIZE = "max_size";
-  private Long maxSize;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private SeatUserDataAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private JsonNullable<String> id = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineBufferOptionsMemoryType type =
-      ObservabilityPipelineBufferOptionsMemoryType.MEMORY;
+  private SeatUserDataType type = SeatUserDataType.SEAT_USERS;
 
-  public static final String JSON_PROPERTY_WHEN_FULL = "when_full";
-  private ObservabilityPipelineBufferOptionsWhenFull whenFull =
-      ObservabilityPipelineBufferOptionsWhenFull.BLOCK;
-
-  public ObservabilityPipelineMemoryBufferOptions maxSize(Long maxSize) {
-    this.maxSize = maxSize;
+  public SeatUserData attributes(SeatUserDataAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Maximum size of the memory buffer.
+   * Getattributes
    *
-   * @return maxSize
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_SIZE)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMaxSize() {
-    return maxSize;
+  public SeatUserDataAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setMaxSize(Long maxSize) {
-    this.maxSize = maxSize;
+  public void setAttributes(SeatUserDataAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public ObservabilityPipelineMemoryBufferOptions type(
-      ObservabilityPipelineBufferOptionsMemoryType type) {
+  public SeatUserData id(String id) {
+    this.id = JsonNullable.<String>of(id);
+    return this;
+  }
+
+  /**
+   * The ID of the seat user.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getId() {
+    return id.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getId_JsonNullable() {
+    return id;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<String> id) {
+    this.id = id;
+  }
+
+  public void setId(String id) {
+    this.id = JsonNullable.<String>of(id);
+  }
+
+  public SeatUserData type(SeatUserDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The type of the buffer that will be configured, a memory buffer.
+   * Seat users resource type.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineBufferOptionsMemoryType getType() {
+  public SeatUserDataType getType() {
     return type;
   }
 
-  public void setType(ObservabilityPipelineBufferOptionsMemoryType type) {
+  public void setType(SeatUserDataType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
     this.type = type;
-  }
-
-  public ObservabilityPipelineMemoryBufferOptions whenFull(
-      ObservabilityPipelineBufferOptionsWhenFull whenFull) {
-    this.whenFull = whenFull;
-    this.unparsed |= !whenFull.isValid();
-    return this;
-  }
-
-  /**
-   * Behavior when the buffer is full (block and stop accepting new events, or drop new events)
-   *
-   * @return whenFull
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WHEN_FULL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineBufferOptionsWhenFull getWhenFull() {
-    return whenFull;
-  }
-
-  public void setWhenFull(ObservabilityPipelineBufferOptionsWhenFull whenFull) {
-    if (!whenFull.isValid()) {
-      this.unparsed = true;
-    }
-    this.whenFull = whenFull;
   }
 
   /**
@@ -122,10 +126,10 @@ public class ObservabilityPipelineMemoryBufferOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineMemoryBufferOptions
+   * @return SeatUserData
    */
   @JsonAnySetter
-  public ObservabilityPipelineMemoryBufferOptions putAdditionalProperty(String key, Object value) {
+  public SeatUserData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -156,7 +160,7 @@ public class ObservabilityPipelineMemoryBufferOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineMemoryBufferOptions object is equal to o. */
+  /** Return true if this SeatUserData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -165,28 +169,25 @@ public class ObservabilityPipelineMemoryBufferOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineMemoryBufferOptions observabilityPipelineMemoryBufferOptions =
-        (ObservabilityPipelineMemoryBufferOptions) o;
-    return Objects.equals(this.maxSize, observabilityPipelineMemoryBufferOptions.maxSize)
-        && Objects.equals(this.type, observabilityPipelineMemoryBufferOptions.type)
-        && Objects.equals(this.whenFull, observabilityPipelineMemoryBufferOptions.whenFull)
-        && Objects.equals(
-            this.additionalProperties,
-            observabilityPipelineMemoryBufferOptions.additionalProperties);
+    SeatUserData seatUserData = (SeatUserData) o;
+    return Objects.equals(this.attributes, seatUserData.attributes)
+        && Objects.equals(this.id, seatUserData.id)
+        && Objects.equals(this.type, seatUserData.type)
+        && Objects.equals(this.additionalProperties, seatUserData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxSize, type, whenFull, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineMemoryBufferOptions {\n");
-    sb.append("    maxSize: ").append(toIndentedString(maxSize)).append("\n");
+    sb.append("class SeatUserData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    whenFull: ").append(toIndentedString(whenFull)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/seats/users",
+      "queryStringParameters": {
+        "product_code": [
+          "incident_response"
+        ],
+        "page[limit]": [
+          "100"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1a3727f8-a3ca-e8d5-a974-7eb61e837ce8"
+  }
+]

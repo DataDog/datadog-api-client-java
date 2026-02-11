@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"product_code\":\"\",\"user_uuids\":[\"\"]},\"type\":\"seat-assignments\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/seats/users",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"product_code is required\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 422,
+      "reasonPhrase": "Unprocessable Entity"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2938791d-ba43-61e2-365d-7157062ca1c5"
+  }
+]
