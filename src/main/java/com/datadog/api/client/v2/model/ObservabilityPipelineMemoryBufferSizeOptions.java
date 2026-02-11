@@ -19,8 +19,7 @@ import java.util.Objects;
 /** Options for configuring a memory buffer by queue length. */
 @JsonPropertyOrder({
   ObservabilityPipelineMemoryBufferSizeOptions.JSON_PROPERTY_MAX_EVENTS,
-  ObservabilityPipelineMemoryBufferSizeOptions.JSON_PROPERTY_TYPE,
-  ObservabilityPipelineMemoryBufferSizeOptions.JSON_PROPERTY_WHEN_FULL
+  ObservabilityPipelineMemoryBufferSizeOptions.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,10 +31,6 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineBufferOptionsMemoryType type =
       ObservabilityPipelineBufferOptionsMemoryType.MEMORY;
-
-  public static final String JSON_PROPERTY_WHEN_FULL = "when_full";
-  private ObservabilityPipelineBufferOptionsWhenFull whenFull =
-      ObservabilityPipelineBufferOptionsWhenFull.BLOCK;
 
   public ObservabilityPipelineMemoryBufferSizeOptions maxEvents(Long maxEvents) {
     this.maxEvents = maxEvents;
@@ -82,32 +77,6 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
       this.unparsed = true;
     }
     this.type = type;
-  }
-
-  public ObservabilityPipelineMemoryBufferSizeOptions whenFull(
-      ObservabilityPipelineBufferOptionsWhenFull whenFull) {
-    this.whenFull = whenFull;
-    this.unparsed |= !whenFull.isValid();
-    return this;
-  }
-
-  /**
-   * Behavior when the buffer is full (block and stop accepting new events, or drop new events)
-   *
-   * @return whenFull
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WHEN_FULL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineBufferOptionsWhenFull getWhenFull() {
-    return whenFull;
-  }
-
-  public void setWhenFull(ObservabilityPipelineBufferOptionsWhenFull whenFull) {
-    if (!whenFull.isValid()) {
-      this.unparsed = true;
-    }
-    this.whenFull = whenFull;
   }
 
   /**
@@ -170,7 +139,6 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
         (ObservabilityPipelineMemoryBufferSizeOptions) o;
     return Objects.equals(this.maxEvents, observabilityPipelineMemoryBufferSizeOptions.maxEvents)
         && Objects.equals(this.type, observabilityPipelineMemoryBufferSizeOptions.type)
-        && Objects.equals(this.whenFull, observabilityPipelineMemoryBufferSizeOptions.whenFull)
         && Objects.equals(
             this.additionalProperties,
             observabilityPipelineMemoryBufferSizeOptions.additionalProperties);
@@ -178,7 +146,7 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxEvents, type, whenFull, additionalProperties);
+    return Objects.hash(maxEvents, type, additionalProperties);
   }
 
   @Override
@@ -187,7 +155,6 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
     sb.append("class ObservabilityPipelineMemoryBufferSizeOptions {\n");
     sb.append("    maxEvents: ").append(toIndentedString(maxEvents)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    whenFull: ").append(toIndentedString(whenFull)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
