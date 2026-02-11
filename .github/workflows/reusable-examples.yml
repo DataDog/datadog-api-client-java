@@ -18,11 +18,6 @@ on:
         required: false
         type: string
         default: '16'
-    secrets:
-      PIPELINE_GITHUB_APP_ID:
-        required: false
-      PIPELINE_GITHUB_APP_PRIVATE_KEY:
-        required: false
 
 jobs:
   examples:
