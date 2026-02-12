@@ -3,12 +3,12 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CloudCostManagementApi;
+import com.datadog.api.client.v2.model.DataAttributesRulesItemsMapping;
 import com.datadog.api.client.v2.model.RulesetResp;
 import com.datadog.api.client.v2.model.UpdateRulesetRequest;
 import com.datadog.api.client.v2.model.UpdateRulesetRequestData;
 import com.datadog.api.client.v2.model.UpdateRulesetRequestDataAttributes;
 import com.datadog.api.client.v2.model.UpdateRulesetRequestDataAttributesRulesItems;
-import com.datadog.api.client.v2.model.UpdateRulesetRequestDataAttributesRulesItemsMapping;
 import com.datadog.api.client.v2.model.UpdateRulesetRequestDataType;
 import java.util.Arrays;
 import java.util.Collections;
@@ -31,7 +31,7 @@ public class Example {
                                     new UpdateRulesetRequestDataAttributesRulesItems()
                                         .enabled(true)
                                         .mapping(
-                                            new UpdateRulesetRequestDataAttributesRulesItemsMapping()
+                                            new DataAttributesRulesItemsMapping()
                                                 .destinationKey("team_owner")
                                                 .ifNotExists(true)
                                                 .sourceKeys(

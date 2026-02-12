@@ -121,6 +121,48 @@ public class SLOSliSpec extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'SLOTimeSliceSpec'", e);
       }
 
+      // deserialize SLOCountSpec
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SLOCountSpec.class.equals(Integer.class)
+            || SLOCountSpec.class.equals(Long.class)
+            || SLOCountSpec.class.equals(Float.class)
+            || SLOCountSpec.class.equals(Double.class)
+            || SLOCountSpec.class.equals(Boolean.class)
+            || SLOCountSpec.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SLOCountSpec.class.equals(Integer.class) || SLOCountSpec.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SLOCountSpec.class.equals(Float.class) || SLOCountSpec.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SLOCountSpec.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SLOCountSpec.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SLOCountSpec.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SLOCountSpec) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SLOCountSpec'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'SLOCountSpec'", e);
+      }
+
       SLOSliSpec ret = new SLOSliSpec();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -154,8 +196,14 @@ public class SLOSliSpec extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public SLOSliSpec(SLOCountSpec o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("SLOTimeSliceSpec", new GenericType<SLOTimeSliceSpec>() {});
+    schemas.put("SLOCountSpec", new GenericType<SLOCountSpec>() {});
     JSON.registerDescendants(SLOSliSpec.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -166,7 +214,7 @@ public class SLOSliSpec extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: SLOTimeSliceSpec
+   * against the oneOf child schemas: SLOTimeSliceSpec, SLOCountSpec
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -177,18 +225,22 @@ public class SLOSliSpec extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(SLOCountSpec.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be SLOTimeSliceSpec");
+    throw new RuntimeException("Invalid instance type. Must be SLOTimeSliceSpec, SLOCountSpec");
   }
 
   /**
-   * Get the actual instance, which can be the following: SLOTimeSliceSpec
+   * Get the actual instance, which can be the following: SLOTimeSliceSpec, SLOCountSpec
    *
-   * @return The actual instance (SLOTimeSliceSpec)
+   * @return The actual instance (SLOTimeSliceSpec, SLOCountSpec)
    */
   @Override
   public Object getActualInstance() {
@@ -204,5 +256,16 @@ public class SLOSliSpec extends AbstractOpenApiSchema {
    */
   public SLOTimeSliceSpec getSLOTimeSliceSpec() throws ClassCastException {
     return (SLOTimeSliceSpec) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SLOCountSpec`. If the actual instance is not `SLOCountSpec`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SLOCountSpec`
+   * @throws ClassCastException if the instance is not `SLOCountSpec`
+   */
+  public SLOCountSpec getSLOCountSpec() throws ClassCastException {
+    return (SLOCountSpec) super.getActualInstance();
   }
 }

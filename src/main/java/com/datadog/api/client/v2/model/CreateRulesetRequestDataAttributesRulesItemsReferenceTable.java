@@ -26,6 +26,7 @@ import java.util.Objects;
   CreateRulesetRequestDataAttributesRulesItemsReferenceTable.JSON_PROPERTY_CASE_INSENSITIVITY,
   CreateRulesetRequestDataAttributesRulesItemsReferenceTable.JSON_PROPERTY_FIELD_PAIRS,
   CreateRulesetRequestDataAttributesRulesItemsReferenceTable.JSON_PROPERTY_IF_NOT_EXISTS,
+  CreateRulesetRequestDataAttributesRulesItemsReferenceTable.JSON_PROPERTY_IF_TAG_EXISTS,
   CreateRulesetRequestDataAttributesRulesItemsReferenceTable.JSON_PROPERTY_SOURCE_KEYS,
   CreateRulesetRequestDataAttributesRulesItemsReferenceTable.JSON_PROPERTY_TABLE_NAME
 })
@@ -42,6 +43,9 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTable {
 
   public static final String JSON_PROPERTY_IF_NOT_EXISTS = "if_not_exists";
   private Boolean ifNotExists;
+
+  public static final String JSON_PROPERTY_IF_TAG_EXISTS = "if_tag_exists";
+  private DataAttributesRulesItemsIfTagExists ifTagExists;
 
   public static final String JSON_PROPERTY_SOURCE_KEYS = "source_keys";
   private List<String> sourceKeys = new ArrayList<>();
@@ -126,10 +130,13 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTable {
   }
 
   /**
-   * The <code>reference_table</code> <code>if_not_exists</code>.
+   * Deprecated. Use <code>if_tag_exists</code> instead. The <code>reference_table</code> <code>
+   * if_not_exists</code>.
    *
    * @return ifNotExists
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IF_NOT_EXISTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,8 +144,35 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTable {
     return ifNotExists;
   }
 
+  @Deprecated
   public void setIfNotExists(Boolean ifNotExists) {
     this.ifNotExists = ifNotExists;
+  }
+
+  public CreateRulesetRequestDataAttributesRulesItemsReferenceTable ifTagExists(
+      DataAttributesRulesItemsIfTagExists ifTagExists) {
+    this.ifTagExists = ifTagExists;
+    this.unparsed |= !ifTagExists.isValid();
+    return this;
+  }
+
+  /**
+   * The behavior when the tag already exists.
+   *
+   * @return ifTagExists
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IF_TAG_EXISTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DataAttributesRulesItemsIfTagExists getIfTagExists() {
+    return ifTagExists;
+  }
+
+  public void setIfTagExists(DataAttributesRulesItemsIfTagExists ifTagExists) {
+    if (!ifTagExists.isValid()) {
+      this.unparsed = true;
+    }
+    this.ifTagExists = ifTagExists;
   }
 
   public CreateRulesetRequestDataAttributesRulesItemsReferenceTable sourceKeys(
@@ -259,6 +293,9 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTable {
             this.ifNotExists,
             createRulesetRequestDataAttributesRulesItemsReferenceTable.ifNotExists)
         && Objects.equals(
+            this.ifTagExists,
+            createRulesetRequestDataAttributesRulesItemsReferenceTable.ifTagExists)
+        && Objects.equals(
             this.sourceKeys, createRulesetRequestDataAttributesRulesItemsReferenceTable.sourceKeys)
         && Objects.equals(
             this.tableName, createRulesetRequestDataAttributesRulesItemsReferenceTable.tableName)
@@ -270,7 +307,13 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTable {
   @Override
   public int hashCode() {
     return Objects.hash(
-        caseInsensitivity, fieldPairs, ifNotExists, sourceKeys, tableName, additionalProperties);
+        caseInsensitivity,
+        fieldPairs,
+        ifNotExists,
+        ifTagExists,
+        sourceKeys,
+        tableName,
+        additionalProperties);
   }
 
   @Override
@@ -280,6 +323,7 @@ public class CreateRulesetRequestDataAttributesRulesItemsReferenceTable {
     sb.append("    caseInsensitivity: ").append(toIndentedString(caseInsensitivity)).append("\n");
     sb.append("    fieldPairs: ").append(toIndentedString(fieldPairs)).append("\n");
     sb.append("    ifNotExists: ").append(toIndentedString(ifNotExists)).append("\n");
+    sb.append("    ifTagExists: ").append(toIndentedString(ifTagExists)).append("\n");
     sb.append("    sourceKeys: ").append(toIndentedString(sourceKeys)).append("\n");
     sb.append("    tableName: ").append(toIndentedString(tableName)).append("\n");
     sb.append("    additionalProperties: ")

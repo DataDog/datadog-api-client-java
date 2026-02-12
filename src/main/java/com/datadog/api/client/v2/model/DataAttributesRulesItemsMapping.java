@@ -19,15 +19,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>RulesetRespDataAttributesRulesItemsMapping</code> object. */
+/** The definition of <code>DataAttributesRulesItemsMapping</code> object. */
 @JsonPropertyOrder({
-  RulesetRespDataAttributesRulesItemsMapping.JSON_PROPERTY_DESTINATION_KEY,
-  RulesetRespDataAttributesRulesItemsMapping.JSON_PROPERTY_IF_NOT_EXISTS,
-  RulesetRespDataAttributesRulesItemsMapping.JSON_PROPERTY_SOURCE_KEYS
+  DataAttributesRulesItemsMapping.JSON_PROPERTY_DESTINATION_KEY,
+  DataAttributesRulesItemsMapping.JSON_PROPERTY_IF_NOT_EXISTS,
+  DataAttributesRulesItemsMapping.JSON_PROPERTY_IF_TAG_EXISTS,
+  DataAttributesRulesItemsMapping.JSON_PROPERTY_SOURCE_KEYS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RulesetRespDataAttributesRulesItemsMapping {
+public class DataAttributesRulesItemsMapping {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESTINATION_KEY = "destination_key";
   private String destinationKey;
@@ -35,22 +36,23 @@ public class RulesetRespDataAttributesRulesItemsMapping {
   public static final String JSON_PROPERTY_IF_NOT_EXISTS = "if_not_exists";
   private Boolean ifNotExists;
 
+  public static final String JSON_PROPERTY_IF_TAG_EXISTS = "if_tag_exists";
+  private DataAttributesRulesItemsIfTagExists ifTagExists;
+
   public static final String JSON_PROPERTY_SOURCE_KEYS = "source_keys";
   private List<String> sourceKeys = new ArrayList<>();
 
-  public RulesetRespDataAttributesRulesItemsMapping() {}
+  public DataAttributesRulesItemsMapping() {}
 
   @JsonCreator
-  public RulesetRespDataAttributesRulesItemsMapping(
+  public DataAttributesRulesItemsMapping(
       @JsonProperty(required = true, value = JSON_PROPERTY_DESTINATION_KEY) String destinationKey,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IF_NOT_EXISTS) Boolean ifNotExists,
       @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE_KEYS) List<String> sourceKeys) {
     this.destinationKey = destinationKey;
-    this.ifNotExists = ifNotExists;
     this.sourceKeys = sourceKeys;
   }
 
-  public RulesetRespDataAttributesRulesItemsMapping destinationKey(String destinationKey) {
+  public DataAttributesRulesItemsMapping destinationKey(String destinationKey) {
     this.destinationKey = destinationKey;
     return this;
   }
@@ -70,32 +72,63 @@ public class RulesetRespDataAttributesRulesItemsMapping {
     this.destinationKey = destinationKey;
   }
 
-  public RulesetRespDataAttributesRulesItemsMapping ifNotExists(Boolean ifNotExists) {
+  public DataAttributesRulesItemsMapping ifNotExists(Boolean ifNotExists) {
     this.ifNotExists = ifNotExists;
     return this;
   }
 
   /**
-   * The <code>mapping</code> <code>if_not_exists</code>.
+   * Deprecated. Use <code>if_tag_exists</code> instead. The <code>mapping</code> <code>
+   * if_not_exists</code>.
    *
    * @return ifNotExists
+   * @deprecated
    */
+  @Deprecated
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IF_NOT_EXISTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIfNotExists() {
     return ifNotExists;
   }
 
+  @Deprecated
   public void setIfNotExists(Boolean ifNotExists) {
     this.ifNotExists = ifNotExists;
   }
 
-  public RulesetRespDataAttributesRulesItemsMapping sourceKeys(List<String> sourceKeys) {
+  public DataAttributesRulesItemsMapping ifTagExists(
+      DataAttributesRulesItemsIfTagExists ifTagExists) {
+    this.ifTagExists = ifTagExists;
+    this.unparsed |= !ifTagExists.isValid();
+    return this;
+  }
+
+  /**
+   * The behavior when the tag already exists.
+   *
+   * @return ifTagExists
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IF_TAG_EXISTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DataAttributesRulesItemsIfTagExists getIfTagExists() {
+    return ifTagExists;
+  }
+
+  public void setIfTagExists(DataAttributesRulesItemsIfTagExists ifTagExists) {
+    if (!ifTagExists.isValid()) {
+      this.unparsed = true;
+    }
+    this.ifTagExists = ifTagExists;
+  }
+
+  public DataAttributesRulesItemsMapping sourceKeys(List<String> sourceKeys) {
     this.sourceKeys = sourceKeys;
     return this;
   }
 
-  public RulesetRespDataAttributesRulesItemsMapping addSourceKeysItem(String sourceKeysItem) {
+  public DataAttributesRulesItemsMapping addSourceKeysItem(String sourceKeysItem) {
     this.sourceKeys.add(sourceKeysItem);
     return this;
   }
@@ -127,11 +160,10 @@ public class RulesetRespDataAttributesRulesItemsMapping {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RulesetRespDataAttributesRulesItemsMapping
+   * @return DataAttributesRulesItemsMapping
    */
   @JsonAnySetter
-  public RulesetRespDataAttributesRulesItemsMapping putAdditionalProperty(
-      String key, Object value) {
+  public DataAttributesRulesItemsMapping putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -162,7 +194,7 @@ public class RulesetRespDataAttributesRulesItemsMapping {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RulesetRespDataAttributesRulesItemsMapping object is equal to o. */
+  /** Return true if this DataAttributesRulesItemsMapping object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -171,28 +203,28 @@ public class RulesetRespDataAttributesRulesItemsMapping {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RulesetRespDataAttributesRulesItemsMapping rulesetRespDataAttributesRulesItemsMapping =
-        (RulesetRespDataAttributesRulesItemsMapping) o;
-    return Objects.equals(
-            this.destinationKey, rulesetRespDataAttributesRulesItemsMapping.destinationKey)
-        && Objects.equals(this.ifNotExists, rulesetRespDataAttributesRulesItemsMapping.ifNotExists)
-        && Objects.equals(this.sourceKeys, rulesetRespDataAttributesRulesItemsMapping.sourceKeys)
+    DataAttributesRulesItemsMapping dataAttributesRulesItemsMapping =
+        (DataAttributesRulesItemsMapping) o;
+    return Objects.equals(this.destinationKey, dataAttributesRulesItemsMapping.destinationKey)
+        && Objects.equals(this.ifNotExists, dataAttributesRulesItemsMapping.ifNotExists)
+        && Objects.equals(this.ifTagExists, dataAttributesRulesItemsMapping.ifTagExists)
+        && Objects.equals(this.sourceKeys, dataAttributesRulesItemsMapping.sourceKeys)
         && Objects.equals(
-            this.additionalProperties,
-            rulesetRespDataAttributesRulesItemsMapping.additionalProperties);
+            this.additionalProperties, dataAttributesRulesItemsMapping.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationKey, ifNotExists, sourceKeys, additionalProperties);
+    return Objects.hash(destinationKey, ifNotExists, ifTagExists, sourceKeys, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RulesetRespDataAttributesRulesItemsMapping {\n");
+    sb.append("class DataAttributesRulesItemsMapping {\n");
     sb.append("    destinationKey: ").append(toIndentedString(destinationKey)).append("\n");
     sb.append("    ifNotExists: ").append(toIndentedString(ifNotExists)).append("\n");
+    sb.append("    ifTagExists: ").append(toIndentedString(ifTagExists)).append("\n");
     sb.append("    sourceKeys: ").append(toIndentedString(sourceKeys)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
