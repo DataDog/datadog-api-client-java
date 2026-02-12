@@ -20,6 +20,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SecurityMonitoringRuleAnomalyDetectionOptions.JSON_PROPERTY_BUCKET_DURATION,
   SecurityMonitoringRuleAnomalyDetectionOptions.JSON_PROPERTY_DETECTION_TOLERANCE,
+  SecurityMonitoringRuleAnomalyDetectionOptions.JSON_PROPERTY_INSTANTANEOUS_BASELINE,
   SecurityMonitoringRuleAnomalyDetectionOptions.JSON_PROPERTY_LEARNING_DURATION,
   SecurityMonitoringRuleAnomalyDetectionOptions.JSON_PROPERTY_LEARNING_PERIOD_BASELINE
 })
@@ -32,6 +33,9 @@ public class SecurityMonitoringRuleAnomalyDetectionOptions {
 
   public static final String JSON_PROPERTY_DETECTION_TOLERANCE = "detectionTolerance";
   private SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance detectionTolerance;
+
+  public static final String JSON_PROPERTY_INSTANTANEOUS_BASELINE = "instantaneousBaseline";
+  private Boolean instantaneousBaseline;
 
   public static final String JSON_PROPERTY_LEARNING_DURATION = "learningDuration";
   private SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration learningDuration;
@@ -93,6 +97,30 @@ public class SecurityMonitoringRuleAnomalyDetectionOptions {
       this.unparsed = true;
     }
     this.detectionTolerance = detectionTolerance;
+  }
+
+  public SecurityMonitoringRuleAnomalyDetectionOptions instantaneousBaseline(
+      Boolean instantaneousBaseline) {
+    this.instantaneousBaseline = instantaneousBaseline;
+    return this;
+  }
+
+  /**
+   * When set to true, Datadog uses previous values that fall within the defined learning window to
+   * construct the baseline, enabling the system to establish an accurate baseline more rapidly
+   * rather than relying solely on gradual learning over time.
+   *
+   * @return instantaneousBaseline
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INSTANTANEOUS_BASELINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getInstantaneousBaseline() {
+    return instantaneousBaseline;
+  }
+
+  public void setInstantaneousBaseline(Boolean instantaneousBaseline) {
+    this.instantaneousBaseline = instantaneousBaseline;
   }
 
   public SecurityMonitoringRuleAnomalyDetectionOptions learningDuration(
@@ -210,6 +238,9 @@ public class SecurityMonitoringRuleAnomalyDetectionOptions {
             this.detectionTolerance,
             securityMonitoringRuleAnomalyDetectionOptions.detectionTolerance)
         && Objects.equals(
+            this.instantaneousBaseline,
+            securityMonitoringRuleAnomalyDetectionOptions.instantaneousBaseline)
+        && Objects.equals(
             this.learningDuration, securityMonitoringRuleAnomalyDetectionOptions.learningDuration)
         && Objects.equals(
             this.learningPeriodBaseline,
@@ -224,6 +255,7 @@ public class SecurityMonitoringRuleAnomalyDetectionOptions {
     return Objects.hash(
         bucketDuration,
         detectionTolerance,
+        instantaneousBaseline,
         learningDuration,
         learningPeriodBaseline,
         additionalProperties);
@@ -235,6 +267,9 @@ public class SecurityMonitoringRuleAnomalyDetectionOptions {
     sb.append("class SecurityMonitoringRuleAnomalyDetectionOptions {\n");
     sb.append("    bucketDuration: ").append(toIndentedString(bucketDuration)).append("\n");
     sb.append("    detectionTolerance: ").append(toIndentedString(detectionTolerance)).append("\n");
+    sb.append("    instantaneousBaseline: ")
+        .append(toIndentedString(instantaneousBaseline))
+        .append("\n");
     sb.append("    learningDuration: ").append(toIndentedString(learningDuration)).append("\n");
     sb.append("    learningPeriodBaseline: ")
         .append(toIndentedString(learningPeriodBaseline))

@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"cases\":[{\"condition\":\"a > 0.995\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"An anomaly detection rule\",\"name\":\"Test-Create_a_detection_rule_with_detection_method_anomaly_detection_with_enabled_feature_instantaneousBa-1770734913\",\"options\":{\"anomalyDetectionOptions\":{\"bucketDuration\":300,\"detectionTolerance\":3,\"instantaneousBaseline\":true,\"learningDuration\":24},\"detectionMethod\":\"anomaly_detection\",\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"dataSource\":\"logs\",\"distinctFields\":[],\"groupByFields\":[\"@usr.email\",\"@network.client.ip\"],\"hasOptionalGroupByFields\":false,\"name\":\"\",\"query\":\"service:app status:error\"}],\"tags\":[],\"type\":\"log_detection\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"name\":\"Test-Create_a_detection_rule_with_detection_method_anomaly_detection_with_enabled_feature_instantaneousBa-1770734913\",\"createdAt\":1770734914087,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isBeta\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"service:app status:error\",\"groupByFields\":[\"@usr.email\",\"@network.client.ip\"],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"dataSource\":\"logs\"}],\"options\":{\"evaluationWindow\":1800,\"detectionMethod\":\"anomaly_detection\",\"maxSignalDuration\":86400,\"keepAlive\":3600,\"anomalyDetectionOptions\":{\"bucketDuration\":300,\"learningDuration\":24,\"detectionTolerance\":3,\"instantaneousBaseline\":true,\"instantaneousBaselineTimeoutMinutes\":30}},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a \\u003e 0.995\"}],\"message\":\"An anomaly detection rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[],\"version\":1,\"id\":\"mtt-vs9-dyl\",\"blocking\":false,\"metadata\":{\"entities\":null,\"sources\":null},\"creationAuthorId\":1445416,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"updater\":{\"handle\":\"\",\"name\":\"\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0481e682-4f99-15d0-d8b3-bf9ea1f6d724"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/rules/mtt-vs9-dyl",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "558eee7f-d626-bf27-70ee-c8e5ee4a3d7a"
+  }
+]
