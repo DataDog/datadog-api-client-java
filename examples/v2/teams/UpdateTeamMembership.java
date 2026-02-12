@@ -1,5 +1,4 @@
-// Update a user's membership attributes on a team returns "Represents a user's association to a
-// team" response
+// Update a user's membership attributes on a team returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -16,6 +15,12 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
+    // there is a valid "dd_team" in the system
+    String DD_TEAM_DATA_ID = System.getenv("DD_TEAM_DATA_ID");
+
+    // there is a valid "user" in the system
+    String USER_DATA_ID = System.getenv("USER_DATA_ID");
+
     UserTeamUpdateRequest body =
         new UserTeamUpdateRequest()
             .data(
@@ -24,7 +29,8 @@ public class Example {
                     .type(UserTeamType.TEAM_MEMBERSHIPS));
 
     try {
-      UserTeamResponse result = apiInstance.updateTeamMembership("team_id", "user_id", body);
+      UserTeamResponse result =
+          apiInstance.updateTeamMembership(DD_TEAM_DATA_ID, USER_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamsApi#updateTeamMembership");
