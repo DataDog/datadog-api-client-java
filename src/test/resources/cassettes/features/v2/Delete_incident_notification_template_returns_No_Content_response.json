@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"f3cd4435-48ee-4b07-bf6f-bfabd4d61b78\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-01-19T20:15:55.998248893Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-01-19T20:15:55.998248991Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
+      "body": "{\"data\":{\"id\":\"9705ad58-b13e-48c8-8d47-f2f755aec0bd\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-02-13T23:32:40.718770942Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-02-13T23:32:40.718771033Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,7 +33,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1768853755\",\"subject\":\"Test Subject\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"f3cd4435-48ee-4b07-bf6f-bfabd4d61b78\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
+        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1771025560\",\"subject\":\"Test Subject\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"9705ad58-b13e-48c8-8d47-f2f755aec0bd\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"defd8fff-8d3c-47fa-a7ae-b1aa3ddc552b\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"created\":\"2026-01-19T20:15:56.26957Z\",\"modified\":\"2026-01-19T20:15:56.26957Z\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1768853755\",\"subject\":\"Test Subject\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"f3cd4435-48ee-4b07-bf6f-bfabd4d61b78\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"9c22a437-bde6-4af3-8daa-a3190539a349\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"created\":\"2026-02-13T23:32:41.042165Z\",\"modified\":\"2026-02-13T23:32:41.042165Z\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1771025560\",\"subject\":\"Test Subject\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"9705ad58-b13e-48c8-8d47-f2f755aec0bd\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4e03eaae-7add-18db-db5d-6f19a5410484"
+    "id": "036ff5a1-e171-0891-9997-6e2cd1ece24b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/notification-templates/defd8fff-8d3c-47fa-a7ae-b1aa3ddc552b",
+      "path": "/api/v2/incidents/config/notification-templates/9c22a437-bde6-4af3-8daa-a3190539a349",
       "keepAlive": false,
       "secure": true
     },
@@ -78,13 +78,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "fb2aeac4-cd88-7782-cd20-3e1f5b0a8599"
+    "id": "3c112f61-dc92-cdad-381e-5317c8649659"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/notification-templates/defd8fff-8d3c-47fa-a7ae-b1aa3ddc552b",
+      "path": "/api/v2/incidents/config/notification-templates/9c22a437-bde6-4af3-8daa-a3190539a349",
       "keepAlive": false,
       "secure": true
     },
@@ -104,13 +104,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "fb2aeac4-cd88-7782-cd20-3e1f5b0a859a"
+    "id": "3c112f61-dc92-cdad-381e-5317c864965a"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/f3cd4435-48ee-4b07-bf6f-bfabd4d61b78",
+      "path": "/api/v2/incidents/config/types/9705ad58-b13e-48c8-8d47-f2f755aec0bd",
       "keepAlive": false,
       "secure": true
     },
@@ -125,6 +125,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8e21cc22-1d11-92d3-8305-c8dcfe815224"
+    "id": "e1d13932-f798-1c96-5a84-e639987ad0f7"
   }
 ]
