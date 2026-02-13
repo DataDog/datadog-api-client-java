@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-d1ea4282abe3f68d\",\"name\":\"test-name-d1ea4282abe3f68d\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"587b5f1a-b8ef-42b7-a99a-746cb80422a4\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":6,\"created_at\":\"2026-02-12T14:57:57.783497+00:00\",\"description\":null,\"handle\":\"test-handle-d1ea4282abe3f68d\",\"hidden_modules\":null,\"is_managed\":false,\"link_count\":0,\"modified_at\":\"2026-02-12T14:57:57.783497+00:00\",\"name\":\"test-name-d1ea4282abe3f68d\",\"summary\":null,\"user_count\":0,\"visible_modules\":null},\"relationships\":{\"team_links\":{\"data\":[],\"links\":{\"related\":\"/api/v2/team/587b5f1a-b8ef-42b7-a99a-746cb80422a4/links\"}},\"user_team_permissions\":{\"data\":null,\"links\":{\"related\":\"/api/v2/team/587b5f1a-b8ef-42b7-a99a-746cb80422a4/permission-settings\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "624bd97f-34c0-11c8-9677-ce29642f5d12"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"role\":\"admin\"},\"type\":\"team_memberships\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/team/587b5f1a-b8ef-42b7-a99a-746cb80422a4/memberships/00000000-0000-dead-beef-000000000000",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"User for ID 00000000-0000-dead-beef-000000000000 not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "98bc384f-2b99-7a69-d335-cf3ab09cb6bd"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/587b5f1a-b8ef-42b7-a99a-746cb80422a4",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3d52127d-8b5f-59f0-6ebf-af2b9d69a20f"
+  }
+]
