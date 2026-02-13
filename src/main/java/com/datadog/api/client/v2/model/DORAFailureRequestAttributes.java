@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes to create a DORA failure event. */
+/** Attributes to create a DORA incident event. */
 @JsonPropertyOrder({
   DORAFailureRequestAttributes.JSON_PROPERTY_CUSTOM_TAGS,
   DORAFailureRequestAttributes.JSON_PROPERTY_ENV,
@@ -129,7 +129,7 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * Environment name that was impacted by the failure.
+   * Environment name that was impacted by the incident.
    *
    * @return env
    */
@@ -150,7 +150,7 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds.
+   * Unix timestamp when the incident finished. It must be in nanoseconds, milliseconds, or seconds.
    *
    * @return finishedAt
    */
@@ -193,7 +193,7 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * Failure ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens,
+   * Incident ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens,
    * underscores, periods, and colons (a-z, A-Z, 0-9, -, _, ., :).
    *
    * @return id
@@ -215,7 +215,7 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * Failure name.
+   * Incident name.
    *
    * @return name
    */
@@ -244,7 +244,7 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * Service names impacted by the failure. If possible, use names registered in the Service
+   * Service names impacted by the incident. If possible, use names registered in the Service
    * Catalog. Required when the team field is not provided.
    *
    * @return services
@@ -266,7 +266,7 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * Failure severity.
+   * Incident severity.
    *
    * @return severity
    */
@@ -287,7 +287,7 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * Unix timestamp when the failure started. It must be in nanoseconds, milliseconds, or seconds.
+   * Unix timestamp when the incident started. It must be in nanoseconds, milliseconds, or seconds.
    *
    * @return startedAt
    */

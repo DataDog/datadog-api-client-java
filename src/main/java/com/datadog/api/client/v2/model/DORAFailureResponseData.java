@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response after receiving a DORA failure event. */
+/** Response after receiving a DORA incident event. */
 @JsonPropertyOrder({
   DORAFailureResponseData.JSON_PROPERTY_ID,
   DORAFailureResponseData.JSON_PROPERTY_TYPE
@@ -46,7 +46,7 @@ public class DORAFailureResponseData {
   }
 
   /**
-   * The ID of the received DORA failure event.
+   * The ID of the received DORA incident event.
    *
    * @return id
    */
@@ -67,7 +67,7 @@ public class DORAFailureResponseData {
   }
 
   /**
-   * JSON:API type for DORA failure events.
+   * JSON:API type for DORA incident events.
    *
    * @return type
    */
