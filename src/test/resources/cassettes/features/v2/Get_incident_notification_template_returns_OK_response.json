@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"b343a0f3-a053-4ece-9ef0-299ecc71f31c\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-01-19T20:16:03.169531598Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-01-19T20:16:03.16953168Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
+      "body": "{\"data\":{\"id\":\"bb43436a-3d0f-483e-aed3-d30ba0fb0a6d\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-02-13T23:32:47.39683022Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-02-13T23:32:47.39683031Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,7 +33,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"name\":\"Test Template Test-Get_incident_notification_template_returns_OK_response-1768853763\",\"subject\":\"Test Subject\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"b343a0f3-a053-4ece-9ef0-299ecc71f31c\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
+        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"name\":\"Test Template Test-Get_incident_notification_template_returns_OK_response-1771025567\",\"subject\":\"Test Subject\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"bb43436a-3d0f-483e-aed3-d30ba0fb0a6d\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"58f54f9e-a7fa-4388-9e67-58c697a7a993\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"created\":\"2026-01-19T20:16:03.548779Z\",\"modified\":\"2026-01-19T20:16:03.548779Z\",\"name\":\"Test Template Test-Get_incident_notification_template_returns_OK_response-1768853763\",\"subject\":\"Test Subject\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"b343a0f3-a053-4ece-9ef0-299ecc71f31c\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"a90a60ed-243b-489f-bf86-b7266612ccc7\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"created\":\"2026-02-13T23:32:47.692073Z\",\"modified\":\"2026-02-13T23:32:47.692073Z\",\"name\":\"Test Template Test-Get_incident_notification_template_returns_OK_response-1771025567\",\"subject\":\"Test Subject\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"bb43436a-3d0f-483e-aed3-d30ba0fb0a6d\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,18 +57,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f09871aa-a34a-f780-2ba6-125eabddd6a1"
+    "id": "a8f873ef-ba7e-9e37-d368-570b86cecbf0"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/incidents/config/notification-templates/58f54f9e-a7fa-4388-9e67-58c697a7a993",
+      "path": "/api/v2/incidents/config/notification-templates/a90a60ed-243b-489f-bf86-b7266612ccc7",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"58f54f9e-a7fa-4388-9e67-58c697a7a993\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"created\":\"2026-01-19T20:16:03.548779Z\",\"modified\":\"2026-01-19T20:16:03.548779Z\",\"name\":\"Test Template Test-Get_incident_notification_template_returns_OK_response-1768853763\",\"subject\":\"Test Subject\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"b343a0f3-a053-4ece-9ef0-299ecc71f31c\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"a90a60ed-243b-489f-bf86-b7266612ccc7\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"created\":\"2026-02-13T23:32:47.692073Z\",\"modified\":\"2026-02-13T23:32:47.692073Z\",\"name\":\"Test Template Test-Get_incident_notification_template_returns_OK_response-1771025567\",\"subject\":\"Test Subject\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"bb43436a-3d0f-483e-aed3-d30ba0fb0a6d\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -83,13 +83,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "616248c8-bf2d-d754-de37-91f632a8f453"
+    "id": "5196e4e7-aef9-a032-1786-6ea3e0ee1ac8"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/notification-templates/58f54f9e-a7fa-4388-9e67-58c697a7a993",
+      "path": "/api/v2/incidents/config/notification-templates/a90a60ed-243b-489f-bf86-b7266612ccc7",
       "keepAlive": false,
       "secure": true
     },
@@ -104,13 +104,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "fd090d2f-d35f-27cd-0a7b-f819fa266a70"
+    "id": "b38f6915-b5b5-a47c-9472-b1ba6802adc5"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/b343a0f3-a053-4ece-9ef0-299ecc71f31c",
+      "path": "/api/v2/incidents/config/types/bb43436a-3d0f-483e-aed3-d30ba0fb0a6d",
       "keepAlive": false,
       "secure": true
     },
@@ -125,6 +125,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e222fb88-c226-be3c-3ac6-8ce0ebb5d8fd"
+    "id": "d47c987a-469a-7679-6b47-a4bd26426692"
   }
 ]
