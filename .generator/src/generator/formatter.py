@@ -131,7 +131,7 @@ def untitle_case(value):
 def upperfirst(value):
     return value[0].upper() + value[1:]
 
-def escape_method_reserved_names(method_name):
+def escape_method_reserved_name(method_name):
     """
     Escape reserved language keywords for method names like getClass, setClass, isClass, etc.
     """

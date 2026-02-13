@@ -24,7 +24,7 @@ from generator.formatter import (
     format_data_with_schema,
     get_response_type,
     upperfirst,
-    escape_method_reserved_names,
+    escape_method_reserved_name,
 )
 
 
@@ -76,7 +76,7 @@ JINJA_ENV.globals["format_data_with_schema"] = format_data_with_schema
 JINJA_ENV.globals["format_parameters"] = format_parameters
 JINJA_ENV.globals["get_response_type"] = get_response_type
 JINJA_ENV.globals["get_type_at_path"] = openapi.get_type_at_path
-JINJA_ENV.filters["escape_method_reserved_names"] = escape_method_reserved_names
+JINJA_ENV.filters["escape_method_reserved_name"] = escape_method_reserved_name
 
 JAVA_EXAMPLE_J2 = JINJA_ENV.get_template("example.j2")
 
