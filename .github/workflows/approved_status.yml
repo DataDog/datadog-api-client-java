@@ -1,5 +1,9 @@
 name: Send PR Approval Status
 
+permissions:
+  contents: read
+  checks: write
+
 on:
   pull_request:
     branches:
@@ -12,9 +16,6 @@ on:
 
 jobs:
   send_status:
-    permissions:
-      contents: read
-      id-token: write  # Required for dd-octo-sts OIDC token
     runs-on: ubuntu-latest
     if: >
       github.event.pull_request.draft == false &&
@@ -22,12 +23,13 @@ jobs:
       !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/') &&
       contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')
     steps:
-      - name: Get GitHub token via dd-octo-sts
+      - name: Get GitHub App token
         id: get_token
-        uses: DataDog/dd-octo-sts-action@acaa02eee7e3bb0839e4272dacb37b8f3b58ba80  # v1.0.3
+        uses: actions/create-github-app-token@v1
         with:
-          scope: DataDog/datadog-api-spec
-          policy: datadog-api-client-java.approved_status.post-review-status
+          app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
+          private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
+          repositories: datadog-api-spec
       - name: Post PR review status check
         uses: DataDog/github-actions/post-review-status@v2
         with:
