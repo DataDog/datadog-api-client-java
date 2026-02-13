@@ -85,7 +85,7 @@ public class DORAIncidentObject {
   }
 
   /**
-   * JSON:API type for DORA failure events.
+   * JSON:API type for DORA incident events.
    *
    * @return type
    */
