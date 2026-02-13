@@ -804,6 +804,8 @@ public class ApiClient {
           put("v2.muteFindings", false);
           put("v2.runThreatHuntingJob", false);
           put("v2.searchSecurityMonitoringHistsignals", false);
+          put("v2.getCodeCoverageBranchSummary", false);
+          put("v2.getCodeCoverageCommitSummary", false);
           put("v2.createDataset", false);
           put("v2.deleteDataset", false);
           put("v2.getAllDatasets", false);
