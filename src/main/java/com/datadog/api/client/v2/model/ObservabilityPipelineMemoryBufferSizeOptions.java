@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -38,14 +37,6 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
   private ObservabilityPipelineBufferOptionsWhenFull whenFull =
       ObservabilityPipelineBufferOptionsWhenFull.BLOCK;
 
-  public ObservabilityPipelineMemoryBufferSizeOptions() {}
-
-  @JsonCreator
-  public ObservabilityPipelineMemoryBufferSizeOptions(
-      @JsonProperty(required = true, value = JSON_PROPERTY_MAX_EVENTS) Long maxEvents) {
-    this.maxEvents = maxEvents;
-  }
-
   public ObservabilityPipelineMemoryBufferSizeOptions maxEvents(Long maxEvents) {
     this.maxEvents = maxEvents;
     return this;
@@ -56,8 +47,9 @@ public class ObservabilityPipelineMemoryBufferSizeOptions {
    *
    * @return maxEvents
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAX_EVENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMaxEvents() {
     return maxEvents;
   }
