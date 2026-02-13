@@ -26,7 +26,7 @@ import java.util.Set;
 public class AlertEventCustomAttributesLinksItemsCategory extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("runbook", "documentation", "dashboard"));
+      new HashSet<String>(Arrays.asList("runbook", "documentation", "dashboard", "resource"));
 
   public static final AlertEventCustomAttributesLinksItemsCategory RUNBOOK =
       new AlertEventCustomAttributesLinksItemsCategory("runbook");
@@ -34,6 +34,8 @@ public class AlertEventCustomAttributesLinksItemsCategory extends ModelEnum<Stri
       new AlertEventCustomAttributesLinksItemsCategory("documentation");
   public static final AlertEventCustomAttributesLinksItemsCategory DASHBOARD =
       new AlertEventCustomAttributesLinksItemsCategory("dashboard");
+  public static final AlertEventCustomAttributesLinksItemsCategory RESOURCE =
+      new AlertEventCustomAttributesLinksItemsCategory("resource");
 
   AlertEventCustomAttributesLinksItemsCategory(String value) {
     super(value, allowedValues);
