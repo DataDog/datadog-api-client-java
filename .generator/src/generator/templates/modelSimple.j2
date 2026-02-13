@@ -216,7 +216,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
         {%- if schema.additionalProperties is defined and schema.additionalProperties is not false %}{%- if schema.additionalProperties.nullable %}content = JsonInclude.Include.ALWAYS,{%- endif %}{%- endif %}
         value = JsonInclude.Include.{%- if isRequired %}ALWAYS{%- else %}USE_DEFAULTS{%- endif %})
     {%- endif %}
-      public {{ dataType }} get{{ attr|camel_case|upperfirst }}() {
+      public {{ dataType }} get{{ attr|camel_case|upperfirst|escape_reserved_keyword }}() {
         {%- if not isRequired and isNullable %}
         {%- if schema.get("readOnly", False) %}
 
@@ -247,7 +247,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- endif %}
 
   {%- if not schema.get("readOnly", False) %}
-  public void set{{ attr|camel_case|upperfirst }}({{  dataType }} {{ variableName }}) {
+  public void set{{ attr|camel_case|upperfirst|escape_reserved_keyword }}({{  dataType }} {{ variableName }}) {
     {%- if schema.enum is defined %}
     if (!{{ variableName }}.isValid()) {
         this.unparsed = true;
