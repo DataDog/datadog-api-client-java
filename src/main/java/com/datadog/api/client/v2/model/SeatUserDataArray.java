@@ -13,45 +13,81 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Jira issue link attributes */
-@JsonPropertyOrder({JiraIssueLinkAttributes.JSON_PROPERTY_JIRA_ISSUE_URL})
+/** */
+@JsonPropertyOrder({SeatUserDataArray.JSON_PROPERTY_DATA, SeatUserDataArray.JSON_PROPERTY_META})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class JiraIssueLinkAttributes {
+public class SeatUserDataArray {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_JIRA_ISSUE_URL = "jira_issue_url";
-  private String jiraIssueUrl;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<SeatUserData> data = new ArrayList<>();
 
-  public JiraIssueLinkAttributes() {}
+  public static final String JSON_PROPERTY_META = "meta";
+  private SeatUserMeta meta;
+
+  public SeatUserDataArray() {}
 
   @JsonCreator
-  public JiraIssueLinkAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_JIRA_ISSUE_URL) String jiraIssueUrl) {
-    this.jiraIssueUrl = jiraIssueUrl;
+  public SeatUserDataArray(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<SeatUserData> data) {
+    this.data = data;
   }
 
-  public JiraIssueLinkAttributes jiraIssueUrl(String jiraIssueUrl) {
-    this.jiraIssueUrl = jiraIssueUrl;
+  public SeatUserDataArray data(List<SeatUserData> data) {
+    this.data = data;
+    for (SeatUserData item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SeatUserDataArray addDataItem(SeatUserData dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * URL of the Jira issue
+   * The list of seat users.
    *
-   * @return jiraIssueUrl
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_JIRA_ISSUE_URL)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getJiraIssueUrl() {
-    return jiraIssueUrl;
+  public List<SeatUserData> getData() {
+    return data;
   }
 
-  public void setJiraIssueUrl(String jiraIssueUrl) {
-    this.jiraIssueUrl = jiraIssueUrl;
+  public void setData(List<SeatUserData> data) {
+    this.data = data;
+  }
+
+  public SeatUserDataArray meta(SeatUserMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Getmeta
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SeatUserMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(SeatUserMeta meta) {
+    this.meta = meta;
   }
 
   /**
@@ -66,10 +102,10 @@ public class JiraIssueLinkAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return JiraIssueLinkAttributes
+   * @return SeatUserDataArray
    */
   @JsonAnySetter
-  public JiraIssueLinkAttributes putAdditionalProperty(String key, Object value) {
+  public SeatUserDataArray putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -100,7 +136,7 @@ public class JiraIssueLinkAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this JiraIssueLinkAttributes object is equal to o. */
+  /** Return true if this SeatUserDataArray object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -109,21 +145,23 @@ public class JiraIssueLinkAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    JiraIssueLinkAttributes jiraIssueLinkAttributes = (JiraIssueLinkAttributes) o;
-    return Objects.equals(this.jiraIssueUrl, jiraIssueLinkAttributes.jiraIssueUrl)
-        && Objects.equals(this.additionalProperties, jiraIssueLinkAttributes.additionalProperties);
+    SeatUserDataArray seatUserDataArray = (SeatUserDataArray) o;
+    return Objects.equals(this.data, seatUserDataArray.data)
+        && Objects.equals(this.meta, seatUserDataArray.meta)
+        && Objects.equals(this.additionalProperties, seatUserDataArray.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(jiraIssueUrl, additionalProperties);
+    return Objects.hash(data, meta, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class JiraIssueLinkAttributes {\n");
-    sb.append("    jiraIssueUrl: ").append(toIndentedString(jiraIssueUrl)).append("\n");
+    sb.append("class SeatUserDataArray {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

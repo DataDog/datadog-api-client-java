@@ -8,52 +8,79 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Notebook creation request */
-@JsonPropertyOrder({NotebookCreateRequest.JSON_PROPERTY_DATA})
+/** */
+@JsonPropertyOrder({
+  AssignSeatsUserResponseDataAttributes.JSON_PROPERTY_ASSIGNED_IDS,
+  AssignSeatsUserResponseDataAttributes.JSON_PROPERTY_PRODUCT_CODE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class NotebookCreateRequest {
+public class AssignSeatsUserResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private NotebookCreateData data;
+  public static final String JSON_PROPERTY_ASSIGNED_IDS = "assigned_ids";
+  private List<String> assignedIds = null;
 
-  public NotebookCreateRequest() {}
+  public static final String JSON_PROPERTY_PRODUCT_CODE = "product_code";
+  private String productCode;
 
-  @JsonCreator
-  public NotebookCreateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) NotebookCreateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public AssignSeatsUserResponseDataAttributes assignedIds(List<String> assignedIds) {
+    this.assignedIds = assignedIds;
+    return this;
   }
 
-  public NotebookCreateRequest data(NotebookCreateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public AssignSeatsUserResponseDataAttributes addAssignedIdsItem(String assignedIdsItem) {
+    if (this.assignedIds == null) {
+      this.assignedIds = new ArrayList<>();
+    }
+    this.assignedIds.add(assignedIdsItem);
     return this;
   }
 
   /**
-   * Notebook creation data
+   * The list of user IDs to which the seats were assigned.
    *
-   * @return data
+   * @return assignedIds
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public NotebookCreateData getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSIGNED_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getAssignedIds() {
+    return assignedIds;
   }
 
-  public void setData(NotebookCreateData data) {
-    this.data = data;
+  public void setAssignedIds(List<String> assignedIds) {
+    this.assignedIds = assignedIds;
+  }
+
+  public AssignSeatsUserResponseDataAttributes productCode(String productCode) {
+    this.productCode = productCode;
+    return this;
+  }
+
+  /**
+   * The product code for which the seats were assigned.
+   *
+   * @return productCode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProductCode() {
+    return productCode;
+  }
+
+  public void setProductCode(String productCode) {
+    this.productCode = productCode;
   }
 
   /**
@@ -68,10 +95,10 @@ public class NotebookCreateRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return NotebookCreateRequest
+   * @return AssignSeatsUserResponseDataAttributes
    */
   @JsonAnySetter
-  public NotebookCreateRequest putAdditionalProperty(String key, Object value) {
+  public AssignSeatsUserResponseDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -102,7 +129,7 @@ public class NotebookCreateRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this NotebookCreateRequest object is equal to o. */
+  /** Return true if this AssignSeatsUserResponseDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,21 +138,25 @@ public class NotebookCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotebookCreateRequest notebookCreateRequest = (NotebookCreateRequest) o;
-    return Objects.equals(this.data, notebookCreateRequest.data)
-        && Objects.equals(this.additionalProperties, notebookCreateRequest.additionalProperties);
+    AssignSeatsUserResponseDataAttributes assignSeatsUserResponseDataAttributes =
+        (AssignSeatsUserResponseDataAttributes) o;
+    return Objects.equals(this.assignedIds, assignSeatsUserResponseDataAttributes.assignedIds)
+        && Objects.equals(this.productCode, assignSeatsUserResponseDataAttributes.productCode)
+        && Objects.equals(
+            this.additionalProperties, assignSeatsUserResponseDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(assignedIds, productCode, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NotebookCreateRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class AssignSeatsUserResponseDataAttributes {\n");
+    sb.append("    assignedIds: ").append(toIndentedString(assignedIds)).append("\n");
+    sb.append("    productCode: ").append(toIndentedString(productCode)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

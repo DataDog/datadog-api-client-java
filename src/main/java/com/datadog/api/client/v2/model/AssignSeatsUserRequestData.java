@@ -17,44 +17,69 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Incident relationship data */
+/** */
 @JsonPropertyOrder({
-  IncidentRelationshipData.JSON_PROPERTY_ID,
-  IncidentRelationshipData.JSON_PROPERTY_TYPE
+  AssignSeatsUserRequestData.JSON_PROPERTY_ATTRIBUTES,
+  AssignSeatsUserRequestData.JSON_PROPERTY_ID,
+  AssignSeatsUserRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentRelationshipData {
+public class AssignSeatsUserRequestData {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private AssignSeatsUserRequestDataAttributes attributes;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private IncidentResourceType type;
+  private SeatAssignmentsDataType type = SeatAssignmentsDataType.SEAT_ASSIGNMENTS;
 
-  public IncidentRelationshipData() {}
+  public AssignSeatsUserRequestData() {}
 
   @JsonCreator
-  public IncidentRelationshipData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentResourceType type) {
-    this.id = id;
+  public AssignSeatsUserRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SeatAssignmentsDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public IncidentRelationshipData id(String id) {
+  public AssignSeatsUserRequestData attributes(AssignSeatsUserRequestDataAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    return this;
+  }
+
+  /**
+   * Getattributes
+   *
+   * @return attributes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AssignSeatsUserRequestDataAttributes getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(AssignSeatsUserRequestDataAttributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public AssignSeatsUserRequestData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Incident identifier
+   * The ID of the assign seats user request.
    *
    * @return id
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -63,24 +88,24 @@ public class IncidentRelationshipData {
     this.id = id;
   }
 
-  public IncidentRelationshipData type(IncidentResourceType type) {
+  public AssignSeatsUserRequestData type(SeatAssignmentsDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Incident resource type
+   * Seat assignments resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentResourceType getType() {
+  public SeatAssignmentsDataType getType() {
     return type;
   }
 
-  public void setType(IncidentResourceType type) {
+  public void setType(SeatAssignmentsDataType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -99,10 +124,10 @@ public class IncidentRelationshipData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentRelationshipData
+   * @return AssignSeatsUserRequestData
    */
   @JsonAnySetter
-  public IncidentRelationshipData putAdditionalProperty(String key, Object value) {
+  public AssignSeatsUserRequestData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +158,7 @@ public class IncidentRelationshipData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentRelationshipData object is equal to o. */
+  /** Return true if this AssignSeatsUserRequestData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,21 +167,24 @@ public class IncidentRelationshipData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentRelationshipData incidentRelationshipData = (IncidentRelationshipData) o;
-    return Objects.equals(this.id, incidentRelationshipData.id)
-        && Objects.equals(this.type, incidentRelationshipData.type)
-        && Objects.equals(this.additionalProperties, incidentRelationshipData.additionalProperties);
+    AssignSeatsUserRequestData assignSeatsUserRequestData = (AssignSeatsUserRequestData) o;
+    return Objects.equals(this.attributes, assignSeatsUserRequestData.attributes)
+        && Objects.equals(this.id, assignSeatsUserRequestData.id)
+        && Objects.equals(this.type, assignSeatsUserRequestData.type)
+        && Objects.equals(
+            this.additionalProperties, assignSeatsUserRequestData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentRelationshipData {\n");
+    sb.append("class AssignSeatsUserRequestData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

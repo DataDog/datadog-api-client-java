@@ -18,39 +18,36 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** ServiceNow ticket resource type */
-@JsonSerialize(using = ServiceNowTicketResourceType.ServiceNowTicketResourceTypeSerializer.class)
-public class ServiceNowTicketResourceType extends ModelEnum<String> {
+/** Seat users resource type. */
+@JsonSerialize(using = SeatUserDataType.SeatUserDataTypeSerializer.class)
+public class SeatUserDataType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("tickets"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("seat-users"));
 
-  public static final ServiceNowTicketResourceType TICKETS =
-      new ServiceNowTicketResourceType("tickets");
+  public static final SeatUserDataType SEAT_USERS = new SeatUserDataType("seat-users");
 
-  ServiceNowTicketResourceType(String value) {
+  SeatUserDataType(String value) {
     super(value, allowedValues);
   }
 
-  public static class ServiceNowTicketResourceTypeSerializer
-      extends StdSerializer<ServiceNowTicketResourceType> {
-    public ServiceNowTicketResourceTypeSerializer(Class<ServiceNowTicketResourceType> t) {
+  public static class SeatUserDataTypeSerializer extends StdSerializer<SeatUserDataType> {
+    public SeatUserDataTypeSerializer(Class<SeatUserDataType> t) {
       super(t);
     }
 
-    public ServiceNowTicketResourceTypeSerializer() {
+    public SeatUserDataTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(
-        ServiceNowTicketResourceType value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(SeatUserDataType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static ServiceNowTicketResourceType fromValue(String value) {
-    return new ServiceNowTicketResourceType(value);
+  public static SeatUserDataType fromValue(String value) {
+    return new SeatUserDataType(value);
   }
 }
