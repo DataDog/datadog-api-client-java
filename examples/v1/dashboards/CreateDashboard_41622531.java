@@ -10,6 +10,7 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionMetricDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
+import com.datadog.api.client.v1.model.TimeseriesRequestStyle;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinition;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.client.v1.model.TimeseriesWidgetLegendColumn;
@@ -23,7 +24,6 @@ import com.datadog.api.client.v1.model.WidgetFormulaStyle;
 import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetLineType;
 import com.datadog.api.client.v1.model.WidgetLineWidth;
-import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import com.datadog.api.client.v1.model.WidgetTime;
 import java.util.Arrays;
 import java.util.Collections;
@@ -77,7 +77,7 @@ public class Example {
                                                 .responseFormat(
                                                     FormulaAndFunctionResponseFormat.TIMESERIES)
                                                 .style(
-                                                    new WidgetRequestStyle()
+                                                    new TimeseriesRequestStyle()
                                                         .palette("dog_classic")
                                                         .lineType(WidgetLineType.SOLID)
                                                         .lineWidth(WidgetLineWidth.NORMAL))

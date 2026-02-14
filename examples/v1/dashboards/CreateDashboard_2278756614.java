@@ -18,6 +18,7 @@ import com.datadog.api.client.v1.model.SplitGraphWidgetDefinition;
 import com.datadog.api.client.v1.model.SplitGraphWidgetDefinitionType;
 import com.datadog.api.client.v1.model.SplitSort;
 import com.datadog.api.client.v1.model.SplitVectorEntryItem;
+import com.datadog.api.client.v1.model.TimeseriesRequestStyle;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinition;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.client.v1.model.TimeseriesWidgetRequest;
@@ -27,7 +28,6 @@ import com.datadog.api.client.v1.model.WidgetDisplayType;
 import com.datadog.api.client.v1.model.WidgetLayout;
 import com.datadog.api.client.v1.model.WidgetLineType;
 import com.datadog.api.client.v1.model.WidgetLineWidth;
-import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import com.datadog.api.client.v1.model.WidgetSort;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import java.util.Arrays;
@@ -75,7 +75,7 @@ public class Example {
                                                                             .query(
                                                                                 "avg:system.cpu.user{*}"))))
                                                             .style(
-                                                                new WidgetRequestStyle()
+                                                                new TimeseriesRequestStyle()
                                                                     .palette("dog_classic")
                                                                     .lineType(WidgetLineType.SOLID)
                                                                     .lineWidth(
