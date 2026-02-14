@@ -9,9 +9,13 @@ import com.datadog.api.client.v2.model.CreateWorkflowResponse;
 import com.datadog.api.client.v2.model.GetWorkflowResponse;
 import com.datadog.api.client.v2.model.UpdateWorkflowRequest;
 import com.datadog.api.client.v2.model.UpdateWorkflowResponse;
+import com.datadog.api.client.v2.model.WorkflowFavoriteRequest;
+import com.datadog.api.client.v2.model.WorkflowHeadlessExecutionRequest;
+import com.datadog.api.client.v2.model.WorkflowHeadlessExecutionResponse;
 import com.datadog.api.client.v2.model.WorkflowInstanceCreateRequest;
 import com.datadog.api.client.v2.model.WorkflowInstanceCreateResponse;
 import com.datadog.api.client.v2.model.WorkflowListInstancesResponse;
+import com.datadog.api.client.v2.model.WorkflowWebhookExecutionResponse;
 import com.datadog.api.client.v2.model.WorklflowCancelInstanceResponse;
 import com.datadog.api.client.v2.model.WorklflowGetInstanceResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -20,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -663,6 +668,497 @@ public class WorkflowAutomationApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Execute a workflow from a template.
+   *
+   * <p>See {@link #executeWorkflowFromTemplateWithHttpInfo}.
+   *
+   * @param parentId The ID of the parent workflow (required)
+   * @param body (required)
+   * @return WorkflowHeadlessExecutionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public WorkflowHeadlessExecutionResponse executeWorkflowFromTemplate(
+      String parentId, WorkflowHeadlessExecutionRequest body) throws ApiException {
+    return executeWorkflowFromTemplateWithHttpInfo(parentId, body).getData();
+  }
+
+  /**
+   * Execute a workflow from a template.
+   *
+   * <p>See {@link #executeWorkflowFromTemplateWithHttpInfoAsync}.
+   *
+   * @param parentId The ID of the parent workflow (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;WorkflowHeadlessExecutionResponse&gt;
+   */
+  public CompletableFuture<WorkflowHeadlessExecutionResponse> executeWorkflowFromTemplateAsync(
+      String parentId, WorkflowHeadlessExecutionRequest body) {
+    return executeWorkflowFromTemplateWithHttpInfoAsync(parentId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Execute a headless workflow instance from a template. This endpoint creates and executes a
+   * workflow instance based on a template configuration.
+   *
+   * <p><strong>Note</strong>: This endpoint is in public beta and is subject to change. If you have
+   * any feedback, contact <a href="https://docs.datadoghq.com/help/">Datadog support</a>.
+   *
+   * @param parentId The ID of the parent workflow (required)
+   * @param body (required)
+   * @return ApiResponse&lt;WorkflowHeadlessExecutionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<WorkflowHeadlessExecutionResponse> executeWorkflowFromTemplateWithHttpInfo(
+      String parentId, WorkflowHeadlessExecutionRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "executeWorkflowFromTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'parentId' is set
+    if (parentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'parentId' when calling executeWorkflowFromTemplate");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling executeWorkflowFromTemplate");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflow_headless/{parent_id}/instances"
+            .replaceAll("\\{" + "parent_id" + "\\}", apiClient.escapeString(parentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.WorkflowAutomationApi.executeWorkflowFromTemplate",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<WorkflowHeadlessExecutionResponse>() {});
+  }
+
+  /**
+   * Execute a workflow from a template.
+   *
+   * <p>See {@link #executeWorkflowFromTemplateWithHttpInfo}.
+   *
+   * @param parentId The ID of the parent workflow (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;WorkflowHeadlessExecutionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<WorkflowHeadlessExecutionResponse>>
+      executeWorkflowFromTemplateWithHttpInfoAsync(
+          String parentId, WorkflowHeadlessExecutionRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "executeWorkflowFromTemplate";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<WorkflowHeadlessExecutionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'parentId' is set
+    if (parentId == null) {
+      CompletableFuture<ApiResponse<WorkflowHeadlessExecutionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'parentId' when calling"
+                  + " executeWorkflowFromTemplate"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<WorkflowHeadlessExecutionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling executeWorkflowFromTemplate"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflow_headless/{parent_id}/instances"
+            .replaceAll("\\{" + "parent_id" + "\\}", apiClient.escapeString(parentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.WorkflowAutomationApi.executeWorkflowFromTemplate",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<WorkflowHeadlessExecutionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<WorkflowHeadlessExecutionResponse>() {});
+  }
+
+  /**
+   * Execute a workflow from a webhook.
+   *
+   * <p>See {@link #executeWorkflowFromWebhookWithHttpInfo}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param orgId The organization ID (required)
+   * @param xHubSignature256 GitHub webhook signature for payload validation (required)
+   * @param userAgent Must start with "GitHub-Hookshot/" (required)
+   * @param body (required)
+   * @return WorkflowWebhookExecutionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public WorkflowWebhookExecutionResponse executeWorkflowFromWebhook(
+      String workflowId,
+      UUID orgId,
+      String xHubSignature256,
+      String userAgent,
+      Map<String, Object> body)
+      throws ApiException {
+    return executeWorkflowFromWebhookWithHttpInfo(
+            workflowId, orgId, xHubSignature256, userAgent, body)
+        .getData();
+  }
+
+  /**
+   * Execute a workflow from a webhook.
+   *
+   * <p>See {@link #executeWorkflowFromWebhookWithHttpInfoAsync}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param orgId The organization ID (required)
+   * @param xHubSignature256 GitHub webhook signature for payload validation (required)
+   * @param userAgent Must start with "GitHub-Hookshot/" (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;WorkflowWebhookExecutionResponse&gt;
+   */
+  public CompletableFuture<WorkflowWebhookExecutionResponse> executeWorkflowFromWebhookAsync(
+      String workflowId,
+      UUID orgId,
+      String xHubSignature256,
+      String userAgent,
+      Map<String, Object> body) {
+    return executeWorkflowFromWebhookWithHttpInfoAsync(
+            workflowId, orgId, xHubSignature256, userAgent, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Execute a workflow triggered by a GitHub webhook. This endpoint validates the GitHub webhook
+   * signature and the GitHub user agent before executing the workflow.
+   *
+   * <p>This endpoint requires: - Valid GitHub webhook signature in the X-Hub-Signature-256 header -
+   * GitHub user agent in the User-Agent header - Valid organization ID in the orgId query parameter
+   * - Valid workflow ID in the path
+   *
+   * <p><strong>Note</strong>: This endpoint is in public beta and is subject to change. If you have
+   * any feedback, contact <a href="https://docs.datadoghq.com/help/">Datadog support</a>.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param orgId The organization ID (required)
+   * @param xHubSignature256 GitHub webhook signature for payload validation (required)
+   * @param userAgent Must start with "GitHub-Hookshot/" (required)
+   * @param body (required)
+   * @return ApiResponse&lt;WorkflowWebhookExecutionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<WorkflowWebhookExecutionResponse> executeWorkflowFromWebhookWithHttpInfo(
+      String workflowId,
+      UUID orgId,
+      String xHubSignature256,
+      String userAgent,
+      Map<String, Object> body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "executeWorkflowFromWebhook";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'workflowId' when calling executeWorkflowFromWebhook");
+    }
+
+    // verify the required parameter 'orgId' is set
+    if (orgId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'orgId' when calling executeWorkflowFromWebhook");
+    }
+
+    // verify the required parameter 'xHubSignature256' is set
+    if (xHubSignature256 == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'xHubSignature256' when calling"
+              + " executeWorkflowFromWebhook");
+    }
+
+    // verify the required parameter 'userAgent' is set
+    if (userAgent == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'userAgent' when calling executeWorkflowFromWebhook");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling executeWorkflowFromWebhook");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflows/{workflow_id}/webhook"
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "orgId", orgId));
+    if (xHubSignature256 != null) {
+      localVarHeaderParams.put(
+          "X-Hub-Signature-256", apiClient.parameterToString(xHubSignature256));
+    }
+    if (userAgent != null) {
+      localVarHeaderParams.put("User-Agent", apiClient.parameterToString(userAgent));
+    }
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.WorkflowAutomationApi.executeWorkflowFromWebhook",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<WorkflowWebhookExecutionResponse>() {});
+  }
+
+  /**
+   * Execute a workflow from a webhook.
+   *
+   * <p>See {@link #executeWorkflowFromWebhookWithHttpInfo}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param orgId The organization ID (required)
+   * @param xHubSignature256 GitHub webhook signature for payload validation (required)
+   * @param userAgent Must start with "GitHub-Hookshot/" (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;WorkflowWebhookExecutionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<WorkflowWebhookExecutionResponse>>
+      executeWorkflowFromWebhookWithHttpInfoAsync(
+          String workflowId,
+          UUID orgId,
+          String xHubSignature256,
+          String userAgent,
+          Map<String, Object> body) {
+    // Check if unstable operation is enabled
+    String operationId = "executeWorkflowFromWebhook";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<WorkflowWebhookExecutionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      CompletableFuture<ApiResponse<WorkflowWebhookExecutionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'workflowId' when calling"
+                  + " executeWorkflowFromWebhook"));
+      return result;
+    }
+
+    // verify the required parameter 'orgId' is set
+    if (orgId == null) {
+      CompletableFuture<ApiResponse<WorkflowWebhookExecutionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'orgId' when calling executeWorkflowFromWebhook"));
+      return result;
+    }
+
+    // verify the required parameter 'xHubSignature256' is set
+    if (xHubSignature256 == null) {
+      CompletableFuture<ApiResponse<WorkflowWebhookExecutionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'xHubSignature256' when calling"
+                  + " executeWorkflowFromWebhook"));
+      return result;
+    }
+
+    // verify the required parameter 'userAgent' is set
+    if (userAgent == null) {
+      CompletableFuture<ApiResponse<WorkflowWebhookExecutionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'userAgent' when calling"
+                  + " executeWorkflowFromWebhook"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<WorkflowWebhookExecutionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling executeWorkflowFromWebhook"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflows/{workflow_id}/webhook"
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "orgId", orgId));
+    if (xHubSignature256 != null) {
+      localVarHeaderParams.put(
+          "X-Hub-Signature-256", apiClient.parameterToString(xHubSignature256));
+    }
+    if (userAgent != null) {
+      localVarHeaderParams.put("User-Agent", apiClient.parameterToString(userAgent));
+    }
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.WorkflowAutomationApi.executeWorkflowFromWebhook",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<WorkflowWebhookExecutionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<WorkflowWebhookExecutionResponse>() {});
   }
 
   /**
@@ -1364,5 +1860,184 @@ public class WorkflowAutomationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UpdateWorkflowResponse>() {});
+  }
+
+  /**
+   * Update workflow favorite status.
+   *
+   * <p>See {@link #updateWorkflowFavoriteWithHttpInfo}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateWorkflowFavorite(String workflowId, WorkflowFavoriteRequest body)
+      throws ApiException {
+    updateWorkflowFavoriteWithHttpInfo(workflowId, body);
+  }
+
+  /**
+   * Update workflow favorite status.
+   *
+   * <p>See {@link #updateWorkflowFavoriteWithHttpInfoAsync}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateWorkflowFavoriteAsync(
+      String workflowId, WorkflowFavoriteRequest body) {
+    return updateWorkflowFavoriteWithHttpInfoAsync(workflowId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Mark a workflow as favorite or unfavorite for the authenticated user.
+   *
+   * <p><strong>Note</strong>: This endpoint is in public beta and is subject to change. If you have
+   * any feedback, contact <a href="https://docs.datadoghq.com/help/">Datadog support</a>.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateWorkflowFavoriteWithHttpInfo(
+      String workflowId, WorkflowFavoriteRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateWorkflowFavorite";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'workflowId' when calling updateWorkflowFavorite");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateWorkflowFavorite");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflows/{workflow_id}/favorite"
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.WorkflowAutomationApi.updateWorkflowFavorite",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update workflow favorite status.
+   *
+   * <p>See {@link #updateWorkflowFavoriteWithHttpInfo}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateWorkflowFavoriteWithHttpInfoAsync(
+      String workflowId, WorkflowFavoriteRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateWorkflowFavorite";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'workflowId' when calling updateWorkflowFavorite"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateWorkflowFavorite"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflows/{workflow_id}/favorite"
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.WorkflowAutomationApi.updateWorkflowFavorite",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 }
