@@ -770,6 +770,9 @@ public class ApiClient {
           put("v2.listFleetSchedules", false);
           put("v2.triggerFleetSchedule", false);
           put("v2.updateFleetSchedule", false);
+          put("v2.listActionConnections", false);
+          put("v2.listConnectionGroups", false);
+          put("v2.updateConnectionGroup", false);
           put("v2.createOpenAPI", false);
           put("v2.deleteOpenAPI", false);
           put("v2.getOpenAPI", false);
