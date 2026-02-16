@@ -783,12 +783,15 @@ public class ApiClient {
           put("v2.moveCaseToProject", false);
           put("v2.unlinkJiraIssue", false);
           put("v2.activateContentPack", false);
+          put("v2.assignIntegrationIssues", false);
           put("v2.cancelThreatHuntingJob", false);
           put("v2.convertJobResultToSignal", false);
+          put("v2.createJiraIssue", false);
           put("v2.deactivateContentPack", false);
           put("v2.deleteThreatHuntingJob", false);
           put("v2.getContentPacksStates", false);
           put("v2.getFinding", false);
+          put("v2.getJiraIssueMetadata", false);
           put("v2.getRuleVersionHistory", false);
           put("v2.getSecretsRules", false);
           put("v2.getSecurityMonitoringHistsignal", false);

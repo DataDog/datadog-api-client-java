@@ -33,6 +33,9 @@ import com.datadog.api.client.v2.model.GetResourceEvaluationFiltersResponse;
 import com.datadog.api.client.v2.model.GetRuleVersionHistoryResponse;
 import com.datadog.api.client.v2.model.GetSBOMResponse;
 import com.datadog.api.client.v2.model.GetSuppressionVersionHistoryResponse;
+import com.datadog.api.client.v2.model.IntegrationAssignmentRequest;
+import com.datadog.api.client.v2.model.JiraIssueRequest;
+import com.datadog.api.client.v2.model.JiraIssuesMetadataResponse;
 import com.datadog.api.client.v2.model.JobCreateResponse;
 import com.datadog.api.client.v2.model.ListAssetsSBOMsResponse;
 import com.datadog.api.client.v2.model.ListFindingsResponse;
@@ -292,6 +295,156 @@ public class SecurityMonitoringApi {
         builder,
         localVarHeaderParams,
         new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Assign or un-assign Jira issues to security findings.
+   *
+   * <p>See {@link #assignIntegrationIssuesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void assignIntegrationIssues(IntegrationAssignmentRequest body) throws ApiException {
+    assignIntegrationIssuesWithHttpInfo(body);
+  }
+
+  /**
+   * Assign or un-assign Jira issues to security findings.
+   *
+   * <p>See {@link #assignIntegrationIssuesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> assignIntegrationIssuesAsync(IntegrationAssignmentRequest body) {
+    return assignIntegrationIssuesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Assign or un-assign Jira issues to security findings or vulnerabilities. This endpoint allows
+   * you to associate existing Jira issues with security findings or vulnerabilities, or remove such
+   * associations.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> assignIntegrationIssuesWithHttpInfo(IntegrationAssignmentRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "assignIntegrationIssues";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling assignIntegrationIssues");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cloud_security_management/integrations/assign";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.assignIntegrationIssues",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Assign or un-assign Jira issues to security findings.
+   *
+   * <p>See {@link #assignIntegrationIssuesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> assignIntegrationIssuesWithHttpInfoAsync(
+      IntegrationAssignmentRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "assignIntegrationIssues";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling assignIntegrationIssues"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cloud_security_management/integrations/assign";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.assignIntegrationIssues",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
@@ -1597,6 +1750,154 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CreateCustomFrameworkResponse>() {});
+  }
+
+  /**
+   * Create Jira issues for security findings.
+   *
+   * <p>See {@link #createJiraIssueWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void createJiraIssue(JiraIssueRequest body) throws ApiException {
+    createJiraIssueWithHttpInfo(body);
+  }
+
+  /**
+   * Create Jira issues for security findings.
+   *
+   * <p>See {@link #createJiraIssueWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> createJiraIssueAsync(JiraIssueRequest body) {
+    return createJiraIssueWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create Jira issues for security findings or vulnerabilities. This endpoint creates new Jira
+   * issues based on the provided security findings or vulnerability information. The operation is
+   * asynchronous and returns immediately with a 202 Accepted status.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> createJiraIssueWithHttpInfo(JiraIssueRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createJiraIssue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createJiraIssue");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cloud_security_management/jira_issues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createJiraIssue",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create Jira issues for security findings.
+   *
+   * <p>See {@link #createJiraIssueWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> createJiraIssueWithHttpInfoAsync(
+      JiraIssueRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createJiraIssue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createJiraIssue"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cloud_security_management/jira_issues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createJiraIssue",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -5177,6 +5478,161 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GetFindingResponse>() {});
+  }
+
+  /**
+   * Get Jira issue metadata.
+   *
+   * <p>See {@link #getJiraIssueMetadataWithHttpInfo}.
+   *
+   * @param url The Jira issue URL. (required)
+   * @return JiraIssuesMetadataResponse
+   * @throws ApiException if fails to make API call
+   */
+  public JiraIssuesMetadataResponse getJiraIssueMetadata(String url) throws ApiException {
+    return getJiraIssueMetadataWithHttpInfo(url).getData();
+  }
+
+  /**
+   * Get Jira issue metadata.
+   *
+   * <p>See {@link #getJiraIssueMetadataWithHttpInfoAsync}.
+   *
+   * @param url The Jira issue URL. (required)
+   * @return CompletableFuture&lt;JiraIssuesMetadataResponse&gt;
+   */
+  public CompletableFuture<JiraIssuesMetadataResponse> getJiraIssueMetadataAsync(String url) {
+    return getJiraIssueMetadataWithHttpInfoAsync(url)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve metadata for a Jira issue. This endpoint returns metadata about a Jira issue,
+   * including account ID, issue type ID, and project ID, based on the provided Jira issue URL.
+   *
+   * @param url The Jira issue URL. (required)
+   * @return ApiResponse&lt;JiraIssuesMetadataResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<JiraIssuesMetadataResponse> getJiraIssueMetadataWithHttpInfo(String url)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getJiraIssueMetadata";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'url' is set
+    if (url == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'url' when calling getJiraIssueMetadata");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/jira_issues/metadata";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "url", url));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getJiraIssueMetadata",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<JiraIssuesMetadataResponse>() {});
+  }
+
+  /**
+   * Get Jira issue metadata.
+   *
+   * <p>See {@link #getJiraIssueMetadataWithHttpInfo}.
+   *
+   * @param url The Jira issue URL. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;JiraIssuesMetadataResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<JiraIssuesMetadataResponse>>
+      getJiraIssueMetadataWithHttpInfoAsync(String url) {
+    // Check if unstable operation is enabled
+    String operationId = "getJiraIssueMetadata";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<JiraIssuesMetadataResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'url' is set
+    if (url == null) {
+      CompletableFuture<ApiResponse<JiraIssuesMetadataResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'url' when calling getJiraIssueMetadata"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings/jira_issues/metadata";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "url", url));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getJiraIssueMetadata",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<JiraIssuesMetadataResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<JiraIssuesMetadataResponse>() {});
   }
 
   /** Manage optional parameters to getResourceEvaluationFilters. */
