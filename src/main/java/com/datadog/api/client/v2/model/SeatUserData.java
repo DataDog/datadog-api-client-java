@@ -17,43 +17,99 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Jira issue creation request */
-@JsonPropertyOrder({JiraIssueCreateRequest.JSON_PROPERTY_DATA})
+/** */
+@JsonPropertyOrder({
+  SeatUserData.JSON_PROPERTY_ATTRIBUTES,
+  SeatUserData.JSON_PROPERTY_ID,
+  SeatUserData.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class JiraIssueCreateRequest {
+public class SeatUserData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private JiraIssueCreateData data;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private SeatUserDataAttributes attributes;
 
-  public JiraIssueCreateRequest() {}
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SeatUserDataType type = SeatUserDataType.SEAT_USERS;
+
+  public SeatUserData() {}
 
   @JsonCreator
-  public JiraIssueCreateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) JiraIssueCreateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public SeatUserData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SeatUserDataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
-  public JiraIssueCreateRequest data(JiraIssueCreateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public SeatUserData attributes(SeatUserDataAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Jira issue creation data
+   * Getattributes
    *
-   * @return data
+   * @return attributes
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public JiraIssueCreateData getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SeatUserDataAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setData(JiraIssueCreateData data) {
-    this.data = data;
+  public void setAttributes(SeatUserDataAttributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public SeatUserData id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the seat user.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public SeatUserData type(SeatUserDataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Seat users resource type.
+   *
+   * @return type
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SeatUserDataType getType() {
+    return type;
+  }
+
+  public void setType(SeatUserDataType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -68,10 +124,10 @@ public class JiraIssueCreateRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return JiraIssueCreateRequest
+   * @return SeatUserData
    */
   @JsonAnySetter
-  public JiraIssueCreateRequest putAdditionalProperty(String key, Object value) {
+  public SeatUserData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -102,7 +158,7 @@ public class JiraIssueCreateRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this JiraIssueCreateRequest object is equal to o. */
+  /** Return true if this SeatUserData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,21 +167,25 @@ public class JiraIssueCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    JiraIssueCreateRequest jiraIssueCreateRequest = (JiraIssueCreateRequest) o;
-    return Objects.equals(this.data, jiraIssueCreateRequest.data)
-        && Objects.equals(this.additionalProperties, jiraIssueCreateRequest.additionalProperties);
+    SeatUserData seatUserData = (SeatUserData) o;
+    return Objects.equals(this.attributes, seatUserData.attributes)
+        && Objects.equals(this.id, seatUserData.id)
+        && Objects.equals(this.type, seatUserData.type)
+        && Objects.equals(this.additionalProperties, seatUserData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class JiraIssueCreateRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class SeatUserData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

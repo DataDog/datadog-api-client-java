@@ -13,47 +13,80 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** ServiceNow ticket creation request */
-@JsonPropertyOrder({ServiceNowTicketCreateRequest.JSON_PROPERTY_DATA})
+/** */
+@JsonPropertyOrder({
+  AssignSeatsUserRequestDataAttributes.JSON_PROPERTY_PRODUCT_CODE,
+  AssignSeatsUserRequestDataAttributes.JSON_PROPERTY_USER_UUIDS
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ServiceNowTicketCreateRequest {
+public class AssignSeatsUserRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private ServiceNowTicketCreateData data;
+  public static final String JSON_PROPERTY_PRODUCT_CODE = "product_code";
+  private String productCode;
 
-  public ServiceNowTicketCreateRequest() {}
+  public static final String JSON_PROPERTY_USER_UUIDS = "user_uuids";
+  private List<String> userUuids = new ArrayList<>();
+
+  public AssignSeatsUserRequestDataAttributes() {}
 
   @JsonCreator
-  public ServiceNowTicketCreateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) ServiceNowTicketCreateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public AssignSeatsUserRequestDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PRODUCT_CODE) String productCode,
+      @JsonProperty(required = true, value = JSON_PROPERTY_USER_UUIDS) List<String> userUuids) {
+    this.productCode = productCode;
+    this.userUuids = userUuids;
   }
 
-  public ServiceNowTicketCreateRequest data(ServiceNowTicketCreateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public AssignSeatsUserRequestDataAttributes productCode(String productCode) {
+    this.productCode = productCode;
     return this;
   }
 
   /**
-   * ServiceNow ticket creation data
+   * The product code for which to assign seats.
    *
-   * @return data
+   * @return productCode
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_PRODUCT_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ServiceNowTicketCreateData getData() {
-    return data;
+  public String getProductCode() {
+    return productCode;
   }
 
-  public void setData(ServiceNowTicketCreateData data) {
-    this.data = data;
+  public void setProductCode(String productCode) {
+    this.productCode = productCode;
+  }
+
+  public AssignSeatsUserRequestDataAttributes userUuids(List<String> userUuids) {
+    this.userUuids = userUuids;
+    return this;
+  }
+
+  public AssignSeatsUserRequestDataAttributes addUserUuidsItem(String userUuidsItem) {
+    this.userUuids.add(userUuidsItem);
+    return this;
+  }
+
+  /**
+   * The list of user IDs to assign seats to.
+   *
+   * @return userUuids
+   */
+  @JsonProperty(JSON_PROPERTY_USER_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getUserUuids() {
+    return userUuids;
+  }
+
+  public void setUserUuids(List<String> userUuids) {
+    this.userUuids = userUuids;
   }
 
   /**
@@ -68,10 +101,10 @@ public class ServiceNowTicketCreateRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ServiceNowTicketCreateRequest
+   * @return AssignSeatsUserRequestDataAttributes
    */
   @JsonAnySetter
-  public ServiceNowTicketCreateRequest putAdditionalProperty(String key, Object value) {
+  public AssignSeatsUserRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -102,7 +135,7 @@ public class ServiceNowTicketCreateRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ServiceNowTicketCreateRequest object is equal to o. */
+  /** Return true if this AssignSeatsUserRequestDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,22 +144,25 @@ public class ServiceNowTicketCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceNowTicketCreateRequest serviceNowTicketCreateRequest = (ServiceNowTicketCreateRequest) o;
-    return Objects.equals(this.data, serviceNowTicketCreateRequest.data)
+    AssignSeatsUserRequestDataAttributes assignSeatsUserRequestDataAttributes =
+        (AssignSeatsUserRequestDataAttributes) o;
+    return Objects.equals(this.productCode, assignSeatsUserRequestDataAttributes.productCode)
+        && Objects.equals(this.userUuids, assignSeatsUserRequestDataAttributes.userUuids)
         && Objects.equals(
-            this.additionalProperties, serviceNowTicketCreateRequest.additionalProperties);
+            this.additionalProperties, assignSeatsUserRequestDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(productCode, userUuids, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceNowTicketCreateRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class AssignSeatsUserRequestDataAttributes {\n");
+    sb.append("    productCode: ").append(toIndentedString(productCode)).append("\n");
+    sb.append("    userUuids: ").append(toIndentedString(userUuids)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

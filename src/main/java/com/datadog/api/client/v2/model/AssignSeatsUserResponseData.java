@@ -17,74 +17,95 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** ServiceNow ticket creation data */
+/** */
 @JsonPropertyOrder({
-  ServiceNowTicketCreateData.JSON_PROPERTY_ATTRIBUTES,
-  ServiceNowTicketCreateData.JSON_PROPERTY_TYPE
+  AssignSeatsUserResponseData.JSON_PROPERTY_ATTRIBUTES,
+  AssignSeatsUserResponseData.JSON_PROPERTY_ID,
+  AssignSeatsUserResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ServiceNowTicketCreateData {
+public class AssignSeatsUserResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private ServiceNowTicketCreateAttributes attributes;
+  private AssignSeatsUserResponseDataAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ServiceNowTicketResourceType type;
+  private SeatAssignmentsDataType type = SeatAssignmentsDataType.SEAT_ASSIGNMENTS;
 
-  public ServiceNowTicketCreateData() {}
+  public AssignSeatsUserResponseData() {}
 
   @JsonCreator
-  public ServiceNowTicketCreateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          ServiceNowTicketCreateAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ServiceNowTicketResourceType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public AssignSeatsUserResponseData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SeatAssignmentsDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public ServiceNowTicketCreateData attributes(ServiceNowTicketCreateAttributes attributes) {
+  public AssignSeatsUserResponseData attributes(AssignSeatsUserResponseDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * ServiceNow ticket creation attributes
+   * Getattributes
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ServiceNowTicketCreateAttributes getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AssignSeatsUserResponseDataAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(ServiceNowTicketCreateAttributes attributes) {
+  public void setAttributes(AssignSeatsUserResponseDataAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public ServiceNowTicketCreateData type(ServiceNowTicketResourceType type) {
+  public AssignSeatsUserResponseData id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the assign seats user response.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public AssignSeatsUserResponseData type(SeatAssignmentsDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * ServiceNow ticket resource type
+   * Seat assignments resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ServiceNowTicketResourceType getType() {
+  public SeatAssignmentsDataType getType() {
     return type;
   }
 
-  public void setType(ServiceNowTicketResourceType type) {
+  public void setType(SeatAssignmentsDataType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -103,10 +124,10 @@ public class ServiceNowTicketCreateData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ServiceNowTicketCreateData
+   * @return AssignSeatsUserResponseData
    */
   @JsonAnySetter
-  public ServiceNowTicketCreateData putAdditionalProperty(String key, Object value) {
+  public AssignSeatsUserResponseData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -137,7 +158,7 @@ public class ServiceNowTicketCreateData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ServiceNowTicketCreateData object is equal to o. */
+  /** Return true if this AssignSeatsUserResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,23 +167,25 @@ public class ServiceNowTicketCreateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceNowTicketCreateData serviceNowTicketCreateData = (ServiceNowTicketCreateData) o;
-    return Objects.equals(this.attributes, serviceNowTicketCreateData.attributes)
-        && Objects.equals(this.type, serviceNowTicketCreateData.type)
+    AssignSeatsUserResponseData assignSeatsUserResponseData = (AssignSeatsUserResponseData) o;
+    return Objects.equals(this.attributes, assignSeatsUserResponseData.attributes)
+        && Objects.equals(this.id, assignSeatsUserResponseData.id)
+        && Objects.equals(this.type, assignSeatsUserResponseData.type)
         && Objects.equals(
-            this.additionalProperties, serviceNowTicketCreateData.additionalProperties);
+            this.additionalProperties, assignSeatsUserResponseData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceNowTicketCreateData {\n");
+    sb.append("class AssignSeatsUserResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -17,68 +17,100 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** ServiceNow ticket creation attributes */
+/** */
 @JsonPropertyOrder({
-  ServiceNowTicketCreateAttributes.JSON_PROPERTY_ASSIGNMENT_GROUP,
-  ServiceNowTicketCreateAttributes.JSON_PROPERTY_INSTANCE_NAME
+  UnassignSeatsUserRequestData.JSON_PROPERTY_ATTRIBUTES,
+  UnassignSeatsUserRequestData.JSON_PROPERTY_ID,
+  UnassignSeatsUserRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ServiceNowTicketCreateAttributes {
+public class UnassignSeatsUserRequestData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ASSIGNMENT_GROUP = "assignment_group";
-  private String assignmentGroup;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private UnassignSeatsUserRequestDataAttributes attributes;
 
-  public static final String JSON_PROPERTY_INSTANCE_NAME = "instance_name";
-  private String instanceName;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public ServiceNowTicketCreateAttributes() {}
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SeatAssignmentsDataType type = SeatAssignmentsDataType.SEAT_ASSIGNMENTS;
+
+  public UnassignSeatsUserRequestData() {}
 
   @JsonCreator
-  public ServiceNowTicketCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_INSTANCE_NAME) String instanceName) {
-    this.instanceName = instanceName;
+  public UnassignSeatsUserRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SeatAssignmentsDataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
-  public ServiceNowTicketCreateAttributes assignmentGroup(String assignmentGroup) {
-    this.assignmentGroup = assignmentGroup;
+  public UnassignSeatsUserRequestData attributes(
+      UnassignSeatsUserRequestDataAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * ServiceNow assignment group
+   * Getattributes
    *
-   * @return assignmentGroup
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASSIGNMENT_GROUP)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAssignmentGroup() {
-    return assignmentGroup;
+  public UnassignSeatsUserRequestDataAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setAssignmentGroup(String assignmentGroup) {
-    this.assignmentGroup = assignmentGroup;
+  public void setAttributes(UnassignSeatsUserRequestDataAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public ServiceNowTicketCreateAttributes instanceName(String instanceName) {
-    this.instanceName = instanceName;
+  public UnassignSeatsUserRequestData id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * ServiceNow instance name
+   * The ID of the unassign seats user request.
    *
-   * @return instanceName
+   * @return id
    */
-  @JsonProperty(JSON_PROPERTY_INSTANCE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getInstanceName() {
-    return instanceName;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
   }
 
-  public void setInstanceName(String instanceName) {
-    this.instanceName = instanceName;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public UnassignSeatsUserRequestData type(SeatAssignmentsDataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Seat assignments resource type.
+   *
+   * @return type
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SeatAssignmentsDataType getType() {
+    return type;
+  }
+
+  public void setType(SeatAssignmentsDataType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -93,10 +125,10 @@ public class ServiceNowTicketCreateAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ServiceNowTicketCreateAttributes
+   * @return UnassignSeatsUserRequestData
    */
   @JsonAnySetter
-  public ServiceNowTicketCreateAttributes putAdditionalProperty(String key, Object value) {
+  public UnassignSeatsUserRequestData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -127,7 +159,7 @@ public class ServiceNowTicketCreateAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ServiceNowTicketCreateAttributes object is equal to o. */
+  /** Return true if this UnassignSeatsUserRequestData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -136,25 +168,26 @@ public class ServiceNowTicketCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceNowTicketCreateAttributes serviceNowTicketCreateAttributes =
-        (ServiceNowTicketCreateAttributes) o;
-    return Objects.equals(this.assignmentGroup, serviceNowTicketCreateAttributes.assignmentGroup)
-        && Objects.equals(this.instanceName, serviceNowTicketCreateAttributes.instanceName)
+    UnassignSeatsUserRequestData unassignSeatsUserRequestData = (UnassignSeatsUserRequestData) o;
+    return Objects.equals(this.attributes, unassignSeatsUserRequestData.attributes)
+        && Objects.equals(this.id, unassignSeatsUserRequestData.id)
+        && Objects.equals(this.type, unassignSeatsUserRequestData.type)
         && Objects.equals(
-            this.additionalProperties, serviceNowTicketCreateAttributes.additionalProperties);
+            this.additionalProperties, unassignSeatsUserRequestData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignmentGroup, instanceName, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceNowTicketCreateAttributes {\n");
-    sb.append("    assignmentGroup: ").append(toIndentedString(assignmentGroup)).append("\n");
-    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("class UnassignSeatsUserRequestData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

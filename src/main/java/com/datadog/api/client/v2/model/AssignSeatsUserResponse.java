@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,77 +16,35 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Jira issue link data */
-@JsonPropertyOrder({
-  JiraIssueLinkData.JSON_PROPERTY_ATTRIBUTES,
-  JiraIssueLinkData.JSON_PROPERTY_TYPE
-})
+/** */
+@JsonPropertyOrder({AssignSeatsUserResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class JiraIssueLinkData {
+public class AssignSeatsUserResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private JiraIssueLinkAttributes attributes;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private AssignSeatsUserResponseData data;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private JiraIssueResourceType type;
-
-  public JiraIssueLinkData() {}
-
-  @JsonCreator
-  public JiraIssueLinkData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          JiraIssueLinkAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) JiraIssueResourceType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public JiraIssueLinkData attributes(JiraIssueLinkAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public AssignSeatsUserResponse data(AssignSeatsUserResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Jira issue link attributes
+   * Getdata
    *
-   * @return attributes
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public JiraIssueLinkAttributes getAttributes() {
-    return attributes;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AssignSeatsUserResponseData getData() {
+    return data;
   }
 
-  public void setAttributes(JiraIssueLinkAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public JiraIssueLinkData type(JiraIssueResourceType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Jira issue resource type
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public JiraIssueResourceType getType() {
-    return type;
-  }
-
-  public void setType(JiraIssueResourceType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setData(AssignSeatsUserResponseData data) {
+    this.data = data;
   }
 
   /**
@@ -102,10 +59,10 @@ public class JiraIssueLinkData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return JiraIssueLinkData
+   * @return AssignSeatsUserResponse
    */
   @JsonAnySetter
-  public JiraIssueLinkData putAdditionalProperty(String key, Object value) {
+  public AssignSeatsUserResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -136,7 +93,7 @@ public class JiraIssueLinkData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this JiraIssueLinkData object is equal to o. */
+  /** Return true if this AssignSeatsUserResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,23 +102,21 @@ public class JiraIssueLinkData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    JiraIssueLinkData jiraIssueLinkData = (JiraIssueLinkData) o;
-    return Objects.equals(this.attributes, jiraIssueLinkData.attributes)
-        && Objects.equals(this.type, jiraIssueLinkData.type)
-        && Objects.equals(this.additionalProperties, jiraIssueLinkData.additionalProperties);
+    AssignSeatsUserResponse assignSeatsUserResponse = (AssignSeatsUserResponse) o;
+    return Objects.equals(this.data, assignSeatsUserResponse.data)
+        && Objects.equals(this.additionalProperties, assignSeatsUserResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class JiraIssueLinkData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class AssignSeatsUserResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -8,52 +8,95 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Relationship to incident request */
-@JsonPropertyOrder({RelationshipToIncidentRequest.JSON_PROPERTY_DATA})
+/** */
+@JsonPropertyOrder({
+  SeatUserDataAttributes.JSON_PROPERTY_ASSIGNED_AT,
+  SeatUserDataAttributes.JSON_PROPERTY_EMAIL,
+  SeatUserDataAttributes.JSON_PROPERTY_NAME
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RelationshipToIncidentRequest {
+public class SeatUserDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private IncidentRelationshipData data;
+  public static final String JSON_PROPERTY_ASSIGNED_AT = "assigned_at";
+  private OffsetDateTime assignedAt;
 
-  public RelationshipToIncidentRequest() {}
+  public static final String JSON_PROPERTY_EMAIL = "email";
+  private String email;
 
-  @JsonCreator
-  public RelationshipToIncidentRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentRelationshipData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public RelationshipToIncidentRequest data(IncidentRelationshipData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public SeatUserDataAttributes assignedAt(OffsetDateTime assignedAt) {
+    this.assignedAt = assignedAt;
     return this;
   }
 
   /**
-   * Incident relationship data
+   * The date and time the seat was assigned.
    *
-   * @return data
+   * @return assignedAt
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentRelationshipData getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSIGNED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getAssignedAt() {
+    return assignedAt;
   }
 
-  public void setData(IncidentRelationshipData data) {
-    this.data = data;
+  public void setAssignedAt(OffsetDateTime assignedAt) {
+    this.assignedAt = assignedAt;
+  }
+
+  public SeatUserDataAttributes email(String email) {
+    this.email = email;
+    return this;
+  }
+
+  /**
+   * The email of the user.
+   *
+   * @return email
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public SeatUserDataAttributes name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * The name of the user.
+   *
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -68,10 +111,10 @@ public class RelationshipToIncidentRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RelationshipToIncidentRequest
+   * @return SeatUserDataAttributes
    */
   @JsonAnySetter
-  public RelationshipToIncidentRequest putAdditionalProperty(String key, Object value) {
+  public SeatUserDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -102,7 +145,7 @@ public class RelationshipToIncidentRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RelationshipToIncidentRequest object is equal to o. */
+  /** Return true if this SeatUserDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,22 +154,25 @@ public class RelationshipToIncidentRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToIncidentRequest relationshipToIncidentRequest = (RelationshipToIncidentRequest) o;
-    return Objects.equals(this.data, relationshipToIncidentRequest.data)
-        && Objects.equals(
-            this.additionalProperties, relationshipToIncidentRequest.additionalProperties);
+    SeatUserDataAttributes seatUserDataAttributes = (SeatUserDataAttributes) o;
+    return Objects.equals(this.assignedAt, seatUserDataAttributes.assignedAt)
+        && Objects.equals(this.email, seatUserDataAttributes.email)
+        && Objects.equals(this.name, seatUserDataAttributes.name)
+        && Objects.equals(this.additionalProperties, seatUserDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(assignedAt, email, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RelationshipToIncidentRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class SeatUserDataAttributes {\n");
+    sb.append("    assignedAt: ").append(toIndentedString(assignedAt)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
