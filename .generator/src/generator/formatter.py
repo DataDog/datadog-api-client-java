@@ -76,8 +76,7 @@ HTML_ESCAPE_CHARACTERS = {
 }
 
 METHOD_KEYWORDS = {
-    "getClass",
-    "setClass",
+    "Class",
 }
 
 
