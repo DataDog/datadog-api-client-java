@@ -11,7 +11,7 @@ public class Example {
     ApmApi apiInstance = new ApmApi(defaultClient);
 
     try {
-      ServiceList result = apiInstance.getServiceList();
+      ServiceList result = apiInstance.getServiceList("filter[env]");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApmApi#getServiceList");

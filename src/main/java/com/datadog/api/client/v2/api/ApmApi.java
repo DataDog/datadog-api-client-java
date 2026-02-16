@@ -9,6 +9,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -48,11 +49,13 @@ public class ApmApi {
    *
    * <p>See {@link #getServiceListWithHttpInfo}.
    *
+   * @param filterEnv Filter services by environment. Can be set to <code>*</code> to return all
+   *     services across all environments. (required)
    * @return ServiceList
    * @throws ApiException if fails to make API call
    */
-  public ServiceList getServiceList() throws ApiException {
-    return getServiceListWithHttpInfo().getData();
+  public ServiceList getServiceList(String filterEnv) throws ApiException {
+    return getServiceListWithHttpInfo(filterEnv).getData();
   }
 
   /**
@@ -60,10 +63,12 @@ public class ApmApi {
    *
    * <p>See {@link #getServiceListWithHttpInfoAsync}.
    *
+   * @param filterEnv Filter services by environment. Can be set to <code>*</code> to return all
+   *     services across all environments. (required)
    * @return CompletableFuture&lt;ServiceList&gt;
    */
-  public CompletableFuture<ServiceList> getServiceListAsync() {
-    return getServiceListWithHttpInfoAsync()
+  public CompletableFuture<ServiceList> getServiceListAsync(String filterEnv) {
+    return getServiceListWithHttpInfoAsync(filterEnv)
         .thenApply(
             response -> {
               return response.getData();
@@ -71,6 +76,8 @@ public class ApmApi {
   }
 
   /**
+   * @param filterEnv Filter services by environment. Can be set to <code>*</code> to return all
+   *     services across all environments. (required)
    * @return ApiResponse&lt;ServiceList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -81,18 +88,27 @@ public class ApmApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ServiceList> getServiceListWithHttpInfo() throws ApiException {
+  public ApiResponse<ServiceList> getServiceListWithHttpInfo(String filterEnv) throws ApiException {
     Object localVarPostBody = null;
+
+    // verify the required parameter 'filterEnv' is set
+    if (filterEnv == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filterEnv' when calling getServiceList");
+    }
     // create path and map variables
     String localVarPath = "/api/v2/apm/services";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[env]", filterEnv));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.ApmApi.getServiceList",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -113,14 +129,29 @@ public class ApmApi {
    *
    * <p>See {@link #getServiceListWithHttpInfo}.
    *
+   * @param filterEnv Filter services by environment. Can be set to <code>*</code> to return all
+   *     services across all environments. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ServiceList&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ServiceList>> getServiceListWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<ServiceList>> getServiceListWithHttpInfoAsync(
+      String filterEnv) {
     Object localVarPostBody = null;
+
+    // verify the required parameter 'filterEnv' is set
+    if (filterEnv == null) {
+      CompletableFuture<ApiResponse<ServiceList>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'filterEnv' when calling getServiceList"));
+      return result;
+    }
     // create path and map variables
     String localVarPath = "/api/v2/apm/services";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[env]", filterEnv));
 
     Invocation.Builder builder;
     try {
@@ -128,7 +159,7 @@ public class ApmApi {
           apiClient.createBuilder(
               "v2.ApmApi.getServiceList",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
