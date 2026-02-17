@@ -20,6 +20,9 @@ import com.datadog.api.client.v2.model.IncidentImpactCreateRequest;
 import com.datadog.api.client.v2.model.IncidentImpactRelatedObject;
 import com.datadog.api.client.v2.model.IncidentImpactResponse;
 import com.datadog.api.client.v2.model.IncidentImpactsResponse;
+import com.datadog.api.client.v2.model.IncidentImportRelatedObject;
+import com.datadog.api.client.v2.model.IncidentImportRequest;
+import com.datadog.api.client.v2.model.IncidentImportResponse;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataCreateRequest;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataListResponse;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataPatchRequest;
@@ -5320,6 +5323,218 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentTypeResponse>() {});
+  }
+
+  /** Manage optional parameters to importIncident. */
+  public static class ImportIncidentOptionalParameters {
+    private List<IncidentImportRelatedObject> include;
+
+    /**
+     * Set include.
+     *
+     * @param include Specifies which related object types to include in the response when importing
+     *     an incident. (optional)
+     * @return ImportIncidentOptionalParameters
+     */
+    public ImportIncidentOptionalParameters include(List<IncidentImportRelatedObject> include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Import an incident.
+   *
+   * <p>See {@link #importIncidentWithHttpInfo}.
+   *
+   * @param body Incident import payload. (required)
+   * @return IncidentImportResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentImportResponse importIncident(IncidentImportRequest body) throws ApiException {
+    return importIncidentWithHttpInfo(body, new ImportIncidentOptionalParameters()).getData();
+  }
+
+  /**
+   * Import an incident.
+   *
+   * <p>See {@link #importIncidentWithHttpInfoAsync}.
+   *
+   * @param body Incident import payload. (required)
+   * @return CompletableFuture&lt;IncidentImportResponse&gt;
+   */
+  public CompletableFuture<IncidentImportResponse> importIncidentAsync(IncidentImportRequest body) {
+    return importIncidentWithHttpInfoAsync(body, new ImportIncidentOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Import an incident.
+   *
+   * <p>See {@link #importIncidentWithHttpInfo}.
+   *
+   * @param body Incident import payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentImportResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentImportResponse importIncident(
+      IncidentImportRequest body, ImportIncidentOptionalParameters parameters) throws ApiException {
+    return importIncidentWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Import an incident.
+   *
+   * <p>See {@link #importIncidentWithHttpInfoAsync}.
+   *
+   * @param body Incident import payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentImportResponse&gt;
+   */
+  public CompletableFuture<IncidentImportResponse> importIncidentAsync(
+      IncidentImportRequest body, ImportIncidentOptionalParameters parameters) {
+    return importIncidentWithHttpInfoAsync(body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Import an incident from an external system. This endpoint allows you to create incidents with
+   * historical data such as custom timestamps for detection, declaration, and resolution. Imported
+   * incidents do not execute integrations or notification rules.
+   *
+   * @param body Incident import payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentImportResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentImportResponse> importIncidentWithHttpInfo(
+      IncidentImportRequest body, ImportIncidentOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "importIncident";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling importIncident");
+    }
+    List<IncidentImportRelatedObject> include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/import";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.importIncident",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentImportResponse>() {});
+  }
+
+  /**
+   * Import an incident.
+   *
+   * <p>See {@link #importIncidentWithHttpInfo}.
+   *
+   * @param body Incident import payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentImportResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentImportResponse>> importIncidentWithHttpInfoAsync(
+      IncidentImportRequest body, ImportIncidentOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "importIncident";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentImportResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentImportResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling importIncident"));
+      return result;
+    }
+    List<IncidentImportRelatedObject> include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/import";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.importIncident",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentImportResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentImportResponse>() {});
   }
 
   /** Manage optional parameters to listGlobalIncidentHandles. */

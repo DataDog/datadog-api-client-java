@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"f3cd4435-48ee-4b07-bf6f-bfabd4d61b78\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-01-19T20:15:55.998248893Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-01-19T20:15:55.998248991Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
+      "body": "{\"data\":{\"id\":\"4944a6db-616f-4c81-9082-b7855424016f\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2026-02-17T13:49:19.602038903Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2026-02-17T13:49:19.602038976Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"google_chat_configuration\":{\"data\":null},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"microsoft_teams_configuration\":{\"data\":null},\"zoom_configuration\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,7 +33,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1768853755\",\"subject\":\"Test Subject\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"f3cd4435-48ee-4b07-bf6f-bfabd4d61b78\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
+        "json": "{\"data\":{\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1771336159\",\"subject\":\"Test Subject\"},\"relationships\":{\"incident_type\":{\"data\":{\"id\":\"4944a6db-616f-4c81-9082-b7855424016f\",\"type\":\"incident_types\"}}},\"type\":\"notification_templates\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"defd8fff-8d3c-47fa-a7ae-b1aa3ddc552b\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"created\":\"2026-01-19T20:15:56.26957Z\",\"modified\":\"2026-01-19T20:15:56.26957Z\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1768853755\",\"subject\":\"Test Subject\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"f3cd4435-48ee-4b07-bf6f-bfabd4d61b78\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"5b160e11-9b42-46f8-b826-7a3ec1d47430\",\"type\":\"notification_templates\",\"attributes\":{\"category\":\"alert\",\"content\":\"Test notification template\",\"created\":\"2026-02-17T13:49:19.862806Z\",\"modified\":\"2026-02-17T13:49:19.862806Z\",\"name\":\"Test Template Test-Delete_incident_notification_template_returns_No_Content_response-1771336159\",\"subject\":\"Test Subject\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"incident_type\":{\"data\":{\"id\":\"4944a6db-616f-4c81-9082-b7855424016f\",\"type\":\"incident_types\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4e03eaae-7add-18db-db5d-6f19a5410484"
+    "id": "5a6b4c97-b3f8-de66-f4b4-d7e2f9d23df7"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/notification-templates/defd8fff-8d3c-47fa-a7ae-b1aa3ddc552b",
+      "path": "/api/v2/incidents/config/notification-templates/5b160e11-9b42-46f8-b826-7a3ec1d47430",
       "keepAlive": false,
       "secure": true
     },
@@ -78,13 +78,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "fb2aeac4-cd88-7782-cd20-3e1f5b0a8599"
+    "id": "ca1519bf-bc6f-8b6d-0248-45d0ef406c19"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/notification-templates/defd8fff-8d3c-47fa-a7ae-b1aa3ddc552b",
+      "path": "/api/v2/incidents/config/notification-templates/5b160e11-9b42-46f8-b826-7a3ec1d47430",
       "keepAlive": false,
       "secure": true
     },
@@ -104,13 +104,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "fb2aeac4-cd88-7782-cd20-3e1f5b0a859a"
+    "id": "ca1519bf-bc6f-8b6d-0248-45d0ef406c1a"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/f3cd4435-48ee-4b07-bf6f-bfabd4d61b78",
+      "path": "/api/v2/incidents/config/types/4944a6db-616f-4c81-9082-b7855424016f",
       "keepAlive": false,
       "secure": true
     },
@@ -125,6 +125,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8e21cc22-1d11-92d3-8305-c8dcfe815224"
+    "id": "6b69789a-4240-b4d2-a8d1-7b82032afe04"
   }
 ]
