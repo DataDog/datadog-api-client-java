@@ -35,6 +35,7 @@ public class SecurityMonitoringSuppressionSort extends ModelEnum<String> {
               "-start_date",
               "-expiration_date",
               "-update_date",
+              "-creation_date",
               "-enabled"));
 
   public static final SecurityMonitoringSuppressionSort NAME =
@@ -55,6 +56,8 @@ public class SecurityMonitoringSuppressionSort extends ModelEnum<String> {
       new SecurityMonitoringSuppressionSort("-expiration_date");
   public static final SecurityMonitoringSuppressionSort UPDATE_DATE_DESCENDING =
       new SecurityMonitoringSuppressionSort("-update_date");
+  public static final SecurityMonitoringSuppressionSort CREATION_DATE_DESCENDING =
+      new SecurityMonitoringSuppressionSort("-creation_date");
   public static final SecurityMonitoringSuppressionSort ENABLED_DESCENDING =
       new SecurityMonitoringSuppressionSort("-enabled");
 
