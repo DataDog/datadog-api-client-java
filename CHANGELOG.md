@@ -1,5 +1,71 @@
 # CHANGELOG
 
+## 2.51.0/2026-02-17
+
+### Fixed
+* Add mandatory filter env parameter to APM services endpoint [#3501](https://github.com/DataDog/datadog-api-client-java/pull/3501)
+* Resolve issue where the go client cannot resolve between memoryBuffer and memoryBufferSize options [#3495](https://github.com/DataDog/datadog-api-client-java/pull/3495)
+* [CWS-5817] Add workload_activity rule type to OpenAPI spec [#3441](https://github.com/DataDog/datadog-api-client-java/pull/3441)
+* Modify api spec description of create postmortem attachment [#3440](https://github.com/DataDog/datadog-api-client-java/pull/3440)
+* Update some SDS status codes [#3394](https://github.com/DataDog/datadog-api-client-java/pull/3394)
+* Update api/v2/incidents/id/attachment endpoints documentation [#3364](https://github.com/DataDog/datadog-api-client-java/pull/3364)
+
+### Added
+* Add new endpoints for Code Coverage summary information [#3481](https://github.com/DataDog/datadog-api-client-java/pull/3481)
+* [Workflow Automation] Add allowedValues to InputSchemaParameters [#3480](https://github.com/DataDog/datadog-api-client-java/pull/3480)
+* Cloud SIEM - Add instantaneousBaseline to anomaly detection options [#3479](https://github.com/DataDog/datadog-api-client-java/pull/3479)
+* Adding when full option to the Memory Buffer options as well [#3476](https://github.com/DataDog/datadog-api-client-java/pull/3476)
+* Add OpenAPI documentation for cache property in dedupe processor in observability pipelines  [#3475](https://github.com/DataDog/datadog-api-client-java/pull/3475)
+* Adding Buffer options to Observability Pipeline Destinations [#3461](https://github.com/DataDog/datadog-api-client-java/pull/3461)
+* Add Descriptions for OCI Integrations Endpoint OpenAPI Spec [#3455](https://github.com/DataDog/datadog-api-client-java/pull/3455)
+* Sync rum-replay endpoints with backend for public documentation [#3449](https://github.com/DataDog/datadog-api-client-java/pull/3449)
+* Add OpenAPI documentation for security monitoring content packs endpoints [#3447](https://github.com/DataDog/datadog-api-client-java/pull/3447)
+* Create OpenAPI for incidents config postmortem templates [#3445](https://github.com/DataDog/datadog-api-client-java/pull/3445)
+* Add case-management-project resource type for restriction policies [#3442](https://github.com/DataDog/datadog-api-client-java/pull/3442)
+* Add OpenAPI documentation for case-rapid-api relationship endpoints [#3438](https://github.com/DataDog/datadog-api-client-java/pull/3438)
+* Add new products to usage API docs for ccm_spend_monitored_pro and ccm_spend_monitored_ent [#3436](https://github.com/DataDog/datadog-api-client-java/pull/3436)
+* Expose use_legacy_search_syntax flag in the Observability Pipelines API [#3433](https://github.com/DataDog/datadog-api-client-java/pull/3433)
+* Add Project and NotificationRule API specs for Case Management [#3432](https://github.com/DataDog/datadog-api-client-java/pull/3432)
+* Added spec for flex_logs_starter [#3431](https://github.com/DataDog/datadog-api-client-java/pull/3431)
+* Update api spec with additional monitor notification presets [#3430](https://github.com/DataDog/datadog-api-client-java/pull/3430)
+* Add public patch DORA deployment endpoint [#3427](https://github.com/DataDog/datadog-api-client-java/pull/3427)
+* Add On-Call Trigger to Workflow Automation Public API [#3424](https://github.com/DataDog/datadog-api-client-java/pull/3424)
+* Add UpdateFlakyTestState endpoint to Flaky Test Management API [#3422](https://github.com/DataDog/datadog-api-client-java/pull/3422)
+* Update api spec with additional monitor notification presets [#3420](https://github.com/DataDog/datadog-api-client-java/pull/3420)
+* Add order_by field to timeseries widget request schema [#3417](https://github.com/DataDog/datadog-api-client-java/pull/3417)
+* Add budget validation endpoints [#3416](https://github.com/DataDog/datadog-api-client-java/pull/3416)
+* Remove x-unstable property from security findings Jira issues endpoints [#3415](https://github.com/DataDog/datadog-api-client-java/pull/3415)
+* Add tags support to Logs Indexes API [#3414](https://github.com/DataDog/datadog-api-client-java/pull/3414)
+* Add OpenAPI specification for ServiceNow integration [#3413](https://github.com/DataDog/datadog-api-client-java/pull/3413)
+* Add support for routes in datadog logs destination [#3410](https://github.com/DataDog/datadog-api-client-java/pull/3410)
+* Create OpenAPI for HAMR endpoints [#3408](https://github.com/DataDog/datadog-api-client-java/pull/3408)
+* Create OpenAPI for incidents config global endpoints [#3407](https://github.com/DataDog/datadog-api-client-java/pull/3407)
+* Add Synthetics suites CRUD endpoints [#3406](https://github.com/DataDog/datadog-api-client-java/pull/3406)
+* security_monitoring - Document rules bulk export [#3401](https://github.com/DataDog/datadog-api-client-java/pull/3401)
+* Adding datastream to Open Search destination and adding Auth Strategy for Observability Pipeline API [#3400](https://github.com/DataDog/datadog-api-client-java/pull/3400)
+* Add OpenAPI for entity risk score api  [#3399](https://github.com/DataDog/datadog-api-client-java/pull/3399)
+* Add OpenAPI specification for collab-general service [#3398](https://github.com/DataDog/datadog-api-client-java/pull/3398)
+* Create OpenAPI for SLO status endpoint [#3397](https://github.com/DataDog/datadog-api-client-java/pull/3397)
+* Add missing incident attachments documentation [#3393](https://github.com/DataDog/datadog-api-client-java/pull/3393)
+* Add Network Path Monitors to API Docs [#3391](https://github.com/DataDog/datadog-api-client-java/pull/3391)
+* Update metrics all-tags endpoint documentation [#3388](https://github.com/DataDog/datadog-api-client-java/pull/3388)
+* Add Status Pages API specs [#3378](https://github.com/DataDog/datadog-api-client-java/pull/3378)
+* Add `custom/rulesets` endpoints [#3372](https://github.com/DataDog/datadog-api-client-java/pull/3372)
+* Add Synthetics suites CRUD endpoints [#3360](https://github.com/DataDog/datadog-api-client-java/pull/3360)
+* Add suppressions to SensitiveDataScannerRule resource [#3355](https://github.com/DataDog/datadog-api-client-java/pull/3355)
+* Support decimal sample_rate for RUM retention filters [#3310](https://github.com/DataDog/datadog-api-client-java/pull/3310)
+
+### Changed
+* Make id required in patch status pages request schemas, id and attributes required in post/patch status pages request schemas [#3434](https://github.com/DataDog/datadog-api-client-java/pull/3434)
+* Fix GetBudget endpoint to return BudgetWithEntries instead of BudgetValidationRequest [#3423](https://github.com/DataDog/datadog-api-client-java/pull/3423)
+* Update permissions in docs api for apm retention filters [#3418](https://github.com/DataDog/datadog-api-client-java/pull/3418)
+* Vulnerabilities-SBOM endpoints GA - Remove `x-unstable` [#3402](https://github.com/DataDog/datadog-api-client-java/pull/3402)
+* Add pagination and sorting parameters on suppression list [#3385](https://github.com/DataDog/datadog-api-client-java/pull/3385)
+* Changed Metric SLO to support SLI specification [#3263](https://github.com/DataDog/datadog-api-client-java/pull/3263)
+
+### Deprecated
+* Mark restricted_roles as deprecated [#3396](https://github.com/DataDog/datadog-api-client-java/pull/3396)
+
 ## 2.50.0/2026-01-15
 
 ### Added
