@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.DevicesListData;
 import com.datadog.api.client.v2.model.GetDeviceResponse;
 import com.datadog.api.client.v2.model.GetInterfacesResponse;
 import com.datadog.api.client.v2.model.ListDevicesResponse;
+import com.datadog.api.client.v2.model.ListInterfaceTagsResponse;
 import com.datadog.api.client.v2.model.ListTagsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -783,6 +784,145 @@ public class NetworkDeviceMonitoringApi {
   }
 
   /**
+   * List tags for an interface.
+   *
+   * <p>See {@link #listInterfaceUserTagsWithHttpInfo}.
+   *
+   * @param interfaceId The ID of the interface for which to retrieve tags. (required)
+   * @return ListInterfaceTagsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListInterfaceTagsResponse listInterfaceUserTags(String interfaceId) throws ApiException {
+    return listInterfaceUserTagsWithHttpInfo(interfaceId).getData();
+  }
+
+  /**
+   * List tags for an interface.
+   *
+   * <p>See {@link #listInterfaceUserTagsWithHttpInfoAsync}.
+   *
+   * @param interfaceId The ID of the interface for which to retrieve tags. (required)
+   * @return CompletableFuture&lt;ListInterfaceTagsResponse&gt;
+   */
+  public CompletableFuture<ListInterfaceTagsResponse> listInterfaceUserTagsAsync(
+      String interfaceId) {
+    return listInterfaceUserTagsWithHttpInfoAsync(interfaceId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns the tags associated with the specified interface.
+   *
+   * @param interfaceId The ID of the interface for which to retrieve tags. (required)
+   * @return ApiResponse&lt;ListInterfaceTagsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListInterfaceTagsResponse> listInterfaceUserTagsWithHttpInfo(
+      String interfaceId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'interfaceId' is set
+    if (interfaceId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'interfaceId' when calling listInterfaceUserTags");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/ndm/tags/interfaces/{interface_id}"
+            .replaceAll(
+                "\\{" + "interface_id" + "\\}", apiClient.escapeString(interfaceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.NetworkDeviceMonitoringApi.listInterfaceUserTags",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListInterfaceTagsResponse>() {});
+  }
+
+  /**
+   * List tags for an interface.
+   *
+   * <p>See {@link #listInterfaceUserTagsWithHttpInfo}.
+   *
+   * @param interfaceId The ID of the interface for which to retrieve tags. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ListInterfaceTagsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListInterfaceTagsResponse>>
+      listInterfaceUserTagsWithHttpInfoAsync(String interfaceId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'interfaceId' is set
+    if (interfaceId == null) {
+      CompletableFuture<ApiResponse<ListInterfaceTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'interfaceId' when calling listInterfaceUserTags"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/ndm/tags/interfaces/{interface_id}"
+            .replaceAll(
+                "\\{" + "interface_id" + "\\}", apiClient.escapeString(interfaceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.NetworkDeviceMonitoringApi.listInterfaceUserTags",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListInterfaceTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListInterfaceTagsResponse>() {});
+  }
+
+  /**
    * Update the tags for a device.
    *
    * <p>See {@link #updateDeviceUserTagsWithHttpInfo}.
@@ -936,5 +1076,164 @@ public class NetworkDeviceMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListTagsResponse>() {});
+  }
+
+  /**
+   * Update the tags for an interface.
+   *
+   * <p>See {@link #updateInterfaceUserTagsWithHttpInfo}.
+   *
+   * @param interfaceId The ID of the interface for which to update tags. (required)
+   * @param body (required)
+   * @return ListInterfaceTagsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListInterfaceTagsResponse updateInterfaceUserTags(
+      String interfaceId, ListInterfaceTagsResponse body) throws ApiException {
+    return updateInterfaceUserTagsWithHttpInfo(interfaceId, body).getData();
+  }
+
+  /**
+   * Update the tags for an interface.
+   *
+   * <p>See {@link #updateInterfaceUserTagsWithHttpInfoAsync}.
+   *
+   * @param interfaceId The ID of the interface for which to update tags. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ListInterfaceTagsResponse&gt;
+   */
+  public CompletableFuture<ListInterfaceTagsResponse> updateInterfaceUserTagsAsync(
+      String interfaceId, ListInterfaceTagsResponse body) {
+    return updateInterfaceUserTagsWithHttpInfoAsync(interfaceId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates the tags associated with the specified interface.
+   *
+   * @param interfaceId The ID of the interface for which to update tags. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;ListInterfaceTagsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListInterfaceTagsResponse> updateInterfaceUserTagsWithHttpInfo(
+      String interfaceId, ListInterfaceTagsResponse body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'interfaceId' is set
+    if (interfaceId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'interfaceId' when calling updateInterfaceUserTags");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateInterfaceUserTags");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/ndm/tags/interfaces/{interface_id}"
+            .replaceAll(
+                "\\{" + "interface_id" + "\\}", apiClient.escapeString(interfaceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.NetworkDeviceMonitoringApi.updateInterfaceUserTags",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListInterfaceTagsResponse>() {});
+  }
+
+  /**
+   * Update the tags for an interface.
+   *
+   * <p>See {@link #updateInterfaceUserTagsWithHttpInfo}.
+   *
+   * @param interfaceId The ID of the interface for which to update tags. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ListInterfaceTagsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListInterfaceTagsResponse>>
+      updateInterfaceUserTagsWithHttpInfoAsync(String interfaceId, ListInterfaceTagsResponse body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'interfaceId' is set
+    if (interfaceId == null) {
+      CompletableFuture<ApiResponse<ListInterfaceTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'interfaceId' when calling updateInterfaceUserTags"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ListInterfaceTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateInterfaceUserTags"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/ndm/tags/interfaces/{interface_id}"
+            .replaceAll(
+                "\\{" + "interface_id" + "\\}", apiClient.escapeString(interfaceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.NetworkDeviceMonitoringApi.updateInterfaceUserTags",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListInterfaceTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListInterfaceTagsResponse>() {});
   }
 }

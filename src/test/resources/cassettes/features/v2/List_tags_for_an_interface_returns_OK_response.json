@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/ndm/tags/interfaces/example%3A1.2.3.4%3A1",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"example:1.2.3.4:1\",\"type\":\"tags\",\"attributes\":{\"tags\":[\"tag:test\",\"tag:testbis\"]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "984680f7-fd2d-bf04-400e-46d0eb4be6d7"
+  }
+]
