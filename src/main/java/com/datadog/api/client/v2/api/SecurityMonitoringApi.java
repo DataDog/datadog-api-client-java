@@ -69,6 +69,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleSort;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleUpdatePayload;
@@ -10549,6 +10550,7 @@ public class SecurityMonitoringApi {
     private Long pageSize;
     private Long pageNumber;
     private String query;
+    private SecurityMonitoringRuleSort sort;
 
     /**
      * Set pageSize.
@@ -10582,6 +10584,18 @@ public class SecurityMonitoringApi {
      */
     public ListSecurityMonitoringRulesOptionalParameters query(String query) {
       this.query = query;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Attribute used to sort rules. Prefix with <code>-</code> to sort in descending
+     *     order. (optional)
+     * @return ListSecurityMonitoringRulesOptionalParameters
+     */
+    public ListSecurityMonitoringRulesOptionalParameters sort(SecurityMonitoringRuleSort sort) {
+      this.sort = sort;
       return this;
     }
   }
@@ -10668,6 +10682,7 @@ public class SecurityMonitoringApi {
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     String query = parameters.query;
+    SecurityMonitoringRuleSort sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/rules";
 
@@ -10677,6 +10692,7 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -10713,6 +10729,7 @@ public class SecurityMonitoringApi {
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     String query = parameters.query;
+    SecurityMonitoringRuleSort sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/rules";
 
@@ -10722,6 +10739,7 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
     Invocation.Builder builder;
     try {
