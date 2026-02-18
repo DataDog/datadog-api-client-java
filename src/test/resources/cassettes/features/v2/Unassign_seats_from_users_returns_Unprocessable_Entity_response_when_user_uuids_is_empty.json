@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"product_code\":\"incident_response\",\"user_uuids\":[]},\"type\":\"seat-assignments\"}}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/seats/users",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"user_uuids is required and must not be empty\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 422,
+      "reasonPhrase": "Unprocessable Entity"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e83c9239-595e-ee0f-5c8f-898b08a633d3"
+  }
+]
