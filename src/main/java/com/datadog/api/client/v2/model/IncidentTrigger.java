@@ -20,13 +20,19 @@ import java.util.Objects;
  * Trigger a workflow from an Incident. For automatic triggering a handle must be configured and the
  * workflow must be published.
  */
-@JsonPropertyOrder({IncidentTrigger.JSON_PROPERTY_RATE_LIMIT})
+@JsonPropertyOrder({
+  IncidentTrigger.JSON_PROPERTY_RATE_LIMIT,
+  IncidentTrigger.JSON_PROPERTY_VERSION
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentTrigger {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RATE_LIMIT = "rateLimit";
   private TriggerRateLimit rateLimit;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private String version;
 
   public IncidentTrigger rateLimit(TriggerRateLimit rateLimit) {
     this.rateLimit = rateLimit;
@@ -48,6 +54,27 @@ public class IncidentTrigger {
 
   public void setRateLimit(TriggerRateLimit rateLimit) {
     this.rateLimit = rateLimit;
+  }
+
+  public IncidentTrigger version(String version) {
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * Version of the incident trigger.
+   *
+   * @return version
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
   }
 
   /**
@@ -107,12 +134,13 @@ public class IncidentTrigger {
     }
     IncidentTrigger incidentTrigger = (IncidentTrigger) o;
     return Objects.equals(this.rateLimit, incidentTrigger.rateLimit)
+        && Objects.equals(this.version, incidentTrigger.version)
         && Objects.equals(this.additionalProperties, incidentTrigger.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rateLimit, additionalProperties);
+    return Objects.hash(rateLimit, version, additionalProperties);
   }
 
   @Override
@@ -120,6 +148,7 @@ public class IncidentTrigger {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentTrigger {\n");
     sb.append("    rateLimit: ").append(toIndentedString(rateLimit)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
