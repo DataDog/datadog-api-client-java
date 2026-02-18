@@ -23,6 +23,7 @@ KEYWORDS = {
     "do",
     "else",
     "enum",
+    "equals",
     "extends",
     "false",
     "final",
@@ -72,6 +73,10 @@ HTML_ESCAPE_CHARACTERS = {
     "`": "&#x60;",
     "=": "&#x3D;",
     "\\": "\\\\",
+}
+
+METHOD_KEYWORDS = {
+    "Class",
 }
 
 
@@ -124,6 +129,14 @@ def untitle_case(value):
 
 def upperfirst(value):
     return value[0].upper() + value[1:]
+
+def escape_method_reserved_name(method_name):
+    """
+    Escape reserved language keywords for method names like getClass, setClass, isClass, etc.
+    """
+    if method_name in METHOD_KEYWORDS:
+        return f"{method_name}Attribute"
+    return method_name
 
 
 def schema_name(schema):
