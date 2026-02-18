@@ -52,12 +52,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRestrictionPolicy(String resourceId) throws ApiException {
@@ -71,12 +73,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteRestrictionPolicyAsync(String resourceId) {
@@ -92,12 +96,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -154,12 +160,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteRestrictionPolicyWithHttpInfoAsync(
@@ -217,12 +225,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @return RestrictionPolicyResponse
    * @throws ApiException if fails to make API call
    */
@@ -237,12 +247,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @return CompletableFuture&lt;RestrictionPolicyResponse&gt;
    */
   public CompletableFuture<RestrictionPolicyResponse> getRestrictionPolicyAsync(String resourceId) {
@@ -258,12 +270,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @return ApiResponse&lt;RestrictionPolicyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -320,12 +334,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RestrictionPolicyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RestrictionPolicyResponse>>
@@ -402,12 +418,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @param body Restriction policy payload (required)
    * @return RestrictionPolicyResponse
    * @throws ApiException if fails to make API call
@@ -426,12 +444,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @param body Restriction policy payload (required)
    * @return CompletableFuture&lt;RestrictionPolicyResponse&gt;
    */
@@ -452,12 +472,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return RestrictionPolicyResponse
@@ -478,12 +500,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;RestrictionPolicyResponse&gt;
@@ -544,12 +568,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;RestrictionPolicyResponse&gt;
@@ -622,12 +648,14 @@ public class RestrictionPoliciesApi {
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     dashboard</code>, <code>integration-service</code>, <code>integration-webhook</code>,
-   *     <code>notebook</code>, <code>reference-table</code>, <code>security-rule</code>, <code>slo
-   *     </code>, <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>,
-   *     <code>connection-group</code>, <code>rum-application</code>, <code>cross-org-connection
-   *     </code>, <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>
-   *     on-call-escalation-policy</code>, <code>on-call-team-routing-rules</code>, <code>
-   *     logs-pipeline</code>. (required)
+   *     <code>notebook</code>, <code>powerpack</code>, <code>reference-table</code>, <code>
+   *     security-rule</code>, <code>slo</code>, <code>synthetics-global-variable</code>, <code>
+   *     synthetics-test</code>, <code>synthetics-private-location</code>, <code>monitor</code>,
+   *     <code>workflow</code>, <code>app-builder-app</code>, <code>connection</code>, <code>
+   *     connection-group</code>, <code>rum-application</code>, <code>cross-org-connection</code>,
+   *     <code>spreadsheet</code>, <code>on-call-schedule</code>, <code>on-call-escalation-policy
+   *     </code>, <code>on-call-team-routing-rules</code>, <code>logs-pipeline</code>, <code>
+   *     case-management-project</code>. (required)
    * @param body Restriction policy payload (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;RestrictionPolicyResponse&gt;&gt;
