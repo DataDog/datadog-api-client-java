@@ -14,7 +14,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -22,7 +24,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   RoleCreateAttributes.JSON_PROPERTY_CREATED_AT,
   RoleCreateAttributes.JSON_PROPERTY_MODIFIED_AT,
-  RoleCreateAttributes.JSON_PROPERTY_NAME
+  RoleCreateAttributes.JSON_PROPERTY_NAME,
+  RoleCreateAttributes.JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -36,6 +39,9 @@ public class RoleCreateAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM = "receives_permissions_from";
+  private List<String> receivesPermissionsFrom = null;
 
   public RoleCreateAttributes() {}
 
@@ -87,6 +93,38 @@ public class RoleCreateAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public RoleCreateAttributes receivesPermissionsFrom(List<String> receivesPermissionsFrom) {
+    this.receivesPermissionsFrom = receivesPermissionsFrom;
+    return this;
+  }
+
+  public RoleCreateAttributes addReceivesPermissionsFromItem(String receivesPermissionsFromItem) {
+    if (this.receivesPermissionsFrom == null) {
+      this.receivesPermissionsFrom = new ArrayList<>();
+    }
+    this.receivesPermissionsFrom.add(receivesPermissionsFromItem);
+    return this;
+  }
+
+  /**
+   * The managed role from which this role automatically inherits new permissions. Specify one of
+   * the following: "Datadog Admin Role", "Datadog Standard Role", or "Datadog Read Only Role". If
+   * empty or not specified, the role does not automatically inherit permissions from any managed
+   * role.
+   *
+   * @return receivesPermissionsFrom
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getReceivesPermissionsFrom() {
+    return receivesPermissionsFrom;
+  }
+
+  public void setReceivesPermissionsFrom(List<String> receivesPermissionsFrom) {
+    this.receivesPermissionsFrom = receivesPermissionsFrom;
   }
 
   /**
@@ -148,12 +186,14 @@ public class RoleCreateAttributes {
     return Objects.equals(this.createdAt, roleCreateAttributes.createdAt)
         && Objects.equals(this.modifiedAt, roleCreateAttributes.modifiedAt)
         && Objects.equals(this.name, roleCreateAttributes.name)
+        && Objects.equals(
+            this.receivesPermissionsFrom, roleCreateAttributes.receivesPermissionsFrom)
         && Objects.equals(this.additionalProperties, roleCreateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, modifiedAt, name, additionalProperties);
+    return Objects.hash(createdAt, modifiedAt, name, receivesPermissionsFrom, additionalProperties);
   }
 
   @Override
@@ -163,6 +203,9 @@ public class RoleCreateAttributes {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    receivesPermissionsFrom: ")
+        .append(toIndentedString(receivesPermissionsFrom))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
