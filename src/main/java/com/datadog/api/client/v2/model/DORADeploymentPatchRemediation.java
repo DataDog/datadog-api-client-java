@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Remediation details for the deployment. */
+/**
+ * Remediation details for the deployment. Optional, but required to calculate failed deployment
+ * recovery time.
+ */
 @JsonPropertyOrder({
   DORADeploymentPatchRemediation.JSON_PROPERTY_ID,
   DORADeploymentPatchRemediation.JSON_PROPERTY_TYPE
@@ -32,30 +34,20 @@ public class DORADeploymentPatchRemediation {
   public static final String JSON_PROPERTY_TYPE = "type";
   private DORADeploymentPatchRemediationType type;
 
-  public DORADeploymentPatchRemediation() {}
-
-  @JsonCreator
-  public DORADeploymentPatchRemediation(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          DORADeploymentPatchRemediationType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
   public DORADeploymentPatchRemediation id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the remediation action.
+   * The ID of the remediation deployment. Required when the failed deployment must be linked to a
+   * remediation deployment.
    *
    * @return id
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -71,12 +63,14 @@ public class DORADeploymentPatchRemediation {
   }
 
   /**
-   * The type of remediation action taken.
+   * The type of remediation action taken. Required when the failed deployment must be linked to a
+   * remediation deployment.
    *
    * @return type
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DORADeploymentPatchRemediationType getType() {
     return type;
   }

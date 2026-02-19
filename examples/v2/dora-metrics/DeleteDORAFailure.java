@@ -1,4 +1,4 @@
-// Delete a failure event returns "Accepted" response
+// Delete an incident event returns "Accepted" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -10,7 +10,7 @@ public class Example {
     DoraMetricsApi apiInstance = new DoraMetricsApi(defaultClient);
 
     try {
-      apiInstance.deleteDORAFailure("NO_VALUE");
+      apiInstance.deleteDORAFailure("failure_id");
     } catch (ApiException e) {
       System.err.println("Exception when calling DoraMetricsApi#deleteDORAFailure");
       System.err.println("Status code: " + e.getCode());

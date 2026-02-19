@@ -43,7 +43,7 @@ public class DORAFailureRequestData {
   }
 
   /**
-   * Attributes to create a DORA failure event.
+   * Attributes to create a DORA incident event.
    *
    * @return attributes
    */
