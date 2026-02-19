@@ -782,6 +782,7 @@ public class ApiClient {
           put("v2.linkJiraIssueToCase", false);
           put("v2.moveCaseToProject", false);
           put("v2.unlinkJiraIssue", false);
+          put("v2.listAWSCloudAuthPersonaMappings", false);
           put("v2.activateContentPack", false);
           put("v2.cancelThreatHuntingJob", false);
           put("v2.convertJobResultToSignal", false);
