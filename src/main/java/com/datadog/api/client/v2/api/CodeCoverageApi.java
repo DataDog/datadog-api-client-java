@@ -80,9 +80,6 @@ public class CodeCoverageApi {
    * Retrieve aggregated code coverage statistics for a specific branch in a repository. This
    * endpoint provides overall coverage metrics as well as breakdowns by service and code owner.
    *
-   * <p><strong>Note</strong>: This endpoint requires the <code>code_coverage_read</code>
-   * permission.
-   *
    * @param body (required)
    * @return ApiResponse&lt;CoverageSummaryResponse&gt;
    * @throws ApiException if fails to make API call
@@ -238,9 +235,6 @@ public class CodeCoverageApi {
    * endpoint provides overall coverage metrics as well as breakdowns by service and code owner.
    *
    * <p>The commit SHA must be a 40-character hexadecimal string (SHA-1 hash).
-   *
-   * <p><strong>Note</strong>: This endpoint requires the <code>code_coverage_read</code>
-   * permission.
    *
    * @param body (required)
    * @return ApiResponse&lt;CoverageSummaryResponse&gt;
