@@ -18,16 +18,17 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Type of the Synthetic test, either <code>api</code> or <code>browser</code>. */
+/** Type of the Synthetic test. */
 @JsonSerialize(using = SyntheticsTestDetailsType.SyntheticsTestDetailsTypeSerializer.class)
 public class SyntheticsTestDetailsType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("api", "browser", "mobile"));
+      new HashSet<String>(Arrays.asList("api", "browser", "mobile", "network"));
 
   public static final SyntheticsTestDetailsType API = new SyntheticsTestDetailsType("api");
   public static final SyntheticsTestDetailsType BROWSER = new SyntheticsTestDetailsType("browser");
   public static final SyntheticsTestDetailsType MOBILE = new SyntheticsTestDetailsType("mobile");
+  public static final SyntheticsTestDetailsType NETWORK = new SyntheticsTestDetailsType("network");
 
   SyntheticsTestDetailsType(String value) {
     super(value, allowedValues);
