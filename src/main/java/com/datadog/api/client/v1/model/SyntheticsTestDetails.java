@@ -350,7 +350,7 @@ public class SyntheticsTestDetails {
   }
 
   /**
-   * Type of the Synthetic test, either <code>api</code> or <code>browser</code>.
+   * Type of the Synthetic test.
    *
    * @return type
    */

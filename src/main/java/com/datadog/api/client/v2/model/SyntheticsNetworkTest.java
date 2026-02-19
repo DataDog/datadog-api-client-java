@@ -4,10 +4,11 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,33 +19,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object containing details about your Synthetic test, without test steps. */
+/** Object containing details about a Network Path test. */
 @JsonPropertyOrder({
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_CONFIG,
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_CREATOR,
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_LOCATIONS,
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_MESSAGE,
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_MONITOR_ID,
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_NAME,
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_OPTIONS,
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_PUBLIC_ID,
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_STATUS,
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_SUBTYPE,
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_TAGS,
-  SyntheticsTestDetailsWithoutSteps.JSON_PROPERTY_TYPE
+  SyntheticsNetworkTest.JSON_PROPERTY_CONFIG,
+  SyntheticsNetworkTest.JSON_PROPERTY_LOCATIONS,
+  SyntheticsNetworkTest.JSON_PROPERTY_MESSAGE,
+  SyntheticsNetworkTest.JSON_PROPERTY_MONITOR_ID,
+  SyntheticsNetworkTest.JSON_PROPERTY_NAME,
+  SyntheticsNetworkTest.JSON_PROPERTY_OPTIONS,
+  SyntheticsNetworkTest.JSON_PROPERTY_PUBLIC_ID,
+  SyntheticsNetworkTest.JSON_PROPERTY_STATUS,
+  SyntheticsNetworkTest.JSON_PROPERTY_SUBTYPE,
+  SyntheticsNetworkTest.JSON_PROPERTY_TAGS,
+  SyntheticsNetworkTest.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsTestDetailsWithoutSteps {
+public class SyntheticsNetworkTest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
-  private SyntheticsTestConfig config;
-
-  public static final String JSON_PROPERTY_CREATOR = "creator";
-  private Creator creator;
+  private SyntheticsNetworkTestConfig config;
 
   public static final String JSON_PROPERTY_LOCATIONS = "locations";
-  private List<String> locations = null;
+  private List<String> locations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -65,69 +62,77 @@ public class SyntheticsTestDetailsWithoutSteps {
   private SyntheticsTestPauseStatus status;
 
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
-  private SyntheticsTestDetailsSubType subtype;
+  private SyntheticsNetworkTestSubType subtype;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SyntheticsTestDetailsType type;
+  private SyntheticsNetworkTestType type = SyntheticsNetworkTestType.NETWORK;
 
-  public SyntheticsTestDetailsWithoutSteps config(SyntheticsTestConfig config) {
+  public SyntheticsNetworkTest() {}
+
+  @JsonCreator
+  public SyntheticsNetworkTest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG)
+          SyntheticsNetworkTestConfig config,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LOCATIONS) List<String> locations,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS) SyntheticsTestOptions options,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsNetworkTestType type) {
+    this.config = config;
+    this.unparsed |= config.unparsed;
+    this.locations = locations;
+    this.message = message;
+    this.name = name;
+    this.options = options;
+    this.unparsed |= options.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public SyntheticsNetworkTest config(SyntheticsNetworkTestConfig config) {
     this.config = config;
     this.unparsed |= config.unparsed;
     return this;
   }
 
   /**
-   * Configuration object for a Synthetic test.
+   * Configuration object for a Network Path test.
    *
    * @return config
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestConfig getConfig() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsNetworkTestConfig getConfig() {
     return config;
   }
 
-  public void setConfig(SyntheticsTestConfig config) {
+  public void setConfig(SyntheticsNetworkTestConfig config) {
     this.config = config;
   }
 
-  /**
-   * Object describing the creator of the shared element.
-   *
-   * @return creator
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Creator getCreator() {
-    return creator;
-  }
-
-  public SyntheticsTestDetailsWithoutSteps locations(List<String> locations) {
+  public SyntheticsNetworkTest locations(List<String> locations) {
     this.locations = locations;
     return this;
   }
 
-  public SyntheticsTestDetailsWithoutSteps addLocationsItem(String locationsItem) {
-    if (this.locations == null) {
-      this.locations = new ArrayList<>();
-    }
+  public SyntheticsNetworkTest addLocationsItem(String locationsItem) {
     this.locations.add(locationsItem);
     return this;
   }
 
   /**
-   * Array of locations used to run the test.
+   * Array of locations used to run the test. Network Path tests can be run from managed locations
+   * to test public endpoints, or from a <a
+   * href="https://docs.datadoghq.com/synthetics/network_path_tests/#agent-configuration">Datadog
+   * Agent</a> to test private environments.
    *
    * @return locations
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getLocations() {
     return locations;
   }
@@ -136,7 +141,7 @@ public class SyntheticsTestDetailsWithoutSteps {
     this.locations = locations;
   }
 
-  public SyntheticsTestDetailsWithoutSteps message(String message) {
+  public SyntheticsNetworkTest message(String message) {
     this.message = message;
     return this;
   }
@@ -146,9 +151,8 @@ public class SyntheticsTestDetailsWithoutSteps {
    *
    * @return message
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
     return message;
   }
@@ -169,7 +173,7 @@ public class SyntheticsTestDetailsWithoutSteps {
     return monitorId;
   }
 
-  public SyntheticsTestDetailsWithoutSteps name(String name) {
+  public SyntheticsNetworkTest name(String name) {
     this.name = name;
     return this;
   }
@@ -179,9 +183,8 @@ public class SyntheticsTestDetailsWithoutSteps {
    *
    * @return name
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
@@ -190,7 +193,7 @@ public class SyntheticsTestDetailsWithoutSteps {
     this.name = name;
   }
 
-  public SyntheticsTestDetailsWithoutSteps options(SyntheticsTestOptions options) {
+  public SyntheticsNetworkTest options(SyntheticsTestOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
     return this;
@@ -201,9 +204,8 @@ public class SyntheticsTestDetailsWithoutSteps {
    *
    * @return options
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsTestOptions getOptions() {
     return options;
   }
@@ -213,7 +215,7 @@ public class SyntheticsTestDetailsWithoutSteps {
   }
 
   /**
-   * The test public ID.
+   * The public ID for the test.
    *
    * @return publicId
    */
@@ -224,7 +226,7 @@ public class SyntheticsTestDetailsWithoutSteps {
     return publicId;
   }
 
-  public SyntheticsTestDetailsWithoutSteps status(SyntheticsTestPauseStatus status) {
+  public SyntheticsNetworkTest status(SyntheticsTestPauseStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
     return this;
@@ -250,39 +252,38 @@ public class SyntheticsTestDetailsWithoutSteps {
     this.status = status;
   }
 
-  public SyntheticsTestDetailsWithoutSteps subtype(SyntheticsTestDetailsSubType subtype) {
+  public SyntheticsNetworkTest subtype(SyntheticsNetworkTestSubType subtype) {
     this.subtype = subtype;
     this.unparsed |= !subtype.isValid();
     return this;
   }
 
   /**
-   * The subtype of the Synthetic API test, <code>http</code>, <code>ssl</code>, <code>tcp</code>,
-   * <code>dns</code>, <code>icmp</code>, <code>udp</code>, <code>websocket</code>, <code>grpc
-   * </code> or <code>multi</code>.
+   * Subtype of the Synthetic Network Path test: <code>tcp</code>, <code>udp</code>, or <code>icmp
+   * </code>.
    *
    * @return subtype
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestDetailsSubType getSubtype() {
+  public SyntheticsNetworkTestSubType getSubtype() {
     return subtype;
   }
 
-  public void setSubtype(SyntheticsTestDetailsSubType subtype) {
+  public void setSubtype(SyntheticsNetworkTestSubType subtype) {
     if (!subtype.isValid()) {
       this.unparsed = true;
     }
     this.subtype = subtype;
   }
 
-  public SyntheticsTestDetailsWithoutSteps tags(List<String> tags) {
+  public SyntheticsNetworkTest tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public SyntheticsTestDetailsWithoutSteps addTagsItem(String tagsItem) {
+  public SyntheticsNetworkTest addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -306,25 +307,24 @@ public class SyntheticsTestDetailsWithoutSteps {
     this.tags = tags;
   }
 
-  public SyntheticsTestDetailsWithoutSteps type(SyntheticsTestDetailsType type) {
+  public SyntheticsNetworkTest type(SyntheticsNetworkTestType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Type of the Synthetic test.
+   * Type of the Synthetic test, <code>network</code>.
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestDetailsType getType() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsNetworkTestType getType() {
     return type;
   }
 
-  public void setType(SyntheticsTestDetailsType type) {
+  public void setType(SyntheticsNetworkTestType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -343,10 +343,10 @@ public class SyntheticsTestDetailsWithoutSteps {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsTestDetailsWithoutSteps
+   * @return SyntheticsNetworkTest
    */
   @JsonAnySetter
-  public SyntheticsTestDetailsWithoutSteps putAdditionalProperty(String key, Object value) {
+  public SyntheticsNetworkTest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -377,7 +377,7 @@ public class SyntheticsTestDetailsWithoutSteps {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTestDetailsWithoutSteps object is equal to o. */
+  /** Return true if this SyntheticsNetworkTest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -386,29 +386,25 @@ public class SyntheticsTestDetailsWithoutSteps {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestDetailsWithoutSteps syntheticsTestDetailsWithoutSteps =
-        (SyntheticsTestDetailsWithoutSteps) o;
-    return Objects.equals(this.config, syntheticsTestDetailsWithoutSteps.config)
-        && Objects.equals(this.creator, syntheticsTestDetailsWithoutSteps.creator)
-        && Objects.equals(this.locations, syntheticsTestDetailsWithoutSteps.locations)
-        && Objects.equals(this.message, syntheticsTestDetailsWithoutSteps.message)
-        && Objects.equals(this.monitorId, syntheticsTestDetailsWithoutSteps.monitorId)
-        && Objects.equals(this.name, syntheticsTestDetailsWithoutSteps.name)
-        && Objects.equals(this.options, syntheticsTestDetailsWithoutSteps.options)
-        && Objects.equals(this.publicId, syntheticsTestDetailsWithoutSteps.publicId)
-        && Objects.equals(this.status, syntheticsTestDetailsWithoutSteps.status)
-        && Objects.equals(this.subtype, syntheticsTestDetailsWithoutSteps.subtype)
-        && Objects.equals(this.tags, syntheticsTestDetailsWithoutSteps.tags)
-        && Objects.equals(this.type, syntheticsTestDetailsWithoutSteps.type)
-        && Objects.equals(
-            this.additionalProperties, syntheticsTestDetailsWithoutSteps.additionalProperties);
+    SyntheticsNetworkTest syntheticsNetworkTest = (SyntheticsNetworkTest) o;
+    return Objects.equals(this.config, syntheticsNetworkTest.config)
+        && Objects.equals(this.locations, syntheticsNetworkTest.locations)
+        && Objects.equals(this.message, syntheticsNetworkTest.message)
+        && Objects.equals(this.monitorId, syntheticsNetworkTest.monitorId)
+        && Objects.equals(this.name, syntheticsNetworkTest.name)
+        && Objects.equals(this.options, syntheticsNetworkTest.options)
+        && Objects.equals(this.publicId, syntheticsNetworkTest.publicId)
+        && Objects.equals(this.status, syntheticsNetworkTest.status)
+        && Objects.equals(this.subtype, syntheticsNetworkTest.subtype)
+        && Objects.equals(this.tags, syntheticsNetworkTest.tags)
+        && Objects.equals(this.type, syntheticsNetworkTest.type)
+        && Objects.equals(this.additionalProperties, syntheticsNetworkTest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         config,
-        creator,
         locations,
         message,
         monitorId,
@@ -425,9 +421,8 @@ public class SyntheticsTestDetailsWithoutSteps {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTestDetailsWithoutSteps {\n");
+    sb.append("class SyntheticsNetworkTest {\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
-    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    locations: ").append(toIndentedString(locations)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    monitorId: ").append(toIndentedString(monitorId)).append("\n");
