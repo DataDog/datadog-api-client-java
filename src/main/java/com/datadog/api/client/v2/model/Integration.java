@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -17,121 +17,125 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Used for fixed span times, such as 'March 1 to March 7'. */
+/** Integration resource object. */
 @JsonPropertyOrder({
-  WidgetNewFixedSpan.JSON_PROPERTY_FROM,
-  WidgetNewFixedSpan.JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA,
-  WidgetNewFixedSpan.JSON_PROPERTY_TO,
-  WidgetNewFixedSpan.JSON_PROPERTY_TYPE
+  Integration.JSON_PROPERTY_ATTRIBUTES,
+  Integration.JSON_PROPERTY_ID,
+  Integration.JSON_PROPERTY_LINKS,
+  Integration.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class WidgetNewFixedSpan {
+public class Integration {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_FROM = "from";
-  private Long from;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private IntegrationAttributes attributes;
 
-  public static final String JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA = "hide_incomplete_cost_data";
-  private Boolean hideIncompleteCostData;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public static final String JSON_PROPERTY_TO = "to";
-  private Long to;
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private IntegrationLinks links;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private WidgetNewFixedSpanType type;
+  private IntegrationType type = IntegrationType.INTEGRATION;
 
-  public WidgetNewFixedSpan() {}
+  public Integration() {}
 
   @JsonCreator
-  public WidgetNewFixedSpan(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FROM) Long from,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TO) Long to,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) WidgetNewFixedSpanType type) {
-    this.from = from;
-    this.to = to;
+  public Integration(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          IntegrationAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IntegrationType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public WidgetNewFixedSpan from(Long from) {
-    this.from = from;
+  public Integration attributes(IntegrationAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Start time in milliseconds since epoch. minimum: 0
+   * Attributes for an integration.
    *
-   * @return from
+   * @return attributes
    */
-  @JsonProperty(JSON_PROPERTY_FROM)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getFrom() {
-    return from;
+  public IntegrationAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setFrom(Long from) {
-    this.from = from;
+  public void setAttributes(IntegrationAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public WidgetNewFixedSpan hideIncompleteCostData(Boolean hideIncompleteCostData) {
-    this.hideIncompleteCostData = hideIncompleteCostData;
+  public Integration id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Whether to hide incomplete cost data in the widget.
+   * The unique identifier of the integration.
    *
-   * @return hideIncompleteCostData
+   * @return id
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integration links(IntegrationLinks links) {
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    return this;
+  }
+
+  /**
+   * Links for the integration resource.
+   *
+   * @return links
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIDE_INCOMPLETE_COST_DATA)
+  @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getHideIncompleteCostData() {
-    return hideIncompleteCostData;
+  public IntegrationLinks getLinks() {
+    return links;
   }
 
-  public void setHideIncompleteCostData(Boolean hideIncompleteCostData) {
-    this.hideIncompleteCostData = hideIncompleteCostData;
+  public void setLinks(IntegrationLinks links) {
+    this.links = links;
   }
 
-  public WidgetNewFixedSpan to(Long to) {
-    this.to = to;
-    return this;
-  }
-
-  /**
-   * End time in milliseconds since epoch. minimum: 0
-   *
-   * @return to
-   */
-  @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getTo() {
-    return to;
-  }
-
-  public void setTo(Long to) {
-    this.to = to;
-  }
-
-  public WidgetNewFixedSpan type(WidgetNewFixedSpanType type) {
+  public Integration type(IntegrationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Type "fixed" denotes a fixed span.
+   * Integration resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public WidgetNewFixedSpanType getType() {
+  public IntegrationType getType() {
     return type;
   }
 
-  public void setType(WidgetNewFixedSpanType type) {
+  public void setType(IntegrationType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -150,10 +154,10 @@ public class WidgetNewFixedSpan {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return WidgetNewFixedSpan
+   * @return Integration
    */
   @JsonAnySetter
-  public WidgetNewFixedSpan putAdditionalProperty(String key, Object value) {
+  public Integration putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -184,7 +188,7 @@ public class WidgetNewFixedSpan {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this WidgetNewFixedSpan object is equal to o. */
+  /** Return true if this Integration object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -193,28 +197,26 @@ public class WidgetNewFixedSpan {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WidgetNewFixedSpan widgetNewFixedSpan = (WidgetNewFixedSpan) o;
-    return Objects.equals(this.from, widgetNewFixedSpan.from)
-        && Objects.equals(this.hideIncompleteCostData, widgetNewFixedSpan.hideIncompleteCostData)
-        && Objects.equals(this.to, widgetNewFixedSpan.to)
-        && Objects.equals(this.type, widgetNewFixedSpan.type)
-        && Objects.equals(this.additionalProperties, widgetNewFixedSpan.additionalProperties);
+    Integration integration = (Integration) o;
+    return Objects.equals(this.attributes, integration.attributes)
+        && Objects.equals(this.id, integration.id)
+        && Objects.equals(this.links, integration.links)
+        && Objects.equals(this.type, integration.type)
+        && Objects.equals(this.additionalProperties, integration.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, hideIncompleteCostData, to, type, additionalProperties);
+    return Objects.hash(attributes, id, links, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WidgetNewFixedSpan {\n");
-    sb.append("    from: ").append(toIndentedString(from)).append("\n");
-    sb.append("    hideIncompleteCostData: ")
-        .append(toIndentedString(hideIncompleteCostData))
-        .append("\n");
-    sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("class Integration {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
