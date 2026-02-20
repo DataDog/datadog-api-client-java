@@ -29,6 +29,7 @@ import java.util.Objects;
   NotebooksResponseDataAttributes.JSON_PROPERTY_MODIFIED,
   NotebooksResponseDataAttributes.JSON_PROPERTY_NAME,
   NotebooksResponseDataAttributes.JSON_PROPERTY_STATUS,
+  NotebooksResponseDataAttributes.JSON_PROPERTY_TEMPLATE_VARIABLES,
   NotebooksResponseDataAttributes.JSON_PROPERTY_TIME
 })
 @jakarta.annotation.Generated(
@@ -55,6 +56,9 @@ public class NotebooksResponseDataAttributes {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private NotebookStatus status = NotebookStatus.PUBLISHED;
+
+  public static final String JSON_PROPERTY_TEMPLATE_VARIABLES = "template_variables";
+  private List<NotebookTemplateVariable> templateVariables = null;
 
   public static final String JSON_PROPERTY_TIME = "time";
   private NotebookGlobalTime time;
@@ -213,6 +217,41 @@ public class NotebooksResponseDataAttributes {
     this.status = status;
   }
 
+  public NotebooksResponseDataAttributes templateVariables(
+      List<NotebookTemplateVariable> templateVariables) {
+    this.templateVariables = templateVariables;
+    for (NotebookTemplateVariable item : templateVariables) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public NotebooksResponseDataAttributes addTemplateVariablesItem(
+      NotebookTemplateVariable templateVariablesItem) {
+    if (this.templateVariables == null) {
+      this.templateVariables = new ArrayList<>();
+    }
+    this.templateVariables.add(templateVariablesItem);
+    this.unparsed |= templateVariablesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of template variables for this notebook.
+   *
+   * @return templateVariables
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<NotebookTemplateVariable> getTemplateVariables() {
+    return templateVariables;
+  }
+
+  public void setTemplateVariables(List<NotebookTemplateVariable> templateVariables) {
+    this.templateVariables = templateVariables;
+  }
+
   public NotebooksResponseDataAttributes time(NotebookGlobalTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -299,6 +338,7 @@ public class NotebooksResponseDataAttributes {
         && Objects.equals(this.modified, notebooksResponseDataAttributes.modified)
         && Objects.equals(this.name, notebooksResponseDataAttributes.name)
         && Objects.equals(this.status, notebooksResponseDataAttributes.status)
+        && Objects.equals(this.templateVariables, notebooksResponseDataAttributes.templateVariables)
         && Objects.equals(this.time, notebooksResponseDataAttributes.time)
         && Objects.equals(
             this.additionalProperties, notebooksResponseDataAttributes.additionalProperties);
@@ -307,7 +347,16 @@ public class NotebooksResponseDataAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        author, cells, created, metadata, modified, name, status, time, additionalProperties);
+        author,
+        cells,
+        created,
+        metadata,
+        modified,
+        name,
+        status,
+        templateVariables,
+        time,
+        additionalProperties);
   }
 
   @Override
@@ -321,6 +370,7 @@ public class NotebooksResponseDataAttributes {
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    templateVariables: ").append(toIndentedString(templateVariables)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
