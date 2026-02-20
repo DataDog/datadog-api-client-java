@@ -16,130 +16,94 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** Integration resource object. */
+/** */
 @JsonPropertyOrder({
-  Integration.JSON_PROPERTY_ATTRIBUTES,
-  Integration.JSON_PROPERTY_ID,
-  Integration.JSON_PROPERTY_LINKS,
-  Integration.JSON_PROPERTY_TYPE
+  MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems.JSON_PROPERTY_ID,
+  MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems.JSON_PROPERTY_NAME,
+  MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems.JSON_PROPERTY_STATUS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Integration {
+public class MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private IntegrationAttributes attributes;
-
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private IntegrationLinks links;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private IntegrationType type = IntegrationType.INTEGRATION;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus status;
 
-  public Integration() {}
+  public MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems() {}
 
   @JsonCreator
-  public Integration(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          IntegrationAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IntegrationType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
+          PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus status) {
     this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+    this.status = status;
+    this.unparsed |= !status.isValid();
   }
 
-  public Integration attributes(IntegrationAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
-  }
-
-  /**
-   * Attributes for an integration.
-   *
-   * @return attributes
-   */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IntegrationAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(IntegrationAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public Integration id(String id) {
+  public MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier of the integration.
+   * Identifier of the component affected at the time of the update.
    *
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public Integration links(IntegrationLinks links) {
-    this.links = links;
-    this.unparsed |= links.unparsed;
-    return this;
-  }
-
   /**
-   * Links for the integration resource.
+   * The name of the component affected at the time of the update.
    *
-   * @return links
+   * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IntegrationLinks getLinks() {
-    return links;
+  public String getName() {
+    return name;
   }
 
-  public void setLinks(IntegrationLinks links) {
-    this.links = links;
-  }
-
-  public Integration type(IntegrationType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+  public MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems status(
+      PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus status) {
+    this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
   /**
-   * Integration resource type.
+   * The status of the component.
    *
-   * @return type
+   * @return status
    */
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IntegrationType getType() {
-    return type;
+  public PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus getStatus() {
+    return status;
   }
 
-  public void setType(IntegrationType type) {
-    if (!type.isValid()) {
+  public void setStatus(PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus status) {
+    if (!status.isValid()) {
       this.unparsed = true;
     }
-    this.type = type;
+    this.status = status;
   }
 
   /**
@@ -154,10 +118,11 @@ public class Integration {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return Integration
+   * @return MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems
    */
   @JsonAnySetter
-  public Integration putAdditionalProperty(String key, Object value) {
+  public MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -188,7 +153,10 @@ public class Integration {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this Integration object is equal to o. */
+  /**
+   * Return true if this MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems object is
+   * equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -197,27 +165,31 @@ public class Integration {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Integration integration = (Integration) o;
-    return Objects.equals(this.attributes, integration.attributes)
-        && Objects.equals(this.id, integration.id)
-        && Objects.equals(this.links, integration.links)
-        && Objects.equals(this.type, integration.type)
-        && Objects.equals(this.additionalProperties, integration.additionalProperties);
+    MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems
+        maintenanceDataAttributesUpdatesItemsComponentsAffectedItems =
+            (MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems) o;
+    return Objects.equals(this.id, maintenanceDataAttributesUpdatesItemsComponentsAffectedItems.id)
+        && Objects.equals(
+            this.name, maintenanceDataAttributesUpdatesItemsComponentsAffectedItems.name)
+        && Objects.equals(
+            this.status, maintenanceDataAttributesUpdatesItemsComponentsAffectedItems.status)
+        && Objects.equals(
+            this.additionalProperties,
+            maintenanceDataAttributesUpdatesItemsComponentsAffectedItems.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, links, type, additionalProperties);
+    return Objects.hash(id, name, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Integration {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

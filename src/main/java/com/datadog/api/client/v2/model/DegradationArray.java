@@ -33,7 +33,7 @@ public class DegradationArray {
   private List<DegradationData> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<DegradationArrayIncluded> included = null;
+  private List<DegradationIncluded> included = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private StatusPagesResponseMeta meta;
@@ -75,15 +75,15 @@ public class DegradationArray {
     this.data = data;
   }
 
-  public DegradationArray included(List<DegradationArrayIncluded> included) {
+  public DegradationArray included(List<DegradationIncluded> included) {
     this.included = included;
-    for (DegradationArrayIncluded item : included) {
+    for (DegradationIncluded item : included) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public DegradationArray addIncludedItem(DegradationArrayIncluded includedItem) {
+  public DegradationArray addIncludedItem(DegradationIncluded includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
     }
@@ -101,11 +101,11 @@ public class DegradationArray {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DegradationArrayIncluded> getIncluded() {
+  public List<DegradationIncluded> getIncluded() {
     return included;
   }
 
-  public void setIncluded(List<DegradationArrayIncluded> included) {
+  public void setIncluded(List<DegradationIncluded> included) {
     this.included = included;
   }
 

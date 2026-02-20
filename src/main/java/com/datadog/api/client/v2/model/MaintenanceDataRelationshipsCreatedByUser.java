@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,34 +17,45 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Links for the integration resource. */
-@JsonPropertyOrder({IntegrationLinks.JSON_PROPERTY_SELF})
+/** */
+@JsonPropertyOrder({MaintenanceDataRelationshipsCreatedByUser.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IntegrationLinks {
+public class MaintenanceDataRelationshipsCreatedByUser {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_SELF = "self";
-  private String self;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private MaintenanceDataRelationshipsCreatedByUserData data;
 
-  public IntegrationLinks self(String self) {
-    this.self = self;
+  public MaintenanceDataRelationshipsCreatedByUser() {}
+
+  @JsonCreator
+  public MaintenanceDataRelationshipsCreatedByUser(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          MaintenanceDataRelationshipsCreatedByUserData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public MaintenanceDataRelationshipsCreatedByUser data(
+      MaintenanceDataRelationshipsCreatedByUserData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Link to the integration resource.
+   * Getdata
    *
-   * @return self
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SELF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSelf() {
-    return self;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MaintenanceDataRelationshipsCreatedByUserData getData() {
+    return data;
   }
 
-  public void setSelf(String self) {
-    this.self = self;
+  public void setData(MaintenanceDataRelationshipsCreatedByUserData data) {
+    this.data = data;
   }
 
   /**
@@ -58,10 +70,10 @@ public class IntegrationLinks {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IntegrationLinks
+   * @return MaintenanceDataRelationshipsCreatedByUser
    */
   @JsonAnySetter
-  public IntegrationLinks putAdditionalProperty(String key, Object value) {
+  public MaintenanceDataRelationshipsCreatedByUser putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -92,7 +104,7 @@ public class IntegrationLinks {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IntegrationLinks object is equal to o. */
+  /** Return true if this MaintenanceDataRelationshipsCreatedByUser object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,21 +113,24 @@ public class IntegrationLinks {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IntegrationLinks integrationLinks = (IntegrationLinks) o;
-    return Objects.equals(this.self, integrationLinks.self)
-        && Objects.equals(this.additionalProperties, integrationLinks.additionalProperties);
+    MaintenanceDataRelationshipsCreatedByUser maintenanceDataRelationshipsCreatedByUser =
+        (MaintenanceDataRelationshipsCreatedByUser) o;
+    return Objects.equals(this.data, maintenanceDataRelationshipsCreatedByUser.data)
+        && Objects.equals(
+            this.additionalProperties,
+            maintenanceDataRelationshipsCreatedByUser.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(self, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IntegrationLinks {\n");
-    sb.append("    self: ").append(toIndentedString(self)).append("\n");
+    sb.append("class MaintenanceDataRelationshipsCreatedByUser {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

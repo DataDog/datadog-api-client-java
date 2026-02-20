@@ -18,37 +18,41 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Integration resource type. */
-@JsonSerialize(using = IntegrationType.IntegrationTypeSerializer.class)
-public class IntegrationType extends ModelEnum<String> {
+/** Maintenances resource type. */
+@JsonSerialize(
+    using = PatchMaintenanceRequestDataType.PatchMaintenanceRequestDataTypeSerializer.class)
+public class PatchMaintenanceRequestDataType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("integration"));
+      new HashSet<String>(Arrays.asList("maintenances"));
 
-  public static final IntegrationType INTEGRATION = new IntegrationType("integration");
+  public static final PatchMaintenanceRequestDataType MAINTENANCES =
+      new PatchMaintenanceRequestDataType("maintenances");
 
-  IntegrationType(String value) {
+  PatchMaintenanceRequestDataType(String value) {
     super(value, allowedValues);
   }
 
-  public static class IntegrationTypeSerializer extends StdSerializer<IntegrationType> {
-    public IntegrationTypeSerializer(Class<IntegrationType> t) {
+  public static class PatchMaintenanceRequestDataTypeSerializer
+      extends StdSerializer<PatchMaintenanceRequestDataType> {
+    public PatchMaintenanceRequestDataTypeSerializer(Class<PatchMaintenanceRequestDataType> t) {
       super(t);
     }
 
-    public IntegrationTypeSerializer() {
+    public PatchMaintenanceRequestDataTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(IntegrationType value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        PatchMaintenanceRequestDataType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static IntegrationType fromValue(String value) {
-    return new IntegrationType(value);
+  public static PatchMaintenanceRequestDataType fromValue(String value) {
+    return new PatchMaintenanceRequestDataType(value);
   }
 }
