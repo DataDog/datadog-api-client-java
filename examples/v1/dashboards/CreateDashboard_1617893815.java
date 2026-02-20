@@ -13,6 +13,7 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionCompute;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionSearch;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryGroupBy;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryGroupByConfig;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryGroupBySort;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventsDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
@@ -71,18 +72,19 @@ public class Example {
                                                                                 .AVG)
                                                                         .metric("@duration"))
                                                                 .groupBy(
-                                                                    Collections.singletonList(
-                                                                        new FormulaAndFunctionEventQueryGroupBy()
-                                                                            .facet("service")
-                                                                            .limit(1000L)
-                                                                            .sort(
-                                                                                new FormulaAndFunctionEventQueryGroupBySort()
-                                                                                    .aggregation(
-                                                                                        FormulaAndFunctionEventAggregation
-                                                                                            .COUNT)
-                                                                                    .order(
-                                                                                        QuerySortOrder
-                                                                                            .DESC))))
+                                                                    new FormulaAndFunctionEventQueryGroupByConfig(
+                                                                        Collections.singletonList(
+                                                                            new FormulaAndFunctionEventQueryGroupBy()
+                                                                                .facet("service")
+                                                                                .limit(1000L)
+                                                                                .sort(
+                                                                                    new FormulaAndFunctionEventQueryGroupBySort()
+                                                                                        .aggregation(
+                                                                                            FormulaAndFunctionEventAggregation
+                                                                                                .COUNT)
+                                                                                        .order(
+                                                                                            QuerySortOrder
+                                                                                                .DESC)))))
                                                                 .storage("hot"))))))))))
             .layoutType(DashboardLayoutType.FREE);
 
