@@ -57,7 +57,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Create a Network Path test.
+   * Create a Network Path test.
    *
    * <p>See {@link #createSyntheticsNetworkTestWithHttpInfo}.
    *
@@ -71,7 +71,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Create a Network Path test.
+   * Create a Network Path test.
    *
    * <p>See {@link #createSyntheticsNetworkTestWithHttpInfoAsync}.
    *
@@ -135,7 +135,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Create a Network Path test.
+   * Create a Network Path test.
    *
    * <p>See {@link #createSyntheticsNetworkTestWithHttpInfo}.
    *
@@ -190,7 +190,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Create a test suite.
+   * Create a test suite.
    *
    * <p>See {@link #createSyntheticsSuiteWithHttpInfo}.
    *
@@ -204,7 +204,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Create a test suite.
+   * Create a test suite.
    *
    * <p>See {@link #createSyntheticsSuiteWithHttpInfoAsync}.
    *
@@ -268,7 +268,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Create a test suite.
+   * Create a test suite.
    *
    * <p>See {@link #createSyntheticsSuiteWithHttpInfo}.
    *
@@ -320,7 +320,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Bulk delete suites.
+   * Bulk delete suites.
    *
    * <p>See {@link #deleteSyntheticsSuitesWithHttpInfo}.
    *
@@ -334,7 +334,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Bulk delete suites.
+   * Bulk delete suites.
    *
    * <p>See {@link #deleteSyntheticsSuitesWithHttpInfoAsync}.
    *
@@ -398,7 +398,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Bulk delete suites.
+   * Bulk delete suites.
    *
    * <p>See {@link #deleteSyntheticsSuitesWithHttpInfo}.
    *
@@ -450,7 +450,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Bulk delete tests.
+   * Bulk delete tests.
    *
    * <p>See {@link #deleteSyntheticsTestsWithHttpInfo}.
    *
@@ -464,7 +464,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Bulk delete tests.
+   * Bulk delete tests.
    *
    * <p>See {@link #deleteSyntheticsTestsWithHttpInfoAsync}.
    *
@@ -529,7 +529,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Bulk delete tests.
+   * Bulk delete tests.
    *
    * <p>See {@link #deleteSyntheticsTestsWithHttpInfo}.
    *
@@ -581,7 +581,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Edit a test suite.
+   * Edit a test suite.
    *
    * <p>See {@link #editSyntheticsSuiteWithHttpInfo}.
    *
@@ -596,7 +596,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Edit a test suite.
+   * Edit a test suite.
    *
    * <p>See {@link #editSyntheticsSuiteWithHttpInfoAsync}.
    *
@@ -670,7 +670,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Edit a test suite.
+   * Edit a test suite.
    *
    * <p>See {@link #editSyntheticsSuiteWithHttpInfo}.
    *
@@ -845,7 +845,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Get a Network Path test.
+   * Get a Network Path test.
    *
    * <p>See {@link #getSyntheticsNetworkTestWithHttpInfo}.
    *
@@ -859,7 +859,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Get a Network Path test.
+   * Get a Network Path test.
    *
    * <p>See {@link #getSyntheticsNetworkTestWithHttpInfoAsync}.
    *
@@ -926,7 +926,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Get a Network Path test.
+   * Get a Network Path test.
    *
    * <p>See {@link #getSyntheticsNetworkTestWithHttpInfo}.
    *
@@ -983,7 +983,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Get a suite.
+   * Get a suite.
    *
    * <p>See {@link #getSyntheticsSuiteWithHttpInfo}.
    *
@@ -996,7 +996,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Get a suite.
+   * Get a suite.
    *
    * <p>See {@link #getSyntheticsSuiteWithHttpInfoAsync}.
    *
@@ -1061,7 +1061,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Get a suite.
+   * Get a suite.
    *
    * <p>See {@link #getSyntheticsSuiteWithHttpInfo}.
    *
@@ -1346,7 +1346,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search Synthetics suites.
+   * Search test suites.
    *
    * <p>See {@link #searchSuitesWithHttpInfo}.
    *
@@ -1358,7 +1358,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search Synthetics suites.
+   * Search test suites.
    *
    * <p>See {@link #searchSuitesWithHttpInfoAsync}.
    *
@@ -1373,7 +1373,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search Synthetics suites.
+   * Search test suites.
    *
    * <p>See {@link #searchSuitesWithHttpInfo}.
    *
@@ -1387,7 +1387,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search Synthetics suites.
+   * Search test suites.
    *
    * <p>See {@link #searchSuitesWithHttpInfoAsync}.
    *
@@ -1404,7 +1404,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search for Synthetics suites.
+   * Search for test suites.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SyntheticsSuiteSearchResponse&gt;
@@ -1459,7 +1459,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Search Synthetics suites.
+   * Search test suites.
    *
    * <p>See {@link #searchSuitesWithHttpInfo}.
    *
@@ -1648,7 +1648,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Edit a Network Path test.
+   * Edit a Network Path test.
    *
    * <p>See {@link #updateSyntheticsNetworkTestWithHttpInfo}.
    *
@@ -1663,7 +1663,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Edit a Network Path test.
+   * Edit a Network Path test.
    *
    * <p>See {@link #updateSyntheticsNetworkTestWithHttpInfoAsync}.
    *
@@ -1739,7 +1739,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Synthetics: Edit a Network Path test.
+   * Edit a Network Path test.
    *
    * <p>See {@link #updateSyntheticsNetworkTestWithHttpInfo}.
    *

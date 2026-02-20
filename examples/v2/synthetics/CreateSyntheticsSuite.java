@@ -1,4 +1,4 @@
-// Synthetics: Create a test suite returns "OK" response
+// Create a test suite returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

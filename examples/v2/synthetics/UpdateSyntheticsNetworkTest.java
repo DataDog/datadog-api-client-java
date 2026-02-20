@@ -1,4 +1,4 @@
-// Synthetics: Edit a Network Path test returns "OK" response
+// Edit a Network Path test returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
