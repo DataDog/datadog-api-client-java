@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_organization_handle_returns_CREATED_response-1770751028\",\"space_resource_name\":\"spaces/AAQA-zFIks8\"}},\"type\":\"google-chat-organization-handle\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/google-chat/organizations/e54cb570-c674-529c-769d-84b312288ed7/organization-handles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"dcad18fd-a3b1-4544-8fee-e1e2988204d8\",\"type\":\"google-chat-organization-handle\",\"attributes\":{\"name\":\"Test-Create_organization_handle_returns_CREATED_response-1770751028\",\"space_display_name\":\"api-test-space\",\"space_resource_name\":\"spaces/AAQA-zFIks8\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "be844af4-4435-29cf-e868-515ccb19e2fa"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/google-chat/organizations/e54cb570-c674-529c-769d-84b312288ed7/organization-handles/dcad18fd-a3b1-4544-8fee-e1e2988204d8",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7928316b-a21b-7110-225c-72d2c8a86d6c"
+  }
+]
