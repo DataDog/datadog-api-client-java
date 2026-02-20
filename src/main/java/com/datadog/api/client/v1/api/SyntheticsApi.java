@@ -2650,7 +2650,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a Mobile test.
+   * Get a mobile test.
    *
    * <p>See {@link #getMobileTestWithHttpInfo}.
    *
@@ -2663,7 +2663,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a Mobile test.
+   * Get a mobile test.
    *
    * <p>See {@link #getMobileTestWithHttpInfoAsync}.
    *
@@ -2679,7 +2679,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the detailed configuration associated with a Synthetic Mobile test.
+   * Get the detailed configuration associated with a Synthetic mobile test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @return ApiResponse&lt;SyntheticsMobileTest&gt;
@@ -2731,7 +2731,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a Mobile test.
+   * Get a mobile test.
    *
    * <p>See {@link #getMobileTestWithHttpInfo}.
    *
@@ -4755,7 +4755,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a Mobile test.
+   * Edit a mobile test.
    *
    * <p>See {@link #updateMobileTestWithHttpInfo}.
    *
@@ -4770,7 +4770,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a Mobile test.
+   * Edit a mobile test.
    *
    * <p>See {@link #updateMobileTestWithHttpInfoAsync}.
    *
@@ -4788,7 +4788,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit the configuration of a Synthetic Mobile test.
+   * Edit the configuration of a Synthetic mobile test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @param body New test details to be saved. (required)
@@ -4848,7 +4848,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a Mobile test.
+   * Edit a mobile test.
    *
    * <p>See {@link #updateMobileTestWithHttpInfo}.
    *

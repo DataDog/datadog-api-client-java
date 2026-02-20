@@ -1,4 +1,4 @@
-// Synthetics: Get a Network Path test returns "OK" response
+// Get a Network Path test returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -11,7 +11,7 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     try {
-      SyntheticsNetworkTestResponse result = apiInstance.getSyntheticsNetworkTest("amg-96x-tps");
+      SyntheticsNetworkTestResponse result = apiInstance.getSyntheticsNetworkTest("c7a-uwa-wn2");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SyntheticsApi#getSyntheticsNetworkTest");

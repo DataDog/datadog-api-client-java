@@ -1,4 +1,4 @@
-// Search Synthetics suites returns "OK" response
+// Search test suites returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

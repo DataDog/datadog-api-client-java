@@ -1,4 +1,4 @@
-// Synthetics: Bulk delete suites returns "OK" response
+// Bulk delete suites returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
