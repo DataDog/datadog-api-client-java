@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"tags\":[\"team:foobar\"],\"title\":\"Test-Create_a_new_dashboard_with_team_tags_returns_OK_response-1731699177\",\"widgets\":[{\"definition\":{\"requests\":[{\"change_type\":\"absolute\",\"compare_to\":\"hour_before\",\"formulas\":[{\"formula\":\"hour_before(query1)\"},{\"formula\":\"query1\"}],\"increase_good\":true,\"order_by\":\"change\",\"order_dir\":\"desc\",\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"change\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"tags\":[\"team:foobar\"],\"title\":\"Test-Create_a_new_dashboard_with_team_tags_returns_OK_response-1771618788\",\"widgets\":[{\"definition\":{\"requests\":[{\"change_type\":\"absolute\",\"compare_to\":\"hour_before\",\"formulas\":[{\"formula\":\"hour_before(query1)\"},{\"formula\":\"query1\"}],\"increase_good\":true,\"order_by\":\"change\",\"order_dir\":\"desc\",\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"change\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"zb6-66m-ntf\",\"title\":\"Test-Create_a_new_dashboard_with_team_tags_returns_OK_response-1731699177\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/zb6-66m-ntf/test-createanewdashboardwithteamtagsreturnsokresponse-1731699177\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"change_type\":\"absolute\",\"compare_to\":\"hour_before\",\"formulas\":[{\"formula\":\"hour_before(query1)\"},{\"formula\":\"query1\"}],\"increase_good\":true,\"order_by\":\"change\",\"order_dir\":\"desc\",\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"change\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0},\"id\":5234430955769094}],\"notify_list\":null,\"created_at\":\"2024-11-15T19:32:57.190291+00:00\",\"modified_at\":\"2024-11-15T19:32:57.190291+00:00\",\"tags\":[\"team:foobar\"],\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"tfh-8hh-gha\",\"title\":\"Test-Create_a_new_dashboard_with_team_tags_returns_OK_response-1771618788\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":\"frog\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/tfh-8hh-gha/test-createanewdashboardwithteamtagsreturnsokresponse-1771618788\",\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"change_type\":\"absolute\",\"compare_to\":\"hour_before\",\"formulas\":[{\"formula\":\"hour_before(query1)\"},{\"formula\":\"query1\"}],\"increase_good\":true,\"order_by\":\"change\",\"order_dir\":\"desc\",\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"change\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0},\"id\":5768564568855112}],\"notify_list\":null,\"created_at\":\"2026-02-20T20:19:48.549863+00:00\",\"modified_at\":\"2026-02-20T20:19:48.549863+00:00\",\"tags\":[\"team:foobar\"],\"restricted_roles\":[]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5aaf80dc-ac4e-9c8c-d07f-e6b3ae0a47ff"
+    "id": "4611249c-cdae-d2a1-753e-eeeb978598ba"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/zb6-66m-ntf",
+      "path": "/api/v1/dashboard/tfh-8hh-gha",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"zb6-66m-ntf\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"tfh-8hh-gha\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "09ea3a18-6007-5e12-6a47-a3c592c3741d"
+    "id": "95022ab4-51ce-7eca-252b-0dc5f04403a6"
   }
 ]

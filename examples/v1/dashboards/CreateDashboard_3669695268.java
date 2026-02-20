@@ -9,6 +9,7 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionEventAggregation;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionCompute;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionSearch;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryGroupByConfig;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventsDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
@@ -63,6 +64,8 @@ public class Example {
                                                                         .aggregation(
                                                                             FormulaAndFunctionEventAggregation
                                                                                 .COUNT))
+                                                                .groupBy(
+                                                                    new FormulaAndFunctionEventQueryGroupByConfig())
                                                                 .storage("online_archives"))))
                                                 .formulas(
                                                     Collections.singletonList(
