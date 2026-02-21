@@ -594,13 +594,13 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jersey-version>3.0.8</jersey-version>
-        <jackson-version>2.20.1</jackson-version>
-        <jackson-annotations-version>2.20</jackson-annotations-version>
-        <jackson-databind-version>2.20.1</jackson-databind-version>
-        <jackson-databind-nullable-version>0.2.3</jackson-databind-nullable-version>
-        <jakarta-annotation-version>2.1.0</jakarta-annotation-version>
-        <scribejava-version>8.3.1</scribejava-version>
+        <jersey-version>3.0.18</jersey-version>
+        <jackson-version>2.20.2</jackson-version>
+        <jackson-annotations-version>2.21</jackson-annotations-version>
+        <jackson-databind-version>2.20.2</jackson-databind-version>
+        <jackson-databind-nullable-version>0.2.9</jackson-databind-nullable-version>
+        <jakarta-annotation-version>2.1.1</jakarta-annotation-version>
+        <scribejava-version>8.3.3</scribejava-version>
         <junit-version>4.13.2</junit-version>
         <dd-java-agent-version>1.56.0</dd-java-agent-version>
         <cucumber-version>7.2.3</cucumber-version>
