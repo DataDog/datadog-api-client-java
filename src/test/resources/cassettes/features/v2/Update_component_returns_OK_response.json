@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"components\":[{\"components\":[{\"name\":\"Login\",\"position\":0,\"type\":\"component\"},{\"name\":\"Settings\",\"position\":1,\"type\":\"component\"}],\"name\":\"Application\",\"type\":\"group\"}],\"domain_prefix\":\"18ce7dca5f31f286\",\"enabled\":true,\"name\":\"A Status Page\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"components\":[{\"name\":\"Login\",\"position\":0,\"type\":\"component\"},{\"name\":\"Settings\",\"position\":1,\"type\":\"component\"}],\"name\":\"Application\",\"type\":\"group\"}],\"domain_prefix\":\"f67c55f5b2532df6\",\"enabled\":true,\"name\":\"A Status Page\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"2f95d75e-d08f-4c37-8808-2b0246f86e16\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"7a828867-d56d-41a9-bc35-9eec112fd334\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"424cedb4-c0c1-4726-871a-5927588ca835\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"1cdf79d4-4c20-4388-ab76-c24f6c140bcb\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-01-21T21:23:51.072685Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"18ce7dca5f31f286\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-01-21T21:23:51.072685Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/2f95d75e-d08f-4c37-8808-2b0246f86e16/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"9e2f9e22-7d9c-45fd-9457-ba3516d51998\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"ace1e050-b41f-40ca-9ea6-8d57a244d6c4\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"4226d439-92f1-488c-8441-4c5bb19a9364\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"e56d90c5-7196-472b-8281-0dcc0bf27f26\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-02-19T21:09:42.920779Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"f67c55f5b2532df6\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-02-19T21:09:42.920779Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/9e2f9e22-7d9c-45fd-9457-ba3516d51998/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1077f135-5bba-c22c-8d79-df2f9aba7f47"
+    "id": "ef88e721-8a8b-a32b-91a5-eb7b94fff3dd"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Logs Indexing\"},\"id\":\"7a828867-d56d-41a9-bc35-9eec112fd334\",\"type\":\"components\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Logs Indexing\"},\"id\":\"ace1e050-b41f-40ca-9ea6-8d57a244d6c4\",\"type\":\"components\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/statuspages/2f95d75e-d08f-4c37-8808-2b0246f86e16/components/7a828867-d56d-41a9-bc35-9eec112fd334",
+      "path": "/api/v2/statuspages/9e2f9e22-7d9c-45fd-9457-ba3516d51998/components/ace1e050-b41f-40ca-9ea6-8d57a244d6c4",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"7a828867-d56d-41a9-bc35-9eec112fd334\",\"type\":\"components\",\"attributes\":{\"components\":[{\"id\":\"424cedb4-c0c1-4726-871a-5927588ca835\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"1cdf79d4-4c20-4388-ab76-c24f6c140bcb\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}],\"created_at\":\"2026-01-21T21:23:51.072685Z\",\"modified_at\":\"2026-01-21T21:23:51.606861Z\",\"name\":\"Logs Indexing\",\"position\":0,\"type\":\"group\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"group\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"2f95d75e-d08f-4c37-8808-2b0246f86e16\",\"type\":\"status_pages\"}}}}}",
+      "body": "{\"data\":{\"id\":\"ace1e050-b41f-40ca-9ea6-8d57a244d6c4\",\"type\":\"components\",\"attributes\":{\"components\":[{\"id\":\"4226d439-92f1-488c-8441-4c5bb19a9364\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"e56d90c5-7196-472b-8281-0dcc0bf27f26\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}],\"created_at\":\"2026-02-19T21:09:42.920779Z\",\"modified_at\":\"2026-02-19T21:09:43.521422Z\",\"name\":\"Logs Indexing\",\"position\":0,\"type\":\"group\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"group\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"9e2f9e22-7d9c-45fd-9457-ba3516d51998\",\"type\":\"status_pages\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b53230d2-7ea4-e81c-4b40-63e00841e459"
+    "id": "db437f9b-45f4-ec3a-b0c7-1e8c5600978b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/statuspages/2f95d75e-d08f-4c37-8808-2b0246f86e16",
+      "path": "/api/v2/statuspages/9e2f9e22-7d9c-45fd-9457-ba3516d51998",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1b78beba-3d57-8104-54e2-e8f304655697"
+    "id": "af834ecf-ba6f-fdc1-9d2c-f10f860c1af7"
   }
 ]

@@ -8,60 +8,42 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing information about multiple integrations. */
-@JsonPropertyOrder({ListIntegrationsResponse.JSON_PROPERTY_DATA})
+/** */
+@JsonPropertyOrder({PatchMaintenanceRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ListIntegrationsResponse {
+public class PatchMaintenanceRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<Integration> data = new ArrayList<>();
+  private PatchMaintenanceRequestData data;
 
-  public ListIntegrationsResponse() {}
-
-  @JsonCreator
-  public ListIntegrationsResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<Integration> data) {
+  public PatchMaintenanceRequest data(PatchMaintenanceRequestData data) {
     this.data = data;
-  }
-
-  public ListIntegrationsResponse data(List<Integration> data) {
-    this.data = data;
-    for (Integration item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public ListIntegrationsResponse addDataItem(Integration dataItem) {
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Array of integration objects.
+   * Getdata
    *
    * @return data
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<Integration> getData() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PatchMaintenanceRequestData getData() {
     return data;
   }
 
-  public void setData(List<Integration> data) {
+  public void setData(PatchMaintenanceRequestData data) {
     this.data = data;
   }
 
@@ -77,10 +59,10 @@ public class ListIntegrationsResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ListIntegrationsResponse
+   * @return PatchMaintenanceRequest
    */
   @JsonAnySetter
-  public ListIntegrationsResponse putAdditionalProperty(String key, Object value) {
+  public PatchMaintenanceRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -111,7 +93,7 @@ public class ListIntegrationsResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ListIntegrationsResponse object is equal to o. */
+  /** Return true if this PatchMaintenanceRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -120,9 +102,9 @@ public class ListIntegrationsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListIntegrationsResponse listIntegrationsResponse = (ListIntegrationsResponse) o;
-    return Objects.equals(this.data, listIntegrationsResponse.data)
-        && Objects.equals(this.additionalProperties, listIntegrationsResponse.additionalProperties);
+    PatchMaintenanceRequest patchMaintenanceRequest = (PatchMaintenanceRequest) o;
+    return Objects.equals(this.data, patchMaintenanceRequest.data)
+        && Objects.equals(this.additionalProperties, patchMaintenanceRequest.additionalProperties);
   }
 
   @Override
@@ -133,7 +115,7 @@ public class ListIntegrationsResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListIntegrationsResponse {\n");
+    sb.append("class PatchMaintenanceRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
