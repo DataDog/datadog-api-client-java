@@ -102,7 +102,7 @@ public class IncidentIntegrationMetadataAttributes {
 
   /**
    * A number indicating the type of integration this metadata is for. 1 indicates Slack; 8
-   * indicates Jira. maximum: 9
+   * indicates Jira. maximum: 100
    *
    * @return integrationType
    */
