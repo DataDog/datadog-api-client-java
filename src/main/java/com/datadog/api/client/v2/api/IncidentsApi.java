@@ -34,6 +34,10 @@ import com.datadog.api.client.v2.model.IncidentResponseData;
 import com.datadog.api.client.v2.model.IncidentSearchResponse;
 import com.datadog.api.client.v2.model.IncidentSearchResponseIncidentsData;
 import com.datadog.api.client.v2.model.IncidentSearchSortOrder;
+import com.datadog.api.client.v2.model.IncidentTimestampOverrideCreateRequest;
+import com.datadog.api.client.v2.model.IncidentTimestampOverridePatchRequest;
+import com.datadog.api.client.v2.model.IncidentTimestampOverrideResponse;
+import com.datadog.api.client.v2.model.IncidentTimestampOverridesResponse;
 import com.datadog.api.client.v2.model.IncidentTodoCreateRequest;
 import com.datadog.api.client.v2.model.IncidentTodoListResponse;
 import com.datadog.api.client.v2.model.IncidentTodoPatchRequest;
@@ -1783,6 +1787,269 @@ public class IncidentsApi {
         new GenericType<PostmortemTemplateResponse>() {});
   }
 
+  /** Manage optional parameters to createIncidentTimestampOverride. */
+  public static class CreateIncidentTimestampOverrideOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Specifies which types of related objects are included in the response.
+     *     (optional)
+     * @return CreateIncidentTimestampOverrideOptionalParameters
+     */
+    public CreateIncidentTimestampOverrideOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Create a timestamp override for an incident.
+   *
+   * <p>See {@link #createIncidentTimestampOverrideWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body (required)
+   * @return IncidentTimestampOverrideResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentTimestampOverrideResponse createIncidentTimestampOverride(
+      UUID incidentId, IncidentTimestampOverrideCreateRequest body) throws ApiException {
+    return createIncidentTimestampOverrideWithHttpInfo(
+            incidentId, body, new CreateIncidentTimestampOverrideOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create a timestamp override for an incident.
+   *
+   * <p>See {@link #createIncidentTimestampOverrideWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;IncidentTimestampOverrideResponse&gt;
+   */
+  public CompletableFuture<IncidentTimestampOverrideResponse> createIncidentTimestampOverrideAsync(
+      UUID incidentId, IncidentTimestampOverrideCreateRequest body) {
+    return createIncidentTimestampOverrideWithHttpInfoAsync(
+            incidentId, body, new CreateIncidentTimestampOverrideOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a timestamp override for an incident.
+   *
+   * <p>See {@link #createIncidentTimestampOverrideWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentTimestampOverrideResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentTimestampOverrideResponse createIncidentTimestampOverride(
+      UUID incidentId,
+      IncidentTimestampOverrideCreateRequest body,
+      CreateIncidentTimestampOverrideOptionalParameters parameters)
+      throws ApiException {
+    return createIncidentTimestampOverrideWithHttpInfo(incidentId, body, parameters).getData();
+  }
+
+  /**
+   * Create a timestamp override for an incident.
+   *
+   * <p>See {@link #createIncidentTimestampOverrideWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentTimestampOverrideResponse&gt;
+   */
+  public CompletableFuture<IncidentTimestampOverrideResponse> createIncidentTimestampOverrideAsync(
+      UUID incidentId,
+      IncidentTimestampOverrideCreateRequest body,
+      CreateIncidentTimestampOverrideOptionalParameters parameters) {
+    return createIncidentTimestampOverrideWithHttpInfoAsync(incidentId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new timestamp override for a specific incident.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentTimestampOverrideResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentTimestampOverrideResponse> createIncidentTimestampOverrideWithHttpInfo(
+      UUID incidentId,
+      IncidentTimestampOverrideCreateRequest body,
+      CreateIncidentTimestampOverrideOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentTimestampOverride";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'incidentId' when calling"
+              + " createIncidentTimestampOverride");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createIncidentTimestampOverride");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/timestamp-overrides"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.createIncidentTimestampOverride",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTimestampOverrideResponse>() {});
+  }
+
+  /**
+   * Create a timestamp override for an incident.
+   *
+   * <p>See {@link #createIncidentTimestampOverrideWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentTimestampOverrideResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentTimestampOverrideResponse>>
+      createIncidentTimestampOverrideWithHttpInfoAsync(
+          UUID incidentId,
+          IncidentTimestampOverrideCreateRequest body,
+          CreateIncidentTimestampOverrideOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentTimestampOverride";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentTimestampOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      CompletableFuture<ApiResponse<IncidentTimestampOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentId' when calling"
+                  + " createIncidentTimestampOverride"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentTimestampOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createIncidentTimestampOverride"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/timestamp-overrides"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.createIncidentTimestampOverride",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentTimestampOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTimestampOverrideResponse>() {});
+  }
+
   /**
    * Create an incident todo.
    *
@@ -3495,6 +3762,194 @@ public class IncidentsApi {
               new HashMap<String, String>(),
               new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a timestamp override for an incident.
+   *
+   * <p>See {@link #deleteIncidentTimestampOverrideWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param timestampOverrideId The UUID of the timestamp override. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteIncidentTimestampOverride(UUID incidentId, UUID timestampOverrideId)
+      throws ApiException {
+    deleteIncidentTimestampOverrideWithHttpInfo(incidentId, timestampOverrideId);
+  }
+
+  /**
+   * Delete a timestamp override for an incident.
+   *
+   * <p>See {@link #deleteIncidentTimestampOverrideWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param timestampOverrideId The UUID of the timestamp override. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteIncidentTimestampOverrideAsync(
+      UUID incidentId, UUID timestampOverrideId) {
+    return deleteIncidentTimestampOverrideWithHttpInfoAsync(incidentId, timestampOverrideId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an existing timestamp override for a specific incident.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param timestampOverrideId The UUID of the timestamp override. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteIncidentTimestampOverrideWithHttpInfo(
+      UUID incidentId, UUID timestampOverrideId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentTimestampOverride";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'incidentId' when calling"
+              + " deleteIncidentTimestampOverride");
+    }
+
+    // verify the required parameter 'timestampOverrideId' is set
+    if (timestampOverrideId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'timestampOverrideId' when calling"
+              + " deleteIncidentTimestampOverride");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/timestamp-overrides/{timestamp_override_id}"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()))
+            .replaceAll(
+                "\\{" + "timestamp_override_id" + "\\}",
+                apiClient.escapeString(timestampOverrideId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.deleteIncidentTimestampOverride",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a timestamp override for an incident.
+   *
+   * <p>See {@link #deleteIncidentTimestampOverrideWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param timestampOverrideId The UUID of the timestamp override. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteIncidentTimestampOverrideWithHttpInfoAsync(
+      UUID incidentId, UUID timestampOverrideId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentTimestampOverride";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentId' when calling"
+                  + " deleteIncidentTimestampOverride"));
+      return result;
+    }
+
+    // verify the required parameter 'timestampOverrideId' is set
+    if (timestampOverrideId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'timestampOverrideId' when calling"
+                  + " deleteIncidentTimestampOverride"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/timestamp-overrides/{timestamp_override_id}"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()))
+            .replaceAll(
+                "\\{" + "timestamp_override_id" + "\\}",
+                apiClient.escapeString(timestampOverrideId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.deleteIncidentTimestampOverride",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -6932,6 +7387,252 @@ public class IncidentsApi {
         new GenericType<IncidentsResponse>() {});
   }
 
+  /** Manage optional parameters to listIncidentTimestampOverrides. */
+  public static class ListIncidentTimestampOverridesOptionalParameters {
+    private String include;
+    private Boolean includeDeleted;
+
+    /**
+     * Set include.
+     *
+     * @param include Specifies which types of related objects are included in the response.
+     *     (optional)
+     * @return ListIncidentTimestampOverridesOptionalParameters
+     */
+    public ListIncidentTimestampOverridesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+
+    /**
+     * Set includeDeleted.
+     *
+     * @param includeDeleted Specifies whether to include deleted timestamp overrides in the
+     *     response. (optional)
+     * @return ListIncidentTimestampOverridesOptionalParameters
+     */
+    public ListIncidentTimestampOverridesOptionalParameters includeDeleted(Boolean includeDeleted) {
+      this.includeDeleted = includeDeleted;
+      return this;
+    }
+  }
+
+  /**
+   * List timestamp overrides for an incident.
+   *
+   * <p>See {@link #listIncidentTimestampOverridesWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @return IncidentTimestampOverridesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentTimestampOverridesResponse listIncidentTimestampOverrides(UUID incidentId)
+      throws ApiException {
+    return listIncidentTimestampOverridesWithHttpInfo(
+            incidentId, new ListIncidentTimestampOverridesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List timestamp overrides for an incident.
+   *
+   * <p>See {@link #listIncidentTimestampOverridesWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @return CompletableFuture&lt;IncidentTimestampOverridesResponse&gt;
+   */
+  public CompletableFuture<IncidentTimestampOverridesResponse> listIncidentTimestampOverridesAsync(
+      UUID incidentId) {
+    return listIncidentTimestampOverridesWithHttpInfoAsync(
+            incidentId, new ListIncidentTimestampOverridesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List timestamp overrides for an incident.
+   *
+   * <p>See {@link #listIncidentTimestampOverridesWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentTimestampOverridesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentTimestampOverridesResponse listIncidentTimestampOverrides(
+      UUID incidentId, ListIncidentTimestampOverridesOptionalParameters parameters)
+      throws ApiException {
+    return listIncidentTimestampOverridesWithHttpInfo(incidentId, parameters).getData();
+  }
+
+  /**
+   * List timestamp overrides for an incident.
+   *
+   * <p>See {@link #listIncidentTimestampOverridesWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentTimestampOverridesResponse&gt;
+   */
+  public CompletableFuture<IncidentTimestampOverridesResponse> listIncidentTimestampOverridesAsync(
+      UUID incidentId, ListIncidentTimestampOverridesOptionalParameters parameters) {
+    return listIncidentTimestampOverridesWithHttpInfoAsync(incidentId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all timestamp overrides for a specific incident.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentTimestampOverridesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentTimestampOverridesResponse> listIncidentTimestampOverridesWithHttpInfo(
+      UUID incidentId, ListIncidentTimestampOverridesOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentTimestampOverrides";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'incidentId' when calling"
+              + " listIncidentTimestampOverrides");
+    }
+    String include = parameters.include;
+    Boolean includeDeleted = parameters.includeDeleted;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/timestamp-overrides"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include-deleted", includeDeleted));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.listIncidentTimestampOverrides",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTimestampOverridesResponse>() {});
+  }
+
+  /**
+   * List timestamp overrides for an incident.
+   *
+   * <p>See {@link #listIncidentTimestampOverridesWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentTimestampOverridesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentTimestampOverridesResponse>>
+      listIncidentTimestampOverridesWithHttpInfoAsync(
+          UUID incidentId, ListIncidentTimestampOverridesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentTimestampOverrides";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentTimestampOverridesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      CompletableFuture<ApiResponse<IncidentTimestampOverridesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentId' when calling"
+                  + " listIncidentTimestampOverrides"));
+      return result;
+    }
+    String include = parameters.include;
+    Boolean includeDeleted = parameters.includeDeleted;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/timestamp-overrides"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include-deleted", includeDeleted));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.listIncidentTimestampOverrides",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentTimestampOverridesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTimestampOverridesResponse>() {});
+  }
+
   /**
    * Get a list of an incident&#39;s todos.
    *
@@ -9431,6 +10132,315 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<PostmortemTemplateResponse>() {});
+  }
+
+  /** Manage optional parameters to updateIncidentTimestampOverride. */
+  public static class UpdateIncidentTimestampOverrideOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Specifies which types of related objects are included in the response.
+     *     (optional)
+     * @return UpdateIncidentTimestampOverrideOptionalParameters
+     */
+    public UpdateIncidentTimestampOverrideOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Update a timestamp override for an incident.
+   *
+   * <p>See {@link #updateIncidentTimestampOverrideWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param timestampOverrideId The UUID of the timestamp override. (required)
+   * @param body (required)
+   * @return IncidentTimestampOverrideResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentTimestampOverrideResponse updateIncidentTimestampOverride(
+      UUID incidentId, UUID timestampOverrideId, IncidentTimestampOverridePatchRequest body)
+      throws ApiException {
+    return updateIncidentTimestampOverrideWithHttpInfo(
+            incidentId,
+            timestampOverrideId,
+            body,
+            new UpdateIncidentTimestampOverrideOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Update a timestamp override for an incident.
+   *
+   * <p>See {@link #updateIncidentTimestampOverrideWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param timestampOverrideId The UUID of the timestamp override. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;IncidentTimestampOverrideResponse&gt;
+   */
+  public CompletableFuture<IncidentTimestampOverrideResponse> updateIncidentTimestampOverrideAsync(
+      UUID incidentId, UUID timestampOverrideId, IncidentTimestampOverridePatchRequest body) {
+    return updateIncidentTimestampOverrideWithHttpInfoAsync(
+            incidentId,
+            timestampOverrideId,
+            body,
+            new UpdateIncidentTimestampOverrideOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a timestamp override for an incident.
+   *
+   * <p>See {@link #updateIncidentTimestampOverrideWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param timestampOverrideId The UUID of the timestamp override. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentTimestampOverrideResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentTimestampOverrideResponse updateIncidentTimestampOverride(
+      UUID incidentId,
+      UUID timestampOverrideId,
+      IncidentTimestampOverridePatchRequest body,
+      UpdateIncidentTimestampOverrideOptionalParameters parameters)
+      throws ApiException {
+    return updateIncidentTimestampOverrideWithHttpInfo(
+            incidentId, timestampOverrideId, body, parameters)
+        .getData();
+  }
+
+  /**
+   * Update a timestamp override for an incident.
+   *
+   * <p>See {@link #updateIncidentTimestampOverrideWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param timestampOverrideId The UUID of the timestamp override. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentTimestampOverrideResponse&gt;
+   */
+  public CompletableFuture<IncidentTimestampOverrideResponse> updateIncidentTimestampOverrideAsync(
+      UUID incidentId,
+      UUID timestampOverrideId,
+      IncidentTimestampOverridePatchRequest body,
+      UpdateIncidentTimestampOverrideOptionalParameters parameters) {
+    return updateIncidentTimestampOverrideWithHttpInfoAsync(
+            incidentId, timestampOverrideId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing timestamp override for a specific incident.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param timestampOverrideId The UUID of the timestamp override. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentTimestampOverrideResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentTimestampOverrideResponse> updateIncidentTimestampOverrideWithHttpInfo(
+      UUID incidentId,
+      UUID timestampOverrideId,
+      IncidentTimestampOverridePatchRequest body,
+      UpdateIncidentTimestampOverrideOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentTimestampOverride";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'incidentId' when calling"
+              + " updateIncidentTimestampOverride");
+    }
+
+    // verify the required parameter 'timestampOverrideId' is set
+    if (timestampOverrideId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'timestampOverrideId' when calling"
+              + " updateIncidentTimestampOverride");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling updateIncidentTimestampOverride");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/timestamp-overrides/{timestamp_override_id}"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()))
+            .replaceAll(
+                "\\{" + "timestamp_override_id" + "\\}",
+                apiClient.escapeString(timestampOverrideId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.updateIncidentTimestampOverride",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTimestampOverrideResponse>() {});
+  }
+
+  /**
+   * Update a timestamp override for an incident.
+   *
+   * <p>See {@link #updateIncidentTimestampOverrideWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param timestampOverrideId The UUID of the timestamp override. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentTimestampOverrideResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentTimestampOverrideResponse>>
+      updateIncidentTimestampOverrideWithHttpInfoAsync(
+          UUID incidentId,
+          UUID timestampOverrideId,
+          IncidentTimestampOverridePatchRequest body,
+          UpdateIncidentTimestampOverrideOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentTimestampOverride";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentTimestampOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      CompletableFuture<ApiResponse<IncidentTimestampOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentId' when calling"
+                  + " updateIncidentTimestampOverride"));
+      return result;
+    }
+
+    // verify the required parameter 'timestampOverrideId' is set
+    if (timestampOverrideId == null) {
+      CompletableFuture<ApiResponse<IncidentTimestampOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'timestampOverrideId' when calling"
+                  + " updateIncidentTimestampOverride"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentTimestampOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateIncidentTimestampOverride"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/timestamp-overrides/{timestamp_override_id}"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()))
+            .replaceAll(
+                "\\{" + "timestamp_override_id" + "\\}",
+                apiClient.escapeString(timestampOverrideId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.updateIncidentTimestampOverride",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentTimestampOverrideResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTimestampOverrideResponse>() {});
   }
 
   /**
