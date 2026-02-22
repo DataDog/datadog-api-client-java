@@ -859,6 +859,7 @@ public class ApiClient {
           put("v2.getIncidentPostmortemTemplate", false);
           put("v2.getIncidentTodo", false);
           put("v2.getIncidentType", false);
+          put("v2.importIncident", false);
           put("v2.listGlobalIncidentHandles", false);
           put("v2.listIncidentAttachments", false);
           put("v2.listIncidentIntegrations", false);
