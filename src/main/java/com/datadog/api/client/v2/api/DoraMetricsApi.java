@@ -87,7 +87,8 @@ public class DoraMetricsApi {
   /**
    * Use this API endpoint to provide deployment data.
    *
-   * <p>This is necessary for: - Deployment Frequency - Change Lead Time - Change Failure Rate
+   * <p>This is necessary for: - Deployment Frequency - Change Lead Time - Change Failure Rate -
+   * Failed Deployment Recovery Time
    *
    * @param body (required)
    * @return ApiResponse&lt;DORADeploymentResponse&gt;
@@ -190,7 +191,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send a failure event.
+   * Send an incident event.
    *
    * <p>See {@link #createDORAFailureWithHttpInfo}.
    *
@@ -203,7 +204,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send a failure event.
+   * Send an incident event.
    *
    * <p>See {@link #createDORAFailureWithHttpInfoAsync}.
    *
@@ -219,9 +220,11 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Use this API endpoint to provide failure data.
-   *
-   * <p>This is necessary for: - Change Failure Rate - Time to Restore
+   * Use this API endpoint to provide incident data for DORA Metrics. Note that change failure rate
+   * and failed deployment recovery time are computed from change failures detected on deployments,
+   * not from incident events sent through this endpoint. Tracking incidents gives a side-by-side
+   * view of how failed deployments translate into real-world incidents, including their severity
+   * and frequency.
    *
    * @param body (required)
    * @return ApiResponse&lt;DORAFailureResponse&gt;
@@ -272,7 +275,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send a failure event.
+   * Send an incident event.
    *
    * <p>See {@link #createDORAFailureWithHttpInfo}.
    *
@@ -324,7 +327,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send an incident event.
+   * Send an incident event (legacy).
    *
    * <p>See {@link #createDORAIncidentWithHttpInfo}.
    *
@@ -339,7 +342,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send an incident event.
+   * Send an incident event (legacy).
    *
    * <p>See {@link #createDORAIncidentWithHttpInfoAsync}.
    *
@@ -360,9 +363,8 @@ public class DoraMetricsApi {
    * <strong>Note</strong>: This endpoint is deprecated. Please use <code>/api/v2/dora/failure
    * </code> instead.
    *
-   * <p>Use this API endpoint to provide failure data.
-   *
-   * <p>This is necessary for: - Change Failure Rate - Time to Restore
+   * <p>Use this API endpoint to provide incident data. Tracking incidents gives a side-by-side view
+   * of how failed deployments translate into real-world incidents.
    *
    * @param body (required)
    * @return ApiResponse&lt;DORAFailureResponse&gt;
@@ -416,7 +418,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Send an incident event.
+   * Send an incident event (legacy).
    *
    * <p>See {@link #createDORAIncidentWithHttpInfo}.
    *
@@ -607,11 +609,11 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Delete a failure event.
+   * Delete an incident event.
    *
    * <p>See {@link #deleteDORAFailureWithHttpInfo}.
    *
-   * @param failureId The ID of the failure event to delete. (required)
+   * @param failureId The ID of the incident event to delete. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteDORAFailure(String failureId) throws ApiException {
@@ -619,11 +621,11 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Delete a failure event.
+   * Delete an incident event.
    *
    * <p>See {@link #deleteDORAFailureWithHttpInfoAsync}.
    *
-   * @param failureId The ID of the failure event to delete. (required)
+   * @param failureId The ID of the incident event to delete. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteDORAFailureAsync(String failureId) {
@@ -635,9 +637,9 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Use this API endpoint to delete a failure event.
+   * Use this API endpoint to delete an incident event.
    *
-   * @param failureId The ID of the failure event to delete. (required)
+   * @param failureId The ID of the incident event to delete. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -686,11 +688,11 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Delete a failure event.
+   * Delete an incident event.
    *
    * <p>See {@link #deleteDORAFailureWithHttpInfo}.
    *
-   * @param failureId The ID of the failure event to delete. (required)
+   * @param failureId The ID of the incident event to delete. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteDORAFailureWithHttpInfoAsync(String failureId) {
@@ -879,11 +881,11 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Get a failure event.
+   * Get an incident event.
    *
    * <p>See {@link #getDORAFailureWithHttpInfo}.
    *
-   * @param failureId The ID of the failure event. (required)
+   * @param failureId The ID of the incident event. (required)
    * @return DORAFailureFetchResponse
    * @throws ApiException if fails to make API call
    */
@@ -892,11 +894,11 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Get a failure event.
+   * Get an incident event.
    *
    * <p>See {@link #getDORAFailureWithHttpInfoAsync}.
    *
-   * @param failureId The ID of the failure event. (required)
+   * @param failureId The ID of the incident event. (required)
    * @return CompletableFuture&lt;DORAFailureFetchResponse&gt;
    */
   public CompletableFuture<DORAFailureFetchResponse> getDORAFailureAsync(String failureId) {
@@ -908,9 +910,9 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Use this API endpoint to get a failure event.
+   * Use this API endpoint to get an incident event.
    *
-   * @param failureId The ID of the failure event. (required)
+   * @param failureId The ID of the incident event. (required)
    * @return ApiResponse&lt;DORAFailureFetchResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -960,11 +962,11 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Get a failure event.
+   * Get an incident event.
    *
    * <p>See {@link #getDORAFailureWithHttpInfo}.
    *
-   * @param failureId The ID of the failure event. (required)
+   * @param failureId The ID of the incident event. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;DORAFailureFetchResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DORAFailureFetchResponse>> getDORAFailureWithHttpInfoAsync(
@@ -1149,7 +1151,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Get a list of failure events.
+   * Get a list of incident events.
    *
    * <p>See {@link #listDORAFailuresWithHttpInfo}.
    *
@@ -1163,7 +1165,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Get a list of failure events.
+   * Get a list of incident events.
    *
    * <p>See {@link #listDORAFailuresWithHttpInfoAsync}.
    *
@@ -1180,7 +1182,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Use this API endpoint to get a list of failure events.
+   * Use this API endpoint to get a list of incident events.
    *
    * @param body (required)
    * @return ApiResponse&lt;DORAFailuresListResponse&gt;
@@ -1230,7 +1232,7 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Get a list of failure events.
+   * Get a list of incident events.
    *
    * <p>See {@link #listDORAFailuresWithHttpInfo}.
    *
@@ -1314,7 +1316,9 @@ public class DoraMetricsApi {
   }
 
   /**
-   * Use this API endpoint to patch a deployment event.
+   * Update a deployment's change failure status. Use this to mark a deployment as a change failure
+   * or back to stable. You can optionally include remediation details to enable failed deployment
+   * recovery time calculation.
    *
    * @param deploymentId The ID of the deployment event. (required)
    * @param body (required)
