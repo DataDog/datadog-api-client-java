@@ -9,6 +9,7 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionMetricDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
+import com.datadog.api.client.v1.model.TimeseriesRequestStyle;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinition;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.client.v1.model.TimeseriesWidgetRequest;
@@ -17,7 +18,6 @@ import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetDisplayType;
 import com.datadog.api.client.v1.model.WidgetLineType;
 import com.datadog.api.client.v1.model.WidgetLineWidth;
-import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -66,7 +66,7 @@ public class Example {
                                                                 .name("mymetricoverlay")
                                                                 .query("avg:system.cpu.user{*}"))))
                                                 .style(
-                                                    new WidgetRequestStyle()
+                                                    new TimeseriesRequestStyle()
                                                         .palette("purple")
                                                         .lineType(WidgetLineType.SOLID)
                                                         .lineWidth(WidgetLineWidth.NORMAL))
