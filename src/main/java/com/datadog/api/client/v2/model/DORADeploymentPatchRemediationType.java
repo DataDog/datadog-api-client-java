@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of remediation action taken. */
+/**
+ * The type of remediation action taken. Required when the failed deployment must be linked to a
+ * remediation deployment.
+ */
 @JsonSerialize(
     using = DORADeploymentPatchRemediationType.DORADeploymentPatchRemediationTypeSerializer.class)
 public class DORADeploymentPatchRemediationType extends ModelEnum<String> {

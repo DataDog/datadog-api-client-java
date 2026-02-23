@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API type for DORA failure events. */
+/** JSON:API type for DORA incident events. */
 @JsonSerialize(using = DORAFailureType.DORAFailureTypeSerializer.class)
 public class DORAFailureType extends ModelEnum<String> {
 

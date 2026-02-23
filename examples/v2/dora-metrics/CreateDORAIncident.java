@@ -1,4 +1,4 @@
-// Send an incident event returns "OK" response
+// Send an incident event (legacy) returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

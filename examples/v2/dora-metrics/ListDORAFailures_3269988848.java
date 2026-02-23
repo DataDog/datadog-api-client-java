@@ -1,4 +1,4 @@
-// Get a list of incident events returns "OK" response
+// Get a list of failure events returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -21,11 +21,9 @@ public class Example {
                 new DORAListFailuresRequestData()
                     .attributes(
                         new DORAListFailuresRequestAttributes()
-                            .from(OffsetDateTime.parse("2025-01-01T00:00:00Z"))
-                            .limit(100)
-                            .query("severity:(SEV-1 OR SEV-2) env:production team:backend")
-                            .sort("-started_at")
-                            .to(OffsetDateTime.parse("2025-01-31T23:59:59Z")))
+                            .from(OffsetDateTime.parse("2025-03-23T00:00:00Z"))
+                            .limit(1)
+                            .to(OffsetDateTime.parse("2025-03-24T00:00:00Z")))
                     .type(DORAListFailuresRequestDataType.DORA_FAILURES_LIST_REQUEST));
 
     try {

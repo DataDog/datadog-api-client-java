@@ -50,7 +50,7 @@ public class DORAListFailuresRequestData {
   }
 
   /**
-   * Attributes to get a list of failures.
+   * Attributes to get a list of incidents.
    *
    * @return attributes
    */
