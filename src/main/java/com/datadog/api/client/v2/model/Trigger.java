@@ -390,6 +390,50 @@ public class Trigger extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'DashboardTriggerWrapper'", e);
       }
 
+      // deserialize FormTriggerWrapper
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (FormTriggerWrapper.class.equals(Integer.class)
+            || FormTriggerWrapper.class.equals(Long.class)
+            || FormTriggerWrapper.class.equals(Float.class)
+            || FormTriggerWrapper.class.equals(Double.class)
+            || FormTriggerWrapper.class.equals(Boolean.class)
+            || FormTriggerWrapper.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((FormTriggerWrapper.class.equals(Integer.class)
+                        || FormTriggerWrapper.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((FormTriggerWrapper.class.equals(Float.class)
+                        || FormTriggerWrapper.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (FormTriggerWrapper.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (FormTriggerWrapper.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(FormTriggerWrapper.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((FormTriggerWrapper) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'FormTriggerWrapper'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'FormTriggerWrapper'", e);
+      }
+
       // deserialize GithubWebhookTriggerWrapper
       try {
         boolean attemptParsing = true;
@@ -947,6 +991,11 @@ public class Trigger extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public Trigger(FormTriggerWrapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public Trigger(GithubWebhookTriggerWrapper o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1011,6 +1060,7 @@ public class Trigger extends AbstractOpenApiSchema {
         "DatabaseMonitoringTriggerWrapper", new GenericType<DatabaseMonitoringTriggerWrapper>() {});
     schemas.put("DatastoreTriggerWrapper", new GenericType<DatastoreTriggerWrapper>() {});
     schemas.put("DashboardTriggerWrapper", new GenericType<DashboardTriggerWrapper>() {});
+    schemas.put("FormTriggerWrapper", new GenericType<FormTriggerWrapper>() {});
     schemas.put("GithubWebhookTriggerWrapper", new GenericType<GithubWebhookTriggerWrapper>() {});
     schemas.put("IncidentTriggerWrapper", new GenericType<IncidentTriggerWrapper>() {});
     schemas.put("MonitorTriggerWrapper", new GenericType<MonitorTriggerWrapper>() {});
@@ -1035,9 +1085,9 @@ public class Trigger extends AbstractOpenApiSchema {
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: APITriggerWrapper, AppTriggerWrapper, CaseTriggerWrapper,
    * ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper, DatastoreTriggerWrapper,
-   * DashboardTriggerWrapper, GithubWebhookTriggerWrapper, IncidentTriggerWrapper,
-   * MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper,
-   * SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
+   * DashboardTriggerWrapper, FormTriggerWrapper, GithubWebhookTriggerWrapper,
+   * IncidentTriggerWrapper, MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallTriggerWrapper,
+   * ScheduleTriggerWrapper, SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
    * SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
@@ -1071,6 +1121,10 @@ public class Trigger extends AbstractOpenApiSchema {
       return;
     }
     if (JSON.isInstanceOf(DashboardTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(FormTriggerWrapper.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1126,27 +1180,29 @@ public class Trigger extends AbstractOpenApiSchema {
     throw new RuntimeException(
         "Invalid instance type. Must be APITriggerWrapper, AppTriggerWrapper, CaseTriggerWrapper,"
             + " ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,"
-            + " DatastoreTriggerWrapper, DashboardTriggerWrapper, GithubWebhookTriggerWrapper,"
-            + " IncidentTriggerWrapper, MonitorTriggerWrapper, NotebookTriggerWrapper,"
-            + " OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,"
-            + " SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,"
-            + " WorkflowTriggerWrapper");
+            + " DatastoreTriggerWrapper, DashboardTriggerWrapper, FormTriggerWrapper,"
+            + " GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,"
+            + " NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper,"
+            + " SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,"
+            + " SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper");
   }
 
   /**
    * Get the actual instance, which can be the following: APITriggerWrapper, AppTriggerWrapper,
    * CaseTriggerWrapper, ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper,
-   * DatastoreTriggerWrapper, DashboardTriggerWrapper, GithubWebhookTriggerWrapper,
-   * IncidentTriggerWrapper, MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallTriggerWrapper,
-   * ScheduleTriggerWrapper, SecurityTriggerWrapper, SelfServiceTriggerWrapper, SlackTriggerWrapper,
-   * SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper
+   * DatastoreTriggerWrapper, DashboardTriggerWrapper, FormTriggerWrapper,
+   * GithubWebhookTriggerWrapper, IncidentTriggerWrapper, MonitorTriggerWrapper,
+   * NotebookTriggerWrapper, OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
+   * SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
+   * WorkflowTriggerWrapper
    *
    * @return The actual instance (APITriggerWrapper, AppTriggerWrapper, CaseTriggerWrapper,
    *     ChangeEventTriggerWrapper, DatabaseMonitoringTriggerWrapper, DatastoreTriggerWrapper,
-   *     DashboardTriggerWrapper, GithubWebhookTriggerWrapper, IncidentTriggerWrapper,
-   *     MonitorTriggerWrapper, NotebookTriggerWrapper, OnCallTriggerWrapper,
-   *     ScheduleTriggerWrapper, SecurityTriggerWrapper, SelfServiceTriggerWrapper,
-   *     SlackTriggerWrapper, SoftwareCatalogTriggerWrapper, WorkflowTriggerWrapper)
+   *     DashboardTriggerWrapper, FormTriggerWrapper, GithubWebhookTriggerWrapper,
+   *     IncidentTriggerWrapper, MonitorTriggerWrapper, NotebookTriggerWrapper,
+   *     OnCallTriggerWrapper, ScheduleTriggerWrapper, SecurityTriggerWrapper,
+   *     SelfServiceTriggerWrapper, SlackTriggerWrapper, SoftwareCatalogTriggerWrapper,
+   *     WorkflowTriggerWrapper)
    */
   @Override
   public Object getActualInstance() {
@@ -1229,6 +1285,17 @@ public class Trigger extends AbstractOpenApiSchema {
    */
   public DashboardTriggerWrapper getDashboardTriggerWrapper() throws ClassCastException {
     return (DashboardTriggerWrapper) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `FormTriggerWrapper`. If the actual instance is not
+   * `FormTriggerWrapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `FormTriggerWrapper`
+   * @throws ClassCastException if the instance is not `FormTriggerWrapper`
+   */
+  public FormTriggerWrapper getFormTriggerWrapper() throws ClassCastException {
+    return (FormTriggerWrapper) super.getActualInstance();
   }
 
   /**
