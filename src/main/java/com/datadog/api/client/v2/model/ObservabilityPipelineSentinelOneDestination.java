@@ -29,6 +29,7 @@ import java.util.Objects;
   ObservabilityPipelineSentinelOneDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineSentinelOneDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineSentinelOneDestination.JSON_PROPERTY_REGION,
+  ObservabilityPipelineSentinelOneDestination.JSON_PROPERTY_TOKEN_KEY,
   ObservabilityPipelineSentinelOneDestination.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -46,6 +47,9 @@ public class ObservabilityPipelineSentinelOneDestination {
 
   public static final String JSON_PROPERTY_REGION = "region";
   private ObservabilityPipelineSentinelOneDestinationRegion region;
+
+  public static final String JSON_PROPERTY_TOKEN_KEY = "token_key";
+  private String tokenKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineSentinelOneDestinationType type =
@@ -162,6 +166,27 @@ public class ObservabilityPipelineSentinelOneDestination {
     this.region = region;
   }
 
+  public ObservabilityPipelineSentinelOneDestination tokenKey(String tokenKey) {
+    this.tokenKey = tokenKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the SentinelOne API token.
+   *
+   * @return tokenKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOKEN_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTokenKey() {
+    return tokenKey;
+  }
+
+  public void setTokenKey(String tokenKey) {
+    this.tokenKey = tokenKey;
+  }
+
   public ObservabilityPipelineSentinelOneDestination type(
       ObservabilityPipelineSentinelOneDestinationType type) {
     this.type = type;
@@ -249,6 +274,7 @@ public class ObservabilityPipelineSentinelOneDestination {
         && Objects.equals(this.id, observabilityPipelineSentinelOneDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineSentinelOneDestination.inputs)
         && Objects.equals(this.region, observabilityPipelineSentinelOneDestination.region)
+        && Objects.equals(this.tokenKey, observabilityPipelineSentinelOneDestination.tokenKey)
         && Objects.equals(this.type, observabilityPipelineSentinelOneDestination.type)
         && Objects.equals(
             this.additionalProperties,
@@ -257,7 +283,7 @@ public class ObservabilityPipelineSentinelOneDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(buffer, id, inputs, region, type, additionalProperties);
+    return Objects.hash(buffer, id, inputs, region, tokenKey, type, additionalProperties);
   }
 
   @Override
@@ -268,6 +294,7 @@ public class ObservabilityPipelineSentinelOneDestination {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    tokenKey: ").append(toIndentedString(tokenKey)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

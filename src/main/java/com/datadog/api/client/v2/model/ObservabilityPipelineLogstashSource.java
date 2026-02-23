@@ -23,6 +23,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineLogstashSource.JSON_PROPERTY_ADDRESS_KEY,
   ObservabilityPipelineLogstashSource.JSON_PROPERTY_ID,
   ObservabilityPipelineLogstashSource.JSON_PROPERTY_TLS,
   ObservabilityPipelineLogstashSource.JSON_PROPERTY_TYPE
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineLogstashSource {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
+  private String addressKey;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -51,6 +55,28 @@ public class ObservabilityPipelineLogstashSource {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineLogstashSource addressKey(String addressKey) {
+    this.addressKey = addressKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the listen address for the Logstash
+   * receiver.
+   *
+   * @return addressKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAddressKey() {
+    return addressKey;
+  }
+
+  public void setAddressKey(String addressKey) {
+    this.addressKey = addressKey;
   }
 
   public ObservabilityPipelineLogstashSource id(String id) {
@@ -177,7 +203,8 @@ public class ObservabilityPipelineLogstashSource {
     }
     ObservabilityPipelineLogstashSource observabilityPipelineLogstashSource =
         (ObservabilityPipelineLogstashSource) o;
-    return Objects.equals(this.id, observabilityPipelineLogstashSource.id)
+    return Objects.equals(this.addressKey, observabilityPipelineLogstashSource.addressKey)
+        && Objects.equals(this.id, observabilityPipelineLogstashSource.id)
         && Objects.equals(this.tls, observabilityPipelineLogstashSource.tls)
         && Objects.equals(this.type, observabilityPipelineLogstashSource.type)
         && Objects.equals(
@@ -186,13 +213,14 @@ public class ObservabilityPipelineLogstashSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tls, type, additionalProperties);
+    return Objects.hash(addressKey, id, tls, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineLogstashSource {\n");
+    sb.append("    addressKey: ").append(toIndentedString(addressKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

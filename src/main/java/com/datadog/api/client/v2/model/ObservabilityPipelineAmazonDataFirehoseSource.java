@@ -23,6 +23,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineAmazonDataFirehoseSource.JSON_PROPERTY_ADDRESS_KEY,
   ObservabilityPipelineAmazonDataFirehoseSource.JSON_PROPERTY_AUTH,
   ObservabilityPipelineAmazonDataFirehoseSource.JSON_PROPERTY_ID,
   ObservabilityPipelineAmazonDataFirehoseSource.JSON_PROPERTY_TLS,
@@ -32,6 +33,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineAmazonDataFirehoseSource {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
+  private String addressKey;
+
   public static final String JSON_PROPERTY_AUTH = "auth";
   private ObservabilityPipelineAwsAuth auth;
 
@@ -55,6 +59,27 @@ public class ObservabilityPipelineAmazonDataFirehoseSource {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineAmazonDataFirehoseSource addressKey(String addressKey) {
+    this.addressKey = addressKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Firehose delivery stream address.
+   *
+   * @return addressKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAddressKey() {
+    return addressKey;
+  }
+
+  public void setAddressKey(String addressKey) {
+    this.addressKey = addressKey;
   }
 
   public ObservabilityPipelineAmazonDataFirehoseSource auth(ObservabilityPipelineAwsAuth auth) {
@@ -206,7 +231,8 @@ public class ObservabilityPipelineAmazonDataFirehoseSource {
     }
     ObservabilityPipelineAmazonDataFirehoseSource observabilityPipelineAmazonDataFirehoseSource =
         (ObservabilityPipelineAmazonDataFirehoseSource) o;
-    return Objects.equals(this.auth, observabilityPipelineAmazonDataFirehoseSource.auth)
+    return Objects.equals(this.addressKey, observabilityPipelineAmazonDataFirehoseSource.addressKey)
+        && Objects.equals(this.auth, observabilityPipelineAmazonDataFirehoseSource.auth)
         && Objects.equals(this.id, observabilityPipelineAmazonDataFirehoseSource.id)
         && Objects.equals(this.tls, observabilityPipelineAmazonDataFirehoseSource.tls)
         && Objects.equals(this.type, observabilityPipelineAmazonDataFirehoseSource.type)
@@ -217,13 +243,14 @@ public class ObservabilityPipelineAmazonDataFirehoseSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, id, tls, type, additionalProperties);
+    return Objects.hash(addressKey, auth, id, tls, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineAmazonDataFirehoseSource {\n");
+    sb.append("    addressKey: ").append(toIndentedString(addressKey)).append("\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");

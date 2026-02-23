@@ -29,10 +29,12 @@ import java.util.Objects;
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_AUTO_EXTRACT_TIMESTAMP,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_ENCODING,
+  ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_INDEX,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_SOURCETYPE,
+  ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_TOKEN_KEY,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -48,6 +50,9 @@ public class ObservabilityPipelineSplunkHecDestination {
   public static final String JSON_PROPERTY_ENCODING = "encoding";
   private ObservabilityPipelineSplunkHecDestinationEncoding encoding;
 
+  public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
+  private String endpointUrlKey;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -59,6 +64,9 @@ public class ObservabilityPipelineSplunkHecDestination {
 
   public static final String JSON_PROPERTY_SOURCETYPE = "sourcetype";
   private String sourcetype;
+
+  public static final String JSON_PROPERTY_TOKEN_KEY = "token_key";
+  private String tokenKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineSplunkHecDestinationType type =
@@ -150,6 +158,27 @@ public class ObservabilityPipelineSplunkHecDestination {
     this.encoding = encoding;
   }
 
+  public ObservabilityPipelineSplunkHecDestination endpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
+   *
+   * @return endpointUrlKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndpointUrlKey() {
+    return endpointUrlKey;
+  }
+
+  public void setEndpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+  }
+
   public ObservabilityPipelineSplunkHecDestination id(String id) {
     this.id = id;
     return this;
@@ -236,6 +265,27 @@ public class ObservabilityPipelineSplunkHecDestination {
 
   public void setSourcetype(String sourcetype) {
     this.sourcetype = sourcetype;
+  }
+
+  public ObservabilityPipelineSplunkHecDestination tokenKey(String tokenKey) {
+    this.tokenKey = tokenKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Splunk HEC token.
+   *
+   * @return tokenKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOKEN_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTokenKey() {
+    return tokenKey;
+  }
+
+  public void setTokenKey(String tokenKey) {
+    this.tokenKey = tokenKey;
   }
 
   public ObservabilityPipelineSplunkHecDestination type(
@@ -325,10 +375,13 @@ public class ObservabilityPipelineSplunkHecDestination {
             observabilityPipelineSplunkHecDestination.autoExtractTimestamp)
         && Objects.equals(this.buffer, observabilityPipelineSplunkHecDestination.buffer)
         && Objects.equals(this.encoding, observabilityPipelineSplunkHecDestination.encoding)
+        && Objects.equals(
+            this.endpointUrlKey, observabilityPipelineSplunkHecDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineSplunkHecDestination.id)
         && Objects.equals(this.index, observabilityPipelineSplunkHecDestination.index)
         && Objects.equals(this.inputs, observabilityPipelineSplunkHecDestination.inputs)
         && Objects.equals(this.sourcetype, observabilityPipelineSplunkHecDestination.sourcetype)
+        && Objects.equals(this.tokenKey, observabilityPipelineSplunkHecDestination.tokenKey)
         && Objects.equals(this.type, observabilityPipelineSplunkHecDestination.type)
         && Objects.equals(
             this.additionalProperties,
@@ -341,10 +394,12 @@ public class ObservabilityPipelineSplunkHecDestination {
         autoExtractTimestamp,
         buffer,
         encoding,
+        endpointUrlKey,
         id,
         index,
         inputs,
         sourcetype,
+        tokenKey,
         type,
         additionalProperties);
   }
@@ -358,10 +413,12 @@ public class ObservabilityPipelineSplunkHecDestination {
         .append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
+    sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    sourcetype: ").append(toIndentedString(sourcetype)).append("\n");
+    sb.append("    tokenKey: ").append(toIndentedString(tokenKey)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

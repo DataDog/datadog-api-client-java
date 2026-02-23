@@ -26,9 +26,11 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_API_VERSION,
+  ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_BULK_INDEX,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_DATA_STREAM,
+  ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_TYPE
@@ -40,6 +42,9 @@ public class ObservabilityPipelineElasticsearchDestination {
   public static final String JSON_PROPERTY_API_VERSION = "api_version";
   private ObservabilityPipelineElasticsearchDestinationApiVersion apiVersion;
 
+  public static final String JSON_PROPERTY_AUTH = "auth";
+  private ObservabilityPipelineElasticsearchDestinationAuth auth;
+
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
 
@@ -48,6 +53,9 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   public static final String JSON_PROPERTY_DATA_STREAM = "data_stream";
   private ObservabilityPipelineElasticsearchDestinationDataStream dataStream;
+
+  public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
+  private String endpointUrlKey;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -97,6 +105,31 @@ public class ObservabilityPipelineElasticsearchDestination {
       this.unparsed = true;
     }
     this.apiVersion = apiVersion;
+  }
+
+  public ObservabilityPipelineElasticsearchDestination auth(
+      ObservabilityPipelineElasticsearchDestinationAuth auth) {
+    this.auth = auth;
+    this.unparsed |= auth.unparsed;
+    return this;
+  }
+
+  /**
+   * Authentication settings for the Elasticsearch destination. When <code>strategy</code> is <code>
+   * basic</code>, use <code>username_key</code> and <code>password_key</code> to reference
+   * credentials stored in environment variables or secrets.
+   *
+   * @return auth
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineElasticsearchDestinationAuth getAuth() {
+    return auth;
+  }
+
+  public void setAuth(ObservabilityPipelineElasticsearchDestinationAuth auth) {
+    this.auth = auth;
   }
 
   public ObservabilityPipelineElasticsearchDestination buffer(
@@ -164,6 +197,27 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   public void setDataStream(ObservabilityPipelineElasticsearchDestinationDataStream dataStream) {
     this.dataStream = dataStream;
+  }
+
+  public ObservabilityPipelineElasticsearchDestination endpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Elasticsearch endpoint URL.
+   *
+   * @return endpointUrlKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndpointUrlKey() {
+    return endpointUrlKey;
+  }
+
+  public void setEndpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
   }
 
   public ObservabilityPipelineElasticsearchDestination id(String id) {
@@ -295,9 +349,12 @@ public class ObservabilityPipelineElasticsearchDestination {
     ObservabilityPipelineElasticsearchDestination observabilityPipelineElasticsearchDestination =
         (ObservabilityPipelineElasticsearchDestination) o;
     return Objects.equals(this.apiVersion, observabilityPipelineElasticsearchDestination.apiVersion)
+        && Objects.equals(this.auth, observabilityPipelineElasticsearchDestination.auth)
         && Objects.equals(this.buffer, observabilityPipelineElasticsearchDestination.buffer)
         && Objects.equals(this.bulkIndex, observabilityPipelineElasticsearchDestination.bulkIndex)
         && Objects.equals(this.dataStream, observabilityPipelineElasticsearchDestination.dataStream)
+        && Objects.equals(
+            this.endpointUrlKey, observabilityPipelineElasticsearchDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineElasticsearchDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineElasticsearchDestination.inputs)
         && Objects.equals(this.type, observabilityPipelineElasticsearchDestination.type)
@@ -309,7 +366,16 @@ public class ObservabilityPipelineElasticsearchDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
-        apiVersion, buffer, bulkIndex, dataStream, id, inputs, type, additionalProperties);
+        apiVersion,
+        auth,
+        buffer,
+        bulkIndex,
+        dataStream,
+        endpointUrlKey,
+        id,
+        inputs,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -317,9 +383,11 @@ public class ObservabilityPipelineElasticsearchDestination {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineElasticsearchDestination {\n");
     sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
+    sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    bulkIndex: ").append(toIndentedString(bulkIndex)).append("\n");
     sb.append("    dataStream: ").append(toIndentedString(dataStream)).append("\n");
+    sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

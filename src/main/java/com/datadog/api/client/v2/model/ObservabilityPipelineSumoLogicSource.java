@@ -23,6 +23,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineSumoLogicSource.JSON_PROPERTY_ADDRESS_KEY,
   ObservabilityPipelineSumoLogicSource.JSON_PROPERTY_ID,
   ObservabilityPipelineSumoLogicSource.JSON_PROPERTY_TYPE
 })
@@ -30,6 +31,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSumoLogicSource {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
+  private String addressKey;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -47,6 +51,28 @@ public class ObservabilityPipelineSumoLogicSource {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineSumoLogicSource addressKey(String addressKey) {
+    this.addressKey = addressKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the listen address for the Sumo Logic
+   * receiver.
+   *
+   * @return addressKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAddressKey() {
+    return addressKey;
+  }
+
+  public void setAddressKey(String addressKey) {
+    this.addressKey = addressKey;
   }
 
   public ObservabilityPipelineSumoLogicSource id(String id) {
@@ -151,7 +177,8 @@ public class ObservabilityPipelineSumoLogicSource {
     }
     ObservabilityPipelineSumoLogicSource observabilityPipelineSumoLogicSource =
         (ObservabilityPipelineSumoLogicSource) o;
-    return Objects.equals(this.id, observabilityPipelineSumoLogicSource.id)
+    return Objects.equals(this.addressKey, observabilityPipelineSumoLogicSource.addressKey)
+        && Objects.equals(this.id, observabilityPipelineSumoLogicSource.id)
         && Objects.equals(this.type, observabilityPipelineSumoLogicSource.type)
         && Objects.equals(
             this.additionalProperties, observabilityPipelineSumoLogicSource.additionalProperties);
@@ -159,13 +186,14 @@ public class ObservabilityPipelineSumoLogicSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(addressKey, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSumoLogicSource {\n");
+    sb.append("    addressKey: ").append(toIndentedString(addressKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

@@ -24,6 +24,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_ADDRESS_KEY,
   ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_ID,
   ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_TLS,
   ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_TYPE
@@ -32,6 +33,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSplunkTcpSource {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
+  private String addressKey;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -52,6 +56,28 @@ public class ObservabilityPipelineSplunkTcpSource {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineSplunkTcpSource addressKey(String addressKey) {
+    this.addressKey = addressKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the listen address for the Splunk TCP
+   * receiver.
+   *
+   * @return addressKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAddressKey() {
+    return addressKey;
+  }
+
+  public void setAddressKey(String addressKey) {
+    this.addressKey = addressKey;
   }
 
   public ObservabilityPipelineSplunkTcpSource id(String id) {
@@ -178,7 +204,8 @@ public class ObservabilityPipelineSplunkTcpSource {
     }
     ObservabilityPipelineSplunkTcpSource observabilityPipelineSplunkTcpSource =
         (ObservabilityPipelineSplunkTcpSource) o;
-    return Objects.equals(this.id, observabilityPipelineSplunkTcpSource.id)
+    return Objects.equals(this.addressKey, observabilityPipelineSplunkTcpSource.addressKey)
+        && Objects.equals(this.id, observabilityPipelineSplunkTcpSource.id)
         && Objects.equals(this.tls, observabilityPipelineSplunkTcpSource.tls)
         && Objects.equals(this.type, observabilityPipelineSplunkTcpSource.type)
         && Objects.equals(
@@ -187,13 +214,14 @@ public class ObservabilityPipelineSplunkTcpSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tls, type, additionalProperties);
+    return Objects.hash(addressKey, id, tls, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSplunkTcpSource {\n");
+    sb.append("    addressKey: ").append(toIndentedString(addressKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

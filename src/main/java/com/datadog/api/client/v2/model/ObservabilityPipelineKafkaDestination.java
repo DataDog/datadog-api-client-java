@@ -25,6 +25,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineKafkaDestination.JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY,
   ObservabilityPipelineKafkaDestination.JSON_PROPERTY_COMPRESSION,
   ObservabilityPipelineKafkaDestination.JSON_PROPERTY_ENCODING,
   ObservabilityPipelineKafkaDestination.JSON_PROPERTY_HEADERS_KEY,
@@ -45,6 +46,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineKafkaDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY = "bootstrap_servers_key";
+  private String bootstrapServersKey;
+
   public static final String JSON_PROPERTY_COMPRESSION = "compression";
   private ObservabilityPipelineKafkaDestinationCompression compression;
 
@@ -109,6 +113,27 @@ public class ObservabilityPipelineKafkaDestination {
     this.topic = topic;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineKafkaDestination bootstrapServersKey(String bootstrapServersKey) {
+    this.bootstrapServersKey = bootstrapServersKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Kafka bootstrap servers list.
+   *
+   * @return bootstrapServersKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBootstrapServersKey() {
+    return bootstrapServersKey;
+  }
+
+  public void setBootstrapServersKey(String bootstrapServersKey) {
+    this.bootstrapServersKey = bootstrapServersKey;
   }
 
   public ObservabilityPipelineKafkaDestination compression(
@@ -515,7 +540,9 @@ public class ObservabilityPipelineKafkaDestination {
     }
     ObservabilityPipelineKafkaDestination observabilityPipelineKafkaDestination =
         (ObservabilityPipelineKafkaDestination) o;
-    return Objects.equals(this.compression, observabilityPipelineKafkaDestination.compression)
+    return Objects.equals(
+            this.bootstrapServersKey, observabilityPipelineKafkaDestination.bootstrapServersKey)
+        && Objects.equals(this.compression, observabilityPipelineKafkaDestination.compression)
         && Objects.equals(this.encoding, observabilityPipelineKafkaDestination.encoding)
         && Objects.equals(this.headersKey, observabilityPipelineKafkaDestination.headersKey)
         && Objects.equals(this.id, observabilityPipelineKafkaDestination.id)
@@ -541,6 +568,7 @@ public class ObservabilityPipelineKafkaDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
+        bootstrapServersKey,
         compression,
         encoding,
         headersKey,
@@ -563,6 +591,9 @@ public class ObservabilityPipelineKafkaDestination {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineKafkaDestination {\n");
+    sb.append("    bootstrapServersKey: ")
+        .append(toIndentedString(bootstrapServersKey))
+        .append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    headersKey: ").append(toIndentedString(headersKey)).append("\n");

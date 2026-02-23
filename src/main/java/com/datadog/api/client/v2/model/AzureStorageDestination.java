@@ -27,6 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   AzureStorageDestination.JSON_PROPERTY_BLOB_PREFIX,
   AzureStorageDestination.JSON_PROPERTY_BUFFER,
+  AzureStorageDestination.JSON_PROPERTY_CONNECTION_STRING_KEY,
   AzureStorageDestination.JSON_PROPERTY_CONTAINER_NAME,
   AzureStorageDestination.JSON_PROPERTY_ID,
   AzureStorageDestination.JSON_PROPERTY_INPUTS,
@@ -41,6 +42,9 @@ public class AzureStorageDestination {
 
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
+
+  public static final String JSON_PROPERTY_CONNECTION_STRING_KEY = "connection_string_key";
+  private String connectionStringKey;
 
   public static final String JSON_PROPERTY_CONTAINER_NAME = "container_name";
   private String containerName;
@@ -110,6 +114,27 @@ public class AzureStorageDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+  }
+
+  public AzureStorageDestination connectionStringKey(String connectionStringKey) {
+    this.connectionStringKey = connectionStringKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Azure Storage connection string.
+   *
+   * @return connectionStringKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONNECTION_STRING_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getConnectionStringKey() {
+    return connectionStringKey;
+  }
+
+  public void setConnectionStringKey(String connectionStringKey) {
+    this.connectionStringKey = connectionStringKey;
   }
 
   public AzureStorageDestination containerName(String containerName) {
@@ -259,6 +284,7 @@ public class AzureStorageDestination {
     AzureStorageDestination azureStorageDestination = (AzureStorageDestination) o;
     return Objects.equals(this.blobPrefix, azureStorageDestination.blobPrefix)
         && Objects.equals(this.buffer, azureStorageDestination.buffer)
+        && Objects.equals(this.connectionStringKey, azureStorageDestination.connectionStringKey)
         && Objects.equals(this.containerName, azureStorageDestination.containerName)
         && Objects.equals(this.id, azureStorageDestination.id)
         && Objects.equals(this.inputs, azureStorageDestination.inputs)
@@ -268,7 +294,15 @@ public class AzureStorageDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blobPrefix, buffer, containerName, id, inputs, type, additionalProperties);
+    return Objects.hash(
+        blobPrefix,
+        buffer,
+        connectionStringKey,
+        containerName,
+        id,
+        inputs,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -277,6 +311,9 @@ public class AzureStorageDestination {
     sb.append("class AzureStorageDestination {\n");
     sb.append("    blobPrefix: ").append(toIndentedString(blobPrefix)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
+    sb.append("    connectionStringKey: ")
+        .append(toIndentedString(connectionStringKey))
+        .append("\n");
     sb.append("    containerName: ").append(toIndentedString(containerName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");

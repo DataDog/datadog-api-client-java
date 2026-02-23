@@ -28,6 +28,7 @@ import java.util.Objects;
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_ENCODING,
+  ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineGooglePubSubDestination.JSON_PROPERTY_PROJECT,
@@ -47,6 +48,9 @@ public class ObservabilityPipelineGooglePubSubDestination {
 
   public static final String JSON_PROPERTY_ENCODING = "encoding";
   private ObservabilityPipelineGooglePubSubDestinationEncoding encoding;
+
+  public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
+  private String endpointUrlKey;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -96,7 +100,7 @@ public class ObservabilityPipelineGooglePubSubDestination {
   }
 
   /**
-   * GCP credentials used to authenticate with Google Cloud Storage.
+   * Google Cloud credentials used to authenticate with Google Cloud Storage.
    *
    * @return auth
    */
@@ -159,6 +163,27 @@ public class ObservabilityPipelineGooglePubSubDestination {
     this.encoding = encoding;
   }
 
+  public ObservabilityPipelineGooglePubSubDestination endpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Google Cloud Pub/Sub endpoint URL.
+   *
+   * @return endpointUrlKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndpointUrlKey() {
+    return endpointUrlKey;
+  }
+
+  public void setEndpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+  }
+
   public ObservabilityPipelineGooglePubSubDestination id(String id) {
     this.id = id;
     return this;
@@ -210,7 +235,7 @@ public class ObservabilityPipelineGooglePubSubDestination {
   }
 
   /**
-   * The GCP project ID that owns the Pub/Sub topic.
+   * The Google Cloud project ID that owns the Pub/Sub topic.
    *
    * @return project
    */
@@ -352,6 +377,8 @@ public class ObservabilityPipelineGooglePubSubDestination {
     return Objects.equals(this.auth, observabilityPipelineGooglePubSubDestination.auth)
         && Objects.equals(this.buffer, observabilityPipelineGooglePubSubDestination.buffer)
         && Objects.equals(this.encoding, observabilityPipelineGooglePubSubDestination.encoding)
+        && Objects.equals(
+            this.endpointUrlKey, observabilityPipelineGooglePubSubDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineGooglePubSubDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineGooglePubSubDestination.inputs)
         && Objects.equals(this.project, observabilityPipelineGooglePubSubDestination.project)
@@ -366,7 +393,17 @@ public class ObservabilityPipelineGooglePubSubDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
-        auth, buffer, encoding, id, inputs, project, tls, topic, type, additionalProperties);
+        auth,
+        buffer,
+        encoding,
+        endpointUrlKey,
+        id,
+        inputs,
+        project,
+        tls,
+        topic,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -376,6 +413,7 @@ public class ObservabilityPipelineGooglePubSubDestination {
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
+    sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");

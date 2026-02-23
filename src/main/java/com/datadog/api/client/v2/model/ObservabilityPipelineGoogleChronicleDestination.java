@@ -29,6 +29,7 @@ import java.util.Objects;
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_CUSTOMER_ID,
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_ENCODING,
+  ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineGoogleChronicleDestination.JSON_PROPERTY_LOG_TYPE,
@@ -49,6 +50,9 @@ public class ObservabilityPipelineGoogleChronicleDestination {
 
   public static final String JSON_PROPERTY_ENCODING = "encoding";
   private ObservabilityPipelineGoogleChronicleDestinationEncoding encoding;
+
+  public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
+  private String endpointUrlKey;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -86,7 +90,7 @@ public class ObservabilityPipelineGoogleChronicleDestination {
   }
 
   /**
-   * GCP credentials used to authenticate with Google Cloud Storage.
+   * Google Cloud credentials used to authenticate with Google Cloud Storage.
    *
    * @return auth
    */
@@ -168,6 +172,27 @@ public class ObservabilityPipelineGoogleChronicleDestination {
       this.unparsed = true;
     }
     this.encoding = encoding;
+  }
+
+  public ObservabilityPipelineGoogleChronicleDestination endpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Google Chronicle endpoint URL.
+   *
+   * @return endpointUrlKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndpointUrlKey() {
+    return endpointUrlKey;
+  }
+
+  public void setEndpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
   }
 
   public ObservabilityPipelineGoogleChronicleDestination id(String id) {
@@ -325,6 +350,8 @@ public class ObservabilityPipelineGoogleChronicleDestination {
         && Objects.equals(
             this.customerId, observabilityPipelineGoogleChronicleDestination.customerId)
         && Objects.equals(this.encoding, observabilityPipelineGoogleChronicleDestination.encoding)
+        && Objects.equals(
+            this.endpointUrlKey, observabilityPipelineGoogleChronicleDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineGoogleChronicleDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineGoogleChronicleDestination.inputs)
         && Objects.equals(this.logType, observabilityPipelineGoogleChronicleDestination.logType)
@@ -337,7 +364,16 @@ public class ObservabilityPipelineGoogleChronicleDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
-        auth, buffer, customerId, encoding, id, inputs, logType, type, additionalProperties);
+        auth,
+        buffer,
+        customerId,
+        encoding,
+        endpointUrlKey,
+        id,
+        inputs,
+        logType,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -348,6 +384,7 @@ public class ObservabilityPipelineGoogleChronicleDestination {
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
+    sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    logType: ").append(toIndentedString(logType)).append("\n");

@@ -23,6 +23,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineFluentBitSource.JSON_PROPERTY_ADDRESS_KEY,
   ObservabilityPipelineFluentBitSource.JSON_PROPERTY_ID,
   ObservabilityPipelineFluentBitSource.JSON_PROPERTY_TLS,
   ObservabilityPipelineFluentBitSource.JSON_PROPERTY_TYPE
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineFluentBitSource {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
+  private String addressKey;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -51,6 +55,28 @@ public class ObservabilityPipelineFluentBitSource {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineFluentBitSource addressKey(String addressKey) {
+    this.addressKey = addressKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the listen address for the Fluent Bit
+   * receiver.
+   *
+   * @return addressKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAddressKey() {
+    return addressKey;
+  }
+
+  public void setAddressKey(String addressKey) {
+    this.addressKey = addressKey;
   }
 
   public ObservabilityPipelineFluentBitSource id(String id) {
@@ -177,7 +203,8 @@ public class ObservabilityPipelineFluentBitSource {
     }
     ObservabilityPipelineFluentBitSource observabilityPipelineFluentBitSource =
         (ObservabilityPipelineFluentBitSource) o;
-    return Objects.equals(this.id, observabilityPipelineFluentBitSource.id)
+    return Objects.equals(this.addressKey, observabilityPipelineFluentBitSource.addressKey)
+        && Objects.equals(this.id, observabilityPipelineFluentBitSource.id)
         && Objects.equals(this.tls, observabilityPipelineFluentBitSource.tls)
         && Objects.equals(this.type, observabilityPipelineFluentBitSource.type)
         && Objects.equals(
@@ -186,13 +213,14 @@ public class ObservabilityPipelineFluentBitSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tls, type, additionalProperties);
+    return Objects.hash(addressKey, id, tls, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineFluentBitSource {\n");
+    sb.append("    addressKey: ").append(toIndentedString(addressKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

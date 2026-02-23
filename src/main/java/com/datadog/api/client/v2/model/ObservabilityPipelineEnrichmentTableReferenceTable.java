@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Uses a Datadog reference table to enrich logs. */
 @JsonPropertyOrder({
+  ObservabilityPipelineEnrichmentTableReferenceTable.JSON_PROPERTY_APP_KEY_KEY,
   ObservabilityPipelineEnrichmentTableReferenceTable.JSON_PROPERTY_COLUMNS,
   ObservabilityPipelineEnrichmentTableReferenceTable.JSON_PROPERTY_KEY_FIELD,
   ObservabilityPipelineEnrichmentTableReferenceTable.JSON_PROPERTY_TABLE_ID
@@ -29,6 +30,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineEnrichmentTableReferenceTable {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_APP_KEY_KEY = "app_key_key";
+  private String appKeyKey;
+
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<String> columns = null;
 
@@ -46,6 +50,28 @@ public class ObservabilityPipelineEnrichmentTableReferenceTable {
       @JsonProperty(required = true, value = JSON_PROPERTY_TABLE_ID) String tableId) {
     this.keyField = keyField;
     this.tableId = tableId;
+  }
+
+  public ObservabilityPipelineEnrichmentTableReferenceTable appKeyKey(String appKeyKey) {
+    this.appKeyKey = appKeyKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Datadog application key used to
+   * access the reference table.
+   *
+   * @return appKeyKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APP_KEY_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAppKeyKey() {
+    return appKeyKey;
+  }
+
+  public void setAppKeyKey(String appKeyKey) {
+    this.appKeyKey = appKeyKey;
   }
 
   public ObservabilityPipelineEnrichmentTableReferenceTable columns(List<String> columns) {
@@ -179,7 +205,9 @@ public class ObservabilityPipelineEnrichmentTableReferenceTable {
     ObservabilityPipelineEnrichmentTableReferenceTable
         observabilityPipelineEnrichmentTableReferenceTable =
             (ObservabilityPipelineEnrichmentTableReferenceTable) o;
-    return Objects.equals(this.columns, observabilityPipelineEnrichmentTableReferenceTable.columns)
+    return Objects.equals(
+            this.appKeyKey, observabilityPipelineEnrichmentTableReferenceTable.appKeyKey)
+        && Objects.equals(this.columns, observabilityPipelineEnrichmentTableReferenceTable.columns)
         && Objects.equals(
             this.keyField, observabilityPipelineEnrichmentTableReferenceTable.keyField)
         && Objects.equals(this.tableId, observabilityPipelineEnrichmentTableReferenceTable.tableId)
@@ -190,13 +218,14 @@ public class ObservabilityPipelineEnrichmentTableReferenceTable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns, keyField, tableId, additionalProperties);
+    return Objects.hash(appKeyKey, columns, keyField, tableId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineEnrichmentTableReferenceTable {\n");
+    sb.append("    appKeyKey: ").append(toIndentedString(appKeyKey)).append("\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
     sb.append("    keyField: ").append(toIndentedString(keyField)).append("\n");
     sb.append("    tableId: ").append(toIndentedString(tableId)).append("\n");

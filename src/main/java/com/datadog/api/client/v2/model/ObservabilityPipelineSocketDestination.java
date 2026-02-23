@@ -25,6 +25,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineSocketDestination.JSON_PROPERTY_ADDRESS_KEY,
   ObservabilityPipelineSocketDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineSocketDestination.JSON_PROPERTY_ENCODING,
   ObservabilityPipelineSocketDestination.JSON_PROPERTY_FRAMING,
@@ -38,6 +39,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSocketDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
+  private String addressKey;
+
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
 
@@ -87,6 +91,27 @@ public class ObservabilityPipelineSocketDestination {
     this.unparsed |= !mode.isValid();
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineSocketDestination addressKey(String addressKey) {
+    this.addressKey = addressKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the socket address (host:port).
+   *
+   * @return addressKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAddressKey() {
+    return addressKey;
+  }
+
+  public void setAddressKey(String addressKey) {
+    this.addressKey = addressKey;
   }
 
   public ObservabilityPipelineSocketDestination buffer(ObservabilityPipelineBufferOptions buffer) {
@@ -332,7 +357,8 @@ public class ObservabilityPipelineSocketDestination {
     }
     ObservabilityPipelineSocketDestination observabilityPipelineSocketDestination =
         (ObservabilityPipelineSocketDestination) o;
-    return Objects.equals(this.buffer, observabilityPipelineSocketDestination.buffer)
+    return Objects.equals(this.addressKey, observabilityPipelineSocketDestination.addressKey)
+        && Objects.equals(this.buffer, observabilityPipelineSocketDestination.buffer)
         && Objects.equals(this.encoding, observabilityPipelineSocketDestination.encoding)
         && Objects.equals(this.framing, observabilityPipelineSocketDestination.framing)
         && Objects.equals(this.id, observabilityPipelineSocketDestination.id)
@@ -347,13 +373,14 @@ public class ObservabilityPipelineSocketDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
-        buffer, encoding, framing, id, inputs, mode, tls, type, additionalProperties);
+        addressKey, buffer, encoding, framing, id, inputs, mode, tls, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSocketDestination {\n");
+    sb.append("    addressKey: ").append(toIndentedString(addressKey)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    framing: ").append(toIndentedString(framing)).append("\n");

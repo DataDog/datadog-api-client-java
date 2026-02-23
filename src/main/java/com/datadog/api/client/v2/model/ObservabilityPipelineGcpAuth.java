@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** GCP credentials used to authenticate with Google Cloud Storage. */
+/** Google Cloud credentials used to authenticate with Google Cloud Storage. */
 @JsonPropertyOrder({ObservabilityPipelineGcpAuth.JSON_PROPERTY_CREDENTIALS_FILE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -41,7 +41,7 @@ public class ObservabilityPipelineGcpAuth {
   }
 
   /**
-   * Path to the GCP service account key file.
+   * Path to the Google Cloud service account key file.
    *
    * @return credentialsFile
    */

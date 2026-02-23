@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,58 +17,47 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Specifies the SASL mechanism for authenticating with a Kafka cluster. */
+/**
+ * Authentication settings for the Elasticsearch destination. When <code>strategy</code> is <code>
+ * basic</code>, use <code>username_key</code> and <code>password_key</code> to reference
+ * credentials stored in environment variables or secrets.
+ */
 @JsonPropertyOrder({
-  ObservabilityPipelineKafkaSasl.JSON_PROPERTY_MECHANISM,
-  ObservabilityPipelineKafkaSasl.JSON_PROPERTY_PASSWORD_KEY,
-  ObservabilityPipelineKafkaSasl.JSON_PROPERTY_USERNAME_KEY
+  ObservabilityPipelineElasticsearchDestinationAuth.JSON_PROPERTY_PASSWORD_KEY,
+  ObservabilityPipelineElasticsearchDestinationAuth.JSON_PROPERTY_STRATEGY,
+  ObservabilityPipelineElasticsearchDestinationAuth.JSON_PROPERTY_USERNAME_KEY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineKafkaSasl {
+public class ObservabilityPipelineElasticsearchDestinationAuth {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_MECHANISM = "mechanism";
-  private ObservabilityPipelineKafkaSaslMechanism mechanism;
-
   public static final String JSON_PROPERTY_PASSWORD_KEY = "password_key";
   private String passwordKey;
+
+  public static final String JSON_PROPERTY_STRATEGY = "strategy";
+  private ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy strategy;
 
   public static final String JSON_PROPERTY_USERNAME_KEY = "username_key";
   private String usernameKey;
 
-  public ObservabilityPipelineKafkaSasl mechanism(
-      ObservabilityPipelineKafkaSaslMechanism mechanism) {
-    this.mechanism = mechanism;
-    this.unparsed |= !mechanism.isValid();
-    return this;
+  public ObservabilityPipelineElasticsearchDestinationAuth() {}
+
+  @JsonCreator
+  public ObservabilityPipelineElasticsearchDestinationAuth(
+      @JsonProperty(required = true, value = JSON_PROPERTY_STRATEGY)
+          ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy strategy) {
+    this.strategy = strategy;
+    this.unparsed |= !strategy.isValid();
   }
 
-  /**
-   * SASL mechanism used for Kafka authentication.
-   *
-   * @return mechanism
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MECHANISM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineKafkaSaslMechanism getMechanism() {
-    return mechanism;
-  }
-
-  public void setMechanism(ObservabilityPipelineKafkaSaslMechanism mechanism) {
-    if (!mechanism.isValid()) {
-      this.unparsed = true;
-    }
-    this.mechanism = mechanism;
-  }
-
-  public ObservabilityPipelineKafkaSasl passwordKey(String passwordKey) {
+  public ObservabilityPipelineElasticsearchDestinationAuth passwordKey(String passwordKey) {
     this.passwordKey = passwordKey;
     return this;
   }
 
   /**
-   * Name of the environment variable or secret that holds the SASL password.
+   * Name of the environment variable or secret that holds the Elasticsearch password (used when
+   * <code>strategy</code> is <code>basic</code>).
    *
    * @return passwordKey
    */
@@ -82,13 +72,39 @@ public class ObservabilityPipelineKafkaSasl {
     this.passwordKey = passwordKey;
   }
 
-  public ObservabilityPipelineKafkaSasl usernameKey(String usernameKey) {
+  public ObservabilityPipelineElasticsearchDestinationAuth strategy(
+      ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy strategy) {
+    this.strategy = strategy;
+    this.unparsed |= !strategy.isValid();
+    return this;
+  }
+
+  /**
+   * The authentication strategy to use.
+   *
+   * @return strategy
+   */
+  @JsonProperty(JSON_PROPERTY_STRATEGY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy getStrategy() {
+    return strategy;
+  }
+
+  public void setStrategy(ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy strategy) {
+    if (!strategy.isValid()) {
+      this.unparsed = true;
+    }
+    this.strategy = strategy;
+  }
+
+  public ObservabilityPipelineElasticsearchDestinationAuth usernameKey(String usernameKey) {
     this.usernameKey = usernameKey;
     return this;
   }
 
   /**
-   * Name of the environment variable or secret that holds the SASL username.
+   * Name of the environment variable or secret that holds the Elasticsearch username (used when
+   * <code>strategy</code> is <code>basic</code>).
    *
    * @return usernameKey
    */
@@ -115,10 +131,11 @@ public class ObservabilityPipelineKafkaSasl {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineKafkaSasl
+   * @return ObservabilityPipelineElasticsearchDestinationAuth
    */
   @JsonAnySetter
-  public ObservabilityPipelineKafkaSasl putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineElasticsearchDestinationAuth putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -149,7 +166,7 @@ public class ObservabilityPipelineKafkaSasl {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineKafkaSasl object is equal to o. */
+  /** Return true if this ObservabilityPipelineElasticsearchDestinationAuth object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,26 +175,30 @@ public class ObservabilityPipelineKafkaSasl {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineKafkaSasl observabilityPipelineKafkaSasl =
-        (ObservabilityPipelineKafkaSasl) o;
-    return Objects.equals(this.mechanism, observabilityPipelineKafkaSasl.mechanism)
-        && Objects.equals(this.passwordKey, observabilityPipelineKafkaSasl.passwordKey)
-        && Objects.equals(this.usernameKey, observabilityPipelineKafkaSasl.usernameKey)
+    ObservabilityPipelineElasticsearchDestinationAuth
+        observabilityPipelineElasticsearchDestinationAuth =
+            (ObservabilityPipelineElasticsearchDestinationAuth) o;
+    return Objects.equals(
+            this.passwordKey, observabilityPipelineElasticsearchDestinationAuth.passwordKey)
+        && Objects.equals(this.strategy, observabilityPipelineElasticsearchDestinationAuth.strategy)
         && Objects.equals(
-            this.additionalProperties, observabilityPipelineKafkaSasl.additionalProperties);
+            this.usernameKey, observabilityPipelineElasticsearchDestinationAuth.usernameKey)
+        && Objects.equals(
+            this.additionalProperties,
+            observabilityPipelineElasticsearchDestinationAuth.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mechanism, passwordKey, usernameKey, additionalProperties);
+    return Objects.hash(passwordKey, strategy, usernameKey, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineKafkaSasl {\n");
-    sb.append("    mechanism: ").append(toIndentedString(mechanism)).append("\n");
+    sb.append("class ObservabilityPipelineElasticsearchDestinationAuth {\n");
     sb.append("    passwordKey: ").append(toIndentedString(passwordKey)).append("\n");
+    sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
     sb.append("    usernameKey: ").append(toIndentedString(usernameKey)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
