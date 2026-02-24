@@ -27,6 +27,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   MicrosoftSentinelDestination.JSON_PROPERTY_BUFFER,
   MicrosoftSentinelDestination.JSON_PROPERTY_CLIENT_ID,
+  MicrosoftSentinelDestination.JSON_PROPERTY_CLIENT_SECRET_KEY,
+  MicrosoftSentinelDestination.JSON_PROPERTY_DCE_URI_KEY,
   MicrosoftSentinelDestination.JSON_PROPERTY_DCR_IMMUTABLE_ID,
   MicrosoftSentinelDestination.JSON_PROPERTY_ID,
   MicrosoftSentinelDestination.JSON_PROPERTY_INPUTS,
@@ -43,6 +45,12 @@ public class MicrosoftSentinelDestination {
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
+
+  public static final String JSON_PROPERTY_CLIENT_SECRET_KEY = "client_secret_key";
+  private String clientSecretKey;
+
+  public static final String JSON_PROPERTY_DCE_URI_KEY = "dce_uri_key";
+  private String dceUriKey;
 
   public static final String JSON_PROPERTY_DCR_IMMUTABLE_ID = "dcr_immutable_id";
   private String dcrImmutableId;
@@ -125,6 +133,48 @@ public class MicrosoftSentinelDestination {
 
   public void setClientId(String clientId) {
     this.clientId = clientId;
+  }
+
+  public MicrosoftSentinelDestination clientSecretKey(String clientSecretKey) {
+    this.clientSecretKey = clientSecretKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Azure AD client secret.
+   *
+   * @return clientSecretKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLIENT_SECRET_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getClientSecretKey() {
+    return clientSecretKey;
+  }
+
+  public void setClientSecretKey(String clientSecretKey) {
+    this.clientSecretKey = clientSecretKey;
+  }
+
+  public MicrosoftSentinelDestination dceUriKey(String dceUriKey) {
+    this.dceUriKey = dceUriKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Data Collection Endpoint (DCE) URI.
+   *
+   * @return dceUriKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DCE_URI_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDceUriKey() {
+    return dceUriKey;
+  }
+
+  public void setDceUriKey(String dceUriKey) {
+    this.dceUriKey = dceUriKey;
   }
 
   public MicrosoftSentinelDestination dcrImmutableId(String dcrImmutableId) {
@@ -314,6 +364,8 @@ public class MicrosoftSentinelDestination {
     MicrosoftSentinelDestination microsoftSentinelDestination = (MicrosoftSentinelDestination) o;
     return Objects.equals(this.buffer, microsoftSentinelDestination.buffer)
         && Objects.equals(this.clientId, microsoftSentinelDestination.clientId)
+        && Objects.equals(this.clientSecretKey, microsoftSentinelDestination.clientSecretKey)
+        && Objects.equals(this.dceUriKey, microsoftSentinelDestination.dceUriKey)
         && Objects.equals(this.dcrImmutableId, microsoftSentinelDestination.dcrImmutableId)
         && Objects.equals(this.id, microsoftSentinelDestination.id)
         && Objects.equals(this.inputs, microsoftSentinelDestination.inputs)
@@ -327,7 +379,17 @@ public class MicrosoftSentinelDestination {
   @Override
   public int hashCode() {
     return Objects.hash(
-        buffer, clientId, dcrImmutableId, id, inputs, table, tenantId, type, additionalProperties);
+        buffer,
+        clientId,
+        clientSecretKey,
+        dceUriKey,
+        dcrImmutableId,
+        id,
+        inputs,
+        table,
+        tenantId,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -336,6 +398,8 @@ public class MicrosoftSentinelDestination {
     sb.append("class MicrosoftSentinelDestination {\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    clientSecretKey: ").append(toIndentedString(clientSecretKey)).append("\n");
+    sb.append("    dceUriKey: ").append(toIndentedString(dceUriKey)).append("\n");
     sb.append("    dcrImmutableId: ").append(toIndentedString(dcrImmutableId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");

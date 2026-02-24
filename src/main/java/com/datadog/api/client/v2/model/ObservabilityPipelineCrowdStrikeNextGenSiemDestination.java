@@ -29,9 +29,11 @@ import java.util.Objects;
   ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_COMPRESSION,
   ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_ENCODING,
+  ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_TLS,
+  ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_TOKEN_KEY,
   ObservabilityPipelineCrowdStrikeNextGenSiemDestination.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -47,6 +49,9 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
   public static final String JSON_PROPERTY_ENCODING = "encoding";
   private ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding encoding;
 
+  public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
+  private String endpointUrlKey;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -55,6 +60,9 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
 
   public static final String JSON_PROPERTY_TLS = "tls";
   private ObservabilityPipelineTls tls;
+
+  public static final String JSON_PROPERTY_TOKEN_KEY = "token_key";
+  private String tokenKey;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType type =
@@ -150,6 +158,28 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
     this.encoding = encoding;
   }
 
+  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination endpointUrlKey(
+      String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the CrowdStrike endpoint URL.
+   *
+   * @return endpointUrlKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndpointUrlKey() {
+    return endpointUrlKey;
+  }
+
+  public void setEndpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+  }
+
   public ObservabilityPipelineCrowdStrikeNextGenSiemDestination id(String id) {
     this.id = id;
     return this;
@@ -215,6 +245,27 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
 
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
+  }
+
+  public ObservabilityPipelineCrowdStrikeNextGenSiemDestination tokenKey(String tokenKey) {
+    this.tokenKey = tokenKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the CrowdStrike API token.
+   *
+   * @return tokenKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOKEN_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTokenKey() {
+    return tokenKey;
+  }
+
+  public void setTokenKey(String tokenKey) {
+    this.tokenKey = tokenKey;
   }
 
   public ObservabilityPipelineCrowdStrikeNextGenSiemDestination type(
@@ -310,10 +361,15 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
             this.compression, observabilityPipelineCrowdStrikeNextGenSiemDestination.compression)
         && Objects.equals(
             this.encoding, observabilityPipelineCrowdStrikeNextGenSiemDestination.encoding)
+        && Objects.equals(
+            this.endpointUrlKey,
+            observabilityPipelineCrowdStrikeNextGenSiemDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineCrowdStrikeNextGenSiemDestination.id)
         && Objects.equals(
             this.inputs, observabilityPipelineCrowdStrikeNextGenSiemDestination.inputs)
         && Objects.equals(this.tls, observabilityPipelineCrowdStrikeNextGenSiemDestination.tls)
+        && Objects.equals(
+            this.tokenKey, observabilityPipelineCrowdStrikeNextGenSiemDestination.tokenKey)
         && Objects.equals(this.type, observabilityPipelineCrowdStrikeNextGenSiemDestination.type)
         && Objects.equals(
             this.additionalProperties,
@@ -322,7 +378,17 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(buffer, compression, encoding, id, inputs, tls, type, additionalProperties);
+    return Objects.hash(
+        buffer,
+        compression,
+        encoding,
+        endpointUrlKey,
+        id,
+        inputs,
+        tls,
+        tokenKey,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -332,9 +398,11 @@ public class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
+    sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
+    sb.append("    tokenKey: ").append(toIndentedString(tokenKey)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -28,7 +28,8 @@ import java.util.Objects;
   ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_ID,
   ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_REGION,
   ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_TLS,
-  ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_TYPE
+  ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_TYPE,
+  ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_URL_KEY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -49,6 +50,9 @@ public class ObservabilityPipelineAmazonS3Source {
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineAmazonS3SourceType type =
       ObservabilityPipelineAmazonS3SourceType.AMAZON_S3;
+
+  public static final String JSON_PROPERTY_URL_KEY = "url_key";
+  private String urlKey;
 
   public ObservabilityPipelineAmazonS3Source() {}
 
@@ -174,6 +178,27 @@ public class ObservabilityPipelineAmazonS3Source {
     this.type = type;
   }
 
+  public ObservabilityPipelineAmazonS3Source urlKey(String urlKey) {
+    this.urlKey = urlKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the S3 bucket URL.
+   *
+   * @return urlKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUrlKey() {
+    return urlKey;
+  }
+
+  public void setUrlKey(String urlKey) {
+    this.urlKey = urlKey;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -236,13 +261,14 @@ public class ObservabilityPipelineAmazonS3Source {
         && Objects.equals(this.region, observabilityPipelineAmazonS3Source.region)
         && Objects.equals(this.tls, observabilityPipelineAmazonS3Source.tls)
         && Objects.equals(this.type, observabilityPipelineAmazonS3Source.type)
+        && Objects.equals(this.urlKey, observabilityPipelineAmazonS3Source.urlKey)
         && Objects.equals(
             this.additionalProperties, observabilityPipelineAmazonS3Source.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, id, region, tls, type, additionalProperties);
+    return Objects.hash(auth, id, region, tls, type, urlKey, additionalProperties);
   }
 
   @Override
@@ -254,6 +280,7 @@ public class ObservabilityPipelineAmazonS3Source {
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    urlKey: ").append(toIndentedString(urlKey)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

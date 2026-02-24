@@ -25,6 +25,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineKafkaSource.JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY,
   ObservabilityPipelineKafkaSource.JSON_PROPERTY_GROUP_ID,
   ObservabilityPipelineKafkaSource.JSON_PROPERTY_ID,
   ObservabilityPipelineKafkaSource.JSON_PROPERTY_LIBRDKAFKA_OPTIONS,
@@ -37,6 +38,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineKafkaSource {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY = "bootstrap_servers_key";
+  private String bootstrapServersKey;
+
   public static final String JSON_PROPERTY_GROUP_ID = "group_id";
   private String groupId;
 
@@ -72,6 +76,27 @@ public class ObservabilityPipelineKafkaSource {
     this.topics = topics;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineKafkaSource bootstrapServersKey(String bootstrapServersKey) {
+    this.bootstrapServersKey = bootstrapServersKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Kafka bootstrap servers list.
+   *
+   * @return bootstrapServersKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBootstrapServersKey() {
+    return bootstrapServersKey;
+  }
+
+  public void setBootstrapServersKey(String bootstrapServersKey) {
+    this.bootstrapServersKey = bootstrapServersKey;
   }
 
   public ObservabilityPipelineKafkaSource groupId(String groupId) {
@@ -302,7 +327,9 @@ public class ObservabilityPipelineKafkaSource {
     }
     ObservabilityPipelineKafkaSource observabilityPipelineKafkaSource =
         (ObservabilityPipelineKafkaSource) o;
-    return Objects.equals(this.groupId, observabilityPipelineKafkaSource.groupId)
+    return Objects.equals(
+            this.bootstrapServersKey, observabilityPipelineKafkaSource.bootstrapServersKey)
+        && Objects.equals(this.groupId, observabilityPipelineKafkaSource.groupId)
         && Objects.equals(this.id, observabilityPipelineKafkaSource.id)
         && Objects.equals(
             this.librdkafkaOptions, observabilityPipelineKafkaSource.librdkafkaOptions)
@@ -317,13 +344,24 @@ public class ObservabilityPipelineKafkaSource {
   @Override
   public int hashCode() {
     return Objects.hash(
-        groupId, id, librdkafkaOptions, sasl, tls, topics, type, additionalProperties);
+        bootstrapServersKey,
+        groupId,
+        id,
+        librdkafkaOptions,
+        sasl,
+        tls,
+        topics,
+        type,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineKafkaSource {\n");
+    sb.append("    bootstrapServersKey: ")
+        .append(toIndentedString(bootstrapServersKey))
+        .append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    librdkafkaOptions: ").append(toIndentedString(librdkafkaOptions)).append("\n");

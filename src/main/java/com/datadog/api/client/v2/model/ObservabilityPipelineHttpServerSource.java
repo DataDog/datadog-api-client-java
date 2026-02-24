@@ -23,18 +23,28 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineHttpServerSource.JSON_PROPERTY_ADDRESS_KEY,
   ObservabilityPipelineHttpServerSource.JSON_PROPERTY_AUTH_STRATEGY,
+  ObservabilityPipelineHttpServerSource.JSON_PROPERTY_CUSTOM_KEY,
   ObservabilityPipelineHttpServerSource.JSON_PROPERTY_DECODING,
   ObservabilityPipelineHttpServerSource.JSON_PROPERTY_ID,
+  ObservabilityPipelineHttpServerSource.JSON_PROPERTY_PASSWORD_KEY,
   ObservabilityPipelineHttpServerSource.JSON_PROPERTY_TLS,
-  ObservabilityPipelineHttpServerSource.JSON_PROPERTY_TYPE
+  ObservabilityPipelineHttpServerSource.JSON_PROPERTY_TYPE,
+  ObservabilityPipelineHttpServerSource.JSON_PROPERTY_USERNAME_KEY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineHttpServerSource {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
+  private String addressKey;
+
   public static final String JSON_PROPERTY_AUTH_STRATEGY = "auth_strategy";
   private ObservabilityPipelineHttpServerSourceAuthStrategy authStrategy;
+
+  public static final String JSON_PROPERTY_CUSTOM_KEY = "custom_key";
+  private String customKey;
 
   public static final String JSON_PROPERTY_DECODING = "decoding";
   private ObservabilityPipelineDecoding decoding;
@@ -42,12 +52,18 @@ public class ObservabilityPipelineHttpServerSource {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public static final String JSON_PROPERTY_PASSWORD_KEY = "password_key";
+  private String passwordKey;
+
   public static final String JSON_PROPERTY_TLS = "tls";
   private ObservabilityPipelineTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineHttpServerSourceType type =
       ObservabilityPipelineHttpServerSourceType.HTTP_SERVER;
+
+  public static final String JSON_PROPERTY_USERNAME_KEY = "username_key";
+  private String usernameKey;
 
   public ObservabilityPipelineHttpServerSource() {}
 
@@ -67,6 +83,27 @@ public class ObservabilityPipelineHttpServerSource {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineHttpServerSource addressKey(String addressKey) {
+    this.addressKey = addressKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the listen address for the HTTP server.
+   *
+   * @return addressKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAddressKey() {
+    return addressKey;
+  }
+
+  public void setAddressKey(String addressKey) {
+    this.addressKey = addressKey;
   }
 
   public ObservabilityPipelineHttpServerSource authStrategy(
@@ -92,6 +129,28 @@ public class ObservabilityPipelineHttpServerSource {
       this.unparsed = true;
     }
     this.authStrategy = authStrategy;
+  }
+
+  public ObservabilityPipelineHttpServerSource customKey(String customKey) {
+    this.customKey = customKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds a custom header value (used with custom
+   * auth strategies).
+   *
+   * @return customKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomKey() {
+    return customKey;
+  }
+
+  public void setCustomKey(String customKey) {
+    this.customKey = customKey;
   }
 
   public ObservabilityPipelineHttpServerSource decoding(ObservabilityPipelineDecoding decoding) {
@@ -136,6 +195,28 @@ public class ObservabilityPipelineHttpServerSource {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public ObservabilityPipelineHttpServerSource passwordKey(String passwordKey) {
+    this.passwordKey = passwordKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the password (used when <code>
+   * auth_strategy</code> is <code>plain</code>).
+   *
+   * @return passwordKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PASSWORD_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPasswordKey() {
+    return passwordKey;
+  }
+
+  public void setPasswordKey(String passwordKey) {
+    this.passwordKey = passwordKey;
   }
 
   public ObservabilityPipelineHttpServerSource tls(ObservabilityPipelineTls tls) {
@@ -183,6 +264,28 @@ public class ObservabilityPipelineHttpServerSource {
       this.unparsed = true;
     }
     this.type = type;
+  }
+
+  public ObservabilityPipelineHttpServerSource usernameKey(String usernameKey) {
+    this.usernameKey = usernameKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the username (used when <code>
+   * auth_strategy</code> is <code>plain</code>).
+   *
+   * @return usernameKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USERNAME_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUsernameKey() {
+    return usernameKey;
+  }
+
+  public void setUsernameKey(String usernameKey) {
+    this.usernameKey = usernameKey;
   }
 
   /**
@@ -242,29 +345,47 @@ public class ObservabilityPipelineHttpServerSource {
     }
     ObservabilityPipelineHttpServerSource observabilityPipelineHttpServerSource =
         (ObservabilityPipelineHttpServerSource) o;
-    return Objects.equals(this.authStrategy, observabilityPipelineHttpServerSource.authStrategy)
+    return Objects.equals(this.addressKey, observabilityPipelineHttpServerSource.addressKey)
+        && Objects.equals(this.authStrategy, observabilityPipelineHttpServerSource.authStrategy)
+        && Objects.equals(this.customKey, observabilityPipelineHttpServerSource.customKey)
         && Objects.equals(this.decoding, observabilityPipelineHttpServerSource.decoding)
         && Objects.equals(this.id, observabilityPipelineHttpServerSource.id)
+        && Objects.equals(this.passwordKey, observabilityPipelineHttpServerSource.passwordKey)
         && Objects.equals(this.tls, observabilityPipelineHttpServerSource.tls)
         && Objects.equals(this.type, observabilityPipelineHttpServerSource.type)
+        && Objects.equals(this.usernameKey, observabilityPipelineHttpServerSource.usernameKey)
         && Objects.equals(
             this.additionalProperties, observabilityPipelineHttpServerSource.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authStrategy, decoding, id, tls, type, additionalProperties);
+    return Objects.hash(
+        addressKey,
+        authStrategy,
+        customKey,
+        decoding,
+        id,
+        passwordKey,
+        tls,
+        type,
+        usernameKey,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineHttpServerSource {\n");
+    sb.append("    addressKey: ").append(toIndentedString(addressKey)).append("\n");
     sb.append("    authStrategy: ").append(toIndentedString(authStrategy)).append("\n");
+    sb.append("    customKey: ").append(toIndentedString(customKey)).append("\n");
     sb.append("    decoding: ").append(toIndentedString(decoding)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    passwordKey: ").append(toIndentedString(passwordKey)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    usernameKey: ").append(toIndentedString(usernameKey)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

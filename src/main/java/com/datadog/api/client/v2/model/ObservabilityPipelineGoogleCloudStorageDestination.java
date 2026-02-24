@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /**
  * The <code>google_cloud_storage</code> destination stores logs in a Google Cloud Storage (GCS)
- * bucket. It requires a bucket name, GCP authentication, and metadata fields.
+ * bucket. It requires a bucket name, Google Cloud authentication, and metadata fields.
  *
  * <p><strong>Supported pipeline types:</strong> logs
  */
@@ -126,7 +126,7 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
   }
 
   /**
-   * GCP credentials used to authenticate with Google Cloud Storage.
+   * Google Cloud credentials used to authenticate with Google Cloud Storage.
    *
    * @return auth
    */

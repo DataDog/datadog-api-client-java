@@ -25,9 +25,11 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_BULK_INDEX,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_DATA_STREAM,
+  ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineOpenSearchDestination.JSON_PROPERTY_TYPE
@@ -36,6 +38,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineOpenSearchDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AUTH = "auth";
+  private ObservabilityPipelineElasticsearchDestinationAuth auth;
+
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
 
@@ -44,6 +49,9 @@ public class ObservabilityPipelineOpenSearchDestination {
 
   public static final String JSON_PROPERTY_DATA_STREAM = "data_stream";
   private ObservabilityPipelineOpenSearchDestinationDataStream dataStream;
+
+  public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
+  private String endpointUrlKey;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -67,6 +75,31 @@ public class ObservabilityPipelineOpenSearchDestination {
     this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineOpenSearchDestination auth(
+      ObservabilityPipelineElasticsearchDestinationAuth auth) {
+    this.auth = auth;
+    this.unparsed |= auth.unparsed;
+    return this;
+  }
+
+  /**
+   * Authentication settings for the Elasticsearch destination. When <code>strategy</code> is <code>
+   * basic</code>, use <code>username_key</code> and <code>password_key</code> to reference
+   * credentials stored in environment variables or secrets.
+   *
+   * @return auth
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineElasticsearchDestinationAuth getAuth() {
+    return auth;
+  }
+
+  public void setAuth(ObservabilityPipelineElasticsearchDestinationAuth auth) {
+    this.auth = auth;
   }
 
   public ObservabilityPipelineOpenSearchDestination buffer(
@@ -134,6 +167,27 @@ public class ObservabilityPipelineOpenSearchDestination {
 
   public void setDataStream(ObservabilityPipelineOpenSearchDestinationDataStream dataStream) {
     this.dataStream = dataStream;
+  }
+
+  public ObservabilityPipelineOpenSearchDestination endpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the OpenSearch endpoint URL.
+   *
+   * @return endpointUrlKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndpointUrlKey() {
+    return endpointUrlKey;
+  }
+
+  public void setEndpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
   }
 
   public ObservabilityPipelineOpenSearchDestination id(String id) {
@@ -264,9 +318,12 @@ public class ObservabilityPipelineOpenSearchDestination {
     }
     ObservabilityPipelineOpenSearchDestination observabilityPipelineOpenSearchDestination =
         (ObservabilityPipelineOpenSearchDestination) o;
-    return Objects.equals(this.buffer, observabilityPipelineOpenSearchDestination.buffer)
+    return Objects.equals(this.auth, observabilityPipelineOpenSearchDestination.auth)
+        && Objects.equals(this.buffer, observabilityPipelineOpenSearchDestination.buffer)
         && Objects.equals(this.bulkIndex, observabilityPipelineOpenSearchDestination.bulkIndex)
         && Objects.equals(this.dataStream, observabilityPipelineOpenSearchDestination.dataStream)
+        && Objects.equals(
+            this.endpointUrlKey, observabilityPipelineOpenSearchDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineOpenSearchDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineOpenSearchDestination.inputs)
         && Objects.equals(this.type, observabilityPipelineOpenSearchDestination.type)
@@ -277,16 +334,27 @@ public class ObservabilityPipelineOpenSearchDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(buffer, bulkIndex, dataStream, id, inputs, type, additionalProperties);
+    return Objects.hash(
+        auth,
+        buffer,
+        bulkIndex,
+        dataStream,
+        endpointUrlKey,
+        id,
+        inputs,
+        type,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineOpenSearchDestination {\n");
+    sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    bulkIndex: ").append(toIndentedString(bulkIndex)).append("\n");
     sb.append("    dataStream: ").append(toIndentedString(dataStream)).append("\n");
+    sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

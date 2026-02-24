@@ -24,6 +24,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineRsyslogSource.JSON_PROPERTY_ADDRESS_KEY,
   ObservabilityPipelineRsyslogSource.JSON_PROPERTY_ID,
   ObservabilityPipelineRsyslogSource.JSON_PROPERTY_MODE,
   ObservabilityPipelineRsyslogSource.JSON_PROPERTY_TLS,
@@ -33,6 +34,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineRsyslogSource {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
+  private String addressKey;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -60,6 +64,28 @@ public class ObservabilityPipelineRsyslogSource {
     this.unparsed |= !mode.isValid();
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineRsyslogSource addressKey(String addressKey) {
+    this.addressKey = addressKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the listen address for the syslog
+   * receiver.
+   *
+   * @return addressKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAddressKey() {
+    return addressKey;
+  }
+
+  public void setAddressKey(String addressKey) {
+    this.addressKey = addressKey;
   }
 
   public ObservabilityPipelineRsyslogSource id(String id) {
@@ -210,7 +236,8 @@ public class ObservabilityPipelineRsyslogSource {
     }
     ObservabilityPipelineRsyslogSource observabilityPipelineRsyslogSource =
         (ObservabilityPipelineRsyslogSource) o;
-    return Objects.equals(this.id, observabilityPipelineRsyslogSource.id)
+    return Objects.equals(this.addressKey, observabilityPipelineRsyslogSource.addressKey)
+        && Objects.equals(this.id, observabilityPipelineRsyslogSource.id)
         && Objects.equals(this.mode, observabilityPipelineRsyslogSource.mode)
         && Objects.equals(this.tls, observabilityPipelineRsyslogSource.tls)
         && Objects.equals(this.type, observabilityPipelineRsyslogSource.type)
@@ -220,13 +247,14 @@ public class ObservabilityPipelineRsyslogSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, mode, tls, type, additionalProperties);
+    return Objects.hash(addressKey, id, mode, tls, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineRsyslogSource {\n");
+    sb.append("    addressKey: ").append(toIndentedString(addressKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");

@@ -25,6 +25,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineCloudPremDestination.JSON_PROPERTY_TYPE
@@ -33,6 +34,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineCloudPremDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
+  private String endpointUrlKey;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -55,6 +59,27 @@ public class ObservabilityPipelineCloudPremDestination {
     this.inputs = inputs;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineCloudPremDestination endpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the CloudPrem endpoint URL.
+   *
+   * @return endpointUrlKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndpointUrlKey() {
+    return endpointUrlKey;
+  }
+
+  public void setEndpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
   }
 
   public ObservabilityPipelineCloudPremDestination id(String id) {
@@ -184,7 +209,9 @@ public class ObservabilityPipelineCloudPremDestination {
     }
     ObservabilityPipelineCloudPremDestination observabilityPipelineCloudPremDestination =
         (ObservabilityPipelineCloudPremDestination) o;
-    return Objects.equals(this.id, observabilityPipelineCloudPremDestination.id)
+    return Objects.equals(
+            this.endpointUrlKey, observabilityPipelineCloudPremDestination.endpointUrlKey)
+        && Objects.equals(this.id, observabilityPipelineCloudPremDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineCloudPremDestination.inputs)
         && Objects.equals(this.type, observabilityPipelineCloudPremDestination.type)
         && Objects.equals(
@@ -194,13 +221,14 @@ public class ObservabilityPipelineCloudPremDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, inputs, type, additionalProperties);
+    return Objects.hash(endpointUrlKey, id, inputs, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineCloudPremDestination {\n");
+    sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

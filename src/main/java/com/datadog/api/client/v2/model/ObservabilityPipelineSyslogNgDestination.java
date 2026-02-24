@@ -27,6 +27,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSyslogNgDestination.JSON_PROPERTY_BUFFER,
+  ObservabilityPipelineSyslogNgDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineSyslogNgDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineSyslogNgDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineSyslogNgDestination.JSON_PROPERTY_KEEPALIVE,
@@ -39,6 +40,9 @@ public class ObservabilityPipelineSyslogNgDestination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
+
+  public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
+  private String endpointUrlKey;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -91,6 +95,27 @@ public class ObservabilityPipelineSyslogNgDestination {
 
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
+  }
+
+  public ObservabilityPipelineSyslogNgDestination endpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the syslog-ng server endpoint URL.
+   *
+   * @return endpointUrlKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndpointUrlKey() {
+    return endpointUrlKey;
+  }
+
+  public void setEndpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
   }
 
   public ObservabilityPipelineSyslogNgDestination id(String id) {
@@ -264,6 +289,8 @@ public class ObservabilityPipelineSyslogNgDestination {
     ObservabilityPipelineSyslogNgDestination observabilityPipelineSyslogNgDestination =
         (ObservabilityPipelineSyslogNgDestination) o;
     return Objects.equals(this.buffer, observabilityPipelineSyslogNgDestination.buffer)
+        && Objects.equals(
+            this.endpointUrlKey, observabilityPipelineSyslogNgDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineSyslogNgDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineSyslogNgDestination.inputs)
         && Objects.equals(this.keepalive, observabilityPipelineSyslogNgDestination.keepalive)
@@ -276,7 +303,8 @@ public class ObservabilityPipelineSyslogNgDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(buffer, id, inputs, keepalive, tls, type, additionalProperties);
+    return Objects.hash(
+        buffer, endpointUrlKey, id, inputs, keepalive, tls, type, additionalProperties);
   }
 
   @Override
@@ -284,6 +312,7 @@ public class ObservabilityPipelineSyslogNgDestination {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineSyslogNgDestination {\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
+    sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    keepalive: ").append(toIndentedString(keepalive)).append("\n");

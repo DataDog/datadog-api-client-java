@@ -27,6 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_ENCODING,
+  ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_HEADER_CUSTOM_FIELDS,
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_HEADER_HOST_NAME,
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_HEADER_SOURCE_CATEGORY,
@@ -44,6 +45,9 @@ public class ObservabilityPipelineSumoLogicDestination {
 
   public static final String JSON_PROPERTY_ENCODING = "encoding";
   private ObservabilityPipelineSumoLogicDestinationEncoding encoding;
+
+  public static final String JSON_PROPERTY_ENDPOINT_URL_KEY = "endpoint_url_key";
+  private String endpointUrlKey;
 
   public static final String JSON_PROPERTY_HEADER_CUSTOM_FIELDS = "header_custom_fields";
   private List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem> headerCustomFields =
@@ -129,6 +133,27 @@ public class ObservabilityPipelineSumoLogicDestination {
       this.unparsed = true;
     }
     this.encoding = encoding;
+  }
+
+  public ObservabilityPipelineSumoLogicDestination endpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the Sumo Logic HTTP endpoint URL.
+   *
+   * @return endpointUrlKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndpointUrlKey() {
+    return endpointUrlKey;
+  }
+
+  public void setEndpointUrlKey(String endpointUrlKey) {
+    this.endpointUrlKey = endpointUrlKey;
   }
 
   public ObservabilityPipelineSumoLogicDestination headerCustomFields(
@@ -363,6 +388,8 @@ public class ObservabilityPipelineSumoLogicDestination {
     return Objects.equals(this.buffer, observabilityPipelineSumoLogicDestination.buffer)
         && Objects.equals(this.encoding, observabilityPipelineSumoLogicDestination.encoding)
         && Objects.equals(
+            this.endpointUrlKey, observabilityPipelineSumoLogicDestination.endpointUrlKey)
+        && Objects.equals(
             this.headerCustomFields, observabilityPipelineSumoLogicDestination.headerCustomFields)
         && Objects.equals(
             this.headerHostName, observabilityPipelineSumoLogicDestination.headerHostName)
@@ -384,6 +411,7 @@ public class ObservabilityPipelineSumoLogicDestination {
     return Objects.hash(
         buffer,
         encoding,
+        endpointUrlKey,
         headerCustomFields,
         headerHostName,
         headerSourceCategory,
@@ -400,6 +428,7 @@ public class ObservabilityPipelineSumoLogicDestination {
     sb.append("class ObservabilityPipelineSumoLogicDestination {\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
+    sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    headerCustomFields: ").append(toIndentedString(headerCustomFields)).append("\n");
     sb.append("    headerHostName: ").append(toIndentedString(headerHostName)).append("\n");
     sb.append("    headerSourceCategory: ")

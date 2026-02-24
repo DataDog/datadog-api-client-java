@@ -23,7 +23,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineTls.JSON_PROPERTY_CA_FILE,
   ObservabilityPipelineTls.JSON_PROPERTY_CRT_FILE,
-  ObservabilityPipelineTls.JSON_PROPERTY_KEY_FILE
+  ObservabilityPipelineTls.JSON_PROPERTY_KEY_FILE,
+  ObservabilityPipelineTls.JSON_PROPERTY_KEY_PASS_KEY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -37,6 +38,9 @@ public class ObservabilityPipelineTls {
 
   public static final String JSON_PROPERTY_KEY_FILE = "key_file";
   private String keyFile;
+
+  public static final String JSON_PROPERTY_KEY_PASS_KEY = "key_pass_key";
+  private String keyPassKey;
 
   public ObservabilityPipelineTls() {}
 
@@ -110,6 +114,27 @@ public class ObservabilityPipelineTls {
     this.keyFile = keyFile;
   }
 
+  public ObservabilityPipelineTls keyPassKey(String keyPassKey) {
+    this.keyPassKey = keyPassKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the passphrase for the private key file.
+   *
+   * @return keyPassKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KEY_PASS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getKeyPassKey() {
+    return keyPassKey;
+  }
+
+  public void setKeyPassKey(String keyPassKey) {
+    this.keyPassKey = keyPassKey;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -169,12 +194,13 @@ public class ObservabilityPipelineTls {
     return Objects.equals(this.caFile, observabilityPipelineTls.caFile)
         && Objects.equals(this.crtFile, observabilityPipelineTls.crtFile)
         && Objects.equals(this.keyFile, observabilityPipelineTls.keyFile)
+        && Objects.equals(this.keyPassKey, observabilityPipelineTls.keyPassKey)
         && Objects.equals(this.additionalProperties, observabilityPipelineTls.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(caFile, crtFile, keyFile, additionalProperties);
+    return Objects.hash(caFile, crtFile, keyFile, keyPassKey, additionalProperties);
   }
 
   @Override
@@ -184,6 +210,7 @@ public class ObservabilityPipelineTls {
     sb.append("    caFile: ").append(toIndentedString(caFile)).append("\n");
     sb.append("    crtFile: ").append(toIndentedString(crtFile)).append("\n");
     sb.append("    keyFile: ").append(toIndentedString(keyFile)).append("\n");
+    sb.append("    keyPassKey: ").append(toIndentedString(keyPassKey)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

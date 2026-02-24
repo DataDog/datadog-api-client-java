@@ -25,9 +25,11 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_ACCOUNT_ID_KEY,
   ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_INPUTS,
+  ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_LICENSE_KEY_KEY,
   ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_REGION,
   ObservabilityPipelineNewRelicDestination.JSON_PROPERTY_TYPE
 })
@@ -35,6 +37,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineNewRelicDestination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_ID_KEY = "account_id_key";
+  private String accountIdKey;
+
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
 
@@ -43,6 +48,9 @@ public class ObservabilityPipelineNewRelicDestination {
 
   public static final String JSON_PROPERTY_INPUTS = "inputs";
   private List<String> inputs = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_LICENSE_KEY_KEY = "license_key_key";
+  private String licenseKeyKey;
 
   public static final String JSON_PROPERTY_REGION = "region";
   private ObservabilityPipelineNewRelicDestinationRegion region;
@@ -67,6 +75,27 @@ public class ObservabilityPipelineNewRelicDestination {
     this.unparsed |= !region.isValid();
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineNewRelicDestination accountIdKey(String accountIdKey) {
+    this.accountIdKey = accountIdKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the New Relic account ID.
+   *
+   * @return accountIdKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountIdKey() {
+    return accountIdKey;
+  }
+
+  public void setAccountIdKey(String accountIdKey) {
+    this.accountIdKey = accountIdKey;
   }
 
   public ObservabilityPipelineNewRelicDestination buffer(
@@ -135,6 +164,27 @@ public class ObservabilityPipelineNewRelicDestination {
 
   public void setInputs(List<String> inputs) {
     this.inputs = inputs;
+  }
+
+  public ObservabilityPipelineNewRelicDestination licenseKeyKey(String licenseKeyKey) {
+    this.licenseKeyKey = licenseKeyKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the New Relic license key.
+   *
+   * @return licenseKeyKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LICENSE_KEY_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLicenseKeyKey() {
+    return licenseKeyKey;
+  }
+
+  public void setLicenseKeyKey(String licenseKeyKey) {
+    this.licenseKeyKey = licenseKeyKey;
   }
 
   public ObservabilityPipelineNewRelicDestination region(
@@ -244,9 +294,12 @@ public class ObservabilityPipelineNewRelicDestination {
     }
     ObservabilityPipelineNewRelicDestination observabilityPipelineNewRelicDestination =
         (ObservabilityPipelineNewRelicDestination) o;
-    return Objects.equals(this.buffer, observabilityPipelineNewRelicDestination.buffer)
+    return Objects.equals(this.accountIdKey, observabilityPipelineNewRelicDestination.accountIdKey)
+        && Objects.equals(this.buffer, observabilityPipelineNewRelicDestination.buffer)
         && Objects.equals(this.id, observabilityPipelineNewRelicDestination.id)
         && Objects.equals(this.inputs, observabilityPipelineNewRelicDestination.inputs)
+        && Objects.equals(
+            this.licenseKeyKey, observabilityPipelineNewRelicDestination.licenseKeyKey)
         && Objects.equals(this.region, observabilityPipelineNewRelicDestination.region)
         && Objects.equals(this.type, observabilityPipelineNewRelicDestination.type)
         && Objects.equals(
@@ -256,16 +309,19 @@ public class ObservabilityPipelineNewRelicDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(buffer, id, inputs, region, type, additionalProperties);
+    return Objects.hash(
+        accountIdKey, buffer, id, inputs, licenseKeyKey, region, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineNewRelicDestination {\n");
+    sb.append("    accountIdKey: ").append(toIndentedString(accountIdKey)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
+    sb.append("    licenseKeyKey: ").append(toIndentedString(licenseKeyKey)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
