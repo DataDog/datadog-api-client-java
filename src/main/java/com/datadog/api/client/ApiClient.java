@@ -788,6 +788,9 @@ public class ApiClient {
           put("v2.getChangeRequest", false);
           put("v2.updateChangeRequest", false);
           put("v2.updateChangeRequestDecision", false);
+          put("v2.createAWSCloudAuthPersonaMapping", false);
+          put("v2.deleteAWSCloudAuthPersonaMapping", false);
+          put("v2.getAWSCloudAuthPersonaMapping", false);
           put("v2.listAWSCloudAuthPersonaMappings", false);
           put("v2.activateContentPack", false);
           put("v2.cancelThreatHuntingJob", false);
