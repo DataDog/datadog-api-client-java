@@ -5,6 +5,8 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ProductAnalyticsAnalyticsRequest;
+import com.datadog.api.client.v2.model.ProductAnalyticsSankeyRequest;
+import com.datadog.api.client.v2.model.ProductAnalyticsSankeyResponse;
 import com.datadog.api.client.v2.model.ProductAnalyticsScalarResponse;
 import com.datadog.api.client.v2.model.ProductAnalyticsServerSideEventItem;
 import com.datadog.api.client.v2.model.ProductAnalyticsTimeseriesResponse;
@@ -44,6 +46,144 @@ public class ProductAnalyticsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Compute Sankey flow analysis.
+   *
+   * <p>See {@link #queryProductAnalyticsSankeyWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ProductAnalyticsSankeyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsSankeyResponse queryProductAnalyticsSankey(
+      ProductAnalyticsSankeyRequest body) throws ApiException {
+    return queryProductAnalyticsSankeyWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Compute Sankey flow analysis.
+   *
+   * <p>See {@link #queryProductAnalyticsSankeyWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ProductAnalyticsSankeyResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsSankeyResponse> queryProductAnalyticsSankeyAsync(
+      ProductAnalyticsSankeyRequest body) {
+    return queryProductAnalyticsSankeyWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Compute a Sankey flow analysis showing how users navigate between pages. Specify either a
+   * <code>source</code> page (forward flow) or <code>target</code> page (backward flow), but not
+   * both. Maximum 10 steps and 10 entries per step.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ProductAnalyticsSankeyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsSankeyResponse> queryProductAnalyticsSankeyWithHttpInfo(
+      ProductAnalyticsSankeyRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling queryProductAnalyticsSankey");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/sankey";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.queryProductAnalyticsSankey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsSankeyResponse>() {});
+  }
+
+  /**
+   * Compute Sankey flow analysis.
+   *
+   * <p>See {@link #queryProductAnalyticsSankeyWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsSankeyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsSankeyResponse>>
+      queryProductAnalyticsSankeyWithHttpInfoAsync(ProductAnalyticsSankeyRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsSankeyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling queryProductAnalyticsSankey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/sankey";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.queryProductAnalyticsSankey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsSankeyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsSankeyResponse>() {});
   }
 
   /**
