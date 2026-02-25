@@ -91,7 +91,7 @@ public class TimeseriesWidgetRequest {
   private LogQueryDefinition securityQuery;
 
   public static final String JSON_PROPERTY_STYLE = "style";
-  private WidgetRequestStyle style;
+  private TimeseriesRequestStyle style;
 
   public TimeseriesWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
@@ -483,25 +483,25 @@ public class TimeseriesWidgetRequest {
     this.securityQuery = securityQuery;
   }
 
-  public TimeseriesWidgetRequest style(WidgetRequestStyle style) {
+  public TimeseriesWidgetRequest style(TimeseriesRequestStyle style) {
     this.style = style;
     this.unparsed |= style.unparsed;
     return this;
   }
 
   /**
-   * Define request widget style.
+   * Define request widget style for timeseries widgets.
    *
    * @return style
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetRequestStyle getStyle() {
+  public TimeseriesRequestStyle getStyle() {
     return style;
   }
 
-  public void setStyle(WidgetRequestStyle style) {
+  public void setStyle(TimeseriesRequestStyle style) {
     this.style = style;
   }
 

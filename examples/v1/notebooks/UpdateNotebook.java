@@ -21,6 +21,7 @@ import com.datadog.api.client.v1.model.NotebookUpdateCell;
 import com.datadog.api.client.v1.model.NotebookUpdateData;
 import com.datadog.api.client.v1.model.NotebookUpdateDataAttributes;
 import com.datadog.api.client.v1.model.NotebookUpdateRequest;
+import com.datadog.api.client.v1.model.TimeseriesRequestStyle;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinition;
 import com.datadog.api.client.v1.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.client.v1.model.TimeseriesWidgetRequest;
@@ -29,7 +30,6 @@ import com.datadog.api.client.v1.model.WidgetDisplayType;
 import com.datadog.api.client.v1.model.WidgetLineType;
 import com.datadog.api.client.v1.model.WidgetLineWidth;
 import com.datadog.api.client.v1.model.WidgetLiveSpan;
-import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -86,7 +86,7 @@ y = 6;
                                                                             .q(
                                                                                 "avg:system.load.1{*}")
                                                                             .style(
-                                                                                new WidgetRequestStyle()
+                                                                                new TimeseriesRequestStyle()
                                                                                     .lineType(
                                                                                         WidgetLineType
                                                                                             .SOLID)
