@@ -1,8 +1,9 @@
 // Create a new timeseries widget with new live span time format
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
 import com.datadog.api.client.v1.model.DashboardReflowType;
@@ -29,77 +30,56 @@ import com.datadog.api.client.v1.model.WidgetNewLiveSpan;
 import com.datadog.api.client.v1.model.WidgetNewLiveSpanType;
 import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import com.datadog.api.client.v1.model.WidgetTime;
+import java.io.File;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
-    Dashboard body =
-        new Dashboard()
-            .title("Example-Dashboard with new live span time")
-            .widgets(
-                Collections.singletonList(
-                    new Widget()
-                        .definition(
-                            new WidgetDefinition(
-                                new TimeseriesWidgetDefinition()
-                                    .title("")
-                                    .showLegend(true)
-                                    .legendLayout(TimeseriesWidgetLegendLayout.AUTO)
-                                    .legendColumns(
-                                        Arrays.asList(
-                                            TimeseriesWidgetLegendColumn.AVG,
-                                            TimeseriesWidgetLegendColumn.MIN,
-                                            TimeseriesWidgetLegendColumn.MAX,
-                                            TimeseriesWidgetLegendColumn.VALUE,
-                                            TimeseriesWidgetLegendColumn.SUM))
-                                    .time(
-                                        new WidgetTime(
-                                            new WidgetNewLiveSpan()
-                                                .type(WidgetNewLiveSpanType.LIVE)
-                                                .unit(WidgetLiveSpanUnit.MINUTE)
-                                                .value(8L)
-                                                .hideIncompleteCostData(true)))
-                                    .type(TimeseriesWidgetDefinitionType.TIMESERIES)
-                                    .requests(
-                                        Collections.singletonList(
-                                            new TimeseriesWidgetRequest()
-                                                .formulas(
-                                                    Collections.singletonList(
-                                                        new WidgetFormula().formula("query1")))
-                                                .queries(
-                                                    Collections.singletonList(
-                                                        new FormulaAndFunctionQueryDefinition(
-                                                            new FormulaAndFunctionEventQueryDefinition()
-                                                                .dataSource(
-                                                                    FormulaAndFunctionEventsDataSource
-                                                                        .CI_PIPELINES)
-                                                                .name("query1")
-                                                                .search(
-                                                                    new FormulaAndFunctionEventQueryDefinitionSearch()
-                                                                        .query("ci_level:job"))
-                                                                .indexes(
-                                                                    Collections.singletonList("*"))
-                                                                .compute(
-                                                                    new FormulaAndFunctionEventQueryDefinitionCompute()
-                                                                        .aggregation(
-                                                                            FormulaAndFunctionEventAggregation
-                                                                                .COUNT)
-                                                                        .metric(
-                                                                            "@ci.queue_time")))))
-                                                .responseFormat(
-                                                    FormulaAndFunctionResponseFormat.TIMESERIES)
-                                                .style(
-                                                    new WidgetRequestStyle()
-                                                        .palette("dog_classic")
-                                                        .lineType(WidgetLineType.SOLID)
-                                                        .lineWidth(WidgetLineWidth.NORMAL))
-                                                .displayType(WidgetDisplayType.LINE)))))))
-            .layoutType(DashboardLayoutType.ORDERED)
-            .reflowType(DashboardReflowType.AUTO);
+    Dashboard body = new Dashboard()
+.title("Example-Dashboard with new live span time")
+.widgets(Collections.singletonList(new Widget()
+.definition(new WidgetDefinition(
+new TimeseriesWidgetDefinition()
+.title("")
+.showLegend(true)
+.legendLayout(TimeseriesWidgetLegendLayout.AUTO)
+.legendColumns(Arrays.asList(TimeseriesWidgetLegendColumn.AVG, TimeseriesWidgetLegendColumn.MIN, TimeseriesWidgetLegendColumn.MAX, TimeseriesWidgetLegendColumn.VALUE, TimeseriesWidgetLegendColumn.SUM))
+.time(new WidgetTime(
+new WidgetNewLiveSpan()
+.type(WidgetNewLiveSpanType.LIVE)
+.unit(WidgetLiveSpanUnit.MINUTE)
+.value(8L)
+.hideIncompleteCostData(true)))
+.type(TimeseriesWidgetDefinitionType.TIMESERIES)
+.requests(Collections.singletonList(new TimeseriesWidgetRequest()
+.formulas(Collections.singletonList(new WidgetFormula()
+.formula("query1")))
+.queries(Collections.singletonList(new FormulaAndFunctionQueryDefinition(
+new FormulaAndFunctionEventQueryDefinition()
+.dataSource(FormulaAndFunctionEventsDataSource.CI_PIPELINES)
+.name("query1")
+.search(new FormulaAndFunctionEventQueryDefinitionSearch()
+.query("ci_level:job"))
+.indexes(Collections.singletonList("*"))
+.compute(new FormulaAndFunctionEventQueryDefinitionCompute()
+.aggregation(FormulaAndFunctionEventAggregation.COUNT)
+.metric("@ci.queue_time")))))
+.responseFormat(FormulaAndFunctionResponseFormat.TIMESERIES)
+.style(new WidgetRequestStyle()
+.palette("dog_classic")
+.lineType(WidgetLineType.SOLID)
+.lineWidth(WidgetLineWidth.NORMAL))
+.displayType(WidgetDisplayType.LINE)))))))
+.layoutType(DashboardLayoutType.ORDERED)
+.reflowType(DashboardReflowType.AUTO);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

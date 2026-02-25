@@ -1,21 +1,27 @@
 // Set an AWS tag filter returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.AwsIntegrationApi;
 import com.datadog.api.client.v1.model.AWSNamespace;
 import com.datadog.api.client.v1.model.AWSTagFilterCreateRequest;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
 
-    AWSTagFilterCreateRequest body =
-        new AWSTagFilterCreateRequest()
-            .accountId("123456789012")
-            .namespace(AWSNamespace.ELB)
-            .tagFilterStr("prod*");
+    AWSTagFilterCreateRequest body = new AWSTagFilterCreateRequest()
+.accountId("123456789012")
+.namespace(AWSNamespace.ELB)
+.tagFilterStr("prod*");
 
     try {
       apiInstance.createAWSTagFilter(body);

@@ -1,12 +1,14 @@
 // Update On-Call schedule returns "OK" response
-import com.datadog.api.client.ApiClient;
+import java.time.OffsetDateTime;
+
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.OnCallApi;
+import com.datadog.api.client.v2.model.Schedule;
 import com.datadog.api.client.v2.model.DataRelationshipsTeams;
 import com.datadog.api.client.v2.model.DataRelationshipsTeamsDataItems;
 import com.datadog.api.client.v2.model.DataRelationshipsTeamsDataItemsType;
 import com.datadog.api.client.v2.model.LayerAttributesInterval;
-import com.datadog.api.client.v2.model.Schedule;
 import com.datadog.api.client.v2.model.ScheduleRequestDataAttributesLayersItemsMembersItems;
 import com.datadog.api.client.v2.model.ScheduleRequestDataAttributesLayersItemsMembersItemsUser;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequest;
@@ -17,8 +19,13 @@ import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataRelationships;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataType;
 import com.datadog.api.client.v2.model.TimeRestriction;
 import com.datadog.api.client.v2.model.Weekday;
+import java.io.File;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -27,8 +34,7 @@ public class Example {
 
     // there is a valid "schedule" in the system
     String SCHEDULE_DATA_ID = System.getenv("SCHEDULE_DATA_ID");
-    String SCHEDULE_DATA_RELATIONSHIPS_LAYERS_DATA_0_ID =
-        System.getenv("SCHEDULE_DATA_RELATIONSHIPS_LAYERS_DATA_0_ID");
+    String SCHEDULE_DATA_RELATIONSHIPS_LAYERS_DATA_0_ID = System.getenv("SCHEDULE_DATA_RELATIONSHIPS_LAYERS_DATA_0_ID");
 
     // there is a valid "user" in the system
     String USER_DATA_ID = System.getenv("USER_DATA_ID");
@@ -36,47 +42,34 @@ public class Example {
     // there is a valid "dd_team" in the system
     String DD_TEAM_DATA_ID = System.getenv("DD_TEAM_DATA_ID");
 
-    ScheduleUpdateRequest body =
-        new ScheduleUpdateRequest()
-            .data(
-                new ScheduleUpdateRequestData()
-                    .id(SCHEDULE_DATA_ID)
-                    .attributes(
-                        new ScheduleUpdateRequestDataAttributes()
-                            .layers(
-                                Collections.singletonList(
-                                    new ScheduleUpdateRequestDataAttributesLayersItems()
-                                        .id(SCHEDULE_DATA_RELATIONSHIPS_LAYERS_DATA_0_ID)
-                                        .effectiveDate(OffsetDateTime.now().plusDays(-10))
-                                        .endDate(OffsetDateTime.now().plusDays(10))
-                                        .interval(new LayerAttributesInterval().seconds(3600L))
-                                        .members(
-                                            Collections.singletonList(
-                                                new ScheduleRequestDataAttributesLayersItemsMembersItems()
-                                                    .user(
-                                                        new ScheduleRequestDataAttributesLayersItemsMembersItemsUser()
-                                                            .id(USER_DATA_ID))))
-                                        .name("Layer 1")
-                                        .restrictions(
-                                            Collections.singletonList(
-                                                new TimeRestriction()
-                                                    .endDay(Weekday.FRIDAY)
-                                                    .endTime("17:00:00")
-                                                    .startDay(Weekday.MONDAY)
-                                                    .startTime("09:00:00")))
-                                        .rotationStart(OffsetDateTime.now().plusDays(-5))))
-                            .name("Example-On-Call")
-                            .timeZone("America/New_York"))
-                    .relationships(
-                        new ScheduleUpdateRequestDataRelationships()
-                            .teams(
-                                new DataRelationshipsTeams()
-                                    .data(
-                                        Collections.singletonList(
-                                            new DataRelationshipsTeamsDataItems()
-                                                .id(DD_TEAM_DATA_ID)
-                                                .type(DataRelationshipsTeamsDataItemsType.TEAMS)))))
-                    .type(ScheduleUpdateRequestDataType.SCHEDULES));
+    ScheduleUpdateRequest body = new ScheduleUpdateRequest()
+.data(new ScheduleUpdateRequestData()
+.id(SCHEDULE_DATA_ID)
+.attributes(new ScheduleUpdateRequestDataAttributes()
+.layers(Collections.singletonList(new ScheduleUpdateRequestDataAttributesLayersItems()
+.id(SCHEDULE_DATA_RELATIONSHIPS_LAYERS_DATA_0_ID)
+.effectiveDate(OffsetDateTime.now().plusDays(-10))
+.endDate(OffsetDateTime.now().plusDays(10))
+.interval(new LayerAttributesInterval()
+.seconds(3600L))
+.members(Collections.singletonList(new ScheduleRequestDataAttributesLayersItemsMembersItems()
+.user(new ScheduleRequestDataAttributesLayersItemsMembersItemsUser()
+.id(USER_DATA_ID))))
+.name("Layer 1")
+.restrictions(Collections.singletonList(new TimeRestriction()
+.endDay(Weekday.FRIDAY)
+.endTime("17:00:00")
+.startDay(Weekday.MONDAY)
+.startTime("09:00:00")))
+.rotationStart(OffsetDateTime.now().plusDays(-5))))
+.name("Example-On-Call")
+.timeZone("America/New_York"))
+.relationships(new ScheduleUpdateRequestDataRelationships()
+.teams(new DataRelationshipsTeams()
+.data(Collections.singletonList(new DataRelationshipsTeamsDataItems()
+.id(DD_TEAM_DATA_ID)
+.type(DataRelationshipsTeamsDataItemsType.TEAMS)))))
+.type(ScheduleUpdateRequestDataType.SCHEDULES));
 
     try {
       Schedule result = apiInstance.updateOnCallSchedule(SCHEDULE_DATA_ID, body);

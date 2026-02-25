@@ -1,31 +1,34 @@
 // Create reference table upload returns "Created" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.ReferenceTablesApi;
+import com.datadog.api.client.v2.model.CreateUploadResponse;
 import com.datadog.api.client.v2.model.CreateUploadRequest;
 import com.datadog.api.client.v2.model.CreateUploadRequestData;
 import com.datadog.api.client.v2.model.CreateUploadRequestDataAttributes;
 import com.datadog.api.client.v2.model.CreateUploadRequestDataType;
-import com.datadog.api.client.v2.model.CreateUploadResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ReferenceTablesApi apiInstance = new ReferenceTablesApi(defaultClient);
 
-    CreateUploadRequest body =
-        new CreateUploadRequest()
-            .data(
-                new CreateUploadRequestData()
-                    .attributes(
-                        new CreateUploadRequestDataAttributes()
-                            .headers(Arrays.asList("id", "name", "value"))
-                            .tableName("test_upload_table_Example-Reference-Table")
-                            .partCount(1)
-                            .partSize(1024L))
-                    .type(CreateUploadRequestDataType.UPLOAD));
+    CreateUploadRequest body = new CreateUploadRequest()
+.data(new CreateUploadRequestData()
+.attributes(new CreateUploadRequestDataAttributes()
+.headers(Arrays.asList("id", "name", "value"))
+.tableName("test_upload_table_Example-Reference-Table")
+.partCount(1)
+.partSize(1024L))
+.type(CreateUploadRequestDataType.UPLOAD));
 
     try {
       CreateUploadResponse result = apiInstance.createReferenceTableUpload(body);

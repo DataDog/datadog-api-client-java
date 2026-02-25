@@ -1,10 +1,17 @@
 // Get team on-call users returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.OnCallApi;
 import com.datadog.api.client.v2.api.OnCallApi.GetTeamOnCallUsersOptionalParameters;
 import com.datadog.api.client.v2.model.TeamOnCallResponders;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -15,11 +22,7 @@ public class Example {
     String ROUTING_RULES_DATA_ID = System.getenv("ROUTING_RULES_DATA_ID");
 
     try {
-      TeamOnCallResponders result =
-          apiInstance.getTeamOnCallUsers(
-              ROUTING_RULES_DATA_ID,
-              new GetTeamOnCallUsersOptionalParameters()
-                  .include("responders,escalations.responders"));
+      TeamOnCallResponders result = apiInstance.getTeamOnCallUsers(ROUTING_RULES_DATA_ID,new GetTeamOnCallUsersOptionalParameters().include("responders,escalations.responders"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OnCallApi#getTeamOnCallUsers");

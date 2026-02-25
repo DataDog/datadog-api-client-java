@@ -1,13 +1,20 @@
 // Create deployment gate returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.DeploymentGatesApi;
+import com.datadog.api.client.v2.model.DeploymentGateResponse;
 import com.datadog.api.client.v2.model.CreateDeploymentGateParams;
 import com.datadog.api.client.v2.model.CreateDeploymentGateParamsData;
 import com.datadog.api.client.v2.model.CreateDeploymentGateParamsDataAttributes;
 import com.datadog.api.client.v2.model.DeploymentGateDataType;
-import com.datadog.api.client.v2.model.DeploymentGateResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -15,17 +22,14 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createDeploymentGate", true);
     DeploymentGatesApi apiInstance = new DeploymentGatesApi(defaultClient);
 
-    CreateDeploymentGateParams body =
-        new CreateDeploymentGateParams()
-            .data(
-                new CreateDeploymentGateParamsData()
-                    .attributes(
-                        new CreateDeploymentGateParamsDataAttributes()
-                            .dryRun(false)
-                            .env("production")
-                            .identifier("my-gate-1")
-                            .service("my-service"))
-                    .type(DeploymentGateDataType.DEPLOYMENT_GATE));
+    CreateDeploymentGateParams body = new CreateDeploymentGateParams()
+.data(new CreateDeploymentGateParamsData()
+.attributes(new CreateDeploymentGateParamsDataAttributes()
+.dryRun(false)
+.env("production")
+.identifier("my-gate-1")
+.service("my-service"))
+.type(DeploymentGateDataType.DEPLOYMENT_GATE));
 
     try {
       DeploymentGateResponse result = apiInstance.createDeploymentGate(body);

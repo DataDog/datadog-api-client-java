@@ -1,9 +1,16 @@
 // Get incident integration metadata details returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.IncidentsApi;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -15,13 +22,10 @@ public class Example {
     String INCIDENT_DATA_ID = System.getenv("INCIDENT_DATA_ID");
 
     // the "incident" has an "incident_integration_metadata"
-    String INCIDENT_INTEGRATION_METADATA_DATA_ID =
-        System.getenv("INCIDENT_INTEGRATION_METADATA_DATA_ID");
+    String INCIDENT_INTEGRATION_METADATA_DATA_ID = System.getenv("INCIDENT_INTEGRATION_METADATA_DATA_ID");
 
     try {
-      IncidentIntegrationMetadataResponse result =
-          apiInstance.getIncidentIntegration(
-              INCIDENT_DATA_ID, INCIDENT_INTEGRATION_METADATA_DATA_ID);
+      IncidentIntegrationMetadataResponse result = apiInstance.getIncidentIntegration(INCIDENT_DATA_ID, INCIDENT_INTEGRATION_METADATA_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IncidentsApi#getIncidentIntegration");

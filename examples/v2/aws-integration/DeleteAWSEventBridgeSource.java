@@ -1,29 +1,33 @@
 // Delete an Amazon EventBridge source returns "Amazon EventBridge source deleted." response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.AwsIntegrationApi;
+import com.datadog.api.client.v2.model.AWSEventBridgeDeleteResponse;
 import com.datadog.api.client.v2.model.AWSEventBridgeDeleteRequest;
 import com.datadog.api.client.v2.model.AWSEventBridgeDeleteRequestAttributes;
 import com.datadog.api.client.v2.model.AWSEventBridgeDeleteRequestData;
-import com.datadog.api.client.v2.model.AWSEventBridgeDeleteResponse;
 import com.datadog.api.client.v2.model.AWSEventBridgeType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
 
-    AWSEventBridgeDeleteRequest body =
-        new AWSEventBridgeDeleteRequest()
-            .data(
-                new AWSEventBridgeDeleteRequestData()
-                    .attributes(
-                        new AWSEventBridgeDeleteRequestAttributes()
-                            .accountId("123456789012")
-                            .eventGeneratorName("app-alerts-zyxw3210")
-                            .region("us-east-1"))
-                    .type(AWSEventBridgeType.EVENT_BRIDGE));
+    AWSEventBridgeDeleteRequest body = new AWSEventBridgeDeleteRequest()
+.data(new AWSEventBridgeDeleteRequestData()
+.attributes(new AWSEventBridgeDeleteRequestAttributes()
+.accountId("123456789012")
+.eventGeneratorName("app-alerts-zyxw3210")
+.region("us-east-1"))
+.type(AWSEventBridgeType.EVENT_BRIDGE));
 
     try {
       AWSEventBridgeDeleteResponse result = apiInstance.deleteAWSEventBridgeSource(body);

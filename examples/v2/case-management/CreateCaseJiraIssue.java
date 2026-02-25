@@ -1,13 +1,19 @@
 // Create Jira issue for case returns "Accepted" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.CaseManagementApi;
 import com.datadog.api.client.v2.model.JiraIssueCreateAttributes;
 import com.datadog.api.client.v2.model.JiraIssueCreateData;
 import com.datadog.api.client.v2.model.JiraIssueCreateRequest;
 import com.datadog.api.client.v2.model.JiraIssueResourceType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -15,17 +21,14 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createCaseJiraIssue", true);
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
-    JiraIssueCreateRequest body =
-        new JiraIssueCreateRequest()
-            .data(
-                new JiraIssueCreateData()
-                    .attributes(
-                        new JiraIssueCreateAttributes()
-                            .fields(Map.ofEntries())
-                            .issueTypeId("10001")
-                            .jiraAccountId("1234")
-                            .projectId("5678"))
-                    .type(JiraIssueResourceType.ISSUES));
+    JiraIssueCreateRequest body = new JiraIssueCreateRequest()
+.data(new JiraIssueCreateData()
+.attributes(new JiraIssueCreateAttributes()
+.fields(Map.ofEntries())
+.issueTypeId("10001")
+.jiraAccountId("1234")
+.projectId("5678"))
+.type(JiraIssueResourceType.ISSUES));
 
     try {
       apiInstance.createCaseJiraIssue("f98a5a5b-e0ff-45d4-b2f5-afe6e74de504", body);

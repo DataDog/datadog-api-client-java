@@ -1,7 +1,7 @@
 // Post dependencies for analysis returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.StaticAnalysisApi;
 import com.datadog.api.client.v2.model.ScaRequest;
 import com.datadog.api.client.v2.model.ScaRequestData;
@@ -18,7 +18,13 @@ import com.datadog.api.client.v2.model.ScaRequestDataAttributesRepository;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesVulnerabilitiesItems;
 import com.datadog.api.client.v2.model.ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems;
 import com.datadog.api.client.v2.model.ScaRequestDataType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -26,59 +32,31 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createSCAResult", true);
     StaticAnalysisApi apiInstance = new StaticAnalysisApi(defaultClient);
 
-    ScaRequest body =
-        new ScaRequest()
-            .data(
-                new ScaRequestData()
-                    .attributes(
-                        new ScaRequestDataAttributes()
-                            .commit(new ScaRequestDataAttributesCommit())
-                            .dependencies(
-                                Collections.singletonList(
-                                    new ScaRequestDataAttributesDependenciesItems()
-                                        .locations(
-                                            Collections.singletonList(
-                                                new ScaRequestDataAttributesDependenciesItemsLocationsItems()
-                                                    .block(
-                                                        new ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition()
-                                                            .end(
-                                                                new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition())
-                                                            .start(
-                                                                new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))
-                                                    .name(
-                                                        new ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition()
-                                                            .end(
-                                                                new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition())
-                                                            .start(
-                                                                new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))
-                                                    .namespace(
-                                                        new ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition()
-                                                            .end(
-                                                                new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition())
-                                                            .start(
-                                                                new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))
-                                                    .version(
-                                                        new ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition()
-                                                            .end(
-                                                                new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition())
-                                                            .start(
-                                                                new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))))
-                                        .reachableSymbolProperties(
-                                            Collections.singletonList(
-                                                new ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems()))))
-                            .files(
-                                Collections.singletonList(new ScaRequestDataAttributesFilesItems()))
-                            .relations(
-                                Collections.singletonList(
-                                    new ScaRequestDataAttributesRelationsItems()))
-                            .repository(new ScaRequestDataAttributesRepository())
-                            .vulnerabilities(
-                                Collections.singletonList(
-                                    new ScaRequestDataAttributesVulnerabilitiesItems()
-                                        .affects(
-                                            Collections.singletonList(
-                                                new ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems())))))
-                    .type(ScaRequestDataType.SCAREQUESTS));
+    ScaRequest body = new ScaRequest()
+.data(new ScaRequestData()
+.attributes(new ScaRequestDataAttributes()
+.commit(new ScaRequestDataAttributesCommit())
+.dependencies(Collections.singletonList(new ScaRequestDataAttributesDependenciesItems()
+.locations(Collections.singletonList(new ScaRequestDataAttributesDependenciesItemsLocationsItems()
+.block(new ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition()
+.end(new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition())
+.start(new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))
+.name(new ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition()
+.end(new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition())
+.start(new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))
+.namespace(new ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition()
+.end(new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition())
+.start(new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))
+.version(new ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition()
+.end(new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition())
+.start(new ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition()))))
+.reachableSymbolProperties(Collections.singletonList(new ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems()))))
+.files(Collections.singletonList(new ScaRequestDataAttributesFilesItems()))
+.relations(Collections.singletonList(new ScaRequestDataAttributesRelationsItems()))
+.repository(new ScaRequestDataAttributesRepository())
+.vulnerabilities(Collections.singletonList(new ScaRequestDataAttributesVulnerabilitiesItems()
+.affects(Collections.singletonList(new ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems())))))
+.type(ScaRequestDataType.SCAREQUESTS));
 
     try {
       apiInstance.createSCAResult(body);

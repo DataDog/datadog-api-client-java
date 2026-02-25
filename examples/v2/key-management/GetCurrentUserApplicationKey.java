@@ -1,9 +1,16 @@
 // Get one application key owned by current user returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.KeyManagementApi;
 import com.datadog.api.client.v2.model.ApplicationKeyResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -14,8 +21,7 @@ public class Example {
     String APPLICATION_KEY_DATA_ID = System.getenv("APPLICATION_KEY_DATA_ID");
 
     try {
-      ApplicationKeyResponse result =
-          apiInstance.getCurrentUserApplicationKey(APPLICATION_KEY_DATA_ID);
+      ApplicationKeyResponse result = apiInstance.getCurrentUserApplicationKey(APPLICATION_KEY_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling KeyManagementApi#getCurrentUserApplicationKey");

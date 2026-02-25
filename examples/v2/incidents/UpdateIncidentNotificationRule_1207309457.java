@@ -1,7 +1,7 @@
 // Update incident notification rule returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.IncidentsApi;
 import com.datadog.api.client.v2.model.IncidentNotificationRule;
 import com.datadog.api.client.v2.model.IncidentNotificationRuleConditionsItems;
@@ -14,7 +14,12 @@ import com.datadog.api.client.v2.model.IncidentTypeType;
 import com.datadog.api.client.v2.model.PutIncidentNotificationRuleRequest;
 import com.datadog.api.client.v2.model.RelationshipToIncidentType;
 import com.datadog.api.client.v2.model.RelationshipToIncidentTypeData;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public class Example {
@@ -28,41 +33,32 @@ public class Example {
     try {
       NOTIFICATION_RULE_DATA_ID = UUID.fromString(System.getenv("NOTIFICATION_RULE_DATA_ID"));
     } catch (IllegalArgumentException e) {
-      System.err.println("Error parsing UUID: " + e.getMessage());
+        System.err.println("Error parsing UUID: " + e.getMessage());
     }
 
     // there is a valid "incident_type" in the system
     String INCIDENT_TYPE_DATA_ID = System.getenv("INCIDENT_TYPE_DATA_ID");
 
-    PutIncidentNotificationRuleRequest body =
-        new PutIncidentNotificationRuleRequest()
-            .data(
-                new IncidentNotificationRuleUpdateData()
-                    .attributes(
-                        new IncidentNotificationRuleCreateAttributes()
-                            .enabled(false)
-                            .conditions(
-                                Collections.singletonList(
-                                    new IncidentNotificationRuleConditionsItems()
-                                        .field("severity")
-                                        .values(Collections.singletonList("SEV-1"))))
-                            .handles(Collections.singletonList("@updated-team-email@company.com"))
-                            .visibility(IncidentNotificationRuleCreateAttributesVisibility.PRIVATE)
-                            .trigger("incident_modified_trigger"))
-                    .relationships(
-                        new IncidentNotificationRuleCreateDataRelationships()
-                            .incidentType(
-                                new RelationshipToIncidentType()
-                                    .data(
-                                        new RelationshipToIncidentTypeData()
-                                            .id(INCIDENT_TYPE_DATA_ID)
-                                            .type(IncidentTypeType.INCIDENT_TYPES))))
-                    .id(NOTIFICATION_RULE_DATA_ID)
-                    .type(IncidentNotificationRuleType.INCIDENT_NOTIFICATION_RULES));
+    PutIncidentNotificationRuleRequest body = new PutIncidentNotificationRuleRequest()
+.data(new IncidentNotificationRuleUpdateData()
+.attributes(new IncidentNotificationRuleCreateAttributes()
+.enabled(false)
+.conditions(Collections.singletonList(new IncidentNotificationRuleConditionsItems()
+.field("severity")
+.values(Collections.singletonList("SEV-1"))))
+.handles(Collections.singletonList("@updated-team-email@company.com"))
+.visibility(IncidentNotificationRuleCreateAttributesVisibility.PRIVATE)
+.trigger("incident_modified_trigger"))
+.relationships(new IncidentNotificationRuleCreateDataRelationships()
+.incidentType(new RelationshipToIncidentType()
+.data(new RelationshipToIncidentTypeData()
+.id(INCIDENT_TYPE_DATA_ID)
+.type(IncidentTypeType.INCIDENT_TYPES))))
+.id(NOTIFICATION_RULE_DATA_ID)
+.type(IncidentNotificationRuleType.INCIDENT_NOTIFICATION_RULES));
 
     try {
-      IncidentNotificationRule result =
-          apiInstance.updateIncidentNotificationRule(NOTIFICATION_RULE_DATA_ID, body);
+      IncidentNotificationRule result = apiInstance.updateIncidentNotificationRule(NOTIFICATION_RULE_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IncidentsApi#updateIncidentNotificationRule");

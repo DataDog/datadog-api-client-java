@@ -1,10 +1,16 @@
-// Trigger a schedule deployment returns "CREATED - Deployment successfully created and started."
-// response
+// Trigger a schedule deployment returns "CREATED - Deployment successfully created and started." response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.FleetAutomationApi;
 import com.datadog.api.client.v2.model.FleetDeploymentResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
