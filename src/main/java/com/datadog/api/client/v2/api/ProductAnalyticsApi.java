@@ -4,7 +4,10 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.ProductAnalyticsAnalyticsRequest;
+import com.datadog.api.client.v2.model.ProductAnalyticsScalarResponse;
 import com.datadog.api.client.v2.model.ProductAnalyticsServerSideEventItem;
+import com.datadog.api.client.v2.model.ProductAnalyticsTimeseriesResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -41,6 +44,284 @@ public class ProductAnalyticsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Compute scalar analytics.
+   *
+   * <p>See {@link #queryProductAnalyticsScalarWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ProductAnalyticsScalarResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsScalarResponse queryProductAnalyticsScalar(
+      ProductAnalyticsAnalyticsRequest body) throws ApiException {
+    return queryProductAnalyticsScalarWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Compute scalar analytics.
+   *
+   * <p>See {@link #queryProductAnalyticsScalarWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ProductAnalyticsScalarResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsScalarResponse> queryProductAnalyticsScalarAsync(
+      ProductAnalyticsAnalyticsRequest body) {
+    return queryProductAnalyticsScalarWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Compute scalar analytics results for Product Analytics data. Returns aggregated values (counts,
+   * averages, percentiles) optionally grouped by facets.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ProductAnalyticsScalarResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsScalarResponse> queryProductAnalyticsScalarWithHttpInfo(
+      ProductAnalyticsAnalyticsRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling queryProductAnalyticsScalar");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/analytics/scalar";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.queryProductAnalyticsScalar",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsScalarResponse>() {});
+  }
+
+  /**
+   * Compute scalar analytics.
+   *
+   * <p>See {@link #queryProductAnalyticsScalarWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsScalarResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsScalarResponse>>
+      queryProductAnalyticsScalarWithHttpInfoAsync(ProductAnalyticsAnalyticsRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling queryProductAnalyticsScalar"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/analytics/scalar";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.queryProductAnalyticsScalar",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsScalarResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsScalarResponse>() {});
+  }
+
+  /**
+   * Compute timeseries analytics.
+   *
+   * <p>See {@link #queryProductAnalyticsTimeseriesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ProductAnalyticsTimeseriesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProductAnalyticsTimeseriesResponse queryProductAnalyticsTimeseries(
+      ProductAnalyticsAnalyticsRequest body) throws ApiException {
+    return queryProductAnalyticsTimeseriesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Compute timeseries analytics.
+   *
+   * <p>See {@link #queryProductAnalyticsTimeseriesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ProductAnalyticsTimeseriesResponse&gt;
+   */
+  public CompletableFuture<ProductAnalyticsTimeseriesResponse> queryProductAnalyticsTimeseriesAsync(
+      ProductAnalyticsAnalyticsRequest body) {
+    return queryProductAnalyticsTimeseriesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Compute timeseries analytics results for Product Analytics data. Returns time-bucketed values
+   * for charts and trend analysis. The <code>compute.interval</code> field (milliseconds) is
+   * required for time bucketing.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ProductAnalyticsTimeseriesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProductAnalyticsTimeseriesResponse>
+      queryProductAnalyticsTimeseriesWithHttpInfo(ProductAnalyticsAnalyticsRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling queryProductAnalyticsTimeseries");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/analytics/timeseries";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ProductAnalyticsApi.queryProductAnalyticsTimeseries",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsTimeseriesResponse>() {});
+  }
+
+  /**
+   * Compute timeseries analytics.
+   *
+   * <p>See {@link #queryProductAnalyticsTimeseriesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ProductAnalyticsTimeseriesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProductAnalyticsTimeseriesResponse>>
+      queryProductAnalyticsTimeseriesWithHttpInfoAsync(ProductAnalyticsAnalyticsRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ProductAnalyticsTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " queryProductAnalyticsTimeseries"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/product-analytics/analytics/timeseries";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ProductAnalyticsApi.queryProductAnalyticsTimeseries",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProductAnalyticsTimeseriesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProductAnalyticsTimeseriesResponse>() {});
   }
 
   /**
