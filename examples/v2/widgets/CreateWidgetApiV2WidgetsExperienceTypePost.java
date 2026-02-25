@@ -1,0 +1,103 @@
+// Create a widget returns "Successful Response" response
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.WidgetsApi;
+import com.datadog.api.client.v2.model.CreateOrUpdateWidgetRequestAttributes;
+import com.datadog.api.client.v2.model.CreateOrUpdateWidgetRequestJSONAPIRequestDocument;
+import com.datadog.api.client.v2.model.CreateOrUpdateWidgetRequestResourceObjectRequest;
+import com.datadog.api.client.v2.model.Definition;
+import com.datadog.api.client.v2.model.ErrorLinks;
+import com.datadog.api.client.v2.model.ErrorLinksAbout;
+import com.datadog.api.client.v2.model.ErrorSource;
+import com.datadog.api.client.v2.model.WidgetErrorInput;
+import com.datadog.api.client.v2.model.WidgetExperienceType;
+import com.datadog.api.client.v2.model.WidgetLinks;
+import com.datadog.api.client.v2.model.WidgetResourceObjectInput;
+import com.datadog.api.client.v2.model.WidgetSchemaJSONAPIDocument;
+import com.datadog.api.client.v2.model.WidgetType;
+import java.util.Collections;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    WidgetsApi apiInstance = new WidgetsApi(defaultClient);
+
+    CreateOrUpdateWidgetRequestJSONAPIRequestDocument body =
+        new CreateOrUpdateWidgetRequestJSONAPIRequestDocument()
+            .data(
+                new CreateOrUpdateWidgetRequestResourceObjectRequest()
+                    .attributes(
+                        new CreateOrUpdateWidgetRequestAttributes()
+                            .definition(
+                                new Definition()
+                                    .title("My Timeseries Widget")
+                                    .type(WidgetType.TIMESERIES)))
+                    .id(null)
+                    .lid(null)
+                    .links(
+                        new WidgetLinks()
+                            .describedBy(null)
+                            .first(null)
+                            .last(null)
+                            .next(null)
+                            .prev(null)
+                            .related(null)
+                            .self(null))
+                    .meta(null)
+                    .relationships(null)
+                    .type(""))
+            .errors(
+                Collections.singletonList(
+                    new WidgetErrorInput()
+                        .code(null)
+                        .detail(null)
+                        .id(null)
+                        .links(new ErrorLinks().about(new ErrorLinksAbout("")))
+                        .meta(null)
+                        .source(new ErrorSource().header(null).parameter(null).pointer(null))
+                        .status(null)
+                        .title(null)))
+            .included(
+                Collections.singletonList(
+                    new WidgetResourceObjectInput()
+                        .attributes(null)
+                        .id("")
+                        .links(
+                            new WidgetLinks()
+                                .describedBy(null)
+                                .first(null)
+                                .last(null)
+                                .next(null)
+                                .prev(null)
+                                .related(null)
+                                .self(null))
+                        .meta(null)
+                        .relationships(null)
+                        .type("")))
+            .links(
+                new WidgetLinks()
+                    .describedBy(null)
+                    .first(null)
+                    .last(null)
+                    .next(null)
+                    .prev(null)
+                    .related(null)
+                    .self(null))
+            .meta(null);
+
+    try {
+      WidgetSchemaJSONAPIDocument result =
+          apiInstance.createWidgetApiV2WidgetsExperienceTypePost(
+              WidgetExperienceType.CCM_REPORTS, body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println(
+          "Exception when calling WidgetsApi#createWidgetApiV2WidgetsExperienceTypePost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
