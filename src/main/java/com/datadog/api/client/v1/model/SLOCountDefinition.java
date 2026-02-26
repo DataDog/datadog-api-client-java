@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,25 +25,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * A count-based (metric) SLI specification, composed of three parts: the good events formula, the
- * total events formula, and the underlying queries.
+   * <p>A count-based (metric) SLI specification, composed of three parts: the good events formula, the total events formula,
+   * and the underlying queries.</p>
  */
 @JsonPropertyOrder({
   SLOCountDefinition.JSON_PROPERTY_GOOD_EVENTS_FORMULA,
   SLOCountDefinition.JSON_PROPERTY_QUERIES,
   SLOCountDefinition.JSON_PROPERTY_TOTAL_EVENTS_FORMULA
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCountDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_GOOD_EVENTS_FORMULA = "good_events_formula";
   private SLOFormula goodEventsFormula;
 
@@ -45,19 +57,15 @@ public class SLOCountDefinition {
 
   @JsonCreator
   public SLOCountDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_GOOD_EVENTS_FORMULA)
-          SLOFormula goodEventsFormula,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
-          List<SLODataSourceQueryDefinition> queries,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_EVENTS_FORMULA)
-          SLOFormula totalEventsFormula) {
-    this.goodEventsFormula = goodEventsFormula;
-    this.unparsed |= goodEventsFormula.unparsed;
-    this.queries = queries;
-    this.totalEventsFormula = totalEventsFormula;
-    this.unparsed |= totalEventsFormula.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_GOOD_EVENTS_FORMULA)SLOFormula goodEventsFormula,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERIES)List<SLODataSourceQueryDefinition> queries,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TOTAL_EVENTS_FORMULA)SLOFormula totalEventsFormula) {
+        this.goodEventsFormula = goodEventsFormula;
+        this.unparsed |= goodEventsFormula.unparsed;
+        this.queries = queries;
+        this.totalEventsFormula = totalEventsFormula;
+        this.unparsed |= totalEventsFormula.unparsed;
   }
-
   public SLOCountDefinition goodEventsFormula(SLOFormula goodEventsFormula) {
     this.goodEventsFormula = goodEventsFormula;
     this.unparsed |= goodEventsFormula.unparsed;
@@ -65,20 +73,18 @@ public class SLOCountDefinition {
   }
 
   /**
-   * A formula that specifies how to combine the results of multiple queries.
-   *
+   * <p>A formula that specifies how to combine the results of multiple queries.</p>
    * @return goodEventsFormula
-   */
-  @JsonProperty(JSON_PROPERTY_GOOD_EVENTS_FORMULA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SLOFormula getGoodEventsFormula() {
-    return goodEventsFormula;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_GOOD_EVENTS_FORMULA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SLOFormula getGoodEventsFormula() {
+        return goodEventsFormula;
+      }
   public void setGoodEventsFormula(SLOFormula goodEventsFormula) {
     this.goodEventsFormula = goodEventsFormula;
   }
-
   public SLOCountDefinition queries(List<SLODataSourceQueryDefinition> queries) {
     this.queries = queries;
     for (SLODataSourceQueryDefinition item : queries) {
@@ -86,7 +92,6 @@ public class SLOCountDefinition {
     }
     return this;
   }
-
   public SLOCountDefinition addQueriesItem(SLODataSourceQueryDefinition queriesItem) {
     this.queries.add(queriesItem);
     this.unparsed |= queriesItem.unparsed;
@@ -94,20 +99,18 @@ public class SLOCountDefinition {
   }
 
   /**
-   * Getqueries
-   *
+   * <p>Getqueries</p>
    * @return queries
-   */
-  @JsonProperty(JSON_PROPERTY_QUERIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SLODataSourceQueryDefinition> getQueries() {
-    return queries;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERIES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<SLODataSourceQueryDefinition> getQueries() {
+        return queries;
+      }
   public void setQueries(List<SLODataSourceQueryDefinition> queries) {
     this.queries = queries;
   }
-
   public SLOCountDefinition totalEventsFormula(SLOFormula totalEventsFormula) {
     this.totalEventsFormula = totalEventsFormula;
     this.unparsed |= totalEventsFormula.unparsed;
@@ -115,29 +118,29 @@ public class SLOCountDefinition {
   }
 
   /**
-   * A formula that specifies how to combine the results of multiple queries.
-   *
+   * <p>A formula that specifies how to combine the results of multiple queries.</p>
    * @return totalEventsFormula
-   */
-  @JsonProperty(JSON_PROPERTY_TOTAL_EVENTS_FORMULA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SLOFormula getTotalEventsFormula() {
-    return totalEventsFormula;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TOTAL_EVENTS_FORMULA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SLOFormula getTotalEventsFormula() {
+        return totalEventsFormula;
+      }
   public void setTotalEventsFormula(SLOFormula totalEventsFormula) {
     this.totalEventsFormula = totalEventsFormula;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -146,7 +149,7 @@ public class SLOCountDefinition {
   @JsonAnySetter
   public SLOCountDefinition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -170,12 +173,14 @@ public class SLOCountDefinition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SLOCountDefinition object is equal to o. */
+  /**
+   * Return true if this SLOCountDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -185,15 +190,13 @@ public class SLOCountDefinition {
       return false;
     }
     SLOCountDefinition sloCountDefinition = (SLOCountDefinition) o;
-    return Objects.equals(this.goodEventsFormula, sloCountDefinition.goodEventsFormula)
-        && Objects.equals(this.queries, sloCountDefinition.queries)
-        && Objects.equals(this.totalEventsFormula, sloCountDefinition.totalEventsFormula)
-        && Objects.equals(this.additionalProperties, sloCountDefinition.additionalProperties);
+    return Objects.equals(this.goodEventsFormula, sloCountDefinition.goodEventsFormula) && Objects.equals(this.queries, sloCountDefinition.queries) && Objects.equals(this.totalEventsFormula, sloCountDefinition.totalEventsFormula) && Objects.equals(this.additionalProperties, sloCountDefinition.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(goodEventsFormula, queries, totalEventsFormula, additionalProperties);
+    return Objects.hash(goodEventsFormula,queries,totalEventsFormula, additionalProperties);
   }
 
   @Override
@@ -211,7 +214,8 @@ public class SLOCountDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,52 +6,75 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * Type of file operation to perform on the target configuration file. - <code>merge-patch</code>:
- * Merges the provided patch data with the existing configuration file. Creates the file if it
- * doesn't exist. - <code>delete</code>: Removes the specified configuration file from the target
- * hosts.
+   * <p>Type of file operation to perform on the target configuration file.
+   * - <code>merge-patch</code>: Merges the provided patch data with the existing configuration file.
+   *   Creates the file if it doesn't exist.
+   * - <code>delete</code>: Removes the specified configuration file from the target hosts.</p>
  */
 @JsonSerialize(using = FleetDeploymentFileOp.FleetDeploymentFileOpSerializer.class)
 public class FleetDeploymentFileOp extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("merge-patch", "delete"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("merge-patch", "delete"));
 
   public static final FleetDeploymentFileOp MERGE_PATCH = new FleetDeploymentFileOp("merge-patch");
   public static final FleetDeploymentFileOp DELETE = new FleetDeploymentFileOp("delete");
+
 
   FleetDeploymentFileOp(String value) {
     super(value, allowedValues);
   }
 
   public static class FleetDeploymentFileOpSerializer extends StdSerializer<FleetDeploymentFileOp> {
-    public FleetDeploymentFileOpSerializer(Class<FleetDeploymentFileOp> t) {
-      super(t);
-    }
+      public FleetDeploymentFileOpSerializer(Class<FleetDeploymentFileOp> t) {
+          super(t);
+      }
 
-    public FleetDeploymentFileOpSerializer() {
-      this(null);
-    }
+      public FleetDeploymentFileOpSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        FleetDeploymentFileOp value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(FleetDeploymentFileOp value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

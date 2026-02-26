@@ -6,30 +6,24 @@
 
 package com.datadog.api.client.auth;
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.ApiException;
+
 import java.net.URI;
-import java.util.List;
 import java.util.Map;
+import java.util.List;
 
 public interface Authentication {
-  /**
-   * Apply authentication settings to header and query params.
-   *
-   * @param queryParams List of query parameters
-   * @param headerParams Map of header parameters
-   * @param cookieParams Map of cookie parameters
-   * @param payload Raw payload
-   * @param method HTTP method to authenticate
-   * @param uri URI to authenticate
-   * @throws ApiException If the settings can't be applied
-   */
-  void applyToParams(
-      List<Pair> queryParams,
-      Map<String, String> headerParams,
-      Map<String, String> cookieParams,
-      String payload,
-      String method,
-      URI uri)
-      throws ApiException;
+    /**
+     * Apply authentication settings to header and query params.
+     *
+     * @param queryParams List of query parameters
+     * @param headerParams Map of header parameters
+     * @param cookieParams Map of cookie parameters
+     * @param payload Raw payload
+     * @param method HTTP method to authenticate
+     * @param uri URI to authenticate
+     * @throws ApiException If the settings can't be applied
+     */
+    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException;
 }

@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of the Sensitive Data Scanner group. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of the Sensitive Data Scanner group.</p>
+ */
 @JsonPropertyOrder({
   SensitiveDataScannerGroupAttributes.JSON_PROPERTY_DESCRIPTION,
   SensitiveDataScannerGroupAttributes.JSON_PROPERTY_FILTER,
@@ -27,10 +42,10 @@ import java.util.Objects;
   SensitiveDataScannerGroupAttributes.JSON_PROPERTY_PRODUCT_LIST,
   SensitiveDataScannerGroupAttributes.JSON_PROPERTY_SAMPLINGS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SensitiveDataScannerGroupAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -55,21 +70,19 @@ public class SensitiveDataScannerGroupAttributes {
   }
 
   /**
-   * Description of the group.
-   *
+   * <p>Description of the group.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public SensitiveDataScannerGroupAttributes filter(SensitiveDataScannerFilter filter) {
     this.filter = filter;
     this.unparsed |= filter.unparsed;
@@ -77,71 +90,62 @@ public class SensitiveDataScannerGroupAttributes {
   }
 
   /**
-   * Filter for the Scanning Group.
-   *
+   * <p>Filter for the Scanning Group.</p>
    * @return filter
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SensitiveDataScannerFilter getFilter() {
-    return filter;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FILTER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SensitiveDataScannerFilter getFilter() {
+        return filter;
+      }
   public void setFilter(SensitiveDataScannerFilter filter) {
     this.filter = filter;
   }
-
   public SensitiveDataScannerGroupAttributes isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
   /**
-   * Whether or not the group is enabled.
-   *
+   * <p>Whether or not the group is enabled.</p>
    * @return isEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsEnabled() {
+        return isEnabled;
+      }
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
-
   public SensitiveDataScannerGroupAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the group.
-   *
+   * <p>Name of the group.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
-  public SensitiveDataScannerGroupAttributes productList(
-      List<SensitiveDataScannerProduct> productList) {
+  public SensitiveDataScannerGroupAttributes productList(List<SensitiveDataScannerProduct> productList) {
     this.productList = productList;
     return this;
   }
-
-  public SensitiveDataScannerGroupAttributes addProductListItem(
-      SensitiveDataScannerProduct productListItem) {
+  public SensitiveDataScannerGroupAttributes addProductListItem(SensitiveDataScannerProduct productListItem) {
     if (this.productList == null) {
       this.productList = new ArrayList<>();
     }
@@ -151,32 +155,27 @@ public class SensitiveDataScannerGroupAttributes {
   }
 
   /**
-   * List of products the scanning group applies.
-   *
+   * <p>List of products the scanning group applies.</p>
    * @return productList
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRODUCT_LIST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SensitiveDataScannerProduct> getProductList() {
-    return productList;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PRODUCT_LIST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SensitiveDataScannerProduct> getProductList() {
+        return productList;
+      }
   public void setProductList(List<SensitiveDataScannerProduct> productList) {
     this.productList = productList;
   }
-
-  public SensitiveDataScannerGroupAttributes samplings(
-      List<SensitiveDataScannerSamplings> samplings) {
+  public SensitiveDataScannerGroupAttributes samplings(List<SensitiveDataScannerSamplings> samplings) {
     this.samplings = samplings;
     for (SensitiveDataScannerSamplings item : samplings) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public SensitiveDataScannerGroupAttributes addSamplingsItem(
-      SensitiveDataScannerSamplings samplingsItem) {
+  public SensitiveDataScannerGroupAttributes addSamplingsItem(SensitiveDataScannerSamplings samplingsItem) {
     if (this.samplings == null) {
       this.samplings = new ArrayList<>();
     }
@@ -186,30 +185,30 @@ public class SensitiveDataScannerGroupAttributes {
   }
 
   /**
-   * List of sampling rates per product type.
-   *
+   * <p>List of sampling rates per product type.</p>
    * @return samplings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SAMPLINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SensitiveDataScannerSamplings> getSamplings() {
-    return samplings;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SAMPLINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SensitiveDataScannerSamplings> getSamplings() {
+        return samplings;
+      }
   public void setSamplings(List<SensitiveDataScannerSamplings> samplings) {
     this.samplings = samplings;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -218,7 +217,7 @@ public class SensitiveDataScannerGroupAttributes {
   @JsonAnySetter
   public SensitiveDataScannerGroupAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -242,12 +241,14 @@ public class SensitiveDataScannerGroupAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SensitiveDataScannerGroupAttributes object is equal to o. */
+  /**
+   * Return true if this SensitiveDataScannerGroupAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -256,22 +257,14 @@ public class SensitiveDataScannerGroupAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SensitiveDataScannerGroupAttributes sensitiveDataScannerGroupAttributes =
-        (SensitiveDataScannerGroupAttributes) o;
-    return Objects.equals(this.description, sensitiveDataScannerGroupAttributes.description)
-        && Objects.equals(this.filter, sensitiveDataScannerGroupAttributes.filter)
-        && Objects.equals(this.isEnabled, sensitiveDataScannerGroupAttributes.isEnabled)
-        && Objects.equals(this.name, sensitiveDataScannerGroupAttributes.name)
-        && Objects.equals(this.productList, sensitiveDataScannerGroupAttributes.productList)
-        && Objects.equals(this.samplings, sensitiveDataScannerGroupAttributes.samplings)
-        && Objects.equals(
-            this.additionalProperties, sensitiveDataScannerGroupAttributes.additionalProperties);
+    SensitiveDataScannerGroupAttributes sensitiveDataScannerGroupAttributes = (SensitiveDataScannerGroupAttributes) o;
+    return Objects.equals(this.description, sensitiveDataScannerGroupAttributes.description) && Objects.equals(this.filter, sensitiveDataScannerGroupAttributes.filter) && Objects.equals(this.isEnabled, sensitiveDataScannerGroupAttributes.isEnabled) && Objects.equals(this.name, sensitiveDataScannerGroupAttributes.name) && Objects.equals(this.productList, sensitiveDataScannerGroupAttributes.productList) && Objects.equals(this.samplings, sensitiveDataScannerGroupAttributes.samplings) && Objects.equals(this.additionalProperties, sensitiveDataScannerGroupAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        description, filter, isEnabled, name, productList, samplings, additionalProperties);
+    return Objects.hash(description,filter,isEnabled,name,productList,samplings, additionalProperties);
   }
 
   @Override
@@ -292,7 +285,8 @@ public class SensitiveDataScannerGroupAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

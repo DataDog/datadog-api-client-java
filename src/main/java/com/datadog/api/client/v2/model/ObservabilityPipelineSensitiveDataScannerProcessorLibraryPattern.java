@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,22 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Specifies a pattern from Datadog’s sensitive data detection library to match known sensitive data
- * types.
+   * <p>Specifies a pattern from Datadog’s sensitive data detection library to match known sensitive data types.</p>
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern.JSON_PROPERTY_OPTIONS,
   ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_OPTIONS = "options";
   private ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions options;
 
@@ -39,83 +52,74 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern {
 
   @JsonCreator
   public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern(
-      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS)
-          ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions options,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType type) {
-    this.options = options;
-    this.unparsed |= options.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_OPTIONS)ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions options,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType type) {
+        this.options = options;
+        this.unparsed |= options.unparsed;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
-  public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern options(
-      ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions options) {
+  public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern options(ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
     return this;
   }
 
   /**
-   * Options for selecting a predefined library pattern and enabling keyword support.
-   *
+   * <p>Options for selecting a predefined library pattern and enabling keyword support.</p>
    * @return options
-   */
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions getOptions() {
-    return options;
-  }
-
-  public void setOptions(
-      ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions options) {
+  **/
+      @JsonProperty(JSON_PROPERTY_OPTIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions getOptions() {
+        return options;
+      }
+  public void setOptions(ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions options) {
     this.options = options;
   }
-
-  public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern type(
-      ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType type) {
+  public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern type(ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Indicates that a predefined library pattern is used.
-   *
+   * <p>Indicates that a predefined library pattern is used.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType getType() {
+        return type;
+      }
   public void setType(ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern
    */
   @JsonAnySetter
-  public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern putAdditionalProperty(
-      String key, Object value) {
+  public ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -139,14 +143,13 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern object is
-   * equal to o.
+   * Return true if this ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -156,21 +159,14 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern
-        observabilityPipelineSensitiveDataScannerProcessorLibraryPattern =
-            (ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern) o;
-    return Objects.equals(
-            this.options, observabilityPipelineSensitiveDataScannerProcessorLibraryPattern.options)
-        && Objects.equals(
-            this.type, observabilityPipelineSensitiveDataScannerProcessorLibraryPattern.type)
-        && Objects.equals(
-            this.additionalProperties,
-            observabilityPipelineSensitiveDataScannerProcessorLibraryPattern.additionalProperties);
+    ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern observabilityPipelineSensitiveDataScannerProcessorLibraryPattern = (ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern) o;
+    return Objects.equals(this.options, observabilityPipelineSensitiveDataScannerProcessorLibraryPattern.options) && Objects.equals(this.type, observabilityPipelineSensitiveDataScannerProcessorLibraryPattern.type) && Objects.equals(this.additionalProperties, observabilityPipelineSensitiveDataScannerProcessorLibraryPattern.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(options, type, additionalProperties);
+    return Objects.hash(options,type, additionalProperties);
   }
 
   @Override
@@ -187,7 +183,8 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

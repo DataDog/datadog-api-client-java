@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,19 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The proxy to perform the test. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The proxy to perform the test.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsTestRequestProxy.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequestProxy.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestRequestProxy {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_HEADERS = "headers";
   private Map<String, String> headers = null;
 
@@ -36,15 +52,13 @@ public class SyntheticsTestRequestProxy {
 
   @JsonCreator
   public SyntheticsTestRequestProxy(
-      @JsonProperty(required = true, value = JSON_PROPERTY_URL) String url) {
-    this.url = url;
+            @JsonProperty(required=true, value=JSON_PROPERTY_URL)String url) {
+        this.url = url;
   }
-
   public SyntheticsTestRequestProxy headers(Map<String, String> headers) {
     this.headers = headers;
     return this;
   }
-
   public SyntheticsTestRequestProxy putHeadersItem(String key, String headersItem) {
     if (this.headers == null) {
       this.headers = new HashMap<>();
@@ -54,50 +68,48 @@ public class SyntheticsTestRequestProxy {
   }
 
   /**
-   * Headers to include when performing the test.
-   *
+   * <p>Headers to include when performing the test.</p>
    * @return headers
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEADERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, String> getHeaders() {
-    return headers;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HEADERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, String> getHeaders() {
+        return headers;
+      }
   public void setHeaders(Map<String, String> headers) {
     this.headers = headers;
   }
-
   public SyntheticsTestRequestProxy url(String url) {
     this.url = url;
     return this;
   }
 
   /**
-   * URL of the proxy to perform the test.
-   *
+   * <p>URL of the proxy to perform the test.</p>
    * @return url
-   */
-  @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUrl() {
-    return url;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getUrl() {
+        return url;
+      }
   public void setUrl(String url) {
     this.url = url;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -106,7 +118,7 @@ public class SyntheticsTestRequestProxy {
   @JsonAnySetter
   public SyntheticsTestRequestProxy putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -130,12 +142,14 @@ public class SyntheticsTestRequestProxy {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTestRequestProxy object is equal to o. */
+  /**
+   * Return true if this SyntheticsTestRequestProxy object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,15 +159,13 @@ public class SyntheticsTestRequestProxy {
       return false;
     }
     SyntheticsTestRequestProxy syntheticsTestRequestProxy = (SyntheticsTestRequestProxy) o;
-    return Objects.equals(this.headers, syntheticsTestRequestProxy.headers)
-        && Objects.equals(this.url, syntheticsTestRequestProxy.url)
-        && Objects.equals(
-            this.additionalProperties, syntheticsTestRequestProxy.additionalProperties);
+    return Objects.equals(this.headers, syntheticsTestRequestProxy.headers) && Objects.equals(this.url, syntheticsTestRequestProxy.url) && Objects.equals(this.additionalProperties, syntheticsTestRequestProxy.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(headers, url, additionalProperties);
+    return Objects.hash(headers,url, additionalProperties);
   }
 
   @Override
@@ -170,7 +182,8 @@ public class SyntheticsTestRequestProxy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

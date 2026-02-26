@@ -6,18 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The incident's relationships from a response. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The incident's relationships from a response.</p>
+ */
 @JsonPropertyOrder({
   IncidentResponseRelationships.JSON_PROPERTY_ATTACHMENTS,
   IncidentResponseRelationships.JSON_PROPERTY_COMMANDER_USER,
@@ -29,16 +45,15 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentResponseRelationships.JSON_PROPERTY_RESPONDERS,
   IncidentResponseRelationships.JSON_PROPERTY_USER_DEFINED_FIELDS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentResponseRelationships {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private RelationshipToIncidentAttachment attachments;
 
   public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
-  private JsonNullable<NullableRelationshipToUser> commanderUser =
-      JsonNullable.<NullableRelationshipToUser>undefined();
+  private JsonNullable<NullableRelationshipToUser> commanderUser = JsonNullable.<NullableRelationshipToUser>undefined();
 
   public static final String JSON_PROPERTY_CREATED_BY_USER = "created_by_user";
   private RelationshipToUser createdByUser;
@@ -68,53 +83,45 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * A relationship reference for attachments.
-   *
+   * <p>A relationship reference for attachments.</p>
    * @return attachments
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToIncidentAttachment getAttachments() {
-    return attachments;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RelationshipToIncidentAttachment getAttachments() {
+        return attachments;
+      }
   public void setAttachments(RelationshipToIncidentAttachment attachments) {
     this.attachments = attachments;
   }
-
   public IncidentResponseRelationships commanderUser(NullableRelationshipToUser commanderUser) {
     this.commanderUser = JsonNullable.<NullableRelationshipToUser>of(commanderUser);
     return this;
   }
 
   /**
-   * Relationship to user.
-   *
+   * <p>Relationship to user.</p>
    * @return commanderUser
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public NullableRelationshipToUser getCommanderUser() {
-    return commanderUser.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public NullableRelationshipToUser getCommanderUser() {
+        return commanderUser.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<NullableRelationshipToUser> getCommanderUser_JsonNullable() {
     return commanderUser;
   }
-
-  @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
-  public void setCommanderUser_JsonNullable(
-      JsonNullable<NullableRelationshipToUser> commanderUser) {
+  @JsonProperty(JSON_PROPERTY_COMMANDER_USER)public void setCommanderUser_JsonNullable(JsonNullable<NullableRelationshipToUser> commanderUser) {
     this.commanderUser = commanderUser;
   }
-
   public void setCommanderUser(NullableRelationshipToUser commanderUser) {
     this.commanderUser = JsonNullable.<NullableRelationshipToUser>of(commanderUser);
   }
-
   public IncidentResponseRelationships createdByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
     this.unparsed |= createdByUser.unparsed;
@@ -122,21 +129,19 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Relationship to user.
-   *
+   * <p>Relationship to user.</p>
    * @return createdByUser
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getCreatedByUser() {
-    return createdByUser;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_BY_USER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RelationshipToUser getCreatedByUser() {
+        return createdByUser;
+      }
   public void setCreatedByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
   }
-
   public IncidentResponseRelationships declaredByUser(RelationshipToUser declaredByUser) {
     this.declaredByUser = declaredByUser;
     this.unparsed |= declaredByUser.unparsed;
@@ -144,21 +149,19 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Relationship to user.
-   *
+   * <p>Relationship to user.</p>
    * @return declaredByUser
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DECLARED_BY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getDeclaredByUser() {
-    return declaredByUser;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DECLARED_BY_USER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RelationshipToUser getDeclaredByUser() {
+        return declaredByUser;
+      }
   public void setDeclaredByUser(RelationshipToUser declaredByUser) {
     this.declaredByUser = declaredByUser;
   }
-
   public IncidentResponseRelationships impacts(RelationshipToIncidentImpacts impacts) {
     this.impacts = impacts;
     this.unparsed |= impacts.unparsed;
@@ -166,44 +169,39 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Relationship to impacts.
-   *
+   * <p>Relationship to impacts.</p>
    * @return impacts
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IMPACTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToIncidentImpacts getImpacts() {
-    return impacts;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IMPACTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RelationshipToIncidentImpacts getImpacts() {
+        return impacts;
+      }
   public void setImpacts(RelationshipToIncidentImpacts impacts) {
     this.impacts = impacts;
   }
-
-  public IncidentResponseRelationships integrations(
-      RelationshipToIncidentIntegrationMetadatas integrations) {
+  public IncidentResponseRelationships integrations(RelationshipToIncidentIntegrationMetadatas integrations) {
     this.integrations = integrations;
     this.unparsed |= integrations.unparsed;
     return this;
   }
 
   /**
-   * A relationship reference for multiple integration metadata objects.
-   *
+   * <p>A relationship reference for multiple integration metadata objects.</p>
    * @return integrations
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToIncidentIntegrationMetadatas getIntegrations() {
-    return integrations;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RelationshipToIncidentIntegrationMetadatas getIntegrations() {
+        return integrations;
+      }
   public void setIntegrations(RelationshipToIncidentIntegrationMetadatas integrations) {
     this.integrations = integrations;
   }
-
   public IncidentResponseRelationships lastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
     this.unparsed |= lastModifiedByUser.unparsed;
@@ -211,21 +209,19 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Relationship to user.
-   *
+   * <p>Relationship to user.</p>
    * @return lastModifiedByUser
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getLastModifiedByUser() {
-    return lastModifiedByUser;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RelationshipToUser getLastModifiedByUser() {
+        return lastModifiedByUser;
+      }
   public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
   }
-
   public IncidentResponseRelationships responders(RelationshipToIncidentResponders responders) {
     this.responders = responders;
     this.unparsed |= responders.unparsed;
@@ -233,53 +229,50 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Relationship to incident responders.
-   *
+   * <p>Relationship to incident responders.</p>
    * @return responders
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESPONDERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToIncidentResponders getResponders() {
-    return responders;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESPONDERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RelationshipToIncidentResponders getResponders() {
+        return responders;
+      }
   public void setResponders(RelationshipToIncidentResponders responders) {
     this.responders = responders;
   }
-
-  public IncidentResponseRelationships userDefinedFields(
-      RelationshipToIncidentUserDefinedFields userDefinedFields) {
+  public IncidentResponseRelationships userDefinedFields(RelationshipToIncidentUserDefinedFields userDefinedFields) {
     this.userDefinedFields = userDefinedFields;
     this.unparsed |= userDefinedFields.unparsed;
     return this;
   }
 
   /**
-   * Relationship to incident user defined fields.
-   *
+   * <p>Relationship to incident user defined fields.</p>
    * @return userDefinedFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_DEFINED_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToIncidentUserDefinedFields getUserDefinedFields() {
-    return userDefinedFields;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USER_DEFINED_FIELDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RelationshipToIncidentUserDefinedFields getUserDefinedFields() {
+        return userDefinedFields;
+      }
   public void setUserDefinedFields(RelationshipToIncidentUserDefinedFields userDefinedFields) {
     this.userDefinedFields = userDefinedFields;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -288,7 +281,7 @@ public class IncidentResponseRelationships {
   @JsonAnySetter
   public IncidentResponseRelationships putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -312,12 +305,14 @@ public class IncidentResponseRelationships {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentResponseRelationships object is equal to o. */
+  /**
+   * Return true if this IncidentResponseRelationships object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -327,32 +322,13 @@ public class IncidentResponseRelationships {
       return false;
     }
     IncidentResponseRelationships incidentResponseRelationships = (IncidentResponseRelationships) o;
-    return Objects.equals(this.attachments, incidentResponseRelationships.attachments)
-        && Objects.equals(this.commanderUser, incidentResponseRelationships.commanderUser)
-        && Objects.equals(this.createdByUser, incidentResponseRelationships.createdByUser)
-        && Objects.equals(this.declaredByUser, incidentResponseRelationships.declaredByUser)
-        && Objects.equals(this.impacts, incidentResponseRelationships.impacts)
-        && Objects.equals(this.integrations, incidentResponseRelationships.integrations)
-        && Objects.equals(this.lastModifiedByUser, incidentResponseRelationships.lastModifiedByUser)
-        && Objects.equals(this.responders, incidentResponseRelationships.responders)
-        && Objects.equals(this.userDefinedFields, incidentResponseRelationships.userDefinedFields)
-        && Objects.equals(
-            this.additionalProperties, incidentResponseRelationships.additionalProperties);
+    return Objects.equals(this.attachments, incidentResponseRelationships.attachments) && Objects.equals(this.commanderUser, incidentResponseRelationships.commanderUser) && Objects.equals(this.createdByUser, incidentResponseRelationships.createdByUser) && Objects.equals(this.declaredByUser, incidentResponseRelationships.declaredByUser) && Objects.equals(this.impacts, incidentResponseRelationships.impacts) && Objects.equals(this.integrations, incidentResponseRelationships.integrations) && Objects.equals(this.lastModifiedByUser, incidentResponseRelationships.lastModifiedByUser) && Objects.equals(this.responders, incidentResponseRelationships.responders) && Objects.equals(this.userDefinedFields, incidentResponseRelationships.userDefinedFields) && Objects.equals(this.additionalProperties, incidentResponseRelationships.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        attachments,
-        commanderUser,
-        createdByUser,
-        declaredByUser,
-        impacts,
-        integrations,
-        lastModifiedByUser,
-        responders,
-        userDefinedFields,
-        additionalProperties);
+    return Objects.hash(attachments,commanderUser,createdByUser,declaredByUser,impacts,integrations,lastModifiedByUser,responders,userDefinedFields, additionalProperties);
   }
 
   @Override
@@ -376,7 +352,8 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

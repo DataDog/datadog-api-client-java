@@ -6,27 +6,44 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Count of the device interfaces by status */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Count of the device interfaces by status</p>
+ */
 @JsonPropertyOrder({
   DeviceAttributesInterfaceStatuses.JSON_PROPERTY_DOWN,
   DeviceAttributesInterfaceStatuses.JSON_PROPERTY_OFF,
   DeviceAttributesInterfaceStatuses.JSON_PROPERTY_UP,
   DeviceAttributesInterfaceStatuses.JSON_PROPERTY_WARNING
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DeviceAttributesInterfaceStatuses {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DOWN = "down";
   private Long down;
 
@@ -45,93 +62,87 @@ public class DeviceAttributesInterfaceStatuses {
   }
 
   /**
-   * The number of interfaces that are down
-   *
+   * <p>The number of interfaces that are down</p>
    * @return down
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOWN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDown() {
-    return down;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DOWN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getDown() {
+        return down;
+      }
   public void setDown(Long down) {
     this.down = down;
   }
-
   public DeviceAttributesInterfaceStatuses off(Long off) {
     this.off = off;
     return this;
   }
 
   /**
-   * The number of interfaces that are off
-   *
+   * <p>The number of interfaces that are off</p>
    * @return off
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OFF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOff() {
-    return off;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OFF)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getOff() {
+        return off;
+      }
   public void setOff(Long off) {
     this.off = off;
   }
-
   public DeviceAttributesInterfaceStatuses up(Long up) {
     this.up = up;
     return this;
   }
 
   /**
-   * The number of interfaces that are up
-   *
+   * <p>The number of interfaces that are up</p>
    * @return up
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getUp() {
-    return up;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getUp() {
+        return up;
+      }
   public void setUp(Long up) {
     this.up = up;
   }
-
   public DeviceAttributesInterfaceStatuses warning(Long warning) {
     this.warning = warning;
     return this;
   }
 
   /**
-   * The number of interfaces that are in a warning state
-   *
+   * <p>The number of interfaces that are in a warning state</p>
    * @return warning
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getWarning() {
-    return warning;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WARNING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getWarning() {
+        return warning;
+      }
   public void setWarning(Long warning) {
     this.warning = warning;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -140,7 +151,7 @@ public class DeviceAttributesInterfaceStatuses {
   @JsonAnySetter
   public DeviceAttributesInterfaceStatuses putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -164,12 +175,14 @@ public class DeviceAttributesInterfaceStatuses {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DeviceAttributesInterfaceStatuses object is equal to o. */
+  /**
+   * Return true if this DeviceAttributesInterfaceStatuses object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -178,19 +191,14 @@ public class DeviceAttributesInterfaceStatuses {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeviceAttributesInterfaceStatuses deviceAttributesInterfaceStatuses =
-        (DeviceAttributesInterfaceStatuses) o;
-    return Objects.equals(this.down, deviceAttributesInterfaceStatuses.down)
-        && Objects.equals(this.off, deviceAttributesInterfaceStatuses.off)
-        && Objects.equals(this.up, deviceAttributesInterfaceStatuses.up)
-        && Objects.equals(this.warning, deviceAttributesInterfaceStatuses.warning)
-        && Objects.equals(
-            this.additionalProperties, deviceAttributesInterfaceStatuses.additionalProperties);
+    DeviceAttributesInterfaceStatuses deviceAttributesInterfaceStatuses = (DeviceAttributesInterfaceStatuses) o;
+    return Objects.equals(this.down, deviceAttributesInterfaceStatuses.down) && Objects.equals(this.off, deviceAttributesInterfaceStatuses.off) && Objects.equals(this.up, deviceAttributesInterfaceStatuses.up) && Objects.equals(this.warning, deviceAttributesInterfaceStatuses.warning) && Objects.equals(this.additionalProperties, deviceAttributesInterfaceStatuses.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(down, off, up, warning, additionalProperties);
+    return Objects.hash(down,off,up,warning, additionalProperties);
   }
 
   @Override
@@ -209,7 +217,8 @@ public class DeviceAttributesInterfaceStatuses {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

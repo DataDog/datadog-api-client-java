@@ -6,63 +6,75 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The rule type. */
-@JsonSerialize(
-    using = SecurityMonitoringRuleTypeCreate.SecurityMonitoringRuleTypeCreateSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The rule type.</p>
+ */
+@JsonSerialize(using = SecurityMonitoringRuleTypeCreate.SecurityMonitoringRuleTypeCreateSerializer.class)
 public class SecurityMonitoringRuleTypeCreate extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "api_security",
-              "application_security",
-              "log_detection",
-              "workload_activity",
-              "workload_security"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("api_security", "application_security", "log_detection", "workload_activity", "workload_security"));
 
-  public static final SecurityMonitoringRuleTypeCreate API_SECURITY =
-      new SecurityMonitoringRuleTypeCreate("api_security");
-  public static final SecurityMonitoringRuleTypeCreate APPLICATION_SECURITY =
-      new SecurityMonitoringRuleTypeCreate("application_security");
-  public static final SecurityMonitoringRuleTypeCreate LOG_DETECTION =
-      new SecurityMonitoringRuleTypeCreate("log_detection");
-  public static final SecurityMonitoringRuleTypeCreate WORKLOAD_ACTIVITY =
-      new SecurityMonitoringRuleTypeCreate("workload_activity");
-  public static final SecurityMonitoringRuleTypeCreate WORKLOAD_SECURITY =
-      new SecurityMonitoringRuleTypeCreate("workload_security");
+  public static final SecurityMonitoringRuleTypeCreate API_SECURITY = new SecurityMonitoringRuleTypeCreate("api_security");
+  public static final SecurityMonitoringRuleTypeCreate APPLICATION_SECURITY = new SecurityMonitoringRuleTypeCreate("application_security");
+  public static final SecurityMonitoringRuleTypeCreate LOG_DETECTION = new SecurityMonitoringRuleTypeCreate("log_detection");
+  public static final SecurityMonitoringRuleTypeCreate WORKLOAD_ACTIVITY = new SecurityMonitoringRuleTypeCreate("workload_activity");
+  public static final SecurityMonitoringRuleTypeCreate WORKLOAD_SECURITY = new SecurityMonitoringRuleTypeCreate("workload_security");
+
 
   SecurityMonitoringRuleTypeCreate(String value) {
     super(value, allowedValues);
   }
 
-  public static class SecurityMonitoringRuleTypeCreateSerializer
-      extends StdSerializer<SecurityMonitoringRuleTypeCreate> {
-    public SecurityMonitoringRuleTypeCreateSerializer(Class<SecurityMonitoringRuleTypeCreate> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringRuleTypeCreateSerializer extends StdSerializer<SecurityMonitoringRuleTypeCreate> {
+      public SecurityMonitoringRuleTypeCreateSerializer(Class<SecurityMonitoringRuleTypeCreate> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringRuleTypeCreateSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringRuleTypeCreateSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringRuleTypeCreate value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringRuleTypeCreate value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

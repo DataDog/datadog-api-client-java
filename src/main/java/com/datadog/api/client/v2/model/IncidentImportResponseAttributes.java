@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,15 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The incident's attributes from an import response. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The incident's attributes from an import response.</p>
+ */
 @JsonPropertyOrder({
   IncidentImportResponseAttributes.JSON_PROPERTY_ARCHIVED,
   IncidentImportResponseAttributes.JSON_PROPERTY_CASE_ID,
@@ -48,10 +60,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentImportResponseAttributes.JSON_PROPERTY_TITLE,
   IncidentImportResponseAttributes.JSON_PROPERTY_VISIBILITY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentImportResponseAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARCHIVED = "archived";
   private JsonNullable<OffsetDateTime> archived = JsonNullable.<OffsetDateTime>undefined();
 
@@ -74,8 +86,7 @@ public class IncidentImportResponseAttributes {
   private JsonNullable<String> customerImpactScope = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_START = "customer_impact_start";
-  private JsonNullable<OffsetDateTime> customerImpactStart =
-      JsonNullable.<OffsetDateTime>undefined();
+  private JsonNullable<OffsetDateTime> customerImpactStart = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_DECLARED = "declared";
   private JsonNullable<OffsetDateTime> declared = JsonNullable.<OffsetDateTime>undefined();
@@ -102,12 +113,10 @@ public class IncidentImportResponseAttributes {
   private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_NON_DATADOG_CREATOR = "non_datadog_creator";
-  private JsonNullable<IncidentNonDatadogCreator> nonDatadogCreator =
-      JsonNullable.<IncidentNonDatadogCreator>undefined();
+  private JsonNullable<IncidentNonDatadogCreator> nonDatadogCreator = JsonNullable.<IncidentNonDatadogCreator>undefined();
 
   public static final String JSON_PROPERTY_NOTIFICATION_HANDLES = "notification_handles";
-  private JsonNullable<List<IncidentNotificationHandle>> notificationHandles =
-      JsonNullable.<List<IncidentNotificationHandle>>undefined();
+  private JsonNullable<List<IncidentNotificationHandle>> notificationHandles = JsonNullable.<List<IncidentNotificationHandle>>undefined();
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private Long publicId;
@@ -131,335 +140,283 @@ public class IncidentImportResponseAttributes {
 
   @JsonCreator
   public IncidentImportResponseAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
-    this.title = title;
+            @JsonProperty(required=true, value=JSON_PROPERTY_TITLE)String title) {
+        this.title = title;
   }
 
   /**
-   * Timestamp when the incident was archived.
-   *
+   * <p>Timestamp when the incident was archived.</p>
    * @return archived
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public OffsetDateTime getArchived() {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public OffsetDateTime getArchived() {
 
-    if (archived == null) {
-      archived = JsonNullable.<OffsetDateTime>undefined();
-    }
-    return archived.orElse(null);
-  }
-
+        if (archived == null) {
+          archived = JsonNullable.<OffsetDateTime>undefined();
+        }
+        return archived.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_ARCHIVED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<OffsetDateTime> getArchived_JsonNullable() {
     return archived;
   }
-
-  @JsonProperty(JSON_PROPERTY_ARCHIVED)
-  private void setArchived_JsonNullable(JsonNullable<OffsetDateTime> archived) {
+  @JsonProperty(JSON_PROPERTY_ARCHIVED)private void setArchived_JsonNullable(JsonNullable<OffsetDateTime> archived) {
     this.archived = archived;
   }
-
   public IncidentImportResponseAttributes caseId(Long caseId) {
     this.caseId = JsonNullable.<Long>of(caseId);
     return this;
   }
 
   /**
-   * The incident case ID.
-   *
+   * <p>The incident case ID.</p>
    * @return caseId
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getCaseId() {
-    return caseId.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getCaseId() {
+        return caseId.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_CASE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getCaseId_JsonNullable() {
     return caseId;
   }
-
-  @JsonProperty(JSON_PROPERTY_CASE_ID)
-  public void setCaseId_JsonNullable(JsonNullable<Long> caseId) {
+  @JsonProperty(JSON_PROPERTY_CASE_ID)public void setCaseId_JsonNullable(JsonNullable<Long> caseId) {
     this.caseId = caseId;
   }
-
   public void setCaseId(Long caseId) {
     this.caseId = JsonNullable.<Long>of(caseId);
   }
 
   /**
-   * Timestamp when the incident was created.
-   *
+   * <p>Timestamp when the incident was created.</p>
    * @return created
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreated() {
-    return created;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreated() {
+        return created;
+      }
   public IncidentImportResponseAttributes createdByUuid(String createdByUuid) {
     this.createdByUuid = JsonNullable.<String>of(createdByUuid);
     return this;
   }
 
   /**
-   * UUID of the user who created the incident.
-   *
+   * <p>UUID of the user who created the incident.</p>
    * @return createdByUuid
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getCreatedByUuid() {
-    return createdByUuid.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getCreatedByUuid() {
+        return createdByUuid.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_CREATED_BY_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getCreatedByUuid_JsonNullable() {
     return createdByUuid;
   }
-
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_UUID)
-  public void setCreatedByUuid_JsonNullable(JsonNullable<String> createdByUuid) {
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_UUID)public void setCreatedByUuid_JsonNullable(JsonNullable<String> createdByUuid) {
     this.createdByUuid = createdByUuid;
   }
-
   public void setCreatedByUuid(String createdByUuid) {
     this.createdByUuid = JsonNullable.<String>of(createdByUuid);
   }
-
   public IncidentImportResponseAttributes creationIdempotencyKey(String creationIdempotencyKey) {
     this.creationIdempotencyKey = JsonNullable.<String>of(creationIdempotencyKey);
     return this;
   }
 
   /**
-   * A unique key used to ensure idempotent incident creation.
-   *
+   * <p>A unique key used to ensure idempotent incident creation.</p>
    * @return creationIdempotencyKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getCreationIdempotencyKey() {
-    return creationIdempotencyKey.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getCreationIdempotencyKey() {
+        return creationIdempotencyKey.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_CREATION_IDEMPOTENCY_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getCreationIdempotencyKey_JsonNullable() {
     return creationIdempotencyKey;
   }
-
-  @JsonProperty(JSON_PROPERTY_CREATION_IDEMPOTENCY_KEY)
-  public void setCreationIdempotencyKey_JsonNullable(JsonNullable<String> creationIdempotencyKey) {
+  @JsonProperty(JSON_PROPERTY_CREATION_IDEMPOTENCY_KEY)public void setCreationIdempotencyKey_JsonNullable(JsonNullable<String> creationIdempotencyKey) {
     this.creationIdempotencyKey = creationIdempotencyKey;
   }
-
   public void setCreationIdempotencyKey(String creationIdempotencyKey) {
     this.creationIdempotencyKey = JsonNullable.<String>of(creationIdempotencyKey);
   }
-
   public IncidentImportResponseAttributes customerImpactEnd(OffsetDateTime customerImpactEnd) {
     this.customerImpactEnd = JsonNullable.<OffsetDateTime>of(customerImpactEnd);
     return this;
   }
 
   /**
-   * Timestamp when customers were no longer impacted by the incident.
-   *
+   * <p>Timestamp when customers were no longer impacted by the incident.</p>
    * @return customerImpactEnd
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public OffsetDateTime getCustomerImpactEnd() {
-    return customerImpactEnd.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public OffsetDateTime getCustomerImpactEnd() {
+        return customerImpactEnd.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_END)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<OffsetDateTime> getCustomerImpactEnd_JsonNullable() {
     return customerImpactEnd;
   }
-
-  @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_END)
-  public void setCustomerImpactEnd_JsonNullable(JsonNullable<OffsetDateTime> customerImpactEnd) {
+  @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_END)public void setCustomerImpactEnd_JsonNullable(JsonNullable<OffsetDateTime> customerImpactEnd) {
     this.customerImpactEnd = customerImpactEnd;
   }
-
   public void setCustomerImpactEnd(OffsetDateTime customerImpactEnd) {
     this.customerImpactEnd = JsonNullable.<OffsetDateTime>of(customerImpactEnd);
   }
-
   public IncidentImportResponseAttributes customerImpactScope(String customerImpactScope) {
     this.customerImpactScope = JsonNullable.<String>of(customerImpactScope);
     return this;
   }
 
   /**
-   * A summary of the impact customers experienced during the incident.
-   *
+   * <p>A summary of the impact customers experienced during the incident.</p>
    * @return customerImpactScope
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getCustomerImpactScope() {
-    return customerImpactScope.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getCustomerImpactScope() {
+        return customerImpactScope.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getCustomerImpactScope_JsonNullable() {
     return customerImpactScope;
   }
-
-  @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE)
-  public void setCustomerImpactScope_JsonNullable(JsonNullable<String> customerImpactScope) {
+  @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE)public void setCustomerImpactScope_JsonNullable(JsonNullable<String> customerImpactScope) {
     this.customerImpactScope = customerImpactScope;
   }
-
   public void setCustomerImpactScope(String customerImpactScope) {
     this.customerImpactScope = JsonNullable.<String>of(customerImpactScope);
   }
-
   public IncidentImportResponseAttributes customerImpactStart(OffsetDateTime customerImpactStart) {
     this.customerImpactStart = JsonNullable.<OffsetDateTime>of(customerImpactStart);
     return this;
   }
 
   /**
-   * Timestamp when customers began to be impacted by the incident.
-   *
+   * <p>Timestamp when customers began to be impacted by the incident.</p>
    * @return customerImpactStart
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public OffsetDateTime getCustomerImpactStart() {
-    return customerImpactStart.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public OffsetDateTime getCustomerImpactStart() {
+        return customerImpactStart.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_START)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<OffsetDateTime> getCustomerImpactStart_JsonNullable() {
     return customerImpactStart;
   }
-
-  @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_START)
-  public void setCustomerImpactStart_JsonNullable(
-      JsonNullable<OffsetDateTime> customerImpactStart) {
+  @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_START)public void setCustomerImpactStart_JsonNullable(JsonNullable<OffsetDateTime> customerImpactStart) {
     this.customerImpactStart = customerImpactStart;
   }
-
   public void setCustomerImpactStart(OffsetDateTime customerImpactStart) {
     this.customerImpactStart = JsonNullable.<OffsetDateTime>of(customerImpactStart);
   }
-
   public IncidentImportResponseAttributes declared(OffsetDateTime declared) {
     this.declared = JsonNullable.<OffsetDateTime>of(declared);
     return this;
   }
 
   /**
-   * Timestamp when the incident was declared.
-   *
+   * <p>Timestamp when the incident was declared.</p>
    * @return declared
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public OffsetDateTime getDeclared() {
-    return declared.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public OffsetDateTime getDeclared() {
+        return declared.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DECLARED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<OffsetDateTime> getDeclared_JsonNullable() {
     return declared;
   }
-
-  @JsonProperty(JSON_PROPERTY_DECLARED)
-  public void setDeclared_JsonNullable(JsonNullable<OffsetDateTime> declared) {
+  @JsonProperty(JSON_PROPERTY_DECLARED)public void setDeclared_JsonNullable(JsonNullable<OffsetDateTime> declared) {
     this.declared = declared;
   }
-
   public void setDeclared(OffsetDateTime declared) {
     this.declared = JsonNullable.<OffsetDateTime>of(declared);
   }
-
   public IncidentImportResponseAttributes declaredByUuid(String declaredByUuid) {
     this.declaredByUuid = JsonNullable.<String>of(declaredByUuid);
     return this;
   }
 
   /**
-   * UUID of the user who declared the incident.
-   *
+   * <p>UUID of the user who declared the incident.</p>
    * @return declaredByUuid
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getDeclaredByUuid() {
-    return declaredByUuid.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getDeclaredByUuid() {
+        return declaredByUuid.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DECLARED_BY_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getDeclaredByUuid_JsonNullable() {
     return declaredByUuid;
   }
-
-  @JsonProperty(JSON_PROPERTY_DECLARED_BY_UUID)
-  public void setDeclaredByUuid_JsonNullable(JsonNullable<String> declaredByUuid) {
+  @JsonProperty(JSON_PROPERTY_DECLARED_BY_UUID)public void setDeclaredByUuid_JsonNullable(JsonNullable<String> declaredByUuid) {
     this.declaredByUuid = declaredByUuid;
   }
-
   public void setDeclaredByUuid(String declaredByUuid) {
     this.declaredByUuid = JsonNullable.<String>of(declaredByUuid);
   }
-
   public IncidentImportResponseAttributes detected(OffsetDateTime detected) {
     this.detected = JsonNullable.<OffsetDateTime>of(detected);
     return this;
   }
 
   /**
-   * Timestamp when the incident was detected.
-   *
+   * <p>Timestamp when the incident was detected.</p>
    * @return detected
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public OffsetDateTime getDetected() {
-    return detected.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public OffsetDateTime getDetected() {
+        return detected.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DETECTED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<OffsetDateTime> getDetected_JsonNullable() {
     return detected;
   }
-
-  @JsonProperty(JSON_PROPERTY_DETECTED)
-  public void setDetected_JsonNullable(JsonNullable<OffsetDateTime> detected) {
+  @JsonProperty(JSON_PROPERTY_DETECTED)public void setDetected_JsonNullable(JsonNullable<OffsetDateTime> detected) {
     this.detected = detected;
   }
-
   public void setDetected(OffsetDateTime detected) {
     this.detected = JsonNullable.<OffsetDateTime>of(detected);
   }
-
   public IncidentImportResponseAttributes fields(Map<String, IncidentFieldAttributes> fields) {
     this.fields = fields;
     return this;
   }
-
-  public IncidentImportResponseAttributes putFieldsItem(
-      String key, IncidentFieldAttributes fieldsItem) {
+  public IncidentImportResponseAttributes putFieldsItem(String key, IncidentFieldAttributes fieldsItem) {
     if (this.fields == null) {
       this.fields = new HashMap<>();
     }
@@ -468,151 +425,128 @@ public class IncidentImportResponseAttributes {
   }
 
   /**
-   * A condensed view of the user-defined fields attached to incidents.
-   *
+   * <p>A condensed view of the user-defined fields attached to incidents.</p>
    * @return fields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, IncidentFieldAttributes> getFields() {
-    return fields;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FIELDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, IncidentFieldAttributes> getFields() {
+        return fields;
+      }
   public void setFields(Map<String, IncidentFieldAttributes> fields) {
     this.fields = fields;
   }
-
   public IncidentImportResponseAttributes incidentTypeUuid(String incidentTypeUuid) {
     this.incidentTypeUuid = incidentTypeUuid;
     return this;
   }
 
   /**
-   * A unique identifier that represents an incident type.
-   *
+   * <p>A unique identifier that represents an incident type.</p>
    * @return incidentTypeUuid
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIncidentTypeUuid() {
-    return incidentTypeUuid;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE_UUID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIncidentTypeUuid() {
+        return incidentTypeUuid;
+      }
   public void setIncidentTypeUuid(String incidentTypeUuid) {
     this.incidentTypeUuid = incidentTypeUuid;
   }
-
   public IncidentImportResponseAttributes isTest(Boolean isTest) {
     this.isTest = isTest;
     return this;
   }
 
   /**
-   * A flag indicating whether the incident is a test incident.
-   *
+   * <p>A flag indicating whether the incident is a test incident.</p>
    * @return isTest
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_TEST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsTest() {
-    return isTest;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_TEST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsTest() {
+        return isTest;
+      }
   public void setIsTest(Boolean isTest) {
     this.isTest = isTest;
   }
-
   public IncidentImportResponseAttributes lastModifiedByUuid(String lastModifiedByUuid) {
     this.lastModifiedByUuid = JsonNullable.<String>of(lastModifiedByUuid);
     return this;
   }
 
   /**
-   * UUID of the user who last modified the incident.
-   *
+   * <p>UUID of the user who last modified the incident.</p>
    * @return lastModifiedByUuid
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getLastModifiedByUuid() {
-    return lastModifiedByUuid.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getLastModifiedByUuid() {
+        return lastModifiedByUuid.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getLastModifiedByUuid_JsonNullable() {
     return lastModifiedByUuid;
   }
-
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_UUID)
-  public void setLastModifiedByUuid_JsonNullable(JsonNullable<String> lastModifiedByUuid) {
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_UUID)public void setLastModifiedByUuid_JsonNullable(JsonNullable<String> lastModifiedByUuid) {
     this.lastModifiedByUuid = lastModifiedByUuid;
   }
-
   public void setLastModifiedByUuid(String lastModifiedByUuid) {
     this.lastModifiedByUuid = JsonNullable.<String>of(lastModifiedByUuid);
   }
 
   /**
-   * Timestamp when the incident was last modified.
-   *
+   * <p>Timestamp when the incident was last modified.</p>
    * @return modified
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModified() {
-    return modified;
-  }
-
-  public IncidentImportResponseAttributes nonDatadogCreator(
-      IncidentNonDatadogCreator nonDatadogCreator) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODIFIED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getModified() {
+        return modified;
+      }
+  public IncidentImportResponseAttributes nonDatadogCreator(IncidentNonDatadogCreator nonDatadogCreator) {
     this.nonDatadogCreator = JsonNullable.<IncidentNonDatadogCreator>of(nonDatadogCreator);
     return this;
   }
 
   /**
-   * Incident's non Datadog creator.
-   *
+   * <p>Incident's non Datadog creator.</p>
    * @return nonDatadogCreator
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public IncidentNonDatadogCreator getNonDatadogCreator() {
-    return nonDatadogCreator.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public IncidentNonDatadogCreator getNonDatadogCreator() {
+        return nonDatadogCreator.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_NON_DATADOG_CREATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<IncidentNonDatadogCreator> getNonDatadogCreator_JsonNullable() {
     return nonDatadogCreator;
   }
-
-  @JsonProperty(JSON_PROPERTY_NON_DATADOG_CREATOR)
-  public void setNonDatadogCreator_JsonNullable(
-      JsonNullable<IncidentNonDatadogCreator> nonDatadogCreator) {
+  @JsonProperty(JSON_PROPERTY_NON_DATADOG_CREATOR)public void setNonDatadogCreator_JsonNullable(JsonNullable<IncidentNonDatadogCreator> nonDatadogCreator) {
     this.nonDatadogCreator = nonDatadogCreator;
   }
-
   public void setNonDatadogCreator(IncidentNonDatadogCreator nonDatadogCreator) {
     this.nonDatadogCreator = JsonNullable.<IncidentNonDatadogCreator>of(nonDatadogCreator);
   }
-
-  public IncidentImportResponseAttributes notificationHandles(
-      List<IncidentNotificationHandle> notificationHandles) {
-    this.notificationHandles =
-        JsonNullable.<List<IncidentNotificationHandle>>of(notificationHandles);
+  public IncidentImportResponseAttributes notificationHandles(List<IncidentNotificationHandle> notificationHandles) {
+    this.notificationHandles = JsonNullable.<List<IncidentNotificationHandle>>of(notificationHandles);
     return this;
   }
-
-  public IncidentImportResponseAttributes addNotificationHandlesItem(
-      IncidentNotificationHandle notificationHandlesItem) {
+  public IncidentImportResponseAttributes addNotificationHandlesItem(IncidentNotificationHandle notificationHandlesItem) {
     if (this.notificationHandles == null || !this.notificationHandles.isPresent()) {
-      this.notificationHandles =
-          JsonNullable.<List<IncidentNotificationHandle>>of(new ArrayList<>());
+      this.notificationHandles = JsonNullable.<List<IncidentNotificationHandle>>of(new ArrayList<>());
     }
     try {
       this.notificationHandles.get().add(notificationHandlesItem);
@@ -623,86 +557,71 @@ public class IncidentImportResponseAttributes {
   }
 
   /**
-   * Notification handles that are notified of the incident during update.
-   *
+   * <p>Notification handles that are notified of the incident during update.</p>
    * @return notificationHandles
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<IncidentNotificationHandle> getNotificationHandles() {
-    return notificationHandles.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<IncidentNotificationHandle> getNotificationHandles() {
+        return notificationHandles.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<IncidentNotificationHandle>> getNotificationHandles_JsonNullable() {
     return notificationHandles;
   }
-
-  @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)
-  public void setNotificationHandles_JsonNullable(
-      JsonNullable<List<IncidentNotificationHandle>> notificationHandles) {
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)public void setNotificationHandles_JsonNullable(JsonNullable<List<IncidentNotificationHandle>> notificationHandles) {
     this.notificationHandles = notificationHandles;
   }
-
   public void setNotificationHandles(List<IncidentNotificationHandle> notificationHandles) {
-    this.notificationHandles =
-        JsonNullable.<List<IncidentNotificationHandle>>of(notificationHandles);
+    this.notificationHandles = JsonNullable.<List<IncidentNotificationHandle>>of(notificationHandles);
   }
-
   public IncidentImportResponseAttributes publicId(Long publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * The monotonically increasing integer ID for the incident.
-   *
+   * <p>The monotonically increasing integer ID for the incident.</p>
    * @return publicId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getPublicId() {
-    return publicId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getPublicId() {
+        return publicId;
+      }
   public void setPublicId(Long publicId) {
     this.publicId = publicId;
   }
-
   public IncidentImportResponseAttributes resolved(OffsetDateTime resolved) {
     this.resolved = JsonNullable.<OffsetDateTime>of(resolved);
     return this;
   }
 
   /**
-   * Timestamp when the incident's state was last changed from active or stable to resolved or
-   * completed.
-   *
+   * <p>Timestamp when the incident's state was last changed from active or stable to resolved or completed.</p>
    * @return resolved
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public OffsetDateTime getResolved() {
-    return resolved.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public OffsetDateTime getResolved() {
+        return resolved.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_RESOLVED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<OffsetDateTime> getResolved_JsonNullable() {
     return resolved;
   }
-
-  @JsonProperty(JSON_PROPERTY_RESOLVED)
-  public void setResolved_JsonNullable(JsonNullable<OffsetDateTime> resolved) {
+  @JsonProperty(JSON_PROPERTY_RESOLVED)public void setResolved_JsonNullable(JsonNullable<OffsetDateTime> resolved) {
     this.resolved = resolved;
   }
-
   public void setResolved(OffsetDateTime resolved) {
     this.resolved = JsonNullable.<OffsetDateTime>of(resolved);
   }
-
   public IncidentImportResponseAttributes severity(IncidentSeverity severity) {
     this.severity = severity;
     this.unparsed |= !severity.isValid();
@@ -710,115 +629,103 @@ public class IncidentImportResponseAttributes {
   }
 
   /**
-   * The incident severity.
-   *
+   * <p>The incident severity.</p>
    * @return severity
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SEVERITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentSeverity getSeverity() {
-    return severity;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SEVERITY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IncidentSeverity getSeverity() {
+        return severity;
+      }
   public void setSeverity(IncidentSeverity severity) {
     if (!severity.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.severity = severity;
   }
-
   public IncidentImportResponseAttributes state(String state) {
     this.state = JsonNullable.<String>of(state);
     return this;
   }
 
   /**
-   * The state of the incident.
-   *
+   * <p>The state of the incident.</p>
    * @return state
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getState() {
-    return state.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getState() {
+        return state.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getState_JsonNullable() {
     return state;
   }
-
-  @JsonProperty(JSON_PROPERTY_STATE)
-  public void setState_JsonNullable(JsonNullable<String> state) {
+  @JsonProperty(JSON_PROPERTY_STATE)public void setState_JsonNullable(JsonNullable<String> state) {
     this.state = state;
   }
-
   public void setState(String state) {
     this.state = JsonNullable.<String>of(state);
   }
-
   public IncidentImportResponseAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * The title of the incident that summarizes what happened.
-   *
+   * <p>The title of the incident that summarizes what happened.</p>
    * @return title
-   */
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
-
   public IncidentImportResponseAttributes visibility(String visibility) {
     this.visibility = JsonNullable.<String>of(visibility);
     return this;
   }
 
   /**
-   * The incident visibility status.
-   *
+   * <p>The incident visibility status.</p>
    * @return visibility
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getVisibility() {
-    return visibility.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getVisibility() {
+        return visibility.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_VISIBILITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getVisibility_JsonNullable() {
     return visibility;
   }
-
-  @JsonProperty(JSON_PROPERTY_VISIBILITY)
-  public void setVisibility_JsonNullable(JsonNullable<String> visibility) {
+  @JsonProperty(JSON_PROPERTY_VISIBILITY)public void setVisibility_JsonNullable(JsonNullable<String> visibility) {
     this.visibility = visibility;
   }
-
   public void setVisibility(String visibility) {
     this.visibility = JsonNullable.<String>of(visibility);
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -827,7 +734,7 @@ public class IncidentImportResponseAttributes {
   @JsonAnySetter
   public IncidentImportResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -851,12 +758,14 @@ public class IncidentImportResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentImportResponseAttributes object is equal to o. */
+  /**
+   * Return true if this IncidentImportResponseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -865,71 +774,14 @@ public class IncidentImportResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentImportResponseAttributes incidentImportResponseAttributes =
-        (IncidentImportResponseAttributes) o;
-    return Objects.equals(this.archived, incidentImportResponseAttributes.archived)
-        && Objects.equals(this.caseId, incidentImportResponseAttributes.caseId)
-        && Objects.equals(this.created, incidentImportResponseAttributes.created)
-        && Objects.equals(this.createdByUuid, incidentImportResponseAttributes.createdByUuid)
-        && Objects.equals(
-            this.creationIdempotencyKey, incidentImportResponseAttributes.creationIdempotencyKey)
-        && Objects.equals(
-            this.customerImpactEnd, incidentImportResponseAttributes.customerImpactEnd)
-        && Objects.equals(
-            this.customerImpactScope, incidentImportResponseAttributes.customerImpactScope)
-        && Objects.equals(
-            this.customerImpactStart, incidentImportResponseAttributes.customerImpactStart)
-        && Objects.equals(this.declared, incidentImportResponseAttributes.declared)
-        && Objects.equals(this.declaredByUuid, incidentImportResponseAttributes.declaredByUuid)
-        && Objects.equals(this.detected, incidentImportResponseAttributes.detected)
-        && Objects.equals(this.fields, incidentImportResponseAttributes.fields)
-        && Objects.equals(this.incidentTypeUuid, incidentImportResponseAttributes.incidentTypeUuid)
-        && Objects.equals(this.isTest, incidentImportResponseAttributes.isTest)
-        && Objects.equals(
-            this.lastModifiedByUuid, incidentImportResponseAttributes.lastModifiedByUuid)
-        && Objects.equals(this.modified, incidentImportResponseAttributes.modified)
-        && Objects.equals(
-            this.nonDatadogCreator, incidentImportResponseAttributes.nonDatadogCreator)
-        && Objects.equals(
-            this.notificationHandles, incidentImportResponseAttributes.notificationHandles)
-        && Objects.equals(this.publicId, incidentImportResponseAttributes.publicId)
-        && Objects.equals(this.resolved, incidentImportResponseAttributes.resolved)
-        && Objects.equals(this.severity, incidentImportResponseAttributes.severity)
-        && Objects.equals(this.state, incidentImportResponseAttributes.state)
-        && Objects.equals(this.title, incidentImportResponseAttributes.title)
-        && Objects.equals(this.visibility, incidentImportResponseAttributes.visibility)
-        && Objects.equals(
-            this.additionalProperties, incidentImportResponseAttributes.additionalProperties);
+    IncidentImportResponseAttributes incidentImportResponseAttributes = (IncidentImportResponseAttributes) o;
+    return Objects.equals(this.archived, incidentImportResponseAttributes.archived) && Objects.equals(this.caseId, incidentImportResponseAttributes.caseId) && Objects.equals(this.created, incidentImportResponseAttributes.created) && Objects.equals(this.createdByUuid, incidentImportResponseAttributes.createdByUuid) && Objects.equals(this.creationIdempotencyKey, incidentImportResponseAttributes.creationIdempotencyKey) && Objects.equals(this.customerImpactEnd, incidentImportResponseAttributes.customerImpactEnd) && Objects.equals(this.customerImpactScope, incidentImportResponseAttributes.customerImpactScope) && Objects.equals(this.customerImpactStart, incidentImportResponseAttributes.customerImpactStart) && Objects.equals(this.declared, incidentImportResponseAttributes.declared) && Objects.equals(this.declaredByUuid, incidentImportResponseAttributes.declaredByUuid) && Objects.equals(this.detected, incidentImportResponseAttributes.detected) && Objects.equals(this.fields, incidentImportResponseAttributes.fields) && Objects.equals(this.incidentTypeUuid, incidentImportResponseAttributes.incidentTypeUuid) && Objects.equals(this.isTest, incidentImportResponseAttributes.isTest) && Objects.equals(this.lastModifiedByUuid, incidentImportResponseAttributes.lastModifiedByUuid) && Objects.equals(this.modified, incidentImportResponseAttributes.modified) && Objects.equals(this.nonDatadogCreator, incidentImportResponseAttributes.nonDatadogCreator) && Objects.equals(this.notificationHandles, incidentImportResponseAttributes.notificationHandles) && Objects.equals(this.publicId, incidentImportResponseAttributes.publicId) && Objects.equals(this.resolved, incidentImportResponseAttributes.resolved) && Objects.equals(this.severity, incidentImportResponseAttributes.severity) && Objects.equals(this.state, incidentImportResponseAttributes.state) && Objects.equals(this.title, incidentImportResponseAttributes.title) && Objects.equals(this.visibility, incidentImportResponseAttributes.visibility) && Objects.equals(this.additionalProperties, incidentImportResponseAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        archived,
-        caseId,
-        created,
-        createdByUuid,
-        creationIdempotencyKey,
-        customerImpactEnd,
-        customerImpactScope,
-        customerImpactStart,
-        declared,
-        declaredByUuid,
-        detected,
-        fields,
-        incidentTypeUuid,
-        isTest,
-        lastModifiedByUuid,
-        modified,
-        nonDatadogCreator,
-        notificationHandles,
-        publicId,
-        resolved,
-        severity,
-        state,
-        title,
-        visibility,
-        additionalProperties);
+    return Objects.hash(archived,caseId,created,createdByUuid,creationIdempotencyKey,customerImpactEnd,customerImpactScope,customerImpactStart,declared,declaredByUuid,detected,fields,incidentTypeUuid,isTest,lastModifiedByUuid,modified,nonDatadogCreator,notificationHandles,publicId,resolved,severity,state,title,visibility, additionalProperties);
   }
 
   @Override
@@ -940,16 +792,10 @@ public class IncidentImportResponseAttributes {
     sb.append("    caseId: ").append(toIndentedString(caseId)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    createdByUuid: ").append(toIndentedString(createdByUuid)).append("\n");
-    sb.append("    creationIdempotencyKey: ")
-        .append(toIndentedString(creationIdempotencyKey))
-        .append("\n");
+    sb.append("    creationIdempotencyKey: ").append(toIndentedString(creationIdempotencyKey)).append("\n");
     sb.append("    customerImpactEnd: ").append(toIndentedString(customerImpactEnd)).append("\n");
-    sb.append("    customerImpactScope: ")
-        .append(toIndentedString(customerImpactScope))
-        .append("\n");
-    sb.append("    customerImpactStart: ")
-        .append(toIndentedString(customerImpactStart))
-        .append("\n");
+    sb.append("    customerImpactScope: ").append(toIndentedString(customerImpactScope)).append("\n");
+    sb.append("    customerImpactStart: ").append(toIndentedString(customerImpactStart)).append("\n");
     sb.append("    declared: ").append(toIndentedString(declared)).append("\n");
     sb.append("    declaredByUuid: ").append(toIndentedString(declaredByUuid)).append("\n");
     sb.append("    detected: ").append(toIndentedString(detected)).append("\n");
@@ -959,9 +805,7 @@ public class IncidentImportResponseAttributes {
     sb.append("    lastModifiedByUuid: ").append(toIndentedString(lastModifiedByUuid)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    nonDatadogCreator: ").append(toIndentedString(nonDatadogCreator)).append("\n");
-    sb.append("    notificationHandles: ")
-        .append(toIndentedString(notificationHandles))
-        .append("\n");
+    sb.append("    notificationHandles: ").append(toIndentedString(notificationHandles)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    resolved: ").append(toIndentedString(resolved)).append("\n");
     sb.append("    severity: ").append(toIndentedString(severity)).append("\n");
@@ -976,7 +820,8 @@ public class IncidentImportResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

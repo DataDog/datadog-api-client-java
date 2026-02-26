@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Specifies the pipeline's configuration, including its sources, processors, and destinations. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Specifies the pipeline's configuration, including its sources, processors, and destinations.</p>
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineConfig.JSON_PROPERTY_DESTINATIONS,
   ObservabilityPipelineConfig.JSON_PROPERTY_PIPELINE_TYPE,
@@ -28,16 +42,15 @@ import java.util.Objects;
   ObservabilityPipelineConfig.JSON_PROPERTY_SOURCES,
   ObservabilityPipelineConfig.JSON_PROPERTY_USE_LEGACY_SEARCH_SYNTAX
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineConfig {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESTINATIONS = "destinations";
   private List<ObservabilityPipelineConfigDestinationItem> destinations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PIPELINE_TYPE = "pipeline_type";
-  private ObservabilityPipelineConfigPipelineType pipelineType =
-      ObservabilityPipelineConfigPipelineType.LOGS;
+  private ObservabilityPipelineConfigPipelineType pipelineType = ObservabilityPipelineConfigPipelineType.LOGS;
 
   public static final String JSON_PROPERTY_PROCESSOR_GROUPS = "processor_groups";
   private List<ObservabilityPipelineConfigProcessorGroup> processorGroups = null;
@@ -55,82 +68,68 @@ public class ObservabilityPipelineConfig {
 
   @JsonCreator
   public ObservabilityPipelineConfig(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESTINATIONS)
-          List<ObservabilityPipelineConfigDestinationItem> destinations,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES)
-          List<ObservabilityPipelineConfigSourceItem> sources) {
-    this.destinations = destinations;
-    this.sources = sources;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DESTINATIONS)List<ObservabilityPipelineConfigDestinationItem> destinations,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SOURCES)List<ObservabilityPipelineConfigSourceItem> sources) {
+        this.destinations = destinations;
+        this.sources = sources;
   }
-
-  public ObservabilityPipelineConfig destinations(
-      List<ObservabilityPipelineConfigDestinationItem> destinations) {
+  public ObservabilityPipelineConfig destinations(List<ObservabilityPipelineConfigDestinationItem> destinations) {
     this.destinations = destinations;
     for (ObservabilityPipelineConfigDestinationItem item : destinations) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public ObservabilityPipelineConfig addDestinationsItem(
-      ObservabilityPipelineConfigDestinationItem destinationsItem) {
+  public ObservabilityPipelineConfig addDestinationsItem(ObservabilityPipelineConfigDestinationItem destinationsItem) {
     this.destinations.add(destinationsItem);
     this.unparsed |= destinationsItem.unparsed;
     return this;
   }
 
   /**
-   * A list of destination components where processed logs are sent.
-   *
+   * <p>A list of destination components where processed logs are sent.</p>
    * @return destinations
-   */
-  @JsonProperty(JSON_PROPERTY_DESTINATIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<ObservabilityPipelineConfigDestinationItem> getDestinations() {
-    return destinations;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DESTINATIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<ObservabilityPipelineConfigDestinationItem> getDestinations() {
+        return destinations;
+      }
   public void setDestinations(List<ObservabilityPipelineConfigDestinationItem> destinations) {
     this.destinations = destinations;
   }
-
-  public ObservabilityPipelineConfig pipelineType(
-      ObservabilityPipelineConfigPipelineType pipelineType) {
+  public ObservabilityPipelineConfig pipelineType(ObservabilityPipelineConfigPipelineType pipelineType) {
     this.pipelineType = pipelineType;
     this.unparsed |= !pipelineType.isValid();
     return this;
   }
 
   /**
-   * The type of data being ingested. Defaults to <code>logs</code> if not specified.
-   *
+   * <p>The type of data being ingested. Defaults to <code>logs</code> if not specified.</p>
    * @return pipelineType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PIPELINE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineConfigPipelineType getPipelineType() {
-    return pipelineType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PIPELINE_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineConfigPipelineType getPipelineType() {
+        return pipelineType;
+      }
   public void setPipelineType(ObservabilityPipelineConfigPipelineType pipelineType) {
     if (!pipelineType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.pipelineType = pipelineType;
   }
-
-  public ObservabilityPipelineConfig processorGroups(
-      List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
+  public ObservabilityPipelineConfig processorGroups(List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
     this.processorGroups = processorGroups;
     for (ObservabilityPipelineConfigProcessorGroup item : processorGroups) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public ObservabilityPipelineConfig addProcessorGroupsItem(
-      ObservabilityPipelineConfigProcessorGroup processorGroupsItem) {
+  public ObservabilityPipelineConfig addProcessorGroupsItem(ObservabilityPipelineConfigProcessorGroup processorGroupsItem) {
     if (this.processorGroups == null) {
       this.processorGroups = new ArrayList<>();
     }
@@ -140,32 +139,27 @@ public class ObservabilityPipelineConfig {
   }
 
   /**
-   * A list of processor groups that transform or enrich log data.
-   *
+   * <p>A list of processor groups that transform or enrich log data.</p>
    * @return processorGroups
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROCESSOR_GROUPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ObservabilityPipelineConfigProcessorGroup> getProcessorGroups() {
-    return processorGroups;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROCESSOR_GROUPS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ObservabilityPipelineConfigProcessorGroup> getProcessorGroups() {
+        return processorGroups;
+      }
   public void setProcessorGroups(List<ObservabilityPipelineConfigProcessorGroup> processorGroups) {
     this.processorGroups = processorGroups;
   }
-
-  public ObservabilityPipelineConfig processors(
-      List<ObservabilityPipelineConfigProcessorGroup> processors) {
+  public ObservabilityPipelineConfig processors(List<ObservabilityPipelineConfigProcessorGroup> processors) {
     this.processors = processors;
     for (ObservabilityPipelineConfigProcessorGroup item : processors) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public ObservabilityPipelineConfig addProcessorsItem(
-      ObservabilityPipelineConfigProcessorGroup processorsItem) {
+  public ObservabilityPipelineConfig addProcessorsItem(ObservabilityPipelineConfigProcessorGroup processorsItem) {
     if (this.processors == null) {
       this.processors = new ArrayList<>();
     }
@@ -175,27 +169,23 @@ public class ObservabilityPipelineConfig {
   }
 
   /**
-   * A list of processor groups that transform or enrich log data.
-   *
-   * <p><strong>Deprecated:</strong> This field is deprecated, you should now use the
-   * processor_groups field.
-   *
+   * <p>A list of processor groups that transform or enrich log data.</p>
+   * <p><strong>Deprecated:</strong> This field is deprecated, you should now use the processor_groups field.</p>
    * @return processors
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROCESSORS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ObservabilityPipelineConfigProcessorGroup> getProcessors() {
-    return processors;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROCESSORS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ObservabilityPipelineConfigProcessorGroup> getProcessors() {
+        return processors;
+      }
   @Deprecated
   public void setProcessors(List<ObservabilityPipelineConfigProcessorGroup> processors) {
     this.processors = processors;
   }
-
   public ObservabilityPipelineConfig sources(List<ObservabilityPipelineConfigSourceItem> sources) {
     this.sources = sources;
     for (ObservabilityPipelineConfigSourceItem item : sources) {
@@ -203,64 +193,58 @@ public class ObservabilityPipelineConfig {
     }
     return this;
   }
-
-  public ObservabilityPipelineConfig addSourcesItem(
-      ObservabilityPipelineConfigSourceItem sourcesItem) {
+  public ObservabilityPipelineConfig addSourcesItem(ObservabilityPipelineConfigSourceItem sourcesItem) {
     this.sources.add(sourcesItem);
     this.unparsed |= sourcesItem.unparsed;
     return this;
   }
 
   /**
-   * A list of configured data sources for the pipeline.
-   *
+   * <p>A list of configured data sources for the pipeline.</p>
    * @return sources
-   */
-  @JsonProperty(JSON_PROPERTY_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<ObservabilityPipelineConfigSourceItem> getSources() {
-    return sources;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SOURCES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<ObservabilityPipelineConfigSourceItem> getSources() {
+        return sources;
+      }
   public void setSources(List<ObservabilityPipelineConfigSourceItem> sources) {
     this.sources = sources;
   }
-
   public ObservabilityPipelineConfig useLegacySearchSyntax(Boolean useLegacySearchSyntax) {
     this.useLegacySearchSyntax = useLegacySearchSyntax;
     return this;
   }
 
   /**
-   * Set to <code>true</code> to continue using the legacy search syntax while migrating filter
-   * queries. After migrating all queries to the new syntax, set to <code>false</code>. The legacy
-   * syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker
-   * 2.11 or later. See <a
-   * href="https://docs.datadoghq.com/observability_pipelines/guide/upgrade_your_filter_queries_to_the_new_search_syntax/">Upgrade
-   * Your Filter Queries to the New Search Syntax</a> for more information.
-   *
+   * <p>Set to <code>true</code> to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to <code>false</code>.
+   * The legacy syntax is deprecated and will eventually be removed.
+   * Requires Observability Pipelines Worker 2.11 or later.
+   * See <a href="https://docs.datadoghq.com/observability_pipelines/guide/upgrade_your_filter_queries_to_the_new_search_syntax/">Upgrade Your Filter Queries to the New Search Syntax</a> for more information.</p>
    * @return useLegacySearchSyntax
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USE_LEGACY_SEARCH_SYNTAX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getUseLegacySearchSyntax() {
-    return useLegacySearchSyntax;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USE_LEGACY_SEARCH_SYNTAX)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getUseLegacySearchSyntax() {
+        return useLegacySearchSyntax;
+      }
   public void setUseLegacySearchSyntax(Boolean useLegacySearchSyntax) {
     this.useLegacySearchSyntax = useLegacySearchSyntax;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -269,7 +253,7 @@ public class ObservabilityPipelineConfig {
   @JsonAnySetter
   public ObservabilityPipelineConfig putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -293,12 +277,14 @@ public class ObservabilityPipelineConfig {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineConfig object is equal to o. */
+  /**
+   * Return true if this ObservabilityPipelineConfig object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -308,27 +294,13 @@ public class ObservabilityPipelineConfig {
       return false;
     }
     ObservabilityPipelineConfig observabilityPipelineConfig = (ObservabilityPipelineConfig) o;
-    return Objects.equals(this.destinations, observabilityPipelineConfig.destinations)
-        && Objects.equals(this.pipelineType, observabilityPipelineConfig.pipelineType)
-        && Objects.equals(this.processorGroups, observabilityPipelineConfig.processorGroups)
-        && Objects.equals(this.processors, observabilityPipelineConfig.processors)
-        && Objects.equals(this.sources, observabilityPipelineConfig.sources)
-        && Objects.equals(
-            this.useLegacySearchSyntax, observabilityPipelineConfig.useLegacySearchSyntax)
-        && Objects.equals(
-            this.additionalProperties, observabilityPipelineConfig.additionalProperties);
+    return Objects.equals(this.destinations, observabilityPipelineConfig.destinations) && Objects.equals(this.pipelineType, observabilityPipelineConfig.pipelineType) && Objects.equals(this.processorGroups, observabilityPipelineConfig.processorGroups) && Objects.equals(this.processors, observabilityPipelineConfig.processors) && Objects.equals(this.sources, observabilityPipelineConfig.sources) && Objects.equals(this.useLegacySearchSyntax, observabilityPipelineConfig.useLegacySearchSyntax) && Objects.equals(this.additionalProperties, observabilityPipelineConfig.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        destinations,
-        pipelineType,
-        processorGroups,
-        processors,
-        sources,
-        useLegacySearchSyntax,
-        additionalProperties);
+    return Objects.hash(destinations,pipelineType,processorGroups,processors,sources,useLegacySearchSyntax, additionalProperties);
   }
 
   @Override
@@ -340,9 +312,7 @@ public class ObservabilityPipelineConfig {
     sb.append("    processorGroups: ").append(toIndentedString(processorGroups)).append("\n");
     sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
-    sb.append("    useLegacySearchSyntax: ")
-        .append(toIndentedString(useLegacySearchSyntax))
-        .append("\n");
+    sb.append("    useLegacySearchSyntax: ").append(toIndentedString(useLegacySearchSyntax)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -351,7 +321,8 @@ public class ObservabilityPipelineConfig {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,19 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.</p>
+ */
 @JsonPropertyOrder({
   LogsExclusionFilter.JSON_PROPERTY_QUERY,
   LogsExclusionFilter.JSON_PROPERTY_SAMPLE_RATE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsExclusionFilter {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -36,62 +52,59 @@ public class LogsExclusionFilter {
 
   @JsonCreator
   public LogsExclusionFilter(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SAMPLE_RATE) Double sampleRate) {
-    this.sampleRate = sampleRate;
+            @JsonProperty(required=true, value=JSON_PROPERTY_SAMPLE_RATE)Double sampleRate) {
+        this.sampleRate = sampleRate;
   }
-
   public LogsExclusionFilter query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * Default query is <code>*</code>, meaning all logs flowing in the index would be excluded. Scope
-   * down exclusion filter to only a subset of logs with a log query.
-   *
+   * <p>Default query is <code>*</code>, meaning all logs flowing in the index would be excluded.
+   * Scope down exclusion filter to only a subset of logs with a log query.</p>
    * @return query
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getQuery() {
-    return query;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getQuery() {
+        return query;
+      }
   public void setQuery(String query) {
     this.query = query;
   }
-
   public LogsExclusionFilter sampleRate(Double sampleRate) {
     this.sampleRate = sampleRate;
     return this;
   }
 
   /**
-   * Sample rate to apply to logs going through this exclusion filter, a value of 1.0 excludes all
-   * logs matching the query.
-   *
+   * <p>Sample rate to apply to logs going through this exclusion filter,
+   * a value of 1.0 excludes all logs matching the query.</p>
    * @return sampleRate
-   */
-  @JsonProperty(JSON_PROPERTY_SAMPLE_RATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getSampleRate() {
-    return sampleRate;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SAMPLE_RATE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getSampleRate() {
+        return sampleRate;
+      }
   public void setSampleRate(Double sampleRate) {
     this.sampleRate = sampleRate;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -100,7 +113,7 @@ public class LogsExclusionFilter {
   @JsonAnySetter
   public LogsExclusionFilter putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -124,12 +137,14 @@ public class LogsExclusionFilter {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LogsExclusionFilter object is equal to o. */
+  /**
+   * Return true if this LogsExclusionFilter object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -139,14 +154,13 @@ public class LogsExclusionFilter {
       return false;
     }
     LogsExclusionFilter logsExclusionFilter = (LogsExclusionFilter) o;
-    return Objects.equals(this.query, logsExclusionFilter.query)
-        && Objects.equals(this.sampleRate, logsExclusionFilter.sampleRate)
-        && Objects.equals(this.additionalProperties, logsExclusionFilter.additionalProperties);
+    return Objects.equals(this.query, logsExclusionFilter.query) && Objects.equals(this.sampleRate, logsExclusionFilter.sampleRate) && Objects.equals(this.additionalProperties, logsExclusionFilter.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(query, sampleRate, additionalProperties);
+    return Objects.hash(query,sampleRate, additionalProperties);
   }
 
   @Override
@@ -163,7 +177,8 @@ public class LogsExclusionFilter {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

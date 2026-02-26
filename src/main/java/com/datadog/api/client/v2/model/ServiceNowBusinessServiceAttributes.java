@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of a ServiceNow business service */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of a ServiceNow business service</p>
+ */
 @JsonPropertyOrder({
   ServiceNowBusinessServiceAttributes.JSON_PROPERTY_INSTANCE_ID,
   ServiceNowBusinessServiceAttributes.JSON_PROPERTY_SERVICE_NAME,
   ServiceNowBusinessServiceAttributes.JSON_PROPERTY_SERVICE_SYS_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceNowBusinessServiceAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_INSTANCE_ID = "instance_id";
   private UUID instanceId;
 
@@ -41,83 +56,78 @@ public class ServiceNowBusinessServiceAttributes {
 
   @JsonCreator
   public ServiceNowBusinessServiceAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_INSTANCE_ID) UUID instanceId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE_NAME) String serviceName,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE_SYS_ID) String serviceSysId) {
-    this.instanceId = instanceId;
-    this.serviceName = serviceName;
-    this.serviceSysId = serviceSysId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_INSTANCE_ID)UUID instanceId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE_NAME)String serviceName,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE_SYS_ID)String serviceSysId) {
+        this.instanceId = instanceId;
+        this.serviceName = serviceName;
+        this.serviceSysId = serviceSysId;
   }
-
   public ServiceNowBusinessServiceAttributes instanceId(UUID instanceId) {
     this.instanceId = instanceId;
     return this;
   }
 
   /**
-   * The ID of the ServiceNow instance
-   *
+   * <p>The ID of the ServiceNow instance</p>
    * @return instanceId
-   */
-  @JsonProperty(JSON_PROPERTY_INSTANCE_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public UUID getInstanceId() {
-    return instanceId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INSTANCE_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public UUID getInstanceId() {
+        return instanceId;
+      }
   public void setInstanceId(UUID instanceId) {
     this.instanceId = instanceId;
   }
-
   public ServiceNowBusinessServiceAttributes serviceName(String serviceName) {
     this.serviceName = serviceName;
     return this;
   }
 
   /**
-   * The name of the business service
-   *
+   * <p>The name of the business service</p>
    * @return serviceName
-   */
-  @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getServiceName() {
-    return serviceName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getServiceName() {
+        return serviceName;
+      }
   public void setServiceName(String serviceName) {
     this.serviceName = serviceName;
   }
-
   public ServiceNowBusinessServiceAttributes serviceSysId(String serviceSysId) {
     this.serviceSysId = serviceSysId;
     return this;
   }
 
   /**
-   * The system ID of the business service in ServiceNow
-   *
+   * <p>The system ID of the business service in ServiceNow</p>
    * @return serviceSysId
-   */
-  @JsonProperty(JSON_PROPERTY_SERVICE_SYS_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getServiceSysId() {
-    return serviceSysId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SERVICE_SYS_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getServiceSysId() {
+        return serviceSysId;
+      }
   public void setServiceSysId(String serviceSysId) {
     this.serviceSysId = serviceSysId;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -126,7 +136,7 @@ public class ServiceNowBusinessServiceAttributes {
   @JsonAnySetter
   public ServiceNowBusinessServiceAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -150,12 +160,14 @@ public class ServiceNowBusinessServiceAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ServiceNowBusinessServiceAttributes object is equal to o. */
+  /**
+   * Return true if this ServiceNowBusinessServiceAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -164,18 +176,14 @@ public class ServiceNowBusinessServiceAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceNowBusinessServiceAttributes serviceNowBusinessServiceAttributes =
-        (ServiceNowBusinessServiceAttributes) o;
-    return Objects.equals(this.instanceId, serviceNowBusinessServiceAttributes.instanceId)
-        && Objects.equals(this.serviceName, serviceNowBusinessServiceAttributes.serviceName)
-        && Objects.equals(this.serviceSysId, serviceNowBusinessServiceAttributes.serviceSysId)
-        && Objects.equals(
-            this.additionalProperties, serviceNowBusinessServiceAttributes.additionalProperties);
+    ServiceNowBusinessServiceAttributes serviceNowBusinessServiceAttributes = (ServiceNowBusinessServiceAttributes) o;
+    return Objects.equals(this.instanceId, serviceNowBusinessServiceAttributes.instanceId) && Objects.equals(this.serviceName, serviceNowBusinessServiceAttributes.serviceName) && Objects.equals(this.serviceSysId, serviceNowBusinessServiceAttributes.serviceSysId) && Objects.equals(this.additionalProperties, serviceNowBusinessServiceAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, serviceName, serviceSysId, additionalProperties);
+    return Objects.hash(instanceId,serviceName,serviceSysId, additionalProperties);
   }
 
   @Override
@@ -193,7 +201,8 @@ public class ServiceNowBusinessServiceAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

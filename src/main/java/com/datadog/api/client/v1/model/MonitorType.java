@@ -6,49 +6,50 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * The type of the monitor. For more information about <code>type</code>, see the <a
- * href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.
+   * <p>The type of the monitor. For more information about <code>type</code>, see the <a href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.</p>
  */
 @JsonSerialize(using = MonitorType.MonitorTypeSerializer.class)
 public class MonitorType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "composite",
-              "event alert",
-              "log alert",
-              "metric alert",
-              "process alert",
-              "query alert",
-              "rum alert",
-              "service check",
-              "synthetics alert",
-              "trace-analytics alert",
-              "slo alert",
-              "event-v2 alert",
-              "audit alert",
-              "ci-pipelines alert",
-              "ci-tests alert",
-              "error-tracking alert",
-              "database-monitoring alert",
-              "network-performance alert",
-              "cost alert",
-              "data-quality alert",
-              "network-path alert"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("composite", "event alert", "log alert", "metric alert", "process alert", "query alert", "rum alert", "service check", "synthetics alert", "trace-analytics alert", "slo alert", "event-v2 alert", "audit alert", "ci-pipelines alert", "ci-tests alert", "error-tracking alert", "database-monitoring alert", "network-performance alert", "cost alert", "data-quality alert", "network-path alert"));
 
   public static final MonitorType COMPOSITE = new MonitorType("composite");
   public static final MonitorType EVENT_ALERT = new MonitorType("event alert");
@@ -66,32 +67,30 @@ public class MonitorType extends ModelEnum<String> {
   public static final MonitorType CI_PIPELINES_ALERT = new MonitorType("ci-pipelines alert");
   public static final MonitorType CI_TESTS_ALERT = new MonitorType("ci-tests alert");
   public static final MonitorType ERROR_TRACKING_ALERT = new MonitorType("error-tracking alert");
-  public static final MonitorType DATABASE_MONITORING_ALERT =
-      new MonitorType("database-monitoring alert");
-  public static final MonitorType NETWORK_PERFORMANCE_ALERT =
-      new MonitorType("network-performance alert");
+  public static final MonitorType DATABASE_MONITORING_ALERT = new MonitorType("database-monitoring alert");
+  public static final MonitorType NETWORK_PERFORMANCE_ALERT = new MonitorType("network-performance alert");
   public static final MonitorType COST_ALERT = new MonitorType("cost alert");
   public static final MonitorType DATA_QUALITY_ALERT = new MonitorType("data-quality alert");
   public static final MonitorType NETWORK_PATH_ALERT = new MonitorType("network-path alert");
+
 
   MonitorType(String value) {
     super(value, allowedValues);
   }
 
   public static class MonitorTypeSerializer extends StdSerializer<MonitorType> {
-    public MonitorTypeSerializer(Class<MonitorType> t) {
-      super(t);
-    }
+      public MonitorTypeSerializer(Class<MonitorType> t) {
+          super(t);
+      }
 
-    public MonitorTypeSerializer() {
-      this(null);
-    }
+      public MonitorTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(MonitorType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(MonitorType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

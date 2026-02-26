@@ -6,27 +6,44 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Jira issue information */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Jira issue information</p>
+ */
 @JsonPropertyOrder({
   JiraIssueResult.JSON_PROPERTY_ISSUE_ID,
   JiraIssueResult.JSON_PROPERTY_ISSUE_KEY,
   JiraIssueResult.JSON_PROPERTY_ISSUE_URL,
   JiraIssueResult.JSON_PROPERTY_PROJECT_KEY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class JiraIssueResult {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ISSUE_ID = "issue_id";
   private String issueId;
 
@@ -45,93 +62,87 @@ public class JiraIssueResult {
   }
 
   /**
-   * Jira issue ID
-   *
+   * <p>Jira issue ID</p>
    * @return issueId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ISSUE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIssueId() {
-    return issueId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ISSUE_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIssueId() {
+        return issueId;
+      }
   public void setIssueId(String issueId) {
     this.issueId = issueId;
   }
-
   public JiraIssueResult issueKey(String issueKey) {
     this.issueKey = issueKey;
     return this;
   }
 
   /**
-   * Jira issue key
-   *
+   * <p>Jira issue key</p>
    * @return issueKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ISSUE_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIssueKey() {
-    return issueKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ISSUE_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIssueKey() {
+        return issueKey;
+      }
   public void setIssueKey(String issueKey) {
     this.issueKey = issueKey;
   }
-
   public JiraIssueResult issueUrl(String issueUrl) {
     this.issueUrl = issueUrl;
     return this;
   }
 
   /**
-   * Jira issue URL
-   *
+   * <p>Jira issue URL</p>
    * @return issueUrl
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ISSUE_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIssueUrl() {
-    return issueUrl;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ISSUE_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIssueUrl() {
+        return issueUrl;
+      }
   public void setIssueUrl(String issueUrl) {
     this.issueUrl = issueUrl;
   }
-
   public JiraIssueResult projectKey(String projectKey) {
     this.projectKey = projectKey;
     return this;
   }
 
   /**
-   * Jira project key
-   *
+   * <p>Jira project key</p>
    * @return projectKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROJECT_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProjectKey() {
-    return projectKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROJECT_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getProjectKey() {
+        return projectKey;
+      }
   public void setProjectKey(String projectKey) {
     this.projectKey = projectKey;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -140,7 +151,7 @@ public class JiraIssueResult {
   @JsonAnySetter
   public JiraIssueResult putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -164,12 +175,14 @@ public class JiraIssueResult {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this JiraIssueResult object is equal to o. */
+  /**
+   * Return true if this JiraIssueResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -179,16 +192,13 @@ public class JiraIssueResult {
       return false;
     }
     JiraIssueResult jiraIssueResult = (JiraIssueResult) o;
-    return Objects.equals(this.issueId, jiraIssueResult.issueId)
-        && Objects.equals(this.issueKey, jiraIssueResult.issueKey)
-        && Objects.equals(this.issueUrl, jiraIssueResult.issueUrl)
-        && Objects.equals(this.projectKey, jiraIssueResult.projectKey)
-        && Objects.equals(this.additionalProperties, jiraIssueResult.additionalProperties);
+    return Objects.equals(this.issueId, jiraIssueResult.issueId) && Objects.equals(this.issueKey, jiraIssueResult.issueKey) && Objects.equals(this.issueUrl, jiraIssueResult.issueUrl) && Objects.equals(this.projectKey, jiraIssueResult.projectKey) && Objects.equals(this.additionalProperties, jiraIssueResult.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(issueId, issueKey, issueUrl, projectKey, additionalProperties);
+    return Objects.hash(issueId,issueKey,issueUrl,projectKey, additionalProperties);
   }
 
   @Override
@@ -207,7 +217,8 @@ public class JiraIssueResult {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

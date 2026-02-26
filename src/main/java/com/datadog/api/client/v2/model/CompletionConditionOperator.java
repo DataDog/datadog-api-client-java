@@ -6,83 +6,82 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The definition of <code>CompletionConditionOperator</code> object. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The definition of <code>CompletionConditionOperator</code> object.</p>
+ */
 @JsonSerialize(using = CompletionConditionOperator.CompletionConditionOperatorSerializer.class)
 public class CompletionConditionOperator extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "OPERATOR_EQUAL",
-              "OPERATOR_NOT_EQUAL",
-              "OPERATOR_GREATER_THAN",
-              "OPERATOR_LESS_THAN",
-              "OPERATOR_GREATER_THAN_OR_EQUAL_TO",
-              "OPERATOR_LESS_THAN_OR_EQUAL_TO",
-              "OPERATOR_CONTAINS",
-              "OPERATOR_DOES_NOT_CONTAIN",
-              "OPERATOR_IS_NULL",
-              "OPERATOR_IS_NOT_NULL",
-              "OPERATOR_IS_EMPTY",
-              "OPERATOR_IS_NOT_EMPTY"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("OPERATOR_EQUAL", "OPERATOR_NOT_EQUAL", "OPERATOR_GREATER_THAN", "OPERATOR_LESS_THAN", "OPERATOR_GREATER_THAN_OR_EQUAL_TO", "OPERATOR_LESS_THAN_OR_EQUAL_TO", "OPERATOR_CONTAINS", "OPERATOR_DOES_NOT_CONTAIN", "OPERATOR_IS_NULL", "OPERATOR_IS_NOT_NULL", "OPERATOR_IS_EMPTY", "OPERATOR_IS_NOT_EMPTY"));
 
-  public static final CompletionConditionOperator OPERATOR_EQUAL =
-      new CompletionConditionOperator("OPERATOR_EQUAL");
-  public static final CompletionConditionOperator OPERATOR_NOT_EQUAL =
-      new CompletionConditionOperator("OPERATOR_NOT_EQUAL");
-  public static final CompletionConditionOperator OPERATOR_GREATER_THAN =
-      new CompletionConditionOperator("OPERATOR_GREATER_THAN");
-  public static final CompletionConditionOperator OPERATOR_LESS_THAN =
-      new CompletionConditionOperator("OPERATOR_LESS_THAN");
-  public static final CompletionConditionOperator OPERATOR_GREATER_THAN_OR_EQUAL_TO =
-      new CompletionConditionOperator("OPERATOR_GREATER_THAN_OR_EQUAL_TO");
-  public static final CompletionConditionOperator OPERATOR_LESS_THAN_OR_EQUAL_TO =
-      new CompletionConditionOperator("OPERATOR_LESS_THAN_OR_EQUAL_TO");
-  public static final CompletionConditionOperator OPERATOR_CONTAINS =
-      new CompletionConditionOperator("OPERATOR_CONTAINS");
-  public static final CompletionConditionOperator OPERATOR_DOES_NOT_CONTAIN =
-      new CompletionConditionOperator("OPERATOR_DOES_NOT_CONTAIN");
-  public static final CompletionConditionOperator OPERATOR_IS_NULL =
-      new CompletionConditionOperator("OPERATOR_IS_NULL");
-  public static final CompletionConditionOperator OPERATOR_IS_NOT_NULL =
-      new CompletionConditionOperator("OPERATOR_IS_NOT_NULL");
-  public static final CompletionConditionOperator OPERATOR_IS_EMPTY =
-      new CompletionConditionOperator("OPERATOR_IS_EMPTY");
-  public static final CompletionConditionOperator OPERATOR_IS_NOT_EMPTY =
-      new CompletionConditionOperator("OPERATOR_IS_NOT_EMPTY");
+  public static final CompletionConditionOperator OPERATOR_EQUAL = new CompletionConditionOperator("OPERATOR_EQUAL");
+  public static final CompletionConditionOperator OPERATOR_NOT_EQUAL = new CompletionConditionOperator("OPERATOR_NOT_EQUAL");
+  public static final CompletionConditionOperator OPERATOR_GREATER_THAN = new CompletionConditionOperator("OPERATOR_GREATER_THAN");
+  public static final CompletionConditionOperator OPERATOR_LESS_THAN = new CompletionConditionOperator("OPERATOR_LESS_THAN");
+  public static final CompletionConditionOperator OPERATOR_GREATER_THAN_OR_EQUAL_TO = new CompletionConditionOperator("OPERATOR_GREATER_THAN_OR_EQUAL_TO");
+  public static final CompletionConditionOperator OPERATOR_LESS_THAN_OR_EQUAL_TO = new CompletionConditionOperator("OPERATOR_LESS_THAN_OR_EQUAL_TO");
+  public static final CompletionConditionOperator OPERATOR_CONTAINS = new CompletionConditionOperator("OPERATOR_CONTAINS");
+  public static final CompletionConditionOperator OPERATOR_DOES_NOT_CONTAIN = new CompletionConditionOperator("OPERATOR_DOES_NOT_CONTAIN");
+  public static final CompletionConditionOperator OPERATOR_IS_NULL = new CompletionConditionOperator("OPERATOR_IS_NULL");
+  public static final CompletionConditionOperator OPERATOR_IS_NOT_NULL = new CompletionConditionOperator("OPERATOR_IS_NOT_NULL");
+  public static final CompletionConditionOperator OPERATOR_IS_EMPTY = new CompletionConditionOperator("OPERATOR_IS_EMPTY");
+  public static final CompletionConditionOperator OPERATOR_IS_NOT_EMPTY = new CompletionConditionOperator("OPERATOR_IS_NOT_EMPTY");
+
 
   CompletionConditionOperator(String value) {
     super(value, allowedValues);
   }
 
-  public static class CompletionConditionOperatorSerializer
-      extends StdSerializer<CompletionConditionOperator> {
-    public CompletionConditionOperatorSerializer(Class<CompletionConditionOperator> t) {
-      super(t);
-    }
+  public static class CompletionConditionOperatorSerializer extends StdSerializer<CompletionConditionOperator> {
+      public CompletionConditionOperatorSerializer(Class<CompletionConditionOperator> t) {
+          super(t);
+      }
 
-    public CompletionConditionOperatorSerializer() {
-      this(null);
-    }
+      public CompletionConditionOperatorSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        CompletionConditionOperator value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(CompletionConditionOperator value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

@@ -6,48 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Arbitrary rule resource type. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Arbitrary rule resource type.</p>
+ */
 @JsonSerialize(using = ReorderRuleResourceDataType.ReorderRuleResourceDataTypeSerializer.class)
 public class ReorderRuleResourceDataType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("arbitrary_rule"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("arbitrary_rule"));
 
-  public static final ReorderRuleResourceDataType ARBITRARY_RULE =
-      new ReorderRuleResourceDataType("arbitrary_rule");
+  public static final ReorderRuleResourceDataType ARBITRARY_RULE = new ReorderRuleResourceDataType("arbitrary_rule");
+
 
   ReorderRuleResourceDataType(String value) {
     super(value, allowedValues);
   }
 
-  public static class ReorderRuleResourceDataTypeSerializer
-      extends StdSerializer<ReorderRuleResourceDataType> {
-    public ReorderRuleResourceDataTypeSerializer(Class<ReorderRuleResourceDataType> t) {
-      super(t);
-    }
+  public static class ReorderRuleResourceDataTypeSerializer extends StdSerializer<ReorderRuleResourceDataType> {
+      public ReorderRuleResourceDataTypeSerializer(Class<ReorderRuleResourceDataType> t) {
+          super(t);
+      }
 
-    public ReorderRuleResourceDataTypeSerializer() {
-      this(null);
-    }
+      public ReorderRuleResourceDataTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ReorderRuleResourceDataType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ReorderRuleResourceDataType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

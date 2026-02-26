@@ -6,25 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Deploy on services based on their environment and/or service name. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Deploy on services based on their environment and/or service name.</p>
+ */
 @JsonPropertyOrder({
   ApplicationSecurityWafExclusionFilterScope.JSON_PROPERTY_ENV,
   ApplicationSecurityWafExclusionFilterScope.JSON_PROPERTY_SERVICE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationSecurityWafExclusionFilterScope {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENV = "env";
   private String env;
 
@@ -37,61 +54,58 @@ public class ApplicationSecurityWafExclusionFilterScope {
   }
 
   /**
-   * Deploy on this environment.
-   *
+   * <p>Deploy on this environment.</p>
    * @return env
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENV)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEnv() {
-    return env;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENV)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEnv() {
+        return env;
+      }
   public void setEnv(String env) {
     this.env = env;
   }
-
   public ApplicationSecurityWafExclusionFilterScope service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * Deploy on this service.
-   *
+   * <p>Deploy on this service.</p>
    * @return service
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getService() {
-    return service;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVICE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getService() {
+        return service;
+      }
   public void setService(String service) {
     this.service = service;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ApplicationSecurityWafExclusionFilterScope
    */
   @JsonAnySetter
-  public ApplicationSecurityWafExclusionFilterScope putAdditionalProperty(
-      String key, Object value) {
+  public ApplicationSecurityWafExclusionFilterScope putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -115,12 +129,14 @@ public class ApplicationSecurityWafExclusionFilterScope {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ApplicationSecurityWafExclusionFilterScope object is equal to o. */
+  /**
+   * Return true if this ApplicationSecurityWafExclusionFilterScope object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,18 +145,14 @@ public class ApplicationSecurityWafExclusionFilterScope {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationSecurityWafExclusionFilterScope applicationSecurityWafExclusionFilterScope =
-        (ApplicationSecurityWafExclusionFilterScope) o;
-    return Objects.equals(this.env, applicationSecurityWafExclusionFilterScope.env)
-        && Objects.equals(this.service, applicationSecurityWafExclusionFilterScope.service)
-        && Objects.equals(
-            this.additionalProperties,
-            applicationSecurityWafExclusionFilterScope.additionalProperties);
+    ApplicationSecurityWafExclusionFilterScope applicationSecurityWafExclusionFilterScope = (ApplicationSecurityWafExclusionFilterScope) o;
+    return Objects.equals(this.env, applicationSecurityWafExclusionFilterScope.env) && Objects.equals(this.service, applicationSecurityWafExclusionFilterScope.service) && Objects.equals(this.additionalProperties, applicationSecurityWafExclusionFilterScope.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(env, service, additionalProperties);
+    return Objects.hash(env,service, additionalProperties);
   }
 
   @Override
@@ -157,7 +169,8 @@ public class ApplicationSecurityWafExclusionFilterScope {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

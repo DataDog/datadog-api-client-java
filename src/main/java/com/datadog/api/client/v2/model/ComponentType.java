@@ -6,45 +6,50 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The UI component type. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The UI component type.</p>
+ */
 @JsonSerialize(using = ComponentType.ComponentTypeSerializer.class)
 public class ComponentType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "table",
-              "textInput",
-              "textArea",
-              "button",
-              "text",
-              "select",
-              "modal",
-              "schemaForm",
-              "checkbox",
-              "tabs",
-              "vegaChart",
-              "radioButtons",
-              "numberInput",
-              "fileInput",
-              "jsonInput",
-              "gridCell",
-              "dateRangePicker",
-              "search",
-              "container",
-              "calloutValue"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("table", "textInput", "textArea", "button", "text", "select", "modal", "schemaForm", "checkbox", "tabs", "vegaChart", "radioButtons", "numberInput", "fileInput", "jsonInput", "gridCell", "dateRangePicker", "search", "container", "calloutValue"));
 
   public static final ComponentType TABLE = new ComponentType("table");
   public static final ComponentType TEXTINPUT = new ComponentType("textInput");
@@ -67,24 +72,24 @@ public class ComponentType extends ModelEnum<String> {
   public static final ComponentType CONTAINER = new ComponentType("container");
   public static final ComponentType CALLOUTVALUE = new ComponentType("calloutValue");
 
+
   ComponentType(String value) {
     super(value, allowedValues);
   }
 
   public static class ComponentTypeSerializer extends StdSerializer<ComponentType> {
-    public ComponentTypeSerializer(Class<ComponentType> t) {
-      super(t);
-    }
+      public ComponentTypeSerializer(Class<ComponentType> t) {
+          super(t);
+      }
 
-    public ComponentTypeSerializer() {
-      this(null);
-    }
+      public ComponentTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(ComponentType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ComponentType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

@@ -1,17 +1,23 @@
 // Update an existing incident integration metadata returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.IncidentsApi;
+import com.datadog.api.client.v2.model.IncidentIntegrationMetadataResponse;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataAttributes;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataMetadata;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataPatchData;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataPatchRequest;
-import com.datadog.api.client.v2.model.IncidentIntegrationMetadataResponse;
 import com.datadog.api.client.v2.model.IncidentIntegrationMetadataType;
 import com.datadog.api.client.v2.model.SlackIntegrationMetadata;
 import com.datadog.api.client.v2.model.SlackIntegrationMetadataChannelItem;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -23,34 +29,24 @@ public class Example {
     String INCIDENT_DATA_ID = System.getenv("INCIDENT_DATA_ID");
 
     // the "incident" has an "incident_integration_metadata"
-    String INCIDENT_INTEGRATION_METADATA_DATA_ID =
-        System.getenv("INCIDENT_INTEGRATION_METADATA_DATA_ID");
+    String INCIDENT_INTEGRATION_METADATA_DATA_ID = System.getenv("INCIDENT_INTEGRATION_METADATA_DATA_ID");
 
-    IncidentIntegrationMetadataPatchRequest body =
-        new IncidentIntegrationMetadataPatchRequest()
-            .data(
-                new IncidentIntegrationMetadataPatchData()
-                    .attributes(
-                        new IncidentIntegrationMetadataAttributes()
-                            .incidentId(INCIDENT_DATA_ID)
-                            .integrationType(1)
-                            .metadata(
-                                new IncidentIntegrationMetadataMetadata(
-                                    new SlackIntegrationMetadata()
-                                        .channels(
-                                            Collections.singletonList(
-                                                new SlackIntegrationMetadataChannelItem()
-                                                    .channelId("C0123456789")
-                                                    .channelName("#updated-channel-name")
-                                                    .teamId("T01234567")
-                                                    .redirectUrl(
-                                                        "https://slack.com/app_redirect?channel=C0123456789&team=T01234567"))))))
-                    .type(IncidentIntegrationMetadataType.INCIDENT_INTEGRATIONS));
+    IncidentIntegrationMetadataPatchRequest body = new IncidentIntegrationMetadataPatchRequest()
+.data(new IncidentIntegrationMetadataPatchData()
+.attributes(new IncidentIntegrationMetadataAttributes()
+.incidentId(INCIDENT_DATA_ID)
+.integrationType(1)
+.metadata(new IncidentIntegrationMetadataMetadata(
+new SlackIntegrationMetadata()
+.channels(Collections.singletonList(new SlackIntegrationMetadataChannelItem()
+.channelId("C0123456789")
+.channelName("#updated-channel-name")
+.teamId("T01234567")
+.redirectUrl("https://slack.com/app_redirect?channel=C0123456789&team=T01234567"))))))
+.type(IncidentIntegrationMetadataType.INCIDENT_INTEGRATIONS));
 
     try {
-      IncidentIntegrationMetadataResponse result =
-          apiInstance.updateIncidentIntegration(
-              INCIDENT_DATA_ID, INCIDENT_INTEGRATION_METADATA_DATA_ID, body);
+      IncidentIntegrationMetadataResponse result = apiInstance.updateIncidentIntegration(INCIDENT_DATA_ID, INCIDENT_INTEGRATION_METADATA_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IncidentsApi#updateIncidentIntegration");

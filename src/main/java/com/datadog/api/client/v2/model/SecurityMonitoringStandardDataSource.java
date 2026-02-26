@@ -6,65 +6,77 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Source of events, either logs, audit trail, or Datadog events. */
-@JsonSerialize(
-    using =
-        SecurityMonitoringStandardDataSource.SecurityMonitoringStandardDataSourceSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Source of events, either logs, audit trail, or Datadog events.</p>
+ */
+@JsonSerialize(using = SecurityMonitoringStandardDataSource.SecurityMonitoringStandardDataSourceSerializer.class)
 public class SecurityMonitoringStandardDataSource extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "logs", "audit", "app_sec_spans", "spans", "security_runtime", "network", "events"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("logs", "audit", "app_sec_spans", "spans", "security_runtime", "network", "events"));
 
-  public static final SecurityMonitoringStandardDataSource LOGS =
-      new SecurityMonitoringStandardDataSource("logs");
-  public static final SecurityMonitoringStandardDataSource AUDIT =
-      new SecurityMonitoringStandardDataSource("audit");
-  public static final SecurityMonitoringStandardDataSource APP_SEC_SPANS =
-      new SecurityMonitoringStandardDataSource("app_sec_spans");
-  public static final SecurityMonitoringStandardDataSource SPANS =
-      new SecurityMonitoringStandardDataSource("spans");
-  public static final SecurityMonitoringStandardDataSource SECURITY_RUNTIME =
-      new SecurityMonitoringStandardDataSource("security_runtime");
-  public static final SecurityMonitoringStandardDataSource NETWORK =
-      new SecurityMonitoringStandardDataSource("network");
-  public static final SecurityMonitoringStandardDataSource EVENTS =
-      new SecurityMonitoringStandardDataSource("events");
+  public static final SecurityMonitoringStandardDataSource LOGS = new SecurityMonitoringStandardDataSource("logs");
+  public static final SecurityMonitoringStandardDataSource AUDIT = new SecurityMonitoringStandardDataSource("audit");
+  public static final SecurityMonitoringStandardDataSource APP_SEC_SPANS = new SecurityMonitoringStandardDataSource("app_sec_spans");
+  public static final SecurityMonitoringStandardDataSource SPANS = new SecurityMonitoringStandardDataSource("spans");
+  public static final SecurityMonitoringStandardDataSource SECURITY_RUNTIME = new SecurityMonitoringStandardDataSource("security_runtime");
+  public static final SecurityMonitoringStandardDataSource NETWORK = new SecurityMonitoringStandardDataSource("network");
+  public static final SecurityMonitoringStandardDataSource EVENTS = new SecurityMonitoringStandardDataSource("events");
+
 
   SecurityMonitoringStandardDataSource(String value) {
     super(value, allowedValues);
   }
 
-  public static class SecurityMonitoringStandardDataSourceSerializer
-      extends StdSerializer<SecurityMonitoringStandardDataSource> {
-    public SecurityMonitoringStandardDataSourceSerializer(
-        Class<SecurityMonitoringStandardDataSource> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringStandardDataSourceSerializer extends StdSerializer<SecurityMonitoringStandardDataSource> {
+      public SecurityMonitoringStandardDataSourceSerializer(Class<SecurityMonitoringStandardDataSource> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringStandardDataSourceSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringStandardDataSourceSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringStandardDataSource value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringStandardDataSource value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

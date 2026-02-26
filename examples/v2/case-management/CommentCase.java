@@ -1,13 +1,20 @@
 // Comment case returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.CaseManagementApi;
+import com.datadog.api.client.v2.model.TimelineResponse;
 import com.datadog.api.client.v2.model.CaseComment;
 import com.datadog.api.client.v2.model.CaseCommentAttributes;
 import com.datadog.api.client.v2.model.CaseCommentRequest;
 import com.datadog.api.client.v2.model.CaseResourceType;
-import com.datadog.api.client.v2.model.TimelineResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -17,12 +24,11 @@ public class Example {
     // there is a valid "case" in the system
     String CASE_ID = System.getenv("CASE_ID");
 
-    CaseCommentRequest body =
-        new CaseCommentRequest()
-            .data(
-                new CaseComment()
-                    .attributes(new CaseCommentAttributes().comment("Hello World !"))
-                    .type(CaseResourceType.CASE));
+    CaseCommentRequest body = new CaseCommentRequest()
+.data(new CaseComment()
+.attributes(new CaseCommentAttributes()
+.comment("Hello World !"))
+.type(CaseResourceType.CASE));
 
     try {
       TimelineResponse result = apiInstance.commentCase(CASE_ID, body);

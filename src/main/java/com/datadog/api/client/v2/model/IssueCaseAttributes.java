@@ -6,20 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object containing the information of a case. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object containing the information of a case.</p>
+ */
 @JsonPropertyOrder({
   IssueCaseAttributes.JSON_PROPERTY_ARCHIVED_AT,
   IssueCaseAttributes.JSON_PROPERTY_CLOSED_AT,
@@ -36,10 +50,10 @@ import java.util.Objects;
   IssueCaseAttributes.JSON_PROPERTY_TITLE,
   IssueCaseAttributes.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IssueCaseAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARCHIVED_AT = "archived_at";
   private OffsetDateTime archivedAt;
 
@@ -88,126 +102,114 @@ public class IssueCaseAttributes {
   }
 
   /**
-   * Timestamp of when the case was archived.
-   *
+   * <p>Timestamp of when the case was archived.</p>
    * @return archivedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ARCHIVED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getArchivedAt() {
-    return archivedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ARCHIVED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getArchivedAt() {
+        return archivedAt;
+      }
   public void setArchivedAt(OffsetDateTime archivedAt) {
     this.archivedAt = archivedAt;
   }
-
   public IssueCaseAttributes closedAt(OffsetDateTime closedAt) {
     this.closedAt = closedAt;
     return this;
   }
 
   /**
-   * Timestamp of when the case was closed.
-   *
+   * <p>Timestamp of when the case was closed.</p>
    * @return closedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLOSED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getClosedAt() {
-    return closedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CLOSED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getClosedAt() {
+        return closedAt;
+      }
   public void setClosedAt(OffsetDateTime closedAt) {
     this.closedAt = closedAt;
   }
-
   public IssueCaseAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * Timestamp of when the case was created.
-   *
+   * <p>Timestamp of when the case was created.</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public IssueCaseAttributes creationSource(String creationSource) {
     this.creationSource = creationSource;
     return this;
   }
 
   /**
-   * Source of the case creation.
-   *
+   * <p>Source of the case creation.</p>
    * @return creationSource
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATION_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCreationSource() {
-    return creationSource;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATION_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCreationSource() {
+        return creationSource;
+      }
   public void setCreationSource(String creationSource) {
     this.creationSource = creationSource;
   }
-
   public IssueCaseAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Description of the case.
-   *
+   * <p>Description of the case.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public IssueCaseAttributes dueDate(String dueDate) {
     this.dueDate = dueDate;
     return this;
   }
 
   /**
-   * Due date of the case.
-   *
+   * <p>Due date of the case.</p>
    * @return dueDate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DUE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDueDate() {
-    return dueDate;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DUE_DATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDueDate() {
+        return dueDate;
+      }
   public void setDueDate(String dueDate) {
     this.dueDate = dueDate;
   }
-
   public IssueCaseAttributes insights(List<IssueCaseInsight> insights) {
     this.insights = insights;
     for (IssueCaseInsight item : insights) {
@@ -215,7 +217,6 @@ public class IssueCaseAttributes {
     }
     return this;
   }
-
   public IssueCaseAttributes addInsightsItem(IssueCaseInsight insightsItem) {
     if (this.insights == null) {
       this.insights = new ArrayList<>();
@@ -226,21 +227,19 @@ public class IssueCaseAttributes {
   }
 
   /**
-   * Insights of the case.
-   *
+   * <p>Insights of the case.</p>
    * @return insights
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INSIGHTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<IssueCaseInsight> getInsights() {
-    return insights;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INSIGHTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<IssueCaseInsight> getInsights() {
+        return insights;
+      }
   public void setInsights(List<IssueCaseInsight> insights) {
     this.insights = insights;
   }
-
   public IssueCaseAttributes jiraIssue(IssueCaseJiraIssue jiraIssue) {
     this.jiraIssue = jiraIssue;
     this.unparsed |= jiraIssue.unparsed;
@@ -248,63 +247,57 @@ public class IssueCaseAttributes {
   }
 
   /**
-   * Jira issue of the case.
-   *
+   * <p>Jira issue of the case.</p>
    * @return jiraIssue
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_JIRA_ISSUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IssueCaseJiraIssue getJiraIssue() {
-    return jiraIssue;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_JIRA_ISSUE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IssueCaseJiraIssue getJiraIssue() {
+        return jiraIssue;
+      }
   public void setJiraIssue(IssueCaseJiraIssue jiraIssue) {
     this.jiraIssue = jiraIssue;
   }
-
   public IssueCaseAttributes key(String key) {
     this.key = key;
     return this;
   }
 
   /**
-   * Key of the case.
-   *
+   * <p>Key of the case.</p>
    * @return key
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getKey() {
-    return key;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getKey() {
+        return key;
+      }
   public void setKey(String key) {
     this.key = key;
   }
-
   public IssueCaseAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * Timestamp of when the case was last modified.
-   *
+   * <p>Timestamp of when the case was last modified.</p>
    * @return modifiedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getModifiedAt() {
+        return modifiedAt;
+      }
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
-
   public IssueCaseAttributes priority(CasePriority priority) {
     this.priority = priority;
     this.unparsed |= !priority.isValid();
@@ -312,24 +305,22 @@ public class IssueCaseAttributes {
   }
 
   /**
-   * Case priority
-   *
+   * <p>Case priority</p>
    * @return priority
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CasePriority getPriority() {
-    return priority;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PRIORITY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public CasePriority getPriority() {
+        return priority;
+      }
   public void setPriority(CasePriority priority) {
     if (!priority.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.priority = priority;
   }
-
   public IssueCaseAttributes status(CaseStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -337,79 +328,74 @@ public class IssueCaseAttributes {
   }
 
   /**
-   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and
-   * CLOSED statuses. Use <code>status_name</code> instead.
-   *
+   * <p>Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use <code>status_name</code> instead.</p>
    * @return status
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CaseStatus getStatus() {
-    return status;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public CaseStatus getStatus() {
+        return status;
+      }
   @Deprecated
   public void setStatus(CaseStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
-
   public IssueCaseAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * Title of the case.
-   *
+   * <p>Title of the case.</p>
    * @return title
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
-
   public IssueCaseAttributes type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Type of the case.
-   *
+   * <p>Type of the case.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -418,7 +404,7 @@ public class IssueCaseAttributes {
   @JsonAnySetter
   public IssueCaseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -442,12 +428,14 @@ public class IssueCaseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IssueCaseAttributes object is equal to o. */
+  /**
+   * Return true if this IssueCaseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -457,41 +445,13 @@ public class IssueCaseAttributes {
       return false;
     }
     IssueCaseAttributes issueCaseAttributes = (IssueCaseAttributes) o;
-    return Objects.equals(this.archivedAt, issueCaseAttributes.archivedAt)
-        && Objects.equals(this.closedAt, issueCaseAttributes.closedAt)
-        && Objects.equals(this.createdAt, issueCaseAttributes.createdAt)
-        && Objects.equals(this.creationSource, issueCaseAttributes.creationSource)
-        && Objects.equals(this.description, issueCaseAttributes.description)
-        && Objects.equals(this.dueDate, issueCaseAttributes.dueDate)
-        && Objects.equals(this.insights, issueCaseAttributes.insights)
-        && Objects.equals(this.jiraIssue, issueCaseAttributes.jiraIssue)
-        && Objects.equals(this.key, issueCaseAttributes.key)
-        && Objects.equals(this.modifiedAt, issueCaseAttributes.modifiedAt)
-        && Objects.equals(this.priority, issueCaseAttributes.priority)
-        && Objects.equals(this.status, issueCaseAttributes.status)
-        && Objects.equals(this.title, issueCaseAttributes.title)
-        && Objects.equals(this.type, issueCaseAttributes.type)
-        && Objects.equals(this.additionalProperties, issueCaseAttributes.additionalProperties);
+    return Objects.equals(this.archivedAt, issueCaseAttributes.archivedAt) && Objects.equals(this.closedAt, issueCaseAttributes.closedAt) && Objects.equals(this.createdAt, issueCaseAttributes.createdAt) && Objects.equals(this.creationSource, issueCaseAttributes.creationSource) && Objects.equals(this.description, issueCaseAttributes.description) && Objects.equals(this.dueDate, issueCaseAttributes.dueDate) && Objects.equals(this.insights, issueCaseAttributes.insights) && Objects.equals(this.jiraIssue, issueCaseAttributes.jiraIssue) && Objects.equals(this.key, issueCaseAttributes.key) && Objects.equals(this.modifiedAt, issueCaseAttributes.modifiedAt) && Objects.equals(this.priority, issueCaseAttributes.priority) && Objects.equals(this.status, issueCaseAttributes.status) && Objects.equals(this.title, issueCaseAttributes.title) && Objects.equals(this.type, issueCaseAttributes.type) && Objects.equals(this.additionalProperties, issueCaseAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        archivedAt,
-        closedAt,
-        createdAt,
-        creationSource,
-        description,
-        dueDate,
-        insights,
-        jiraIssue,
-        key,
-        modifiedAt,
-        priority,
-        status,
-        title,
-        type,
-        additionalProperties);
+    return Objects.hash(archivedAt,closedAt,createdAt,creationSource,description,dueDate,insights,jiraIssue,key,modifiedAt,priority,status,title,type, additionalProperties);
   }
 
   @Override
@@ -520,7 +480,8 @@ public class IssueCaseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

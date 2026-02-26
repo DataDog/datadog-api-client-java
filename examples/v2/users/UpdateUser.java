@@ -1,13 +1,20 @@
 // Update a user returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.UsersApi;
 import com.datadog.api.client.v2.model.UserResponse;
+import com.datadog.api.client.v2.model.UsersType;
 import com.datadog.api.client.v2.model.UserUpdateAttributes;
 import com.datadog.api.client.v2.model.UserUpdateData;
 import com.datadog.api.client.v2.model.UserUpdateRequest;
-import com.datadog.api.client.v2.model.UsersType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -17,13 +24,13 @@ public class Example {
     // there is a valid "user" in the system
     String USER_DATA_ID = System.getenv("USER_DATA_ID");
 
-    UserUpdateRequest body =
-        new UserUpdateRequest()
-            .data(
-                new UserUpdateData()
-                    .id(USER_DATA_ID)
-                    .type(UsersType.USERS)
-                    .attributes(new UserUpdateAttributes().name("updated").disabled(true)));
+    UserUpdateRequest body = new UserUpdateRequest()
+.data(new UserUpdateData()
+.id(USER_DATA_ID)
+.type(UsersType.USERS)
+.attributes(new UserUpdateAttributes()
+.name("updated")
+.disabled(true)));
 
     try {
       UserResponse result = apiInstance.updateUser(USER_DATA_ID, body);

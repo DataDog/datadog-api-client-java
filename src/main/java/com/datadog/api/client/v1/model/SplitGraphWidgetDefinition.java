@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * The split graph widget allows you to create repeating units of a graph - one for each value in a
- * group (for example: one per service)
+   * <p>The split graph widget allows you to create repeating units of a graph - one for each value in a group (for example: one per service)</p>
  */
 @JsonPropertyOrder({
   SplitGraphWidgetDefinition.JSON_PROPERTY_HAS_UNIFORM_Y_AXES,
@@ -30,10 +43,10 @@ import java.util.Objects;
   SplitGraphWidgetDefinition.JSON_PROPERTY_TITLE,
   SplitGraphWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SplitGraphWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_HAS_UNIFORM_Y_AXES = "has_uniform_y_axes";
   private Boolean hasUniformYAxes;
 
@@ -59,43 +72,38 @@ public class SplitGraphWidgetDefinition {
 
   @JsonCreator
   public SplitGraphWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SIZE) SplitGraphVizSize size,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE_WIDGET_DEFINITION)
-          SplitGraphSourceWidgetDefinition sourceWidgetDefinition,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SPLIT_CONFIG) SplitConfig splitConfig,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          SplitGraphWidgetDefinitionType type) {
-    this.size = size;
-    this.unparsed |= !size.isValid();
-    this.sourceWidgetDefinition = sourceWidgetDefinition;
-    this.unparsed |= sourceWidgetDefinition.unparsed;
-    this.splitConfig = splitConfig;
-    this.unparsed |= splitConfig.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_SIZE)SplitGraphVizSize size,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SOURCE_WIDGET_DEFINITION)SplitGraphSourceWidgetDefinition sourceWidgetDefinition,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SPLIT_CONFIG)SplitConfig splitConfig,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SplitGraphWidgetDefinitionType type) {
+        this.size = size;
+        this.unparsed |= !size.isValid();
+        this.sourceWidgetDefinition = sourceWidgetDefinition;
+        this.unparsed |= sourceWidgetDefinition.unparsed;
+        this.splitConfig = splitConfig;
+        this.unparsed |= splitConfig.unparsed;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public SplitGraphWidgetDefinition hasUniformYAxes(Boolean hasUniformYAxes) {
     this.hasUniformYAxes = hasUniformYAxes;
     return this;
   }
 
   /**
-   * Normalize y axes across graphs
-   *
+   * <p>Normalize y axes across graphs</p>
    * @return hasUniformYAxes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HAS_UNIFORM_Y_AXES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getHasUniformYAxes() {
-    return hasUniformYAxes;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HAS_UNIFORM_Y_AXES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getHasUniformYAxes() {
+        return hasUniformYAxes;
+      }
   public void setHasUniformYAxes(Boolean hasUniformYAxes) {
     this.hasUniformYAxes = hasUniformYAxes;
   }
-
   public SplitGraphWidgetDefinition size(SplitGraphVizSize size) {
     this.size = size;
     this.unparsed |= !size.isValid();
@@ -103,45 +111,40 @@ public class SplitGraphWidgetDefinition {
   }
 
   /**
-   * Size of the individual graphs in the split.
-   *
+   * <p>Size of the individual graphs in the split.</p>
    * @return size
-   */
-  @JsonProperty(JSON_PROPERTY_SIZE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SplitGraphVizSize getSize() {
-    return size;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SIZE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SplitGraphVizSize getSize() {
+        return size;
+      }
   public void setSize(SplitGraphVizSize size) {
     if (!size.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.size = size;
   }
-
-  public SplitGraphWidgetDefinition sourceWidgetDefinition(
-      SplitGraphSourceWidgetDefinition sourceWidgetDefinition) {
+  public SplitGraphWidgetDefinition sourceWidgetDefinition(SplitGraphSourceWidgetDefinition sourceWidgetDefinition) {
     this.sourceWidgetDefinition = sourceWidgetDefinition;
     this.unparsed |= sourceWidgetDefinition.unparsed;
     return this;
   }
 
   /**
-   * The original widget we are splitting on.
-   *
+   * <p>The original widget we are splitting on.</p>
    * @return sourceWidgetDefinition
-   */
-  @JsonProperty(JSON_PROPERTY_SOURCE_WIDGET_DEFINITION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SplitGraphSourceWidgetDefinition getSourceWidgetDefinition() {
-    return sourceWidgetDefinition;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SOURCE_WIDGET_DEFINITION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SplitGraphSourceWidgetDefinition getSourceWidgetDefinition() {
+        return sourceWidgetDefinition;
+      }
   public void setSourceWidgetDefinition(SplitGraphSourceWidgetDefinition sourceWidgetDefinition) {
     this.sourceWidgetDefinition = sourceWidgetDefinition;
   }
-
   public SplitGraphWidgetDefinition splitConfig(SplitConfig splitConfig) {
     this.splitConfig = splitConfig;
     this.unparsed |= splitConfig.unparsed;
@@ -149,20 +152,18 @@ public class SplitGraphWidgetDefinition {
   }
 
   /**
-   * Encapsulates all user choices about how to split a graph.
-   *
+   * <p>Encapsulates all user choices about how to split a graph.</p>
    * @return splitConfig
-   */
-  @JsonProperty(JSON_PROPERTY_SPLIT_CONFIG)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SplitConfig getSplitConfig() {
-    return splitConfig;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SPLIT_CONFIG)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SplitConfig getSplitConfig() {
+        return splitConfig;
+      }
   public void setSplitConfig(SplitConfig splitConfig) {
     this.splitConfig = splitConfig;
   }
-
   public SplitGraphWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -170,42 +171,38 @@ public class SplitGraphWidgetDefinition {
   }
 
   /**
-   * Time setting for the widget.
-   *
+   * <p>Time setting for the widget.</p>
    * @return time
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetTime getTime() {
-    return time;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetTime getTime() {
+        return time;
+      }
   public void setTime(WidgetTime time) {
     this.time = time;
   }
-
   public SplitGraphWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * Title of your widget.
-   *
+   * <p>Title of your widget.</p>
    * @return title
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
-
   public SplitGraphWidgetDefinition type(SplitGraphWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -213,32 +210,32 @@ public class SplitGraphWidgetDefinition {
   }
 
   /**
-   * Type of the split graph widget
-   *
+   * <p>Type of the split graph widget</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SplitGraphWidgetDefinitionType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SplitGraphWidgetDefinitionType getType() {
+        return type;
+      }
   public void setType(SplitGraphWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -247,7 +244,7 @@ public class SplitGraphWidgetDefinition {
   @JsonAnySetter
   public SplitGraphWidgetDefinition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -271,12 +268,14 @@ public class SplitGraphWidgetDefinition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SplitGraphWidgetDefinition object is equal to o. */
+  /**
+   * Return true if this SplitGraphWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -286,29 +285,13 @@ public class SplitGraphWidgetDefinition {
       return false;
     }
     SplitGraphWidgetDefinition splitGraphWidgetDefinition = (SplitGraphWidgetDefinition) o;
-    return Objects.equals(this.hasUniformYAxes, splitGraphWidgetDefinition.hasUniformYAxes)
-        && Objects.equals(this.size, splitGraphWidgetDefinition.size)
-        && Objects.equals(
-            this.sourceWidgetDefinition, splitGraphWidgetDefinition.sourceWidgetDefinition)
-        && Objects.equals(this.splitConfig, splitGraphWidgetDefinition.splitConfig)
-        && Objects.equals(this.time, splitGraphWidgetDefinition.time)
-        && Objects.equals(this.title, splitGraphWidgetDefinition.title)
-        && Objects.equals(this.type, splitGraphWidgetDefinition.type)
-        && Objects.equals(
-            this.additionalProperties, splitGraphWidgetDefinition.additionalProperties);
+    return Objects.equals(this.hasUniformYAxes, splitGraphWidgetDefinition.hasUniformYAxes) && Objects.equals(this.size, splitGraphWidgetDefinition.size) && Objects.equals(this.sourceWidgetDefinition, splitGraphWidgetDefinition.sourceWidgetDefinition) && Objects.equals(this.splitConfig, splitGraphWidgetDefinition.splitConfig) && Objects.equals(this.time, splitGraphWidgetDefinition.time) && Objects.equals(this.title, splitGraphWidgetDefinition.title) && Objects.equals(this.type, splitGraphWidgetDefinition.type) && Objects.equals(this.additionalProperties, splitGraphWidgetDefinition.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        hasUniformYAxes,
-        size,
-        sourceWidgetDefinition,
-        splitConfig,
-        time,
-        title,
-        type,
-        additionalProperties);
+    return Objects.hash(hasUniformYAxes,size,sourceWidgetDefinition,splitConfig,time,title,type, additionalProperties);
   }
 
   @Override
@@ -317,9 +300,7 @@ public class SplitGraphWidgetDefinition {
     sb.append("class SplitGraphWidgetDefinition {\n");
     sb.append("    hasUniformYAxes: ").append(toIndentedString(hasUniformYAxes)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    sourceWidgetDefinition: ")
-        .append(toIndentedString(sourceWidgetDefinition))
-        .append("\n");
+    sb.append("    sourceWidgetDefinition: ").append(toIndentedString(sourceWidgetDefinition)).append("\n");
     sb.append("    splitConfig: ").append(toIndentedString(splitConfig)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
@@ -332,7 +313,8 @@ public class SplitGraphWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

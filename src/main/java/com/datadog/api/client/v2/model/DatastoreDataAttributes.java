@@ -6,18 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Detailed information about a datastore. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Detailed information about a datastore.</p>
+ */
 @JsonPropertyOrder({
   DatastoreDataAttributes.JSON_PROPERTY_CREATED_AT,
   DatastoreDataAttributes.JSON_PROPERTY_CREATOR_USER_ID,
@@ -29,10 +45,10 @@ import java.util.Objects;
   DatastoreDataAttributes.JSON_PROPERTY_PRIMARY_COLUMN_NAME,
   DatastoreDataAttributes.JSON_PROPERTY_PRIMARY_KEY_GENERATION_STRATEGY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DatastoreDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -57,8 +73,7 @@ public class DatastoreDataAttributes {
   public static final String JSON_PROPERTY_PRIMARY_COLUMN_NAME = "primary_column_name";
   private String primaryColumnName;
 
-  public static final String JSON_PROPERTY_PRIMARY_KEY_GENERATION_STRATEGY =
-      "primary_key_generation_strategy";
+  public static final String JSON_PROPERTY_PRIMARY_KEY_GENERATION_STRATEGY = "primary_key_generation_strategy";
   private DatastorePrimaryKeyGenerationStrategy primaryKeyGenerationStrategy;
 
   public DatastoreDataAttributes createdAt(OffsetDateTime createdAt) {
@@ -67,208 +82,188 @@ public class DatastoreDataAttributes {
   }
 
   /**
-   * Timestamp when the datastore was created.
-   *
+   * <p>Timestamp when the datastore was created.</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public DatastoreDataAttributes creatorUserId(Long creatorUserId) {
     this.creatorUserId = creatorUserId;
     return this;
   }
 
   /**
-   * The numeric ID of the user who created the datastore.
-   *
+   * <p>The numeric ID of the user who created the datastore.</p>
    * @return creatorUserId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATOR_USER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCreatorUserId() {
-    return creatorUserId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATOR_USER_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCreatorUserId() {
+        return creatorUserId;
+      }
   public void setCreatorUserId(Long creatorUserId) {
     this.creatorUserId = creatorUserId;
   }
-
   public DatastoreDataAttributes creatorUserUuid(String creatorUserUuid) {
     this.creatorUserUuid = creatorUserUuid;
     return this;
   }
 
   /**
-   * The UUID of the user who created the datastore.
-   *
+   * <p>The UUID of the user who created the datastore.</p>
    * @return creatorUserUuid
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATOR_USER_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCreatorUserUuid() {
-    return creatorUserUuid;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATOR_USER_UUID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCreatorUserUuid() {
+        return creatorUserUuid;
+      }
   public void setCreatorUserUuid(String creatorUserUuid) {
     this.creatorUserUuid = creatorUserUuid;
   }
-
   public DatastoreDataAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * A human-readable description about the datastore.
-   *
+   * <p>A human-readable description about the datastore.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public DatastoreDataAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * Timestamp when the datastore was last modified.
-   *
+   * <p>Timestamp when the datastore was last modified.</p>
    * @return modifiedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getModifiedAt() {
+        return modifiedAt;
+      }
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
-
   public DatastoreDataAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The display name of the datastore.
-   *
+   * <p>The display name of the datastore.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public DatastoreDataAttributes orgId(Long orgId) {
     this.orgId = orgId;
     return this;
   }
 
   /**
-   * The ID of the organization that owns this datastore.
-   *
+   * <p>The ID of the organization that owns this datastore.</p>
    * @return orgId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORG_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOrgId() {
-    return orgId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ORG_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getOrgId() {
+        return orgId;
+      }
   public void setOrgId(Long orgId) {
     this.orgId = orgId;
   }
-
   public DatastoreDataAttributes primaryColumnName(String primaryColumnName) {
     this.primaryColumnName = primaryColumnName;
     return this;
   }
 
   /**
-   * The name of the primary key column for this datastore. Primary column names: - Must abide by
-   * both <a href="https://www.postgresql.org/docs/7.0/syntax525.htm">PostgreSQL naming
-   * conventions</a> - Cannot exceed 63 characters
-   *
+   * <p>The name of the primary key column for this datastore. Primary column names:
+   *   - Must abide by both <a href="https://www.postgresql.org/docs/7.0/syntax525.htm">PostgreSQL naming conventions</a>
+   *   - Cannot exceed 63 characters</p>
    * @return primaryColumnName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRIMARY_COLUMN_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPrimaryColumnName() {
-    return primaryColumnName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PRIMARY_COLUMN_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPrimaryColumnName() {
+        return primaryColumnName;
+      }
   public void setPrimaryColumnName(String primaryColumnName) {
     this.primaryColumnName = primaryColumnName;
   }
-
-  public DatastoreDataAttributes primaryKeyGenerationStrategy(
-      DatastorePrimaryKeyGenerationStrategy primaryKeyGenerationStrategy) {
+  public DatastoreDataAttributes primaryKeyGenerationStrategy(DatastorePrimaryKeyGenerationStrategy primaryKeyGenerationStrategy) {
     this.primaryKeyGenerationStrategy = primaryKeyGenerationStrategy;
     this.unparsed |= !primaryKeyGenerationStrategy.isValid();
     return this;
   }
 
   /**
-   * Can be set to <code>uuid</code> to automatically generate primary keys when new items are
-   * added. Default value is <code>none</code>, which requires you to supply a primary key for each
-   * new item.
-   *
+   * <p>Can be set to <code>uuid</code> to automatically generate primary keys when new items are added. Default value is <code>none</code>, which requires you to supply a primary key for each new item.</p>
    * @return primaryKeyGenerationStrategy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRIMARY_KEY_GENERATION_STRATEGY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DatastorePrimaryKeyGenerationStrategy getPrimaryKeyGenerationStrategy() {
-    return primaryKeyGenerationStrategy;
-  }
-
-  public void setPrimaryKeyGenerationStrategy(
-      DatastorePrimaryKeyGenerationStrategy primaryKeyGenerationStrategy) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PRIMARY_KEY_GENERATION_STRATEGY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public DatastorePrimaryKeyGenerationStrategy getPrimaryKeyGenerationStrategy() {
+        return primaryKeyGenerationStrategy;
+      }
+  public void setPrimaryKeyGenerationStrategy(DatastorePrimaryKeyGenerationStrategy primaryKeyGenerationStrategy) {
     if (!primaryKeyGenerationStrategy.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.primaryKeyGenerationStrategy = primaryKeyGenerationStrategy;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -277,7 +272,7 @@ public class DatastoreDataAttributes {
   @JsonAnySetter
   public DatastoreDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -301,12 +296,14 @@ public class DatastoreDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DatastoreDataAttributes object is equal to o. */
+  /**
+   * Return true if this DatastoreDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -316,32 +313,13 @@ public class DatastoreDataAttributes {
       return false;
     }
     DatastoreDataAttributes datastoreDataAttributes = (DatastoreDataAttributes) o;
-    return Objects.equals(this.createdAt, datastoreDataAttributes.createdAt)
-        && Objects.equals(this.creatorUserId, datastoreDataAttributes.creatorUserId)
-        && Objects.equals(this.creatorUserUuid, datastoreDataAttributes.creatorUserUuid)
-        && Objects.equals(this.description, datastoreDataAttributes.description)
-        && Objects.equals(this.modifiedAt, datastoreDataAttributes.modifiedAt)
-        && Objects.equals(this.name, datastoreDataAttributes.name)
-        && Objects.equals(this.orgId, datastoreDataAttributes.orgId)
-        && Objects.equals(this.primaryColumnName, datastoreDataAttributes.primaryColumnName)
-        && Objects.equals(
-            this.primaryKeyGenerationStrategy, datastoreDataAttributes.primaryKeyGenerationStrategy)
-        && Objects.equals(this.additionalProperties, datastoreDataAttributes.additionalProperties);
+    return Objects.equals(this.createdAt, datastoreDataAttributes.createdAt) && Objects.equals(this.creatorUserId, datastoreDataAttributes.creatorUserId) && Objects.equals(this.creatorUserUuid, datastoreDataAttributes.creatorUserUuid) && Objects.equals(this.description, datastoreDataAttributes.description) && Objects.equals(this.modifiedAt, datastoreDataAttributes.modifiedAt) && Objects.equals(this.name, datastoreDataAttributes.name) && Objects.equals(this.orgId, datastoreDataAttributes.orgId) && Objects.equals(this.primaryColumnName, datastoreDataAttributes.primaryColumnName) && Objects.equals(this.primaryKeyGenerationStrategy, datastoreDataAttributes.primaryKeyGenerationStrategy) && Objects.equals(this.additionalProperties, datastoreDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createdAt,
-        creatorUserId,
-        creatorUserUuid,
-        description,
-        modifiedAt,
-        name,
-        orgId,
-        primaryColumnName,
-        primaryKeyGenerationStrategy,
-        additionalProperties);
+    return Objects.hash(createdAt,creatorUserId,creatorUserUuid,description,modifiedAt,name,orgId,primaryColumnName,primaryKeyGenerationStrategy, additionalProperties);
   }
 
   @Override
@@ -356,9 +334,7 @@ public class DatastoreDataAttributes {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    primaryColumnName: ").append(toIndentedString(primaryColumnName)).append("\n");
-    sb.append("    primaryKeyGenerationStrategy: ")
-        .append(toIndentedString(primaryKeyGenerationStrategy))
-        .append("\n");
+    sb.append("    primaryKeyGenerationStrategy: ").append(toIndentedString(primaryKeyGenerationStrategy)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -367,7 +343,8 @@ public class DatastoreDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

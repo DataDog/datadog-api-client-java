@@ -6,20 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a status page. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The attributes of a status page.</p>
+ */
 @JsonPropertyOrder({
   StatusPageAsIncludedAttributes.JSON_PROPERTY_COMPANY_LOGO,
   StatusPageAsIncludedAttributes.JSON_PROPERTY_COMPONENTS,
@@ -37,10 +51,10 @@ import java.util.Objects;
   StatusPageAsIncludedAttributes.JSON_PROPERTY_TYPE,
   StatusPageAsIncludedAttributes.JSON_PROPERTY_VISUALIZATION_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class StatusPageAsIncludedAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPANY_LOGO = "company_logo";
   private String companyLogo;
 
@@ -92,32 +106,27 @@ public class StatusPageAsIncludedAttributes {
   }
 
   /**
-   * The base64-encoded image data displayed in the company logo.
-   *
+   * <p>The base64-encoded image data displayed in the company logo.</p>
    * @return companyLogo
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPANY_LOGO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCompanyLogo() {
-    return companyLogo;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPANY_LOGO)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCompanyLogo() {
+        return companyLogo;
+      }
   public void setCompanyLogo(String companyLogo) {
     this.companyLogo = companyLogo;
   }
-
-  public StatusPageAsIncludedAttributes components(
-      List<StatusPageAsIncludedAttributesComponentsItems> components) {
+  public StatusPageAsIncludedAttributes components(List<StatusPageAsIncludedAttributesComponentsItems> components) {
     this.components = components;
     for (StatusPageAsIncludedAttributesComponentsItems item : components) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public StatusPageAsIncludedAttributes addComponentsItem(
-      StatusPageAsIncludedAttributesComponentsItems componentsItem) {
+  public StatusPageAsIncludedAttributes addComponentsItem(StatusPageAsIncludedAttributesComponentsItems componentsItem) {
     if (this.components == null) {
       this.components = new ArrayList<>();
     }
@@ -127,254 +136,228 @@ public class StatusPageAsIncludedAttributes {
   }
 
   /**
-   * Components displayed on the status page.
-   *
+   * <p>Components displayed on the status page.</p>
    * @return components
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPONENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<StatusPageAsIncludedAttributesComponentsItems> getComponents() {
-    return components;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPONENTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<StatusPageAsIncludedAttributesComponentsItems> getComponents() {
+        return components;
+      }
   public void setComponents(List<StatusPageAsIncludedAttributesComponentsItems> components) {
     this.components = components;
   }
-
   public StatusPageAsIncludedAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * Timestamp of when the status page was created.
-   *
+   * <p>Timestamp of when the status page was created.</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public StatusPageAsIncludedAttributes customDomain(String customDomain) {
     this.customDomain = customDomain;
     return this;
   }
 
   /**
-   * If configured, the url that the status page is accessible at.
-   *
+   * <p>If configured, the url that the status page is accessible at.</p>
    * @return customDomain
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_DOMAIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCustomDomain() {
-    return customDomain;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CUSTOM_DOMAIN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCustomDomain() {
+        return customDomain;
+      }
   public void setCustomDomain(String customDomain) {
     this.customDomain = customDomain;
   }
-
   public StatusPageAsIncludedAttributes customDomainEnabled(Boolean customDomainEnabled) {
     this.customDomainEnabled = customDomainEnabled;
     return this;
   }
 
   /**
-   * Whether the custom domain is configured.
-   *
+   * <p>Whether the custom domain is configured.</p>
    * @return customDomainEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_DOMAIN_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getCustomDomainEnabled() {
-    return customDomainEnabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CUSTOM_DOMAIN_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getCustomDomainEnabled() {
+        return customDomainEnabled;
+      }
   public void setCustomDomainEnabled(Boolean customDomainEnabled) {
     this.customDomainEnabled = customDomainEnabled;
   }
-
   public StatusPageAsIncludedAttributes domainPrefix(String domainPrefix) {
     this.domainPrefix = domainPrefix;
     return this;
   }
 
   /**
-   * The subdomain of the status page's url taking the form <code>
-   * https://{domain_prefix}.statuspage.datadoghq.com</code>. Globally unique across Datadog Status
-   * Pages.
-   *
+   * <p>The subdomain of the status page's url taking the form <code>https://{domain_prefix}.statuspage.datadoghq.com</code>. Globally unique across Datadog Status Pages.</p>
    * @return domainPrefix
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOMAIN_PREFIX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDomainPrefix() {
-    return domainPrefix;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DOMAIN_PREFIX)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDomainPrefix() {
+        return domainPrefix;
+      }
   public void setDomainPrefix(String domainPrefix) {
     this.domainPrefix = domainPrefix;
   }
-
   public StatusPageAsIncludedAttributes emailHeaderImage(String emailHeaderImage) {
     this.emailHeaderImage = emailHeaderImage;
     return this;
   }
 
   /**
-   * Base64-encoded image data included in email notifications sent to status page subscribers.
-   *
+   * <p>Base64-encoded image data included in email notifications sent to status page subscribers.</p>
    * @return emailHeaderImage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL_HEADER_IMAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEmailHeaderImage() {
-    return emailHeaderImage;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EMAIL_HEADER_IMAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEmailHeaderImage() {
+        return emailHeaderImage;
+      }
   public void setEmailHeaderImage(String emailHeaderImage) {
     this.emailHeaderImage = emailHeaderImage;
   }
-
   public StatusPageAsIncludedAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * Whether the status page is enabled.
-   *
+   * <p>Whether the status page is enabled.</p>
    * @return enabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getEnabled() {
+        return enabled;
+      }
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
-
   public StatusPageAsIncludedAttributes favicon(String favicon) {
     this.favicon = favicon;
     return this;
   }
 
   /**
-   * Base64-encoded image data displayed in the browser tab.
-   *
+   * <p>Base64-encoded image data displayed in the browser tab.</p>
    * @return favicon
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAVICON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getFavicon() {
-    return favicon;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FAVICON)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getFavicon() {
+        return favicon;
+      }
   public void setFavicon(String favicon) {
     this.favicon = favicon;
   }
-
   public StatusPageAsIncludedAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * Timestamp of when the status page was last modified.
-   *
+   * <p>Timestamp of when the status page was last modified.</p>
    * @return modifiedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getModifiedAt() {
+        return modifiedAt;
+      }
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
-
   public StatusPageAsIncludedAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the status page.
-   *
+   * <p>The name of the status page.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public StatusPageAsIncludedAttributes pageUrl(String pageUrl) {
     this.pageUrl = pageUrl;
     return this;
   }
 
   /**
-   * The url that the status page is accessible at.
-   *
+   * <p>The url that the status page is accessible at.</p>
    * @return pageUrl
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPageUrl() {
-    return pageUrl;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PAGE_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPageUrl() {
+        return pageUrl;
+      }
   public void setPageUrl(String pageUrl) {
     this.pageUrl = pageUrl;
   }
-
   public StatusPageAsIncludedAttributes subscriptionsEnabled(Boolean subscriptionsEnabled) {
     this.subscriptionsEnabled = subscriptionsEnabled;
     return this;
   }
 
   /**
-   * Whether users can subscribe to the status page.
-   *
+   * <p>Whether users can subscribe to the status page.</p>
    * @return subscriptionsEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBSCRIPTIONS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getSubscriptionsEnabled() {
-    return subscriptionsEnabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SUBSCRIPTIONS_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getSubscriptionsEnabled() {
+        return subscriptionsEnabled;
+      }
   public void setSubscriptionsEnabled(Boolean subscriptionsEnabled) {
     this.subscriptionsEnabled = subscriptionsEnabled;
   }
-
   public StatusPageAsIncludedAttributes type(CreateStatusPageRequestDataAttributesType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -382,60 +365,56 @@ public class StatusPageAsIncludedAttributes {
   }
 
   /**
-   * The type of the status page controlling how the status page is accessed.
-   *
+   * <p>The type of the status page controlling how the status page is accessed.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CreateStatusPageRequestDataAttributesType getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public CreateStatusPageRequestDataAttributesType getType() {
+        return type;
+      }
   public void setType(CreateStatusPageRequestDataAttributesType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
-
-  public StatusPageAsIncludedAttributes visualizationType(
-      CreateStatusPageRequestDataAttributesVisualizationType visualizationType) {
+  public StatusPageAsIncludedAttributes visualizationType(CreateStatusPageRequestDataAttributesVisualizationType visualizationType) {
     this.visualizationType = visualizationType;
     this.unparsed |= !visualizationType.isValid();
     return this;
   }
 
   /**
-   * The visualization type of the status page.
-   *
+   * <p>The visualization type of the status page.</p>
    * @return visualizationType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VISUALIZATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CreateStatusPageRequestDataAttributesVisualizationType getVisualizationType() {
-    return visualizationType;
-  }
-
-  public void setVisualizationType(
-      CreateStatusPageRequestDataAttributesVisualizationType visualizationType) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VISUALIZATION_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public CreateStatusPageRequestDataAttributesVisualizationType getVisualizationType() {
+        return visualizationType;
+      }
+  public void setVisualizationType(CreateStatusPageRequestDataAttributesVisualizationType visualizationType) {
     if (!visualizationType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.visualizationType = visualizationType;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -444,7 +423,7 @@ public class StatusPageAsIncludedAttributes {
   @JsonAnySetter
   public StatusPageAsIncludedAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -468,12 +447,14 @@ public class StatusPageAsIncludedAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this StatusPageAsIncludedAttributes object is equal to o. */
+  /**
+   * Return true if this StatusPageAsIncludedAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -482,48 +463,14 @@ public class StatusPageAsIncludedAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusPageAsIncludedAttributes statusPageAsIncludedAttributes =
-        (StatusPageAsIncludedAttributes) o;
-    return Objects.equals(this.companyLogo, statusPageAsIncludedAttributes.companyLogo)
-        && Objects.equals(this.components, statusPageAsIncludedAttributes.components)
-        && Objects.equals(this.createdAt, statusPageAsIncludedAttributes.createdAt)
-        && Objects.equals(this.customDomain, statusPageAsIncludedAttributes.customDomain)
-        && Objects.equals(
-            this.customDomainEnabled, statusPageAsIncludedAttributes.customDomainEnabled)
-        && Objects.equals(this.domainPrefix, statusPageAsIncludedAttributes.domainPrefix)
-        && Objects.equals(this.emailHeaderImage, statusPageAsIncludedAttributes.emailHeaderImage)
-        && Objects.equals(this.enabled, statusPageAsIncludedAttributes.enabled)
-        && Objects.equals(this.favicon, statusPageAsIncludedAttributes.favicon)
-        && Objects.equals(this.modifiedAt, statusPageAsIncludedAttributes.modifiedAt)
-        && Objects.equals(this.name, statusPageAsIncludedAttributes.name)
-        && Objects.equals(this.pageUrl, statusPageAsIncludedAttributes.pageUrl)
-        && Objects.equals(
-            this.subscriptionsEnabled, statusPageAsIncludedAttributes.subscriptionsEnabled)
-        && Objects.equals(this.type, statusPageAsIncludedAttributes.type)
-        && Objects.equals(this.visualizationType, statusPageAsIncludedAttributes.visualizationType)
-        && Objects.equals(
-            this.additionalProperties, statusPageAsIncludedAttributes.additionalProperties);
+    StatusPageAsIncludedAttributes statusPageAsIncludedAttributes = (StatusPageAsIncludedAttributes) o;
+    return Objects.equals(this.companyLogo, statusPageAsIncludedAttributes.companyLogo) && Objects.equals(this.components, statusPageAsIncludedAttributes.components) && Objects.equals(this.createdAt, statusPageAsIncludedAttributes.createdAt) && Objects.equals(this.customDomain, statusPageAsIncludedAttributes.customDomain) && Objects.equals(this.customDomainEnabled, statusPageAsIncludedAttributes.customDomainEnabled) && Objects.equals(this.domainPrefix, statusPageAsIncludedAttributes.domainPrefix) && Objects.equals(this.emailHeaderImage, statusPageAsIncludedAttributes.emailHeaderImage) && Objects.equals(this.enabled, statusPageAsIncludedAttributes.enabled) && Objects.equals(this.favicon, statusPageAsIncludedAttributes.favicon) && Objects.equals(this.modifiedAt, statusPageAsIncludedAttributes.modifiedAt) && Objects.equals(this.name, statusPageAsIncludedAttributes.name) && Objects.equals(this.pageUrl, statusPageAsIncludedAttributes.pageUrl) && Objects.equals(this.subscriptionsEnabled, statusPageAsIncludedAttributes.subscriptionsEnabled) && Objects.equals(this.type, statusPageAsIncludedAttributes.type) && Objects.equals(this.visualizationType, statusPageAsIncludedAttributes.visualizationType) && Objects.equals(this.additionalProperties, statusPageAsIncludedAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        companyLogo,
-        components,
-        createdAt,
-        customDomain,
-        customDomainEnabled,
-        domainPrefix,
-        emailHeaderImage,
-        enabled,
-        favicon,
-        modifiedAt,
-        name,
-        pageUrl,
-        subscriptionsEnabled,
-        type,
-        visualizationType,
-        additionalProperties);
+    return Objects.hash(companyLogo,components,createdAt,customDomain,customDomainEnabled,domainPrefix,emailHeaderImage,enabled,favicon,modifiedAt,name,pageUrl,subscriptionsEnabled,type,visualizationType, additionalProperties);
   }
 
   @Override
@@ -534,9 +481,7 @@ public class StatusPageAsIncludedAttributes {
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    customDomain: ").append(toIndentedString(customDomain)).append("\n");
-    sb.append("    customDomainEnabled: ")
-        .append(toIndentedString(customDomainEnabled))
-        .append("\n");
+    sb.append("    customDomainEnabled: ").append(toIndentedString(customDomainEnabled)).append("\n");
     sb.append("    domainPrefix: ").append(toIndentedString(domainPrefix)).append("\n");
     sb.append("    emailHeaderImage: ").append(toIndentedString(emailHeaderImage)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
@@ -544,9 +489,7 @@ public class StatusPageAsIncludedAttributes {
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageUrl: ").append(toIndentedString(pageUrl)).append("\n");
-    sb.append("    subscriptionsEnabled: ")
-        .append(toIndentedString(subscriptionsEnabled))
-        .append("\n");
+    sb.append("    subscriptionsEnabled: ").append(toIndentedString(subscriptionsEnabled)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    visualizationType: ").append(toIndentedString(visualizationType)).append("\n");
     sb.append("    additionalProperties: ")
@@ -557,7 +500,8 @@ public class StatusPageAsIncludedAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

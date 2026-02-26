@@ -6,26 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The objects used to set an AWS tag filter. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The objects used to set an AWS tag filter.</p>
+ */
 @JsonPropertyOrder({
   AWSTagFilterCreateRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSTagFilterCreateRequest.JSON_PROPERTY_NAMESPACE,
   AWSTagFilterCreateRequest.JSON_PROPERTY_TAG_FILTER_STR
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSTagFilterCreateRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
@@ -41,21 +58,19 @@ public class AWSTagFilterCreateRequest {
   }
 
   /**
-   * Your AWS Account ID without dashes.
-   *
+   * <p>Your AWS Account ID without dashes.</p>
    * @return accountId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAccountId() {
-    return accountId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAccountId() {
+        return accountId;
+      }
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
-
   public AWSTagFilterCreateRequest namespace(AWSNamespace namespace) {
     this.namespace = namespace;
     this.unparsed |= !namespace.isValid();
@@ -63,54 +78,52 @@ public class AWSTagFilterCreateRequest {
   }
 
   /**
-   * The namespace associated with the tag filter entry.
-   *
+   * <p>The namespace associated with the tag filter entry.</p>
    * @return namespace
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAMESPACE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AWSNamespace getNamespace() {
-    return namespace;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAMESPACE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public AWSNamespace getNamespace() {
+        return namespace;
+      }
   public void setNamespace(AWSNamespace namespace) {
     if (!namespace.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.namespace = namespace;
   }
-
   public AWSTagFilterCreateRequest tagFilterStr(String tagFilterStr) {
     this.tagFilterStr = tagFilterStr;
     return this;
   }
 
   /**
-   * The tag filter string.
-   *
+   * <p>The tag filter string.</p>
    * @return tagFilterStr
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAG_FILTER_STR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTagFilterStr() {
-    return tagFilterStr;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAG_FILTER_STR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTagFilterStr() {
+        return tagFilterStr;
+      }
   public void setTagFilterStr(String tagFilterStr) {
     this.tagFilterStr = tagFilterStr;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -119,7 +132,7 @@ public class AWSTagFilterCreateRequest {
   @JsonAnySetter
   public AWSTagFilterCreateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -143,12 +156,14 @@ public class AWSTagFilterCreateRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AWSTagFilterCreateRequest object is equal to o. */
+  /**
+   * Return true if this AWSTagFilterCreateRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,16 +173,13 @@ public class AWSTagFilterCreateRequest {
       return false;
     }
     AWSTagFilterCreateRequest awsTagFilterCreateRequest = (AWSTagFilterCreateRequest) o;
-    return Objects.equals(this.accountId, awsTagFilterCreateRequest.accountId)
-        && Objects.equals(this.namespace, awsTagFilterCreateRequest.namespace)
-        && Objects.equals(this.tagFilterStr, awsTagFilterCreateRequest.tagFilterStr)
-        && Objects.equals(
-            this.additionalProperties, awsTagFilterCreateRequest.additionalProperties);
+    return Objects.equals(this.accountId, awsTagFilterCreateRequest.accountId) && Objects.equals(this.namespace, awsTagFilterCreateRequest.namespace) && Objects.equals(this.tagFilterStr, awsTagFilterCreateRequest.tagFilterStr) && Objects.equals(this.additionalProperties, awsTagFilterCreateRequest.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, namespace, tagFilterStr, additionalProperties);
+    return Objects.hash(accountId,namespace,tagFilterStr, additionalProperties);
   }
 
   @Override
@@ -185,7 +197,8 @@ public class AWSTagFilterCreateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

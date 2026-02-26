@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,17 +25,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * The <code>google_cloud_storage</code> destination stores logs in a Google Cloud Storage (GCS)
- * bucket. It requires a bucket name, Google Cloud authentication, and metadata fields.
- *
- * <p><strong>Supported pipeline types:</strong> logs
+   * <p>The <code>google_cloud_storage</code> destination stores logs in a Google Cloud Storage (GCS) bucket.
+   * It requires a bucket name, Google Cloud authentication, and metadata fields.</p>
+   * <p><strong>Supported pipeline types:</strong> logs</p>
  */
 @JsonPropertyOrder({
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_ACL,
@@ -37,10 +48,10 @@ import java.util.Objects;
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_STORAGE_CLASS,
   ObservabilityPipelineGoogleCloudStorageDestination.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineGoogleCloudStorageDestination {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACL = "acl";
   private ObservabilityPipelineGoogleCloudStorageDestinationAcl acl;
 
@@ -69,198 +80,173 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
   private ObservabilityPipelineGoogleCloudStorageDestinationStorageClass storageClass;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineGoogleCloudStorageDestinationType type =
-      ObservabilityPipelineGoogleCloudStorageDestinationType.GOOGLE_CLOUD_STORAGE;
+  private ObservabilityPipelineGoogleCloudStorageDestinationType type = ObservabilityPipelineGoogleCloudStorageDestinationType.GOOGLE_CLOUD_STORAGE;
 
   public ObservabilityPipelineGoogleCloudStorageDestination() {}
 
   @JsonCreator
   public ObservabilityPipelineGoogleCloudStorageDestination(
-      @JsonProperty(required = true, value = JSON_PROPERTY_BUCKET) String bucket,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STORAGE_CLASS)
-          ObservabilityPipelineGoogleCloudStorageDestinationStorageClass storageClass,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineGoogleCloudStorageDestinationType type) {
-    this.bucket = bucket;
-    this.id = id;
-    this.inputs = inputs;
-    this.storageClass = storageClass;
-    this.unparsed |= !storageClass.isValid();
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_BUCKET)String bucket,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_INPUTS)List<String> inputs,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STORAGE_CLASS)ObservabilityPipelineGoogleCloudStorageDestinationStorageClass storageClass,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ObservabilityPipelineGoogleCloudStorageDestinationType type) {
+        this.bucket = bucket;
+        this.id = id;
+        this.inputs = inputs;
+        this.storageClass = storageClass;
+        this.unparsed |= !storageClass.isValid();
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
-  public ObservabilityPipelineGoogleCloudStorageDestination acl(
-      ObservabilityPipelineGoogleCloudStorageDestinationAcl acl) {
+  public ObservabilityPipelineGoogleCloudStorageDestination acl(ObservabilityPipelineGoogleCloudStorageDestinationAcl acl) {
     this.acl = acl;
     this.unparsed |= !acl.isValid();
     return this;
   }
 
   /**
-   * Access control list setting for objects written to the bucket.
-   *
+   * <p>Access control list setting for objects written to the bucket.</p>
    * @return acl
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineGoogleCloudStorageDestinationAcl getAcl() {
-    return acl;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ACL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineGoogleCloudStorageDestinationAcl getAcl() {
+        return acl;
+      }
   public void setAcl(ObservabilityPipelineGoogleCloudStorageDestinationAcl acl) {
     if (!acl.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.acl = acl;
   }
-
-  public ObservabilityPipelineGoogleCloudStorageDestination auth(
-      ObservabilityPipelineGcpAuth auth) {
+  public ObservabilityPipelineGoogleCloudStorageDestination auth(ObservabilityPipelineGcpAuth auth) {
     this.auth = auth;
     this.unparsed |= auth.unparsed;
     return this;
   }
 
   /**
-   * Google Cloud credentials used to authenticate with Google Cloud Storage.
-   *
+   * <p>Google Cloud credentials used to authenticate with Google Cloud Storage.</p>
    * @return auth
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineGcpAuth getAuth() {
-    return auth;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUTH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineGcpAuth getAuth() {
+        return auth;
+      }
   public void setAuth(ObservabilityPipelineGcpAuth auth) {
     this.auth = auth;
   }
-
   public ObservabilityPipelineGoogleCloudStorageDestination bucket(String bucket) {
     this.bucket = bucket;
     return this;
   }
 
   /**
-   * Name of the GCS bucket.
-   *
+   * <p>Name of the GCS bucket.</p>
    * @return bucket
-   */
-  @JsonProperty(JSON_PROPERTY_BUCKET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getBucket() {
-    return bucket;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_BUCKET)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getBucket() {
+        return bucket;
+      }
   public void setBucket(String bucket) {
     this.bucket = bucket;
   }
-
-  public ObservabilityPipelineGoogleCloudStorageDestination buffer(
-      ObservabilityPipelineBufferOptions buffer) {
+  public ObservabilityPipelineGoogleCloudStorageDestination buffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
     this.unparsed |= buffer.unparsed;
     return this;
   }
 
   /**
-   * Configuration for buffer settings on destination components.
-   *
+   * <p>Configuration for buffer settings on destination components.</p>
    * @return buffer
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BUFFER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineBufferOptions getBuffer() {
-    return buffer;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BUFFER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineBufferOptions getBuffer() {
+        return buffer;
+      }
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
   }
-
   public ObservabilityPipelineGoogleCloudStorageDestination id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Unique identifier for the destination component.
-   *
+   * <p>Unique identifier for the destination component.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public ObservabilityPipelineGoogleCloudStorageDestination inputs(List<String> inputs) {
     this.inputs = inputs;
     return this;
   }
-
   public ObservabilityPipelineGoogleCloudStorageDestination addInputsItem(String inputsItem) {
     this.inputs.add(inputsItem);
     return this;
   }
 
   /**
-   * A list of component IDs whose output is used as the <code>input</code> for this component.
-   *
+   * <p>A list of component IDs whose output is used as the <code>input</code> for this component.</p>
    * @return inputs
-   */
-  @JsonProperty(JSON_PROPERTY_INPUTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getInputs() {
-    return inputs;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INPUTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getInputs() {
+        return inputs;
+      }
   public void setInputs(List<String> inputs) {
     this.inputs = inputs;
   }
-
   public ObservabilityPipelineGoogleCloudStorageDestination keyPrefix(String keyPrefix) {
     this.keyPrefix = keyPrefix;
     return this;
   }
 
   /**
-   * Optional prefix for object keys within the GCS bucket.
-   *
+   * <p>Optional prefix for object keys within the GCS bucket.</p>
    * @return keyPrefix
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEY_PREFIX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getKeyPrefix() {
-    return keyPrefix;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_KEY_PREFIX)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getKeyPrefix() {
+        return keyPrefix;
+      }
   public void setKeyPrefix(String keyPrefix) {
     this.keyPrefix = keyPrefix;
   }
-
-  public ObservabilityPipelineGoogleCloudStorageDestination metadata(
-      List<ObservabilityPipelineMetadataEntry> metadata) {
+  public ObservabilityPipelineGoogleCloudStorageDestination metadata(List<ObservabilityPipelineMetadataEntry> metadata) {
     this.metadata = metadata;
     for (ObservabilityPipelineMetadataEntry item : metadata) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public ObservabilityPipelineGoogleCloudStorageDestination addMetadataItem(
-      ObservabilityPipelineMetadataEntry metadataItem) {
+  public ObservabilityPipelineGoogleCloudStorageDestination addMetadataItem(ObservabilityPipelineMetadataEntry metadataItem) {
     if (this.metadata == null) {
       this.metadata = new ArrayList<>();
     }
@@ -270,91 +256,83 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
   }
 
   /**
-   * Custom metadata to attach to each object uploaded to the GCS bucket.
-   *
+   * <p>Custom metadata to attach to each object uploaded to the GCS bucket.</p>
    * @return metadata
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ObservabilityPipelineMetadataEntry> getMetadata() {
-    return metadata;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ObservabilityPipelineMetadataEntry> getMetadata() {
+        return metadata;
+      }
   public void setMetadata(List<ObservabilityPipelineMetadataEntry> metadata) {
     this.metadata = metadata;
   }
-
-  public ObservabilityPipelineGoogleCloudStorageDestination storageClass(
-      ObservabilityPipelineGoogleCloudStorageDestinationStorageClass storageClass) {
+  public ObservabilityPipelineGoogleCloudStorageDestination storageClass(ObservabilityPipelineGoogleCloudStorageDestinationStorageClass storageClass) {
     this.storageClass = storageClass;
     this.unparsed |= !storageClass.isValid();
     return this;
   }
 
   /**
-   * Storage class used for objects stored in GCS.
-   *
+   * <p>Storage class used for objects stored in GCS.</p>
    * @return storageClass
-   */
-  @JsonProperty(JSON_PROPERTY_STORAGE_CLASS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineGoogleCloudStorageDestinationStorageClass getStorageClass() {
-    return storageClass;
-  }
-
-  public void setStorageClass(
-      ObservabilityPipelineGoogleCloudStorageDestinationStorageClass storageClass) {
+  **/
+      @JsonProperty(JSON_PROPERTY_STORAGE_CLASS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ObservabilityPipelineGoogleCloudStorageDestinationStorageClass getStorageClass() {
+        return storageClass;
+      }
+  public void setStorageClass(ObservabilityPipelineGoogleCloudStorageDestinationStorageClass storageClass) {
     if (!storageClass.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.storageClass = storageClass;
   }
-
-  public ObservabilityPipelineGoogleCloudStorageDestination type(
-      ObservabilityPipelineGoogleCloudStorageDestinationType type) {
+  public ObservabilityPipelineGoogleCloudStorageDestination type(ObservabilityPipelineGoogleCloudStorageDestinationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The destination type. Always <code>google_cloud_storage</code>.
-   *
+   * <p>The destination type. Always <code>google_cloud_storage</code>.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineGoogleCloudStorageDestinationType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ObservabilityPipelineGoogleCloudStorageDestinationType getType() {
+        return type;
+      }
   public void setType(ObservabilityPipelineGoogleCloudStorageDestinationType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ObservabilityPipelineGoogleCloudStorageDestination
    */
   @JsonAnySetter
-  public ObservabilityPipelineGoogleCloudStorageDestination putAdditionalProperty(
-      String key, Object value) {
+  public ObservabilityPipelineGoogleCloudStorageDestination putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -378,7 +356,7 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
@@ -394,41 +372,14 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineGoogleCloudStorageDestination
-        observabilityPipelineGoogleCloudStorageDestination =
-            (ObservabilityPipelineGoogleCloudStorageDestination) o;
-    return Objects.equals(this.acl, observabilityPipelineGoogleCloudStorageDestination.acl)
-        && Objects.equals(this.auth, observabilityPipelineGoogleCloudStorageDestination.auth)
-        && Objects.equals(this.bucket, observabilityPipelineGoogleCloudStorageDestination.bucket)
-        && Objects.equals(this.buffer, observabilityPipelineGoogleCloudStorageDestination.buffer)
-        && Objects.equals(this.id, observabilityPipelineGoogleCloudStorageDestination.id)
-        && Objects.equals(this.inputs, observabilityPipelineGoogleCloudStorageDestination.inputs)
-        && Objects.equals(
-            this.keyPrefix, observabilityPipelineGoogleCloudStorageDestination.keyPrefix)
-        && Objects.equals(
-            this.metadata, observabilityPipelineGoogleCloudStorageDestination.metadata)
-        && Objects.equals(
-            this.storageClass, observabilityPipelineGoogleCloudStorageDestination.storageClass)
-        && Objects.equals(this.type, observabilityPipelineGoogleCloudStorageDestination.type)
-        && Objects.equals(
-            this.additionalProperties,
-            observabilityPipelineGoogleCloudStorageDestination.additionalProperties);
+    ObservabilityPipelineGoogleCloudStorageDestination observabilityPipelineGoogleCloudStorageDestination = (ObservabilityPipelineGoogleCloudStorageDestination) o;
+    return Objects.equals(this.acl, observabilityPipelineGoogleCloudStorageDestination.acl) && Objects.equals(this.auth, observabilityPipelineGoogleCloudStorageDestination.auth) && Objects.equals(this.bucket, observabilityPipelineGoogleCloudStorageDestination.bucket) && Objects.equals(this.buffer, observabilityPipelineGoogleCloudStorageDestination.buffer) && Objects.equals(this.id, observabilityPipelineGoogleCloudStorageDestination.id) && Objects.equals(this.inputs, observabilityPipelineGoogleCloudStorageDestination.inputs) && Objects.equals(this.keyPrefix, observabilityPipelineGoogleCloudStorageDestination.keyPrefix) && Objects.equals(this.metadata, observabilityPipelineGoogleCloudStorageDestination.metadata) && Objects.equals(this.storageClass, observabilityPipelineGoogleCloudStorageDestination.storageClass) && Objects.equals(this.type, observabilityPipelineGoogleCloudStorageDestination.type) && Objects.equals(this.additionalProperties, observabilityPipelineGoogleCloudStorageDestination.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        acl,
-        auth,
-        bucket,
-        buffer,
-        id,
-        inputs,
-        keyPrefix,
-        metadata,
-        storageClass,
-        type,
-        additionalProperties);
+    return Objects.hash(acl,auth,bucket,buffer,id,inputs,keyPrefix,metadata,storageClass,type, additionalProperties);
   }
 
   @Override
@@ -453,7 +404,8 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

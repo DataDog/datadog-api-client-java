@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The object describing the configuration of the retention filter to create/update. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The object describing the configuration of the retention filter to create/update.</p>
+ */
 @JsonPropertyOrder({
   RetentionFilterCreateAttributes.JSON_PROPERTY_ENABLED,
   RetentionFilterCreateAttributes.JSON_PROPERTY_FILTER,
@@ -26,10 +42,10 @@ import java.util.Objects;
   RetentionFilterCreateAttributes.JSON_PROPERTY_RATE,
   RetentionFilterCreateAttributes.JSON_PROPERTY_TRACE_RATE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RetentionFilterCreateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -52,41 +68,37 @@ public class RetentionFilterCreateAttributes {
 
   @JsonCreator
   public RetentionFilterCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FILTER) SpansFilterCreate filter,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FILTER_TYPE)
-          RetentionFilterType filterType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RATE) Double rate) {
-    this.enabled = enabled;
-    this.filter = filter;
-    this.unparsed |= filter.unparsed;
-    this.filterType = filterType;
-    this.unparsed |= !filterType.isValid();
-    this.name = name;
-    this.rate = rate;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ENABLED)Boolean enabled,
+            @JsonProperty(required=true, value=JSON_PROPERTY_FILTER)SpansFilterCreate filter,
+            @JsonProperty(required=true, value=JSON_PROPERTY_FILTER_TYPE)RetentionFilterType filterType,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RATE)Double rate) {
+        this.enabled = enabled;
+        this.filter = filter;
+        this.unparsed |= filter.unparsed;
+        this.filterType = filterType;
+        this.unparsed |= !filterType.isValid();
+        this.name = name;
+        this.rate = rate;
   }
-
   public RetentionFilterCreateAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * Enable/Disable the retention filter.
-   *
+   * <p>Enable/Disable the retention filter.</p>
    * @return enabled
-   */
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Boolean getEnabled() {
+        return enabled;
+      }
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
-
   public RetentionFilterCreateAttributes filter(SpansFilterCreate filter) {
     this.filter = filter;
     this.unparsed |= filter.unparsed;
@@ -94,20 +106,18 @@ public class RetentionFilterCreateAttributes {
   }
 
   /**
-   * The spans filter. Spans matching this filter will be indexed and stored.
-   *
+   * <p>The spans filter. Spans matching this filter will be indexed and stored.</p>
    * @return filter
-   */
-  @JsonProperty(JSON_PROPERTY_FILTER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SpansFilterCreate getFilter() {
-    return filter;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FILTER)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SpansFilterCreate getFilter() {
+        return filter;
+      }
   public void setFilter(SpansFilterCreate filter) {
     this.filter = filter;
   }
-
   public RetentionFilterCreateAttributes filterType(RetentionFilterType filterType) {
     this.filterType = filterType;
     this.unparsed |= !filterType.isValid();
@@ -115,95 +125,89 @@ public class RetentionFilterCreateAttributes {
   }
 
   /**
-   * The type of retention filter. The value should always be spans-sampling-processor.
-   *
+   * <p>The type of retention filter. The value should always be spans-sampling-processor.</p>
    * @return filterType
-   */
-  @JsonProperty(JSON_PROPERTY_FILTER_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RetentionFilterType getFilterType() {
-    return filterType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FILTER_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RetentionFilterType getFilterType() {
+        return filterType;
+      }
   public void setFilterType(RetentionFilterType filterType) {
     if (!filterType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.filterType = filterType;
   }
-
   public RetentionFilterCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the retention filter.
-   *
+   * <p>The name of the retention filter.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public RetentionFilterCreateAttributes rate(Double rate) {
     this.rate = rate;
     return this;
   }
 
   /**
-   * Sample rate to apply to spans going through this retention filter. A value of 1.0 keeps all
-   * spans matching the query.
-   *
+   * <p>Sample rate to apply to spans going through this retention filter.
+   * A value of 1.0 keeps all spans matching the query.</p>
    * @return rate
-   */
-  @JsonProperty(JSON_PROPERTY_RATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getRate() {
-    return rate;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RATE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getRate() {
+        return rate;
+      }
   public void setRate(Double rate) {
     this.rate = rate;
   }
-
   public RetentionFilterCreateAttributes traceRate(Double traceRate) {
     this.traceRate = traceRate;
     return this;
   }
 
   /**
-   * Sample rate to apply to traces containing spans going through this retention filter. A value of
-   * 1.0 keeps all traces with spans matching the query.
-   *
+   * <p>Sample rate to apply to traces containing spans going through this retention filter.
+   * A value of 1.0 keeps all traces with spans matching the query.</p>
    * @return traceRate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRACE_RATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getTraceRate() {
-    return traceRate;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TRACE_RATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getTraceRate() {
+        return traceRate;
+      }
   public void setTraceRate(Double traceRate) {
     this.traceRate = traceRate;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -212,7 +216,7 @@ public class RetentionFilterCreateAttributes {
   @JsonAnySetter
   public RetentionFilterCreateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -236,12 +240,14 @@ public class RetentionFilterCreateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RetentionFilterCreateAttributes object is equal to o. */
+  /**
+   * Return true if this RetentionFilterCreateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -250,21 +256,14 @@ public class RetentionFilterCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RetentionFilterCreateAttributes retentionFilterCreateAttributes =
-        (RetentionFilterCreateAttributes) o;
-    return Objects.equals(this.enabled, retentionFilterCreateAttributes.enabled)
-        && Objects.equals(this.filter, retentionFilterCreateAttributes.filter)
-        && Objects.equals(this.filterType, retentionFilterCreateAttributes.filterType)
-        && Objects.equals(this.name, retentionFilterCreateAttributes.name)
-        && Objects.equals(this.rate, retentionFilterCreateAttributes.rate)
-        && Objects.equals(this.traceRate, retentionFilterCreateAttributes.traceRate)
-        && Objects.equals(
-            this.additionalProperties, retentionFilterCreateAttributes.additionalProperties);
+    RetentionFilterCreateAttributes retentionFilterCreateAttributes = (RetentionFilterCreateAttributes) o;
+    return Objects.equals(this.enabled, retentionFilterCreateAttributes.enabled) && Objects.equals(this.filter, retentionFilterCreateAttributes.filter) && Objects.equals(this.filterType, retentionFilterCreateAttributes.filterType) && Objects.equals(this.name, retentionFilterCreateAttributes.name) && Objects.equals(this.rate, retentionFilterCreateAttributes.rate) && Objects.equals(this.traceRate, retentionFilterCreateAttributes.traceRate) && Objects.equals(this.additionalProperties, retentionFilterCreateAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, filter, filterType, name, rate, traceRate, additionalProperties);
+    return Objects.hash(enabled,filter,filterType,name,rate,traceRate, additionalProperties);
   }
 
   @Override
@@ -285,7 +284,8 @@ public class RetentionFilterCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -1,13 +1,20 @@
 // Create Custom Rule returns "Successfully created" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.StaticAnalysisApi;
+import com.datadog.api.client.v2.model.CustomRuleResponse;
 import com.datadog.api.client.v2.model.CustomRuleDataType;
 import com.datadog.api.client.v2.model.CustomRuleRequest;
 import com.datadog.api.client.v2.model.CustomRuleRequestData;
 import com.datadog.api.client.v2.model.CustomRuleRequestDataAttributes;
-import com.datadog.api.client.v2.model.CustomRuleResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -15,12 +22,10 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createCustomRule", true);
     StaticAnalysisApi apiInstance = new StaticAnalysisApi(defaultClient);
 
-    CustomRuleRequest body =
-        new CustomRuleRequest()
-            .data(
-                new CustomRuleRequestData()
-                    .attributes(new CustomRuleRequestDataAttributes())
-                    .type(CustomRuleDataType.CUSTOM_RULE));
+    CustomRuleRequest body = new CustomRuleRequest()
+.data(new CustomRuleRequestData()
+.attributes(new CustomRuleRequestDataAttributes())
+.type(CustomRuleDataType.CUSTOM_RULE));
 
     try {
       CustomRuleResponse result = apiInstance.createCustomRule("ruleset_name", body);

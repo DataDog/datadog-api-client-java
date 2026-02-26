@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,111 +25,99 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Controls how partial redaction is applied, including character count and direction. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Controls how partial redaction is applied, including character count and direction.</p>
+ */
 @JsonPropertyOrder({
-  ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions
-      .JSON_PROPERTY_CHARACTERS,
-  ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions
-      .JSON_PROPERTY_DIRECTION
+  ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions.JSON_PROPERTY_CHARACTERS,
+  ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions.JSON_PROPERTY_DIRECTION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHARACTERS = "characters";
   private Long characters;
 
   public static final String JSON_PROPERTY_DIRECTION = "direction";
-  private ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection
-      direction;
+  private ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection direction;
 
   public ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions() {}
 
   @JsonCreator
   public ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CHARACTERS) Long characters,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DIRECTION)
-          ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection
-              direction) {
-    this.characters = characters;
-    this.direction = direction;
-    this.unparsed |= !direction.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_CHARACTERS)Long characters,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DIRECTION)ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection direction) {
+        this.characters = characters;
+        this.direction = direction;
+        this.unparsed |= !direction.isValid();
   }
-
-  public ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions characters(
-      Long characters) {
+  public ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions characters(Long characters) {
     this.characters = characters;
     return this;
   }
 
   /**
-   * The <code>ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions</code>
-   * <code>characters</code>.
-   *
+   * <p>The <code>ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions</code> <code>characters</code>.</p>
    * @return characters
-   */
-  @JsonProperty(JSON_PROPERTY_CHARACTERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getCharacters() {
-    return characters;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CHARACTERS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getCharacters() {
+        return characters;
+      }
   public void setCharacters(Long characters) {
     this.characters = characters;
   }
-
-  public ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions direction(
-      ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection
-          direction) {
+  public ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions direction(ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection direction) {
     this.direction = direction;
     this.unparsed |= !direction.isValid();
     return this;
   }
 
   /**
-   * Indicates whether to redact characters from the first or last part of the matched value.
-   *
+   * <p>Indicates whether to redact characters from the first or last part of the matched value.</p>
    * @return direction
-   */
-  @JsonProperty(JSON_PROPERTY_DIRECTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection
-      getDirection() {
-    return direction;
-  }
-
-  public void setDirection(
-      ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection
-          direction) {
+  **/
+      @JsonProperty(JSON_PROPERTY_DIRECTION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection getDirection() {
+        return direction;
+      }
+  public void setDirection(ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection direction) {
     if (!direction.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.direction = direction;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions
    */
   @JsonAnySetter
-  public ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions
-      putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -141,15 +141,13 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialReda
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this
-   * ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions object is equal to
-   * o.
+   * Return true if this ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -159,31 +157,20 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialReda
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions
-        observabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions =
-            (ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions) o;
-    return Objects.equals(
-            this.characters,
-            observabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions.characters)
-        && Objects.equals(
-            this.direction,
-            observabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions.direction)
-        && Objects.equals(
-            this.additionalProperties,
-            observabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions
-                .additionalProperties);
+    ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions observabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions = (ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions) o;
+    return Objects.equals(this.characters, observabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions.characters) && Objects.equals(this.direction, observabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions.direction) && Objects.equals(this.additionalProperties, observabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(characters, direction, additionalProperties);
+    return Objects.hash(characters,direction, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append(
-        "class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions {\n");
+    sb.append("class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions {\n");
     sb.append("    characters: ").append(toIndentedString(characters)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    additionalProperties: ")
@@ -194,7 +181,8 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialReda
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

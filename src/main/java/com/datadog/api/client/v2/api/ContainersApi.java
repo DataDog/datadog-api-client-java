@@ -1,26 +1,32 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.ContainerItem;
-import com.datadog.api.client.v2.model.ContainersResponse;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+import com.datadog.api.client.v2.model.ContainersResponse;
+import com.datadog.api.client.v2.model.ContainerItem;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ContainersApi {
   private ApiClient apiClient;
-
   public ContainersApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -47,7 +53,9 @@ public class ContainersApi {
     this.apiClient = apiClient;
   }
 
-  /** Manage optional parameters to listContainers. */
+  /**
+   * Manage optional parameters to listContainers.
+   */
   public static class ListContainersOptionalParameters {
     private String filterTags;
     private String groupBy;
@@ -57,7 +65,6 @@ public class ContainersApi {
 
     /**
      * Set filterTags.
-     *
      * @param filterTags Comma-separated list of tags to filter containers by. (optional)
      * @return ListContainersOptionalParameters
      */
@@ -68,7 +75,6 @@ public class ContainersApi {
 
     /**
      * Set groupBy.
-     *
      * @param groupBy Comma-separated list of tags to group containers by. (optional)
      * @return ListContainersOptionalParameters
      */
@@ -79,7 +85,6 @@ public class ContainersApi {
 
     /**
      * Set sort.
-     *
      * @param sort Attribute to sort containers by. (optional)
      * @return ListContainersOptionalParameters
      */
@@ -90,7 +95,6 @@ public class ContainersApi {
 
     /**
      * Set pageSize.
-     *
      * @param pageSize Maximum number of results returned. (optional, default to 1000)
      * @return ListContainersOptionalParameters
      */
@@ -101,9 +105,7 @@ public class ContainersApi {
 
     /**
      * Set pageCursor.
-     *
-     * @param pageCursor String to query the next page of results. This key is provided with each
-     *     valid response from the API in <code>meta.pagination.next_cursor</code>. (optional)
+     * @param pageCursor String to query the next page of results. This key is provided with each valid response from the API in <code>meta.pagination.next_cursor</code>. (optional)
      * @return ListContainersOptionalParameters
      */
     public ListContainersOptionalParameters pageCursor(String pageCursor) {
@@ -113,123 +115,110 @@ public class ContainersApi {
   }
 
   /**
-   * Get All Containers.
-   *
-   * <p>See {@link #listContainersWithHttpInfo}.
-   *
-   * @return ContainersResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ContainersResponse listContainers() throws ApiException {
+ * Get All Containers.
+ *
+ * See {@link #listContainersWithHttpInfo}.
+ *
+ * @return ContainersResponse
+ * @throws ApiException if fails to make API call
+ */
+  public ContainersResponse listContainers () throws ApiException {
     return listContainersWithHttpInfo(new ListContainersOptionalParameters()).getData();
   }
 
   /**
-   * Get All Containers.
-   *
-   * <p>See {@link #listContainersWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;ContainersResponse&gt;
-   */
-  public CompletableFuture<ContainersResponse> listContainersAsync() {
-    return listContainersWithHttpInfoAsync(new ListContainersOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get All Containers.
+ *
+ * See {@link #listContainersWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;ContainersResponse&gt;
+ */
+  public CompletableFuture<ContainersResponse>listContainersAsync() {
+    return listContainersWithHttpInfoAsync(new ListContainersOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get All Containers.
-   *
-   * <p>See {@link #listContainersWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return ContainersResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ContainersResponse listContainers(ListContainersOptionalParameters parameters)
-      throws ApiException {
+ * Get All Containers.
+ *
+ * See {@link #listContainersWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return ContainersResponse
+ * @throws ApiException if fails to make API call
+ */
+  public ContainersResponse listContainers(ListContainersOptionalParameters parameters) throws ApiException {
     return listContainersWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get All Containers.
-   *
-   * <p>See {@link #listContainersWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ContainersResponse&gt;
-   */
-  public CompletableFuture<ContainersResponse> listContainersAsync(
-      ListContainersOptionalParameters parameters) {
-    return listContainersWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get All Containers.
+ *
+ * See {@link #listContainersWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;ContainersResponse&gt;
+ */
+  public CompletableFuture<ContainersResponse>listContainersAsync(ListContainersOptionalParameters parameters) {
+    return listContainersWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get All Containers.
-   *
-   * <p>See {@link #listContainersWithHttpInfo}.
-   *
-   * @return PaginationIterable&lt;ContainerItem&gt;
-   */
+ * Get All Containers.
+ *
+ * See {@link #listContainersWithHttpInfo}.
+ *
+ * @return PaginationIterable&lt;ContainerItem&gt;
+ */
   public PaginationIterable<ContainerItem> listContainersWithPagination() {
     ListContainersOptionalParameters parameters = new ListContainersOptionalParameters();
     return listContainersWithPagination(parameters);
   }
 
   /**
-   * Get All Containers.
-   *
-   * <p>See {@link #listContainersWithHttpInfo}.
-   *
-   * @return ContainersResponse
-   */
-  public PaginationIterable<ContainerItem> listContainersWithPagination(
-      ListContainersOptionalParameters parameters) {
-    String resultsPath = "getData";
-    String valueGetterPath = "getMeta.getPagination.getNextCursor";
-    String valueSetterPath = "pageCursor";
-    Boolean valueSetterParamOptional = true;
-    Integer limit;
+ * Get All Containers.
+ *
+ * See {@link #listContainersWithHttpInfo}.
+ *
+ * @return ContainersResponse
+ */
+  public PaginationIterable<ContainerItem> listContainersWithPagination(ListContainersOptionalParameters parameters) {
+  String resultsPath = "getData";
+  String valueGetterPath = "getMeta.getPagination.getNextCursor";
+  String valueSetterPath = "pageCursor";
+  Boolean valueSetterParamOptional = true;
+  Integer limit;
 
-    if (parameters.pageSize == null) {
+  
+  if (parameters.pageSize == null) {
       limit = 1000;
       parameters.pageSize(limit);
-    } else {
+  } else {
       limit = parameters.pageSize;
-    }
+  }
+  
 
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
+  
+  LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+  args.put("optionalParams", parameters);
 
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "listContainers",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            true,
-            limit,
-            args);
+  PaginationIterable iterator = new PaginationIterable(this, "listContainers", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, true, limit, args);
 
-    return iterator;
+  return iterator;
   }
 
+
   /**
-   * Get all containers for your organization.
+   * <p>Get all containers for your organization.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ContainersResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -238,8 +227,7 @@ public class ContainersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ContainersResponse> listContainersWithHttpInfo(
-      ListContainersOptionalParameters parameters) throws ApiException {
+  public ApiResponse<ContainersResponse> listContainersWithHttpInfo(ListContainersOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String filterTags = parameters.filterTags;
     String groupBy = parameters.groupBy;
@@ -249,6 +237,7 @@ public class ContainersApi {
     // create path and map variables
     String localVarPath = "/api/v2/containers";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -258,36 +247,19 @@ public class ContainersApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.ContainersApi.listContainers",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ContainersResponse>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.ContainersApi.listContainers", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ContainersResponse>() {});
   }
 
   /**
    * Get All Containers.
    *
-   * <p>See {@link #listContainersWithHttpInfo}.
+   * See {@link #listContainersWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ContainersResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ContainersResponse>> listContainersWithHttpInfoAsync(
-      ListContainersOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<ContainersResponse>> listContainersWithHttpInfoAsync(ListContainersOptionalParameters parameters) {
     Object localVarPostBody = null;
     String filterTags = parameters.filterTags;
     String groupBy = parameters.groupBy;
@@ -297,6 +269,7 @@ public class ContainersApi {
     // create path and map variables
     String localVarPath = "/api/v2/containers";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -308,28 +281,12 @@ public class ContainersApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.ContainersApi.listContainers",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.ContainersApi.listContainers", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ContainersResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ContainersResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ContainersResponse>() {});
   }
 }

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,14 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+
+ */
 @JsonPropertyOrder({
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_ARGUMENTS,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_CATEGORY,
@@ -48,13 +61,12 @@ import java.util.Objects;
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_TREE_SITTER_QUERY,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARGUMENTS = "arguments";
-  private List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems>
-      arguments = null;
+  private List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems> arguments = null;
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
@@ -120,8 +132,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   private Boolean shouldUseAiFix;
 
   public static final String JSON_PROPERTY_TESTS = "tests";
-  private List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> tests =
-      null;
+  private List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> tests = null;
 
   public static final String JSON_PROPERTY_TREE_SITTER_QUERY = "tree_sitter_query";
   private String treeSitterQuery;
@@ -133,26 +144,18 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
 
   @JsonCreator
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems arguments(
-      List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems>
-          arguments) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems arguments(List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems> arguments) {
     this.arguments = arguments;
-    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems item :
-        arguments) {
+    for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems item : arguments) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems addArgumentsItem(
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems
-          argumentsItem) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems addArgumentsItem(GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems argumentsItem) {
     if (this.arguments == null) {
       this.arguments = new ArrayList<>();
     }
@@ -162,492 +165,426 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getarguments
-   *
+   * <p>Getarguments</p>
    * @return arguments
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ARGUMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems>
-      getArguments() {
-    return arguments;
-  }
-
-  public void setArguments(
-      List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems>
-          arguments) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ARGUMENTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems> getArguments() {
+        return arguments;
+      }
+  public void setArguments(List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems> arguments) {
     this.arguments = arguments;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems category(
-      String category) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems category(String category) {
     this.category = category;
     return this;
   }
 
   /**
-   * Getcategory
-   *
+   * <p>Getcategory</p>
    * @return category
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCategory() {
-    return category;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CATEGORY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCategory() {
+        return category;
+      }
   public void setCategory(String category) {
     this.category = category;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems checksum(
-      String checksum) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems checksum(String checksum) {
     this.checksum = checksum;
     return this;
   }
 
   /**
-   * Getchecksum
-   *
+   * <p>Getchecksum</p>
    * @return checksum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHECKSUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getChecksum() {
-    return checksum;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CHECKSUM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getChecksum() {
+        return checksum;
+      }
   public void setChecksum(String checksum) {
     this.checksum = checksum;
   }
-
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems code(String code) {
     this.code = code;
     return this;
   }
 
   /**
-   * Getcode
-   *
+   * <p>Getcode</p>
    * @return code
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCode() {
-    return code;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CODE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCode() {
+        return code;
+      }
   public void setCode(String code) {
     this.code = code;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems createdAt(
-      OffsetDateTime createdAt) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * GetcreatedAt
-   *
+   * <p>GetcreatedAt</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems createdBy(
-      String createdBy) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems createdBy(String createdBy) {
     this.createdBy = createdBy;
     return this;
   }
 
   /**
-   * GetcreatedBy
-   *
+   * <p>GetcreatedBy</p>
    * @return createdBy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCreatedBy() {
-    return createdBy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCreatedBy() {
+        return createdBy;
+      }
   public void setCreatedBy(String createdBy) {
     this.createdBy = createdBy;
   }
-
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems cve(String cve) {
     this.cve = cve;
     return this;
   }
 
   /**
-   * Getcve
-   *
+   * <p>Getcve</p>
    * @return cve
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCve() {
-    return cve;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CVE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCve() {
+        return cve;
+      }
   public void setCve(String cve) {
     this.cve = cve;
   }
-
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems cwe(String cwe) {
     this.cwe = cwe;
     return this;
   }
 
   /**
-   * Getcwe
-   *
+   * <p>Getcwe</p>
    * @return cwe
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CWE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCwe() {
-    return cwe;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CWE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCwe() {
+        return cwe;
+      }
   public void setCwe(String cwe) {
     this.cwe = cwe;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems data(
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData data) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems data(GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Getdata
-   *
+   * <p>Getdata</p>
    * @return data
-   */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData getData() {
-    return data;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData getData() {
+        return data;
+      }
   public void setData(GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData data) {
     this.data = data;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems description(
-      String description) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Getdescription
-   *
+   * <p>Getdescription</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems documentationUrl(
-      String documentationUrl) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems documentationUrl(String documentationUrl) {
     this.documentationUrl = documentationUrl;
     return this;
   }
 
   /**
-   * GetdocumentationUrl
-   *
+   * <p>GetdocumentationUrl</p>
    * @return documentationUrl
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOCUMENTATION_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDocumentationUrl() {
-    return documentationUrl;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DOCUMENTATION_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDocumentationUrl() {
+        return documentationUrl;
+      }
   public void setDocumentationUrl(String documentationUrl) {
     this.documentationUrl = documentationUrl;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems entityChecked(
-      String entityChecked) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems entityChecked(String entityChecked) {
     this.entityChecked = entityChecked;
     return this;
   }
 
   /**
-   * GetentityChecked
-   *
+   * <p>GetentityChecked</p>
    * @return entityChecked
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENTITY_CHECKED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEntityChecked() {
-    return entityChecked;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENTITY_CHECKED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEntityChecked() {
+        return entityChecked;
+      }
   public void setEntityChecked(String entityChecked) {
     this.entityChecked = entityChecked;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems isPublished(
-      Boolean isPublished) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems isPublished(Boolean isPublished) {
     this.isPublished = isPublished;
     return this;
   }
 
   /**
-   * GetisPublished
-   *
+   * <p>GetisPublished</p>
    * @return isPublished
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_PUBLISHED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsPublished() {
-    return isPublished;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_PUBLISHED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsPublished() {
+        return isPublished;
+      }
   public void setIsPublished(Boolean isPublished) {
     this.isPublished = isPublished;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems isTesting(
-      Boolean isTesting) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems isTesting(Boolean isTesting) {
     this.isTesting = isTesting;
     return this;
   }
 
   /**
-   * GetisTesting
-   *
+   * <p>GetisTesting</p>
    * @return isTesting
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_TESTING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsTesting() {
-    return isTesting;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_TESTING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsTesting() {
+        return isTesting;
+      }
   public void setIsTesting(Boolean isTesting) {
     this.isTesting = isTesting;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems language(
-      String language) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems language(String language) {
     this.language = language;
     return this;
   }
 
   /**
-   * Getlanguage
-   *
+   * <p>Getlanguage</p>
    * @return language
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LANGUAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getLanguage() {
-    return language;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LANGUAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getLanguage() {
+        return language;
+      }
   public void setLanguage(String language) {
     this.language = language;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems lastUpdatedAt(
-      OffsetDateTime lastUpdatedAt) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems lastUpdatedAt(OffsetDateTime lastUpdatedAt) {
     this.lastUpdatedAt = lastUpdatedAt;
     return this;
   }
 
   /**
-   * GetlastUpdatedAt
-   *
+   * <p>GetlastUpdatedAt</p>
    * @return lastUpdatedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getLastUpdatedAt() {
-    return lastUpdatedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_UPDATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getLastUpdatedAt() {
+        return lastUpdatedAt;
+      }
   public void setLastUpdatedAt(OffsetDateTime lastUpdatedAt) {
     this.lastUpdatedAt = lastUpdatedAt;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems lastUpdatedBy(
-      String lastUpdatedBy) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems lastUpdatedBy(String lastUpdatedBy) {
     this.lastUpdatedBy = lastUpdatedBy;
     return this;
   }
 
   /**
-   * GetlastUpdatedBy
-   *
+   * <p>GetlastUpdatedBy</p>
    * @return lastUpdatedBy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_UPDATED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getLastUpdatedBy() {
-    return lastUpdatedBy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_UPDATED_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getLastUpdatedBy() {
+        return lastUpdatedBy;
+      }
   public void setLastUpdatedBy(String lastUpdatedBy) {
     this.lastUpdatedBy = lastUpdatedBy;
   }
-
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Getname
-   *
+   * <p>Getname</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems regex(String regex) {
     this.regex = regex;
     return this;
   }
 
   /**
-   * Getregex
-   *
+   * <p>Getregex</p>
    * @return regex
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REGEX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRegex() {
-    return regex;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REGEX)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getRegex() {
+        return regex;
+      }
   public void setRegex(String regex) {
     this.regex = regex;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems severity(
-      String severity) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems severity(String severity) {
     this.severity = severity;
     return this;
   }
 
   /**
-   * Getseverity
-   *
+   * <p>Getseverity</p>
    * @return severity
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SEVERITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSeverity() {
-    return severity;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SEVERITY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSeverity() {
+        return severity;
+      }
   public void setSeverity(String severity) {
     this.severity = severity;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems shortDescription(
-      String shortDescription) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems shortDescription(String shortDescription) {
     this.shortDescription = shortDescription;
     return this;
   }
 
   /**
-   * GetshortDescription
-   *
+   * <p>GetshortDescription</p>
    * @return shortDescription
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHORT_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getShortDescription() {
-    return shortDescription;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SHORT_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getShortDescription() {
+        return shortDescription;
+      }
   public void setShortDescription(String shortDescription) {
     this.shortDescription = shortDescription;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems shouldUseAiFix(
-      Boolean shouldUseAiFix) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems shouldUseAiFix(Boolean shouldUseAiFix) {
     this.shouldUseAiFix = shouldUseAiFix;
     return this;
   }
 
   /**
-   * GetshouldUseAiFix
-   *
+   * <p>GetshouldUseAiFix</p>
    * @return shouldUseAiFix
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOULD_USE_AI_FIX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getShouldUseAiFix() {
-    return shouldUseAiFix;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SHOULD_USE_AI_FIX)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getShouldUseAiFix() {
+        return shouldUseAiFix;
+      }
   public void setShouldUseAiFix(Boolean shouldUseAiFix) {
     this.shouldUseAiFix = shouldUseAiFix;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems tests(
-      List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> tests) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems tests(List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> tests) {
     this.tests = tests;
     for (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems item : tests) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems addTestsItem(
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems testsItem) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems addTestsItem(GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems testsItem) {
     if (this.tests == null) {
       this.tests = new ArrayList<>();
     }
@@ -657,85 +594,77 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Gettests
-   *
+   * <p>Gettests</p>
    * @return tests
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TESTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems>
-      getTests() {
-    return tests;
-  }
-
-  public void setTests(
-      List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> tests) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TESTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> getTests() {
+        return tests;
+      }
+  public void setTests(List<GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems> tests) {
     this.tests = tests;
   }
-
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems treeSitterQuery(
-      String treeSitterQuery) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems treeSitterQuery(String treeSitterQuery) {
     this.treeSitterQuery = treeSitterQuery;
     return this;
   }
 
   /**
-   * GettreeSitterQuery
-   *
+   * <p>GettreeSitterQuery</p>
    * @return treeSitterQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TREE_SITTER_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTreeSitterQuery() {
-    return treeSitterQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TREE_SITTER_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTreeSitterQuery() {
+        return treeSitterQuery;
+      }
   public void setTreeSitterQuery(String treeSitterQuery) {
     this.treeSitterQuery = treeSitterQuery;
   }
-
   public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Gettype
-   *
+   * <p>Gettype</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems
    */
   @JsonAnySetter
-  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems putAdditionalProperty(
-      String key, Object value) {
+  public GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -759,14 +688,13 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems object is
-   * equal to o.
+   * Return true if this GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -776,110 +704,14 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems
-        getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems =
-            (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems) o;
-    return Objects.equals(
-            this.arguments,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.arguments)
-        && Objects.equals(
-            this.category,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.category)
-        && Objects.equals(
-            this.checksum,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.checksum)
-        && Objects.equals(
-            this.code, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.code)
-        && Objects.equals(
-            this.createdAt,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.createdAt)
-        && Objects.equals(
-            this.createdBy,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.createdBy)
-        && Objects.equals(
-            this.cve, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.cve)
-        && Objects.equals(
-            this.cwe, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.cwe)
-        && Objects.equals(
-            this.data, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.data)
-        && Objects.equals(
-            this.description,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.description)
-        && Objects.equals(
-            this.documentationUrl,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.documentationUrl)
-        && Objects.equals(
-            this.entityChecked,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.entityChecked)
-        && Objects.equals(
-            this.isPublished,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.isPublished)
-        && Objects.equals(
-            this.isTesting,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.isTesting)
-        && Objects.equals(
-            this.language,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.language)
-        && Objects.equals(
-            this.lastUpdatedAt,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.lastUpdatedAt)
-        && Objects.equals(
-            this.lastUpdatedBy,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.lastUpdatedBy)
-        && Objects.equals(
-            this.name, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.name)
-        && Objects.equals(
-            this.regex, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.regex)
-        && Objects.equals(
-            this.severity,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.severity)
-        && Objects.equals(
-            this.shortDescription,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.shortDescription)
-        && Objects.equals(
-            this.shouldUseAiFix,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.shouldUseAiFix)
-        && Objects.equals(
-            this.tests, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.tests)
-        && Objects.equals(
-            this.treeSitterQuery,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.treeSitterQuery)
-        && Objects.equals(
-            this.type, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.type)
-        && Objects.equals(
-            this.additionalProperties,
-            getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.additionalProperties);
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems = (GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems) o;
+    return Objects.equals(this.arguments, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.arguments) && Objects.equals(this.category, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.category) && Objects.equals(this.checksum, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.checksum) && Objects.equals(this.code, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.code) && Objects.equals(this.createdAt, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.createdAt) && Objects.equals(this.createdBy, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.createdBy) && Objects.equals(this.cve, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.cve) && Objects.equals(this.cwe, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.cwe) && Objects.equals(this.data, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.data) && Objects.equals(this.description, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.description) && Objects.equals(this.documentationUrl, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.documentationUrl) && Objects.equals(this.entityChecked, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.entityChecked) && Objects.equals(this.isPublished, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.isPublished) && Objects.equals(this.isTesting, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.isTesting) && Objects.equals(this.language, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.language) && Objects.equals(this.lastUpdatedAt, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.lastUpdatedAt) && Objects.equals(this.lastUpdatedBy, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.lastUpdatedBy) && Objects.equals(this.name, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.name) && Objects.equals(this.regex, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.regex) && Objects.equals(this.severity, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.severity) && Objects.equals(this.shortDescription, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.shortDescription) && Objects.equals(this.shouldUseAiFix, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.shouldUseAiFix) && Objects.equals(this.tests, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.tests) && Objects.equals(this.treeSitterQuery, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.treeSitterQuery) && Objects.equals(this.type, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.type) && Objects.equals(this.additionalProperties, getMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        arguments,
-        category,
-        checksum,
-        code,
-        createdAt,
-        createdBy,
-        cve,
-        cwe,
-        data,
-        description,
-        documentationUrl,
-        entityChecked,
-        isPublished,
-        isTesting,
-        language,
-        lastUpdatedAt,
-        lastUpdatedBy,
-        name,
-        regex,
-        severity,
-        shortDescription,
-        shouldUseAiFix,
-        tests,
-        treeSitterQuery,
-        type,
-        additionalProperties);
+    return Objects.hash(arguments,category,checksum,code,createdAt,createdBy,cve,cwe,data,description,documentationUrl,entityChecked,isPublished,isTesting,language,lastUpdatedAt,lastUpdatedBy,name,regex,severity,shortDescription,shouldUseAiFix,tests,treeSitterQuery,type, additionalProperties);
   }
 
   @Override
@@ -919,7 +751,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

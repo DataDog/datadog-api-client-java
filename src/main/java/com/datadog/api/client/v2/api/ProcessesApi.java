@@ -1,26 +1,32 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.ProcessSummariesResponse;
-import com.datadog.api.client.v2.model.ProcessSummary;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+import com.datadog.api.client.v2.model.ProcessSummariesResponse;
+import com.datadog.api.client.v2.model.ProcessSummary;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessesApi {
   private ApiClient apiClient;
-
   public ProcessesApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -47,7 +53,9 @@ public class ProcessesApi {
     this.apiClient = apiClient;
   }
 
-  /** Manage optional parameters to listProcesses. */
+  /**
+   * Manage optional parameters to listProcesses.
+   */
   public static class ListProcessesOptionalParameters {
     private String search;
     private String tags;
@@ -58,7 +66,6 @@ public class ProcessesApi {
 
     /**
      * Set search.
-     *
      * @param search String to search processes by. (optional)
      * @return ListProcessesOptionalParameters
      */
@@ -69,7 +76,6 @@ public class ProcessesApi {
 
     /**
      * Set tags.
-     *
      * @param tags Comma-separated list of tags to filter processes by. (optional)
      * @return ListProcessesOptionalParameters
      */
@@ -80,11 +86,7 @@ public class ProcessesApi {
 
     /**
      * Set from.
-     *
-     * @param from Unix timestamp (number of seconds since epoch) of the start of the query window.
-     *     If not provided, the start of the query window will be 15 minutes before the <code>to
-     *     </code> timestamp. If neither <code>from</code> nor <code>to</code> are provided, the
-     *     query window will be <code>[now - 15m, now]</code>. (optional)
+     * @param from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the <code>to</code> timestamp. If neither <code>from</code> nor <code>to</code> are provided, the query window will be <code>[now - 15m, now]</code>. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters from(Long from) {
@@ -94,11 +96,7 @@ public class ProcessesApi {
 
     /**
      * Set to.
-     *
-     * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If
-     *     not provided, the end of the query window will be 15 minutes after the <code>from</code>
-     *     timestamp. If neither <code>from</code> nor <code>to</code> are provided, the query
-     *     window will be <code>[now - 15m, now]</code>. (optional)
+     * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window will be 15 minutes after the <code>from</code> timestamp. If neither <code>from</code> nor <code>to</code> are provided, the query window will be <code>[now - 15m, now]</code>. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters to(Long to) {
@@ -108,7 +106,6 @@ public class ProcessesApi {
 
     /**
      * Set pageLimit.
-     *
      * @param pageLimit Maximum number of results returned. (optional, default to 1000)
      * @return ListProcessesOptionalParameters
      */
@@ -119,9 +116,7 @@ public class ProcessesApi {
 
     /**
      * Set pageCursor.
-     *
-     * @param pageCursor String to query the next page of results. This key is provided with each
-     *     valid response from the API in <code>meta.page.after</code>. (optional)
+     * @param pageCursor String to query the next page of results. This key is provided with each valid response from the API in <code>meta.page.after</code>. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters pageCursor(String pageCursor) {
@@ -131,123 +126,110 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes.
-   *
-   * <p>See {@link #listProcessesWithHttpInfo}.
-   *
-   * @return ProcessSummariesResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ProcessSummariesResponse listProcesses() throws ApiException {
+ * Get all processes.
+ *
+ * See {@link #listProcessesWithHttpInfo}.
+ *
+ * @return ProcessSummariesResponse
+ * @throws ApiException if fails to make API call
+ */
+  public ProcessSummariesResponse listProcesses () throws ApiException {
     return listProcessesWithHttpInfo(new ListProcessesOptionalParameters()).getData();
   }
 
   /**
-   * Get all processes.
-   *
-   * <p>See {@link #listProcessesWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;ProcessSummariesResponse&gt;
-   */
-  public CompletableFuture<ProcessSummariesResponse> listProcessesAsync() {
-    return listProcessesWithHttpInfoAsync(new ListProcessesOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all processes.
+ *
+ * See {@link #listProcessesWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;ProcessSummariesResponse&gt;
+ */
+  public CompletableFuture<ProcessSummariesResponse>listProcessesAsync() {
+    return listProcessesWithHttpInfoAsync(new ListProcessesOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get all processes.
-   *
-   * <p>See {@link #listProcessesWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return ProcessSummariesResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ProcessSummariesResponse listProcesses(ListProcessesOptionalParameters parameters)
-      throws ApiException {
+ * Get all processes.
+ *
+ * See {@link #listProcessesWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return ProcessSummariesResponse
+ * @throws ApiException if fails to make API call
+ */
+  public ProcessSummariesResponse listProcesses(ListProcessesOptionalParameters parameters) throws ApiException {
     return listProcessesWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get all processes.
-   *
-   * <p>See {@link #listProcessesWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ProcessSummariesResponse&gt;
-   */
-  public CompletableFuture<ProcessSummariesResponse> listProcessesAsync(
-      ListProcessesOptionalParameters parameters) {
-    return listProcessesWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all processes.
+ *
+ * See {@link #listProcessesWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;ProcessSummariesResponse&gt;
+ */
+  public CompletableFuture<ProcessSummariesResponse>listProcessesAsync(ListProcessesOptionalParameters parameters) {
+    return listProcessesWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get all processes.
-   *
-   * <p>See {@link #listProcessesWithHttpInfo}.
-   *
-   * @return PaginationIterable&lt;ProcessSummary&gt;
-   */
+ * Get all processes.
+ *
+ * See {@link #listProcessesWithHttpInfo}.
+ *
+ * @return PaginationIterable&lt;ProcessSummary&gt;
+ */
   public PaginationIterable<ProcessSummary> listProcessesWithPagination() {
     ListProcessesOptionalParameters parameters = new ListProcessesOptionalParameters();
     return listProcessesWithPagination(parameters);
   }
 
   /**
-   * Get all processes.
-   *
-   * <p>See {@link #listProcessesWithHttpInfo}.
-   *
-   * @return ProcessSummariesResponse
-   */
-  public PaginationIterable<ProcessSummary> listProcessesWithPagination(
-      ListProcessesOptionalParameters parameters) {
-    String resultsPath = "getData";
-    String valueGetterPath = "getMeta.getPage.getAfter";
-    String valueSetterPath = "pageCursor";
-    Boolean valueSetterParamOptional = true;
-    Integer limit;
+ * Get all processes.
+ *
+ * See {@link #listProcessesWithHttpInfo}.
+ *
+ * @return ProcessSummariesResponse
+ */
+  public PaginationIterable<ProcessSummary> listProcessesWithPagination(ListProcessesOptionalParameters parameters) {
+  String resultsPath = "getData";
+  String valueGetterPath = "getMeta.getPage.getAfter";
+  String valueSetterPath = "pageCursor";
+  Boolean valueSetterParamOptional = true;
+  Integer limit;
 
-    if (parameters.pageLimit == null) {
+  
+  if (parameters.pageLimit == null) {
       limit = 1000;
       parameters.pageLimit(limit);
-    } else {
+  } else {
       limit = parameters.pageLimit;
-    }
+  }
+  
 
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
+  
+  LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+  args.put("optionalParams", parameters);
 
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "listProcesses",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            true,
-            limit,
-            args);
+  PaginationIterable iterator = new PaginationIterable(this, "listProcesses", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, true, limit, args);
 
-    return iterator;
+  return iterator;
   }
 
+
   /**
-   * Get all processes for your organization.
+   * <p>Get all processes for your organization.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ProcessSummariesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -256,8 +238,7 @@ public class ProcessesApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(
-      ListProcessesOptionalParameters parameters) throws ApiException {
+  public ApiResponse<ProcessSummariesResponse> listProcessesWithHttpInfo(ListProcessesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String search = parameters.search;
     String tags = parameters.tags;
@@ -268,6 +249,7 @@ public class ProcessesApi {
     // create path and map variables
     String localVarPath = "/api/v2/processes";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -278,36 +260,19 @@ public class ProcessesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.ProcessesApi.listProcesses",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ProcessSummariesResponse>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.ProcessesApi.listProcesses", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ProcessSummariesResponse>() {});
   }
 
   /**
    * Get all processes.
    *
-   * <p>See {@link #listProcessesWithHttpInfo}.
+   * See {@link #listProcessesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ProcessSummariesResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ProcessSummariesResponse>> listProcessesWithHttpInfoAsync(
-      ListProcessesOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<ProcessSummariesResponse>> listProcessesWithHttpInfoAsync(ListProcessesOptionalParameters parameters) {
     Object localVarPostBody = null;
     String search = parameters.search;
     String tags = parameters.tags;
@@ -318,6 +283,7 @@ public class ProcessesApi {
     // create path and map variables
     String localVarPath = "/api/v2/processes";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -330,28 +296,12 @@ public class ProcessesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.ProcessesApi.listProcesses",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.ProcessesApi.listProcesses", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProcessSummariesResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ProcessSummariesResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ProcessSummariesResponse>() {});
   }
 }

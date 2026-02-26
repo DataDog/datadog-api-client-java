@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Team sync attributes. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Team sync attributes.</p>
+ */
 @JsonPropertyOrder({
   TeamSyncAttributes.JSON_PROPERTY_FREQUENCY,
   TeamSyncAttributes.JSON_PROPERTY_SOURCE,
   TeamSyncAttributes.JSON_PROPERTY_SYNC_MEMBERSHIP,
   TeamSyncAttributes.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamSyncAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private TeamSyncAttributesFrequency frequency;
 
@@ -44,14 +60,13 @@ public class TeamSyncAttributes {
 
   @JsonCreator
   public TeamSyncAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE) TeamSyncAttributesSource source,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TeamSyncAttributesType type) {
-    this.source = source;
-    this.unparsed |= !source.isValid();
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_SOURCE)TeamSyncAttributesSource source,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)TeamSyncAttributesType type) {
+        this.source = source;
+        this.unparsed |= !source.isValid();
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public TeamSyncAttributes frequency(TeamSyncAttributesFrequency frequency) {
     this.frequency = frequency;
     this.unparsed |= !frequency.isValid();
@@ -59,24 +74,22 @@ public class TeamSyncAttributes {
   }
 
   /**
-   * How often the sync process should be run. Defaults to <code>once</code> when not provided.
-   *
+   * <p>How often the sync process should be run. Defaults to <code>once</code> when not provided.</p>
    * @return frequency
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamSyncAttributesFrequency getFrequency() {
-    return frequency;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FREQUENCY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TeamSyncAttributesFrequency getFrequency() {
+        return frequency;
+      }
   public void setFrequency(TeamSyncAttributesFrequency frequency) {
     if (!frequency.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.frequency = frequency;
   }
-
   public TeamSyncAttributes source(TeamSyncAttributesSource source) {
     this.source = source;
     this.unparsed |= !source.isValid();
@@ -84,45 +97,40 @@ public class TeamSyncAttributes {
   }
 
   /**
-   * The external source platform for team synchronization. Only "github" is supported.
-   *
+   * <p>The external source platform for team synchronization. Only "github" is supported.</p>
    * @return source
-   */
-  @JsonProperty(JSON_PROPERTY_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TeamSyncAttributesSource getSource() {
-    return source;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public TeamSyncAttributesSource getSource() {
+        return source;
+      }
   public void setSource(TeamSyncAttributesSource source) {
     if (!source.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.source = source;
   }
-
   public TeamSyncAttributes syncMembership(Boolean syncMembership) {
     this.syncMembership = syncMembership;
     return this;
   }
 
   /**
-   * Whether to sync members from the external team to the Datadog team. Defaults to <code>false
-   * </code> when not provided.
-   *
+   * <p>Whether to sync members from the external team to the Datadog team. Defaults to <code>false</code> when not provided.</p>
    * @return syncMembership
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SYNC_MEMBERSHIP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getSyncMembership() {
-    return syncMembership;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SYNC_MEMBERSHIP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getSyncMembership() {
+        return syncMembership;
+      }
   public void setSyncMembership(Boolean syncMembership) {
     this.syncMembership = syncMembership;
   }
-
   public TeamSyncAttributes type(TeamSyncAttributesType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -130,33 +138,32 @@ public class TeamSyncAttributes {
   }
 
   /**
-   * The type of synchronization operation. "link" connects teams by matching names. "provision"
-   * creates new teams when no match is found.
-   *
+   * <p>The type of synchronization operation. "link" connects teams by matching names. "provision" creates new teams when no match is found.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TeamSyncAttributesType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public TeamSyncAttributesType getType() {
+        return type;
+      }
   public void setType(TeamSyncAttributesType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -165,7 +172,7 @@ public class TeamSyncAttributes {
   @JsonAnySetter
   public TeamSyncAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -189,12 +196,14 @@ public class TeamSyncAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamSyncAttributes object is equal to o. */
+  /**
+   * Return true if this TeamSyncAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -204,16 +213,13 @@ public class TeamSyncAttributes {
       return false;
     }
     TeamSyncAttributes teamSyncAttributes = (TeamSyncAttributes) o;
-    return Objects.equals(this.frequency, teamSyncAttributes.frequency)
-        && Objects.equals(this.source, teamSyncAttributes.source)
-        && Objects.equals(this.syncMembership, teamSyncAttributes.syncMembership)
-        && Objects.equals(this.type, teamSyncAttributes.type)
-        && Objects.equals(this.additionalProperties, teamSyncAttributes.additionalProperties);
+    return Objects.equals(this.frequency, teamSyncAttributes.frequency) && Objects.equals(this.source, teamSyncAttributes.source) && Objects.equals(this.syncMembership, teamSyncAttributes.syncMembership) && Objects.equals(this.type, teamSyncAttributes.type) && Objects.equals(this.additionalProperties, teamSyncAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(frequency, source, syncMembership, type, additionalProperties);
+    return Objects.hash(frequency,source,syncMembership,type, additionalProperties);
   }
 
   @Override
@@ -232,7 +238,8 @@ public class TeamSyncAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,20 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object representing a host. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object representing a host.</p>
+ */
 @JsonPropertyOrder({
   Host.JSON_PROPERTY_ALIASES,
   Host.JSON_PROPERTY_APPS,
@@ -36,10 +50,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Host.JSON_PROPERTY_TAGS_BY_SOURCE,
   Host.JSON_PROPERTY_UP
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Host {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIASES = "aliases";
   private List<String> aliases = null;
 
@@ -86,7 +100,6 @@ public class Host {
     this.aliases = aliases;
     return this;
   }
-
   public Host addAliasesItem(String aliasesItem) {
     if (this.aliases == null) {
       this.aliases = new ArrayList<>();
@@ -96,26 +109,23 @@ public class Host {
   }
 
   /**
-   * Host aliases collected by Datadog.
-   *
+   * <p>Host aliases collected by Datadog.</p>
    * @return aliases
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALIASES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getAliases() {
-    return aliases;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ALIASES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getAliases() {
+        return aliases;
+      }
   public void setAliases(List<String> aliases) {
     this.aliases = aliases;
   }
-
   public Host apps(List<String> apps) {
     this.apps = apps;
     return this;
   }
-
   public Host addAppsItem(String appsItem) {
     if (this.apps == null) {
       this.apps = new ArrayList<>();
@@ -125,126 +135,114 @@ public class Host {
   }
 
   /**
-   * The Datadog integrations reporting metrics for the host.
-   *
+   * <p>The Datadog integrations reporting metrics for the host.</p>
    * @return apps
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getApps() {
-    return apps;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APPS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getApps() {
+        return apps;
+      }
   public void setApps(List<String> apps) {
     this.apps = apps;
   }
-
   public Host awsName(String awsName) {
     this.awsName = awsName;
     return this;
   }
 
   /**
-   * AWS name of your host.
-   *
+   * <p>AWS name of your host.</p>
    * @return awsName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AWS_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAwsName() {
-    return awsName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AWS_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAwsName() {
+        return awsName;
+      }
   public void setAwsName(String awsName) {
     this.awsName = awsName;
   }
-
   public Host hostName(String hostName) {
     this.hostName = hostName;
     return this;
   }
 
   /**
-   * The host name.
-   *
+   * <p>The host name.</p>
    * @return hostName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOST_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHostName() {
-    return hostName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HOST_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getHostName() {
+        return hostName;
+      }
   public void setHostName(String hostName) {
     this.hostName = hostName;
   }
-
   public Host id(Long id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The host ID.
-   *
+   * <p>The host ID.</p>
    * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getId() {
-    return id;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getId() {
+        return id;
+      }
   public void setId(Long id) {
     this.id = id;
   }
-
   public Host isMuted(Boolean isMuted) {
     this.isMuted = isMuted;
     return this;
   }
 
   /**
-   * If a host is muted or unmuted.
-   *
+   * <p>If a host is muted or unmuted.</p>
    * @return isMuted
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_MUTED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsMuted() {
-    return isMuted;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_MUTED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsMuted() {
+        return isMuted;
+      }
   public void setIsMuted(Boolean isMuted) {
     this.isMuted = isMuted;
   }
-
   public Host lastReportedTime(Long lastReportedTime) {
     this.lastReportedTime = lastReportedTime;
     return this;
   }
 
   /**
-   * Last time the host reported a metric data point.
-   *
+   * <p>Last time the host reported a metric data point.</p>
    * @return lastReportedTime
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_REPORTED_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLastReportedTime() {
-    return lastReportedTime;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_REPORTED_TIME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLastReportedTime() {
+        return lastReportedTime;
+      }
   public void setLastReportedTime(Long lastReportedTime) {
     this.lastReportedTime = lastReportedTime;
   }
-
   public Host meta(HostMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -252,21 +250,19 @@ public class Host {
   }
 
   /**
-   * Metadata associated with your host.
-   *
+   * <p>Metadata associated with your host.</p>
    * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HostMeta getMeta() {
-    return meta;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_META)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public HostMeta getMeta() {
+        return meta;
+      }
   public void setMeta(HostMeta meta) {
     this.meta = meta;
   }
-
   public Host metrics(HostMetrics metrics) {
     this.metrics = metrics;
     this.unparsed |= metrics.unparsed;
@@ -274,78 +270,68 @@ public class Host {
   }
 
   /**
-   * Host Metrics collected.
-   *
+   * <p>Host Metrics collected.</p>
    * @return metrics
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRICS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HostMetrics getMetrics() {
-    return metrics;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METRICS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public HostMetrics getMetrics() {
+        return metrics;
+      }
   public void setMetrics(HostMetrics metrics) {
     this.metrics = metrics;
   }
-
   public Host muteTimeout(Long muteTimeout) {
     this.muteTimeout = JsonNullable.<Long>of(muteTimeout);
     return this;
   }
 
   /**
-   * Timeout of the mute applied to your host.
-   *
+   * <p>Timeout of the mute applied to your host.</p>
    * @return muteTimeout
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getMuteTimeout() {
-    return muteTimeout.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getMuteTimeout() {
+        return muteTimeout.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_MUTE_TIMEOUT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getMuteTimeout_JsonNullable() {
     return muteTimeout;
   }
-
-  @JsonProperty(JSON_PROPERTY_MUTE_TIMEOUT)
-  public void setMuteTimeout_JsonNullable(JsonNullable<Long> muteTimeout) {
+  @JsonProperty(JSON_PROPERTY_MUTE_TIMEOUT)public void setMuteTimeout_JsonNullable(JsonNullable<Long> muteTimeout) {
     this.muteTimeout = muteTimeout;
   }
-
   public void setMuteTimeout(Long muteTimeout) {
     this.muteTimeout = JsonNullable.<Long>of(muteTimeout);
   }
-
   public Host name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The host name.
-   *
+   * <p>The host name.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public Host sources(List<String> sources) {
     this.sources = sources;
     return this;
   }
-
   public Host addSourcesItem(String sourcesItem) {
     if (this.sources == null) {
       this.sources = new ArrayList<>();
@@ -355,26 +341,23 @@ public class Host {
   }
 
   /**
-   * Source or cloud provider associated with your host.
-   *
+   * <p>Source or cloud provider associated with your host.</p>
    * @return sources
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getSources() {
-    return sources;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SOURCES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getSources() {
+        return sources;
+      }
   public void setSources(List<String> sources) {
     this.sources = sources;
   }
-
   public Host tagsBySource(Map<String, List<String>> tagsBySource) {
     this.tagsBySource = tagsBySource;
     return this;
   }
-
   public Host putTagsBySourceItem(String key, List<String> tagsBySourceItem) {
     if (this.tagsBySource == null) {
       this.tagsBySource = new HashMap<>();
@@ -384,52 +367,49 @@ public class Host {
   }
 
   /**
-   * List of tags for each source (AWS, Datadog Agent, Chef..).
-   *
+   * <p>List of tags for each source (AWS, Datadog Agent, Chef..).</p>
    * @return tagsBySource
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS_BY_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, List<String>> getTagsBySource() {
-    return tagsBySource;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS_BY_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, List<String>> getTagsBySource() {
+        return tagsBySource;
+      }
   public void setTagsBySource(Map<String, List<String>> tagsBySource) {
     this.tagsBySource = tagsBySource;
   }
-
   public Host up(Boolean up) {
     this.up = up;
     return this;
   }
 
   /**
-   * Displays UP when the expected metrics are received and displays <code>???</code> if no metrics
-   * are received.
-   *
+   * <p>Displays UP when the expected metrics are received and displays <code>???</code> if no metrics are received.</p>
    * @return up
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getUp() {
-    return up;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getUp() {
+        return up;
+      }
   public void setUp(Boolean up) {
     this.up = up;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -438,7 +418,7 @@ public class Host {
   @JsonAnySetter
   public Host putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -462,12 +442,14 @@ public class Host {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this Host object is equal to o. */
+  /**
+   * Return true if this Host object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -477,41 +459,13 @@ public class Host {
       return false;
     }
     Host host = (Host) o;
-    return Objects.equals(this.aliases, host.aliases)
-        && Objects.equals(this.apps, host.apps)
-        && Objects.equals(this.awsName, host.awsName)
-        && Objects.equals(this.hostName, host.hostName)
-        && Objects.equals(this.id, host.id)
-        && Objects.equals(this.isMuted, host.isMuted)
-        && Objects.equals(this.lastReportedTime, host.lastReportedTime)
-        && Objects.equals(this.meta, host.meta)
-        && Objects.equals(this.metrics, host.metrics)
-        && Objects.equals(this.muteTimeout, host.muteTimeout)
-        && Objects.equals(this.name, host.name)
-        && Objects.equals(this.sources, host.sources)
-        && Objects.equals(this.tagsBySource, host.tagsBySource)
-        && Objects.equals(this.up, host.up)
-        && Objects.equals(this.additionalProperties, host.additionalProperties);
+    return Objects.equals(this.aliases, host.aliases) && Objects.equals(this.apps, host.apps) && Objects.equals(this.awsName, host.awsName) && Objects.equals(this.hostName, host.hostName) && Objects.equals(this.id, host.id) && Objects.equals(this.isMuted, host.isMuted) && Objects.equals(this.lastReportedTime, host.lastReportedTime) && Objects.equals(this.meta, host.meta) && Objects.equals(this.metrics, host.metrics) && Objects.equals(this.muteTimeout, host.muteTimeout) && Objects.equals(this.name, host.name) && Objects.equals(this.sources, host.sources) && Objects.equals(this.tagsBySource, host.tagsBySource) && Objects.equals(this.up, host.up) && Objects.equals(this.additionalProperties, host.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        aliases,
-        apps,
-        awsName,
-        hostName,
-        id,
-        isMuted,
-        lastReportedTime,
-        meta,
-        metrics,
-        muteTimeout,
-        name,
-        sources,
-        tagsBySource,
-        up,
-        additionalProperties);
+    return Objects.hash(aliases,apps,awsName,hostName,id,isMuted,lastReportedTime,meta,metrics,muteTimeout,name,sources,tagsBySource,up, additionalProperties);
   }
 
   @Override
@@ -540,7 +494,8 @@ public class Host {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

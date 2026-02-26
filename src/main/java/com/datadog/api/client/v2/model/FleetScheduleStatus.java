@@ -6,51 +6,74 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * The status of the schedule. - <code>active</code>: The schedule is active and will create
- * deployments according to its recurrence rule. - <code>inactive</code>: The schedule is inactive
- * and will not create any deployments.
+   * <p>The status of the schedule.
+   * - <code>active</code>: The schedule is active and will create deployments according to its recurrence rule.
+   * - <code>inactive</code>: The schedule is inactive and will not create any deployments.</p>
  */
 @JsonSerialize(using = FleetScheduleStatus.FleetScheduleStatusSerializer.class)
 public class FleetScheduleStatus extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("active", "inactive"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("active", "inactive"));
 
   public static final FleetScheduleStatus ACTIVE = new FleetScheduleStatus("active");
   public static final FleetScheduleStatus INACTIVE = new FleetScheduleStatus("inactive");
+
 
   FleetScheduleStatus(String value) {
     super(value, allowedValues);
   }
 
   public static class FleetScheduleStatusSerializer extends StdSerializer<FleetScheduleStatus> {
-    public FleetScheduleStatusSerializer(Class<FleetScheduleStatus> t) {
-      super(t);
-    }
+      public FleetScheduleStatusSerializer(Class<FleetScheduleStatus> t) {
+          super(t);
+      }
 
-    public FleetScheduleStatusSerializer() {
-      this(null);
-    }
+      public FleetScheduleStatusSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        FleetScheduleStatus value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(FleetScheduleStatus value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

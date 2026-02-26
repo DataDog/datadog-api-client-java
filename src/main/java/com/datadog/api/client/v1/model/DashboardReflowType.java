@@ -6,51 +6,74 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.Set;
+import java.util.HashSet;
 
 /**
- * Reflow type for a <strong>new dashboard layout</strong> dashboard. Set this only when layout type
- * is 'ordered'. If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's
- * set to 'auto', widgets should not have layouts.
+   * <p>Reflow type for a <strong>new dashboard layout</strong> dashboard. Set this only when layout type is 'ordered'.
+   * If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's set to 'auto',
+   * widgets should not have layouts.</p>
  */
 @JsonSerialize(using = DashboardReflowType.DashboardReflowTypeSerializer.class)
 public class DashboardReflowType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("auto", "fixed"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("auto", "fixed"));
 
   public static final DashboardReflowType AUTO = new DashboardReflowType("auto");
   public static final DashboardReflowType FIXED = new DashboardReflowType("fixed");
+
 
   DashboardReflowType(String value) {
     super(value, allowedValues);
   }
 
   public static class DashboardReflowTypeSerializer extends StdSerializer<DashboardReflowType> {
-    public DashboardReflowTypeSerializer(Class<DashboardReflowType> t) {
-      super(t);
-    }
+      public DashboardReflowTypeSerializer(Class<DashboardReflowType> t) {
+          super(t);
+      }
 
-    public DashboardReflowTypeSerializer() {
-      this(null);
-    }
+      public DashboardReflowTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        DashboardReflowType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(DashboardReflowType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

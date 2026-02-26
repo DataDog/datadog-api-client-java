@@ -1,34 +1,40 @@
+
 package com.datadog.api.client.v1.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v1.model.Dashboard;
-import com.datadog.api.client.v1.model.DashboardBulkDeleteRequest;
-import com.datadog.api.client.v1.model.DashboardDeleteResponse;
-import com.datadog.api.client.v1.model.DashboardRestoreRequest;
-import com.datadog.api.client.v1.model.DashboardSummary;
-import com.datadog.api.client.v1.model.DashboardSummaryDefinition;
-import com.datadog.api.client.v1.model.DeleteSharedDashboardResponse;
-import com.datadog.api.client.v1.model.SharedDashboard;
-import com.datadog.api.client.v1.model.SharedDashboardInvites;
-import com.datadog.api.client.v1.model.SharedDashboardUpdateRequest;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+import com.datadog.api.client.v1.model.DashboardBulkDeleteRequest;
+import com.datadog.api.client.v1.model.DashboardSummary;
+import com.datadog.api.client.v1.model.DashboardRestoreRequest;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.SharedDashboard;
+import com.datadog.api.client.v1.model.DeleteSharedDashboardResponse;
+import com.datadog.api.client.v1.model.SharedDashboardUpdateRequest;
+import com.datadog.api.client.v1.model.SharedDashboardInvites;
+import com.datadog.api.client.v1.model.DashboardDeleteResponse;
+import com.datadog.api.client.v1.model.DashboardSummaryDefinition;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardsApi {
   private ApiClient apiClient;
-
   public DashboardsApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -56,46 +62,42 @@ public class DashboardsApi {
   }
 
   /**
-   * Create a new dashboard.
-   *
-   * <p>See {@link #createDashboardWithHttpInfo}.
-   *
-   * @param body Create a dashboard request body. (required)
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   */
-  public Dashboard createDashboard(Dashboard body) throws ApiException {
+ * Create a new dashboard.
+ *
+ * See {@link #createDashboardWithHttpInfo}.
+ *
+ * @param body Create a dashboard request body. (required)
+ * @return Dashboard
+ * @throws ApiException if fails to make API call
+ */
+  public Dashboard  createDashboard(Dashboard body) throws ApiException {
     return createDashboardWithHttpInfo(body).getData();
   }
 
   /**
-   * Create a new dashboard.
-   *
-   * <p>See {@link #createDashboardWithHttpInfoAsync}.
-   *
-   * @param body Create a dashboard request body. (required)
-   * @return CompletableFuture&lt;Dashboard&gt;
-   */
-  public CompletableFuture<Dashboard> createDashboardAsync(Dashboard body) {
-    return createDashboardWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create a new dashboard.
+ *
+ * See {@link #createDashboardWithHttpInfoAsync}.
+ *
+ * @param body Create a dashboard request body. (required)
+ * @return CompletableFuture&lt;Dashboard&gt;
+ */
+  public CompletableFuture<Dashboard>createDashboardAsync(Dashboard body) {
+    return createDashboardWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create a dashboard using the specified options. When defining queries in your widgets, take
-   * note of which queries should have the <code>as_count()</code> or <code>as_rate()</code>
-   * modifiers appended. Refer to the following <a
-   * href="https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers">documentation</a>
-   * for more information on these modifiers.
+   * <p>Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the <code>as_count()</code> or <code>as_rate()</code> modifiers appended.
+   * Refer to the following <a href="https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers">documentation</a> for more information on these modifiers.</p>
    *
    * @param body Create a dashboard request body. (required)
    * @return ApiResponse&lt;Dashboard&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -109,123 +111,90 @@ public class DashboardsApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createDashboard");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createDashboard");
     }
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.createDashboard",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Dashboard>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.createDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Dashboard>() {});
   }
 
   /**
    * Create a new dashboard.
    *
-   * <p>See {@link #createDashboardWithHttpInfo}.
+   * See {@link #createDashboardWithHttpInfo}.
    *
    * @param body Create a dashboard request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Dashboard&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Dashboard>> createDashboardWithHttpInfoAsync(
-      Dashboard body) {
+  public CompletableFuture<ApiResponse<Dashboard>> createDashboardWithHttpInfoAsync(Dashboard body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createDashboard"));
-      return result;
+        CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createDashboard"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.createDashboard",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.createDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Dashboard>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Dashboard>() {});
   }
 
   /**
-   * Create a shared dashboard.
-   *
-   * <p>See {@link #createPublicDashboardWithHttpInfo}.
-   *
-   * @param body Create a shared dashboard request body. (required)
-   * @return SharedDashboard
-   * @throws ApiException if fails to make API call
-   */
-  public SharedDashboard createPublicDashboard(SharedDashboard body) throws ApiException {
+ * Create a shared dashboard.
+ *
+ * See {@link #createPublicDashboardWithHttpInfo}.
+ *
+ * @param body Create a shared dashboard request body. (required)
+ * @return SharedDashboard
+ * @throws ApiException if fails to make API call
+ */
+  public SharedDashboard  createPublicDashboard(SharedDashboard body) throws ApiException {
     return createPublicDashboardWithHttpInfo(body).getData();
   }
 
   /**
-   * Create a shared dashboard.
-   *
-   * <p>See {@link #createPublicDashboardWithHttpInfoAsync}.
-   *
-   * @param body Create a shared dashboard request body. (required)
-   * @return CompletableFuture&lt;SharedDashboard&gt;
-   */
-  public CompletableFuture<SharedDashboard> createPublicDashboardAsync(SharedDashboard body) {
-    return createPublicDashboardWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create a shared dashboard.
+ *
+ * See {@link #createPublicDashboardWithHttpInfoAsync}.
+ *
+ * @param body Create a shared dashboard request body. (required)
+ * @return CompletableFuture&lt;SharedDashboard&gt;
+ */
+  public CompletableFuture<SharedDashboard>createPublicDashboardAsync(SharedDashboard body) {
+    return createPublicDashboardWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Share a specified private dashboard, generating a URL at which it can be publicly viewed.
+   * <p>Share a specified private dashboard, generating a URL at which it can be publicly viewed.</p>
    *
    * @param body Create a shared dashboard request body. (required)
    * @return ApiResponse&lt;SharedDashboard&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -235,129 +204,95 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SharedDashboard> createPublicDashboardWithHttpInfo(SharedDashboard body)
-      throws ApiException {
+  public ApiResponse<SharedDashboard> createPublicDashboardWithHttpInfo(SharedDashboard body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createPublicDashboard");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createPublicDashboard");
     }
     // create path and map variables
     String localVarPath = "/api/v1/dashboard/public";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.createPublicDashboard",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SharedDashboard>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.createPublicDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SharedDashboard>() {});
   }
 
   /**
    * Create a shared dashboard.
    *
-   * <p>See {@link #createPublicDashboardWithHttpInfo}.
+   * See {@link #createPublicDashboardWithHttpInfo}.
    *
    * @param body Create a shared dashboard request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SharedDashboard&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SharedDashboard>> createPublicDashboardWithHttpInfoAsync(
-      SharedDashboard body) {
+  public CompletableFuture<ApiResponse<SharedDashboard>> createPublicDashboardWithHttpInfoAsync(SharedDashboard body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<SharedDashboard>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createPublicDashboard"));
-      return result;
+        CompletableFuture<ApiResponse<SharedDashboard>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createPublicDashboard"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v1/dashboard/public";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.createPublicDashboard",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.createPublicDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SharedDashboard>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SharedDashboard>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SharedDashboard>() {});
   }
 
   /**
-   * Delete a dashboard.
-   *
-   * <p>See {@link #deleteDashboardWithHttpInfo}.
-   *
-   * @param dashboardId The ID of the dashboard. (required)
-   * @return DashboardDeleteResponse
-   * @throws ApiException if fails to make API call
-   */
-  public DashboardDeleteResponse deleteDashboard(String dashboardId) throws ApiException {
+ * Delete a dashboard.
+ *
+ * See {@link #deleteDashboardWithHttpInfo}.
+ *
+ * @param dashboardId The ID of the dashboard. (required)
+ * @return DashboardDeleteResponse
+ * @throws ApiException if fails to make API call
+ */
+  public DashboardDeleteResponse  deleteDashboard(String dashboardId) throws ApiException {
     return deleteDashboardWithHttpInfo(dashboardId).getData();
   }
 
   /**
-   * Delete a dashboard.
-   *
-   * <p>See {@link #deleteDashboardWithHttpInfoAsync}.
-   *
-   * @param dashboardId The ID of the dashboard. (required)
-   * @return CompletableFuture&lt;DashboardDeleteResponse&gt;
-   */
-  public CompletableFuture<DashboardDeleteResponse> deleteDashboardAsync(String dashboardId) {
-    return deleteDashboardWithHttpInfoAsync(dashboardId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete a dashboard.
+ *
+ * See {@link #deleteDashboardWithHttpInfoAsync}.
+ *
+ * @param dashboardId The ID of the dashboard. (required)
+ * @return CompletableFuture&lt;DashboardDeleteResponse&gt;
+ */
+  public CompletableFuture<DashboardDeleteResponse>deleteDashboardAsync(String dashboardId) {
+    return deleteDashboardWithHttpInfoAsync(dashboardId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Delete a dashboard using the specified ID.
+   * <p>Delete a dashboard using the specified ID.</p>
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return ApiResponse&lt;DashboardDeleteResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -366,135 +301,96 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String dashboardId)
-      throws ApiException {
+  public ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String dashboardId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'dashboardId' is set
     if (dashboardId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'dashboardId' when calling deleteDashboard");
+      throw new ApiException(400, "Missing the required parameter 'dashboardId' when calling deleteDashboard");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/{dashboard_id}"
-            .replaceAll(
-                "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
+    String localVarPath = "/api/v1/dashboard/{dashboard_id}"
+      .replaceAll("\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.deleteDashboard",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DashboardDeleteResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.deleteDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DashboardDeleteResponse>() {});
   }
 
   /**
    * Delete a dashboard.
    *
-   * <p>See {@link #deleteDashboardWithHttpInfo}.
+   * See {@link #deleteDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;DashboardDeleteResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DashboardDeleteResponse>> deleteDashboardWithHttpInfoAsync(
-      String dashboardId) {
+  public CompletableFuture<ApiResponse<DashboardDeleteResponse>> deleteDashboardWithHttpInfoAsync(String dashboardId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'dashboardId' is set
     if (dashboardId == null) {
-      CompletableFuture<ApiResponse<DashboardDeleteResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'dashboardId' when calling deleteDashboard"));
-      return result;
+        CompletableFuture<ApiResponse<DashboardDeleteResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'dashboardId' when calling deleteDashboard"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/{dashboard_id}"
-            .replaceAll(
-                "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
+    String localVarPath = "/api/v1/dashboard/{dashboard_id}"
+      .replaceAll("\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.deleteDashboard",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.deleteDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DashboardDeleteResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DashboardDeleteResponse>() {});
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DashboardDeleteResponse>() {});
   }
 
   /**
-   * Delete dashboards.
-   *
-   * <p>See {@link #deleteDashboardsWithHttpInfo}.
-   *
-   * @param body Delete dashboards request body. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteDashboards(DashboardBulkDeleteRequest body) throws ApiException {
+ * Delete dashboards.
+ *
+ * See {@link #deleteDashboardsWithHttpInfo}.
+ *
+ * @param body Delete dashboards request body. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteDashboards(DashboardBulkDeleteRequest body) throws ApiException {
     deleteDashboardsWithHttpInfo(body);
   }
 
   /**
-   * Delete dashboards.
-   *
-   * <p>See {@link #deleteDashboardsWithHttpInfoAsync}.
-   *
-   * @param body Delete dashboards request body. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteDashboardsAsync(DashboardBulkDeleteRequest body) {
-    return deleteDashboardsWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete dashboards.
+ *
+ * See {@link #deleteDashboardsWithHttpInfoAsync}.
+ *
+ * @param body Delete dashboards request body. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteDashboardsAsync(DashboardBulkDeleteRequest body) {
+    return deleteDashboardsWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Delete dashboards using the specified IDs. If there are any failures, no dashboards will be
-   * deleted (partial success is not allowed).
+   * <p>Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).</p>
    *
    * @param body Delete dashboards request body. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -504,130 +400,95 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteDashboardsWithHttpInfo(DashboardBulkDeleteRequest body)
-      throws ApiException {
+  public ApiResponse<Void> deleteDashboardsWithHttpInfo(DashboardBulkDeleteRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling deleteDashboards");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling deleteDashboards");
     }
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.deleteDashboards",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.deleteDashboards", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Delete dashboards.
    *
-   * <p>See {@link #deleteDashboardsWithHttpInfo}.
+   * See {@link #deleteDashboardsWithHttpInfo}.
    *
    * @param body Delete dashboards request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteDashboardsWithHttpInfoAsync(
-      DashboardBulkDeleteRequest body) {
+  public CompletableFuture<ApiResponse<Void>> deleteDashboardsWithHttpInfoAsync(DashboardBulkDeleteRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling deleteDashboards"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling deleteDashboards"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.deleteDashboards",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.deleteDashboards", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Revoke a shared dashboard URL.
-   *
-   * <p>See {@link #deletePublicDashboardWithHttpInfo}.
-   *
-   * @param token The token of the shared dashboard. (required)
-   * @return DeleteSharedDashboardResponse
-   * @throws ApiException if fails to make API call
-   */
-  public DeleteSharedDashboardResponse deletePublicDashboard(String token) throws ApiException {
+ * Revoke a shared dashboard URL.
+ *
+ * See {@link #deletePublicDashboardWithHttpInfo}.
+ *
+ * @param token The token of the shared dashboard. (required)
+ * @return DeleteSharedDashboardResponse
+ * @throws ApiException if fails to make API call
+ */
+  public DeleteSharedDashboardResponse  deletePublicDashboard(String token) throws ApiException {
     return deletePublicDashboardWithHttpInfo(token).getData();
   }
 
   /**
-   * Revoke a shared dashboard URL.
-   *
-   * <p>See {@link #deletePublicDashboardWithHttpInfoAsync}.
-   *
-   * @param token The token of the shared dashboard. (required)
-   * @return CompletableFuture&lt;DeleteSharedDashboardResponse&gt;
-   */
-  public CompletableFuture<DeleteSharedDashboardResponse> deletePublicDashboardAsync(String token) {
-    return deletePublicDashboardWithHttpInfoAsync(token)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Revoke a shared dashboard URL.
+ *
+ * See {@link #deletePublicDashboardWithHttpInfoAsync}.
+ *
+ * @param token The token of the shared dashboard. (required)
+ * @return CompletableFuture&lt;DeleteSharedDashboardResponse&gt;
+ */
+  public CompletableFuture<DeleteSharedDashboardResponse>deletePublicDashboardAsync(String token) {
+    return deletePublicDashboardWithHttpInfoAsync(token).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Revoke the public URL for a dashboard (rendering it private) associated with the specified
-   * token.
+   * <p>Revoke the public URL for a dashboard (rendering it private) associated with the specified token.</p>
    *
    * @param token The token of the shared dashboard. (required)
    * @return ApiResponse&lt;DeleteSharedDashboardResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -636,140 +497,99 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DeleteSharedDashboardResponse> deletePublicDashboardWithHttpInfo(String token)
-      throws ApiException {
+  public ApiResponse<DeleteSharedDashboardResponse> deletePublicDashboardWithHttpInfo(String token) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'token' when calling deletePublicDashboard");
+      throw new ApiException(400, "Missing the required parameter 'token' when calling deletePublicDashboard");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.deletePublicDashboard",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DeleteSharedDashboardResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.deletePublicDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DeleteSharedDashboardResponse>() {});
   }
 
   /**
    * Revoke a shared dashboard URL.
    *
-   * <p>See {@link #deletePublicDashboardWithHttpInfo}.
+   * See {@link #deletePublicDashboardWithHttpInfo}.
    *
    * @param token The token of the shared dashboard. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;DeleteSharedDashboardResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DeleteSharedDashboardResponse>>
-      deletePublicDashboardWithHttpInfoAsync(String token) {
+  public CompletableFuture<ApiResponse<DeleteSharedDashboardResponse>> deletePublicDashboardWithHttpInfoAsync(String token) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      CompletableFuture<ApiResponse<DeleteSharedDashboardResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'token' when calling deletePublicDashboard"));
-      return result;
+        CompletableFuture<ApiResponse<DeleteSharedDashboardResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'token' when calling deletePublicDashboard"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.deletePublicDashboard",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.deletePublicDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<DeleteSharedDashboardResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<DeleteSharedDashboardResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DeleteSharedDashboardResponse>() {});
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DeleteSharedDashboardResponse>() {});
   }
 
   /**
-   * Revoke shared dashboard invitations.
-   *
-   * <p>See {@link #deletePublicDashboardInvitationWithHttpInfo}.
-   *
-   * @param token The token of the shared dashboard. (required)
-   * @param body Shared Dashboard Invitation deletion request body. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deletePublicDashboardInvitation(String token, SharedDashboardInvites body)
-      throws ApiException {
+ * Revoke shared dashboard invitations.
+ *
+ * See {@link #deletePublicDashboardInvitationWithHttpInfo}.
+ *
+ * @param token The token of the shared dashboard. (required)
+ * @param body Shared Dashboard Invitation deletion request body. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deletePublicDashboardInvitation(String token, SharedDashboardInvites body) throws ApiException {
     deletePublicDashboardInvitationWithHttpInfo(token, body);
   }
 
   /**
-   * Revoke shared dashboard invitations.
-   *
-   * <p>See {@link #deletePublicDashboardInvitationWithHttpInfoAsync}.
-   *
-   * @param token The token of the shared dashboard. (required)
-   * @param body Shared Dashboard Invitation deletion request body. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deletePublicDashboardInvitationAsync(
-      String token, SharedDashboardInvites body) {
-    return deletePublicDashboardInvitationWithHttpInfoAsync(token, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Revoke shared dashboard invitations.
+ *
+ * See {@link #deletePublicDashboardInvitationWithHttpInfoAsync}.
+ *
+ * @param token The token of the shared dashboard. (required)
+ * @param body Shared Dashboard Invitation deletion request body. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deletePublicDashboardInvitationAsync(String token, SharedDashboardInvites body) {
+    return deletePublicDashboardInvitationWithHttpInfoAsync(token, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Revoke previously sent invitation emails and active sessions used to access a given shared
-   * dashboard for specific email addresses.
+   * <p>Revoke previously sent invitation emails and active sessions used to access a given shared dashboard for specific email addresses.</p>
    *
    * @param token The token of the shared dashboard. (required)
    * @param body Shared Dashboard Invitation deletion request body. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
@@ -778,155 +598,110 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deletePublicDashboardInvitationWithHttpInfo(
-      String token, SharedDashboardInvites body) throws ApiException {
+  public ApiResponse<Void> deletePublicDashboardInvitationWithHttpInfo(String token, SharedDashboardInvites body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'token' when calling deletePublicDashboardInvitation");
+      throw new ApiException(400, "Missing the required parameter 'token' when calling deletePublicDashboardInvitation");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'body' when calling deletePublicDashboardInvitation");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling deletePublicDashboardInvitation");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}/invitation"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}/invitation"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.deletePublicDashboardInvitation",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.deletePublicDashboardInvitation", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Revoke shared dashboard invitations.
    *
-   * <p>See {@link #deletePublicDashboardInvitationWithHttpInfo}.
+   * See {@link #deletePublicDashboardInvitationWithHttpInfo}.
    *
    * @param token The token of the shared dashboard. (required)
    * @param body Shared Dashboard Invitation deletion request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deletePublicDashboardInvitationWithHttpInfoAsync(
-      String token, SharedDashboardInvites body) {
+  public CompletableFuture<ApiResponse<Void>> deletePublicDashboardInvitationWithHttpInfoAsync(String token, SharedDashboardInvites body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'token' when calling"
-                  + " deletePublicDashboardInvitation"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'token' when calling deletePublicDashboardInvitation"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling"
-                  + " deletePublicDashboardInvitation"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling deletePublicDashboardInvitation"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}/invitation"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}/invitation"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.deletePublicDashboardInvitation",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.deletePublicDashboardInvitation", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Get a dashboard.
-   *
-   * <p>See {@link #getDashboardWithHttpInfo}.
-   *
-   * @param dashboardId The ID of the dashboard. (required)
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   */
-  public Dashboard getDashboard(String dashboardId) throws ApiException {
+ * Get a dashboard.
+ *
+ * See {@link #getDashboardWithHttpInfo}.
+ *
+ * @param dashboardId The ID of the dashboard. (required)
+ * @return Dashboard
+ * @throws ApiException if fails to make API call
+ */
+  public Dashboard  getDashboard(String dashboardId) throws ApiException {
     return getDashboardWithHttpInfo(dashboardId).getData();
   }
 
   /**
-   * Get a dashboard.
-   *
-   * <p>See {@link #getDashboardWithHttpInfoAsync}.
-   *
-   * @param dashboardId The ID of the dashboard. (required)
-   * @return CompletableFuture&lt;Dashboard&gt;
-   */
-  public CompletableFuture<Dashboard> getDashboardAsync(String dashboardId) {
-    return getDashboardWithHttpInfoAsync(dashboardId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get a dashboard.
+ *
+ * See {@link #getDashboardWithHttpInfoAsync}.
+ *
+ * @param dashboardId The ID of the dashboard. (required)
+ * @return CompletableFuture&lt;Dashboard&gt;
+ */
+  public CompletableFuture<Dashboard>getDashboardAsync(String dashboardId) {
+    return getDashboardWithHttpInfoAsync(dashboardId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get a dashboard using the specified ID.
+   * <p>Get a dashboard using the specified ID.</p>
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return ApiResponse&lt;Dashboard&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -940,132 +715,92 @@ public class DashboardsApi {
 
     // verify the required parameter 'dashboardId' is set
     if (dashboardId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'dashboardId' when calling getDashboard");
+      throw new ApiException(400, "Missing the required parameter 'dashboardId' when calling getDashboard");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/{dashboard_id}"
-            .replaceAll(
-                "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
+    String localVarPath = "/api/v1/dashboard/{dashboard_id}"
+      .replaceAll("\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.getDashboard",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Dashboard>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.getDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Dashboard>() {});
   }
 
   /**
    * Get a dashboard.
    *
-   * <p>See {@link #getDashboardWithHttpInfo}.
+   * See {@link #getDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Dashboard&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Dashboard>> getDashboardWithHttpInfoAsync(
-      String dashboardId) {
+  public CompletableFuture<ApiResponse<Dashboard>> getDashboardWithHttpInfoAsync(String dashboardId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'dashboardId' is set
     if (dashboardId == null) {
-      CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'dashboardId' when calling getDashboard"));
-      return result;
+        CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'dashboardId' when calling getDashboard"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/{dashboard_id}"
-            .replaceAll(
-                "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
+    String localVarPath = "/api/v1/dashboard/{dashboard_id}"
+      .replaceAll("\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.getDashboard",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.getDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Dashboard>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Dashboard>() {});
   }
 
   /**
-   * Get a shared dashboard.
-   *
-   * <p>See {@link #getPublicDashboardWithHttpInfo}.
-   *
-   * @param token The token of the shared dashboard. Generated when a dashboard is shared.
-   *     (required)
-   * @return SharedDashboard
-   * @throws ApiException if fails to make API call
-   */
-  public SharedDashboard getPublicDashboard(String token) throws ApiException {
+ * Get a shared dashboard.
+ *
+ * See {@link #getPublicDashboardWithHttpInfo}.
+ *
+ * @param token The token of the shared dashboard. Generated when a dashboard is shared. (required)
+ * @return SharedDashboard
+ * @throws ApiException if fails to make API call
+ */
+  public SharedDashboard  getPublicDashboard(String token) throws ApiException {
     return getPublicDashboardWithHttpInfo(token).getData();
   }
 
   /**
-   * Get a shared dashboard.
-   *
-   * <p>See {@link #getPublicDashboardWithHttpInfoAsync}.
-   *
-   * @param token The token of the shared dashboard. Generated when a dashboard is shared.
-   *     (required)
-   * @return CompletableFuture&lt;SharedDashboard&gt;
-   */
-  public CompletableFuture<SharedDashboard> getPublicDashboardAsync(String token) {
-    return getPublicDashboardWithHttpInfoAsync(token)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get a shared dashboard.
+ *
+ * See {@link #getPublicDashboardWithHttpInfoAsync}.
+ *
+ * @param token The token of the shared dashboard. Generated when a dashboard is shared. (required)
+ * @return CompletableFuture&lt;SharedDashboard&gt;
+ */
+  public CompletableFuture<SharedDashboard>getPublicDashboardAsync(String token) {
+    return getPublicDashboardWithHttpInfoAsync(token).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Fetch an existing shared dashboard's sharing metadata associated with the specified token.
+   * <p>Fetch an existing shared dashboard's sharing metadata associated with the specified token.</p>
    *
-   * @param token The token of the shared dashboard. Generated when a dashboard is shared.
-   *     (required)
+   * @param token The token of the shared dashboard. Generated when a dashboard is shared. (required)
    * @return ApiResponse&lt;SharedDashboard&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1074,105 +809,70 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SharedDashboard> getPublicDashboardWithHttpInfo(String token)
-      throws ApiException {
+  public ApiResponse<SharedDashboard> getPublicDashboardWithHttpInfo(String token) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'token' when calling getPublicDashboard");
+      throw new ApiException(400, "Missing the required parameter 'token' when calling getPublicDashboard");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.getPublicDashboard",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SharedDashboard>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.getPublicDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SharedDashboard>() {});
   }
 
   /**
    * Get a shared dashboard.
    *
-   * <p>See {@link #getPublicDashboardWithHttpInfo}.
+   * See {@link #getPublicDashboardWithHttpInfo}.
    *
-   * @param token The token of the shared dashboard. Generated when a dashboard is shared.
-   *     (required)
+   * @param token The token of the shared dashboard. Generated when a dashboard is shared. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SharedDashboard&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SharedDashboard>> getPublicDashboardWithHttpInfoAsync(
-      String token) {
+  public CompletableFuture<ApiResponse<SharedDashboard>> getPublicDashboardWithHttpInfoAsync(String token) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      CompletableFuture<ApiResponse<SharedDashboard>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'token' when calling getPublicDashboard"));
-      return result;
+        CompletableFuture<ApiResponse<SharedDashboard>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'token' when calling getPublicDashboard"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.getPublicDashboard",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.getPublicDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SharedDashboard>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SharedDashboard>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SharedDashboard>() {});
   }
 
-  /** Manage optional parameters to getPublicDashboardInvitations. */
+  /**
+   * Manage optional parameters to getPublicDashboardInvitations.
+   */
   public static class GetPublicDashboardInvitationsOptionalParameters {
     private Long pageSize;
     private Long pageNumber;
 
     /**
      * Set pageSize.
-     *
      * @param pageSize The number of records to return in a single request. (optional)
      * @return GetPublicDashboardInvitationsOptionalParameters
      */
@@ -1183,7 +883,6 @@ public class DashboardsApi {
 
     /**
      * Set pageNumber.
-     *
      * @param pageNumber The page to access (base 0). (optional)
      * @return GetPublicDashboardInvitationsOptionalParameters
      */
@@ -1194,81 +893,71 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all invitations for a shared dashboard.
-   *
-   * <p>See {@link #getPublicDashboardInvitationsWithHttpInfo}.
-   *
-   * @param token Token of the shared dashboard for which to fetch invitations. (required)
-   * @return SharedDashboardInvites
-   * @throws ApiException if fails to make API call
-   */
-  public SharedDashboardInvites getPublicDashboardInvitations(String token) throws ApiException {
-    return getPublicDashboardInvitationsWithHttpInfo(
-            token, new GetPublicDashboardInvitationsOptionalParameters())
-        .getData();
+ * Get all invitations for a shared dashboard.
+ *
+ * See {@link #getPublicDashboardInvitationsWithHttpInfo}.
+ *
+ * @param token Token of the shared dashboard for which to fetch invitations. (required)
+ * @return SharedDashboardInvites
+ * @throws ApiException if fails to make API call
+ */
+  public SharedDashboardInvites getPublicDashboardInvitations (String token) throws ApiException {
+    return getPublicDashboardInvitationsWithHttpInfo( token, new GetPublicDashboardInvitationsOptionalParameters()).getData();
   }
 
   /**
-   * Get all invitations for a shared dashboard.
-   *
-   * <p>See {@link #getPublicDashboardInvitationsWithHttpInfoAsync}.
-   *
-   * @param token Token of the shared dashboard for which to fetch invitations. (required)
-   * @return CompletableFuture&lt;SharedDashboardInvites&gt;
-   */
-  public CompletableFuture<SharedDashboardInvites> getPublicDashboardInvitationsAsync(
-      String token) {
-    return getPublicDashboardInvitationsWithHttpInfoAsync(
-            token, new GetPublicDashboardInvitationsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all invitations for a shared dashboard.
+ *
+ * See {@link #getPublicDashboardInvitationsWithHttpInfoAsync}.
+ *
+ * @param token Token of the shared dashboard for which to fetch invitations. (required)
+ * @return CompletableFuture&lt;SharedDashboardInvites&gt;
+ */
+  public CompletableFuture<SharedDashboardInvites>getPublicDashboardInvitationsAsync(String token) {
+    return getPublicDashboardInvitationsWithHttpInfoAsync(token, new GetPublicDashboardInvitationsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get all invitations for a shared dashboard.
-   *
-   * <p>See {@link #getPublicDashboardInvitationsWithHttpInfo}.
-   *
-   * @param token Token of the shared dashboard for which to fetch invitations. (required)
-   * @param parameters Optional parameters for the request.
-   * @return SharedDashboardInvites
-   * @throws ApiException if fails to make API call
-   */
-  public SharedDashboardInvites getPublicDashboardInvitations(
-      String token, GetPublicDashboardInvitationsOptionalParameters parameters)
-      throws ApiException {
+ * Get all invitations for a shared dashboard.
+ *
+ * See {@link #getPublicDashboardInvitationsWithHttpInfo}.
+ *
+ * @param token Token of the shared dashboard for which to fetch invitations. (required)
+ * @param parameters Optional parameters for the request.
+ * @return SharedDashboardInvites
+ * @throws ApiException if fails to make API call
+ */
+  public SharedDashboardInvites getPublicDashboardInvitations(String token, GetPublicDashboardInvitationsOptionalParameters parameters) throws ApiException {
     return getPublicDashboardInvitationsWithHttpInfo(token, parameters).getData();
   }
 
   /**
-   * Get all invitations for a shared dashboard.
-   *
-   * <p>See {@link #getPublicDashboardInvitationsWithHttpInfoAsync}.
-   *
-   * @param token Token of the shared dashboard for which to fetch invitations. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;SharedDashboardInvites&gt;
-   */
-  public CompletableFuture<SharedDashboardInvites> getPublicDashboardInvitationsAsync(
-      String token, GetPublicDashboardInvitationsOptionalParameters parameters) {
-    return getPublicDashboardInvitationsWithHttpInfoAsync(token, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all invitations for a shared dashboard.
+ *
+ * See {@link #getPublicDashboardInvitationsWithHttpInfoAsync}.
+ *
+ * @param token Token of the shared dashboard for which to fetch invitations. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;SharedDashboardInvites&gt;
+ */
+  public CompletableFuture<SharedDashboardInvites>getPublicDashboardInvitationsAsync( String token, GetPublicDashboardInvitationsOptionalParameters parameters) {
+    return getPublicDashboardInvitationsWithHttpInfoAsync(token, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Describe the invitations that exist for the given shared dashboard (paginated).
+   * <p>Describe the invitations that exist for the given shared dashboard (paginated).</p>
    *
    * @param token Token of the shared dashboard for which to fetch invitations. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SharedDashboardInvites&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1277,79 +966,55 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SharedDashboardInvites> getPublicDashboardInvitationsWithHttpInfo(
-      String token, GetPublicDashboardInvitationsOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<SharedDashboardInvites> getPublicDashboardInvitationsWithHttpInfo(String token, GetPublicDashboardInvitationsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'token' when calling getPublicDashboardInvitations");
+      throw new ApiException(400, "Missing the required parameter 'token' when calling getPublicDashboardInvitations");
     }
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}/invitation"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}/invitation"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.getPublicDashboardInvitations",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SharedDashboardInvites>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.getPublicDashboardInvitations", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SharedDashboardInvites>() {});
   }
 
   /**
    * Get all invitations for a shared dashboard.
    *
-   * <p>See {@link #getPublicDashboardInvitationsWithHttpInfo}.
+   * See {@link #getPublicDashboardInvitationsWithHttpInfo}.
    *
    * @param token Token of the shared dashboard for which to fetch invitations. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;SharedDashboardInvites&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SharedDashboardInvites>>
-      getPublicDashboardInvitationsWithHttpInfoAsync(
-          String token, GetPublicDashboardInvitationsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<SharedDashboardInvites>> getPublicDashboardInvitationsWithHttpInfoAsync(String token, GetPublicDashboardInvitationsOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      CompletableFuture<ApiResponse<SharedDashboardInvites>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'token' when calling getPublicDashboardInvitations"));
-      return result;
+        CompletableFuture<ApiResponse<SharedDashboardInvites>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'token' when calling getPublicDashboardInvitations"));
+        return result;
     }
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}/invitation"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}/invitation"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1358,32 +1023,18 @@ public class DashboardsApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.getPublicDashboardInvitations",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.getPublicDashboardInvitations", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SharedDashboardInvites>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SharedDashboardInvites>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SharedDashboardInvites>() {});
   }
 
-  /** Manage optional parameters to listDashboards. */
+  /**
+   * Manage optional parameters to listDashboards.
+   */
   public static class ListDashboardsOptionalParameters {
     private Boolean filterShared;
     private Boolean filterDeleted;
@@ -1392,9 +1043,7 @@ public class DashboardsApi {
 
     /**
      * Set filterShared.
-     *
-     * @param filterShared When <code>true</code>, this query only returns shared custom created or
-     *     cloned dashboards. (optional)
+     * @param filterShared When <code>true</code>, this query only returns shared custom created or cloned dashboards. (optional)
      * @return ListDashboardsOptionalParameters
      */
     public ListDashboardsOptionalParameters filterShared(Boolean filterShared) {
@@ -1404,10 +1053,7 @@ public class DashboardsApi {
 
     /**
      * Set filterDeleted.
-     *
-     * @param filterDeleted When <code>true</code>, this query returns only deleted custom-created
-     *     or cloned dashboards. This parameter is incompatible with <code>filter[shared]</code>.
-     *     (optional)
+     * @param filterDeleted When <code>true</code>, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with <code>filter[shared]</code>. (optional)
      * @return ListDashboardsOptionalParameters
      */
     public ListDashboardsOptionalParameters filterDeleted(Boolean filterDeleted) {
@@ -1417,9 +1063,7 @@ public class DashboardsApi {
 
     /**
      * Set count.
-     *
-     * @param count The maximum number of dashboards returned in the list. (optional, default to
-     *     100)
+     * @param count The maximum number of dashboards returned in the list. (optional, default to 100)
      * @return ListDashboardsOptionalParameters
      */
     public ListDashboardsOptionalParameters count(Long count) {
@@ -1429,7 +1073,6 @@ public class DashboardsApi {
 
     /**
      * Set start.
-     *
      * @param start The specific offset to use as the beginning of the returned response. (optional)
      * @return ListDashboardsOptionalParameters
      */
@@ -1440,126 +1083,112 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards.
-   *
-   * <p>See {@link #listDashboardsWithHttpInfo}.
-   *
-   * @return DashboardSummary
-   * @throws ApiException if fails to make API call
-   */
-  public DashboardSummary listDashboards() throws ApiException {
+ * Get all dashboards.
+ *
+ * See {@link #listDashboardsWithHttpInfo}.
+ *
+ * @return DashboardSummary
+ * @throws ApiException if fails to make API call
+ */
+  public DashboardSummary listDashboards () throws ApiException {
     return listDashboardsWithHttpInfo(new ListDashboardsOptionalParameters()).getData();
   }
 
   /**
-   * Get all dashboards.
-   *
-   * <p>See {@link #listDashboardsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;DashboardSummary&gt;
-   */
-  public CompletableFuture<DashboardSummary> listDashboardsAsync() {
-    return listDashboardsWithHttpInfoAsync(new ListDashboardsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all dashboards.
+ *
+ * See {@link #listDashboardsWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;DashboardSummary&gt;
+ */
+  public CompletableFuture<DashboardSummary>listDashboardsAsync() {
+    return listDashboardsWithHttpInfoAsync(new ListDashboardsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get all dashboards.
-   *
-   * <p>See {@link #listDashboardsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return DashboardSummary
-   * @throws ApiException if fails to make API call
-   */
-  public DashboardSummary listDashboards(ListDashboardsOptionalParameters parameters)
-      throws ApiException {
+ * Get all dashboards.
+ *
+ * See {@link #listDashboardsWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return DashboardSummary
+ * @throws ApiException if fails to make API call
+ */
+  public DashboardSummary listDashboards(ListDashboardsOptionalParameters parameters) throws ApiException {
     return listDashboardsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get all dashboards.
-   *
-   * <p>See {@link #listDashboardsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;DashboardSummary&gt;
-   */
-  public CompletableFuture<DashboardSummary> listDashboardsAsync(
-      ListDashboardsOptionalParameters parameters) {
-    return listDashboardsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all dashboards.
+ *
+ * See {@link #listDashboardsWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;DashboardSummary&gt;
+ */
+  public CompletableFuture<DashboardSummary>listDashboardsAsync(ListDashboardsOptionalParameters parameters) {
+    return listDashboardsWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get all dashboards.
-   *
-   * <p>See {@link #listDashboardsWithHttpInfo}.
-   *
-   * @return PaginationIterable&lt;DashboardSummaryDefinition&gt;
-   */
+ * Get all dashboards.
+ *
+ * See {@link #listDashboardsWithHttpInfo}.
+ *
+ * @return PaginationIterable&lt;DashboardSummaryDefinition&gt;
+ */
   public PaginationIterable<DashboardSummaryDefinition> listDashboardsWithPagination() {
     ListDashboardsOptionalParameters parameters = new ListDashboardsOptionalParameters();
     return listDashboardsWithPagination(parameters);
   }
 
   /**
-   * Get all dashboards.
-   *
-   * <p>See {@link #listDashboardsWithHttpInfo}.
-   *
-   * @return DashboardSummary
-   */
-  public PaginationIterable<DashboardSummaryDefinition> listDashboardsWithPagination(
-      ListDashboardsOptionalParameters parameters) {
-    String resultsPath = "getDashboards";
-    String valueGetterPath = "";
-    String valueSetterPath = "start";
-    Boolean valueSetterParamOptional = true;
-    Long limit;
+ * Get all dashboards.
+ *
+ * See {@link #listDashboardsWithHttpInfo}.
+ *
+ * @return DashboardSummary
+ */
+  public PaginationIterable<DashboardSummaryDefinition> listDashboardsWithPagination(ListDashboardsOptionalParameters parameters) {
+  String resultsPath = "getDashboards";
+  String valueGetterPath = "";
+  String valueSetterPath = "start";
+  Boolean valueSetterParamOptional = true;
+  Long limit;
 
-    if (parameters.count == null) {
+  
+  if (parameters.count == null) {
       limit = 100l;
       parameters.count(limit);
-    } else {
+  } else {
       limit = parameters.count;
-    }
+  }
+  
 
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
+  
+  LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+  args.put("optionalParams", parameters);
 
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "listDashboards",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            true,
-            limit,
-            args);
+  PaginationIterable iterator = new PaginationIterable(this, "listDashboards", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, true, limit, args);
 
-    return iterator;
+  return iterator;
   }
 
+
   /**
-   * Get all dashboards.
-   *
-   * <p><strong>Note</strong>: This query will only return custom created or cloned dashboards. This
-   * query will not return preset dashboards.
+   * <p>Get all dashboards.</p>
+   * <p><strong>Note</strong>: This query will only return custom created or cloned dashboards.
+   * This query will not return preset dashboards.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DashboardSummary&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1567,8 +1196,7 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DashboardSummary> listDashboardsWithHttpInfo(
-      ListDashboardsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<DashboardSummary> listDashboardsWithHttpInfo(ListDashboardsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Boolean filterShared = parameters.filterShared;
     Boolean filterDeleted = parameters.filterDeleted;
@@ -1577,6 +1205,7 @@ public class DashboardsApi {
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1585,36 +1214,19 @@ public class DashboardsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.listDashboards",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DashboardSummary>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.listDashboards", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DashboardSummary>() {});
   }
 
   /**
    * Get all dashboards.
    *
-   * <p>See {@link #listDashboardsWithHttpInfo}.
+   * See {@link #listDashboardsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;DashboardSummary&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<DashboardSummary>> listDashboardsWithHttpInfoAsync(
-      ListDashboardsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<DashboardSummary>> listDashboardsWithHttpInfoAsync(ListDashboardsOptionalParameters parameters) {
     Object localVarPostBody = null;
     Boolean filterShared = parameters.filterShared;
     Boolean filterDeleted = parameters.filterDeleted;
@@ -1623,6 +1235,7 @@ public class DashboardsApi {
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1633,68 +1246,50 @@ public class DashboardsApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.listDashboards",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.listDashboards", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<DashboardSummary>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DashboardSummary>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<DashboardSummary>() {});
   }
 
   /**
-   * Restore deleted dashboards.
-   *
-   * <p>See {@link #restoreDashboardsWithHttpInfo}.
-   *
-   * @param body Restore dashboards request body. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void restoreDashboards(DashboardRestoreRequest body) throws ApiException {
+ * Restore deleted dashboards.
+ *
+ * See {@link #restoreDashboardsWithHttpInfo}.
+ *
+ * @param body Restore dashboards request body. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  restoreDashboards(DashboardRestoreRequest body) throws ApiException {
     restoreDashboardsWithHttpInfo(body);
   }
 
   /**
-   * Restore deleted dashboards.
-   *
-   * <p>See {@link #restoreDashboardsWithHttpInfoAsync}.
-   *
-   * @param body Restore dashboards request body. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> restoreDashboardsAsync(DashboardRestoreRequest body) {
-    return restoreDashboardsWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Restore deleted dashboards.
+ *
+ * See {@link #restoreDashboardsWithHttpInfoAsync}.
+ *
+ * @param body Restore dashboards request body. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>restoreDashboardsAsync(DashboardRestoreRequest body) {
+    return restoreDashboardsWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Restore dashboards using the specified IDs. If there are any failures, no dashboards will be
-   * restored (partial success is not allowed).
+   * <p>Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).</p>
    *
    * @param body Restore dashboards request body. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -1704,136 +1299,98 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> restoreDashboardsWithHttpInfo(DashboardRestoreRequest body)
-      throws ApiException {
+  public ApiResponse<Void> restoreDashboardsWithHttpInfo(DashboardRestoreRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling restoreDashboards");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling restoreDashboards");
     }
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.restoreDashboards",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.restoreDashboards", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Restore deleted dashboards.
    *
-   * <p>See {@link #restoreDashboardsWithHttpInfo}.
+   * See {@link #restoreDashboardsWithHttpInfo}.
    *
    * @param body Restore dashboards request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> restoreDashboardsWithHttpInfoAsync(
-      DashboardRestoreRequest body) {
+  public CompletableFuture<ApiResponse<Void>> restoreDashboardsWithHttpInfoAsync(DashboardRestoreRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling restoreDashboards"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling restoreDashboards"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.restoreDashboards",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.restoreDashboards", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Send shared dashboard invitation email.
-   *
-   * <p>See {@link #sendPublicDashboardInvitationWithHttpInfo}.
-   *
-   * @param token The token of the shared dashboard. (required)
-   * @param body Shared Dashboard Invitation request body. (required)
-   * @return SharedDashboardInvites
-   * @throws ApiException if fails to make API call
-   */
-  public SharedDashboardInvites sendPublicDashboardInvitation(
-      String token, SharedDashboardInvites body) throws ApiException {
+ * Send shared dashboard invitation email.
+ *
+ * See {@link #sendPublicDashboardInvitationWithHttpInfo}.
+ *
+ * @param token The token of the shared dashboard. (required)
+ * @param body Shared Dashboard Invitation request body. (required)
+ * @return SharedDashboardInvites
+ * @throws ApiException if fails to make API call
+ */
+  public SharedDashboardInvites  sendPublicDashboardInvitation(String token, SharedDashboardInvites body) throws ApiException {
     return sendPublicDashboardInvitationWithHttpInfo(token, body).getData();
   }
 
   /**
-   * Send shared dashboard invitation email.
-   *
-   * <p>See {@link #sendPublicDashboardInvitationWithHttpInfoAsync}.
-   *
-   * @param token The token of the shared dashboard. (required)
-   * @param body Shared Dashboard Invitation request body. (required)
-   * @return CompletableFuture&lt;SharedDashboardInvites&gt;
-   */
-  public CompletableFuture<SharedDashboardInvites> sendPublicDashboardInvitationAsync(
-      String token, SharedDashboardInvites body) {
-    return sendPublicDashboardInvitationWithHttpInfoAsync(token, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Send shared dashboard invitation email.
+ *
+ * See {@link #sendPublicDashboardInvitationWithHttpInfoAsync}.
+ *
+ * @param token The token of the shared dashboard. (required)
+ * @param body Shared Dashboard Invitation request body. (required)
+ * @return CompletableFuture&lt;SharedDashboardInvites&gt;
+ */
+  public CompletableFuture<SharedDashboardInvites>sendPublicDashboardInvitationAsync(String token, SharedDashboardInvites body) {
+    return sendPublicDashboardInvitationWithHttpInfoAsync(token, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Send emails to specified email addresses containing links to access a given authenticated
-   * shared dashboard. Email addresses must already belong to the authenticated shared dashboard's
-   * share_list.
+   * <p>Send emails to specified email addresses containing links to access a given authenticated shared dashboard. Email addresses must already belong to the authenticated shared dashboard's share_list.</p>
    *
    * @param token The token of the shared dashboard. (required)
    * @param body Shared Dashboard Invitation request body. (required)
    * @return ApiResponse&lt;SharedDashboardInvites&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
@@ -1843,154 +1400,113 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SharedDashboardInvites> sendPublicDashboardInvitationWithHttpInfo(
-      String token, SharedDashboardInvites body) throws ApiException {
+  public ApiResponse<SharedDashboardInvites> sendPublicDashboardInvitationWithHttpInfo(String token, SharedDashboardInvites body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'token' when calling sendPublicDashboardInvitation");
+      throw new ApiException(400, "Missing the required parameter 'token' when calling sendPublicDashboardInvitation");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling sendPublicDashboardInvitation");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling sendPublicDashboardInvitation");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}/invitation"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}/invitation"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.sendPublicDashboardInvitation",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SharedDashboardInvites>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.sendPublicDashboardInvitation", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SharedDashboardInvites>() {});
   }
 
   /**
    * Send shared dashboard invitation email.
    *
-   * <p>See {@link #sendPublicDashboardInvitationWithHttpInfo}.
+   * See {@link #sendPublicDashboardInvitationWithHttpInfo}.
    *
    * @param token The token of the shared dashboard. (required)
    * @param body Shared Dashboard Invitation request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SharedDashboardInvites&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SharedDashboardInvites>>
-      sendPublicDashboardInvitationWithHttpInfoAsync(String token, SharedDashboardInvites body) {
+  public CompletableFuture<ApiResponse<SharedDashboardInvites>> sendPublicDashboardInvitationWithHttpInfoAsync(String token, SharedDashboardInvites body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      CompletableFuture<ApiResponse<SharedDashboardInvites>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'token' when calling sendPublicDashboardInvitation"));
-      return result;
+        CompletableFuture<ApiResponse<SharedDashboardInvites>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'token' when calling sendPublicDashboardInvitation"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<SharedDashboardInvites>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling sendPublicDashboardInvitation"));
-      return result;
+        CompletableFuture<ApiResponse<SharedDashboardInvites>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling sendPublicDashboardInvitation"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}/invitation"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}/invitation"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.sendPublicDashboardInvitation",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.sendPublicDashboardInvitation", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SharedDashboardInvites>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SharedDashboardInvites>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SharedDashboardInvites>() {});
   }
 
   /**
-   * Update a dashboard.
-   *
-   * <p>See {@link #updateDashboardWithHttpInfo}.
-   *
-   * @param dashboardId The ID of the dashboard. (required)
-   * @param body Update Dashboard request body. (required)
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   */
-  public Dashboard updateDashboard(String dashboardId, Dashboard body) throws ApiException {
+ * Update a dashboard.
+ *
+ * See {@link #updateDashboardWithHttpInfo}.
+ *
+ * @param dashboardId The ID of the dashboard. (required)
+ * @param body Update Dashboard request body. (required)
+ * @return Dashboard
+ * @throws ApiException if fails to make API call
+ */
+  public Dashboard  updateDashboard(String dashboardId, Dashboard body) throws ApiException {
     return updateDashboardWithHttpInfo(dashboardId, body).getData();
   }
 
   /**
-   * Update a dashboard.
-   *
-   * <p>See {@link #updateDashboardWithHttpInfoAsync}.
-   *
-   * @param dashboardId The ID of the dashboard. (required)
-   * @param body Update Dashboard request body. (required)
-   * @return CompletableFuture&lt;Dashboard&gt;
-   */
-  public CompletableFuture<Dashboard> updateDashboardAsync(String dashboardId, Dashboard body) {
-    return updateDashboardWithHttpInfoAsync(dashboardId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update a dashboard.
+ *
+ * See {@link #updateDashboardWithHttpInfoAsync}.
+ *
+ * @param dashboardId The ID of the dashboard. (required)
+ * @param body Update Dashboard request body. (required)
+ * @return CompletableFuture&lt;Dashboard&gt;
+ */
+  public CompletableFuture<Dashboard>updateDashboardAsync(String dashboardId, Dashboard body) {
+    return updateDashboardWithHttpInfoAsync(dashboardId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update a dashboard using the specified ID.
+   * <p>Update a dashboard using the specified ID.</p>
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @param body Update Dashboard request body. (required)
    * @return ApiResponse&lt;Dashboard&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2000,156 +1516,113 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, Dashboard body)
-      throws ApiException {
+  public ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, Dashboard body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'dashboardId' is set
     if (dashboardId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'dashboardId' when calling updateDashboard");
+      throw new ApiException(400, "Missing the required parameter 'dashboardId' when calling updateDashboard");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateDashboard");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateDashboard");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/{dashboard_id}"
-            .replaceAll(
-                "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
+    String localVarPath = "/api/v1/dashboard/{dashboard_id}"
+      .replaceAll("\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.updateDashboard",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PUT",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Dashboard>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.updateDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Dashboard>() {});
   }
 
   /**
    * Update a dashboard.
    *
-   * <p>See {@link #updateDashboardWithHttpInfo}.
+   * See {@link #updateDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @param body Update Dashboard request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Dashboard&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Dashboard>> updateDashboardWithHttpInfoAsync(
-      String dashboardId, Dashboard body) {
+  public CompletableFuture<ApiResponse<Dashboard>> updateDashboardWithHttpInfoAsync(String dashboardId, Dashboard body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'dashboardId' is set
     if (dashboardId == null) {
-      CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'dashboardId' when calling updateDashboard"));
-      return result;
+        CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'dashboardId' when calling updateDashboard"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateDashboard"));
-      return result;
+        CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateDashboard"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/{dashboard_id}"
-            .replaceAll(
-                "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
+    String localVarPath = "/api/v1/dashboard/{dashboard_id}"
+      .replaceAll("\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.updateDashboard",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.updateDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PUT",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<Dashboard>() {});
+    return apiClient.invokeAPIAsync("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<Dashboard>() {});
   }
 
   /**
-   * Update a shared dashboard.
-   *
-   * <p>See {@link #updatePublicDashboardWithHttpInfo}.
-   *
-   * @param token The token of the shared dashboard. (required)
-   * @param body Update Dashboard request body. (required)
-   * @return SharedDashboard
-   * @throws ApiException if fails to make API call
-   */
-  public SharedDashboard updatePublicDashboard(String token, SharedDashboardUpdateRequest body)
-      throws ApiException {
+ * Update a shared dashboard.
+ *
+ * See {@link #updatePublicDashboardWithHttpInfo}.
+ *
+ * @param token The token of the shared dashboard. (required)
+ * @param body Update Dashboard request body. (required)
+ * @return SharedDashboard
+ * @throws ApiException if fails to make API call
+ */
+  public SharedDashboard  updatePublicDashboard(String token, SharedDashboardUpdateRequest body) throws ApiException {
     return updatePublicDashboardWithHttpInfo(token, body).getData();
   }
 
   /**
-   * Update a shared dashboard.
-   *
-   * <p>See {@link #updatePublicDashboardWithHttpInfoAsync}.
-   *
-   * @param token The token of the shared dashboard. (required)
-   * @param body Update Dashboard request body. (required)
-   * @return CompletableFuture&lt;SharedDashboard&gt;
-   */
-  public CompletableFuture<SharedDashboard> updatePublicDashboardAsync(
-      String token, SharedDashboardUpdateRequest body) {
-    return updatePublicDashboardWithHttpInfoAsync(token, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update a shared dashboard.
+ *
+ * See {@link #updatePublicDashboardWithHttpInfoAsync}.
+ *
+ * @param token The token of the shared dashboard. (required)
+ * @param body Update Dashboard request body. (required)
+ * @return CompletableFuture&lt;SharedDashboard&gt;
+ */
+  public CompletableFuture<SharedDashboard>updatePublicDashboardAsync(String token, SharedDashboardUpdateRequest body) {
+    return updatePublicDashboardWithHttpInfoAsync(token, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update a shared dashboard associated with the specified token.
+   * <p>Update a shared dashboard associated with the specified token.</p>
    *
    * @param token The token of the shared dashboard. (required)
    * @param body Update Dashboard request body. (required)
    * @return ApiResponse&lt;SharedDashboard&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2159,109 +1632,71 @@ public class DashboardsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SharedDashboard> updatePublicDashboardWithHttpInfo(
-      String token, SharedDashboardUpdateRequest body) throws ApiException {
+  public ApiResponse<SharedDashboard> updatePublicDashboardWithHttpInfo(String token, SharedDashboardUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'token' when calling updatePublicDashboard");
+      throw new ApiException(400, "Missing the required parameter 'token' when calling updatePublicDashboard");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updatePublicDashboard");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updatePublicDashboard");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v1.DashboardsApi.updatePublicDashboard",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PUT",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SharedDashboard>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v1.DashboardsApi.updatePublicDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SharedDashboard>() {});
   }
 
   /**
    * Update a shared dashboard.
    *
-   * <p>See {@link #updatePublicDashboardWithHttpInfo}.
+   * See {@link #updatePublicDashboardWithHttpInfo}.
    *
    * @param token The token of the shared dashboard. (required)
    * @param body Update Dashboard request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SharedDashboard&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SharedDashboard>> updatePublicDashboardWithHttpInfoAsync(
-      String token, SharedDashboardUpdateRequest body) {
+  public CompletableFuture<ApiResponse<SharedDashboard>> updatePublicDashboardWithHttpInfoAsync(String token, SharedDashboardUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'token' is set
     if (token == null) {
-      CompletableFuture<ApiResponse<SharedDashboard>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'token' when calling updatePublicDashboard"));
-      return result;
+        CompletableFuture<ApiResponse<SharedDashboard>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'token' when calling updatePublicDashboard"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<SharedDashboard>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updatePublicDashboard"));
-      return result;
+        CompletableFuture<ApiResponse<SharedDashboard>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updatePublicDashboard"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v1/dashboard/public/{token}"
-            .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
+    String localVarPath = "/api/v1/dashboard/public/{token}"
+      .replaceAll("\\{" + "token" + "\\}", apiClient.escapeString(token.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v1.DashboardsApi.updatePublicDashboard",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v1.DashboardsApi.updatePublicDashboard", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SharedDashboard>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PUT",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SharedDashboard>() {});
+    return apiClient.invokeAPIAsync("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SharedDashboard>() {});
   }
 }

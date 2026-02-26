@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The metadata associated with a request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The metadata associated with a request.</p>
+ */
 @JsonPropertyOrder({
   RUMResponseMetadata.JSON_PROPERTY_ELAPSED,
   RUMResponseMetadata.JSON_PROPERTY_PAGE,
@@ -26,10 +41,10 @@ import java.util.Objects;
   RUMResponseMetadata.JSON_PROPERTY_STATUS,
   RUMResponseMetadata.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMResponseMetadata {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ELAPSED = "elapsed";
   private Long elapsed;
 
@@ -51,21 +66,19 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * The time elapsed in milliseconds.
-   *
+   * <p>The time elapsed in milliseconds.</p>
    * @return elapsed
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ELAPSED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getElapsed() {
-    return elapsed;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ELAPSED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getElapsed() {
+        return elapsed;
+      }
   public void setElapsed(Long elapsed) {
     this.elapsed = elapsed;
   }
-
   public RUMResponseMetadata page(RUMResponsePage page) {
     this.page = page;
     this.unparsed |= page.unparsed;
@@ -73,42 +86,38 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * Paging attributes.
-   *
+   * <p>Paging attributes.</p>
    * @return page
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RUMResponsePage getPage() {
-    return page;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RUMResponsePage getPage() {
+        return page;
+      }
   public void setPage(RUMResponsePage page) {
     this.page = page;
   }
-
   public RUMResponseMetadata requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
 
   /**
-   * The identifier of the request.
-   *
+   * <p>The identifier of the request.</p>
    * @return requestId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRequestId() {
-    return requestId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getRequestId() {
+        return requestId;
+      }
   public void setRequestId(String requestId) {
     this.requestId = requestId;
   }
-
   public RUMResponseMetadata status(RUMResponseStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -116,24 +125,22 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * The status of the response.
-   *
+   * <p>The status of the response.</p>
    * @return status
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RUMResponseStatus getStatus() {
-    return status;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RUMResponseStatus getStatus() {
+        return status;
+      }
   public void setStatus(RUMResponseStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
-
   public RUMResponseMetadata warnings(List<RUMWarning> warnings) {
     this.warnings = warnings;
     for (RUMWarning item : warnings) {
@@ -141,7 +148,6 @@ public class RUMResponseMetadata {
     }
     return this;
   }
-
   public RUMResponseMetadata addWarningsItem(RUMWarning warningsItem) {
     if (this.warnings == null) {
       this.warnings = new ArrayList<>();
@@ -152,31 +158,31 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * A list of warnings (non-fatal errors) encountered. Partial results may return if warnings are
-   * present in the response.
-   *
+   * <p>A list of warnings (non-fatal errors) encountered. Partial results may return if
+   * warnings are present in the response.</p>
    * @return warnings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<RUMWarning> getWarnings() {
-    return warnings;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WARNINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<RUMWarning> getWarnings() {
+        return warnings;
+      }
   public void setWarnings(List<RUMWarning> warnings) {
     this.warnings = warnings;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -185,7 +191,7 @@ public class RUMResponseMetadata {
   @JsonAnySetter
   public RUMResponseMetadata putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -209,12 +215,14 @@ public class RUMResponseMetadata {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RUMResponseMetadata object is equal to o. */
+  /**
+   * Return true if this RUMResponseMetadata object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -224,17 +232,13 @@ public class RUMResponseMetadata {
       return false;
     }
     RUMResponseMetadata rumResponseMetadata = (RUMResponseMetadata) o;
-    return Objects.equals(this.elapsed, rumResponseMetadata.elapsed)
-        && Objects.equals(this.page, rumResponseMetadata.page)
-        && Objects.equals(this.requestId, rumResponseMetadata.requestId)
-        && Objects.equals(this.status, rumResponseMetadata.status)
-        && Objects.equals(this.warnings, rumResponseMetadata.warnings)
-        && Objects.equals(this.additionalProperties, rumResponseMetadata.additionalProperties);
+    return Objects.equals(this.elapsed, rumResponseMetadata.elapsed) && Objects.equals(this.page, rumResponseMetadata.page) && Objects.equals(this.requestId, rumResponseMetadata.requestId) && Objects.equals(this.status, rumResponseMetadata.status) && Objects.equals(this.warnings, rumResponseMetadata.warnings) && Objects.equals(this.additionalProperties, rumResponseMetadata.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(elapsed, page, requestId, status, warnings, additionalProperties);
+    return Objects.hash(elapsed,page,requestId,status,warnings, additionalProperties);
   }
 
   @Override
@@ -254,7 +258,8 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

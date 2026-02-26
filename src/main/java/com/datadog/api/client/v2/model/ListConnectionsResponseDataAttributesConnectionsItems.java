@@ -6,20 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+
+ */
 @JsonPropertyOrder({
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_CREATED_AT,
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_CREATED_BY,
@@ -31,10 +45,10 @@ import java.util.Objects;
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_UPDATED_AT,
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_UPDATED_BY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListConnectionsResponseDataAttributesConnectionsItems {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -68,53 +82,46 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * GetcreatedAt
-   *
+   * <p>GetcreatedAt</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public ListConnectionsResponseDataAttributesConnectionsItems createdBy(String createdBy) {
     this.createdBy = createdBy;
     return this;
   }
 
   /**
-   * GetcreatedBy
-   *
+   * <p>GetcreatedBy</p>
    * @return createdBy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCreatedBy() {
-    return createdBy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCreatedBy() {
+        return createdBy;
+      }
   public void setCreatedBy(String createdBy) {
     this.createdBy = createdBy;
   }
-
-  public ListConnectionsResponseDataAttributesConnectionsItems fields(
-      List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
+  public ListConnectionsResponseDataAttributesConnectionsItems fields(List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
     this.fields = fields;
     for (CreateConnectionRequestDataAttributesFieldsItems item : fields) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public ListConnectionsResponseDataAttributesConnectionsItems addFieldsItem(
-      CreateConnectionRequestDataAttributesFieldsItems fieldsItem) {
+  public ListConnectionsResponseDataAttributesConnectionsItems addFieldsItem(CreateConnectionRequestDataAttributesFieldsItems fieldsItem) {
     if (this.fields == null) {
       this.fields = new ArrayList<>();
     }
@@ -124,73 +131,63 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * Getfields
-   *
+   * <p>Getfields</p>
    * @return fields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<CreateConnectionRequestDataAttributesFieldsItems> getFields() {
-    return fields;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FIELDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<CreateConnectionRequestDataAttributesFieldsItems> getFields() {
+        return fields;
+      }
   public void setFields(List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
     this.fields = fields;
   }
-
   public ListConnectionsResponseDataAttributesConnectionsItems id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Getid
-   *
+   * <p>Getid</p>
    * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
-  public ListConnectionsResponseDataAttributesConnectionsItems join(
-      ListConnectionsResponseDataAttributesConnectionsItemsJoin join) {
+  public ListConnectionsResponseDataAttributesConnectionsItems join(ListConnectionsResponseDataAttributesConnectionsItemsJoin join) {
     this.join = join;
     this.unparsed |= join.unparsed;
     return this;
   }
 
   /**
-   * Getjoin
-   *
+   * <p>Getjoin</p>
    * @return join
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_JOIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ListConnectionsResponseDataAttributesConnectionsItemsJoin getJoin() {
-    return join;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_JOIN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ListConnectionsResponseDataAttributesConnectionsItemsJoin getJoin() {
+        return join;
+      }
   public void setJoin(ListConnectionsResponseDataAttributesConnectionsItemsJoin join) {
     this.join = join;
   }
-
-  public ListConnectionsResponseDataAttributesConnectionsItems metadata(
-      Map<String, String> metadata) {
+  public ListConnectionsResponseDataAttributesConnectionsItems metadata(Map<String, String> metadata) {
     this.metadata = metadata;
     return this;
   }
-
-  public ListConnectionsResponseDataAttributesConnectionsItems putMetadataItem(
-      String key, String metadataItem) {
+  public ListConnectionsResponseDataAttributesConnectionsItems putMetadataItem(String key, String metadataItem) {
     if (this.metadata == null) {
       this.metadata = new HashMap<>();
     }
@@ -199,103 +196,96 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * Getmetadata
-   *
+   * <p>Getmetadata</p>
    * @return metadata
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, String> getMetadata() {
-    return metadata;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, String> getMetadata() {
+        return metadata;
+      }
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
-
   public ListConnectionsResponseDataAttributesConnectionsItems type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Gettype
-   *
+   * <p>Gettype</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
-
   public ListConnectionsResponseDataAttributesConnectionsItems updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * GetupdatedAt
-   *
+   * <p>GetupdatedAt</p>
    * @return updatedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getUpdatedAt() {
+        return updatedAt;
+      }
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
-
   public ListConnectionsResponseDataAttributesConnectionsItems updatedBy(String updatedBy) {
     this.updatedBy = updatedBy;
     return this;
   }
 
   /**
-   * GetupdatedBy
-   *
+   * <p>GetupdatedBy</p>
    * @return updatedBy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPDATED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUpdatedBy() {
-    return updatedBy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UPDATED_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getUpdatedBy() {
+        return updatedBy;
+      }
   public void setUpdatedBy(String updatedBy) {
     this.updatedBy = updatedBy;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ListConnectionsResponseDataAttributesConnectionsItems
    */
   @JsonAnySetter
-  public ListConnectionsResponseDataAttributesConnectionsItems putAdditionalProperty(
-      String key, Object value) {
+  public ListConnectionsResponseDataAttributesConnectionsItems putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -319,7 +309,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
@@ -335,41 +325,14 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListConnectionsResponseDataAttributesConnectionsItems
-        listConnectionsResponseDataAttributesConnectionsItems =
-            (ListConnectionsResponseDataAttributesConnectionsItems) o;
-    return Objects.equals(
-            this.createdAt, listConnectionsResponseDataAttributesConnectionsItems.createdAt)
-        && Objects.equals(
-            this.createdBy, listConnectionsResponseDataAttributesConnectionsItems.createdBy)
-        && Objects.equals(this.fields, listConnectionsResponseDataAttributesConnectionsItems.fields)
-        && Objects.equals(this.id, listConnectionsResponseDataAttributesConnectionsItems.id)
-        && Objects.equals(this.join, listConnectionsResponseDataAttributesConnectionsItems.join)
-        && Objects.equals(
-            this.metadata, listConnectionsResponseDataAttributesConnectionsItems.metadata)
-        && Objects.equals(this.type, listConnectionsResponseDataAttributesConnectionsItems.type)
-        && Objects.equals(
-            this.updatedAt, listConnectionsResponseDataAttributesConnectionsItems.updatedAt)
-        && Objects.equals(
-            this.updatedBy, listConnectionsResponseDataAttributesConnectionsItems.updatedBy)
-        && Objects.equals(
-            this.additionalProperties,
-            listConnectionsResponseDataAttributesConnectionsItems.additionalProperties);
+    ListConnectionsResponseDataAttributesConnectionsItems listConnectionsResponseDataAttributesConnectionsItems = (ListConnectionsResponseDataAttributesConnectionsItems) o;
+    return Objects.equals(this.createdAt, listConnectionsResponseDataAttributesConnectionsItems.createdAt) && Objects.equals(this.createdBy, listConnectionsResponseDataAttributesConnectionsItems.createdBy) && Objects.equals(this.fields, listConnectionsResponseDataAttributesConnectionsItems.fields) && Objects.equals(this.id, listConnectionsResponseDataAttributesConnectionsItems.id) && Objects.equals(this.join, listConnectionsResponseDataAttributesConnectionsItems.join) && Objects.equals(this.metadata, listConnectionsResponseDataAttributesConnectionsItems.metadata) && Objects.equals(this.type, listConnectionsResponseDataAttributesConnectionsItems.type) && Objects.equals(this.updatedAt, listConnectionsResponseDataAttributesConnectionsItems.updatedAt) && Objects.equals(this.updatedBy, listConnectionsResponseDataAttributesConnectionsItems.updatedBy) && Objects.equals(this.additionalProperties, listConnectionsResponseDataAttributesConnectionsItems.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createdAt,
-        createdBy,
-        fields,
-        id,
-        join,
-        metadata,
-        type,
-        updatedAt,
-        updatedBy,
-        additionalProperties);
+    return Objects.hash(createdAt,createdBy,fields,id,join,metadata,type,updatedAt,updatedBy, additionalProperties);
   }
 
   @Override
@@ -393,7 +356,8 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

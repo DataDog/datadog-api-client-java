@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,14 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for creating a change request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for creating a change request.</p>
+ */
 @JsonPropertyOrder({
   ChangeRequestCreateAttributes.JSON_PROPERTY_CHANGE_REQUEST_LINKED_INCIDENT_UUID,
   ChangeRequestCreateAttributes.JSON_PROPERTY_CHANGE_REQUEST_MAINTENANCE_WINDOW_QUERY,
@@ -34,16 +47,14 @@ import java.util.Objects;
   ChangeRequestCreateAttributes.JSON_PROPERTY_START_DATE,
   ChangeRequestCreateAttributes.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ChangeRequestCreateAttributes {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CHANGE_REQUEST_LINKED_INCIDENT_UUID =
-      "change_request_linked_incident_uuid";
+  @JsonIgnore
+  public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CHANGE_REQUEST_LINKED_INCIDENT_UUID = "change_request_linked_incident_uuid";
   private String changeRequestLinkedIncidentUuid;
 
-  public static final String JSON_PROPERTY_CHANGE_REQUEST_MAINTENANCE_WINDOW_QUERY =
-      "change_request_maintenance_window_query";
+  public static final String JSON_PROPERTY_CHANGE_REQUEST_MAINTENANCE_WINDOW_QUERY = "change_request_maintenance_window_query";
   private String changeRequestMaintenanceWindowQuery;
 
   public static final String JSON_PROPERTY_CHANGE_REQUEST_PLAN = "change_request_plan";
@@ -77,75 +88,66 @@ public class ChangeRequestCreateAttributes {
 
   @JsonCreator
   public ChangeRequestCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
-    this.title = title;
+            @JsonProperty(required=true, value=JSON_PROPERTY_TITLE)String title) {
+        this.title = title;
   }
-
-  public ChangeRequestCreateAttributes changeRequestLinkedIncidentUuid(
-      String changeRequestLinkedIncidentUuid) {
+  public ChangeRequestCreateAttributes changeRequestLinkedIncidentUuid(String changeRequestLinkedIncidentUuid) {
     this.changeRequestLinkedIncidentUuid = changeRequestLinkedIncidentUuid;
     return this;
   }
 
   /**
-   * The UUID of an incident to link to the change request.
-   *
+   * <p>The UUID of an incident to link to the change request.</p>
    * @return changeRequestLinkedIncidentUuid
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_LINKED_INCIDENT_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getChangeRequestLinkedIncidentUuid() {
-    return changeRequestLinkedIncidentUuid;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_LINKED_INCIDENT_UUID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getChangeRequestLinkedIncidentUuid() {
+        return changeRequestLinkedIncidentUuid;
+      }
   public void setChangeRequestLinkedIncidentUuid(String changeRequestLinkedIncidentUuid) {
     this.changeRequestLinkedIncidentUuid = changeRequestLinkedIncidentUuid;
   }
-
-  public ChangeRequestCreateAttributes changeRequestMaintenanceWindowQuery(
-      String changeRequestMaintenanceWindowQuery) {
+  public ChangeRequestCreateAttributes changeRequestMaintenanceWindowQuery(String changeRequestMaintenanceWindowQuery) {
     this.changeRequestMaintenanceWindowQuery = changeRequestMaintenanceWindowQuery;
     return this;
   }
 
   /**
-   * The maintenance window query for the change request.
-   *
+   * <p>The maintenance window query for the change request.</p>
    * @return changeRequestMaintenanceWindowQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_MAINTENANCE_WINDOW_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getChangeRequestMaintenanceWindowQuery() {
-    return changeRequestMaintenanceWindowQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_MAINTENANCE_WINDOW_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getChangeRequestMaintenanceWindowQuery() {
+        return changeRequestMaintenanceWindowQuery;
+      }
   public void setChangeRequestMaintenanceWindowQuery(String changeRequestMaintenanceWindowQuery) {
     this.changeRequestMaintenanceWindowQuery = changeRequestMaintenanceWindowQuery;
   }
-
   public ChangeRequestCreateAttributes changeRequestPlan(String changeRequestPlan) {
     this.changeRequestPlan = changeRequestPlan;
     return this;
   }
 
   /**
-   * The plan associated with the change request.
-   *
+   * <p>The plan associated with the change request.</p>
    * @return changeRequestPlan
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_PLAN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getChangeRequestPlan() {
-    return changeRequestPlan;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_PLAN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getChangeRequestPlan() {
+        return changeRequestPlan;
+      }
   public void setChangeRequestPlan(String changeRequestPlan) {
     this.changeRequestPlan = changeRequestPlan;
   }
-
   public ChangeRequestCreateAttributes changeRequestRisk(ChangeRequestRiskLevel changeRequestRisk) {
     this.changeRequestRisk = changeRequestRisk;
     this.unparsed |= !changeRequestRisk.isValid();
@@ -153,118 +155,106 @@ public class ChangeRequestCreateAttributes {
   }
 
   /**
-   * The risk level of the change request.
-   *
+   * <p>The risk level of the change request.</p>
    * @return changeRequestRisk
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_RISK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ChangeRequestRiskLevel getChangeRequestRisk() {
-    return changeRequestRisk;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_RISK)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ChangeRequestRiskLevel getChangeRequestRisk() {
+        return changeRequestRisk;
+      }
   public void setChangeRequestRisk(ChangeRequestRiskLevel changeRequestRisk) {
     if (!changeRequestRisk.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.changeRequestRisk = changeRequestRisk;
   }
-
-  public ChangeRequestCreateAttributes changeRequestType(
-      ChangeRequestChangeType changeRequestType) {
+  public ChangeRequestCreateAttributes changeRequestType(ChangeRequestChangeType changeRequestType) {
     this.changeRequestType = changeRequestType;
     this.unparsed |= !changeRequestType.isValid();
     return this;
   }
 
   /**
-   * The type of the change request.
-   *
+   * <p>The type of the change request.</p>
    * @return changeRequestType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ChangeRequestChangeType getChangeRequestType() {
-    return changeRequestType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ChangeRequestChangeType getChangeRequestType() {
+        return changeRequestType;
+      }
   public void setChangeRequestType(ChangeRequestChangeType changeRequestType) {
     if (!changeRequestType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.changeRequestType = changeRequestType;
   }
-
   public ChangeRequestCreateAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * The description of the change request.
-   *
+   * <p>The description of the change request.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public ChangeRequestCreateAttributes endDate(OffsetDateTime endDate) {
     this.endDate = endDate;
     return this;
   }
 
   /**
-   * The planned end date of the change request.
-   *
+   * <p>The planned end date of the change request.</p>
    * @return endDate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_END_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getEndDate() {
-    return endDate;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_END_DATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getEndDate() {
+        return endDate;
+      }
   public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
-
   public ChangeRequestCreateAttributes projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
 
   /**
-   * The project UUID to associate with the change request.
-   *
+   * <p>The project UUID to associate with the change request.</p>
    * @return projectId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProjectId() {
-    return projectId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getProjectId() {
+        return projectId;
+      }
   public void setProjectId(String projectId) {
     this.projectId = projectId;
   }
-
   public ChangeRequestCreateAttributes requestedTeams(List<String> requestedTeams) {
     this.requestedTeams = requestedTeams;
     return this;
   }
-
   public ChangeRequestCreateAttributes addRequestedTeamsItem(String requestedTeamsItem) {
     if (this.requestedTeams == null) {
       this.requestedTeams = new ArrayList<>();
@@ -274,71 +264,67 @@ public class ChangeRequestCreateAttributes {
   }
 
   /**
-   * A list of team handles to request decisions from.
-   *
+   * <p>A list of team handles to request decisions from.</p>
    * @return requestedTeams
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUESTED_TEAMS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getRequestedTeams() {
-    return requestedTeams;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REQUESTED_TEAMS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getRequestedTeams() {
+        return requestedTeams;
+      }
   public void setRequestedTeams(List<String> requestedTeams) {
     this.requestedTeams = requestedTeams;
   }
-
   public ChangeRequestCreateAttributes startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
   }
 
   /**
-   * The planned start date of the change request.
-   *
+   * <p>The planned start date of the change request.</p>
    * @return startDate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getStartDate() {
-    return startDate;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_START_DATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getStartDate() {
+        return startDate;
+      }
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
-
   public ChangeRequestCreateAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * The title of the change request.
-   *
+   * <p>The title of the change request.</p>
    * @return title
-   */
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -347,7 +333,7 @@ public class ChangeRequestCreateAttributes {
   @JsonAnySetter
   public ChangeRequestCreateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -371,12 +357,14 @@ public class ChangeRequestCreateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ChangeRequestCreateAttributes object is equal to o. */
+  /**
+   * Return true if this ChangeRequestCreateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -386,52 +374,21 @@ public class ChangeRequestCreateAttributes {
       return false;
     }
     ChangeRequestCreateAttributes changeRequestCreateAttributes = (ChangeRequestCreateAttributes) o;
-    return Objects.equals(
-            this.changeRequestLinkedIncidentUuid,
-            changeRequestCreateAttributes.changeRequestLinkedIncidentUuid)
-        && Objects.equals(
-            this.changeRequestMaintenanceWindowQuery,
-            changeRequestCreateAttributes.changeRequestMaintenanceWindowQuery)
-        && Objects.equals(this.changeRequestPlan, changeRequestCreateAttributes.changeRequestPlan)
-        && Objects.equals(this.changeRequestRisk, changeRequestCreateAttributes.changeRequestRisk)
-        && Objects.equals(this.changeRequestType, changeRequestCreateAttributes.changeRequestType)
-        && Objects.equals(this.description, changeRequestCreateAttributes.description)
-        && Objects.equals(this.endDate, changeRequestCreateAttributes.endDate)
-        && Objects.equals(this.projectId, changeRequestCreateAttributes.projectId)
-        && Objects.equals(this.requestedTeams, changeRequestCreateAttributes.requestedTeams)
-        && Objects.equals(this.startDate, changeRequestCreateAttributes.startDate)
-        && Objects.equals(this.title, changeRequestCreateAttributes.title)
-        && Objects.equals(
-            this.additionalProperties, changeRequestCreateAttributes.additionalProperties);
+    return Objects.equals(this.changeRequestLinkedIncidentUuid, changeRequestCreateAttributes.changeRequestLinkedIncidentUuid) && Objects.equals(this.changeRequestMaintenanceWindowQuery, changeRequestCreateAttributes.changeRequestMaintenanceWindowQuery) && Objects.equals(this.changeRequestPlan, changeRequestCreateAttributes.changeRequestPlan) && Objects.equals(this.changeRequestRisk, changeRequestCreateAttributes.changeRequestRisk) && Objects.equals(this.changeRequestType, changeRequestCreateAttributes.changeRequestType) && Objects.equals(this.description, changeRequestCreateAttributes.description) && Objects.equals(this.endDate, changeRequestCreateAttributes.endDate) && Objects.equals(this.projectId, changeRequestCreateAttributes.projectId) && Objects.equals(this.requestedTeams, changeRequestCreateAttributes.requestedTeams) && Objects.equals(this.startDate, changeRequestCreateAttributes.startDate) && Objects.equals(this.title, changeRequestCreateAttributes.title) && Objects.equals(this.additionalProperties, changeRequestCreateAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        changeRequestLinkedIncidentUuid,
-        changeRequestMaintenanceWindowQuery,
-        changeRequestPlan,
-        changeRequestRisk,
-        changeRequestType,
-        description,
-        endDate,
-        projectId,
-        requestedTeams,
-        startDate,
-        title,
-        additionalProperties);
+    return Objects.hash(changeRequestLinkedIncidentUuid,changeRequestMaintenanceWindowQuery,changeRequestPlan,changeRequestRisk,changeRequestType,description,endDate,projectId,requestedTeams,startDate,title, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChangeRequestCreateAttributes {\n");
-    sb.append("    changeRequestLinkedIncidentUuid: ")
-        .append(toIndentedString(changeRequestLinkedIncidentUuid))
-        .append("\n");
-    sb.append("    changeRequestMaintenanceWindowQuery: ")
-        .append(toIndentedString(changeRequestMaintenanceWindowQuery))
-        .append("\n");
+    sb.append("    changeRequestLinkedIncidentUuid: ").append(toIndentedString(changeRequestLinkedIncidentUuid)).append("\n");
+    sb.append("    changeRequestMaintenanceWindowQuery: ").append(toIndentedString(changeRequestMaintenanceWindowQuery)).append("\n");
     sb.append("    changeRequestPlan: ").append(toIndentedString(changeRequestPlan)).append("\n");
     sb.append("    changeRequestRisk: ").append(toIndentedString(changeRequestRisk)).append("\n");
     sb.append("    changeRequestType: ").append(toIndentedString(changeRequestType)).append("\n");
@@ -449,7 +406,8 @@ public class ChangeRequestCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

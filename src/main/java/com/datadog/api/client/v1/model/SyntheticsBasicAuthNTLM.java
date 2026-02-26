@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object to handle <code>NTLM</code> authentication when performing the test. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object to handle <code>NTLM</code> authentication when performing the test.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_DOMAIN,
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_PASSWORD,
@@ -25,10 +41,10 @@ import java.util.Objects;
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_USERNAME,
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_WORKSTATION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBasicAuthNTLM {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DOMAIN = "domain";
   private String domain;
 
@@ -48,53 +64,48 @@ public class SyntheticsBasicAuthNTLM {
 
   @JsonCreator
   public SyntheticsBasicAuthNTLM(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsBasicAuthNTLMType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SyntheticsBasicAuthNTLMType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public SyntheticsBasicAuthNTLM domain(String domain) {
     this.domain = domain;
     return this;
   }
 
   /**
-   * Domain for the authentication to use when performing the test.
-   *
+   * <p>Domain for the authentication to use when performing the test.</p>
    * @return domain
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOMAIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDomain() {
-    return domain;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DOMAIN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDomain() {
+        return domain;
+      }
   public void setDomain(String domain) {
     this.domain = domain;
   }
-
   public SyntheticsBasicAuthNTLM password(String password) {
     this.password = password;
     return this;
   }
 
   /**
-   * Password for the authentication to use when performing the test.
-   *
+   * <p>Password for the authentication to use when performing the test.</p>
    * @return password
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPassword() {
-    return password;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PASSWORD)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPassword() {
+        return password;
+      }
   public void setPassword(String password) {
     this.password = password;
   }
-
   public SyntheticsBasicAuthNTLM type(SyntheticsBasicAuthNTLMType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -102,74 +113,70 @@ public class SyntheticsBasicAuthNTLM {
   }
 
   /**
-   * The type of authentication to use when performing the test.
-   *
+   * <p>The type of authentication to use when performing the test.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsBasicAuthNTLMType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SyntheticsBasicAuthNTLMType getType() {
+        return type;
+      }
   public void setType(SyntheticsBasicAuthNTLMType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
-
   public SyntheticsBasicAuthNTLM username(String username) {
     this.username = username;
     return this;
   }
 
   /**
-   * Username for the authentication to use when performing the test.
-   *
+   * <p>Username for the authentication to use when performing the test.</p>
    * @return username
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUsername() {
-    return username;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USERNAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getUsername() {
+        return username;
+      }
   public void setUsername(String username) {
     this.username = username;
   }
-
   public SyntheticsBasicAuthNTLM workstation(String workstation) {
     this.workstation = workstation;
     return this;
   }
 
   /**
-   * Workstation for the authentication to use when performing the test.
-   *
+   * <p>Workstation for the authentication to use when performing the test.</p>
    * @return workstation
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WORKSTATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getWorkstation() {
-    return workstation;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WORKSTATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getWorkstation() {
+        return workstation;
+      }
   public void setWorkstation(String workstation) {
     this.workstation = workstation;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -178,7 +185,7 @@ public class SyntheticsBasicAuthNTLM {
   @JsonAnySetter
   public SyntheticsBasicAuthNTLM putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -202,12 +209,14 @@ public class SyntheticsBasicAuthNTLM {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsBasicAuthNTLM object is equal to o. */
+  /**
+   * Return true if this SyntheticsBasicAuthNTLM object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -217,17 +226,13 @@ public class SyntheticsBasicAuthNTLM {
       return false;
     }
     SyntheticsBasicAuthNTLM syntheticsBasicAuthNtlm = (SyntheticsBasicAuthNTLM) o;
-    return Objects.equals(this.domain, syntheticsBasicAuthNtlm.domain)
-        && Objects.equals(this.password, syntheticsBasicAuthNtlm.password)
-        && Objects.equals(this.type, syntheticsBasicAuthNtlm.type)
-        && Objects.equals(this.username, syntheticsBasicAuthNtlm.username)
-        && Objects.equals(this.workstation, syntheticsBasicAuthNtlm.workstation)
-        && Objects.equals(this.additionalProperties, syntheticsBasicAuthNtlm.additionalProperties);
+    return Objects.equals(this.domain, syntheticsBasicAuthNtlm.domain) && Objects.equals(this.password, syntheticsBasicAuthNtlm.password) && Objects.equals(this.type, syntheticsBasicAuthNtlm.type) && Objects.equals(this.username, syntheticsBasicAuthNtlm.username) && Objects.equals(this.workstation, syntheticsBasicAuthNtlm.workstation) && Objects.equals(this.additionalProperties, syntheticsBasicAuthNtlm.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, password, type, username, workstation, additionalProperties);
+    return Objects.hash(domain,password,type,username,workstation, additionalProperties);
   }
 
   @Override
@@ -247,7 +252,8 @@ public class SyntheticsBasicAuthNTLM {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -1,24 +1,32 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.SingleAggregatedConnectionResponseArray;
-import com.datadog.api.client.v2.model.SingleAggregatedDnsResponseArray;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+import com.datadog.api.client.v2.model.SingleAggregatedConnectionResponseArray;
+import com.datadog.api.client.v2.model.SingleAggregatedDnsResponseArray;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudNetworkMonitoringApi {
   private ApiClient apiClient;
-
   public CloudNetworkMonitoringApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -45,7 +53,9 @@ public class CloudNetworkMonitoringApi {
     this.apiClient = apiClient;
   }
 
-  /** Manage optional parameters to getAggregatedConnections. */
+  /**
+   * Manage optional parameters to getAggregatedConnections.
+   */
   public static class GetAggregatedConnectionsOptionalParameters {
     private Long from;
     private Long to;
@@ -55,11 +65,7 @@ public class CloudNetworkMonitoringApi {
 
     /**
      * Set from.
-     *
-     * @param from Unix timestamp (number of seconds since epoch) of the start of the query window.
-     *     If not provided, the start of the query window is 15 minutes before the <code>to</code>
-     *     timestamp. If neither <code>from</code> nor <code>to</code> are provided, the query
-     *     window is <code>[now - 15m, now]</code>. (optional)
+     * @param from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the <code>to</code> timestamp. If neither <code>from</code> nor <code>to</code> are provided, the query window is <code>[now - 15m, now]</code>. (optional)
      * @return GetAggregatedConnectionsOptionalParameters
      */
     public GetAggregatedConnectionsOptionalParameters from(Long from) {
@@ -69,11 +75,7 @@ public class CloudNetworkMonitoringApi {
 
     /**
      * Set to.
-     *
-     * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If
-     *     not provided, the end of the query window is the current time. If neither <code>from
-     *     </code> nor <code>to</code> are provided, the query window is <code>[now - 15m, now]
-     *     </code>. (optional)
+     * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither <code>from</code> nor <code>to</code> are provided, the query window is <code>[now - 15m, now]</code>. (optional)
      * @return GetAggregatedConnectionsOptionalParameters
      */
     public GetAggregatedConnectionsOptionalParameters to(Long to) {
@@ -83,9 +85,7 @@ public class CloudNetworkMonitoringApi {
 
     /**
      * Set groupBy.
-     *
-     * @param groupBy Comma-separated list of fields to group connections by. The maximum number of
-     *     group_by(s) is 10. (optional)
+     * @param groupBy Comma-separated list of fields to group connections by. The maximum number of group_by(s) is 10. (optional)
      * @return GetAggregatedConnectionsOptionalParameters
      */
     public GetAggregatedConnectionsOptionalParameters groupBy(String groupBy) {
@@ -95,7 +95,6 @@ public class CloudNetworkMonitoringApi {
 
     /**
      * Set tags.
-     *
      * @param tags Comma-separated list of tags to filter connections by. (optional)
      * @return GetAggregatedConnectionsOptionalParameters
      */
@@ -106,9 +105,7 @@ public class CloudNetworkMonitoringApi {
 
     /**
      * Set limit.
-     *
-     * @param limit The number of connections to be returned. The maximum value is 7500. The default
-     *     is 100. (optional, default to 100)
+     * @param limit The number of connections to be returned. The maximum value is 7500. The default is 100. (optional, default to 100)
      * @return GetAggregatedConnectionsOptionalParameters
      */
     public GetAggregatedConnectionsOptionalParameters limit(Integer limit) {
@@ -118,74 +115,66 @@ public class CloudNetworkMonitoringApi {
   }
 
   /**
-   * Get all aggregated connections.
-   *
-   * <p>See {@link #getAggregatedConnectionsWithHttpInfo}.
-   *
-   * @return SingleAggregatedConnectionResponseArray
-   * @throws ApiException if fails to make API call
-   */
-  public SingleAggregatedConnectionResponseArray getAggregatedConnections() throws ApiException {
-    return getAggregatedConnectionsWithHttpInfo(new GetAggregatedConnectionsOptionalParameters())
-        .getData();
+ * Get all aggregated connections.
+ *
+ * See {@link #getAggregatedConnectionsWithHttpInfo}.
+ *
+ * @return SingleAggregatedConnectionResponseArray
+ * @throws ApiException if fails to make API call
+ */
+  public SingleAggregatedConnectionResponseArray getAggregatedConnections () throws ApiException {
+    return getAggregatedConnectionsWithHttpInfo(new GetAggregatedConnectionsOptionalParameters()).getData();
   }
 
   /**
-   * Get all aggregated connections.
-   *
-   * <p>See {@link #getAggregatedConnectionsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;SingleAggregatedConnectionResponseArray&gt;
-   */
-  public CompletableFuture<SingleAggregatedConnectionResponseArray>
-      getAggregatedConnectionsAsync() {
-    return getAggregatedConnectionsWithHttpInfoAsync(
-            new GetAggregatedConnectionsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all aggregated connections.
+ *
+ * See {@link #getAggregatedConnectionsWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;SingleAggregatedConnectionResponseArray&gt;
+ */
+  public CompletableFuture<SingleAggregatedConnectionResponseArray>getAggregatedConnectionsAsync() {
+    return getAggregatedConnectionsWithHttpInfoAsync(new GetAggregatedConnectionsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get all aggregated connections.
-   *
-   * <p>See {@link #getAggregatedConnectionsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return SingleAggregatedConnectionResponseArray
-   * @throws ApiException if fails to make API call
-   */
-  public SingleAggregatedConnectionResponseArray getAggregatedConnections(
-      GetAggregatedConnectionsOptionalParameters parameters) throws ApiException {
+ * Get all aggregated connections.
+ *
+ * See {@link #getAggregatedConnectionsWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return SingleAggregatedConnectionResponseArray
+ * @throws ApiException if fails to make API call
+ */
+  public SingleAggregatedConnectionResponseArray getAggregatedConnections(GetAggregatedConnectionsOptionalParameters parameters) throws ApiException {
     return getAggregatedConnectionsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get all aggregated connections.
-   *
-   * <p>See {@link #getAggregatedConnectionsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;SingleAggregatedConnectionResponseArray&gt;
-   */
-  public CompletableFuture<SingleAggregatedConnectionResponseArray> getAggregatedConnectionsAsync(
-      GetAggregatedConnectionsOptionalParameters parameters) {
-    return getAggregatedConnectionsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all aggregated connections.
+ *
+ * See {@link #getAggregatedConnectionsWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;SingleAggregatedConnectionResponseArray&gt;
+ */
+  public CompletableFuture<SingleAggregatedConnectionResponseArray>getAggregatedConnectionsAsync(GetAggregatedConnectionsOptionalParameters parameters) {
+    return getAggregatedConnectionsWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get all aggregated connections.
+   * <p>Get all aggregated connections.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SingleAggregatedConnectionResponseArray&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -193,8 +182,7 @@ public class CloudNetworkMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SingleAggregatedConnectionResponseArray> getAggregatedConnectionsWithHttpInfo(
-      GetAggregatedConnectionsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<SingleAggregatedConnectionResponseArray> getAggregatedConnectionsWithHttpInfo(GetAggregatedConnectionsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Long from = parameters.from;
     Long to = parameters.to;
@@ -204,6 +192,7 @@ public class CloudNetworkMonitoringApi {
     // create path and map variables
     String localVarPath = "/api/v2/network/connections/aggregate";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -213,37 +202,19 @@ public class CloudNetworkMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CloudNetworkMonitoringApi.getAggregatedConnections",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SingleAggregatedConnectionResponseArray>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.CloudNetworkMonitoringApi.getAggregatedConnections", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SingleAggregatedConnectionResponseArray>() {});
   }
 
   /**
    * Get all aggregated connections.
    *
-   * <p>See {@link #getAggregatedConnectionsWithHttpInfo}.
+   * See {@link #getAggregatedConnectionsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;SingleAggregatedConnectionResponseArray&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SingleAggregatedConnectionResponseArray>>
-      getAggregatedConnectionsWithHttpInfoAsync(
-          GetAggregatedConnectionsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<SingleAggregatedConnectionResponseArray>> getAggregatedConnectionsWithHttpInfoAsync(GetAggregatedConnectionsOptionalParameters parameters) {
     Object localVarPostBody = null;
     Long from = parameters.from;
     Long to = parameters.to;
@@ -253,6 +224,7 @@ public class CloudNetworkMonitoringApi {
     // create path and map variables
     String localVarPath = "/api/v2/network/connections/aggregate";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -264,33 +236,18 @@ public class CloudNetworkMonitoringApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CloudNetworkMonitoringApi.getAggregatedConnections",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.CloudNetworkMonitoringApi.getAggregatedConnections", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<SingleAggregatedConnectionResponseArray>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<SingleAggregatedConnectionResponseArray>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SingleAggregatedConnectionResponseArray>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SingleAggregatedConnectionResponseArray>() {});
   }
 
-  /** Manage optional parameters to getAggregatedDns. */
+  /**
+   * Manage optional parameters to getAggregatedDns.
+   */
   public static class GetAggregatedDnsOptionalParameters {
     private Long from;
     private Long to;
@@ -300,11 +257,7 @@ public class CloudNetworkMonitoringApi {
 
     /**
      * Set from.
-     *
-     * @param from Unix timestamp (number of seconds since epoch) of the start of the query window.
-     *     If not provided, the start of the query window is 15 minutes before the <code>to</code>
-     *     timestamp. If neither <code>from</code> nor <code>to</code> are provided, the query
-     *     window is <code>[now - 15m, now]</code>. (optional)
+     * @param from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the <code>to</code> timestamp. If neither <code>from</code> nor <code>to</code> are provided, the query window is <code>[now - 15m, now]</code>. (optional)
      * @return GetAggregatedDnsOptionalParameters
      */
     public GetAggregatedDnsOptionalParameters from(Long from) {
@@ -314,11 +267,7 @@ public class CloudNetworkMonitoringApi {
 
     /**
      * Set to.
-     *
-     * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If
-     *     not provided, the end of the query window is the current time. If neither <code>from
-     *     </code> nor <code>to</code> are provided, the query window is <code>[now - 15m, now]
-     *     </code>. (optional)
+     * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither <code>from</code> nor <code>to</code> are provided, the query window is <code>[now - 15m, now]</code>. (optional)
      * @return GetAggregatedDnsOptionalParameters
      */
     public GetAggregatedDnsOptionalParameters to(Long to) {
@@ -328,11 +277,7 @@ public class CloudNetworkMonitoringApi {
 
     /**
      * Set groupBy.
-     *
-     * @param groupBy Comma-separated list of fields to group DNS traffic by. The server side
-     *     defaults to <code>network.dns_query</code> if unspecified. <code>server_ungrouped</code>
-     *     may be used if groups are not desired. The maximum number of group_by(s) is 10.
-     *     (optional)
+     * @param groupBy Comma-separated list of fields to group DNS traffic by. The server side defaults to <code>network.dns_query</code> if unspecified. <code>server_ungrouped</code> may be used if groups are not desired. The maximum number of group_by(s) is 10. (optional)
      * @return GetAggregatedDnsOptionalParameters
      */
     public GetAggregatedDnsOptionalParameters groupBy(String groupBy) {
@@ -342,7 +287,6 @@ public class CloudNetworkMonitoringApi {
 
     /**
      * Set tags.
-     *
      * @param tags Comma-separated list of tags to filter DNS traffic by. (optional)
      * @return GetAggregatedDnsOptionalParameters
      */
@@ -353,9 +297,7 @@ public class CloudNetworkMonitoringApi {
 
     /**
      * Set limit.
-     *
-     * @param limit The number of aggregated DNS entries to be returned. The maximum value is 7500.
-     *     The default is 100. (optional, default to 100)
+     * @param limit The number of aggregated DNS entries to be returned. The maximum value is 7500. The default is 100. (optional, default to 100)
      * @return GetAggregatedDnsOptionalParameters
      */
     public GetAggregatedDnsOptionalParameters limit(Integer limit) {
@@ -365,71 +307,66 @@ public class CloudNetworkMonitoringApi {
   }
 
   /**
-   * Get all aggregated DNS traffic.
-   *
-   * <p>See {@link #getAggregatedDnsWithHttpInfo}.
-   *
-   * @return SingleAggregatedDnsResponseArray
-   * @throws ApiException if fails to make API call
-   */
-  public SingleAggregatedDnsResponseArray getAggregatedDns() throws ApiException {
+ * Get all aggregated DNS traffic.
+ *
+ * See {@link #getAggregatedDnsWithHttpInfo}.
+ *
+ * @return SingleAggregatedDnsResponseArray
+ * @throws ApiException if fails to make API call
+ */
+  public SingleAggregatedDnsResponseArray getAggregatedDns () throws ApiException {
     return getAggregatedDnsWithHttpInfo(new GetAggregatedDnsOptionalParameters()).getData();
   }
 
   /**
-   * Get all aggregated DNS traffic.
-   *
-   * <p>See {@link #getAggregatedDnsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;SingleAggregatedDnsResponseArray&gt;
-   */
-  public CompletableFuture<SingleAggregatedDnsResponseArray> getAggregatedDnsAsync() {
-    return getAggregatedDnsWithHttpInfoAsync(new GetAggregatedDnsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all aggregated DNS traffic.
+ *
+ * See {@link #getAggregatedDnsWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;SingleAggregatedDnsResponseArray&gt;
+ */
+  public CompletableFuture<SingleAggregatedDnsResponseArray>getAggregatedDnsAsync() {
+    return getAggregatedDnsWithHttpInfoAsync(new GetAggregatedDnsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get all aggregated DNS traffic.
-   *
-   * <p>See {@link #getAggregatedDnsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return SingleAggregatedDnsResponseArray
-   * @throws ApiException if fails to make API call
-   */
-  public SingleAggregatedDnsResponseArray getAggregatedDns(
-      GetAggregatedDnsOptionalParameters parameters) throws ApiException {
+ * Get all aggregated DNS traffic.
+ *
+ * See {@link #getAggregatedDnsWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return SingleAggregatedDnsResponseArray
+ * @throws ApiException if fails to make API call
+ */
+  public SingleAggregatedDnsResponseArray getAggregatedDns(GetAggregatedDnsOptionalParameters parameters) throws ApiException {
     return getAggregatedDnsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get all aggregated DNS traffic.
-   *
-   * <p>See {@link #getAggregatedDnsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;SingleAggregatedDnsResponseArray&gt;
-   */
-  public CompletableFuture<SingleAggregatedDnsResponseArray> getAggregatedDnsAsync(
-      GetAggregatedDnsOptionalParameters parameters) {
-    return getAggregatedDnsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all aggregated DNS traffic.
+ *
+ * See {@link #getAggregatedDnsWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;SingleAggregatedDnsResponseArray&gt;
+ */
+  public CompletableFuture<SingleAggregatedDnsResponseArray>getAggregatedDnsAsync(GetAggregatedDnsOptionalParameters parameters) {
+    return getAggregatedDnsWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get all aggregated DNS traffic.
+   * <p>Get all aggregated DNS traffic.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SingleAggregatedDnsResponseArray&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -437,8 +374,7 @@ public class CloudNetworkMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SingleAggregatedDnsResponseArray> getAggregatedDnsWithHttpInfo(
-      GetAggregatedDnsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<SingleAggregatedDnsResponseArray> getAggregatedDnsWithHttpInfo(GetAggregatedDnsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Long from = parameters.from;
     Long to = parameters.to;
@@ -448,6 +384,7 @@ public class CloudNetworkMonitoringApi {
     // create path and map variables
     String localVarPath = "/api/v2/network/dns/aggregate";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -457,36 +394,19 @@ public class CloudNetworkMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CloudNetworkMonitoringApi.getAggregatedDns",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SingleAggregatedDnsResponseArray>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.CloudNetworkMonitoringApi.getAggregatedDns", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SingleAggregatedDnsResponseArray>() {});
   }
 
   /**
    * Get all aggregated DNS traffic.
    *
-   * <p>See {@link #getAggregatedDnsWithHttpInfo}.
+   * See {@link #getAggregatedDnsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;SingleAggregatedDnsResponseArray&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SingleAggregatedDnsResponseArray>>
-      getAggregatedDnsWithHttpInfoAsync(GetAggregatedDnsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<SingleAggregatedDnsResponseArray>> getAggregatedDnsWithHttpInfoAsync(GetAggregatedDnsOptionalParameters parameters) {
     Object localVarPostBody = null;
     Long from = parameters.from;
     Long to = parameters.to;
@@ -496,6 +416,7 @@ public class CloudNetworkMonitoringApi {
     // create path and map variables
     String localVarPath = "/api/v2/network/dns/aggregate";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -507,29 +428,12 @@ public class CloudNetworkMonitoringApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CloudNetworkMonitoringApi.getAggregatedDns",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.CloudNetworkMonitoringApi.getAggregatedDns", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<SingleAggregatedDnsResponseArray>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<SingleAggregatedDnsResponseArray>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<SingleAggregatedDnsResponseArray>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<SingleAggregatedDnsResponseArray>() {});
   }
 }

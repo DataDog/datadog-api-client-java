@@ -6,20 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Object containing all metrics and their values collected for a Synthetic API test. See the <a
- * href="https://docs.datadoghq.com/synthetics/metrics/">Synthetic Monitoring Metrics
- * documentation</a>.
+   * <p>Object containing all metrics and their values collected for a Synthetic API test.
+   * See the <a href="https://docs.datadoghq.com/synthetics/metrics/">Synthetic Monitoring Metrics documentation</a>.</p>
  */
 @JsonPropertyOrder({
   SyntheticsTiming.JSON_PROPERTY_DNS,
@@ -32,10 +46,10 @@ import java.util.Objects;
   SyntheticsTiming.JSON_PROPERTY_TOTAL,
   SyntheticsTiming.JSON_PROPERTY_WAIT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTiming {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DNS = "dns";
   private Double dns;
 
@@ -69,198 +83,182 @@ public class SyntheticsTiming {
   }
 
   /**
-   * The duration in millisecond of the DNS lookup.
-   *
+   * <p>The duration in millisecond of the DNS lookup.</p>
    * @return dns
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DNS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getDns() {
-    return dns;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DNS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getDns() {
+        return dns;
+      }
   public void setDns(Double dns) {
     this.dns = dns;
   }
-
   public SyntheticsTiming download(Double download) {
     this.download = download;
     return this;
   }
 
   /**
-   * The time in millisecond to download the response.
-   *
+   * <p>The time in millisecond to download the response.</p>
    * @return download
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOWNLOAD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getDownload() {
-    return download;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DOWNLOAD)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getDownload() {
+        return download;
+      }
   public void setDownload(Double download) {
     this.download = download;
   }
-
   public SyntheticsTiming firstByte(Double firstByte) {
     this.firstByte = firstByte;
     return this;
   }
 
   /**
-   * The time in millisecond to first byte.
-   *
+   * <p>The time in millisecond to first byte.</p>
    * @return firstByte
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIRST_BYTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getFirstByte() {
-    return firstByte;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FIRST_BYTE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getFirstByte() {
+        return firstByte;
+      }
   public void setFirstByte(Double firstByte) {
     this.firstByte = firstByte;
   }
-
   public SyntheticsTiming handshake(Double handshake) {
     this.handshake = handshake;
     return this;
   }
 
   /**
-   * The duration in millisecond of the TLS handshake.
-   *
+   * <p>The duration in millisecond of the TLS handshake.</p>
    * @return handshake
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HANDSHAKE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getHandshake() {
-    return handshake;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HANDSHAKE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getHandshake() {
+        return handshake;
+      }
   public void setHandshake(Double handshake) {
     this.handshake = handshake;
   }
-
   public SyntheticsTiming redirect(Double redirect) {
     this.redirect = redirect;
     return this;
   }
 
   /**
-   * The time in millisecond spent during redirections.
-   *
+   * <p>The time in millisecond spent during redirections.</p>
    * @return redirect
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REDIRECT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getRedirect() {
-    return redirect;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REDIRECT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getRedirect() {
+        return redirect;
+      }
   public void setRedirect(Double redirect) {
     this.redirect = redirect;
   }
-
   public SyntheticsTiming ssl(Double ssl) {
     this.ssl = ssl;
     return this;
   }
 
   /**
-   * The duration in millisecond of the TLS handshake.
-   *
+   * <p>The duration in millisecond of the TLS handshake.</p>
    * @return ssl
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SSL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getSsl() {
-    return ssl;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SSL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getSsl() {
+        return ssl;
+      }
   public void setSsl(Double ssl) {
     this.ssl = ssl;
   }
-
   public SyntheticsTiming tcp(Double tcp) {
     this.tcp = tcp;
     return this;
   }
 
   /**
-   * Time in millisecond to establish the TCP connection.
-   *
+   * <p>Time in millisecond to establish the TCP connection.</p>
    * @return tcp
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TCP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getTcp() {
-    return tcp;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TCP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getTcp() {
+        return tcp;
+      }
   public void setTcp(Double tcp) {
     this.tcp = tcp;
   }
-
   public SyntheticsTiming total(Double total) {
     this.total = total;
     return this;
   }
 
   /**
-   * The overall time in millisecond the request took to be processed.
-   *
+   * <p>The overall time in millisecond the request took to be processed.</p>
    * @return total
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getTotal() {
-    return total;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TOTAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getTotal() {
+        return total;
+      }
   public void setTotal(Double total) {
     this.total = total;
   }
-
   public SyntheticsTiming wait(Double wait) {
     this.wait = wait;
     return this;
   }
 
   /**
-   * Time spent in millisecond waiting for a response.
-   *
+   * <p>Time spent in millisecond waiting for a response.</p>
    * @return wait
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WAIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getWait() {
-    return wait;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WAIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getWait() {
+        return wait;
+      }
   public void setWait(Double wait) {
     this.wait = wait;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -269,7 +267,7 @@ public class SyntheticsTiming {
   @JsonAnySetter
   public SyntheticsTiming putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -293,12 +291,14 @@ public class SyntheticsTiming {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTiming object is equal to o. */
+  /**
+   * Return true if this SyntheticsTiming object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -308,22 +308,13 @@ public class SyntheticsTiming {
       return false;
     }
     SyntheticsTiming syntheticsTiming = (SyntheticsTiming) o;
-    return Objects.equals(this.dns, syntheticsTiming.dns)
-        && Objects.equals(this.download, syntheticsTiming.download)
-        && Objects.equals(this.firstByte, syntheticsTiming.firstByte)
-        && Objects.equals(this.handshake, syntheticsTiming.handshake)
-        && Objects.equals(this.redirect, syntheticsTiming.redirect)
-        && Objects.equals(this.ssl, syntheticsTiming.ssl)
-        && Objects.equals(this.tcp, syntheticsTiming.tcp)
-        && Objects.equals(this.total, syntheticsTiming.total)
-        && Objects.equals(this.wait, syntheticsTiming.wait)
-        && Objects.equals(this.additionalProperties, syntheticsTiming.additionalProperties);
+    return Objects.equals(this.dns, syntheticsTiming.dns) && Objects.equals(this.download, syntheticsTiming.download) && Objects.equals(this.firstByte, syntheticsTiming.firstByte) && Objects.equals(this.handshake, syntheticsTiming.handshake) && Objects.equals(this.redirect, syntheticsTiming.redirect) && Objects.equals(this.ssl, syntheticsTiming.ssl) && Objects.equals(this.tcp, syntheticsTiming.tcp) && Objects.equals(this.total, syntheticsTiming.total) && Objects.equals(this.wait, syntheticsTiming.wait) && Objects.equals(this.additionalProperties, syntheticsTiming.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        dns, download, firstByte, handshake, redirect, ssl, tcp, total, wait, additionalProperties);
+    return Objects.hash(dns,download,firstByte,handshake,redirect,ssl,tcp,total,wait, additionalProperties);
   }
 
   @Override
@@ -347,7 +338,8 @@ public class SyntheticsTiming {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

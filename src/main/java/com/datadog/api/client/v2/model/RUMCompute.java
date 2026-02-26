@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A compute rule to compute metrics or timeseries. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A compute rule to compute metrics or timeseries.</p>
+ */
 @JsonPropertyOrder({
   RUMCompute.JSON_PROPERTY_AGGREGATION,
   RUMCompute.JSON_PROPERTY_INTERVAL,
   RUMCompute.JSON_PROPERTY_METRIC,
   RUMCompute.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMCompute {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private RUMAggregationFunction aggregation;
 
@@ -44,12 +60,10 @@ public class RUMCompute {
 
   @JsonCreator
   public RUMCompute(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
-          RUMAggregationFunction aggregation) {
-    this.aggregation = aggregation;
-    this.unparsed |= !aggregation.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)RUMAggregationFunction aggregation) {
+        this.aggregation = aggregation;
+        this.unparsed |= !aggregation.isValid();
   }
-
   public RUMCompute aggregation(RUMAggregationFunction aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
@@ -57,65 +71,60 @@ public class RUMCompute {
   }
 
   /**
-   * An aggregation function.
-   *
+   * <p>An aggregation function.</p>
    * @return aggregation
-   */
-  @JsonProperty(JSON_PROPERTY_AGGREGATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RUMAggregationFunction getAggregation() {
-    return aggregation;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AGGREGATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RUMAggregationFunction getAggregation() {
+        return aggregation;
+      }
   public void setAggregation(RUMAggregationFunction aggregation) {
     if (!aggregation.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.aggregation = aggregation;
   }
-
   public RUMCompute interval(String interval) {
     this.interval = interval;
     return this;
   }
 
   /**
-   * The time buckets' size (only used for type=timeseries) Defaults to a resolution of 150 points.
-   *
+   * <p>The time buckets' size (only used for type=timeseries)
+   * Defaults to a resolution of 150 points.</p>
    * @return interval
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getInterval() {
-    return interval;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INTERVAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getInterval() {
+        return interval;
+      }
   public void setInterval(String interval) {
     this.interval = interval;
   }
-
   public RUMCompute metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * The metric to use.
-   *
+   * <p>The metric to use.</p>
    * @return metric
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRIC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMetric() {
-    return metric;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METRIC)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getMetric() {
+        return metric;
+      }
   public void setMetric(String metric) {
     this.metric = metric;
   }
-
   public RUMCompute type(RUMComputeType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -123,33 +132,33 @@ public class RUMCompute {
   }
 
   /**
-   * The type of compute.
-   *
+   * <p>The type of compute.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RUMComputeType getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public RUMComputeType getType() {
+        return type;
+      }
   public void setType(RUMComputeType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -158,7 +167,7 @@ public class RUMCompute {
   @JsonAnySetter
   public RUMCompute putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -182,12 +191,14 @@ public class RUMCompute {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RUMCompute object is equal to o. */
+  /**
+   * Return true if this RUMCompute object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -197,16 +208,13 @@ public class RUMCompute {
       return false;
     }
     RUMCompute rumCompute = (RUMCompute) o;
-    return Objects.equals(this.aggregation, rumCompute.aggregation)
-        && Objects.equals(this.interval, rumCompute.interval)
-        && Objects.equals(this.metric, rumCompute.metric)
-        && Objects.equals(this.type, rumCompute.type)
-        && Objects.equals(this.additionalProperties, rumCompute.additionalProperties);
+    return Objects.equals(this.aggregation, rumCompute.aggregation) && Objects.equals(this.interval, rumCompute.interval) && Objects.equals(this.metric, rumCompute.metric) && Objects.equals(this.type, rumCompute.type) && Objects.equals(this.additionalProperties, rumCompute.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, interval, metric, type, additionalProperties);
+    return Objects.hash(aggregation,interval,metric,type, additionalProperties);
   }
 
   @Override
@@ -225,7 +233,8 @@ public class RUMCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

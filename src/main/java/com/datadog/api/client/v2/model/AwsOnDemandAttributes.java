@@ -6,27 +6,44 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for the AWS on demand task. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for the AWS on demand task.</p>
+ */
 @JsonPropertyOrder({
   AwsOnDemandAttributes.JSON_PROPERTY_ARN,
   AwsOnDemandAttributes.JSON_PROPERTY_ASSIGNED_AT,
   AwsOnDemandAttributes.JSON_PROPERTY_CREATED_AT,
   AwsOnDemandAttributes.JSON_PROPERTY_STATUS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AwsOnDemandAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARN = "arn";
   private String arn;
 
@@ -45,96 +62,90 @@ public class AwsOnDemandAttributes {
   }
 
   /**
-   * The arn of the resource to scan.
-   *
+   * <p>The arn of the resource to scan.</p>
    * @return arn
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ARN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getArn() {
-    return arn;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ARN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getArn() {
+        return arn;
+      }
   public void setArn(String arn) {
     this.arn = arn;
   }
-
   public AwsOnDemandAttributes assignedAt(String assignedAt) {
     this.assignedAt = assignedAt;
     return this;
   }
 
   /**
-   * Specifies the assignment timestamp if the task has been already assigned to a scanner.
-   *
+   * <p>Specifies the assignment timestamp if the task has been already assigned to a scanner.</p>
    * @return assignedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASSIGNED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAssignedAt() {
-    return assignedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ASSIGNED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAssignedAt() {
+        return assignedAt;
+      }
   public void setAssignedAt(String assignedAt) {
     this.assignedAt = assignedAt;
   }
-
   public AwsOnDemandAttributes createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * The task submission timestamp.
-   *
+   * <p>The task submission timestamp.</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
   }
-
   public AwsOnDemandAttributes status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * Indicates the status of the task. QUEUED: the task has been submitted successfully and the
-   * resource has not been assigned to a scanner yet. ASSIGNED: the task has been assigned. ABORTED:
-   * the scan has been aborted after a period of time due to technical reasons, such as resource not
-   * found, insufficient permissions, or the absence of a configured scanner.
-   *
+   * <p>Indicates the status of the task.
+   * QUEUED: the task has been submitted successfully and the resource has not been assigned to a scanner yet.
+   * ASSIGNED: the task has been assigned.
+   * ABORTED: the scan has been aborted after a period of time due to technical reasons, such as resource not found, insufficient permissions, or the absence of a configured scanner.</p>
    * @return status
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStatus() {
-    return status;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getStatus() {
+        return status;
+      }
   public void setStatus(String status) {
     this.status = status;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -143,7 +154,7 @@ public class AwsOnDemandAttributes {
   @JsonAnySetter
   public AwsOnDemandAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -167,12 +178,14 @@ public class AwsOnDemandAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AwsOnDemandAttributes object is equal to o. */
+  /**
+   * Return true if this AwsOnDemandAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -182,16 +195,13 @@ public class AwsOnDemandAttributes {
       return false;
     }
     AwsOnDemandAttributes awsOnDemandAttributes = (AwsOnDemandAttributes) o;
-    return Objects.equals(this.arn, awsOnDemandAttributes.arn)
-        && Objects.equals(this.assignedAt, awsOnDemandAttributes.assignedAt)
-        && Objects.equals(this.createdAt, awsOnDemandAttributes.createdAt)
-        && Objects.equals(this.status, awsOnDemandAttributes.status)
-        && Objects.equals(this.additionalProperties, awsOnDemandAttributes.additionalProperties);
+    return Objects.equals(this.arn, awsOnDemandAttributes.arn) && Objects.equals(this.assignedAt, awsOnDemandAttributes.assignedAt) && Objects.equals(this.createdAt, awsOnDemandAttributes.createdAt) && Objects.equals(this.status, awsOnDemandAttributes.status) && Objects.equals(this.additionalProperties, awsOnDemandAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(arn, assignedAt, createdAt, status, additionalProperties);
+    return Objects.hash(arn,assignedAt,createdAt,status, additionalProperties);
   }
 
   @Override
@@ -210,7 +220,8 @@ public class AwsOnDemandAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

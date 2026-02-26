@@ -6,59 +6,75 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Identifies the resource type for individual user entities associated with on-call response. */
-@JsonSerialize(
-    using =
-        TeamOnCallRespondersDataRelationshipsRespondersDataItemsType
-            .TeamOnCallRespondersDataRelationshipsRespondersDataItemsTypeSerializer.class)
-public class TeamOnCallRespondersDataRelationshipsRespondersDataItemsType
-    extends ModelEnum<String> {
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Identifies the resource type for individual user entities associated with on-call response.</p>
+ */
+@JsonSerialize(using = TeamOnCallRespondersDataRelationshipsRespondersDataItemsType.TeamOnCallRespondersDataRelationshipsRespondersDataItemsTypeSerializer.class)
+public class TeamOnCallRespondersDataRelationshipsRespondersDataItemsType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("users"));
 
-  public static final TeamOnCallRespondersDataRelationshipsRespondersDataItemsType USERS =
-      new TeamOnCallRespondersDataRelationshipsRespondersDataItemsType("users");
+  public static final TeamOnCallRespondersDataRelationshipsRespondersDataItemsType USERS = new TeamOnCallRespondersDataRelationshipsRespondersDataItemsType("users");
+
 
   TeamOnCallRespondersDataRelationshipsRespondersDataItemsType(String value) {
     super(value, allowedValues);
   }
 
-  public static class TeamOnCallRespondersDataRelationshipsRespondersDataItemsTypeSerializer
-      extends StdSerializer<TeamOnCallRespondersDataRelationshipsRespondersDataItemsType> {
-    public TeamOnCallRespondersDataRelationshipsRespondersDataItemsTypeSerializer(
-        Class<TeamOnCallRespondersDataRelationshipsRespondersDataItemsType> t) {
-      super(t);
-    }
+  public static class TeamOnCallRespondersDataRelationshipsRespondersDataItemsTypeSerializer extends StdSerializer<TeamOnCallRespondersDataRelationshipsRespondersDataItemsType> {
+      public TeamOnCallRespondersDataRelationshipsRespondersDataItemsTypeSerializer(Class<TeamOnCallRespondersDataRelationshipsRespondersDataItemsType> t) {
+          super(t);
+      }
 
-    public TeamOnCallRespondersDataRelationshipsRespondersDataItemsTypeSerializer() {
-      this(null);
-    }
+      public TeamOnCallRespondersDataRelationshipsRespondersDataItemsTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        TeamOnCallRespondersDataRelationshipsRespondersDataItemsType value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(TeamOnCallRespondersDataRelationshipsRespondersDataItemsType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator
-  public static TeamOnCallRespondersDataRelationshipsRespondersDataItemsType fromValue(
-      String value) {
+  public static TeamOnCallRespondersDataRelationshipsRespondersDataItemsType fromValue(String value) {
     return new TeamOnCallRespondersDataRelationshipsRespondersDataItemsType(value);
   }
 }

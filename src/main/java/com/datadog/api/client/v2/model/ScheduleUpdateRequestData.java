@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Contains all data needed to update an existing schedule, including its attributes (such as name
- * and time zone) and any relationships to teams.
+   * <p>Contains all data needed to update an existing schedule, including its attributes (such as name and time zone) and any relationships to teams.</p>
  */
 @JsonPropertyOrder({
   ScheduleUpdateRequestData.JSON_PROPERTY_ATTRIBUTES,
@@ -27,10 +40,10 @@ import java.util.Objects;
   ScheduleUpdateRequestData.JSON_PROPERTY_RELATIONSHIPS,
   ScheduleUpdateRequestData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScheduleUpdateRequestData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private ScheduleUpdateRequestDataAttributes attributes;
 
@@ -47,18 +60,15 @@ public class ScheduleUpdateRequestData {
 
   @JsonCreator
   public ScheduleUpdateRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          ScheduleUpdateRequestDataAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ScheduleUpdateRequestDataType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES)ScheduleUpdateRequestDataAttributes attributes,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ScheduleUpdateRequestDataType type) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public ScheduleUpdateRequestData attributes(ScheduleUpdateRequestDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -66,63 +76,56 @@ public class ScheduleUpdateRequestData {
   }
 
   /**
-   * Defines the updatable attributes for a schedule, such as name, time zone, and layers.
-   *
+   * <p>Defines the updatable attributes for a schedule, such as name, time zone, and layers.</p>
    * @return attributes
-   */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ScheduleUpdateRequestDataAttributes getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ScheduleUpdateRequestDataAttributes getAttributes() {
+        return attributes;
+      }
   public void setAttributes(ScheduleUpdateRequestDataAttributes attributes) {
     this.attributes = attributes;
   }
-
   public ScheduleUpdateRequestData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the schedule to be updated.
-   *
+   * <p>The ID of the schedule to be updated.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
-  public ScheduleUpdateRequestData relationships(
-      ScheduleUpdateRequestDataRelationships relationships) {
+  public ScheduleUpdateRequestData relationships(ScheduleUpdateRequestDataRelationships relationships) {
     this.relationships = relationships;
     this.unparsed |= relationships.unparsed;
     return this;
   }
 
   /**
-   * Houses relationships for the schedule update, typically referencing teams.
-   *
+   * <p>Houses relationships for the schedule update, typically referencing teams.</p>
    * @return relationships
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScheduleUpdateRequestDataRelationships getRelationships() {
-    return relationships;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ScheduleUpdateRequestDataRelationships getRelationships() {
+        return relationships;
+      }
   public void setRelationships(ScheduleUpdateRequestDataRelationships relationships) {
     this.relationships = relationships;
   }
-
   public ScheduleUpdateRequestData type(ScheduleUpdateRequestDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -130,32 +133,32 @@ public class ScheduleUpdateRequestData {
   }
 
   /**
-   * Schedules resource type.
-   *
+   * <p>Schedules resource type.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ScheduleUpdateRequestDataType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ScheduleUpdateRequestDataType getType() {
+        return type;
+      }
   public void setType(ScheduleUpdateRequestDataType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -164,7 +167,7 @@ public class ScheduleUpdateRequestData {
   @JsonAnySetter
   public ScheduleUpdateRequestData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -188,12 +191,14 @@ public class ScheduleUpdateRequestData {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScheduleUpdateRequestData object is equal to o. */
+  /**
+   * Return true if this ScheduleUpdateRequestData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -203,17 +208,13 @@ public class ScheduleUpdateRequestData {
       return false;
     }
     ScheduleUpdateRequestData scheduleUpdateRequestData = (ScheduleUpdateRequestData) o;
-    return Objects.equals(this.attributes, scheduleUpdateRequestData.attributes)
-        && Objects.equals(this.id, scheduleUpdateRequestData.id)
-        && Objects.equals(this.relationships, scheduleUpdateRequestData.relationships)
-        && Objects.equals(this.type, scheduleUpdateRequestData.type)
-        && Objects.equals(
-            this.additionalProperties, scheduleUpdateRequestData.additionalProperties);
+    return Objects.equals(this.attributes, scheduleUpdateRequestData.attributes) && Objects.equals(this.id, scheduleUpdateRequestData.id) && Objects.equals(this.relationships, scheduleUpdateRequestData.relationships) && Objects.equals(this.type, scheduleUpdateRequestData.type) && Objects.equals(this.additionalProperties, scheduleUpdateRequestData.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(attributes,id,relationships,type, additionalProperties);
   }
 
   @Override
@@ -232,7 +233,8 @@ public class ScheduleUpdateRequestData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

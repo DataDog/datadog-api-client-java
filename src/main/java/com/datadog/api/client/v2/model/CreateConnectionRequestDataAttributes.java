@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+
+ */
 @JsonPropertyOrder({
   CreateConnectionRequestDataAttributes.JSON_PROPERTY_FIELDS,
   CreateConnectionRequestDataAttributes.JSON_PROPERTY_JOIN_ATTRIBUTE,
@@ -27,10 +41,10 @@ import java.util.Objects;
   CreateConnectionRequestDataAttributes.JSON_PROPERTY_METADATA,
   CreateConnectionRequestDataAttributes.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateConnectionRequestDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private List<CreateConnectionRequestDataAttributesFieldsItems> fields = null;
 
@@ -50,25 +64,21 @@ public class CreateConnectionRequestDataAttributes {
 
   @JsonCreator
   public CreateConnectionRequestDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_JOIN_ATTRIBUTE) String joinAttribute,
-      @JsonProperty(required = true, value = JSON_PROPERTY_JOIN_TYPE) String joinType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
-    this.joinAttribute = joinAttribute;
-    this.joinType = joinType;
-    this.type = type;
+            @JsonProperty(required=true, value=JSON_PROPERTY_JOIN_ATTRIBUTE)String joinAttribute,
+            @JsonProperty(required=true, value=JSON_PROPERTY_JOIN_TYPE)String joinType,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)String type) {
+        this.joinAttribute = joinAttribute;
+        this.joinType = joinType;
+        this.type = type;
   }
-
-  public CreateConnectionRequestDataAttributes fields(
-      List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
+  public CreateConnectionRequestDataAttributes fields(List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
     this.fields = fields;
     for (CreateConnectionRequestDataAttributesFieldsItems item : fields) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public CreateConnectionRequestDataAttributes addFieldsItem(
-      CreateConnectionRequestDataAttributesFieldsItems fieldsItem) {
+  public CreateConnectionRequestDataAttributes addFieldsItem(CreateConnectionRequestDataAttributesFieldsItems fieldsItem) {
     if (this.fields == null) {
       this.fields = new ArrayList<>();
     }
@@ -78,66 +88,59 @@ public class CreateConnectionRequestDataAttributes {
   }
 
   /**
-   * Getfields
-   *
+   * <p>Getfields</p>
    * @return fields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<CreateConnectionRequestDataAttributesFieldsItems> getFields() {
-    return fields;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FIELDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<CreateConnectionRequestDataAttributesFieldsItems> getFields() {
+        return fields;
+      }
   public void setFields(List<CreateConnectionRequestDataAttributesFieldsItems> fields) {
     this.fields = fields;
   }
-
   public CreateConnectionRequestDataAttributes joinAttribute(String joinAttribute) {
     this.joinAttribute = joinAttribute;
     return this;
   }
 
   /**
-   * GetjoinAttribute
-   *
+   * <p>GetjoinAttribute</p>
    * @return joinAttribute
-   */
-  @JsonProperty(JSON_PROPERTY_JOIN_ATTRIBUTE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getJoinAttribute() {
-    return joinAttribute;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_JOIN_ATTRIBUTE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getJoinAttribute() {
+        return joinAttribute;
+      }
   public void setJoinAttribute(String joinAttribute) {
     this.joinAttribute = joinAttribute;
   }
-
   public CreateConnectionRequestDataAttributes joinType(String joinType) {
     this.joinType = joinType;
     return this;
   }
 
   /**
-   * GetjoinType
-   *
+   * <p>GetjoinType</p>
    * @return joinType
-   */
-  @JsonProperty(JSON_PROPERTY_JOIN_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getJoinType() {
-    return joinType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_JOIN_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getJoinType() {
+        return joinType;
+      }
   public void setJoinType(String joinType) {
     this.joinType = joinType;
   }
-
   public CreateConnectionRequestDataAttributes metadata(Map<String, String> metadata) {
     this.metadata = metadata;
     return this;
   }
-
   public CreateConnectionRequestDataAttributes putMetadataItem(String key, String metadataItem) {
     if (this.metadata == null) {
       this.metadata = new HashMap<>();
@@ -147,50 +150,48 @@ public class CreateConnectionRequestDataAttributes {
   }
 
   /**
-   * Getmetadata
-   *
+   * <p>Getmetadata</p>
    * @return metadata
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, String> getMetadata() {
-    return metadata;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, String> getMetadata() {
+        return metadata;
+      }
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
-
   public CreateConnectionRequestDataAttributes type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Gettype
-   *
+   * <p>Gettype</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -199,7 +200,7 @@ public class CreateConnectionRequestDataAttributes {
   @JsonAnySetter
   public CreateConnectionRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -223,12 +224,14 @@ public class CreateConnectionRequestDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CreateConnectionRequestDataAttributes object is equal to o. */
+  /**
+   * Return true if this CreateConnectionRequestDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -237,20 +240,14 @@ public class CreateConnectionRequestDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateConnectionRequestDataAttributes createConnectionRequestDataAttributes =
-        (CreateConnectionRequestDataAttributes) o;
-    return Objects.equals(this.fields, createConnectionRequestDataAttributes.fields)
-        && Objects.equals(this.joinAttribute, createConnectionRequestDataAttributes.joinAttribute)
-        && Objects.equals(this.joinType, createConnectionRequestDataAttributes.joinType)
-        && Objects.equals(this.metadata, createConnectionRequestDataAttributes.metadata)
-        && Objects.equals(this.type, createConnectionRequestDataAttributes.type)
-        && Objects.equals(
-            this.additionalProperties, createConnectionRequestDataAttributes.additionalProperties);
+    CreateConnectionRequestDataAttributes createConnectionRequestDataAttributes = (CreateConnectionRequestDataAttributes) o;
+    return Objects.equals(this.fields, createConnectionRequestDataAttributes.fields) && Objects.equals(this.joinAttribute, createConnectionRequestDataAttributes.joinAttribute) && Objects.equals(this.joinType, createConnectionRequestDataAttributes.joinType) && Objects.equals(this.metadata, createConnectionRequestDataAttributes.metadata) && Objects.equals(this.type, createConnectionRequestDataAttributes.type) && Objects.equals(this.additionalProperties, createConnectionRequestDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields, joinAttribute, joinType, metadata, type, additionalProperties);
+    return Objects.hash(fields,joinAttribute,joinType,metadata,type, additionalProperties);
   }
 
   @Override
@@ -270,7 +267,8 @@ public class CreateConnectionRequestDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

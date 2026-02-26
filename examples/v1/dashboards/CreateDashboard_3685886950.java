@@ -1,9 +1,9 @@
-// Create a new dashboard with a timeseries widget using formulas and functions metrics query with
-// native semantic_mode
+// Create a new dashboard with a timeseries widget using formulas and functions metrics query with native semantic_mode
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricDataSource;
@@ -18,45 +18,37 @@ import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetDisplayType;
 import com.datadog.api.client.v1.model.WidgetFormula;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
-    Dashboard body =
-        new Dashboard()
-            .layoutType(DashboardLayoutType.ORDERED)
-            .title("Example-Dashboard with native semantic_mode")
-            .widgets(
-                Collections.singletonList(
-                    new Widget()
-                        .definition(
-                            new WidgetDefinition(
-                                new TimeseriesWidgetDefinition()
-                                    .type(TimeseriesWidgetDefinitionType.TIMESERIES)
-                                    .requests(
-                                        Collections.singletonList(
-                                            new TimeseriesWidgetRequest()
-                                                .queries(
-                                                    Collections.singletonList(
-                                                        new FormulaAndFunctionQueryDefinition(
-                                                            new FormulaAndFunctionMetricQueryDefinition()
-                                                                .dataSource(
-                                                                    FormulaAndFunctionMetricDataSource
-                                                                        .METRICS)
-                                                                .name("query1")
-                                                                .query("avg:system.cpu.user{*}")
-                                                                .semanticMode(
-                                                                    FormulaAndFunctionMetricSemanticMode
-                                                                        .NATIVE))))
-                                                .responseFormat(
-                                                    FormulaAndFunctionResponseFormat.TIMESERIES)
-                                                .formulas(
-                                                    Collections.singletonList(
-                                                        new WidgetFormula().formula("query1")))
-                                                .displayType(WidgetDisplayType.LINE)))))));
+    Dashboard body = new Dashboard()
+.layoutType(DashboardLayoutType.ORDERED)
+.title("Example-Dashboard with native semantic_mode")
+.widgets(Collections.singletonList(new Widget()
+.definition(new WidgetDefinition(
+new TimeseriesWidgetDefinition()
+.type(TimeseriesWidgetDefinitionType.TIMESERIES)
+.requests(Collections.singletonList(new TimeseriesWidgetRequest()
+.queries(Collections.singletonList(new FormulaAndFunctionQueryDefinition(
+new FormulaAndFunctionMetricQueryDefinition()
+.dataSource(FormulaAndFunctionMetricDataSource.METRICS)
+.name("query1")
+.query("avg:system.cpu.user{*}")
+.semanticMode(FormulaAndFunctionMetricSemanticMode.NATIVE))))
+.responseFormat(FormulaAndFunctionResponseFormat.TIMESERIES)
+.formulas(Collections.singletonList(new WidgetFormula()
+.formula("query1")))
+.displayType(WidgetDisplayType.LINE)))))));
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

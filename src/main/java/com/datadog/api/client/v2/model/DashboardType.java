@@ -6,57 +6,75 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The type of the dashboard. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The type of the dashboard.</p>
+ */
 @JsonSerialize(using = DashboardType.DashboardTypeSerializer.class)
 public class DashboardType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "custom_timeboard",
-              "custom_screenboard",
-              "integration_screenboard",
-              "integration_timeboard",
-              "host_timeboard"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("custom_timeboard", "custom_screenboard", "integration_screenboard", "integration_timeboard", "host_timeboard"));
 
   public static final DashboardType CUSTOM_TIMEBOARD = new DashboardType("custom_timeboard");
   public static final DashboardType CUSTOM_SCREENBOARD = new DashboardType("custom_screenboard");
-  public static final DashboardType INTEGRATION_SCREENBOARD =
-      new DashboardType("integration_screenboard");
-  public static final DashboardType INTEGRATION_TIMEBOARD =
-      new DashboardType("integration_timeboard");
+  public static final DashboardType INTEGRATION_SCREENBOARD = new DashboardType("integration_screenboard");
+  public static final DashboardType INTEGRATION_TIMEBOARD = new DashboardType("integration_timeboard");
   public static final DashboardType HOST_TIMEBOARD = new DashboardType("host_timeboard");
+
 
   DashboardType(String value) {
     super(value, allowedValues);
   }
 
   public static class DashboardTypeSerializer extends StdSerializer<DashboardType> {
-    public DashboardTypeSerializer(Class<DashboardType> t) {
-      super(t);
-    }
+      public DashboardTypeSerializer(Class<DashboardType> t) {
+          super(t);
+      }
 
-    public DashboardTypeSerializer() {
-      this(null);
-    }
+      public DashboardTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(DashboardType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(DashboardType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

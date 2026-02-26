@@ -1,24 +1,30 @@
 // Create a user returns "User created" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.UsersApi;
+import com.datadog.api.client.v1.model.UserResponse;
 import com.datadog.api.client.v1.model.AccessRole;
 import com.datadog.api.client.v1.model.User;
-import com.datadog.api.client.v1.model.UserResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);
 
-    User body =
-        new User()
-            .accessRole(AccessRole.READ_ONLY)
-            .disabled(false)
-            .email("test@datadoghq.com")
-            .handle("test@datadoghq.com")
-            .name("test user");
+    User body = new User()
+.accessRole(AccessRole.READ_ONLY)
+.disabled(false)
+.email("test@datadoghq.com")
+.handle("test@datadoghq.com")
+.name("test user");
 
     try {
       UserResponse result = apiInstance.createUser(body);

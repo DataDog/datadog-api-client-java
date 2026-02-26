@@ -1,53 +1,59 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.Case;
-import com.datadog.api.client.v2.model.CaseAssignRequest;
-import com.datadog.api.client.v2.model.CaseCommentRequest;
-import com.datadog.api.client.v2.model.CaseCreateRequest;
-import com.datadog.api.client.v2.model.CaseEmptyRequest;
-import com.datadog.api.client.v2.model.CaseNotificationRuleCreateRequest;
-import com.datadog.api.client.v2.model.CaseNotificationRuleResponse;
-import com.datadog.api.client.v2.model.CaseNotificationRuleUpdateRequest;
-import com.datadog.api.client.v2.model.CaseNotificationRulesResponse;
-import com.datadog.api.client.v2.model.CaseResponse;
+import com.datadog.api.client.PaginationIterable;
+
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.LinkedHashMap;
+import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import java.util.UUID;
+import com.datadog.api.client.v2.model.CasesResponse;
 import com.datadog.api.client.v2.model.CaseSortableField;
+import com.datadog.api.client.v2.model.CaseResponse;
+import com.datadog.api.client.v2.model.CaseCreateRequest;
+import com.datadog.api.client.v2.model.ProjectsResponse;
+import com.datadog.api.client.v2.model.ProjectResponse;
+import com.datadog.api.client.v2.model.ProjectCreateRequest;
+import com.datadog.api.client.v2.model.ProjectUpdateRequest;
+import com.datadog.api.client.v2.model.CaseNotificationRulesResponse;
+import com.datadog.api.client.v2.model.CaseNotificationRuleResponse;
+import com.datadog.api.client.v2.model.CaseNotificationRuleCreateRequest;
+import com.datadog.api.client.v2.model.CaseNotificationRuleUpdateRequest;
+import com.datadog.api.client.v2.model.CaseEmptyRequest;
+import com.datadog.api.client.v2.model.CaseAssignRequest;
 import com.datadog.api.client.v2.model.CaseUpdateAttributesRequest;
+import com.datadog.api.client.v2.model.TimelineResponse;
+import com.datadog.api.client.v2.model.CaseCommentRequest;
 import com.datadog.api.client.v2.model.CaseUpdateCustomAttributeRequest;
 import com.datadog.api.client.v2.model.CaseUpdateDescriptionRequest;
 import com.datadog.api.client.v2.model.CaseUpdatePriorityRequest;
+import com.datadog.api.client.v2.model.RelationshipToIncidentRequest;
+import com.datadog.api.client.v2.model.JiraIssueLinkRequest;
+import com.datadog.api.client.v2.model.JiraIssueCreateRequest;
+import com.datadog.api.client.v2.model.NotebookCreateRequest;
+import com.datadog.api.client.v2.model.ProjectRelationship;
+import com.datadog.api.client.v2.model.ServiceNowTicketCreateRequest;
 import com.datadog.api.client.v2.model.CaseUpdateStatusRequest;
 import com.datadog.api.client.v2.model.CaseUpdateTitleRequest;
-import com.datadog.api.client.v2.model.CasesResponse;
-import com.datadog.api.client.v2.model.JiraIssueCreateRequest;
-import com.datadog.api.client.v2.model.JiraIssueLinkRequest;
-import com.datadog.api.client.v2.model.NotebookCreateRequest;
-import com.datadog.api.client.v2.model.ProjectCreateRequest;
-import com.datadog.api.client.v2.model.ProjectRelationship;
-import com.datadog.api.client.v2.model.ProjectResponse;
-import com.datadog.api.client.v2.model.ProjectUpdateRequest;
-import com.datadog.api.client.v2.model.ProjectsResponse;
-import com.datadog.api.client.v2.model.RelationshipToIncidentRequest;
-import com.datadog.api.client.v2.model.ServiceNowTicketCreateRequest;
-import com.datadog.api.client.v2.model.TimelineResponse;
-import jakarta.ws.rs.client.Invocation;
-import jakarta.ws.rs.core.GenericType;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
+import com.datadog.api.client.v2.model.Case;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CaseManagementApi {
   private ApiClient apiClient;
-
   public CaseManagementApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -75,45 +81,44 @@ public class CaseManagementApi {
   }
 
   /**
-   * Archive case.
-   *
-   * <p>See {@link #archiveCaseWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Archive case payload (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse archiveCase(String caseId, CaseEmptyRequest body) throws ApiException {
+ * Archive case.
+ *
+ * See {@link #archiveCaseWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Archive case payload (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  archiveCase(String caseId, CaseEmptyRequest body) throws ApiException {
     return archiveCaseWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Archive case.
-   *
-   * <p>See {@link #archiveCaseWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Archive case payload (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> archiveCaseAsync(String caseId, CaseEmptyRequest body) {
-    return archiveCaseWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Archive case.
+ *
+ * See {@link #archiveCaseWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Archive case payload (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>archiveCaseAsync(String caseId, CaseEmptyRequest body) {
+    return archiveCaseWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Archive case
+   * <p>Archive case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Archive case payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -124,14 +129,12 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> archiveCaseWithHttpInfo(String caseId, CaseEmptyRequest body)
-      throws ApiException {
+  public ApiResponse<CaseResponse> archiveCaseWithHttpInfo(String caseId, CaseEmptyRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling archiveCase");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling archiveCase");
     }
 
     // verify the required parameter 'body' is set
@@ -139,135 +142,100 @@ public class CaseManagementApi {
       throw new ApiException(400, "Missing the required parameter 'body' when calling archiveCase");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/archive"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/archive"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.archiveCase",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.archiveCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Archive case.
    *
-   * <p>See {@link #archiveCaseWithHttpInfo}.
+   * See {@link #archiveCaseWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Archive case payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> archiveCaseWithHttpInfoAsync(
-      String caseId, CaseEmptyRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> archiveCaseWithHttpInfoAsync(String caseId, CaseEmptyRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling archiveCase"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling archiveCase"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'body' when calling archiveCase"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling archiveCase"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/archive"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/archive"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.archiveCase",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.archiveCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Assign case.
-   *
-   * <p>See {@link #assignCaseWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Assign case payload (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse assignCase(String caseId, CaseAssignRequest body) throws ApiException {
+ * Assign case.
+ *
+ * See {@link #assignCaseWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Assign case payload (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  assignCase(String caseId, CaseAssignRequest body) throws ApiException {
     return assignCaseWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Assign case.
-   *
-   * <p>See {@link #assignCaseWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Assign case payload (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> assignCaseAsync(String caseId, CaseAssignRequest body) {
-    return assignCaseWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Assign case.
+ *
+ * See {@link #assignCaseWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Assign case payload (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>assignCaseAsync(String caseId, CaseAssignRequest body) {
+    return assignCaseWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Assign case to a user
+   * <p>Assign case to a user</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Assign case payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -278,14 +246,12 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> assignCaseWithHttpInfo(String caseId, CaseAssignRequest body)
-      throws ApiException {
+  public ApiResponse<CaseResponse> assignCaseWithHttpInfo(String caseId, CaseAssignRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling assignCase");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling assignCase");
     }
 
     // verify the required parameter 'body' is set
@@ -293,135 +259,100 @@ public class CaseManagementApi {
       throw new ApiException(400, "Missing the required parameter 'body' when calling assignCase");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/assign"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/assign"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.assignCase",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.assignCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Assign case.
    *
-   * <p>See {@link #assignCaseWithHttpInfo}.
+   * See {@link #assignCaseWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Assign case payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> assignCaseWithHttpInfoAsync(
-      String caseId, CaseAssignRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> assignCaseWithHttpInfoAsync(String caseId, CaseAssignRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'caseId' when calling assignCase"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling assignCase"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'body' when calling assignCase"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling assignCase"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/assign"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/assign"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.assignCase",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.assignCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Comment case.
-   *
-   * <p>See {@link #commentCaseWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case comment payload (required)
-   * @return TimelineResponse
-   * @throws ApiException if fails to make API call
-   */
-  public TimelineResponse commentCase(String caseId, CaseCommentRequest body) throws ApiException {
+ * Comment case.
+ *
+ * See {@link #commentCaseWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case comment payload (required)
+ * @return TimelineResponse
+ * @throws ApiException if fails to make API call
+ */
+  public TimelineResponse  commentCase(String caseId, CaseCommentRequest body) throws ApiException {
     return commentCaseWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Comment case.
-   *
-   * <p>See {@link #commentCaseWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case comment payload (required)
-   * @return CompletableFuture&lt;TimelineResponse&gt;
-   */
-  public CompletableFuture<TimelineResponse> commentCaseAsync(
-      String caseId, CaseCommentRequest body) {
-    return commentCaseWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Comment case.
+ *
+ * See {@link #commentCaseWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case comment payload (required)
+ * @return CompletableFuture&lt;TimelineResponse&gt;
+ */
+  public CompletableFuture<TimelineResponse>commentCaseAsync(String caseId, CaseCommentRequest body) {
+    return commentCaseWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Comment case
+   * <p>Comment case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case comment payload (required)
    * @return ApiResponse&lt;TimelineResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -432,14 +363,12 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<TimelineResponse> commentCaseWithHttpInfo(
-      String caseId, CaseCommentRequest body) throws ApiException {
+  public ApiResponse<TimelineResponse> commentCaseWithHttpInfo(String caseId, CaseCommentRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling commentCase");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling commentCase");
     }
 
     // verify the required parameter 'body' is set
@@ -447,132 +376,97 @@ public class CaseManagementApi {
       throw new ApiException(400, "Missing the required parameter 'body' when calling commentCase");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/comment"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/comment"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.commentCase",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<TimelineResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.commentCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<TimelineResponse>() {});
   }
 
   /**
    * Comment case.
    *
-   * <p>See {@link #commentCaseWithHttpInfo}.
+   * See {@link #commentCaseWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case comment payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;TimelineResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<TimelineResponse>> commentCaseWithHttpInfoAsync(
-      String caseId, CaseCommentRequest body) {
+  public CompletableFuture<ApiResponse<TimelineResponse>> commentCaseWithHttpInfoAsync(String caseId, CaseCommentRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<TimelineResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling commentCase"));
-      return result;
+        CompletableFuture<ApiResponse<TimelineResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling commentCase"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<TimelineResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'body' when calling commentCase"));
-      return result;
+        CompletableFuture<ApiResponse<TimelineResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling commentCase"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/comment"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/comment"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.commentCase",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.commentCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<TimelineResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<TimelineResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<TimelineResponse>() {});
   }
 
   /**
-   * Create a case.
-   *
-   * <p>See {@link #createCaseWithHttpInfo}.
-   *
-   * @param body Case payload (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse createCase(CaseCreateRequest body) throws ApiException {
+ * Create a case.
+ *
+ * See {@link #createCaseWithHttpInfo}.
+ *
+ * @param body Case payload (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  createCase(CaseCreateRequest body) throws ApiException {
     return createCaseWithHttpInfo(body).getData();
   }
 
   /**
-   * Create a case.
-   *
-   * <p>See {@link #createCaseWithHttpInfoAsync}.
-   *
-   * @param body Case payload (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> createCaseAsync(CaseCreateRequest body) {
-    return createCaseWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create a case.
+ *
+ * See {@link #createCaseWithHttpInfoAsync}.
+ *
+ * @param body Case payload (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>createCaseAsync(CaseCreateRequest body) {
+    return createCaseWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create a Case
+   * <p>Create a Case</p>
    *
    * @param body Case payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
@@ -583,8 +477,7 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> createCaseWithHttpInfo(CaseCreateRequest body)
-      throws ApiException {
+  public ApiResponse<CaseResponse> createCaseWithHttpInfo(CaseCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -594,119 +487,87 @@ public class CaseManagementApi {
     // create path and map variables
     String localVarPath = "/api/v2/cases";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.createCase",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.createCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Create a case.
    *
-   * <p>See {@link #createCaseWithHttpInfo}.
+   * See {@link #createCaseWithHttpInfo}.
    *
    * @param body Case payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> createCaseWithHttpInfoAsync(
-      CaseCreateRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> createCaseWithHttpInfoAsync(CaseCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'body' when calling createCase"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createCase"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/cases";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.createCase",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.createCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Create Jira issue for case.
-   *
-   * <p>See {@link #createCaseJiraIssueWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Jira issue creation request (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void createCaseJiraIssue(String caseId, JiraIssueCreateRequest body) throws ApiException {
+ * Create Jira issue for case.
+ *
+ * See {@link #createCaseJiraIssueWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Jira issue creation request (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  createCaseJiraIssue(String caseId, JiraIssueCreateRequest body) throws ApiException {
     createCaseJiraIssueWithHttpInfo(caseId, body);
   }
 
   /**
-   * Create Jira issue for case.
-   *
-   * <p>See {@link #createCaseJiraIssueWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Jira issue creation request (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> createCaseJiraIssueAsync(
-      String caseId, JiraIssueCreateRequest body) {
-    return createCaseJiraIssueWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create Jira issue for case.
+ *
+ * See {@link #createCaseJiraIssueWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Jira issue creation request (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>createCaseJiraIssueAsync(String caseId, JiraIssueCreateRequest body) {
+    return createCaseJiraIssueWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create a new Jira issue and link it to a case
+   * <p>Create a new Jira issue and link it to a case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Jira issue creation request (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -717,8 +578,7 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> createCaseJiraIssueWithHttpInfo(
-      String caseId, JiraIssueCreateRequest body) throws ApiException {
+  public ApiResponse<Void> createCaseJiraIssueWithHttpInfo(String caseId, JiraIssueCreateRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "createCaseJiraIssue";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -730,156 +590,116 @@ public class CaseManagementApi {
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling createCaseJiraIssue");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling createCaseJiraIssue");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createCaseJiraIssue");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createCaseJiraIssue");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/jira_issues"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/jira_issues"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.createCaseJiraIssue",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.createCaseJiraIssue", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Create Jira issue for case.
    *
-   * <p>See {@link #createCaseJiraIssueWithHttpInfo}.
+   * See {@link #createCaseJiraIssueWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Jira issue creation request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> createCaseJiraIssueWithHttpInfoAsync(
-      String caseId, JiraIssueCreateRequest body) {
+  public CompletableFuture<ApiResponse<Void>> createCaseJiraIssueWithHttpInfoAsync(String caseId, JiraIssueCreateRequest body) {
     // Check if unstable operation is enabled
     String operationId = "createCaseJiraIssue";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling createCaseJiraIssue"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling createCaseJiraIssue"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createCaseJiraIssue"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createCaseJiraIssue"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/jira_issues"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/jira_issues"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.createCaseJiraIssue",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.createCaseJiraIssue", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Create investigation notebook for case.
-   *
-   * <p>See {@link #createCaseNotebookWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Notebook creation request (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void createCaseNotebook(String caseId, NotebookCreateRequest body) throws ApiException {
+ * Create investigation notebook for case.
+ *
+ * See {@link #createCaseNotebookWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Notebook creation request (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  createCaseNotebook(String caseId, NotebookCreateRequest body) throws ApiException {
     createCaseNotebookWithHttpInfo(caseId, body);
   }
 
   /**
-   * Create investigation notebook for case.
-   *
-   * <p>See {@link #createCaseNotebookWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Notebook creation request (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> createCaseNotebookAsync(
-      String caseId, NotebookCreateRequest body) {
-    return createCaseNotebookWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create investigation notebook for case.
+ *
+ * See {@link #createCaseNotebookWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Notebook creation request (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>createCaseNotebookAsync(String caseId, NotebookCreateRequest body) {
+    return createCaseNotebookWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create a new investigation notebook and link it to a case
+   * <p>Create a new investigation notebook and link it to a case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Notebook creation request (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -890,8 +710,7 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> createCaseNotebookWithHttpInfo(String caseId, NotebookCreateRequest body)
-      throws ApiException {
+  public ApiResponse<Void> createCaseNotebookWithHttpInfo(String caseId, NotebookCreateRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "createCaseNotebook";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -903,157 +722,116 @@ public class CaseManagementApi {
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling createCaseNotebook");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling createCaseNotebook");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createCaseNotebook");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createCaseNotebook");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/notebook"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/notebook"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.createCaseNotebook",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.createCaseNotebook", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Create investigation notebook for case.
    *
-   * <p>See {@link #createCaseNotebookWithHttpInfo}.
+   * See {@link #createCaseNotebookWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Notebook creation request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> createCaseNotebookWithHttpInfoAsync(
-      String caseId, NotebookCreateRequest body) {
+  public CompletableFuture<ApiResponse<Void>> createCaseNotebookWithHttpInfoAsync(String caseId, NotebookCreateRequest body) {
     // Check if unstable operation is enabled
     String operationId = "createCaseNotebook";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling createCaseNotebook"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling createCaseNotebook"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createCaseNotebook"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createCaseNotebook"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/notebook"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/notebook"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.createCaseNotebook",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.createCaseNotebook", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Create ServiceNow ticket for case.
-   *
-   * <p>See {@link #createCaseServiceNowTicketWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body ServiceNow ticket creation request (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void createCaseServiceNowTicket(String caseId, ServiceNowTicketCreateRequest body)
-      throws ApiException {
+ * Create ServiceNow ticket for case.
+ *
+ * See {@link #createCaseServiceNowTicketWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body ServiceNow ticket creation request (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  createCaseServiceNowTicket(String caseId, ServiceNowTicketCreateRequest body) throws ApiException {
     createCaseServiceNowTicketWithHttpInfo(caseId, body);
   }
 
   /**
-   * Create ServiceNow ticket for case.
-   *
-   * <p>See {@link #createCaseServiceNowTicketWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body ServiceNow ticket creation request (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> createCaseServiceNowTicketAsync(
-      String caseId, ServiceNowTicketCreateRequest body) {
-    return createCaseServiceNowTicketWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create ServiceNow ticket for case.
+ *
+ * See {@link #createCaseServiceNowTicketWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body ServiceNow ticket creation request (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>createCaseServiceNowTicketAsync(String caseId, ServiceNowTicketCreateRequest body) {
+    return createCaseServiceNowTicketWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create a new ServiceNow incident ticket and link it to a case
+   * <p>Create a new ServiceNow incident ticket and link it to a case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body ServiceNow ticket creation request (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -1064,8 +842,7 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> createCaseServiceNowTicketWithHttpInfo(
-      String caseId, ServiceNowTicketCreateRequest body) throws ApiException {
+  public ApiResponse<Void> createCaseServiceNowTicketWithHttpInfo(String caseId, ServiceNowTicketCreateRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "createCaseServiceNowTicket";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1077,155 +854,114 @@ public class CaseManagementApi {
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling createCaseServiceNowTicket");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling createCaseServiceNowTicket");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createCaseServiceNowTicket");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createCaseServiceNowTicket");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/servicenow_tickets"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/servicenow_tickets"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.createCaseServiceNowTicket",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.createCaseServiceNowTicket", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Create ServiceNow ticket for case.
    *
-   * <p>See {@link #createCaseServiceNowTicketWithHttpInfo}.
+   * See {@link #createCaseServiceNowTicketWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body ServiceNow ticket creation request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> createCaseServiceNowTicketWithHttpInfoAsync(
-      String caseId, ServiceNowTicketCreateRequest body) {
+  public CompletableFuture<ApiResponse<Void>> createCaseServiceNowTicketWithHttpInfoAsync(String caseId, ServiceNowTicketCreateRequest body) {
     // Check if unstable operation is enabled
     String operationId = "createCaseServiceNowTicket";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'caseId' when calling createCaseServiceNowTicket"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling createCaseServiceNowTicket"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling createCaseServiceNowTicket"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createCaseServiceNowTicket"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/servicenow_tickets"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/servicenow_tickets"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.createCaseServiceNowTicket",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.createCaseServiceNowTicket", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Create a project.
-   *
-   * <p>See {@link #createProjectWithHttpInfo}.
-   *
-   * @param body Project payload (required)
-   * @return ProjectResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ProjectResponse createProject(ProjectCreateRequest body) throws ApiException {
+ * Create a project.
+ *
+ * See {@link #createProjectWithHttpInfo}.
+ *
+ * @param body Project payload (required)
+ * @return ProjectResponse
+ * @throws ApiException if fails to make API call
+ */
+  public ProjectResponse  createProject(ProjectCreateRequest body) throws ApiException {
     return createProjectWithHttpInfo(body).getData();
   }
 
   /**
-   * Create a project.
-   *
-   * <p>See {@link #createProjectWithHttpInfoAsync}.
-   *
-   * @param body Project payload (required)
-   * @return CompletableFuture&lt;ProjectResponse&gt;
-   */
-  public CompletableFuture<ProjectResponse> createProjectAsync(ProjectCreateRequest body) {
-    return createProjectWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create a project.
+ *
+ * See {@link #createProjectWithHttpInfoAsync}.
+ *
+ * @param body Project payload (required)
+ * @return CompletableFuture&lt;ProjectResponse&gt;
+ */
+  public CompletableFuture<ProjectResponse>createProjectAsync(ProjectCreateRequest body) {
+    return createProjectWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create a project.
+   * <p>Create a project.</p>
    *
    * @param body Project payload (required)
    * @return ApiResponse&lt;ProjectResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
@@ -1236,134 +972,98 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ProjectResponse> createProjectWithHttpInfo(ProjectCreateRequest body)
-      throws ApiException {
+  public ApiResponse<ProjectResponse> createProjectWithHttpInfo(ProjectCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createProject");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createProject");
     }
     // create path and map variables
     String localVarPath = "/api/v2/cases/projects";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.createProject",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ProjectResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.createProject", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ProjectResponse>() {});
   }
 
   /**
    * Create a project.
    *
-   * <p>See {@link #createProjectWithHttpInfo}.
+   * See {@link #createProjectWithHttpInfo}.
    *
    * @param body Project payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ProjectResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ProjectResponse>> createProjectWithHttpInfoAsync(
-      ProjectCreateRequest body) {
+  public CompletableFuture<ApiResponse<ProjectResponse>> createProjectWithHttpInfoAsync(ProjectCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createProject"));
-      return result;
+        CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createProject"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/cases/projects";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.createProject",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.createProject", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ProjectResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ProjectResponse>() {});
   }
 
   /**
-   * Create a notification rule.
-   *
-   * <p>See {@link #createProjectNotificationRuleWithHttpInfo}.
-   *
-   * @param projectId Project UUID (required)
-   * @param body Notification rule payload (required)
-   * @return CaseNotificationRuleResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseNotificationRuleResponse createProjectNotificationRule(
-      String projectId, CaseNotificationRuleCreateRequest body) throws ApiException {
+ * Create a notification rule.
+ *
+ * See {@link #createProjectNotificationRuleWithHttpInfo}.
+ *
+ * @param projectId Project UUID (required)
+ * @param body Notification rule payload (required)
+ * @return CaseNotificationRuleResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseNotificationRuleResponse  createProjectNotificationRule(String projectId, CaseNotificationRuleCreateRequest body) throws ApiException {
     return createProjectNotificationRuleWithHttpInfo(projectId, body).getData();
   }
 
   /**
-   * Create a notification rule.
-   *
-   * <p>See {@link #createProjectNotificationRuleWithHttpInfoAsync}.
-   *
-   * @param projectId Project UUID (required)
-   * @param body Notification rule payload (required)
-   * @return CompletableFuture&lt;CaseNotificationRuleResponse&gt;
-   */
-  public CompletableFuture<CaseNotificationRuleResponse> createProjectNotificationRuleAsync(
-      String projectId, CaseNotificationRuleCreateRequest body) {
-    return createProjectNotificationRuleWithHttpInfoAsync(projectId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create a notification rule.
+ *
+ * See {@link #createProjectNotificationRuleWithHttpInfoAsync}.
+ *
+ * @param projectId Project UUID (required)
+ * @param body Notification rule payload (required)
+ * @return CompletableFuture&lt;CaseNotificationRuleResponse&gt;
+ */
+  public CompletableFuture<CaseNotificationRuleResponse>createProjectNotificationRuleAsync(String projectId, CaseNotificationRuleCreateRequest body) {
+    return createProjectNotificationRuleWithHttpInfoAsync(projectId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create a notification rule for a project.
+   * <p>Create a notification rule for a project.</p>
    *
    * @param projectId Project UUID (required)
    * @param body Notification rule payload (required)
    * @return ApiResponse&lt;CaseNotificationRuleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
@@ -1374,159 +1074,112 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseNotificationRuleResponse> createProjectNotificationRuleWithHttpInfo(
-      String projectId, CaseNotificationRuleCreateRequest body) throws ApiException {
+  public ApiResponse<CaseNotificationRuleResponse> createProjectNotificationRuleWithHttpInfo(String projectId, CaseNotificationRuleCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'projectId' when calling createProjectNotificationRule");
+      throw new ApiException(400, "Missing the required parameter 'projectId' when calling createProjectNotificationRule");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createProjectNotificationRule");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createProjectNotificationRule");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}/notification_rules"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.createProjectNotificationRule",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseNotificationRuleResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.createProjectNotificationRule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseNotificationRuleResponse>() {});
   }
 
   /**
    * Create a notification rule.
    *
-   * <p>See {@link #createProjectNotificationRuleWithHttpInfo}.
+   * See {@link #createProjectNotificationRuleWithHttpInfo}.
    *
    * @param projectId Project UUID (required)
    * @param body Notification rule payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseNotificationRuleResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseNotificationRuleResponse>>
-      createProjectNotificationRuleWithHttpInfoAsync(
-          String projectId, CaseNotificationRuleCreateRequest body) {
+  public CompletableFuture<ApiResponse<CaseNotificationRuleResponse>> createProjectNotificationRuleWithHttpInfoAsync(String projectId, CaseNotificationRuleCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      CompletableFuture<ApiResponse<CaseNotificationRuleResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'projectId' when calling"
-                  + " createProjectNotificationRule"));
-      return result;
+        CompletableFuture<ApiResponse<CaseNotificationRuleResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'projectId' when calling createProjectNotificationRule"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseNotificationRuleResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling createProjectNotificationRule"));
-      return result;
+        CompletableFuture<ApiResponse<CaseNotificationRuleResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createProjectNotificationRule"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}/notification_rules"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.createProjectNotificationRule",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.createProjectNotificationRule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<CaseNotificationRuleResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<CaseNotificationRuleResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseNotificationRuleResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseNotificationRuleResponse>() {});
   }
 
   /**
-   * Delete case comment.
-   *
-   * <p>See {@link #deleteCaseCommentWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param cellId Timeline cell's UUID (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteCaseComment(String caseId, String cellId) throws ApiException {
+ * Delete case comment.
+ *
+ * See {@link #deleteCaseCommentWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param cellId Timeline cell's UUID (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteCaseComment(String caseId, String cellId) throws ApiException {
     deleteCaseCommentWithHttpInfo(caseId, cellId);
   }
 
   /**
-   * Delete case comment.
-   *
-   * <p>See {@link #deleteCaseCommentWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param cellId Timeline cell's UUID (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteCaseCommentAsync(String caseId, String cellId) {
-    return deleteCaseCommentWithHttpInfoAsync(caseId, cellId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete case comment.
+ *
+ * See {@link #deleteCaseCommentWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param cellId Timeline cell's UUID (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteCaseCommentAsync(String caseId, String cellId) {
+    return deleteCaseCommentWithHttpInfoAsync(caseId, cellId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Delete case comment
+   * <p>Delete case comment</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param cellId Timeline cell's UUID (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -1537,156 +1190,115 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteCaseCommentWithHttpInfo(String caseId, String cellId)
-      throws ApiException {
+  public ApiResponse<Void> deleteCaseCommentWithHttpInfo(String caseId, String cellId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling deleteCaseComment");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling deleteCaseComment");
     }
 
     // verify the required parameter 'cellId' is set
     if (cellId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'cellId' when calling deleteCaseComment");
+      throw new ApiException(400, "Missing the required parameter 'cellId' when calling deleteCaseComment");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/comment/{cell_id}"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
-            .replaceAll("\\{" + "cell_id" + "\\}", apiClient.escapeString(cellId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/comment/{cell_id}"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
+      .replaceAll("\\{" + "cell_id" + "\\}", apiClient.escapeString(cellId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.deleteCaseComment",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.deleteCaseComment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Delete case comment.
    *
-   * <p>See {@link #deleteCaseCommentWithHttpInfo}.
+   * See {@link #deleteCaseCommentWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param cellId Timeline cell's UUID (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteCaseCommentWithHttpInfoAsync(
-      String caseId, String cellId) {
+  public CompletableFuture<ApiResponse<Void>> deleteCaseCommentWithHttpInfoAsync(String caseId, String cellId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling deleteCaseComment"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling deleteCaseComment"));
+        return result;
     }
 
     // verify the required parameter 'cellId' is set
     if (cellId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'cellId' when calling deleteCaseComment"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'cellId' when calling deleteCaseComment"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/comment/{cell_id}"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
-            .replaceAll("\\{" + "cell_id" + "\\}", apiClient.escapeString(cellId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/comment/{cell_id}"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
+      .replaceAll("\\{" + "cell_id" + "\\}", apiClient.escapeString(cellId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.deleteCaseComment",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.deleteCaseComment", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Delete custom attribute from case.
-   *
-   * <p>See {@link #deleteCaseCustomAttributeWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse deleteCaseCustomAttribute(String caseId, String customAttributeKey)
-      throws ApiException {
+ * Delete custom attribute from case.
+ *
+ * See {@link #deleteCaseCustomAttributeWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param customAttributeKey Case Custom attribute's key (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  deleteCaseCustomAttribute(String caseId, String customAttributeKey) throws ApiException {
     return deleteCaseCustomAttributeWithHttpInfo(caseId, customAttributeKey).getData();
   }
 
   /**
-   * Delete custom attribute from case.
-   *
-   * <p>See {@link #deleteCaseCustomAttributeWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> deleteCaseCustomAttributeAsync(
-      String caseId, String customAttributeKey) {
-    return deleteCaseCustomAttributeWithHttpInfoAsync(caseId, customAttributeKey)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete custom attribute from case.
+ *
+ * See {@link #deleteCaseCustomAttributeWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param customAttributeKey Case Custom attribute's key (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>deleteCaseCustomAttributeAsync(String caseId, String customAttributeKey) {
+    return deleteCaseCustomAttributeWithHttpInfoAsync(caseId, customAttributeKey).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Delete custom attribute from case
+   * <p>Delete custom attribute from case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param customAttributeKey Case Custom attribute's key (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1696,159 +1308,111 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> deleteCaseCustomAttributeWithHttpInfo(
-      String caseId, String customAttributeKey) throws ApiException {
+  public ApiResponse<CaseResponse> deleteCaseCustomAttributeWithHttpInfo(String caseId, String customAttributeKey) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling deleteCaseCustomAttribute");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling deleteCaseCustomAttribute");
     }
 
     // verify the required parameter 'customAttributeKey' is set
     if (customAttributeKey == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'customAttributeKey' when calling"
-              + " deleteCaseCustomAttribute");
+      throw new ApiException(400, "Missing the required parameter 'customAttributeKey' when calling deleteCaseCustomAttribute");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
-            .replaceAll(
-                "\\{" + "custom_attribute_key" + "\\}",
-                apiClient.escapeString(customAttributeKey.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
+      .replaceAll("\\{" + "custom_attribute_key" + "\\}", apiClient.escapeString(customAttributeKey.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.deleteCaseCustomAttribute",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.deleteCaseCustomAttribute", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Delete custom attribute from case.
    *
-   * <p>See {@link #deleteCaseCustomAttributeWithHttpInfo}.
+   * See {@link #deleteCaseCustomAttributeWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param customAttributeKey Case Custom attribute's key (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> deleteCaseCustomAttributeWithHttpInfoAsync(
-      String caseId, String customAttributeKey) {
+  public CompletableFuture<ApiResponse<CaseResponse>> deleteCaseCustomAttributeWithHttpInfoAsync(String caseId, String customAttributeKey) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'caseId' when calling deleteCaseCustomAttribute"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling deleteCaseCustomAttribute"));
+        return result;
     }
 
     // verify the required parameter 'customAttributeKey' is set
     if (customAttributeKey == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'customAttributeKey' when calling"
-                  + " deleteCaseCustomAttribute"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'customAttributeKey' when calling deleteCaseCustomAttribute"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
-            .replaceAll(
-                "\\{" + "custom_attribute_key" + "\\}",
-                apiClient.escapeString(customAttributeKey.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
+      .replaceAll("\\{" + "custom_attribute_key" + "\\}", apiClient.escapeString(customAttributeKey.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.deleteCaseCustomAttribute",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.deleteCaseCustomAttribute", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Remove a project.
-   *
-   * <p>See {@link #deleteProjectWithHttpInfo}.
-   *
-   * @param projectId Project UUID (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteProject(String projectId) throws ApiException {
+ * Remove a project.
+ *
+ * See {@link #deleteProjectWithHttpInfo}.
+ *
+ * @param projectId Project UUID (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteProject(String projectId) throws ApiException {
     deleteProjectWithHttpInfo(projectId);
   }
 
   /**
-   * Remove a project.
-   *
-   * <p>See {@link #deleteProjectWithHttpInfoAsync}.
-   *
-   * @param projectId Project UUID (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteProjectAsync(String projectId) {
-    return deleteProjectWithHttpInfoAsync(projectId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Remove a project.
+ *
+ * See {@link #deleteProjectWithHttpInfoAsync}.
+ *
+ * @param projectId Project UUID (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteProjectAsync(String projectId) {
+    return deleteProjectWithHttpInfoAsync(projectId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Remove a project using the project's <code>id</code>.
+   * <p>Remove a project using the project's <code>id</code>.</p>
    *
    * @param projectId Project UUID (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -1862,40 +1426,24 @@ public class CaseManagementApi {
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'projectId' when calling deleteProject");
+      throw new ApiException(400, "Missing the required parameter 'projectId' when calling deleteProject");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.deleteProject",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.deleteProject", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Remove a project.
    *
-   * <p>See {@link #deleteProjectWithHttpInfo}.
+   * See {@link #deleteProjectWithHttpInfo}.
    *
    * @param projectId Project UUID (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
@@ -1905,87 +1453,67 @@ public class CaseManagementApi {
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'projectId' when calling deleteProject"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'projectId' when calling deleteProject"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.deleteProject",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.deleteProject", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Delete a notification rule.
-   *
-   * <p>See {@link #deleteProjectNotificationRuleWithHttpInfo}.
-   *
-   * @param projectId Project UUID (required)
-   * @param notificationRuleId Notification Rule UUID (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteProjectNotificationRule(String projectId, String notificationRuleId)
-      throws ApiException {
+ * Delete a notification rule.
+ *
+ * See {@link #deleteProjectNotificationRuleWithHttpInfo}.
+ *
+ * @param projectId Project UUID (required)
+ * @param notificationRuleId Notification Rule UUID (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteProjectNotificationRule(String projectId, String notificationRuleId) throws ApiException {
     deleteProjectNotificationRuleWithHttpInfo(projectId, notificationRuleId);
   }
 
   /**
-   * Delete a notification rule.
-   *
-   * <p>See {@link #deleteProjectNotificationRuleWithHttpInfoAsync}.
-   *
-   * @param projectId Project UUID (required)
-   * @param notificationRuleId Notification Rule UUID (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteProjectNotificationRuleAsync(
-      String projectId, String notificationRuleId) {
-    return deleteProjectNotificationRuleWithHttpInfoAsync(projectId, notificationRuleId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete a notification rule.
+ *
+ * See {@link #deleteProjectNotificationRuleWithHttpInfoAsync}.
+ *
+ * @param projectId Project UUID (required)
+ * @param notificationRuleId Notification Rule UUID (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteProjectNotificationRuleAsync(String projectId, String notificationRuleId) {
+    return deleteProjectNotificationRuleWithHttpInfoAsync(projectId, notificationRuleId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Delete a notification rule using the notification rule's <code>id</code>.
+   * <p>Delete a notification rule using the notification rule's <code>id</code>.</p>
    *
    * @param projectId Project UUID (required)
    * @param notificationRuleId Notification Rule UUID (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -1994,162 +1522,112 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteProjectNotificationRuleWithHttpInfo(
-      String projectId, String notificationRuleId) throws ApiException {
+  public ApiResponse<Void> deleteProjectNotificationRuleWithHttpInfo(String projectId, String notificationRuleId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'projectId' when calling deleteProjectNotificationRule");
+      throw new ApiException(400, "Missing the required parameter 'projectId' when calling deleteProjectNotificationRule");
     }
 
     // verify the required parameter 'notificationRuleId' is set
     if (notificationRuleId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'notificationRuleId' when calling"
-              + " deleteProjectNotificationRule");
+      throw new ApiException(400, "Missing the required parameter 'notificationRuleId' when calling deleteProjectNotificationRule");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
-            .replaceAll(
-                "\\{" + "notification_rule_id" + "\\}",
-                apiClient.escapeString(notificationRuleId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+      .replaceAll("\\{" + "notification_rule_id" + "\\}", apiClient.escapeString(notificationRuleId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.deleteProjectNotificationRule",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.deleteProjectNotificationRule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Delete a notification rule.
    *
-   * <p>See {@link #deleteProjectNotificationRuleWithHttpInfo}.
+   * See {@link #deleteProjectNotificationRuleWithHttpInfo}.
    *
    * @param projectId Project UUID (required)
    * @param notificationRuleId Notification Rule UUID (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteProjectNotificationRuleWithHttpInfoAsync(
-      String projectId, String notificationRuleId) {
+  public CompletableFuture<ApiResponse<Void>> deleteProjectNotificationRuleWithHttpInfoAsync(String projectId, String notificationRuleId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'projectId' when calling"
-                  + " deleteProjectNotificationRule"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'projectId' when calling deleteProjectNotificationRule"));
+        return result;
     }
 
     // verify the required parameter 'notificationRuleId' is set
     if (notificationRuleId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'notificationRuleId' when calling"
-                  + " deleteProjectNotificationRule"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'notificationRuleId' when calling deleteProjectNotificationRule"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
-            .replaceAll(
-                "\\{" + "notification_rule_id" + "\\}",
-                apiClient.escapeString(notificationRuleId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+      .replaceAll("\\{" + "notification_rule_id" + "\\}", apiClient.escapeString(notificationRuleId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.deleteProjectNotificationRule",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.deleteProjectNotificationRule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Get the details of a case.
-   *
-   * <p>See {@link #getCaseWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse getCase(String caseId) throws ApiException {
+ * Get the details of a case.
+ *
+ * See {@link #getCaseWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  getCase(String caseId) throws ApiException {
     return getCaseWithHttpInfo(caseId).getData();
   }
 
   /**
-   * Get the details of a case.
-   *
-   * <p>See {@link #getCaseWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> getCaseAsync(String caseId) {
-    return getCaseWithHttpInfoAsync(caseId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get the details of a case.
+ *
+ * See {@link #getCaseWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>getCaseAsync(String caseId) {
+    return getCaseWithHttpInfoAsync(caseId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get the details of case by <code>case_id</code>
+   * <p>Get the details of case by <code>case_id</code></p>
    *
    * @param caseId Case's UUID or key (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2168,36 +1646,21 @@ public class CaseManagementApi {
       throw new ApiException(400, "Missing the required parameter 'caseId' when calling getCase");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.getCase",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.getCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Get the details of a case.
    *
-   * <p>See {@link #getCaseWithHttpInfo}.
+   * See {@link #getCaseWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
@@ -2207,82 +1670,65 @@ public class CaseManagementApi {
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'caseId' when calling getCase"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling getCase"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.getCase",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.getCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Get the details of a project.
-   *
-   * <p>See {@link #getProjectWithHttpInfo}.
-   *
-   * @param projectId Project UUID (required)
-   * @return ProjectResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ProjectResponse getProject(String projectId) throws ApiException {
+ * Get the details of a project.
+ *
+ * See {@link #getProjectWithHttpInfo}.
+ *
+ * @param projectId Project UUID (required)
+ * @return ProjectResponse
+ * @throws ApiException if fails to make API call
+ */
+  public ProjectResponse  getProject(String projectId) throws ApiException {
     return getProjectWithHttpInfo(projectId).getData();
   }
 
   /**
-   * Get the details of a project.
-   *
-   * <p>See {@link #getProjectWithHttpInfoAsync}.
-   *
-   * @param projectId Project UUID (required)
-   * @return CompletableFuture&lt;ProjectResponse&gt;
-   */
-  public CompletableFuture<ProjectResponse> getProjectAsync(String projectId) {
-    return getProjectWithHttpInfoAsync(projectId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get the details of a project.
+ *
+ * See {@link #getProjectWithHttpInfoAsync}.
+ *
+ * @param projectId Project UUID (required)
+ * @return CompletableFuture&lt;ProjectResponse&gt;
+ */
+  public CompletableFuture<ProjectResponse>getProjectAsync(String projectId) {
+    return getProjectWithHttpInfoAsync(projectId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get the details of a project by <code>project_id</code>.
+   * <p>Get the details of a project by <code>project_id</code>.</p>
    *
    * @param projectId Project UUID (required)
    * @return ApiResponse&lt;ProjectResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2298,129 +1744,92 @@ public class CaseManagementApi {
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'projectId' when calling getProject");
+      throw new ApiException(400, "Missing the required parameter 'projectId' when calling getProject");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.getProject",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ProjectResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.getProject", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ProjectResponse>() {});
   }
 
   /**
    * Get the details of a project.
    *
-   * <p>See {@link #getProjectWithHttpInfo}.
+   * See {@link #getProjectWithHttpInfo}.
    *
    * @param projectId Project UUID (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ProjectResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ProjectResponse>> getProjectWithHttpInfoAsync(
-      String projectId) {
+  public CompletableFuture<ApiResponse<ProjectResponse>> getProjectWithHttpInfoAsync(String projectId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'projectId' when calling getProject"));
-      return result;
+        CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'projectId' when calling getProject"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.getProject",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.getProject", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ProjectResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ProjectResponse>() {});
   }
 
   /**
-   * Get notification rules.
-   *
-   * <p>See {@link #getProjectNotificationRulesWithHttpInfo}.
-   *
-   * @param projectId Project UUID (required)
-   * @return CaseNotificationRulesResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseNotificationRulesResponse getProjectNotificationRules(String projectId)
-      throws ApiException {
+ * Get notification rules.
+ *
+ * See {@link #getProjectNotificationRulesWithHttpInfo}.
+ *
+ * @param projectId Project UUID (required)
+ * @return CaseNotificationRulesResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseNotificationRulesResponse  getProjectNotificationRules(String projectId) throws ApiException {
     return getProjectNotificationRulesWithHttpInfo(projectId).getData();
   }
 
   /**
-   * Get notification rules.
-   *
-   * <p>See {@link #getProjectNotificationRulesWithHttpInfoAsync}.
-   *
-   * @param projectId Project UUID (required)
-   * @return CompletableFuture&lt;CaseNotificationRulesResponse&gt;
-   */
-  public CompletableFuture<CaseNotificationRulesResponse> getProjectNotificationRulesAsync(
-      String projectId) {
-    return getProjectNotificationRulesWithHttpInfoAsync(projectId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get notification rules.
+ *
+ * See {@link #getProjectNotificationRulesWithHttpInfoAsync}.
+ *
+ * @param projectId Project UUID (required)
+ * @return CompletableFuture&lt;CaseNotificationRulesResponse&gt;
+ */
+  public CompletableFuture<CaseNotificationRulesResponse>getProjectNotificationRulesAsync(String projectId) {
+    return getProjectNotificationRulesWithHttpInfoAsync(projectId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get all notification rules for a project.
+   * <p>Get all notification rules for a project.</p>
    *
    * @param projectId Project UUID (required)
    * @return ApiResponse&lt;CaseNotificationRulesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2431,135 +1840,94 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseNotificationRulesResponse> getProjectNotificationRulesWithHttpInfo(
-      String projectId) throws ApiException {
+  public ApiResponse<CaseNotificationRulesResponse> getProjectNotificationRulesWithHttpInfo(String projectId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'projectId' when calling getProjectNotificationRules");
+      throw new ApiException(400, "Missing the required parameter 'projectId' when calling getProjectNotificationRules");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}/notification_rules"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.getProjectNotificationRules",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseNotificationRulesResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.getProjectNotificationRules", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseNotificationRulesResponse>() {});
   }
 
   /**
    * Get notification rules.
    *
-   * <p>See {@link #getProjectNotificationRulesWithHttpInfo}.
+   * See {@link #getProjectNotificationRulesWithHttpInfo}.
    *
    * @param projectId Project UUID (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseNotificationRulesResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseNotificationRulesResponse>>
-      getProjectNotificationRulesWithHttpInfoAsync(String projectId) {
+  public CompletableFuture<ApiResponse<CaseNotificationRulesResponse>> getProjectNotificationRulesWithHttpInfoAsync(String projectId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      CompletableFuture<ApiResponse<CaseNotificationRulesResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'projectId' when calling"
-                  + " getProjectNotificationRules"));
-      return result;
+        CompletableFuture<ApiResponse<CaseNotificationRulesResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'projectId' when calling getProjectNotificationRules"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}/notification_rules"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.getProjectNotificationRules",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.getProjectNotificationRules", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<CaseNotificationRulesResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<CaseNotificationRulesResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseNotificationRulesResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseNotificationRulesResponse>() {});
   }
 
   /**
-   * Get all projects.
-   *
-   * <p>See {@link #getProjectsWithHttpInfo}.
-   *
-   * @return ProjectsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ProjectsResponse getProjects() throws ApiException {
+ * Get all projects.
+ *
+ * See {@link #getProjectsWithHttpInfo}.
+ *
+ * @return ProjectsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public ProjectsResponse  getProjects() throws ApiException {
     return getProjectsWithHttpInfo().getData();
   }
 
   /**
-   * Get all projects.
-   *
-   * <p>See {@link #getProjectsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;ProjectsResponse&gt;
-   */
-  public CompletableFuture<ProjectsResponse> getProjectsAsync() {
-    return getProjectsWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get all projects.
+ *
+ * See {@link #getProjectsWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;ProjectsResponse&gt;
+ */
+  public CompletableFuture<ProjectsResponse>getProjectsAsync() {
+    return getProjectsWithHttpInfoAsync().thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Get all projects.
+   * <p>Get all projects.</p>
    *
    * @return ApiResponse&lt;ProjectsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2575,32 +1943,18 @@ public class CaseManagementApi {
     // create path and map variables
     String localVarPath = "/api/v2/cases/projects";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.getProjects",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ProjectsResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.getProjects", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ProjectsResponse>() {});
   }
 
   /**
    * Get all projects.
    *
-   * <p>See {@link #getProjectsWithHttpInfo}.
+   * See {@link #getProjectsWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;ProjectsResponse&gt;&gt;
    */
@@ -2609,77 +1963,60 @@ public class CaseManagementApi {
     // create path and map variables
     String localVarPath = "/api/v2/cases/projects";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.getProjects",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.getProjects", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProjectsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ProjectsResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ProjectsResponse>() {});
   }
 
   /**
-   * Link incident to case.
-   *
-   * <p>See {@link #linkIncidentWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Incident link request (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse linkIncident(String caseId, RelationshipToIncidentRequest body)
-      throws ApiException {
+ * Link incident to case.
+ *
+ * See {@link #linkIncidentWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Incident link request (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  linkIncident(String caseId, RelationshipToIncidentRequest body) throws ApiException {
     return linkIncidentWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Link incident to case.
-   *
-   * <p>See {@link #linkIncidentWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Incident link request (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> linkIncidentAsync(
-      String caseId, RelationshipToIncidentRequest body) {
-    return linkIncidentWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Link incident to case.
+ *
+ * See {@link #linkIncidentWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Incident link request (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>linkIncidentAsync(String caseId, RelationshipToIncidentRequest body) {
+    return linkIncidentWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Link an incident to a case
+   * <p>Link an incident to a case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Incident link request (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -2690,8 +2027,7 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> linkIncidentWithHttpInfo(
-      String caseId, RelationshipToIncidentRequest body) throws ApiException {
+  public ApiResponse<CaseResponse> linkIncidentWithHttpInfo(String caseId, RelationshipToIncidentRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "linkIncident";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -2703,155 +2039,116 @@ public class CaseManagementApi {
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling linkIncident");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling linkIncident");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling linkIncident");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling linkIncident");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/incidents"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/incidents"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.linkIncident",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.linkIncident", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Link incident to case.
    *
-   * <p>See {@link #linkIncidentWithHttpInfo}.
+   * See {@link #linkIncidentWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Incident link request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> linkIncidentWithHttpInfoAsync(
-      String caseId, RelationshipToIncidentRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> linkIncidentWithHttpInfoAsync(String caseId, RelationshipToIncidentRequest body) {
     // Check if unstable operation is enabled
     String operationId = "linkIncident";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling linkIncident"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling linkIncident"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'body' when calling linkIncident"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling linkIncident"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/incidents"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/incidents"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.linkIncident",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.linkIncident", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Link existing Jira issue to case.
-   *
-   * <p>See {@link #linkJiraIssueToCaseWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Jira issue link request (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void linkJiraIssueToCase(String caseId, JiraIssueLinkRequest body) throws ApiException {
+ * Link existing Jira issue to case.
+ *
+ * See {@link #linkJiraIssueToCaseWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Jira issue link request (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  linkJiraIssueToCase(String caseId, JiraIssueLinkRequest body) throws ApiException {
     linkJiraIssueToCaseWithHttpInfo(caseId, body);
   }
 
   /**
-   * Link existing Jira issue to case.
-   *
-   * <p>See {@link #linkJiraIssueToCaseWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Jira issue link request (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> linkJiraIssueToCaseAsync(
-      String caseId, JiraIssueLinkRequest body) {
-    return linkJiraIssueToCaseWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Link existing Jira issue to case.
+ *
+ * See {@link #linkJiraIssueToCaseWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Jira issue link request (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>linkJiraIssueToCaseAsync(String caseId, JiraIssueLinkRequest body) {
+    return linkJiraIssueToCaseWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Link an existing Jira issue to a case
+   * <p>Link an existing Jira issue to a case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Jira issue link request (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -2863,8 +2160,7 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> linkJiraIssueToCaseWithHttpInfo(String caseId, JiraIssueLinkRequest body)
-      throws ApiException {
+  public ApiResponse<Void> linkJiraIssueToCaseWithHttpInfo(String caseId, JiraIssueLinkRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "linkJiraIssueToCase";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -2876,158 +2172,117 @@ public class CaseManagementApi {
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling linkJiraIssueToCase");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling linkJiraIssueToCase");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling linkJiraIssueToCase");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling linkJiraIssueToCase");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/jira_issues"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/jira_issues"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.linkJiraIssueToCase",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.linkJiraIssueToCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Link existing Jira issue to case.
    *
-   * <p>See {@link #linkJiraIssueToCaseWithHttpInfo}.
+   * See {@link #linkJiraIssueToCaseWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Jira issue link request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> linkJiraIssueToCaseWithHttpInfoAsync(
-      String caseId, JiraIssueLinkRequest body) {
+  public CompletableFuture<ApiResponse<Void>> linkJiraIssueToCaseWithHttpInfoAsync(String caseId, JiraIssueLinkRequest body) {
     // Check if unstable operation is enabled
     String operationId = "linkJiraIssueToCase";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling linkJiraIssueToCase"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling linkJiraIssueToCase"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling linkJiraIssueToCase"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling linkJiraIssueToCase"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/jira_issues"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/jira_issues"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.linkJiraIssueToCase",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.linkJiraIssueToCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Update case project.
-   *
-   * <p>See {@link #moveCaseToProjectWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Project update request (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse moveCaseToProject(String caseId, ProjectRelationship body)
-      throws ApiException {
+ * Update case project.
+ *
+ * See {@link #moveCaseToProjectWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Project update request (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  moveCaseToProject(String caseId, ProjectRelationship body) throws ApiException {
     return moveCaseToProjectWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Update case project.
-   *
-   * <p>See {@link #moveCaseToProjectWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Project update request (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> moveCaseToProjectAsync(
-      String caseId, ProjectRelationship body) {
-    return moveCaseToProjectWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update case project.
+ *
+ * See {@link #moveCaseToProjectWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Project update request (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>moveCaseToProjectAsync(String caseId, ProjectRelationship body) {
+    return moveCaseToProjectWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update the project associated with a case
+   * <p>Update the project associated with a case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Project update request (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -3038,8 +2293,7 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> moveCaseToProjectWithHttpInfo(
-      String caseId, ProjectRelationship body) throws ApiException {
+  public ApiResponse<CaseResponse> moveCaseToProjectWithHttpInfo(String caseId, ProjectRelationship body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "moveCaseToProject";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -3051,117 +2305,81 @@ public class CaseManagementApi {
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling moveCaseToProject");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling moveCaseToProject");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling moveCaseToProject");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling moveCaseToProject");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/project"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/project"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.moveCaseToProject",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.moveCaseToProject", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Update case project.
    *
-   * <p>See {@link #moveCaseToProjectWithHttpInfo}.
+   * See {@link #moveCaseToProjectWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Project update request (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> moveCaseToProjectWithHttpInfoAsync(
-      String caseId, ProjectRelationship body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> moveCaseToProjectWithHttpInfoAsync(String caseId, ProjectRelationship body) {
     // Check if unstable operation is enabled
     String operationId = "moveCaseToProject";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling moveCaseToProject"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling moveCaseToProject"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling moveCaseToProject"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling moveCaseToProject"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/project"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/project"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.moveCaseToProject",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.moveCaseToProject", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
-  /** Manage optional parameters to searchCases. */
+  /**
+   * Manage optional parameters to searchCases.
+   */
   public static class SearchCasesOptionalParameters {
     private Long pageSize;
     private Long pageNumber;
@@ -3171,9 +2389,7 @@ public class CaseManagementApi {
 
     /**
      * Set pageSize.
-     *
-     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
-     *     to 10)
+     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default to 10)
      * @return SearchCasesOptionalParameters
      */
     public SearchCasesOptionalParameters pageSize(Long pageSize) {
@@ -3183,7 +2399,6 @@ public class CaseManagementApi {
 
     /**
      * Set pageNumber.
-     *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return SearchCasesOptionalParameters
      */
@@ -3194,7 +2409,6 @@ public class CaseManagementApi {
 
     /**
      * Set sortField.
-     *
      * @param sortField Specify which field to sort (optional)
      * @return SearchCasesOptionalParameters
      */
@@ -3205,7 +2419,6 @@ public class CaseManagementApi {
 
     /**
      * Set filter.
-     *
      * @param filter Search query (optional)
      * @return SearchCasesOptionalParameters
      */
@@ -3216,7 +2429,6 @@ public class CaseManagementApi {
 
     /**
      * Set sortAsc.
-     *
      * @param sortAsc Specify if order is ascending or not (optional, default to false)
      * @return SearchCasesOptionalParameters
      */
@@ -3227,123 +2439,111 @@ public class CaseManagementApi {
   }
 
   /**
-   * Search cases.
-   *
-   * <p>See {@link #searchCasesWithHttpInfo}.
-   *
-   * @return CasesResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CasesResponse searchCases() throws ApiException {
+ * Search cases.
+ *
+ * See {@link #searchCasesWithHttpInfo}.
+ *
+ * @return CasesResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CasesResponse searchCases () throws ApiException {
     return searchCasesWithHttpInfo(new SearchCasesOptionalParameters()).getData();
   }
 
   /**
-   * Search cases.
-   *
-   * <p>See {@link #searchCasesWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;CasesResponse&gt;
-   */
-  public CompletableFuture<CasesResponse> searchCasesAsync() {
-    return searchCasesWithHttpInfoAsync(new SearchCasesOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Search cases.
+ *
+ * See {@link #searchCasesWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;CasesResponse&gt;
+ */
+  public CompletableFuture<CasesResponse>searchCasesAsync() {
+    return searchCasesWithHttpInfoAsync(new SearchCasesOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Search cases.
-   *
-   * <p>See {@link #searchCasesWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CasesResponse
-   * @throws ApiException if fails to make API call
-   */
+ * Search cases.
+ *
+ * See {@link #searchCasesWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CasesResponse
+ * @throws ApiException if fails to make API call
+ */
   public CasesResponse searchCases(SearchCasesOptionalParameters parameters) throws ApiException {
     return searchCasesWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Search cases.
-   *
-   * <p>See {@link #searchCasesWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;CasesResponse&gt;
-   */
-  public CompletableFuture<CasesResponse> searchCasesAsync(
-      SearchCasesOptionalParameters parameters) {
-    return searchCasesWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Search cases.
+ *
+ * See {@link #searchCasesWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;CasesResponse&gt;
+ */
+  public CompletableFuture<CasesResponse>searchCasesAsync(SearchCasesOptionalParameters parameters) {
+    return searchCasesWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Search cases.
-   *
-   * <p>See {@link #searchCasesWithHttpInfo}.
-   *
-   * @return PaginationIterable&lt;Case&gt;
-   */
+ * Search cases.
+ *
+ * See {@link #searchCasesWithHttpInfo}.
+ *
+ * @return PaginationIterable&lt;Case&gt;
+ */
   public PaginationIterable<Case> searchCasesWithPagination() {
     SearchCasesOptionalParameters parameters = new SearchCasesOptionalParameters();
     return searchCasesWithPagination(parameters);
   }
 
   /**
-   * Search cases.
-   *
-   * <p>See {@link #searchCasesWithHttpInfo}.
-   *
-   * @return CasesResponse
-   */
-  public PaginationIterable<Case> searchCasesWithPagination(
-      SearchCasesOptionalParameters parameters) {
-    String resultsPath = "getData";
-    String valueGetterPath = "";
-    String valueSetterPath = "pageNumber";
-    Boolean valueSetterParamOptional = true;
-    parameters.pageNumber(0l);
-    Long limit;
+ * Search cases.
+ *
+ * See {@link #searchCasesWithHttpInfo}.
+ *
+ * @return CasesResponse
+ */
+  public PaginationIterable<Case> searchCasesWithPagination(SearchCasesOptionalParameters parameters) {
+  String resultsPath = "getData";
+  String valueGetterPath = "";
+  String valueSetterPath = "pageNumber";
+  Boolean valueSetterParamOptional = true;
+  parameters.pageNumber(0l);
+  Long limit;
 
-    if (parameters.pageSize == null) {
+  
+  if (parameters.pageSize == null) {
       limit = 10l;
       parameters.pageSize(limit);
-    } else {
+  } else {
       limit = parameters.pageSize;
-    }
+  }
+  
 
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
+  
+  LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+  args.put("optionalParams", parameters);
 
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "searchCases",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            false,
-            limit,
-            args);
+  PaginationIterable iterator = new PaginationIterable(this, "searchCases", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, false, limit, args);
 
-    return iterator;
+  return iterator;
   }
 
+
   /**
-   * Search cases.
+   * <p>Search cases.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CasesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -3354,8 +2554,7 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CasesResponse> searchCasesWithHttpInfo(
-      SearchCasesOptionalParameters parameters) throws ApiException {
+  public ApiResponse<CasesResponse> searchCasesWithHttpInfo(SearchCasesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -3365,6 +2564,7 @@ public class CaseManagementApi {
     // create path and map variables
     String localVarPath = "/api/v2/cases";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3374,36 +2574,19 @@ public class CaseManagementApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[asc]", sortAsc));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.searchCases",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CasesResponse>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.searchCases", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CasesResponse>() {});
   }
 
   /**
    * Search cases.
    *
-   * <p>See {@link #searchCasesWithHttpInfo}.
+   * See {@link #searchCasesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;CasesResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CasesResponse>> searchCasesWithHttpInfoAsync(
-      SearchCasesOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<CasesResponse>> searchCasesWithHttpInfoAsync(SearchCasesOptionalParameters parameters) {
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -3413,6 +2596,7 @@ public class CaseManagementApi {
     // create path and map variables
     String localVarPath = "/api/v2/cases";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3424,71 +2608,54 @@ public class CaseManagementApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.searchCases",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.searchCases", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CasesResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CasesResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CasesResponse>() {});
   }
 
   /**
-   * Unarchive case.
-   *
-   * <p>See {@link #unarchiveCaseWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unarchive case payload (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse unarchiveCase(String caseId, CaseEmptyRequest body) throws ApiException {
+ * Unarchive case.
+ *
+ * See {@link #unarchiveCaseWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Unarchive case payload (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  unarchiveCase(String caseId, CaseEmptyRequest body) throws ApiException {
     return unarchiveCaseWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Unarchive case.
-   *
-   * <p>See {@link #unarchiveCaseWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unarchive case payload (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> unarchiveCaseAsync(String caseId, CaseEmptyRequest body) {
-    return unarchiveCaseWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Unarchive case.
+ *
+ * See {@link #unarchiveCaseWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Unarchive case payload (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>unarchiveCaseAsync(String caseId, CaseEmptyRequest body) {
+    return unarchiveCaseWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Unarchive case
+   * <p>Unarchive case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Unarchive case payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -3499,152 +2666,113 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> unarchiveCaseWithHttpInfo(String caseId, CaseEmptyRequest body)
-      throws ApiException {
+  public ApiResponse<CaseResponse> unarchiveCaseWithHttpInfo(String caseId, CaseEmptyRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling unarchiveCase");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling unarchiveCase");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling unarchiveCase");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling unarchiveCase");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/unarchive"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/unarchive"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.unarchiveCase",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.unarchiveCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Unarchive case.
    *
-   * <p>See {@link #unarchiveCaseWithHttpInfo}.
+   * See {@link #unarchiveCaseWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Unarchive case payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> unarchiveCaseWithHttpInfoAsync(
-      String caseId, CaseEmptyRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> unarchiveCaseWithHttpInfoAsync(String caseId, CaseEmptyRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling unarchiveCase"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling unarchiveCase"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling unarchiveCase"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling unarchiveCase"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/unarchive"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/unarchive"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.unarchiveCase",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.unarchiveCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Unassign case.
-   *
-   * <p>See {@link #unassignCaseWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unassign case payload (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse unassignCase(String caseId, CaseEmptyRequest body) throws ApiException {
+ * Unassign case.
+ *
+ * See {@link #unassignCaseWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Unassign case payload (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  unassignCase(String caseId, CaseEmptyRequest body) throws ApiException {
     return unassignCaseWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Unassign case.
-   *
-   * <p>See {@link #unassignCaseWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Unassign case payload (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> unassignCaseAsync(String caseId, CaseEmptyRequest body) {
-    return unassignCaseWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Unassign case.
+ *
+ * See {@link #unassignCaseWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Unassign case payload (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>unassignCaseAsync(String caseId, CaseEmptyRequest body) {
+    return unassignCaseWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Unassign case
+   * <p>Unassign case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Unassign case payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -3655,147 +2783,109 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> unassignCaseWithHttpInfo(String caseId, CaseEmptyRequest body)
-      throws ApiException {
+  public ApiResponse<CaseResponse> unassignCaseWithHttpInfo(String caseId, CaseEmptyRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling unassignCase");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling unassignCase");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling unassignCase");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling unassignCase");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/unassign"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/unassign"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.unassignCase",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.unassignCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Unassign case.
    *
-   * <p>See {@link #unassignCaseWithHttpInfo}.
+   * See {@link #unassignCaseWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Unassign case payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> unassignCaseWithHttpInfoAsync(
-      String caseId, CaseEmptyRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> unassignCaseWithHttpInfoAsync(String caseId, CaseEmptyRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling unassignCase"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling unassignCase"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'body' when calling unassignCase"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling unassignCase"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/unassign"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/unassign"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.unassignCase",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.unassignCase", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Remove Jira issue link from case.
-   *
-   * <p>See {@link #unlinkJiraIssueWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void unlinkJiraIssue(String caseId) throws ApiException {
+ * Remove Jira issue link from case.
+ *
+ * See {@link #unlinkJiraIssueWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  unlinkJiraIssue(String caseId) throws ApiException {
     unlinkJiraIssueWithHttpInfo(caseId);
   }
 
   /**
-   * Remove Jira issue link from case.
-   *
-   * <p>See {@link #unlinkJiraIssueWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> unlinkJiraIssueAsync(String caseId) {
-    return unlinkJiraIssueWithHttpInfoAsync(caseId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Remove Jira issue link from case.
+ *
+ * See {@link #unlinkJiraIssueWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>unlinkJiraIssueAsync(String caseId) {
+    return unlinkJiraIssueWithHttpInfoAsync(caseId).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Remove the link between a Jira issue and a case
+   * <p>Remove the link between a Jira issue and a case</p>
    *
    * @param caseId Case's UUID or key (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -3818,40 +2908,24 @@ public class CaseManagementApi {
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling unlinkJiraIssue");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling unlinkJiraIssue");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/jira_issues"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/jira_issues"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.unlinkJiraIssue",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.unlinkJiraIssue", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Remove Jira issue link from case.
    *
-   * <p>See {@link #unlinkJiraIssueWithHttpInfo}.
+   * See {@link #unlinkJiraIssueWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
@@ -3863,96 +2937,75 @@ public class CaseManagementApi {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = null;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling unlinkJiraIssue"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling unlinkJiraIssue"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/relationships/jira_issues"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/relationships/jira_issues"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.unlinkJiraIssue",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.unlinkJiraIssue", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Update case attributes.
-   *
-   * <p>See {@link #updateAttributesWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case attributes update payload (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse updateAttributes(String caseId, CaseUpdateAttributesRequest body)
-      throws ApiException {
+ * Update case attributes.
+ *
+ * See {@link #updateAttributesWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case attributes update payload (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  updateAttributes(String caseId, CaseUpdateAttributesRequest body) throws ApiException {
     return updateAttributesWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Update case attributes.
-   *
-   * <p>See {@link #updateAttributesWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case attributes update payload (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> updateAttributesAsync(
-      String caseId, CaseUpdateAttributesRequest body) {
-    return updateAttributesWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update case attributes.
+ *
+ * See {@link #updateAttributesWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case attributes update payload (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>updateAttributesAsync(String caseId, CaseUpdateAttributesRequest body) {
+    return updateAttributesWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update case attributes
+   * <p>Update case attributes</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case attributes update payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -3963,150 +3016,108 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> updateAttributesWithHttpInfo(
-      String caseId, CaseUpdateAttributesRequest body) throws ApiException {
+  public ApiResponse<CaseResponse> updateAttributesWithHttpInfo(String caseId, CaseUpdateAttributesRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling updateAttributes");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling updateAttributes");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateAttributes");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateAttributes");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/attributes"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/attributes"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.updateAttributes",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.updateAttributes", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Update case attributes.
    *
-   * <p>See {@link #updateAttributesWithHttpInfo}.
+   * See {@link #updateAttributesWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case attributes update payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> updateAttributesWithHttpInfoAsync(
-      String caseId, CaseUpdateAttributesRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> updateAttributesWithHttpInfoAsync(String caseId, CaseUpdateAttributesRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling updateAttributes"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling updateAttributes"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateAttributes"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateAttributes"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/attributes"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/attributes"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.updateAttributes",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.updateAttributes", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Update case custom attribute.
-   *
-   * <p>See {@link #updateCaseCustomAttributeWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
-   * @param body Update case custom attribute payload (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse updateCaseCustomAttribute(
-      String caseId, String customAttributeKey, CaseUpdateCustomAttributeRequest body)
-      throws ApiException {
+ * Update case custom attribute.
+ *
+ * See {@link #updateCaseCustomAttributeWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param customAttributeKey Case Custom attribute's key (required)
+ * @param body Update case custom attribute payload (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  updateCaseCustomAttribute(String caseId, String customAttributeKey, CaseUpdateCustomAttributeRequest body) throws ApiException {
     return updateCaseCustomAttributeWithHttpInfo(caseId, customAttributeKey, body).getData();
   }
 
   /**
-   * Update case custom attribute.
-   *
-   * <p>See {@link #updateCaseCustomAttributeWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param customAttributeKey Case Custom attribute's key (required)
-   * @param body Update case custom attribute payload (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> updateCaseCustomAttributeAsync(
-      String caseId, String customAttributeKey, CaseUpdateCustomAttributeRequest body) {
-    return updateCaseCustomAttributeWithHttpInfoAsync(caseId, customAttributeKey, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update case custom attribute.
+ *
+ * See {@link #updateCaseCustomAttributeWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param customAttributeKey Case Custom attribute's key (required)
+ * @param body Update case custom attribute payload (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>updateCaseCustomAttributeAsync(String caseId, String customAttributeKey, CaseUpdateCustomAttributeRequest body) {
+    return updateCaseCustomAttributeWithHttpInfoAsync(caseId, customAttributeKey, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update case custom attribute
+   * <p>Update case custom attribute</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param customAttributeKey Case Custom attribute's key (required)
@@ -4114,7 +3125,7 @@ public class CaseManagementApi {
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -4125,182 +3136,128 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> updateCaseCustomAttributeWithHttpInfo(
-      String caseId, String customAttributeKey, CaseUpdateCustomAttributeRequest body)
-      throws ApiException {
+  public ApiResponse<CaseResponse> updateCaseCustomAttributeWithHttpInfo(String caseId, String customAttributeKey, CaseUpdateCustomAttributeRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling updateCaseCustomAttribute");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling updateCaseCustomAttribute");
     }
 
     // verify the required parameter 'customAttributeKey' is set
     if (customAttributeKey == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'customAttributeKey' when calling"
-              + " updateCaseCustomAttribute");
+      throw new ApiException(400, "Missing the required parameter 'customAttributeKey' when calling updateCaseCustomAttribute");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateCaseCustomAttribute");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateCaseCustomAttribute");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
-            .replaceAll(
-                "\\{" + "custom_attribute_key" + "\\}",
-                apiClient.escapeString(customAttributeKey.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
+      .replaceAll("\\{" + "custom_attribute_key" + "\\}", apiClient.escapeString(customAttributeKey.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.updateCaseCustomAttribute",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.updateCaseCustomAttribute", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Update case custom attribute.
    *
-   * <p>See {@link #updateCaseCustomAttributeWithHttpInfo}.
+   * See {@link #updateCaseCustomAttributeWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param customAttributeKey Case Custom attribute's key (required)
    * @param body Update case custom attribute payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> updateCaseCustomAttributeWithHttpInfoAsync(
-      String caseId, String customAttributeKey, CaseUpdateCustomAttributeRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> updateCaseCustomAttributeWithHttpInfoAsync(String caseId, String customAttributeKey, CaseUpdateCustomAttributeRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'caseId' when calling updateCaseCustomAttribute"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling updateCaseCustomAttribute"));
+        return result;
     }
 
     // verify the required parameter 'customAttributeKey' is set
     if (customAttributeKey == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'customAttributeKey' when calling"
-                  + " updateCaseCustomAttribute"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'customAttributeKey' when calling updateCaseCustomAttribute"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateCaseCustomAttribute"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateCaseCustomAttribute"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
-            .replaceAll(
-                "\\{" + "custom_attribute_key" + "\\}",
-                apiClient.escapeString(customAttributeKey.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()))
+      .replaceAll("\\{" + "custom_attribute_key" + "\\}", apiClient.escapeString(customAttributeKey.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.updateCaseCustomAttribute",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.updateCaseCustomAttribute", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Update case description.
-   *
-   * <p>See {@link #updateCaseDescriptionWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case description update payload (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse updateCaseDescription(String caseId, CaseUpdateDescriptionRequest body)
-      throws ApiException {
+ * Update case description.
+ *
+ * See {@link #updateCaseDescriptionWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case description update payload (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  updateCaseDescription(String caseId, CaseUpdateDescriptionRequest body) throws ApiException {
     return updateCaseDescriptionWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Update case description.
-   *
-   * <p>See {@link #updateCaseDescriptionWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case description update payload (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> updateCaseDescriptionAsync(
-      String caseId, CaseUpdateDescriptionRequest body) {
-    return updateCaseDescriptionWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update case description.
+ *
+ * See {@link #updateCaseDescriptionWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case description update payload (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>updateCaseDescriptionAsync(String caseId, CaseUpdateDescriptionRequest body) {
+    return updateCaseDescriptionWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update case description
+   * <p>Update case description</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case description update payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -4311,154 +3268,113 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> updateCaseDescriptionWithHttpInfo(
-      String caseId, CaseUpdateDescriptionRequest body) throws ApiException {
+  public ApiResponse<CaseResponse> updateCaseDescriptionWithHttpInfo(String caseId, CaseUpdateDescriptionRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling updateCaseDescription");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling updateCaseDescription");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateCaseDescription");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateCaseDescription");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/description"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/description"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.updateCaseDescription",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.updateCaseDescription", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Update case description.
    *
-   * <p>See {@link #updateCaseDescriptionWithHttpInfo}.
+   * See {@link #updateCaseDescriptionWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case description update payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> updateCaseDescriptionWithHttpInfoAsync(
-      String caseId, CaseUpdateDescriptionRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> updateCaseDescriptionWithHttpInfoAsync(String caseId, CaseUpdateDescriptionRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling updateCaseDescription"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling updateCaseDescription"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateCaseDescription"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateCaseDescription"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/description"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/description"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.updateCaseDescription",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.updateCaseDescription", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Update case title.
-   *
-   * <p>See {@link #updateCaseTitleWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case title update payload (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse updateCaseTitle(String caseId, CaseUpdateTitleRequest body)
-      throws ApiException {
+ * Update case title.
+ *
+ * See {@link #updateCaseTitleWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case title update payload (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  updateCaseTitle(String caseId, CaseUpdateTitleRequest body) throws ApiException {
     return updateCaseTitleWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Update case title.
-   *
-   * <p>See {@link #updateCaseTitleWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case title update payload (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> updateCaseTitleAsync(
-      String caseId, CaseUpdateTitleRequest body) {
-    return updateCaseTitleWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update case title.
+ *
+ * See {@link #updateCaseTitleWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case title update payload (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>updateCaseTitleAsync(String caseId, CaseUpdateTitleRequest body) {
+    return updateCaseTitleWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update case title
+   * <p>Update case title</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case title update payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -4469,154 +3385,113 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> updateCaseTitleWithHttpInfo(
-      String caseId, CaseUpdateTitleRequest body) throws ApiException {
+  public ApiResponse<CaseResponse> updateCaseTitleWithHttpInfo(String caseId, CaseUpdateTitleRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling updateCaseTitle");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling updateCaseTitle");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateCaseTitle");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateCaseTitle");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/title"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/title"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.updateCaseTitle",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.updateCaseTitle", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Update case title.
    *
-   * <p>See {@link #updateCaseTitleWithHttpInfo}.
+   * See {@link #updateCaseTitleWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case title update payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> updateCaseTitleWithHttpInfoAsync(
-      String caseId, CaseUpdateTitleRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> updateCaseTitleWithHttpInfoAsync(String caseId, CaseUpdateTitleRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling updateCaseTitle"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling updateCaseTitle"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateCaseTitle"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateCaseTitle"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/title"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/title"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.updateCaseTitle",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.updateCaseTitle", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Update case priority.
-   *
-   * <p>See {@link #updatePriorityWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case priority update payload (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse updatePriority(String caseId, CaseUpdatePriorityRequest body)
-      throws ApiException {
+ * Update case priority.
+ *
+ * See {@link #updatePriorityWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case priority update payload (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  updatePriority(String caseId, CaseUpdatePriorityRequest body) throws ApiException {
     return updatePriorityWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Update case priority.
-   *
-   * <p>See {@link #updatePriorityWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case priority update payload (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> updatePriorityAsync(
-      String caseId, CaseUpdatePriorityRequest body) {
-    return updatePriorityWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update case priority.
+ *
+ * See {@link #updatePriorityWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case priority update payload (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>updatePriorityAsync(String caseId, CaseUpdatePriorityRequest body) {
+    return updatePriorityWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update case priority
+   * <p>Update case priority</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case priority update payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -4627,154 +3502,113 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> updatePriorityWithHttpInfo(
-      String caseId, CaseUpdatePriorityRequest body) throws ApiException {
+  public ApiResponse<CaseResponse> updatePriorityWithHttpInfo(String caseId, CaseUpdatePriorityRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling updatePriority");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling updatePriority");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updatePriority");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updatePriority");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/priority"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/priority"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.updatePriority",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.updatePriority", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Update case priority.
    *
-   * <p>See {@link #updatePriorityWithHttpInfo}.
+   * See {@link #updatePriorityWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case priority update payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> updatePriorityWithHttpInfoAsync(
-      String caseId, CaseUpdatePriorityRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> updatePriorityWithHttpInfoAsync(String caseId, CaseUpdatePriorityRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling updatePriority"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling updatePriority"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updatePriority"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updatePriority"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/priority"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/priority"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.updatePriority",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.updatePriority", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
-   * Update a project.
-   *
-   * <p>See {@link #updateProjectWithHttpInfo}.
-   *
-   * @param projectId Project UUID (required)
-   * @param body Project payload (required)
-   * @return ProjectResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ProjectResponse updateProject(String projectId, ProjectUpdateRequest body)
-      throws ApiException {
+ * Update a project.
+ *
+ * See {@link #updateProjectWithHttpInfo}.
+ *
+ * @param projectId Project UUID (required)
+ * @param body Project payload (required)
+ * @return ProjectResponse
+ * @throws ApiException if fails to make API call
+ */
+  public ProjectResponse  updateProject(String projectId, ProjectUpdateRequest body) throws ApiException {
     return updateProjectWithHttpInfo(projectId, body).getData();
   }
 
   /**
-   * Update a project.
-   *
-   * <p>See {@link #updateProjectWithHttpInfoAsync}.
-   *
-   * @param projectId Project UUID (required)
-   * @param body Project payload (required)
-   * @return CompletableFuture&lt;ProjectResponse&gt;
-   */
-  public CompletableFuture<ProjectResponse> updateProjectAsync(
-      String projectId, ProjectUpdateRequest body) {
-    return updateProjectWithHttpInfoAsync(projectId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update a project.
+ *
+ * See {@link #updateProjectWithHttpInfoAsync}.
+ *
+ * @param projectId Project UUID (required)
+ * @param body Project payload (required)
+ * @return CompletableFuture&lt;ProjectResponse&gt;
+ */
+  public CompletableFuture<ProjectResponse>updateProjectAsync(String projectId, ProjectUpdateRequest body) {
+    return updateProjectWithHttpInfoAsync(projectId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update a project.
+   * <p>Update a project.</p>
    *
    * @param projectId Project UUID (required)
    * @param body Project payload (required)
    * @return ApiResponse&lt;ProjectResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -4785,149 +3619,107 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ProjectResponse> updateProjectWithHttpInfo(
-      String projectId, ProjectUpdateRequest body) throws ApiException {
+  public ApiResponse<ProjectResponse> updateProjectWithHttpInfo(String projectId, ProjectUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'projectId' when calling updateProject");
+      throw new ApiException(400, "Missing the required parameter 'projectId' when calling updateProject");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateProject");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateProject");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.updateProject",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ProjectResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.updateProject", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ProjectResponse>() {});
   }
 
   /**
    * Update a project.
    *
-   * <p>See {@link #updateProjectWithHttpInfo}.
+   * See {@link #updateProjectWithHttpInfo}.
    *
    * @param projectId Project UUID (required)
    * @param body Project payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ProjectResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ProjectResponse>> updateProjectWithHttpInfoAsync(
-      String projectId, ProjectUpdateRequest body) {
+  public CompletableFuture<ApiResponse<ProjectResponse>> updateProjectWithHttpInfoAsync(String projectId, ProjectUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'projectId' when calling updateProject"));
-      return result;
+        CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'projectId' when calling updateProject"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateProject"));
-      return result;
+        CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateProject"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.updateProject",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.updateProject", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ProjectResponse>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ProjectResponse>() {});
   }
 
   /**
-   * Update a notification rule.
-   *
-   * <p>See {@link #updateProjectNotificationRuleWithHttpInfo}.
-   *
-   * @param projectId Project UUID (required)
-   * @param notificationRuleId Notification Rule UUID (required)
-   * @param body Notification rule payload (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void updateProjectNotificationRule(
-      String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body)
-      throws ApiException {
+ * Update a notification rule.
+ *
+ * See {@link #updateProjectNotificationRuleWithHttpInfo}.
+ *
+ * @param projectId Project UUID (required)
+ * @param notificationRuleId Notification Rule UUID (required)
+ * @param body Notification rule payload (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  updateProjectNotificationRule(String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body) throws ApiException {
     updateProjectNotificationRuleWithHttpInfo(projectId, notificationRuleId, body);
   }
 
   /**
-   * Update a notification rule.
-   *
-   * <p>See {@link #updateProjectNotificationRuleWithHttpInfoAsync}.
-   *
-   * @param projectId Project UUID (required)
-   * @param notificationRuleId Notification Rule UUID (required)
-   * @param body Notification rule payload (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> updateProjectNotificationRuleAsync(
-      String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body) {
-    return updateProjectNotificationRuleWithHttpInfoAsync(projectId, notificationRuleId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update a notification rule.
+ *
+ * See {@link #updateProjectNotificationRuleWithHttpInfoAsync}.
+ *
+ * @param projectId Project UUID (required)
+ * @param notificationRuleId Notification Rule UUID (required)
+ * @param body Notification rule payload (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>updateProjectNotificationRuleAsync(String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body) {
+    return updateProjectNotificationRuleWithHttpInfoAsync(projectId, notificationRuleId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update a notification rule.
+   * <p>Update a notification rule.</p>
    *
    * @param projectId Project UUID (required)
    * @param notificationRuleId Notification Rule UUID (required)
@@ -4935,7 +3727,7 @@ public class CaseManagementApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -4946,185 +3738,128 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> updateProjectNotificationRuleWithHttpInfo(
-      String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body)
-      throws ApiException {
+  public ApiResponse<Void> updateProjectNotificationRuleWithHttpInfo(String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'projectId' when calling updateProjectNotificationRule");
+      throw new ApiException(400, "Missing the required parameter 'projectId' when calling updateProjectNotificationRule");
     }
 
     // verify the required parameter 'notificationRuleId' is set
     if (notificationRuleId == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'notificationRuleId' when calling"
-              + " updateProjectNotificationRule");
+      throw new ApiException(400, "Missing the required parameter 'notificationRuleId' when calling updateProjectNotificationRule");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateProjectNotificationRule");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateProjectNotificationRule");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
-            .replaceAll(
-                "\\{" + "notification_rule_id" + "\\}",
-                apiClient.escapeString(notificationRuleId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+      .replaceAll("\\{" + "notification_rule_id" + "\\}", apiClient.escapeString(notificationRuleId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.updateProjectNotificationRule",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "PUT",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.updateProjectNotificationRule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Update a notification rule.
    *
-   * <p>See {@link #updateProjectNotificationRuleWithHttpInfo}.
+   * See {@link #updateProjectNotificationRuleWithHttpInfo}.
    *
    * @param projectId Project UUID (required)
    * @param notificationRuleId Notification Rule UUID (required)
    * @param body Notification rule payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> updateProjectNotificationRuleWithHttpInfoAsync(
-      String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body) {
+  public CompletableFuture<ApiResponse<Void>> updateProjectNotificationRuleWithHttpInfoAsync(String projectId, String notificationRuleId, CaseNotificationRuleUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'projectId' is set
     if (projectId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'projectId' when calling"
-                  + " updateProjectNotificationRule"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'projectId' when calling updateProjectNotificationRule"));
+        return result;
     }
 
     // verify the required parameter 'notificationRuleId' is set
     if (notificationRuleId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'notificationRuleId' when calling"
-                  + " updateProjectNotificationRule"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'notificationRuleId' when calling updateProjectNotificationRule"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling updateProjectNotificationRule"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateProjectNotificationRule"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
-            .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
-            .replaceAll(
-                "\\{" + "notification_rule_id" + "\\}",
-                apiClient.escapeString(notificationRuleId.toString()));
+    String localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
+      .replaceAll("\\{" + "project_id" + "\\}", apiClient.escapeString(projectId.toString()))
+      .replaceAll("\\{" + "notification_rule_id" + "\\}", apiClient.escapeString(notificationRuleId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.updateProjectNotificationRule",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.updateProjectNotificationRule", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PUT",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("PUT", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
-   * Update case status.
-   *
-   * <p>See {@link #updateStatusWithHttpInfo}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case status update payload (required)
-   * @return CaseResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CaseResponse updateStatus(String caseId, CaseUpdateStatusRequest body)
-      throws ApiException {
+ * Update case status.
+ *
+ * See {@link #updateStatusWithHttpInfo}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case status update payload (required)
+ * @return CaseResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CaseResponse  updateStatus(String caseId, CaseUpdateStatusRequest body) throws ApiException {
     return updateStatusWithHttpInfo(caseId, body).getData();
   }
 
   /**
-   * Update case status.
-   *
-   * <p>See {@link #updateStatusWithHttpInfoAsync}.
-   *
-   * @param caseId Case's UUID or key (required)
-   * @param body Case status update payload (required)
-   * @return CompletableFuture&lt;CaseResponse&gt;
-   */
-  public CompletableFuture<CaseResponse> updateStatusAsync(
-      String caseId, CaseUpdateStatusRequest body) {
-    return updateStatusWithHttpInfoAsync(caseId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update case status.
+ *
+ * See {@link #updateStatusWithHttpInfoAsync}.
+ *
+ * @param caseId Case's UUID or key (required)
+ * @param body Case status update payload (required)
+ * @return CompletableFuture&lt;CaseResponse&gt;
+ */
+  public CompletableFuture<CaseResponse>updateStatusAsync(String caseId, CaseUpdateStatusRequest body) {
+    return updateStatusWithHttpInfoAsync(caseId, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update case status
+   * <p>Update case status</p>
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case status update payload (required)
    * @return ApiResponse&lt;CaseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -5135,108 +3870,71 @@ public class CaseManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CaseResponse> updateStatusWithHttpInfo(
-      String caseId, CaseUpdateStatusRequest body) throws ApiException {
+  public ApiResponse<CaseResponse> updateStatusWithHttpInfo(String caseId, CaseUpdateStatusRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'caseId' when calling updateStatus");
+      throw new ApiException(400, "Missing the required parameter 'caseId' when calling updateStatus");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateStatus");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateStatus");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/status"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/status"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CaseManagementApi.updateStatus",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CaseManagementApi.updateStatus", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 
   /**
    * Update case status.
    *
-   * <p>See {@link #updateStatusWithHttpInfo}.
+   * See {@link #updateStatusWithHttpInfo}.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case status update payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CaseResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CaseResponse>> updateStatusWithHttpInfoAsync(
-      String caseId, CaseUpdateStatusRequest body) {
+  public CompletableFuture<ApiResponse<CaseResponse>> updateStatusWithHttpInfoAsync(String caseId, CaseUpdateStatusRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'caseId' is set
     if (caseId == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'caseId' when calling updateStatus"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'caseId' when calling updateStatus"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'body' when calling updateStatus"));
-      return result;
+        CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateStatus"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/cases/{case_id}/status"
-            .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
+    String localVarPath = "/api/v2/cases/{case_id}/status"
+      .replaceAll("\\{" + "case_id" + "\\}", apiClient.escapeString(caseId.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CaseManagementApi.updateStatus",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+      builder = apiClient.createBuilder("v2.CaseManagementApi.updateStatus", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth", "AuthZ" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CaseResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CaseResponse>() {});
   }
 }

@@ -6,25 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Cloud storage file metadata for create requests. Both access_details and sync_enabled are
- * required.
+   * <p>Cloud storage file metadata for create requests. Both access_details and sync_enabled are required.</p>
  */
 @JsonPropertyOrder({
   CreateTableRequestDataAttributesFileMetadataCloudStorage.JSON_PROPERTY_ACCESS_DETAILS,
   CreateTableRequestDataAttributesFileMetadataCloudStorage.JSON_PROPERTY_SYNC_ENABLED
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateTableRequestDataAttributesFileMetadataCloudStorage {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCESS_DETAILS = "access_details";
   private CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails accessDetails;
 
@@ -35,60 +52,52 @@ public class CreateTableRequestDataAttributesFileMetadataCloudStorage {
 
   @JsonCreator
   public CreateTableRequestDataAttributesFileMetadataCloudStorage(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACCESS_DETAILS)
-          CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails accessDetails,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SYNC_ENABLED) Boolean syncEnabled) {
-    this.accessDetails = accessDetails;
-    this.unparsed |= accessDetails.unparsed;
-    this.syncEnabled = syncEnabled;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ACCESS_DETAILS)CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails accessDetails,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SYNC_ENABLED)Boolean syncEnabled) {
+        this.accessDetails = accessDetails;
+        this.unparsed |= accessDetails.unparsed;
+        this.syncEnabled = syncEnabled;
   }
-
-  public CreateTableRequestDataAttributesFileMetadataCloudStorage accessDetails(
-      CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails accessDetails) {
+  public CreateTableRequestDataAttributesFileMetadataCloudStorage accessDetails(CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails accessDetails) {
     this.accessDetails = accessDetails;
     this.unparsed |= accessDetails.unparsed;
     return this;
   }
 
   /**
-   * Cloud storage access configuration for the reference table data file.
-   *
+   * <p>Cloud storage access configuration for the reference table data file.</p>
    * @return accessDetails
-   */
-  @JsonProperty(JSON_PROPERTY_ACCESS_DETAILS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails getAccessDetails() {
-    return accessDetails;
-  }
-
-  public void setAccessDetails(
-      CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails accessDetails) {
+  **/
+      @JsonProperty(JSON_PROPERTY_ACCESS_DETAILS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails getAccessDetails() {
+        return accessDetails;
+      }
+  public void setAccessDetails(CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails accessDetails) {
     this.accessDetails = accessDetails;
   }
-
   public CreateTableRequestDataAttributesFileMetadataCloudStorage syncEnabled(Boolean syncEnabled) {
     this.syncEnabled = syncEnabled;
     return this;
   }
 
   /**
-   * Whether this table is synced automatically.
-   *
+   * <p>Whether this table is synced automatically.</p>
    * @return syncEnabled
-   */
-  @JsonProperty(JSON_PROPERTY_SYNC_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getSyncEnabled() {
-    return syncEnabled;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SYNC_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Boolean getSyncEnabled() {
+        return syncEnabled;
+      }
   public void setSyncEnabled(Boolean syncEnabled) {
     this.syncEnabled = syncEnabled;
   }
 
   /**
-   * Return true if this CreateTableRequestDataAttributesFileMetadataCloudStorage object is equal to
-   * o.
+   * Return true if this CreateTableRequestDataAttributesFileMetadataCloudStorage object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -98,19 +107,14 @@ public class CreateTableRequestDataAttributesFileMetadataCloudStorage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateTableRequestDataAttributesFileMetadataCloudStorage
-        createTableRequestDataAttributesFileMetadataCloudStorage =
-            (CreateTableRequestDataAttributesFileMetadataCloudStorage) o;
-    return Objects.equals(
-            this.accessDetails,
-            createTableRequestDataAttributesFileMetadataCloudStorage.accessDetails)
-        && Objects.equals(
-            this.syncEnabled, createTableRequestDataAttributesFileMetadataCloudStorage.syncEnabled);
+    CreateTableRequestDataAttributesFileMetadataCloudStorage createTableRequestDataAttributesFileMetadataCloudStorage = (CreateTableRequestDataAttributesFileMetadataCloudStorage) o;
+    return Objects.equals(this.accessDetails, createTableRequestDataAttributesFileMetadataCloudStorage.accessDetails) && Objects.equals(this.syncEnabled, createTableRequestDataAttributesFileMetadataCloudStorage.syncEnabled);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDetails, syncEnabled);
+    return Objects.hash(accessDetails,syncEnabled);
   }
 
   @Override
@@ -124,7 +128,8 @@ public class CreateTableRequestDataAttributesFileMetadataCloudStorage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
