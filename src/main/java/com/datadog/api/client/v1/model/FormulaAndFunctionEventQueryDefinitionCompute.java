@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,20 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Compute options.</p>
- */
+/** Compute options. */
 @JsonPropertyOrder({
   FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_AGGREGATION,
   FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_INTERVAL,
   FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_METRIC
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionEventQueryDefinitionCompute {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private FormulaAndFunctionEventAggregation aggregation;
 
@@ -56,90 +40,98 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
 
   @JsonCreator
   public FormulaAndFunctionEventQueryDefinitionCompute(
-            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)FormulaAndFunctionEventAggregation aggregation) {
-        this.aggregation = aggregation;
-        this.unparsed |= !aggregation.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
+          FormulaAndFunctionEventAggregation aggregation) {
+    this.aggregation = aggregation;
+    this.unparsed |= !aggregation.isValid();
   }
-  public FormulaAndFunctionEventQueryDefinitionCompute aggregation(FormulaAndFunctionEventAggregation aggregation) {
+
+  public FormulaAndFunctionEventQueryDefinitionCompute aggregation(
+      FormulaAndFunctionEventAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
     return this;
   }
 
   /**
-   * <p>Aggregation methods for event platform queries.</p>
+   * Aggregation methods for event platform queries.
+   *
    * @return aggregation
-  **/
-      @JsonProperty(JSON_PROPERTY_AGGREGATION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public FormulaAndFunctionEventAggregation getAggregation() {
-        return aggregation;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FormulaAndFunctionEventAggregation getAggregation() {
+    return aggregation;
+  }
+
   public void setAggregation(FormulaAndFunctionEventAggregation aggregation) {
     if (!aggregation.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.aggregation = aggregation;
   }
+
   public FormulaAndFunctionEventQueryDefinitionCompute interval(Long interval) {
     this.interval = interval;
     return this;
   }
 
   /**
-   * <p>A time interval in milliseconds.</p>
+   * A time interval in milliseconds.
+   *
    * @return interval
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INTERVAL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getInterval() {
-        return interval;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInterval() {
+    return interval;
+  }
+
   public void setInterval(Long interval) {
     this.interval = interval;
   }
+
   public FormulaAndFunctionEventQueryDefinitionCompute metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * <p>Measurable attribute to compute.</p>
+   * Measurable attribute to compute.
+   *
    * @return metric
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METRIC)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getMetric() {
-        return metric;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMetric() {
+    return metric;
+  }
+
   public void setMetric(String metric) {
     this.metric = metric;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return FormulaAndFunctionEventQueryDefinitionCompute
    */
   @JsonAnySetter
-  public FormulaAndFunctionEventQueryDefinitionCompute putAdditionalProperty(String key, Object value) {
+  public FormulaAndFunctionEventQueryDefinitionCompute putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -163,14 +155,12 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this FormulaAndFunctionEventQueryDefinitionCompute object is equal to o.
-   */
+  /** Return true if this FormulaAndFunctionEventQueryDefinitionCompute object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -179,14 +169,20 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormulaAndFunctionEventQueryDefinitionCompute formulaAndFunctionEventQueryDefinitionCompute = (FormulaAndFunctionEventQueryDefinitionCompute) o;
-    return Objects.equals(this.aggregation, formulaAndFunctionEventQueryDefinitionCompute.aggregation) && Objects.equals(this.interval, formulaAndFunctionEventQueryDefinitionCompute.interval) && Objects.equals(this.metric, formulaAndFunctionEventQueryDefinitionCompute.metric) && Objects.equals(this.additionalProperties, formulaAndFunctionEventQueryDefinitionCompute.additionalProperties);
+    FormulaAndFunctionEventQueryDefinitionCompute formulaAndFunctionEventQueryDefinitionCompute =
+        (FormulaAndFunctionEventQueryDefinitionCompute) o;
+    return Objects.equals(
+            this.aggregation, formulaAndFunctionEventQueryDefinitionCompute.aggregation)
+        && Objects.equals(this.interval, formulaAndFunctionEventQueryDefinitionCompute.interval)
+        && Objects.equals(this.metric, formulaAndFunctionEventQueryDefinitionCompute.metric)
+        && Objects.equals(
+            this.additionalProperties,
+            formulaAndFunctionEventQueryDefinitionCompute.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation,interval,metric, additionalProperties);
+    return Objects.hash(aggregation, interval, metric, additionalProperties);
   }
 
   @Override
@@ -204,8 +200,7 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

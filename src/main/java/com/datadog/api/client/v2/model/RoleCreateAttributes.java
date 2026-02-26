@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of the created role.</p>
- */
+/** Attributes of the created role. */
 @JsonPropertyOrder({
   RoleCreateAttributes.JSON_PROPERTY_CREATED_AT,
   RoleCreateAttributes.JSON_PROPERTY_MODIFIED_AT,
   RoleCreateAttributes.JSON_PROPERTY_NAME,
   RoleCreateAttributes.JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleCreateAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -60,55 +47,59 @@ public class RoleCreateAttributes {
 
   @JsonCreator
   public RoleCreateAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
-        this.name = name;
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
   }
 
   /**
-   * <p>Creation time of the role.</p>
+   * Creation time of the role.
+   *
    * @return createdAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
 
   /**
-   * <p>Time of last role modification.</p>
+   * Time of last role modification.
+   *
    * @return modifiedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getModifiedAt() {
-        return modifiedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
+
   public RoleCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the role.</p>
+   * Name of the role.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public RoleCreateAttributes receivesPermissionsFrom(List<String> receivesPermissionsFrom) {
     this.receivesPermissionsFrom = receivesPermissionsFrom;
     return this;
   }
+
   public RoleCreateAttributes addReceivesPermissionsFromItem(String receivesPermissionsFromItem) {
     if (this.receivesPermissionsFrom == null) {
       this.receivesPermissionsFrom = new ArrayList<>();
@@ -118,32 +109,33 @@ public class RoleCreateAttributes {
   }
 
   /**
-   * <p>The managed role from which this role automatically inherits new permissions.
-   * Specify one of the following: "Datadog Admin Role", "Datadog Standard Role", or "Datadog Read Only Role".
-   * If empty or not specified, the role does not automatically inherit permissions from any managed role.</p>
+   * The managed role from which this role automatically inherits new permissions. Specify one of
+   * the following: "Datadog Admin Role", "Datadog Standard Role", or "Datadog Read Only Role". If
+   * empty or not specified, the role does not automatically inherit permissions from any managed
+   * role.
+   *
    * @return receivesPermissionsFrom
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getReceivesPermissionsFrom() {
-        return receivesPermissionsFrom;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RECEIVES_PERMISSIONS_FROM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getReceivesPermissionsFrom() {
+    return receivesPermissionsFrom;
+  }
+
   public void setReceivesPermissionsFrom(List<String> receivesPermissionsFrom) {
     this.receivesPermissionsFrom = receivesPermissionsFrom;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -152,7 +144,7 @@ public class RoleCreateAttributes {
   @JsonAnySetter
   public RoleCreateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -176,14 +168,12 @@ public class RoleCreateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this RoleCreateAttributes object is equal to o.
-   */
+  /** Return true if this RoleCreateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -193,13 +183,17 @@ public class RoleCreateAttributes {
       return false;
     }
     RoleCreateAttributes roleCreateAttributes = (RoleCreateAttributes) o;
-    return Objects.equals(this.createdAt, roleCreateAttributes.createdAt) && Objects.equals(this.modifiedAt, roleCreateAttributes.modifiedAt) && Objects.equals(this.name, roleCreateAttributes.name) && Objects.equals(this.receivesPermissionsFrom, roleCreateAttributes.receivesPermissionsFrom) && Objects.equals(this.additionalProperties, roleCreateAttributes.additionalProperties);
+    return Objects.equals(this.createdAt, roleCreateAttributes.createdAt)
+        && Objects.equals(this.modifiedAt, roleCreateAttributes.modifiedAt)
+        && Objects.equals(this.name, roleCreateAttributes.name)
+        && Objects.equals(
+            this.receivesPermissionsFrom, roleCreateAttributes.receivesPermissionsFrom)
+        && Objects.equals(this.additionalProperties, roleCreateAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt,modifiedAt,name,receivesPermissionsFrom, additionalProperties);
+    return Objects.hash(createdAt, modifiedAt, name, receivesPermissionsFrom, additionalProperties);
   }
 
   @Override
@@ -209,7 +203,9 @@ public class RoleCreateAttributes {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    receivesPermissionsFrom: ").append(toIndentedString(receivesPermissionsFrom)).append("\n");
+    sb.append("    receivesPermissionsFrom: ")
+        .append(toIndentedString(receivesPermissionsFrom))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -218,8 +214,7 @@ public class RoleCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

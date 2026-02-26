@@ -6,71 +6,49 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>Rum replay session resource type.</p>
- */
-@JsonSerialize(using = ViewershipHistorySessionDataType.ViewershipHistorySessionDataTypeSerializer.class)
+/** Rum replay session resource type. */
+@JsonSerialize(
+    using = ViewershipHistorySessionDataType.ViewershipHistorySessionDataTypeSerializer.class)
 public class ViewershipHistorySessionDataType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("rum_replay_session"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("rum_replay_session"));
 
-  public static final ViewershipHistorySessionDataType RUM_REPLAY_SESSION = new ViewershipHistorySessionDataType("rum_replay_session");
-
+  public static final ViewershipHistorySessionDataType RUM_REPLAY_SESSION =
+      new ViewershipHistorySessionDataType("rum_replay_session");
 
   ViewershipHistorySessionDataType(String value) {
     super(value, allowedValues);
   }
 
-  public static class ViewershipHistorySessionDataTypeSerializer extends StdSerializer<ViewershipHistorySessionDataType> {
-      public ViewershipHistorySessionDataTypeSerializer(Class<ViewershipHistorySessionDataType> t) {
-          super(t);
-      }
+  public static class ViewershipHistorySessionDataTypeSerializer
+      extends StdSerializer<ViewershipHistorySessionDataType> {
+    public ViewershipHistorySessionDataTypeSerializer(Class<ViewershipHistorySessionDataType> t) {
+      super(t);
+    }
 
-      public ViewershipHistorySessionDataTypeSerializer() {
-          this(null);
-      }
+    public ViewershipHistorySessionDataTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ViewershipHistorySessionDataType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        ViewershipHistorySessionDataType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

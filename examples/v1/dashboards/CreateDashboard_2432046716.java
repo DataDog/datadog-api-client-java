@@ -1,9 +1,8 @@
 // Create a new dashboard with event_stream list_stream widget
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.DashboardsApi;
-import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
 import com.datadog.api.client.v1.model.ListStreamColumn;
@@ -17,35 +16,39 @@ import com.datadog.api.client.v1.model.ListStreamWidgetRequest;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetEventSize;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
-    Dashboard body = new Dashboard()
-.layoutType(DashboardLayoutType.ORDERED)
-.title("Example-Dashboard with list_stream widget")
-.widgets(Collections.singletonList(new Widget()
-.definition(new WidgetDefinition(
-new ListStreamWidgetDefinition()
-.type(ListStreamWidgetDefinitionType.LIST_STREAM)
-.requests(Collections.singletonList(new ListStreamWidgetRequest()
-.columns(Collections.singletonList(new ListStreamColumn()
-.width(ListStreamColumnWidth.AUTO)
-.field("timestamp")))
-.query(new ListStreamQuery()
-.dataSource(ListStreamSource.EVENT_STREAM)
-.queryString("")
-.eventSize(WidgetEventSize.LARGE))
-.responseFormat(ListStreamResponseFormat.EVENT_LIST)))))));
+    Dashboard body =
+        new Dashboard()
+            .layoutType(DashboardLayoutType.ORDERED)
+            .title("Example-Dashboard with list_stream widget")
+            .widgets(
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new ListStreamWidgetDefinition()
+                                    .type(ListStreamWidgetDefinitionType.LIST_STREAM)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new ListStreamWidgetRequest()
+                                                .columns(
+                                                    Collections.singletonList(
+                                                        new ListStreamColumn()
+                                                            .width(ListStreamColumnWidth.AUTO)
+                                                            .field("timestamp")))
+                                                .query(
+                                                    new ListStreamQuery()
+                                                        .dataSource(ListStreamSource.EVENT_STREAM)
+                                                        .queryString("")
+                                                        .eventSize(WidgetEventSize.LARGE))
+                                                .responseFormat(
+                                                    ListStreamResponseFormat.EVENT_LIST)))))));
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

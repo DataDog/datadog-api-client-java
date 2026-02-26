@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for An AWS CUR config.</p>
- */
+/** Attributes for An AWS CUR config. */
 @JsonPropertyOrder({
   AwsCURConfigAttributes.JSON_PROPERTY_ACCOUNT_FILTERS,
   AwsCURConfigAttributes.JSON_PROPERTY_ACCOUNT_ID,
@@ -48,10 +35,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   AwsCURConfigAttributes.JSON_PROPERTY_STATUS_UPDATED_AT,
   AwsCURConfigAttributes.JSON_PROPERTY_UPDATED_AT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AwsCURConfigAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_FILTERS = "account_filters";
   private AccountFilteringConfig accountFilters;
 
@@ -92,19 +79,20 @@ public class AwsCURConfigAttributes {
 
   @JsonCreator
   public AwsCURConfigAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ACCOUNT_ID)String accountId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_BUCKET_NAME)String bucketName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_BUCKET_REGION)String bucketRegion,
-            @JsonProperty(required=true, value=JSON_PROPERTY_REPORT_NAME)String reportName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_REPORT_PREFIX)String reportPrefix,
-            @JsonProperty(required=true, value=JSON_PROPERTY_STATUS)String status) {
-        this.accountId = accountId;
-        this.bucketName = bucketName;
-        this.bucketRegion = bucketRegion;
-        this.reportName = reportName;
-        this.reportPrefix = reportPrefix;
-        this.status = status;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_ID) String accountId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_BUCKET_NAME) String bucketName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_BUCKET_REGION) String bucketRegion,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REPORT_NAME) String reportName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REPORT_PREFIX) String reportPrefix,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS) String status) {
+    this.accountId = accountId;
+    this.bucketName = bucketName;
+    this.bucketRegion = bucketRegion;
+    this.reportName = reportName;
+    this.reportPrefix = reportPrefix;
+    this.status = status;
   }
+
   public AwsCURConfigAttributes accountFilters(AccountFilteringConfig accountFilters) {
     this.accountFilters = accountFilters;
     this.unparsed |= accountFilters.unparsed;
@@ -112,96 +100,107 @@ public class AwsCURConfigAttributes {
   }
 
   /**
-   * <p>The account filtering configuration.</p>
+   * The account filtering configuration.
+   *
    * @return accountFilters
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ACCOUNT_FILTERS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public AccountFilteringConfig getAccountFilters() {
-        return accountFilters;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AccountFilteringConfig getAccountFilters() {
+    return accountFilters;
+  }
+
   public void setAccountFilters(AccountFilteringConfig accountFilters) {
     this.accountFilters = accountFilters;
   }
+
   public AwsCURConfigAttributes accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
 
   /**
-   * <p>The AWS account ID.</p>
+   * The AWS account ID.
+   *
    * @return accountId
-  **/
-      @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getAccountId() {
-        return accountId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getAccountId() {
+    return accountId;
+  }
+
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
+
   public AwsCURConfigAttributes bucketName(String bucketName) {
     this.bucketName = bucketName;
     return this;
   }
 
   /**
-   * <p>The AWS bucket name used to store the Cost and Usage Report.</p>
+   * The AWS bucket name used to store the Cost and Usage Report.
+   *
    * @return bucketName
-  **/
-      @JsonProperty(JSON_PROPERTY_BUCKET_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getBucketName() {
-        return bucketName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_BUCKET_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getBucketName() {
+    return bucketName;
+  }
+
   public void setBucketName(String bucketName) {
     this.bucketName = bucketName;
   }
+
   public AwsCURConfigAttributes bucketRegion(String bucketRegion) {
     this.bucketRegion = bucketRegion;
     return this;
   }
 
   /**
-   * <p>The region the bucket is located in.</p>
+   * The region the bucket is located in.
+   *
    * @return bucketRegion
-  **/
-      @JsonProperty(JSON_PROPERTY_BUCKET_REGION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getBucketRegion() {
-        return bucketRegion;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_BUCKET_REGION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getBucketRegion() {
+    return bucketRegion;
+  }
+
   public void setBucketRegion(String bucketRegion) {
     this.bucketRegion = bucketRegion;
   }
+
   public AwsCURConfigAttributes createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * <p>The timestamp when the AWS CUR config was created.</p>
+   * The timestamp when the AWS CUR config was created.
+   *
    * @return createdAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
   }
+
   public AwsCURConfigAttributes errorMessages(List<String> errorMessages) {
     this.errorMessages = JsonNullable.<List<String>>of(errorMessages);
     return this;
   }
+
   public AwsCURConfigAttributes addErrorMessagesItem(String errorMessagesItem) {
     if (this.errorMessages == null || !this.errorMessages.isPresent()) {
       this.errorMessages = JsonNullable.<List<String>>of(new ArrayList<>());
@@ -215,152 +214,166 @@ public class AwsCURConfigAttributes {
   }
 
   /**
-   * <p>The error messages for the AWS CUR config.</p>
+   * The error messages for the AWS CUR config.
+   *
    * @return errorMessages
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public List<String> getErrorMessages() {
-        return errorMessages.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getErrorMessages() {
+    return errorMessages.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGES)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getErrorMessages_JsonNullable() {
     return errorMessages;
   }
-  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGES)public void setErrorMessages_JsonNullable(JsonNullable<List<String>> errorMessages) {
+
+  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGES)
+  public void setErrorMessages_JsonNullable(JsonNullable<List<String>> errorMessages) {
     this.errorMessages = errorMessages;
   }
+
   public void setErrorMessages(List<String> errorMessages) {
     this.errorMessages = JsonNullable.<List<String>>of(errorMessages);
   }
+
   public AwsCURConfigAttributes months(Integer months) {
     this.months = months;
     return this;
   }
 
   /**
-   * <p>The number of months the report has been backfilled.</p>
-   * maximum: 36
+   * The number of months the report has been backfilled. maximum: 36
+   *
    * @return months
    * @deprecated
-  **/
-      @Deprecated
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MONTHS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Integer getMonths() {
-        return months;
-      }
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONTHS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getMonths() {
+    return months;
+  }
+
   @Deprecated
   public void setMonths(Integer months) {
     this.months = months;
   }
+
   public AwsCURConfigAttributes reportName(String reportName) {
     this.reportName = reportName;
     return this;
   }
 
   /**
-   * <p>The name of the Cost and Usage Report.</p>
+   * The name of the Cost and Usage Report.
+   *
    * @return reportName
-  **/
-      @JsonProperty(JSON_PROPERTY_REPORT_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getReportName() {
-        return reportName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REPORT_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getReportName() {
+    return reportName;
+  }
+
   public void setReportName(String reportName) {
     this.reportName = reportName;
   }
+
   public AwsCURConfigAttributes reportPrefix(String reportPrefix) {
     this.reportPrefix = reportPrefix;
     return this;
   }
 
   /**
-   * <p>The report prefix used for the Cost and Usage Report.</p>
+   * The report prefix used for the Cost and Usage Report.
+   *
    * @return reportPrefix
-  **/
-      @JsonProperty(JSON_PROPERTY_REPORT_PREFIX)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getReportPrefix() {
-        return reportPrefix;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REPORT_PREFIX)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getReportPrefix() {
+    return reportPrefix;
+  }
+
   public void setReportPrefix(String reportPrefix) {
     this.reportPrefix = reportPrefix;
   }
+
   public AwsCURConfigAttributes status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * <p>The status of the AWS CUR.</p>
+   * The status of the AWS CUR.
+   *
    * @return status
-  **/
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getStatus() {
-        return status;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getStatus() {
+    return status;
+  }
+
   public void setStatus(String status) {
     this.status = status;
   }
+
   public AwsCURConfigAttributes statusUpdatedAt(String statusUpdatedAt) {
     this.statusUpdatedAt = statusUpdatedAt;
     return this;
   }
 
   /**
-   * <p>The timestamp when the AWS CUR config status was updated.</p>
+   * The timestamp when the AWS CUR config status was updated.
+   *
    * @return statusUpdatedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS_UPDATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStatusUpdatedAt() {
-        return statusUpdatedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatusUpdatedAt() {
+    return statusUpdatedAt;
+  }
+
   public void setStatusUpdatedAt(String statusUpdatedAt) {
     this.statusUpdatedAt = statusUpdatedAt;
   }
+
   public AwsCURConfigAttributes updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * <p>The timestamp when the AWS CUR config status was updated.</p>
+   * The timestamp when the AWS CUR config status was updated.
+   *
    * @return updatedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getUpdatedAt() {
-        return updatedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
   public void setUpdatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -369,7 +382,7 @@ public class AwsCURConfigAttributes {
   @JsonAnySetter
   public AwsCURConfigAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -393,14 +406,12 @@ public class AwsCURConfigAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this AwsCURConfigAttributes object is equal to o.
-   */
+  /** Return true if this AwsCURConfigAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -410,13 +421,37 @@ public class AwsCURConfigAttributes {
       return false;
     }
     AwsCURConfigAttributes awsCurConfigAttributes = (AwsCURConfigAttributes) o;
-    return Objects.equals(this.accountFilters, awsCurConfigAttributes.accountFilters) && Objects.equals(this.accountId, awsCurConfigAttributes.accountId) && Objects.equals(this.bucketName, awsCurConfigAttributes.bucketName) && Objects.equals(this.bucketRegion, awsCurConfigAttributes.bucketRegion) && Objects.equals(this.createdAt, awsCurConfigAttributes.createdAt) && Objects.equals(this.errorMessages, awsCurConfigAttributes.errorMessages) && Objects.equals(this.months, awsCurConfigAttributes.months) && Objects.equals(this.reportName, awsCurConfigAttributes.reportName) && Objects.equals(this.reportPrefix, awsCurConfigAttributes.reportPrefix) && Objects.equals(this.status, awsCurConfigAttributes.status) && Objects.equals(this.statusUpdatedAt, awsCurConfigAttributes.statusUpdatedAt) && Objects.equals(this.updatedAt, awsCurConfigAttributes.updatedAt) && Objects.equals(this.additionalProperties, awsCurConfigAttributes.additionalProperties);
+    return Objects.equals(this.accountFilters, awsCurConfigAttributes.accountFilters)
+        && Objects.equals(this.accountId, awsCurConfigAttributes.accountId)
+        && Objects.equals(this.bucketName, awsCurConfigAttributes.bucketName)
+        && Objects.equals(this.bucketRegion, awsCurConfigAttributes.bucketRegion)
+        && Objects.equals(this.createdAt, awsCurConfigAttributes.createdAt)
+        && Objects.equals(this.errorMessages, awsCurConfigAttributes.errorMessages)
+        && Objects.equals(this.months, awsCurConfigAttributes.months)
+        && Objects.equals(this.reportName, awsCurConfigAttributes.reportName)
+        && Objects.equals(this.reportPrefix, awsCurConfigAttributes.reportPrefix)
+        && Objects.equals(this.status, awsCurConfigAttributes.status)
+        && Objects.equals(this.statusUpdatedAt, awsCurConfigAttributes.statusUpdatedAt)
+        && Objects.equals(this.updatedAt, awsCurConfigAttributes.updatedAt)
+        && Objects.equals(this.additionalProperties, awsCurConfigAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountFilters,accountId,bucketName,bucketRegion,createdAt,errorMessages,months,reportName,reportPrefix,status,statusUpdatedAt,updatedAt, additionalProperties);
+    return Objects.hash(
+        accountFilters,
+        accountId,
+        bucketName,
+        bucketRegion,
+        createdAt,
+        errorMessages,
+        months,
+        reportName,
+        reportPrefix,
+        status,
+        statusUpdatedAt,
+        updatedAt,
+        additionalProperties);
   }
 
   @Override
@@ -443,8 +478,7 @@ public class AwsCURConfigAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

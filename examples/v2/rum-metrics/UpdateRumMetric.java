@@ -1,24 +1,17 @@
 // Update a rum-based metric returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumMetricsApi;
-import com.datadog.api.client.v2.model.RumMetricResponse;
-import com.datadog.api.client.v2.model.RumMetricComputeIncludePercentiles;
 import com.datadog.api.client.v2.model.RumMetricFilter;
 import com.datadog.api.client.v2.model.RumMetricGroupBy;
+import com.datadog.api.client.v2.model.RumMetricResponse;
 import com.datadog.api.client.v2.model.RumMetricType;
 import com.datadog.api.client.v2.model.RumMetricUpdateAttributes;
 import com.datadog.api.client.v2.model.RumMetricUpdateCompute;
 import com.datadog.api.client.v2.model.RumMetricUpdateData;
 import com.datadog.api.client.v2.model.RumMetricUpdateRequest;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -28,18 +21,21 @@ public class Example {
     // there is a valid "rum_metric" in the system
     String RUM_METRIC_DATA_ID = System.getenv("RUM_METRIC_DATA_ID");
 
-    RumMetricUpdateRequest body = new RumMetricUpdateRequest()
-.data(new RumMetricUpdateData()
-.id(RUM_METRIC_DATA_ID)
-.type(RumMetricType.RUM_METRICS)
-.attributes(new RumMetricUpdateAttributes()
-.compute(new RumMetricUpdateCompute()
-.includePercentiles(false))
-.filter(new RumMetricFilter()
-.query("@service:rum-config"))
-.groupBy(Collections.singletonList(new RumMetricGroupBy()
-.path("@browser.version")
-.tagName("browser_version")))));
+    RumMetricUpdateRequest body =
+        new RumMetricUpdateRequest()
+            .data(
+                new RumMetricUpdateData()
+                    .id(RUM_METRIC_DATA_ID)
+                    .type(RumMetricType.RUM_METRICS)
+                    .attributes(
+                        new RumMetricUpdateAttributes()
+                            .compute(new RumMetricUpdateCompute().includePercentiles(false))
+                            .filter(new RumMetricFilter().query("@service:rum-config"))
+                            .groupBy(
+                                Collections.singletonList(
+                                    new RumMetricGroupBy()
+                                        .path("@browser.version")
+                                        .tagName("browser_version")))));
 
     try {
       RumMetricResponse result = apiInstance.updateRumMetric(RUM_METRIC_DATA_ID, body);

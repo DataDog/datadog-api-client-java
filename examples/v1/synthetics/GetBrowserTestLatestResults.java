@@ -1,16 +1,9 @@
 // Get a browser test's latest results summaries returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
 import com.datadog.api.client.v1.model.SyntheticsGetBrowserTestLatestResultsResponse;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -18,7 +11,8 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     try {
-      SyntheticsGetBrowserTestLatestResultsResponse result = apiInstance.getBrowserTestLatestResults("2yy-sem-mjh");
+      SyntheticsGetBrowserTestLatestResultsResponse result =
+          apiInstance.getBrowserTestLatestResults("2yy-sem-mjh");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SyntheticsApi#getBrowserTestLatestResults");

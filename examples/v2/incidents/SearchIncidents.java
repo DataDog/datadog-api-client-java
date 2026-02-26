@@ -1,16 +1,9 @@
 // Search for incidents returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.IncidentsApi;
 import com.datadog.api.client.v2.model.IncidentSearchResponse;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -19,7 +12,8 @@ public class Example {
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
     try {
-      IncidentSearchResponse result = apiInstance.searchIncidents("state:(active OR stable OR resolved)");
+      IncidentSearchResponse result =
+          apiInstance.searchIncidents("state:(active OR stable OR resolved)");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IncidentsApi#searchIncidents");

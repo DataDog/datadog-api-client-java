@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The AWS Account Integration Config to be created.</p>
- */
+/** The AWS Account Integration Config to be created. */
 @JsonPropertyOrder({
   AWSAccountCreateRequestAttributes.JSON_PROPERTY_ACCOUNT_TAGS,
   AWSAccountCreateRequestAttributes.JSON_PROPERTY_AUTH_CONFIG,
@@ -45,10 +32,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   AWSAccountCreateRequestAttributes.JSON_PROPERTY_RESOURCES_CONFIG,
   AWSAccountCreateRequestAttributes.JSON_PROPERTY_TRACES_CONFIG
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSAccountCreateRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_TAGS = "account_tags";
   private JsonNullable<List<String>> accountTags = JsonNullable.<List<String>>undefined();
 
@@ -80,19 +67,22 @@ public class AWSAccountCreateRequestAttributes {
 
   @JsonCreator
   public AWSAccountCreateRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_AUTH_CONFIG)AWSAuthConfig authConfig,
-            @JsonProperty(required=true, value=JSON_PROPERTY_AWS_ACCOUNT_ID)String awsAccountId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_AWS_PARTITION)AWSAccountPartition awsPartition) {
-        this.authConfig = authConfig;
-        this.unparsed |= authConfig.unparsed;
-        this.awsAccountId = awsAccountId;
-        this.awsPartition = awsPartition;
-        this.unparsed |= !awsPartition.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_AUTH_CONFIG) AWSAuthConfig authConfig,
+      @JsonProperty(required = true, value = JSON_PROPERTY_AWS_ACCOUNT_ID) String awsAccountId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_AWS_PARTITION)
+          AWSAccountPartition awsPartition) {
+    this.authConfig = authConfig;
+    this.unparsed |= authConfig.unparsed;
+    this.awsAccountId = awsAccountId;
+    this.awsPartition = awsPartition;
+    this.unparsed |= !awsPartition.isValid();
   }
+
   public AWSAccountCreateRequestAttributes accountTags(List<String> accountTags) {
     this.accountTags = JsonNullable.<List<String>>of(accountTags);
     return this;
   }
+
   public AWSAccountCreateRequestAttributes addAccountTagsItem(String accountTagsItem) {
     if (this.accountTags == null || !this.accountTags.isPresent()) {
       this.accountTags = JsonNullable.<List<String>>of(new ArrayList<>());
@@ -106,26 +96,31 @@ public class AWSAccountCreateRequestAttributes {
   }
 
   /**
-   * <p>Tags to apply to all hosts and metrics reporting for this account. Defaults to <code>[]</code>.</p>
+   * Tags to apply to all hosts and metrics reporting for this account. Defaults to <code>[]</code>.
+   *
    * @return accountTags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public List<String> getAccountTags() {
-        return accountTags.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getAccountTags() {
+    return accountTags.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TAGS)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getAccountTags_JsonNullable() {
     return accountTags;
   }
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_TAGS)public void setAccountTags_JsonNullable(JsonNullable<List<String>> accountTags) {
+
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_TAGS)
+  public void setAccountTags_JsonNullable(JsonNullable<List<String>> accountTags) {
     this.accountTags = accountTags;
   }
+
   public void setAccountTags(List<String> accountTags) {
     this.accountTags = JsonNullable.<List<String>>of(accountTags);
   }
+
   public AWSAccountCreateRequestAttributes authConfig(AWSAuthConfig authConfig) {
     this.authConfig = authConfig;
     this.unparsed |= authConfig.unparsed;
@@ -133,36 +128,40 @@ public class AWSAccountCreateRequestAttributes {
   }
 
   /**
-   * <p>AWS Authentication config.</p>
+   * AWS Authentication config.
+   *
    * @return authConfig
-  **/
-      @JsonProperty(JSON_PROPERTY_AUTH_CONFIG)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AWSAuthConfig getAuthConfig() {
-        return authConfig;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_AUTH_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AWSAuthConfig getAuthConfig() {
+    return authConfig;
+  }
+
   public void setAuthConfig(AWSAuthConfig authConfig) {
     this.authConfig = authConfig;
   }
+
   public AWSAccountCreateRequestAttributes awsAccountId(String awsAccountId) {
     this.awsAccountId = awsAccountId;
     return this;
   }
 
   /**
-   * <p>AWS Account ID.</p>
+   * AWS Account ID.
+   *
    * @return awsAccountId
-  **/
-      @JsonProperty(JSON_PROPERTY_AWS_ACCOUNT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getAwsAccountId() {
-        return awsAccountId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_AWS_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getAwsAccountId() {
+    return awsAccountId;
+  }
+
   public void setAwsAccountId(String awsAccountId) {
     this.awsAccountId = awsAccountId;
   }
+
   public AWSAccountCreateRequestAttributes awsPartition(AWSAccountPartition awsPartition) {
     this.awsPartition = awsPartition;
     this.unparsed |= !awsPartition.isValid();
@@ -170,23 +169,25 @@ public class AWSAccountCreateRequestAttributes {
   }
 
   /**
-   * <p>AWS partition your AWS account is scoped to. Defaults to <code>aws</code>.
-   * See <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html">Partitions</a>
-   * in the AWS documentation for more information.</p>
+   * AWS partition your AWS account is scoped to. Defaults to <code>aws</code>. See <a
+   * href="https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html">Partitions</a>
+   * in the AWS documentation for more information.
+   *
    * @return awsPartition
-  **/
-      @JsonProperty(JSON_PROPERTY_AWS_PARTITION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AWSAccountPartition getAwsPartition() {
-        return awsPartition;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_AWS_PARTITION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AWSAccountPartition getAwsPartition() {
+    return awsPartition;
+  }
+
   public void setAwsPartition(AWSAccountPartition awsPartition) {
     if (!awsPartition.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.awsPartition = awsPartition;
   }
+
   public AWSAccountCreateRequestAttributes awsRegions(AWSRegions awsRegions) {
     this.awsRegions = awsRegions;
     this.unparsed |= awsRegions.unparsed;
@@ -194,19 +195,21 @@ public class AWSAccountCreateRequestAttributes {
   }
 
   /**
-   * <p>AWS Regions to collect data from. Defaults to <code>include_all</code>.</p>
+   * AWS Regions to collect data from. Defaults to <code>include_all</code>.
+   *
    * @return awsRegions
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AWS_REGIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public AWSRegions getAwsRegions() {
-        return awsRegions;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AWS_REGIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AWSRegions getAwsRegions() {
+    return awsRegions;
+  }
+
   public void setAwsRegions(AWSRegions awsRegions) {
     this.awsRegions = awsRegions;
   }
+
   public AWSAccountCreateRequestAttributes logsConfig(AWSLogsConfig logsConfig) {
     this.logsConfig = logsConfig;
     this.unparsed |= logsConfig.unparsed;
@@ -214,19 +217,21 @@ public class AWSAccountCreateRequestAttributes {
   }
 
   /**
-   * <p>AWS Logs Collection config.</p>
+   * AWS Logs Collection config.
+   *
    * @return logsConfig
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOGS_CONFIG)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public AWSLogsConfig getLogsConfig() {
-        return logsConfig;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AWSLogsConfig getLogsConfig() {
+    return logsConfig;
+  }
+
   public void setLogsConfig(AWSLogsConfig logsConfig) {
     this.logsConfig = logsConfig;
   }
+
   public AWSAccountCreateRequestAttributes metricsConfig(AWSMetricsConfig metricsConfig) {
     this.metricsConfig = metricsConfig;
     this.unparsed |= metricsConfig.unparsed;
@@ -234,19 +239,21 @@ public class AWSAccountCreateRequestAttributes {
   }
 
   /**
-   * <p>AWS Metrics Collection config.</p>
+   * AWS Metrics Collection config.
+   *
    * @return metricsConfig
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METRICS_CONFIG)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public AWSMetricsConfig getMetricsConfig() {
-        return metricsConfig;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRICS_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AWSMetricsConfig getMetricsConfig() {
+    return metricsConfig;
+  }
+
   public void setMetricsConfig(AWSMetricsConfig metricsConfig) {
     this.metricsConfig = metricsConfig;
   }
+
   public AWSAccountCreateRequestAttributes resourcesConfig(AWSResourcesConfig resourcesConfig) {
     this.resourcesConfig = resourcesConfig;
     this.unparsed |= resourcesConfig.unparsed;
@@ -254,19 +261,21 @@ public class AWSAccountCreateRequestAttributes {
   }
 
   /**
-   * <p>AWS Resources Collection config.</p>
+   * AWS Resources Collection config.
+   *
    * @return resourcesConfig
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESOURCES_CONFIG)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public AWSResourcesConfig getResourcesConfig() {
-        return resourcesConfig;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCES_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AWSResourcesConfig getResourcesConfig() {
+    return resourcesConfig;
+  }
+
   public void setResourcesConfig(AWSResourcesConfig resourcesConfig) {
     this.resourcesConfig = resourcesConfig;
   }
+
   public AWSAccountCreateRequestAttributes tracesConfig(AWSTracesConfig tracesConfig) {
     this.tracesConfig = tracesConfig;
     this.unparsed |= tracesConfig.unparsed;
@@ -274,30 +283,30 @@ public class AWSAccountCreateRequestAttributes {
   }
 
   /**
-   * <p>AWS Traces Collection config.</p>
+   * AWS Traces Collection config.
+   *
    * @return tracesConfig
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TRACES_CONFIG)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public AWSTracesConfig getTracesConfig() {
-        return tracesConfig;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRACES_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AWSTracesConfig getTracesConfig() {
+    return tracesConfig;
+  }
+
   public void setTracesConfig(AWSTracesConfig tracesConfig) {
     this.tracesConfig = tracesConfig;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -306,7 +315,7 @@ public class AWSAccountCreateRequestAttributes {
   @JsonAnySetter
   public AWSAccountCreateRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -330,14 +339,12 @@ public class AWSAccountCreateRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this AWSAccountCreateRequestAttributes object is equal to o.
-   */
+  /** Return true if this AWSAccountCreateRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -346,14 +353,34 @@ public class AWSAccountCreateRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSAccountCreateRequestAttributes awsAccountCreateRequestAttributes = (AWSAccountCreateRequestAttributes) o;
-    return Objects.equals(this.accountTags, awsAccountCreateRequestAttributes.accountTags) && Objects.equals(this.authConfig, awsAccountCreateRequestAttributes.authConfig) && Objects.equals(this.awsAccountId, awsAccountCreateRequestAttributes.awsAccountId) && Objects.equals(this.awsPartition, awsAccountCreateRequestAttributes.awsPartition) && Objects.equals(this.awsRegions, awsAccountCreateRequestAttributes.awsRegions) && Objects.equals(this.logsConfig, awsAccountCreateRequestAttributes.logsConfig) && Objects.equals(this.metricsConfig, awsAccountCreateRequestAttributes.metricsConfig) && Objects.equals(this.resourcesConfig, awsAccountCreateRequestAttributes.resourcesConfig) && Objects.equals(this.tracesConfig, awsAccountCreateRequestAttributes.tracesConfig) && Objects.equals(this.additionalProperties, awsAccountCreateRequestAttributes.additionalProperties);
+    AWSAccountCreateRequestAttributes awsAccountCreateRequestAttributes =
+        (AWSAccountCreateRequestAttributes) o;
+    return Objects.equals(this.accountTags, awsAccountCreateRequestAttributes.accountTags)
+        && Objects.equals(this.authConfig, awsAccountCreateRequestAttributes.authConfig)
+        && Objects.equals(this.awsAccountId, awsAccountCreateRequestAttributes.awsAccountId)
+        && Objects.equals(this.awsPartition, awsAccountCreateRequestAttributes.awsPartition)
+        && Objects.equals(this.awsRegions, awsAccountCreateRequestAttributes.awsRegions)
+        && Objects.equals(this.logsConfig, awsAccountCreateRequestAttributes.logsConfig)
+        && Objects.equals(this.metricsConfig, awsAccountCreateRequestAttributes.metricsConfig)
+        && Objects.equals(this.resourcesConfig, awsAccountCreateRequestAttributes.resourcesConfig)
+        && Objects.equals(this.tracesConfig, awsAccountCreateRequestAttributes.tracesConfig)
+        && Objects.equals(
+            this.additionalProperties, awsAccountCreateRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountTags,authConfig,awsAccountId,awsPartition,awsRegions,logsConfig,metricsConfig,resourcesConfig,tracesConfig, additionalProperties);
+    return Objects.hash(
+        accountTags,
+        authConfig,
+        awsAccountId,
+        awsPartition,
+        awsRegions,
+        logsConfig,
+        metricsConfig,
+        resourcesConfig,
+        tracesConfig,
+        additionalProperties);
   }
 
   @Override
@@ -377,8 +404,7 @@ public class AWSAccountCreateRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

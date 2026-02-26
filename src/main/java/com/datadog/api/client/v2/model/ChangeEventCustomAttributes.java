@@ -6,34 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Change event attributes.</p>
- */
+/** Change event attributes. */
 @JsonPropertyOrder({
   ChangeEventCustomAttributes.JSON_PROPERTY_AUTHOR,
   ChangeEventCustomAttributes.JSON_PROPERTY_CHANGE_METADATA,
@@ -42,10 +26,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ChangeEventCustomAttributes.JSON_PROPERTY_NEW_VALUE,
   ChangeEventCustomAttributes.JSON_PROPERTY_PREV_VALUE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ChangeEventCustomAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private ChangeEventCustomAttributesAuthor author;
 
@@ -68,10 +52,12 @@ public class ChangeEventCustomAttributes {
 
   @JsonCreator
   public ChangeEventCustomAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CHANGED_RESOURCE)ChangeEventCustomAttributesChangedResource changedResource) {
-        this.changedResource = changedResource;
-        this.unparsed |= changedResource.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CHANGED_RESOURCE)
+          ChangeEventCustomAttributesChangedResource changedResource) {
+    this.changedResource = changedResource;
+    this.unparsed |= changedResource.unparsed;
   }
+
   public ChangeEventCustomAttributes author(ChangeEventCustomAttributesAuthor author) {
     this.author = author;
     this.unparsed |= author.unparsed;
@@ -79,23 +65,27 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * <p>The entity that made the change. Optional, if provided it must include <code>type</code> and <code>name</code>.</p>
+   * The entity that made the change. Optional, if provided it must include <code>type</code> and
+   * <code>name</code>.
+   *
    * @return author
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AUTHOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ChangeEventCustomAttributesAuthor getAuthor() {
-        return author;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTHOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ChangeEventCustomAttributesAuthor getAuthor() {
+    return author;
+  }
+
   public void setAuthor(ChangeEventCustomAttributesAuthor author) {
     this.author = author;
   }
+
   public ChangeEventCustomAttributes changeMetadata(Map<String, Object> changeMetadata) {
     this.changeMetadata = changeMetadata;
     return this;
   }
+
   public ChangeEventCustomAttributes putChangeMetadataItem(String key, Object changeMetadataItem) {
     if (this.changeMetadata == null) {
       this.changeMetadata = new HashMap<>();
@@ -105,46 +95,55 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * <p>Free form JSON object with information related to the <code>change</code> event. Supports up to 100 properties per object and a maximum nesting depth of 10 levels.</p>
+   * Free form JSON object with information related to the <code>change</code> event. Supports up to
+   * 100 properties per object and a maximum nesting depth of 10 levels.
+   *
    * @return changeMetadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CHANGE_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getChangeMetadata() {
-        return changeMetadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHANGE_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getChangeMetadata() {
+    return changeMetadata;
+  }
+
   public void setChangeMetadata(Map<String, Object> changeMetadata) {
     this.changeMetadata = changeMetadata;
   }
-  public ChangeEventCustomAttributes changedResource(ChangeEventCustomAttributesChangedResource changedResource) {
+
+  public ChangeEventCustomAttributes changedResource(
+      ChangeEventCustomAttributesChangedResource changedResource) {
     this.changedResource = changedResource;
     this.unparsed |= changedResource.unparsed;
     return this;
   }
 
   /**
-   * <p>A uniquely identified resource.</p>
+   * A uniquely identified resource.
+   *
    * @return changedResource
-  **/
-      @JsonProperty(JSON_PROPERTY_CHANGED_RESOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ChangeEventCustomAttributesChangedResource getChangedResource() {
-        return changedResource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CHANGED_RESOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ChangeEventCustomAttributesChangedResource getChangedResource() {
+    return changedResource;
+  }
+
   public void setChangedResource(ChangeEventCustomAttributesChangedResource changedResource) {
     this.changedResource = changedResource;
   }
-  public ChangeEventCustomAttributes impactedResources(List<ChangeEventCustomAttributesImpactedResourcesItems> impactedResources) {
+
+  public ChangeEventCustomAttributes impactedResources(
+      List<ChangeEventCustomAttributesImpactedResourcesItems> impactedResources) {
     this.impactedResources = impactedResources;
     for (ChangeEventCustomAttributesImpactedResourcesItems item : impactedResources) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public ChangeEventCustomAttributes addImpactedResourcesItem(ChangeEventCustomAttributesImpactedResourcesItems impactedResourcesItem) {
+
+  public ChangeEventCustomAttributes addImpactedResourcesItem(
+      ChangeEventCustomAttributesImpactedResourcesItems impactedResourcesItem) {
     if (this.impactedResources == null) {
       this.impactedResources = new ArrayList<>();
     }
@@ -154,24 +153,29 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * <p>A list of resources impacted by this change. It is recommended to provide an impacted resource to display
-   * the change event at the correct location. Only resources of type <code>service</code> are supported. Maximum of 100 impacted resources allowed.</p>
+   * A list of resources impacted by this change. It is recommended to provide an impacted resource
+   * to display the change event at the correct location. Only resources of type <code>service
+   * </code> are supported. Maximum of 100 impacted resources allowed.
+   *
    * @return impactedResources
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IMPACTED_RESOURCES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ChangeEventCustomAttributesImpactedResourcesItems> getImpactedResources() {
-        return impactedResources;
-      }
-  public void setImpactedResources(List<ChangeEventCustomAttributesImpactedResourcesItems> impactedResources) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IMPACTED_RESOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ChangeEventCustomAttributesImpactedResourcesItems> getImpactedResources() {
+    return impactedResources;
+  }
+
+  public void setImpactedResources(
+      List<ChangeEventCustomAttributesImpactedResourcesItems> impactedResources) {
     this.impactedResources = impactedResources;
   }
+
   public ChangeEventCustomAttributes newValue(Map<String, Object> newValue) {
     this.newValue = newValue;
     return this;
   }
+
   public ChangeEventCustomAttributes putNewValueItem(String key, Object newValueItem) {
     if (this.newValue == null) {
       this.newValue = new HashMap<>();
@@ -181,23 +185,26 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * <p>Free form JSON object representing the new state of the changed resource.</p>
+   * Free form JSON object representing the new state of the changed resource.
+   *
    * @return newValue
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NEW_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getNewValue() {
-        return newValue;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getNewValue() {
+    return newValue;
+  }
+
   public void setNewValue(Map<String, Object> newValue) {
     this.newValue = newValue;
   }
+
   public ChangeEventCustomAttributes prevValue(Map<String, Object> prevValue) {
     this.prevValue = prevValue;
     return this;
   }
+
   public ChangeEventCustomAttributes putPrevValueItem(String key, Object prevValueItem) {
     if (this.prevValue == null) {
       this.prevValue = new HashMap<>();
@@ -207,23 +214,22 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * <p>Free form JSON object representing the previous state of the changed resource.</p>
+   * Free form JSON object representing the previous state of the changed resource.
+   *
    * @return prevValue
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PREV_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getPrevValue() {
-        return prevValue;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PREV_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getPrevValue() {
+    return prevValue;
+  }
+
   public void setPrevValue(Map<String, Object> prevValue) {
     this.prevValue = prevValue;
   }
 
-  /**
-   * Return true if this ChangeEventCustomAttributes object is equal to o.
-   */
+  /** Return true if this ChangeEventCustomAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -233,13 +239,18 @@ public class ChangeEventCustomAttributes {
       return false;
     }
     ChangeEventCustomAttributes changeEventCustomAttributes = (ChangeEventCustomAttributes) o;
-    return Objects.equals(this.author, changeEventCustomAttributes.author) && Objects.equals(this.changeMetadata, changeEventCustomAttributes.changeMetadata) && Objects.equals(this.changedResource, changeEventCustomAttributes.changedResource) && Objects.equals(this.impactedResources, changeEventCustomAttributes.impactedResources) && Objects.equals(this.newValue, changeEventCustomAttributes.newValue) && Objects.equals(this.prevValue, changeEventCustomAttributes.prevValue);
+    return Objects.equals(this.author, changeEventCustomAttributes.author)
+        && Objects.equals(this.changeMetadata, changeEventCustomAttributes.changeMetadata)
+        && Objects.equals(this.changedResource, changeEventCustomAttributes.changedResource)
+        && Objects.equals(this.impactedResources, changeEventCustomAttributes.impactedResources)
+        && Objects.equals(this.newValue, changeEventCustomAttributes.newValue)
+        && Objects.equals(this.prevValue, changeEventCustomAttributes.prevValue);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(author,changeMetadata,changedResource,impactedResources,newValue,prevValue);
+    return Objects.hash(
+        author, changeMetadata, changedResource, impactedResources, newValue, prevValue);
   }
 
   @Override
@@ -257,8 +268,7 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

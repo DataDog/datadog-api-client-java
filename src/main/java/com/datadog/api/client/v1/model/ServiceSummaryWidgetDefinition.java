@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,14 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>The service summary displays the graphs of a chosen service in your screenboard. Only available on FREE layout dashboards.</p>
+ * The service summary displays the graphs of a chosen service in your screenboard. Only available
+ * on FREE layout dashboards.
  */
 @JsonPropertyOrder({
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_DISPLAY_FORMAT,
@@ -52,10 +39,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceSummaryWidgetDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY_FORMAT = "display_format";
   private WidgetServiceSummaryDisplayFormat displayFormat;
 
@@ -102,195 +89,217 @@ public class ServiceSummaryWidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ServiceSummaryWidgetDefinitionType type = ServiceSummaryWidgetDefinitionType.TRACE_SERVICE;
+  private ServiceSummaryWidgetDefinitionType type =
+      ServiceSummaryWidgetDefinitionType.TRACE_SERVICE;
 
   public ServiceSummaryWidgetDefinition() {}
 
   @JsonCreator
   public ServiceSummaryWidgetDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ENV)String env,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE)String service,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SPAN_NAME)String spanName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ServiceSummaryWidgetDefinitionType type) {
-        this.env = env;
-        this.service = service;
-        this.spanName = spanName;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENV) String env,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SPAN_NAME) String spanName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ServiceSummaryWidgetDefinitionType type) {
+    this.env = env;
+    this.service = service;
+    this.spanName = spanName;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
-  public ServiceSummaryWidgetDefinition displayFormat(WidgetServiceSummaryDisplayFormat displayFormat) {
+
+  public ServiceSummaryWidgetDefinition displayFormat(
+      WidgetServiceSummaryDisplayFormat displayFormat) {
     this.displayFormat = displayFormat;
     this.unparsed |= !displayFormat.isValid();
     return this;
   }
 
   /**
-   * <p>Number of columns to display.</p>
+   * Number of columns to display.
+   *
    * @return displayFormat
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DISPLAY_FORMAT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetServiceSummaryDisplayFormat getDisplayFormat() {
-        return displayFormat;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetServiceSummaryDisplayFormat getDisplayFormat() {
+    return displayFormat;
+  }
+
   public void setDisplayFormat(WidgetServiceSummaryDisplayFormat displayFormat) {
     if (!displayFormat.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.displayFormat = displayFormat;
   }
+
   public ServiceSummaryWidgetDefinition env(String env) {
     this.env = env;
     return this;
   }
 
   /**
-   * <p>APM environment.</p>
+   * APM environment.
+   *
    * @return env
-  **/
-      @JsonProperty(JSON_PROPERTY_ENV)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getEnv() {
-        return env;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ENV)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getEnv() {
+    return env;
+  }
+
   public void setEnv(String env) {
     this.env = env;
   }
+
   public ServiceSummaryWidgetDefinition service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * <p>APM service.</p>
+   * APM service.
+   *
    * @return service
-  **/
-      @JsonProperty(JSON_PROPERTY_SERVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getService() {
-        return service;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getService() {
+    return service;
+  }
+
   public void setService(String service) {
     this.service = service;
   }
+
   public ServiceSummaryWidgetDefinition showBreakdown(Boolean showBreakdown) {
     this.showBreakdown = showBreakdown;
     return this;
   }
 
   /**
-   * <p>Whether to show the latency breakdown or not.</p>
+   * Whether to show the latency breakdown or not.
+   *
    * @return showBreakdown
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHOW_BREAKDOWN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getShowBreakdown() {
-        return showBreakdown;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_BREAKDOWN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowBreakdown() {
+    return showBreakdown;
+  }
+
   public void setShowBreakdown(Boolean showBreakdown) {
     this.showBreakdown = showBreakdown;
   }
+
   public ServiceSummaryWidgetDefinition showDistribution(Boolean showDistribution) {
     this.showDistribution = showDistribution;
     return this;
   }
 
   /**
-   * <p>Whether to show the latency distribution or not.</p>
+   * Whether to show the latency distribution or not.
+   *
    * @return showDistribution
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHOW_DISTRIBUTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getShowDistribution() {
-        return showDistribution;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_DISTRIBUTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowDistribution() {
+    return showDistribution;
+  }
+
   public void setShowDistribution(Boolean showDistribution) {
     this.showDistribution = showDistribution;
   }
+
   public ServiceSummaryWidgetDefinition showErrors(Boolean showErrors) {
     this.showErrors = showErrors;
     return this;
   }
 
   /**
-   * <p>Whether to show the error metrics or not.</p>
+   * Whether to show the error metrics or not.
+   *
    * @return showErrors
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHOW_ERRORS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getShowErrors() {
-        return showErrors;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowErrors() {
+    return showErrors;
+  }
+
   public void setShowErrors(Boolean showErrors) {
     this.showErrors = showErrors;
   }
+
   public ServiceSummaryWidgetDefinition showHits(Boolean showHits) {
     this.showHits = showHits;
     return this;
   }
 
   /**
-   * <p>Whether to show the hits metrics or not.</p>
+   * Whether to show the hits metrics or not.
+   *
    * @return showHits
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHOW_HITS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getShowHits() {
-        return showHits;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_HITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowHits() {
+    return showHits;
+  }
+
   public void setShowHits(Boolean showHits) {
     this.showHits = showHits;
   }
+
   public ServiceSummaryWidgetDefinition showLatency(Boolean showLatency) {
     this.showLatency = showLatency;
     return this;
   }
 
   /**
-   * <p>Whether to show the latency metrics or not.</p>
+   * Whether to show the latency metrics or not.
+   *
    * @return showLatency
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHOW_LATENCY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getShowLatency() {
-        return showLatency;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_LATENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowLatency() {
+    return showLatency;
+  }
+
   public void setShowLatency(Boolean showLatency) {
     this.showLatency = showLatency;
   }
+
   public ServiceSummaryWidgetDefinition showResourceList(Boolean showResourceList) {
     this.showResourceList = showResourceList;
     return this;
   }
 
   /**
-   * <p>Whether to show the resource list or not.</p>
+   * Whether to show the resource list or not.
+   *
    * @return showResourceList
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHOW_RESOURCE_LIST)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getShowResourceList() {
-        return showResourceList;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_RESOURCE_LIST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowResourceList() {
+    return showResourceList;
+  }
+
   public void setShowResourceList(Boolean showResourceList) {
     this.showResourceList = showResourceList;
   }
+
   public ServiceSummaryWidgetDefinition sizeFormat(WidgetSizeFormat sizeFormat) {
     this.sizeFormat = sizeFormat;
     this.unparsed |= !sizeFormat.isValid();
@@ -298,40 +307,44 @@ public class ServiceSummaryWidgetDefinition {
   }
 
   /**
-   * <p>Size of the widget.</p>
+   * Size of the widget.
+   *
    * @return sizeFormat
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SIZE_FORMAT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetSizeFormat getSizeFormat() {
-        return sizeFormat;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIZE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetSizeFormat getSizeFormat() {
+    return sizeFormat;
+  }
+
   public void setSizeFormat(WidgetSizeFormat sizeFormat) {
     if (!sizeFormat.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.sizeFormat = sizeFormat;
   }
+
   public ServiceSummaryWidgetDefinition spanName(String spanName) {
     this.spanName = spanName;
     return this;
   }
 
   /**
-   * <p>APM span name.</p>
+   * APM span name.
+   *
    * @return spanName
-  **/
-      @JsonProperty(JSON_PROPERTY_SPAN_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getSpanName() {
-        return spanName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SPAN_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getSpanName() {
+    return spanName;
+  }
+
   public void setSpanName(String spanName) {
     this.spanName = spanName;
   }
+
   public ServiceSummaryWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -339,38 +352,42 @@ public class ServiceSummaryWidgetDefinition {
   }
 
   /**
-   * <p>Time setting for the widget.</p>
+   * Time setting for the widget.
+   *
    * @return time
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTime getTime() {
-        return time;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
   public ServiceSummaryWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>Title of the widget.</p>
+   * Title of the widget.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
+
   public ServiceSummaryWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -378,41 +395,45 @@ public class ServiceSummaryWidgetDefinition {
   }
 
   /**
-   * <p>How to align the text on the widget.</p>
+   * How to align the text on the widget.
+   *
    * @return titleAlign
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTextAlign getTitleAlign() {
-        return titleAlign;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
   public ServiceSummaryWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * <p>Size of the title.</p>
+   * Size of the title.
+   *
    * @return titleSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitleSize() {
-        return titleSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitleSize() {
+    return titleSize;
+  }
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
   public ServiceSummaryWidgetDefinition type(ServiceSummaryWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -420,32 +441,32 @@ public class ServiceSummaryWidgetDefinition {
   }
 
   /**
-   * <p>Type of the service summary widget.</p>
+   * Type of the service summary widget.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ServiceSummaryWidgetDefinitionType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ServiceSummaryWidgetDefinitionType getType() {
+    return type;
+  }
+
   public void setType(ServiceSummaryWidgetDefinitionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -454,7 +475,7 @@ public class ServiceSummaryWidgetDefinition {
   @JsonAnySetter
   public ServiceSummaryWidgetDefinition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -478,14 +499,12 @@ public class ServiceSummaryWidgetDefinition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ServiceSummaryWidgetDefinition object is equal to o.
-   */
+  /** Return true if this ServiceSummaryWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -494,14 +513,48 @@ public class ServiceSummaryWidgetDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceSummaryWidgetDefinition serviceSummaryWidgetDefinition = (ServiceSummaryWidgetDefinition) o;
-    return Objects.equals(this.displayFormat, serviceSummaryWidgetDefinition.displayFormat) && Objects.equals(this.env, serviceSummaryWidgetDefinition.env) && Objects.equals(this.service, serviceSummaryWidgetDefinition.service) && Objects.equals(this.showBreakdown, serviceSummaryWidgetDefinition.showBreakdown) && Objects.equals(this.showDistribution, serviceSummaryWidgetDefinition.showDistribution) && Objects.equals(this.showErrors, serviceSummaryWidgetDefinition.showErrors) && Objects.equals(this.showHits, serviceSummaryWidgetDefinition.showHits) && Objects.equals(this.showLatency, serviceSummaryWidgetDefinition.showLatency) && Objects.equals(this.showResourceList, serviceSummaryWidgetDefinition.showResourceList) && Objects.equals(this.sizeFormat, serviceSummaryWidgetDefinition.sizeFormat) && Objects.equals(this.spanName, serviceSummaryWidgetDefinition.spanName) && Objects.equals(this.time, serviceSummaryWidgetDefinition.time) && Objects.equals(this.title, serviceSummaryWidgetDefinition.title) && Objects.equals(this.titleAlign, serviceSummaryWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, serviceSummaryWidgetDefinition.titleSize) && Objects.equals(this.type, serviceSummaryWidgetDefinition.type) && Objects.equals(this.additionalProperties, serviceSummaryWidgetDefinition.additionalProperties);
+    ServiceSummaryWidgetDefinition serviceSummaryWidgetDefinition =
+        (ServiceSummaryWidgetDefinition) o;
+    return Objects.equals(this.displayFormat, serviceSummaryWidgetDefinition.displayFormat)
+        && Objects.equals(this.env, serviceSummaryWidgetDefinition.env)
+        && Objects.equals(this.service, serviceSummaryWidgetDefinition.service)
+        && Objects.equals(this.showBreakdown, serviceSummaryWidgetDefinition.showBreakdown)
+        && Objects.equals(this.showDistribution, serviceSummaryWidgetDefinition.showDistribution)
+        && Objects.equals(this.showErrors, serviceSummaryWidgetDefinition.showErrors)
+        && Objects.equals(this.showHits, serviceSummaryWidgetDefinition.showHits)
+        && Objects.equals(this.showLatency, serviceSummaryWidgetDefinition.showLatency)
+        && Objects.equals(this.showResourceList, serviceSummaryWidgetDefinition.showResourceList)
+        && Objects.equals(this.sizeFormat, serviceSummaryWidgetDefinition.sizeFormat)
+        && Objects.equals(this.spanName, serviceSummaryWidgetDefinition.spanName)
+        && Objects.equals(this.time, serviceSummaryWidgetDefinition.time)
+        && Objects.equals(this.title, serviceSummaryWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, serviceSummaryWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, serviceSummaryWidgetDefinition.titleSize)
+        && Objects.equals(this.type, serviceSummaryWidgetDefinition.type)
+        && Objects.equals(
+            this.additionalProperties, serviceSummaryWidgetDefinition.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayFormat,env,service,showBreakdown,showDistribution,showErrors,showHits,showLatency,showResourceList,sizeFormat,spanName,time,title,titleAlign,titleSize,type, additionalProperties);
+    return Objects.hash(
+        displayFormat,
+        env,
+        service,
+        showBreakdown,
+        showDistribution,
+        showErrors,
+        showHits,
+        showLatency,
+        showResourceList,
+        sizeFormat,
+        spanName,
+        time,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -532,8 +585,7 @@ public class ServiceSummaryWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

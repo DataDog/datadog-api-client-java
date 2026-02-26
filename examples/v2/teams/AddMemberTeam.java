@@ -1,18 +1,11 @@
 // Add a member team returns "Added" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.TeamsApi;
 import com.datadog.api.client.v2.model.AddMemberTeamRequest;
 import com.datadog.api.client.v2.model.MemberTeam;
 import com.datadog.api.client.v2.model.MemberTeamType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -20,10 +13,12 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.addMemberTeam", true);
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
-    AddMemberTeamRequest body = new AddMemberTeamRequest()
-.data(new MemberTeam()
-.id("aeadc05e-98a8-11ec-ac2c-da7ad0900001")
-.type(MemberTeamType.MEMBER_TEAMS));
+    AddMemberTeamRequest body =
+        new AddMemberTeamRequest()
+            .data(
+                new MemberTeam()
+                    .id("aeadc05e-98a8-11ec-ac2c-da7ad0900001")
+                    .type(MemberTeamType.MEMBER_TEAMS));
 
     try {
       apiInstance.addMemberTeam("super_team_id", body);

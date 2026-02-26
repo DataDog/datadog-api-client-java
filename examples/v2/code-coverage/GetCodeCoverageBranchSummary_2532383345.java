@@ -1,20 +1,13 @@
 // Get code coverage summary for an existing branch with valid repository
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CodeCoverageApi;
-import com.datadog.api.client.v2.model.CoverageSummaryResponse;
 import com.datadog.api.client.v2.model.BranchCoverageSummaryRequest;
 import com.datadog.api.client.v2.model.BranchCoverageSummaryRequestAttributes;
 import com.datadog.api.client.v2.model.BranchCoverageSummaryRequestData;
 import com.datadog.api.client.v2.model.BranchCoverageSummaryRequestType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import com.datadog.api.client.v2.model.CoverageSummaryResponse;
 
 public class Example {
   public static void main(String[] args) {
@@ -22,12 +15,15 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.getCodeCoverageBranchSummary", true);
     CodeCoverageApi apiInstance = new CodeCoverageApi(defaultClient);
 
-    BranchCoverageSummaryRequest body = new BranchCoverageSummaryRequest()
-.data(new BranchCoverageSummaryRequestData()
-.attributes(new BranchCoverageSummaryRequestAttributes()
-.repositoryId("github.com/datadog/shopist")
-.branch("prod"))
-.type(BranchCoverageSummaryRequestType.CI_APP_COVERAGE_BRANCH_SUMMARY_REQUEST));
+    BranchCoverageSummaryRequest body =
+        new BranchCoverageSummaryRequest()
+            .data(
+                new BranchCoverageSummaryRequestData()
+                    .attributes(
+                        new BranchCoverageSummaryRequestAttributes()
+                            .repositoryId("github.com/datadog/shopist")
+                            .branch("prod"))
+                    .type(BranchCoverageSummaryRequestType.CI_APP_COVERAGE_BRANCH_SUMMARY_REQUEST));
 
     try {
       CoverageSummaryResponse result = apiInstance.getCodeCoverageBranchSummary(body);

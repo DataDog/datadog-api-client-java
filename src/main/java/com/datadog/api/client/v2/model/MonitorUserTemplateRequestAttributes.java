@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for a monitor user template.</p>
- */
+/** Attributes for a monitor user template. */
 @JsonPropertyOrder({
   MonitorUserTemplateRequestAttributes.JSON_PROPERTY_DESCRIPTION,
   MonitorUserTemplateRequestAttributes.JSON_PROPERTY_MONITOR_DEFINITION,
@@ -41,10 +26,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   MonitorUserTemplateRequestAttributes.JSON_PROPERTY_TEMPLATE_VARIABLES,
   MonitorUserTemplateRequestAttributes.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorUserTemplateRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
 
@@ -64,91 +49,110 @@ public class MonitorUserTemplateRequestAttributes {
 
   @JsonCreator
   public MonitorUserTemplateRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_MONITOR_DEFINITION)Map<String, Object> monitorDefinition,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TAGS)List<String> tags,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TITLE)String title) {
-        this.monitorDefinition = monitorDefinition;
-        this.tags = tags;
-        this.title = title;
+      @JsonProperty(required = true, value = JSON_PROPERTY_MONITOR_DEFINITION)
+          Map<String, Object> monitorDefinition,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
+    this.monitorDefinition = monitorDefinition;
+    this.tags = tags;
+    this.title = title;
   }
+
   public MonitorUserTemplateRequestAttributes description(String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
 
   /**
-   * <p>A brief description of the monitor user template.</p>
+   * A brief description of the monitor user template.
+   *
    * @return description
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getDescription() {
-        return description.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getDescription() {
+    return description.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)public void setDescription_JsonNullable(JsonNullable<String> description) {
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
   }
+
   public void setDescription(String description) {
     this.description = JsonNullable.<String>of(description);
   }
-  public MonitorUserTemplateRequestAttributes monitorDefinition(Map<String, Object> monitorDefinition) {
+
+  public MonitorUserTemplateRequestAttributes monitorDefinition(
+      Map<String, Object> monitorDefinition) {
     this.monitorDefinition = monitorDefinition;
     return this;
   }
-  public MonitorUserTemplateRequestAttributes putMonitorDefinitionItem(String key, Object monitorDefinitionItem) {
+
+  public MonitorUserTemplateRequestAttributes putMonitorDefinitionItem(
+      String key, Object monitorDefinitionItem) {
     this.monitorDefinition.put(key, monitorDefinitionItem);
     return this;
   }
 
   /**
-   * <p>A valid monitor definition in the same format as the <a href="https://docs.datadoghq.com/api/latest/monitors/#create-a-monitor">V1 Monitor API</a>.</p>
+   * A valid monitor definition in the same format as the <a
+   * href="https://docs.datadoghq.com/api/latest/monitors/#create-a-monitor">V1 Monitor API</a>.
+   *
    * @return monitorDefinition
-  **/
-      @JsonProperty(JSON_PROPERTY_MONITOR_DEFINITION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Map<String, Object> getMonitorDefinition() {
-        return monitorDefinition;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MONITOR_DEFINITION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Map<String, Object> getMonitorDefinition() {
+    return monitorDefinition;
+  }
+
   public void setMonitorDefinition(Map<String, Object> monitorDefinition) {
     this.monitorDefinition = monitorDefinition;
   }
+
   public MonitorUserTemplateRequestAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public MonitorUserTemplateRequestAttributes addTagsItem(String tagsItem) {
     this.tags.add(tagsItem);
     return this;
   }
 
   /**
-   * <p>The definition of <code>MonitorUserTemplateTags</code> object.</p>
+   * The definition of <code>MonitorUserTemplateTags</code> object.
+   *
    * @return tags
-  **/
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-  public MonitorUserTemplateRequestAttributes templateVariables(List<MonitorUserTemplateTemplateVariablesItems> templateVariables) {
+
+  public MonitorUserTemplateRequestAttributes templateVariables(
+      List<MonitorUserTemplateTemplateVariablesItems> templateVariables) {
     this.templateVariables = templateVariables;
     for (MonitorUserTemplateTemplateVariablesItems item : templateVariables) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public MonitorUserTemplateRequestAttributes addTemplateVariablesItem(MonitorUserTemplateTemplateVariablesItems templateVariablesItem) {
+
+  public MonitorUserTemplateRequestAttributes addTemplateVariablesItem(
+      MonitorUserTemplateTemplateVariablesItems templateVariablesItem) {
     if (this.templateVariables == null) {
       this.templateVariables = new ArrayList<>();
     }
@@ -158,41 +162,43 @@ public class MonitorUserTemplateRequestAttributes {
   }
 
   /**
-   * <p>The definition of <code>MonitorUserTemplateTemplateVariables</code> object.</p>
+   * The definition of <code>MonitorUserTemplateTemplateVariables</code> object.
+   *
    * @return templateVariables
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<MonitorUserTemplateTemplateVariablesItems> getTemplateVariables() {
-        return templateVariables;
-      }
-  public void setTemplateVariables(List<MonitorUserTemplateTemplateVariablesItems> templateVariables) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorUserTemplateTemplateVariablesItems> getTemplateVariables() {
+    return templateVariables;
+  }
+
+  public void setTemplateVariables(
+      List<MonitorUserTemplateTemplateVariablesItems> templateVariables) {
     this.templateVariables = templateVariables;
   }
+
   public MonitorUserTemplateRequestAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>The title of the monitor user template.</p>
+   * The title of the monitor user template.
+   *
    * @return title
-  **/
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
 
-  /**
-   * Return true if this MonitorUserTemplateRequestAttributes object is equal to o.
-   */
+  /** Return true if this MonitorUserTemplateRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -201,14 +207,20 @@ public class MonitorUserTemplateRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorUserTemplateRequestAttributes monitorUserTemplateRequestAttributes = (MonitorUserTemplateRequestAttributes) o;
-    return Objects.equals(this.description, monitorUserTemplateRequestAttributes.description) && Objects.equals(this.monitorDefinition, monitorUserTemplateRequestAttributes.monitorDefinition) && Objects.equals(this.tags, monitorUserTemplateRequestAttributes.tags) && Objects.equals(this.templateVariables, monitorUserTemplateRequestAttributes.templateVariables) && Objects.equals(this.title, monitorUserTemplateRequestAttributes.title);
+    MonitorUserTemplateRequestAttributes monitorUserTemplateRequestAttributes =
+        (MonitorUserTemplateRequestAttributes) o;
+    return Objects.equals(this.description, monitorUserTemplateRequestAttributes.description)
+        && Objects.equals(
+            this.monitorDefinition, monitorUserTemplateRequestAttributes.monitorDefinition)
+        && Objects.equals(this.tags, monitorUserTemplateRequestAttributes.tags)
+        && Objects.equals(
+            this.templateVariables, monitorUserTemplateRequestAttributes.templateVariables)
+        && Objects.equals(this.title, monitorUserTemplateRequestAttributes.title);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(description,monitorDefinition,tags,templateVariables,title);
+    return Objects.hash(description, monitorDefinition, tags, templateVariables, title);
   }
 
   @Override
@@ -225,8 +237,7 @@ public class MonitorUserTemplateRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

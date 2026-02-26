@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The attributes of a budget.</p>
- */
+/** The attributes of a budget. */
 @JsonPropertyOrder({
   BudgetAttributes.JSON_PROPERTY_CREATED_AT,
   BudgetAttributes.JSON_PROPERTY_CREATED_BY,
@@ -47,10 +32,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   BudgetAttributes.JSON_PROPERTY_UPDATED_AT,
   BudgetAttributes.JSON_PROPERTY_UPDATED_BY
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class BudgetAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private Long createdAt;
 
@@ -90,57 +75,63 @@ public class BudgetAttributes {
   }
 
   /**
-   * <p>The timestamp when the budget was created.</p>
+   * The timestamp when the budget was created.
+   *
    * @return createdAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(Long createdAt) {
     this.createdAt = createdAt;
   }
+
   public BudgetAttributes createdBy(String createdBy) {
     this.createdBy = createdBy;
     return this;
   }
 
   /**
-   * <p>The id of the user that created the budget.</p>
+   * The id of the user that created the budget.
+   *
    * @return createdBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getCreatedBy() {
-        return createdBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCreatedBy() {
+    return createdBy;
+  }
+
   public void setCreatedBy(String createdBy) {
     this.createdBy = createdBy;
   }
+
   public BudgetAttributes endMonth(Long endMonth) {
     this.endMonth = endMonth;
     return this;
   }
 
   /**
-   * <p>The month when the budget ends.</p>
+   * The month when the budget ends.
+   *
    * @return endMonth
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_END_MONTH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getEndMonth() {
-        return endMonth;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_END_MONTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEndMonth() {
+    return endMonth;
+  }
+
   public void setEndMonth(Long endMonth) {
     this.endMonth = endMonth;
   }
+
   public BudgetAttributes entries(List<BudgetWithEntriesDataAttributesEntriesItems> entries) {
     this.entries = entries;
     for (BudgetWithEntriesDataAttributesEntriesItems item : entries) {
@@ -148,6 +139,7 @@ public class BudgetAttributes {
     }
     return this;
   }
+
   public BudgetAttributes addEntriesItem(BudgetWithEntriesDataAttributesEntriesItems entriesItem) {
     if (this.entries == null) {
       this.entries = new ArrayList<>();
@@ -158,163 +150,177 @@ public class BudgetAttributes {
   }
 
   /**
-   * <p>Getentries</p>
+   * Getentries
+   *
    * @return entries
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENTRIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<BudgetWithEntriesDataAttributesEntriesItems> getEntries() {
-        return entries;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENTRIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<BudgetWithEntriesDataAttributesEntriesItems> getEntries() {
+    return entries;
+  }
+
   public void setEntries(List<BudgetWithEntriesDataAttributesEntriesItems> entries) {
     this.entries = entries;
   }
+
   public BudgetAttributes metricsQuery(String metricsQuery) {
     this.metricsQuery = metricsQuery;
     return this;
   }
 
   /**
-   * <p>The cost query used to track against the budget.</p>
+   * The cost query used to track against the budget.
+   *
    * @return metricsQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METRICS_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getMetricsQuery() {
-        return metricsQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRICS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMetricsQuery() {
+    return metricsQuery;
+  }
+
   public void setMetricsQuery(String metricsQuery) {
     this.metricsQuery = metricsQuery;
   }
+
   public BudgetAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the budget.</p>
+   * The name of the budget.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public BudgetAttributes orgId(Long orgId) {
     this.orgId = orgId;
     return this;
   }
 
   /**
-   * <p>The id of the org the budget belongs to.</p>
+   * The id of the org the budget belongs to.
+   *
    * @return orgId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORG_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getOrgId() {
-        return orgId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOrgId() {
+    return orgId;
+  }
+
   public void setOrgId(Long orgId) {
     this.orgId = orgId;
   }
+
   public BudgetAttributes startMonth(Long startMonth) {
     this.startMonth = startMonth;
     return this;
   }
 
   /**
-   * <p>The month when the budget starts.</p>
+   * The month when the budget starts.
+   *
    * @return startMonth
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_START_MONTH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getStartMonth() {
-        return startMonth;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_START_MONTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getStartMonth() {
+    return startMonth;
+  }
+
   public void setStartMonth(Long startMonth) {
     this.startMonth = startMonth;
   }
+
   public BudgetAttributes totalAmount(Double totalAmount) {
     this.totalAmount = totalAmount;
     return this;
   }
 
   /**
-   * <p>The sum of all budget entries' amounts.</p>
+   * The sum of all budget entries' amounts.
+   *
    * @return totalAmount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getTotalAmount() {
-        return totalAmount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getTotalAmount() {
+    return totalAmount;
+  }
+
   public void setTotalAmount(Double totalAmount) {
     this.totalAmount = totalAmount;
   }
+
   public BudgetAttributes updatedAt(Long updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * <p>The timestamp when the budget was last updated.</p>
+   * The timestamp when the budget was last updated.
+   *
    * @return updatedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getUpdatedAt() {
-        return updatedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUpdatedAt() {
+    return updatedAt;
+  }
+
   public void setUpdatedAt(Long updatedAt) {
     this.updatedAt = updatedAt;
   }
+
   public BudgetAttributes updatedBy(String updatedBy) {
     this.updatedBy = updatedBy;
     return this;
   }
 
   /**
-   * <p>The id of the user that created the budget.</p>
+   * The id of the user that created the budget.
+   *
    * @return updatedBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_UPDATED_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getUpdatedBy() {
-        return updatedBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUpdatedBy() {
+    return updatedBy;
+  }
+
   public void setUpdatedBy(String updatedBy) {
     this.updatedBy = updatedBy;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -323,7 +329,7 @@ public class BudgetAttributes {
   @JsonAnySetter
   public BudgetAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -347,14 +353,12 @@ public class BudgetAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this BudgetAttributes object is equal to o.
-   */
+  /** Return true if this BudgetAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -364,13 +368,35 @@ public class BudgetAttributes {
       return false;
     }
     BudgetAttributes budgetAttributes = (BudgetAttributes) o;
-    return Objects.equals(this.createdAt, budgetAttributes.createdAt) && Objects.equals(this.createdBy, budgetAttributes.createdBy) && Objects.equals(this.endMonth, budgetAttributes.endMonth) && Objects.equals(this.entries, budgetAttributes.entries) && Objects.equals(this.metricsQuery, budgetAttributes.metricsQuery) && Objects.equals(this.name, budgetAttributes.name) && Objects.equals(this.orgId, budgetAttributes.orgId) && Objects.equals(this.startMonth, budgetAttributes.startMonth) && Objects.equals(this.totalAmount, budgetAttributes.totalAmount) && Objects.equals(this.updatedAt, budgetAttributes.updatedAt) && Objects.equals(this.updatedBy, budgetAttributes.updatedBy) && Objects.equals(this.additionalProperties, budgetAttributes.additionalProperties);
+    return Objects.equals(this.createdAt, budgetAttributes.createdAt)
+        && Objects.equals(this.createdBy, budgetAttributes.createdBy)
+        && Objects.equals(this.endMonth, budgetAttributes.endMonth)
+        && Objects.equals(this.entries, budgetAttributes.entries)
+        && Objects.equals(this.metricsQuery, budgetAttributes.metricsQuery)
+        && Objects.equals(this.name, budgetAttributes.name)
+        && Objects.equals(this.orgId, budgetAttributes.orgId)
+        && Objects.equals(this.startMonth, budgetAttributes.startMonth)
+        && Objects.equals(this.totalAmount, budgetAttributes.totalAmount)
+        && Objects.equals(this.updatedAt, budgetAttributes.updatedAt)
+        && Objects.equals(this.updatedBy, budgetAttributes.updatedBy)
+        && Objects.equals(this.additionalProperties, budgetAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt,createdBy,endMonth,entries,metricsQuery,name,orgId,startMonth,totalAmount,updatedAt,updatedBy, additionalProperties);
+    return Objects.hash(
+        createdAt,
+        createdBy,
+        endMonth,
+        entries,
+        metricsQuery,
+        name,
+        orgId,
+        startMonth,
+        totalAmount,
+        updatedAt,
+        updatedBy,
+        additionalProperties);
   }
 
   @Override
@@ -396,8 +422,7 @@ public class BudgetAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

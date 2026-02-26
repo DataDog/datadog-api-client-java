@@ -1,16 +1,9 @@
 // Get a restriction query returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.LogsRestrictionQueriesApi;
 import com.datadog.api.client.v2.model.RestrictionQueryWithRelationshipsResponse;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -22,7 +15,8 @@ public class Example {
     String RESTRICTION_QUERY_DATA_ID = System.getenv("RESTRICTION_QUERY_DATA_ID");
 
     try {
-      RestrictionQueryWithRelationshipsResponse result = apiInstance.getRestrictionQuery(RESTRICTION_QUERY_DATA_ID);
+      RestrictionQueryWithRelationshipsResponse result =
+          apiInstance.getRestrictionQuery(RESTRICTION_QUERY_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LogsRestrictionQueriesApi#getRestrictionQuery");

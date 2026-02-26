@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes to create a DORA deployment event.</p>
- */
+/** Attributes to create a DORA deployment event. */
 @JsonPropertyOrder({
   DORADeploymentRequestAttributes.JSON_PROPERTY_CUSTOM_TAGS,
   DORADeploymentRequestAttributes.JSON_PROPERTY_ENV,
@@ -45,10 +32,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   DORADeploymentRequestAttributes.JSON_PROPERTY_TEAM,
   DORADeploymentRequestAttributes.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DORADeploymentRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_TAGS = "custom_tags";
   private JsonNullable<List<String>> customTags = JsonNullable.<List<String>>undefined();
 
@@ -80,17 +67,19 @@ public class DORADeploymentRequestAttributes {
 
   @JsonCreator
   public DORADeploymentRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FINISHED_AT)Long finishedAt,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE)String service,
-            @JsonProperty(required=true, value=JSON_PROPERTY_STARTED_AT)Long startedAt) {
-        this.finishedAt = finishedAt;
-        this.service = service;
-        this.startedAt = startedAt;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FINISHED_AT) Long finishedAt,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) Long startedAt) {
+    this.finishedAt = finishedAt;
+    this.service = service;
+    this.startedAt = startedAt;
   }
+
   public DORADeploymentRequestAttributes customTags(List<String> customTags) {
     this.customTags = JsonNullable.<List<String>>of(customTags);
     return this;
   }
+
   public DORADeploymentRequestAttributes addCustomTagsItem(String customTagsItem) {
     if (this.customTags == null || !this.customTags.isPresent()) {
       this.customTags = JsonNullable.<List<String>>of(new ArrayList<>());
@@ -104,63 +93,74 @@ public class DORADeploymentRequestAttributes {
   }
 
   /**
-   * <p>A list of user-defined tags. The tags must follow the <code>key:value</code> pattern. Up to 100 may be added per event.</p>
+   * A list of user-defined tags. The tags must follow the <code>key:value</code> pattern. Up to 100
+   * may be added per event.
+   *
    * @return customTags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public List<String> getCustomTags() {
-        return customTags.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getCustomTags() {
+    return customTags.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getCustomTags_JsonNullable() {
     return customTags;
   }
-  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)public void setCustomTags_JsonNullable(JsonNullable<List<String>> customTags) {
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)
+  public void setCustomTags_JsonNullable(JsonNullable<List<String>> customTags) {
     this.customTags = customTags;
   }
+
   public void setCustomTags(List<String> customTags) {
     this.customTags = JsonNullable.<List<String>>of(customTags);
   }
+
   public DORADeploymentRequestAttributes env(String env) {
     this.env = env;
     return this;
   }
 
   /**
-   * <p>Environment name to where the service was deployed.</p>
+   * Environment name to where the service was deployed.
+   *
    * @return env
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENV)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getEnv() {
-        return env;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEnv() {
+    return env;
+  }
+
   public void setEnv(String env) {
     this.env = env;
   }
+
   public DORADeploymentRequestAttributes finishedAt(Long finishedAt) {
     this.finishedAt = finishedAt;
     return this;
   }
 
   /**
-   * <p>Unix timestamp when the deployment finished. It must be in nanoseconds, milliseconds, or seconds.</p>
+   * Unix timestamp when the deployment finished. It must be in nanoseconds, milliseconds, or
+   * seconds.
+   *
    * @return finishedAt
-  **/
-      @JsonProperty(JSON_PROPERTY_FINISHED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getFinishedAt() {
-        return finishedAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FINISHED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getFinishedAt() {
+    return finishedAt;
+  }
+
   public void setFinishedAt(Long finishedAt) {
     this.finishedAt = finishedAt;
   }
+
   public DORADeploymentRequestAttributes git(DORAGitInfo git) {
     this.git = git;
     this.unparsed |= git.unparsed;
@@ -168,123 +168,138 @@ public class DORADeploymentRequestAttributes {
   }
 
   /**
-   * <p>Git info for DORA Metrics events.</p>
+   * Git info for DORA Metrics events.
+   *
    * @return git
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public DORAGitInfo getGit() {
-        return git;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DORAGitInfo getGit() {
+    return git;
+  }
+
   public void setGit(DORAGitInfo git) {
     this.git = git;
   }
+
   public DORADeploymentRequestAttributes id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>Deployment ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens, underscores, periods, and colons (a-z, A-Z, 0-9, -, _, ., :).</p>
+   * Deployment ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens,
+   * underscores, periods, and colons (a-z, A-Z, 0-9, -, _, ., :).
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public DORADeploymentRequestAttributes service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * <p>Service name.</p>
+   * Service name.
+   *
    * @return service
-  **/
-      @JsonProperty(JSON_PROPERTY_SERVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getService() {
-        return service;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getService() {
+    return service;
+  }
+
   public void setService(String service) {
     this.service = service;
   }
+
   public DORADeploymentRequestAttributes startedAt(Long startedAt) {
     this.startedAt = startedAt;
     return this;
   }
 
   /**
-   * <p>Unix timestamp when the deployment started. It must be in nanoseconds, milliseconds, or seconds.</p>
+   * Unix timestamp when the deployment started. It must be in nanoseconds, milliseconds, or
+   * seconds.
+   *
    * @return startedAt
-  **/
-      @JsonProperty(JSON_PROPERTY_STARTED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getStartedAt() {
-        return startedAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_STARTED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getStartedAt() {
+    return startedAt;
+  }
+
   public void setStartedAt(Long startedAt) {
     this.startedAt = startedAt;
   }
+
   public DORADeploymentRequestAttributes team(String team) {
     this.team = team;
     return this;
   }
 
   /**
-   * <p>Name of the team owning the deployed service. If not provided, this is automatically populated with the team associated with the service in the Service Catalog.</p>
+   * Name of the team owning the deployed service. If not provided, this is automatically populated
+   * with the team associated with the service in the Service Catalog.
+   *
    * @return team
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEAM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTeam() {
-        return team;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTeam() {
+    return team;
+  }
+
   public void setTeam(String team) {
     this.team = team;
   }
+
   public DORADeploymentRequestAttributes version(String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * <p>Version to correlate with <a href="https://docs.datadoghq.com/tracing/services/deployment_tracking/">APM Deployment Tracking</a>.</p>
+   * Version to correlate with <a
+   * href="https://docs.datadoghq.com/tracing/services/deployment_tracking/">APM Deployment
+   * Tracking</a>.
+   *
    * @return version
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getVersion() {
-        return version;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVersion() {
+    return version;
+  }
+
   public void setVersion(String version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -293,7 +308,7 @@ public class DORADeploymentRequestAttributes {
   @JsonAnySetter
   public DORADeploymentRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -317,14 +332,12 @@ public class DORADeploymentRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this DORADeploymentRequestAttributes object is equal to o.
-   */
+  /** Return true if this DORADeploymentRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -333,14 +346,34 @@ public class DORADeploymentRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORADeploymentRequestAttributes doraDeploymentRequestAttributes = (DORADeploymentRequestAttributes) o;
-    return Objects.equals(this.customTags, doraDeploymentRequestAttributes.customTags) && Objects.equals(this.env, doraDeploymentRequestAttributes.env) && Objects.equals(this.finishedAt, doraDeploymentRequestAttributes.finishedAt) && Objects.equals(this.git, doraDeploymentRequestAttributes.git) && Objects.equals(this.id, doraDeploymentRequestAttributes.id) && Objects.equals(this.service, doraDeploymentRequestAttributes.service) && Objects.equals(this.startedAt, doraDeploymentRequestAttributes.startedAt) && Objects.equals(this.team, doraDeploymentRequestAttributes.team) && Objects.equals(this.version, doraDeploymentRequestAttributes.version) && Objects.equals(this.additionalProperties, doraDeploymentRequestAttributes.additionalProperties);
+    DORADeploymentRequestAttributes doraDeploymentRequestAttributes =
+        (DORADeploymentRequestAttributes) o;
+    return Objects.equals(this.customTags, doraDeploymentRequestAttributes.customTags)
+        && Objects.equals(this.env, doraDeploymentRequestAttributes.env)
+        && Objects.equals(this.finishedAt, doraDeploymentRequestAttributes.finishedAt)
+        && Objects.equals(this.git, doraDeploymentRequestAttributes.git)
+        && Objects.equals(this.id, doraDeploymentRequestAttributes.id)
+        && Objects.equals(this.service, doraDeploymentRequestAttributes.service)
+        && Objects.equals(this.startedAt, doraDeploymentRequestAttributes.startedAt)
+        && Objects.equals(this.team, doraDeploymentRequestAttributes.team)
+        && Objects.equals(this.version, doraDeploymentRequestAttributes.version)
+        && Objects.equals(
+            this.additionalProperties, doraDeploymentRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(customTags,env,finishedAt,git,id,service,startedAt,team,version, additionalProperties);
+    return Objects.hash(
+        customTags,
+        env,
+        finishedAt,
+        git,
+        id,
+        service,
+        startedAt,
+        team,
+        version,
+        additionalProperties);
   }
 
   @Override
@@ -364,8 +397,7 @@ public class DORADeploymentRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

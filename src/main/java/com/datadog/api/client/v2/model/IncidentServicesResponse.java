@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Response with a list of incident service payloads.</p>
- */
+/** Response with a list of incident service payloads. */
 @JsonPropertyOrder({
   IncidentServicesResponse.JSON_PROPERTY_DATA,
   IncidentServicesResponse.JSON_PROPERTY_INCLUDED,
   IncidentServicesResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentServicesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<IncidentServiceResponseData> data = new ArrayList<>();
 
@@ -56,9 +42,11 @@ public class IncidentServicesResponse {
 
   @JsonCreator
   public IncidentServicesResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)List<IncidentServiceResponseData> data) {
-        this.data = data;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<IncidentServiceResponseData> data) {
+    this.data = data;
   }
+
   public IncidentServicesResponse data(List<IncidentServiceResponseData> data) {
     this.data = data;
     for (IncidentServiceResponseData item : data) {
@@ -66,6 +54,7 @@ public class IncidentServicesResponse {
     }
     return this;
   }
+
   public IncidentServicesResponse addDataItem(IncidentServiceResponseData dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
@@ -73,53 +62,53 @@ public class IncidentServicesResponse {
   }
 
   /**
-   * <p>An array of incident services.</p>
+   * An array of incident services.
+   *
    * @return data
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<IncidentServiceResponseData> getData() {
-        return data;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<IncidentServiceResponseData> getData() {
+    return data;
+  }
+
   public void setData(List<IncidentServiceResponseData> data) {
     this.data = data;
   }
 
   /**
-   * <p>Included related resources which the user requested.</p>
+   * Included related resources which the user requested.
+   *
    * @return included
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCLUDED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentServiceIncludedItems> getIncluded() {
-        return included;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentServiceIncludedItems> getIncluded() {
+    return included;
+  }
 
   /**
-   * <p>The metadata object containing pagination metadata.</p>
+   * The metadata object containing pagination metadata.
+   *
    * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public IncidentResponseMeta getMeta() {
-        return meta;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentResponseMeta getMeta() {
+    return meta;
+  }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -128,7 +117,7 @@ public class IncidentServicesResponse {
   @JsonAnySetter
   public IncidentServicesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -152,14 +141,12 @@ public class IncidentServicesResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this IncidentServicesResponse object is equal to o.
-   */
+  /** Return true if this IncidentServicesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,13 +156,15 @@ public class IncidentServicesResponse {
       return false;
     }
     IncidentServicesResponse incidentServicesResponse = (IncidentServicesResponse) o;
-    return Objects.equals(this.data, incidentServicesResponse.data) && Objects.equals(this.included, incidentServicesResponse.included) && Objects.equals(this.meta, incidentServicesResponse.meta) && Objects.equals(this.additionalProperties, incidentServicesResponse.additionalProperties);
+    return Objects.equals(this.data, incidentServicesResponse.data)
+        && Objects.equals(this.included, incidentServicesResponse.included)
+        && Objects.equals(this.meta, incidentServicesResponse.meta)
+        && Objects.equals(this.additionalProperties, incidentServicesResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,included,meta, additionalProperties);
+    return Objects.hash(data, included, meta, additionalProperties);
   }
 
   @Override
@@ -193,8 +182,7 @@ public class IncidentServicesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

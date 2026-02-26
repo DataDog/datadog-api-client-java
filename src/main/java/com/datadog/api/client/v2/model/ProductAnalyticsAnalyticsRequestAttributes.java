@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for an analytics request.</p>
- */
+/** Attributes for an analytics request. */
 @JsonPropertyOrder({
   ProductAnalyticsAnalyticsRequestAttributes.JSON_PROPERTY_ENFORCED_EXECUTION_TYPE,
   ProductAnalyticsAnalyticsRequestAttributes.JSON_PROPERTY_FROM,
@@ -41,10 +25,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ProductAnalyticsAnalyticsRequestAttributes.JSON_PROPERTY_REQUEST_ID,
   ProductAnalyticsAnalyticsRequestAttributes.JSON_PROPERTY_TO
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsAnalyticsRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENFORCED_EXECUTION_TYPE = "enforced_execution_type";
   private ProductAnalyticsExecutionType enforcedExecutionType;
 
@@ -64,55 +48,62 @@ public class ProductAnalyticsAnalyticsRequestAttributes {
 
   @JsonCreator
   public ProductAnalyticsAnalyticsRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FROM)Long from,
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)ProductAnalyticsAnalyticsQuery query,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TO)Long to) {
-        this.from = from;
-        this.query = query;
-        this.unparsed |= query.unparsed;
-        this.to = to;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FROM) Long from,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY)
+          ProductAnalyticsAnalyticsQuery query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TO) Long to) {
+    this.from = from;
+    this.query = query;
+    this.unparsed |= query.unparsed;
+    this.to = to;
   }
-  public ProductAnalyticsAnalyticsRequestAttributes enforcedExecutionType(ProductAnalyticsExecutionType enforcedExecutionType) {
+
+  public ProductAnalyticsAnalyticsRequestAttributes enforcedExecutionType(
+      ProductAnalyticsExecutionType enforcedExecutionType) {
     this.enforcedExecutionType = enforcedExecutionType;
     this.unparsed |= !enforcedExecutionType.isValid();
     return this;
   }
 
   /**
-   * <p>Override the query execution strategy.</p>
+   * Override the query execution strategy.
+   *
    * @return enforcedExecutionType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENFORCED_EXECUTION_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ProductAnalyticsExecutionType getEnforcedExecutionType() {
-        return enforcedExecutionType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENFORCED_EXECUTION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProductAnalyticsExecutionType getEnforcedExecutionType() {
+    return enforcedExecutionType;
+  }
+
   public void setEnforcedExecutionType(ProductAnalyticsExecutionType enforcedExecutionType) {
     if (!enforcedExecutionType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.enforcedExecutionType = enforcedExecutionType;
   }
+
   public ProductAnalyticsAnalyticsRequestAttributes from(Long from) {
     this.from = from;
     return this;
   }
 
   /**
-   * <p>Start time in epoch milliseconds. Must be less than <code>to</code>.</p>
+   * Start time in epoch milliseconds. Must be less than <code>to</code>.
+   *
    * @return from
-  **/
-      @JsonProperty(JSON_PROPERTY_FROM)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getFrom() {
-        return from;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FROM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getFrom() {
+    return from;
+  }
+
   public void setFrom(Long from) {
     this.from = from;
   }
+
   public ProductAnalyticsAnalyticsRequestAttributes query(ProductAnalyticsAnalyticsQuery query) {
     this.query = query;
     this.unparsed |= query.unparsed;
@@ -120,75 +111,80 @@ public class ProductAnalyticsAnalyticsRequestAttributes {
   }
 
   /**
-   * <p>The analytics query definition containing a base query, compute rule, and optional grouping.</p>
+   * The analytics query definition containing a base query, compute rule, and optional grouping.
+   *
    * @return query
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ProductAnalyticsAnalyticsQuery getQuery() {
-        return query;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ProductAnalyticsAnalyticsQuery getQuery() {
+    return query;
+  }
+
   public void setQuery(ProductAnalyticsAnalyticsQuery query) {
     this.query = query;
   }
+
   public ProductAnalyticsAnalyticsRequestAttributes requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
 
   /**
-   * <p>Optional request ID for multi-step query continuation.</p>
+   * Optional request ID for multi-step query continuation.
+   *
    * @return requestId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REQUEST_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRequestId() {
-        return requestId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRequestId() {
+    return requestId;
+  }
+
   public void setRequestId(String requestId) {
     this.requestId = requestId;
   }
+
   public ProductAnalyticsAnalyticsRequestAttributes to(Long to) {
     this.to = to;
     return this;
   }
 
   /**
-   * <p>End time in epoch milliseconds.</p>
+   * End time in epoch milliseconds.
+   *
    * @return to
-  **/
-      @JsonProperty(JSON_PROPERTY_TO)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getTo() {
-        return to;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TO)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getTo() {
+    return to;
+  }
+
   public void setTo(Long to) {
     this.to = to;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ProductAnalyticsAnalyticsRequestAttributes
    */
   @JsonAnySetter
-  public ProductAnalyticsAnalyticsRequestAttributes putAdditionalProperty(String key, Object value) {
+  public ProductAnalyticsAnalyticsRequestAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -212,14 +208,12 @@ public class ProductAnalyticsAnalyticsRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ProductAnalyticsAnalyticsRequestAttributes object is equal to o.
-   */
+  /** Return true if this ProductAnalyticsAnalyticsRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -228,21 +222,32 @@ public class ProductAnalyticsAnalyticsRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsAnalyticsRequestAttributes productAnalyticsAnalyticsRequestAttributes = (ProductAnalyticsAnalyticsRequestAttributes) o;
-    return Objects.equals(this.enforcedExecutionType, productAnalyticsAnalyticsRequestAttributes.enforcedExecutionType) && Objects.equals(this.from, productAnalyticsAnalyticsRequestAttributes.from) && Objects.equals(this.query, productAnalyticsAnalyticsRequestAttributes.query) && Objects.equals(this.requestId, productAnalyticsAnalyticsRequestAttributes.requestId) && Objects.equals(this.to, productAnalyticsAnalyticsRequestAttributes.to) && Objects.equals(this.additionalProperties, productAnalyticsAnalyticsRequestAttributes.additionalProperties);
+    ProductAnalyticsAnalyticsRequestAttributes productAnalyticsAnalyticsRequestAttributes =
+        (ProductAnalyticsAnalyticsRequestAttributes) o;
+    return Objects.equals(
+            this.enforcedExecutionType,
+            productAnalyticsAnalyticsRequestAttributes.enforcedExecutionType)
+        && Objects.equals(this.from, productAnalyticsAnalyticsRequestAttributes.from)
+        && Objects.equals(this.query, productAnalyticsAnalyticsRequestAttributes.query)
+        && Objects.equals(this.requestId, productAnalyticsAnalyticsRequestAttributes.requestId)
+        && Objects.equals(this.to, productAnalyticsAnalyticsRequestAttributes.to)
+        && Objects.equals(
+            this.additionalProperties,
+            productAnalyticsAnalyticsRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(enforcedExecutionType,from,query,requestId,to, additionalProperties);
+    return Objects.hash(enforcedExecutionType, from, query, requestId, to, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductAnalyticsAnalyticsRequestAttributes {\n");
-    sb.append("    enforcedExecutionType: ").append(toIndentedString(enforcedExecutionType)).append("\n");
+    sb.append("    enforcedExecutionType: ")
+        .append(toIndentedString(enforcedExecutionType))
+        .append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
@@ -255,8 +260,7 @@ public class ProductAnalyticsAnalyticsRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

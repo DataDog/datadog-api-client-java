@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,14 +13,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>Defines a single field mapping rule for transforming a source field to an OCSF destination field.</p>
+ * Defines a single field mapping rule for transforming a source field to an OCSF destination field.
  */
 @JsonPropertyOrder({
   ObservabilityPipelineOcsfMappingCustomFieldMapping.JSON_PROPERTY_DEFAULT,
@@ -42,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ObservabilityPipelineOcsfMappingCustomFieldMapping.JSON_PROPERTY_SOURCES,
   ObservabilityPipelineOcsfMappingCustomFieldMapping.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineOcsfMappingCustomFieldMapping {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFAULT = "default";
   private Object _default = null;
 
@@ -68,143 +54,156 @@ public class ObservabilityPipelineOcsfMappingCustomFieldMapping {
 
   @JsonCreator
   public ObservabilityPipelineOcsfMappingCustomFieldMapping(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DEST)String dest) {
-        this.dest = dest;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DEST) String dest) {
+    this.dest = dest;
   }
+
   public ObservabilityPipelineOcsfMappingCustomFieldMapping _default(Object _default) {
     this._default = _default;
     return this;
   }
 
   /**
-   * <p>The default value to use if the source field is missing or empty.</p>
+   * The default value to use if the source field is missing or empty.
+   *
    * @return _default
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DEFAULT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getDefault() {
-        return _default;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getDefault() {
+    return _default;
+  }
+
   public void setDefault(Object _default) {
     this._default = _default;
   }
+
   public ObservabilityPipelineOcsfMappingCustomFieldMapping dest(String dest) {
     this.dest = dest;
     return this;
   }
 
   /**
-   * <p>The destination OCSF field path.</p>
+   * The destination OCSF field path.
+   *
    * @return dest
-  **/
-      @JsonProperty(JSON_PROPERTY_DEST)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getDest() {
-        return dest;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DEST)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getDest() {
+    return dest;
+  }
+
   public void setDest(String dest) {
     this.dest = dest;
   }
-  public ObservabilityPipelineOcsfMappingCustomFieldMapping lookup(ObservabilityPipelineOcsfMappingCustomLookup lookup) {
+
+  public ObservabilityPipelineOcsfMappingCustomFieldMapping lookup(
+      ObservabilityPipelineOcsfMappingCustomLookup lookup) {
     this.lookup = lookup;
     this.unparsed |= lookup.unparsed;
     return this;
   }
 
   /**
-   * <p>Lookup table configuration for mapping source values to destination values.</p>
+   * Lookup table configuration for mapping source values to destination values.
+   *
    * @return lookup
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOOKUP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ObservabilityPipelineOcsfMappingCustomLookup getLookup() {
-        return lookup;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOOKUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineOcsfMappingCustomLookup getLookup() {
+    return lookup;
+  }
+
   public void setLookup(ObservabilityPipelineOcsfMappingCustomLookup lookup) {
     this.lookup = lookup;
   }
+
   public ObservabilityPipelineOcsfMappingCustomFieldMapping source(Object source) {
     this.source = source;
     return this;
   }
 
   /**
-   * <p>The source field path from the log event.</p>
+   * The source field path from the log event.
+   *
    * @return source
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getSource() {
-        return source;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getSource() {
+    return source;
+  }
+
   public void setSource(Object source) {
     this.source = source;
   }
+
   public ObservabilityPipelineOcsfMappingCustomFieldMapping sources(Object sources) {
     this.sources = sources;
     return this;
   }
 
   /**
-   * <p>Multiple source field paths for combined mapping.</p>
+   * Multiple source field paths for combined mapping.
+   *
    * @return sources
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SOURCES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getSources() {
-        return sources;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getSources() {
+    return sources;
+  }
+
   public void setSources(Object sources) {
     this.sources = sources;
   }
+
   public ObservabilityPipelineOcsfMappingCustomFieldMapping value(Object value) {
     this.value = value;
     return this;
   }
 
   /**
-   * <p>A static value to use for the destination field.</p>
+   * A static value to use for the destination field.
+   *
    * @return value
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getValue() {
-        return value;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getValue() {
+    return value;
+  }
+
   public void setValue(Object value) {
     this.value = value;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ObservabilityPipelineOcsfMappingCustomFieldMapping
    */
   @JsonAnySetter
-  public ObservabilityPipelineOcsfMappingCustomFieldMapping putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineOcsfMappingCustomFieldMapping putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -228,7 +227,7 @@ public class ObservabilityPipelineOcsfMappingCustomFieldMapping {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
@@ -244,14 +243,24 @@ public class ObservabilityPipelineOcsfMappingCustomFieldMapping {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineOcsfMappingCustomFieldMapping observabilityPipelineOcsfMappingCustomFieldMapping = (ObservabilityPipelineOcsfMappingCustomFieldMapping) o;
-    return Objects.equals(this._default, observabilityPipelineOcsfMappingCustomFieldMapping._default) && Objects.equals(this.dest, observabilityPipelineOcsfMappingCustomFieldMapping.dest) && Objects.equals(this.lookup, observabilityPipelineOcsfMappingCustomFieldMapping.lookup) && Objects.equals(this.source, observabilityPipelineOcsfMappingCustomFieldMapping.source) && Objects.equals(this.sources, observabilityPipelineOcsfMappingCustomFieldMapping.sources) && Objects.equals(this.value, observabilityPipelineOcsfMappingCustomFieldMapping.value) && Objects.equals(this.additionalProperties, observabilityPipelineOcsfMappingCustomFieldMapping.additionalProperties);
+    ObservabilityPipelineOcsfMappingCustomFieldMapping
+        observabilityPipelineOcsfMappingCustomFieldMapping =
+            (ObservabilityPipelineOcsfMappingCustomFieldMapping) o;
+    return Objects.equals(
+            this._default, observabilityPipelineOcsfMappingCustomFieldMapping._default)
+        && Objects.equals(this.dest, observabilityPipelineOcsfMappingCustomFieldMapping.dest)
+        && Objects.equals(this.lookup, observabilityPipelineOcsfMappingCustomFieldMapping.lookup)
+        && Objects.equals(this.source, observabilityPipelineOcsfMappingCustomFieldMapping.source)
+        && Objects.equals(this.sources, observabilityPipelineOcsfMappingCustomFieldMapping.sources)
+        && Objects.equals(this.value, observabilityPipelineOcsfMappingCustomFieldMapping.value)
+        && Objects.equals(
+            this.additionalProperties,
+            observabilityPipelineOcsfMappingCustomFieldMapping.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(_default,dest,lookup,source,sources,value, additionalProperties);
+    return Objects.hash(_default, dest, lookup, source, sources, value, additionalProperties);
   }
 
   @Override
@@ -272,8 +281,7 @@ public class ObservabilityPipelineOcsfMappingCustomFieldMapping {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-
- */
+/** */
 @JsonPropertyOrder({
   CreateTenancyConfigDataAttributesAuthCredentials.JSON_PROPERTY_FINGERPRINT,
   CreateTenancyConfigDataAttributesAuthCredentials.JSON_PROPERTY_PRIVATE_KEY
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateTenancyConfigDataAttributesAuthCredentials {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FINGERPRINT = "fingerprint";
   private String fingerprint;
 
@@ -52,66 +36,70 @@ public class CreateTenancyConfigDataAttributesAuthCredentials {
 
   @JsonCreator
   public CreateTenancyConfigDataAttributesAuthCredentials(
-            @JsonProperty(required=true, value=JSON_PROPERTY_PRIVATE_KEY)String privateKey) {
-        this.privateKey = privateKey;
+      @JsonProperty(required = true, value = JSON_PROPERTY_PRIVATE_KEY) String privateKey) {
+    this.privateKey = privateKey;
   }
+
   public CreateTenancyConfigDataAttributesAuthCredentials fingerprint(String fingerprint) {
     this.fingerprint = fingerprint;
     return this;
   }
 
   /**
-   * <p>Getfingerprint</p>
+   * Getfingerprint
+   *
    * @return fingerprint
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FINGERPRINT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getFingerprint() {
-        return fingerprint;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FINGERPRINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFingerprint() {
+    return fingerprint;
+  }
+
   public void setFingerprint(String fingerprint) {
     this.fingerprint = fingerprint;
   }
+
   public CreateTenancyConfigDataAttributesAuthCredentials privateKey(String privateKey) {
     this.privateKey = privateKey;
     return this;
   }
 
   /**
-   * <p>GetprivateKey</p>
+   * GetprivateKey
+   *
    * @return privateKey
-  **/
-      @JsonProperty(JSON_PROPERTY_PRIVATE_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getPrivateKey() {
-        return privateKey;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_PRIVATE_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getPrivateKey() {
+    return privateKey;
+  }
+
   public void setPrivateKey(String privateKey) {
     this.privateKey = privateKey;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return CreateTenancyConfigDataAttributesAuthCredentials
    */
   @JsonAnySetter
-  public CreateTenancyConfigDataAttributesAuthCredentials putAdditionalProperty(String key, Object value) {
+  public CreateTenancyConfigDataAttributesAuthCredentials putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -135,14 +123,12 @@ public class CreateTenancyConfigDataAttributesAuthCredentials {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CreateTenancyConfigDataAttributesAuthCredentials object is equal to o.
-   */
+  /** Return true if this CreateTenancyConfigDataAttributesAuthCredentials object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -151,14 +137,21 @@ public class CreateTenancyConfigDataAttributesAuthCredentials {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateTenancyConfigDataAttributesAuthCredentials createTenancyConfigDataAttributesAuthCredentials = (CreateTenancyConfigDataAttributesAuthCredentials) o;
-    return Objects.equals(this.fingerprint, createTenancyConfigDataAttributesAuthCredentials.fingerprint) && Objects.equals(this.privateKey, createTenancyConfigDataAttributesAuthCredentials.privateKey) && Objects.equals(this.additionalProperties, createTenancyConfigDataAttributesAuthCredentials.additionalProperties);
+    CreateTenancyConfigDataAttributesAuthCredentials
+        createTenancyConfigDataAttributesAuthCredentials =
+            (CreateTenancyConfigDataAttributesAuthCredentials) o;
+    return Objects.equals(
+            this.fingerprint, createTenancyConfigDataAttributesAuthCredentials.fingerprint)
+        && Objects.equals(
+            this.privateKey, createTenancyConfigDataAttributesAuthCredentials.privateKey)
+        && Objects.equals(
+            this.additionalProperties,
+            createTenancyConfigDataAttributesAuthCredentials.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(fingerprint,privateKey, additionalProperties);
+    return Objects.hash(fingerprint, privateKey, additionalProperties);
   }
 
   @Override
@@ -175,8 +168,7 @@ public class CreateTenancyConfigDataAttributesAuthCredentials {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,14 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.</p>
+ * Alert graphs are timeseries graphs showing the current status of any monitor defined on your
+ * system.
  */
 @JsonPropertyOrder({
   AlertGraphWidgetDefinition.JSON_PROPERTY_ALERT_ID,
@@ -43,10 +30,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   AlertGraphWidgetDefinition.JSON_PROPERTY_TYPE,
   AlertGraphWidgetDefinition.JSON_PROPERTY_VIZ_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AlertGraphWidgetDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
   private String alertId;
 
@@ -72,33 +59,37 @@ public class AlertGraphWidgetDefinition {
 
   @JsonCreator
   public AlertGraphWidgetDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ALERT_ID)String alertId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)AlertGraphWidgetDefinitionType type,
-            @JsonProperty(required=true, value=JSON_PROPERTY_VIZ_TYPE)WidgetVizType vizType) {
-        this.alertId = alertId;
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        this.vizType = vizType;
-        this.unparsed |= !vizType.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ALERT_ID) String alertId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          AlertGraphWidgetDefinitionType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VIZ_TYPE) WidgetVizType vizType) {
+    this.alertId = alertId;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    this.vizType = vizType;
+    this.unparsed |= !vizType.isValid();
   }
+
   public AlertGraphWidgetDefinition alertId(String alertId) {
     this.alertId = alertId;
     return this;
   }
 
   /**
-   * <p>ID of the alert to use in the widget.</p>
+   * ID of the alert to use in the widget.
+   *
    * @return alertId
-  **/
-      @JsonProperty(JSON_PROPERTY_ALERT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getAlertId() {
-        return alertId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ALERT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getAlertId() {
+    return alertId;
+  }
+
   public void setAlertId(String alertId) {
     this.alertId = alertId;
   }
+
   public AlertGraphWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -106,38 +97,42 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * <p>Time setting for the widget.</p>
+   * Time setting for the widget.
+   *
    * @return time
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTime getTime() {
-        return time;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
   public AlertGraphWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>The title of the widget.</p>
+   * The title of the widget.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
+
   public AlertGraphWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -145,41 +140,45 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * <p>How to align the text on the widget.</p>
+   * How to align the text on the widget.
+   *
    * @return titleAlign
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTextAlign getTitleAlign() {
-        return titleAlign;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
   public AlertGraphWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * <p>Size of the title.</p>
+   * Size of the title.
+   *
    * @return titleSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitleSize() {
-        return titleSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitleSize() {
+    return titleSize;
+  }
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
   public AlertGraphWidgetDefinition type(AlertGraphWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -187,21 +186,23 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * <p>Type of the alert graph widget.</p>
+   * Type of the alert graph widget.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AlertGraphWidgetDefinitionType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AlertGraphWidgetDefinitionType getType() {
+    return type;
+  }
+
   public void setType(AlertGraphWidgetDefinitionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public AlertGraphWidgetDefinition vizType(WidgetVizType vizType) {
     this.vizType = vizType;
     this.unparsed |= !vizType.isValid();
@@ -209,32 +210,32 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * <p>Whether to display the Alert Graph as a timeseries or a top list.</p>
+   * Whether to display the Alert Graph as a timeseries or a top list.
+   *
    * @return vizType
-  **/
-      @JsonProperty(JSON_PROPERTY_VIZ_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public WidgetVizType getVizType() {
-        return vizType;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_VIZ_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public WidgetVizType getVizType() {
+    return vizType;
+  }
+
   public void setVizType(WidgetVizType vizType) {
     if (!vizType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.vizType = vizType;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -243,7 +244,7 @@ public class AlertGraphWidgetDefinition {
   @JsonAnySetter
   public AlertGraphWidgetDefinition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -267,14 +268,12 @@ public class AlertGraphWidgetDefinition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this AlertGraphWidgetDefinition object is equal to o.
-   */
+  /** Return true if this AlertGraphWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -284,13 +283,21 @@ public class AlertGraphWidgetDefinition {
       return false;
     }
     AlertGraphWidgetDefinition alertGraphWidgetDefinition = (AlertGraphWidgetDefinition) o;
-    return Objects.equals(this.alertId, alertGraphWidgetDefinition.alertId) && Objects.equals(this.time, alertGraphWidgetDefinition.time) && Objects.equals(this.title, alertGraphWidgetDefinition.title) && Objects.equals(this.titleAlign, alertGraphWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, alertGraphWidgetDefinition.titleSize) && Objects.equals(this.type, alertGraphWidgetDefinition.type) && Objects.equals(this.vizType, alertGraphWidgetDefinition.vizType) && Objects.equals(this.additionalProperties, alertGraphWidgetDefinition.additionalProperties);
+    return Objects.equals(this.alertId, alertGraphWidgetDefinition.alertId)
+        && Objects.equals(this.time, alertGraphWidgetDefinition.time)
+        && Objects.equals(this.title, alertGraphWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, alertGraphWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, alertGraphWidgetDefinition.titleSize)
+        && Objects.equals(this.type, alertGraphWidgetDefinition.type)
+        && Objects.equals(this.vizType, alertGraphWidgetDefinition.vizType)
+        && Objects.equals(
+            this.additionalProperties, alertGraphWidgetDefinition.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertId,time,title,titleAlign,titleSize,type,vizType, additionalProperties);
+    return Objects.hash(
+        alertId, time, title, titleAlign, titleSize, type, vizType, additionalProperties);
   }
 
   @Override
@@ -312,8 +319,7 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

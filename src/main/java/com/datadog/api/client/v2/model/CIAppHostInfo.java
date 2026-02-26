@@ -6,44 +6,29 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Contains information of the host running the pipeline, stage, job, or step.</p>
- */
+/** Contains information of the host running the pipeline, stage, job, or step. */
 @JsonPropertyOrder({
   CIAppHostInfo.JSON_PROPERTY_HOSTNAME,
   CIAppHostInfo.JSON_PROPERTY_LABELS,
   CIAppHostInfo.JSON_PROPERTY_NAME,
   CIAppHostInfo.JSON_PROPERTY_WORKSPACE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CIAppHostInfo {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOSTNAME = "hostname";
   private String hostname;
 
@@ -62,23 +47,26 @@ public class CIAppHostInfo {
   }
 
   /**
-   * <p>FQDN of the host.</p>
+   * FQDN of the host.
+   *
    * @return hostname
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOSTNAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHostname() {
-        return hostname;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOSTNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHostname() {
+    return hostname;
+  }
+
   public void setHostname(String hostname) {
     this.hostname = hostname;
   }
+
   public CIAppHostInfo labels(List<String> labels) {
     this.labels = labels;
     return this;
   }
+
   public CIAppHostInfo addLabelsItem(String labelsItem) {
     if (this.labels == null) {
       this.labels = new ArrayList<>();
@@ -88,68 +76,72 @@ public class CIAppHostInfo {
   }
 
   /**
-   * <p>A list of labels used to select or identify the node.</p>
+   * A list of labels used to select or identify the node.
+   *
    * @return labels
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LABELS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getLabels() {
-        return labels;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getLabels() {
+    return labels;
+  }
+
   public void setLabels(List<String> labels) {
     this.labels = labels;
   }
+
   public CIAppHostInfo name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name for the host.</p>
+   * Name for the host.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public CIAppHostInfo workspace(String workspace) {
     this.workspace = workspace;
     return this;
   }
 
   /**
-   * <p>The path where the code is checked out.</p>
+   * The path where the code is checked out.
+   *
    * @return workspace
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_WORKSPACE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getWorkspace() {
-        return workspace;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WORKSPACE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getWorkspace() {
+    return workspace;
+  }
+
   public void setWorkspace(String workspace) {
     this.workspace = workspace;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -158,7 +150,7 @@ public class CIAppHostInfo {
   @JsonAnySetter
   public CIAppHostInfo putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -182,14 +174,12 @@ public class CIAppHostInfo {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CIAppHostInfo object is equal to o.
-   */
+  /** Return true if this CIAppHostInfo object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -199,13 +189,16 @@ public class CIAppHostInfo {
       return false;
     }
     CIAppHostInfo ciAppHostInfo = (CIAppHostInfo) o;
-    return Objects.equals(this.hostname, ciAppHostInfo.hostname) && Objects.equals(this.labels, ciAppHostInfo.labels) && Objects.equals(this.name, ciAppHostInfo.name) && Objects.equals(this.workspace, ciAppHostInfo.workspace) && Objects.equals(this.additionalProperties, ciAppHostInfo.additionalProperties);
+    return Objects.equals(this.hostname, ciAppHostInfo.hostname)
+        && Objects.equals(this.labels, ciAppHostInfo.labels)
+        && Objects.equals(this.name, ciAppHostInfo.name)
+        && Objects.equals(this.workspace, ciAppHostInfo.workspace)
+        && Objects.equals(this.additionalProperties, ciAppHostInfo.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostname,labels,name,workspace, additionalProperties);
+    return Objects.hash(hostname, labels, name, workspace, additionalProperties);
   }
 
   @Override
@@ -224,8 +217,7 @@ public class CIAppHostInfo {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

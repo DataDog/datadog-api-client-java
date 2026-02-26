@@ -1,19 +1,13 @@
 // Update App returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.AppBuilderApi;
-import com.datadog.api.client.v2.model.UpdateAppResponse;
 import com.datadog.api.client.v2.model.AppDefinitionType;
 import com.datadog.api.client.v2.model.UpdateAppRequest;
 import com.datadog.api.client.v2.model.UpdateAppRequestData;
 import com.datadog.api.client.v2.model.UpdateAppRequestDataAttributes;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import com.datadog.api.client.v2.model.UpdateAppResponse;
 import java.util.UUID;
 
 public class Example {
@@ -26,16 +20,19 @@ public class Example {
     try {
       APP_DATA_ID = UUID.fromString(System.getenv("APP_DATA_ID"));
     } catch (IllegalArgumentException e) {
-        System.err.println("Error parsing UUID: " + e.getMessage());
+      System.err.println("Error parsing UUID: " + e.getMessage());
     }
 
-    UpdateAppRequest body = new UpdateAppRequest()
-.data(new UpdateAppRequestData()
-.attributes(new UpdateAppRequestDataAttributes()
-.name("Updated Name")
-.rootInstanceName("grid0"))
-.id(APP_DATA_ID)
-.type(AppDefinitionType.APPDEFINITIONS));
+    UpdateAppRequest body =
+        new UpdateAppRequest()
+            .data(
+                new UpdateAppRequestData()
+                    .attributes(
+                        new UpdateAppRequestDataAttributes()
+                            .name("Updated Name")
+                            .rootInstanceName("grid0"))
+                    .id(APP_DATA_ID)
+                    .type(AppDefinitionType.APPDEFINITIONS));
 
     try {
       UpdateAppResponse result = apiInstance.updateApp(APP_DATA_ID, body);

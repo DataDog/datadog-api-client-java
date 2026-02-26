@@ -6,42 +6,24 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A rule version with a list of updates.</p>
- */
-@JsonPropertyOrder({
-  RuleVersions.JSON_PROPERTY_CHANGES,
-  RuleVersions.JSON_PROPERTY_RULE
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** A rule version with a list of updates. */
+@JsonPropertyOrder({RuleVersions.JSON_PROPERTY_CHANGES, RuleVersions.JSON_PROPERTY_RULE})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RuleVersions {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHANGES = "changes";
   private List<VersionHistoryUpdate> changes = null;
 
@@ -55,6 +37,7 @@ public class RuleVersions {
     }
     return this;
   }
+
   public RuleVersions addChangesItem(VersionHistoryUpdate changesItem) {
     if (this.changes == null) {
       this.changes = new ArrayList<>();
@@ -65,19 +48,21 @@ public class RuleVersions {
   }
 
   /**
-   * <p>A list of changes.</p>
+   * A list of changes.
+   *
    * @return changes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CHANGES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<VersionHistoryUpdate> getChanges() {
-        return changes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHANGES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<VersionHistoryUpdate> getChanges() {
+    return changes;
+  }
+
   public void setChanges(List<VersionHistoryUpdate> changes) {
     this.changes = changes;
   }
+
   public RuleVersions rule(SecurityMonitoringRuleResponse rule) {
     this.rule = rule;
     this.unparsed |= rule.unparsed;
@@ -85,30 +70,30 @@ public class RuleVersions {
   }
 
   /**
-   * <p>Create a new rule.</p>
+   * Create a new rule.
+   *
    * @return rule
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RULE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecurityMonitoringRuleResponse getRule() {
-        return rule;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleResponse getRule() {
+    return rule;
+  }
+
   public void setRule(SecurityMonitoringRuleResponse rule) {
     this.rule = rule;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -117,7 +102,7 @@ public class RuleVersions {
   @JsonAnySetter
   public RuleVersions putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -141,14 +126,12 @@ public class RuleVersions {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this RuleVersions object is equal to o.
-   */
+  /** Return true if this RuleVersions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,13 +141,14 @@ public class RuleVersions {
       return false;
     }
     RuleVersions ruleVersions = (RuleVersions) o;
-    return Objects.equals(this.changes, ruleVersions.changes) && Objects.equals(this.rule, ruleVersions.rule) && Objects.equals(this.additionalProperties, ruleVersions.additionalProperties);
+    return Objects.equals(this.changes, ruleVersions.changes)
+        && Objects.equals(this.rule, ruleVersions.rule)
+        && Objects.equals(this.additionalProperties, ruleVersions.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(changes,rule, additionalProperties);
+    return Objects.hash(changes, rule, additionalProperties);
   }
 
   @Override
@@ -181,8 +165,7 @@ public class RuleVersions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

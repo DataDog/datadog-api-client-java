@@ -9,7 +9,8 @@ package com.datadog.api.client;
 import java.util.Collection;
 import java.util.Iterator;
 
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

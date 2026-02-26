@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>The <code>rsyslog</code> source listens for logs over TCP or UDP from an <code>rsyslog</code> server using the syslog protocol.</p>
-   * <p><strong>Supported pipeline types:</strong> logs</p>
+ * The <code>rsyslog</code> source listens for logs over TCP or UDP from an <code>rsyslog</code>
+ * server using the syslog protocol.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineRsyslogSource.JSON_PROPERTY_ADDRESS_KEY,
@@ -42,10 +30,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ObservabilityPipelineRsyslogSource.JSON_PROPERTY_TLS,
   ObservabilityPipelineRsyslogSource.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineRsyslogSource {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
   private String addressKey;
 
@@ -59,58 +47,68 @@ public class ObservabilityPipelineRsyslogSource {
   private ObservabilityPipelineTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineRsyslogSourceType type = ObservabilityPipelineRsyslogSourceType.RSYSLOG;
+  private ObservabilityPipelineRsyslogSourceType type =
+      ObservabilityPipelineRsyslogSourceType.RSYSLOG;
 
   public ObservabilityPipelineRsyslogSource() {}
 
   @JsonCreator
   public ObservabilityPipelineRsyslogSource(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MODE)ObservabilityPipelineSyslogSourceMode mode,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ObservabilityPipelineRsyslogSourceType type) {
-        this.id = id;
-        this.mode = mode;
-        this.unparsed |= !mode.isValid();
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MODE)
+          ObservabilityPipelineSyslogSourceMode mode,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ObservabilityPipelineRsyslogSourceType type) {
+    this.id = id;
+    this.mode = mode;
+    this.unparsed |= !mode.isValid();
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public ObservabilityPipelineRsyslogSource addressKey(String addressKey) {
     this.addressKey = addressKey;
     return this;
   }
 
   /**
-   * <p>Name of the environment variable or secret that holds the listen address for the syslog receiver.</p>
+   * Name of the environment variable or secret that holds the listen address for the syslog
+   * receiver.
+   *
    * @return addressKey
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAddressKey() {
-        return addressKey;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAddressKey() {
+    return addressKey;
+  }
+
   public void setAddressKey(String addressKey) {
     this.addressKey = addressKey;
   }
+
   public ObservabilityPipelineRsyslogSource id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the <code>input</code> to downstream components).</p>
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public ObservabilityPipelineRsyslogSource mode(ObservabilityPipelineSyslogSourceMode mode) {
     this.mode = mode;
     this.unparsed |= !mode.isValid();
@@ -118,21 +116,23 @@ public class ObservabilityPipelineRsyslogSource {
   }
 
   /**
-   * <p>Protocol used by the syslog source to receive messages.</p>
+   * Protocol used by the syslog source to receive messages.
+   *
    * @return mode
-  **/
-      @JsonProperty(JSON_PROPERTY_MODE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ObservabilityPipelineSyslogSourceMode getMode() {
-        return mode;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineSyslogSourceMode getMode() {
+    return mode;
+  }
+
   public void setMode(ObservabilityPipelineSyslogSourceMode mode) {
     if (!mode.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.mode = mode;
   }
+
   public ObservabilityPipelineRsyslogSource tls(ObservabilityPipelineTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
@@ -140,19 +140,21 @@ public class ObservabilityPipelineRsyslogSource {
   }
 
   /**
-   * <p>Configuration for enabling TLS encryption between the pipeline component and external services.</p>
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   *
    * @return tls
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TLS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ObservabilityPipelineTls getTls() {
-        return tls;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineTls getTls() {
+    return tls;
+  }
+
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
   }
+
   public ObservabilityPipelineRsyslogSource type(ObservabilityPipelineRsyslogSourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -160,32 +162,32 @@ public class ObservabilityPipelineRsyslogSource {
   }
 
   /**
-   * <p>The source type. The value should always be <code>rsyslog</code>.</p>
+   * The source type. The value should always be <code>rsyslog</code>.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ObservabilityPipelineRsyslogSourceType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineRsyslogSourceType getType() {
+    return type;
+  }
+
   public void setType(ObservabilityPipelineRsyslogSourceType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -194,7 +196,7 @@ public class ObservabilityPipelineRsyslogSource {
   @JsonAnySetter
   public ObservabilityPipelineRsyslogSource putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -218,14 +220,12 @@ public class ObservabilityPipelineRsyslogSource {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ObservabilityPipelineRsyslogSource object is equal to o.
-   */
+  /** Return true if this ObservabilityPipelineRsyslogSource object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -234,14 +234,20 @@ public class ObservabilityPipelineRsyslogSource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineRsyslogSource observabilityPipelineRsyslogSource = (ObservabilityPipelineRsyslogSource) o;
-    return Objects.equals(this.addressKey, observabilityPipelineRsyslogSource.addressKey) && Objects.equals(this.id, observabilityPipelineRsyslogSource.id) && Objects.equals(this.mode, observabilityPipelineRsyslogSource.mode) && Objects.equals(this.tls, observabilityPipelineRsyslogSource.tls) && Objects.equals(this.type, observabilityPipelineRsyslogSource.type) && Objects.equals(this.additionalProperties, observabilityPipelineRsyslogSource.additionalProperties);
+    ObservabilityPipelineRsyslogSource observabilityPipelineRsyslogSource =
+        (ObservabilityPipelineRsyslogSource) o;
+    return Objects.equals(this.addressKey, observabilityPipelineRsyslogSource.addressKey)
+        && Objects.equals(this.id, observabilityPipelineRsyslogSource.id)
+        && Objects.equals(this.mode, observabilityPipelineRsyslogSource.mode)
+        && Objects.equals(this.tls, observabilityPipelineRsyslogSource.tls)
+        && Objects.equals(this.type, observabilityPipelineRsyslogSource.type)
+        && Objects.equals(
+            this.additionalProperties, observabilityPipelineRsyslogSource.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressKey,id,mode,tls,type, additionalProperties);
+    return Objects.hash(addressKey, id, mode, tls, type, additionalProperties);
   }
 
   @Override
@@ -261,8 +267,7 @@ public class ObservabilityPipelineRsyslogSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

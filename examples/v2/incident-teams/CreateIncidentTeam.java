@@ -1,20 +1,13 @@
 // Create a new incident team returns "CREATED" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.IncidentTeamsApi;
-import com.datadog.api.client.v2.model.IncidentTeamResponse;
 import com.datadog.api.client.v2.model.IncidentTeamCreateAttributes;
 import com.datadog.api.client.v2.model.IncidentTeamCreateData;
 import com.datadog.api.client.v2.model.IncidentTeamCreateRequest;
+import com.datadog.api.client.v2.model.IncidentTeamResponse;
 import com.datadog.api.client.v2.model.IncidentTeamType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -22,11 +15,12 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createIncidentTeam", true);
     IncidentTeamsApi apiInstance = new IncidentTeamsApi(defaultClient);
 
-    IncidentTeamCreateRequest body = new IncidentTeamCreateRequest()
-.data(new IncidentTeamCreateData()
-.type(IncidentTeamType.TEAMS)
-.attributes(new IncidentTeamCreateAttributes()
-.name("Example-Incident-Team")));
+    IncidentTeamCreateRequest body =
+        new IncidentTeamCreateRequest()
+            .data(
+                new IncidentTeamCreateData()
+                    .type(IncidentTeamType.TEAMS)
+                    .attributes(new IncidentTeamCreateAttributes().name("Example-Incident-Team")));
 
     try {
       IncidentTeamResponse result = apiInstance.createIncidentTeam(body);

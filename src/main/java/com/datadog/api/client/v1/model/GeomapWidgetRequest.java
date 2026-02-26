@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>An updated geomap widget.</p>
- */
+/** An updated geomap widget. */
 @JsonPropertyOrder({
   GeomapWidgetRequest.JSON_PROPERTY_COLUMNS,
   GeomapWidgetRequest.JSON_PROPERTY_CONDITIONAL_FORMATS,
@@ -49,10 +34,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   GeomapWidgetRequest.JSON_PROPERTY_STYLE,
   GeomapWidgetRequest.JSON_PROPERTY_TEXT_FORMATS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GeomapWidgetRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<ListStreamColumn> columns = null;
 
@@ -99,6 +84,7 @@ public class GeomapWidgetRequest {
     }
     return this;
   }
+
   public GeomapWidgetRequest addColumnsItem(ListStreamColumn columnsItem) {
     if (this.columns == null) {
       this.columns = new ArrayList<>();
@@ -109,19 +95,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>Widget columns.</p>
+   * Widget columns.
+   *
    * @return columns
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COLUMNS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ListStreamColumn> getColumns() {
-        return columns;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COLUMNS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ListStreamColumn> getColumns() {
+    return columns;
+  }
+
   public void setColumns(List<ListStreamColumn> columns) {
     this.columns = columns;
   }
+
   public GeomapWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
     for (WidgetConditionalFormat item : conditionalFormats) {
@@ -129,7 +117,9 @@ public class GeomapWidgetRequest {
     }
     return this;
   }
-  public GeomapWidgetRequest addConditionalFormatsItem(WidgetConditionalFormat conditionalFormatsItem) {
+
+  public GeomapWidgetRequest addConditionalFormatsItem(
+      WidgetConditionalFormat conditionalFormatsItem) {
     if (this.conditionalFormats == null) {
       this.conditionalFormats = new ArrayList<>();
     }
@@ -139,19 +129,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>Threshold (numeric) conditional formatting rules may be used by a regions layer.</p>
+   * Threshold (numeric) conditional formatting rules may be used by a regions layer.
+   *
    * @return conditionalFormats
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<WidgetConditionalFormat> getConditionalFormats() {
-        return conditionalFormats;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetConditionalFormat> getConditionalFormats() {
+    return conditionalFormats;
+  }
+
   public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
   }
+
   public GeomapWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
     for (WidgetFormula item : formulas) {
@@ -159,6 +151,7 @@ public class GeomapWidgetRequest {
     }
     return this;
   }
+
   public GeomapWidgetRequest addFormulasItem(WidgetFormula formulasItem) {
     if (this.formulas == null) {
       this.formulas = new ArrayList<>();
@@ -169,19 +162,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>List of formulas that operate on queries.</p>
+   * List of formulas that operate on queries.
+   *
    * @return formulas
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FORMULAS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<WidgetFormula> getFormulas() {
-        return formulas;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORMULAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetFormula> getFormulas() {
+    return formulas;
+  }
+
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
   }
+
   public GeomapWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
     this.unparsed |= logQuery.unparsed;
@@ -189,38 +184,42 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return logQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOG_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getLogQuery() {
-        return logQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOG_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getLogQuery() {
+    return logQuery;
+  }
+
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
   }
+
   public GeomapWidgetRequest q(String q) {
     this.q = q;
     return this;
   }
 
   /**
-   * <p>The widget metrics query.</p>
+   * The widget metrics query.
+   *
    * @return q
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_Q)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getQ() {
-        return q;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_Q)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQ() {
+    return q;
+  }
+
   public void setQ(String q) {
     this.q = q;
   }
+
   public GeomapWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
     for (FormulaAndFunctionQueryDefinition item : queries) {
@@ -228,6 +227,7 @@ public class GeomapWidgetRequest {
     }
     return this;
   }
+
   public GeomapWidgetRequest addQueriesItem(FormulaAndFunctionQueryDefinition queriesItem) {
     if (this.queries == null) {
       this.queries = new ArrayList<>();
@@ -238,19 +238,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>List of queries that can be returned directly or used in formulas.</p>
+   * List of queries that can be returned directly or used in formulas.
+   *
    * @return queries
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUERIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<FormulaAndFunctionQueryDefinition> getQueries() {
-        return queries;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FormulaAndFunctionQueryDefinition> getQueries() {
+    return queries;
+  }
+
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
   }
+
   public GeomapWidgetRequest query(ListStreamQuery query) {
     this.query = query;
     this.unparsed |= query.unparsed;
@@ -258,19 +260,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>Updated list stream widget.</p>
+   * Updated list stream widget.
+   *
    * @return query
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ListStreamQuery getQuery() {
-        return query;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ListStreamQuery getQuery() {
+    return query;
+  }
+
   public void setQuery(ListStreamQuery query) {
     this.query = query;
   }
+
   public GeomapWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
     this.unparsed |= !responseFormat.isValid();
@@ -278,22 +282,25 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.</p>
+   * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap
+   * widgets.
+   *
    * @return responseFormat
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FormulaAndFunctionResponseFormat getResponseFormat() {
-        return responseFormat;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionResponseFormat getResponseFormat() {
+    return responseFormat;
+  }
+
   public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     if (!responseFormat.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.responseFormat = responseFormat;
   }
+
   public GeomapWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     this.unparsed |= rumQuery.unparsed;
@@ -301,19 +308,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return rumQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RUM_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getRumQuery() {
-        return rumQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getRumQuery() {
+    return rumQuery;
+  }
+
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
   }
+
   public GeomapWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
     this.unparsed |= securityQuery.unparsed;
@@ -321,19 +330,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return securityQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getSecurityQuery() {
-        return securityQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
   }
+
   public GeomapWidgetRequest sort(WidgetSortBy sort) {
     this.sort = sort;
     this.unparsed |= sort.unparsed;
@@ -341,19 +352,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>The controls for sorting the widget.</p>
+   * The controls for sorting the widget.
+   *
    * @return sort
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetSortBy getSort() {
-        return sort;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetSortBy getSort() {
+    return sort;
+  }
+
   public void setSort(WidgetSortBy sort) {
     this.sort = sort;
   }
+
   public GeomapWidgetRequest style(GeomapWidgetRequestStyle style) {
     this.style = style;
     this.unparsed |= style.unparsed;
@@ -361,19 +374,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>The style to apply to the request for points layer.</p>
+   * The style to apply to the request for points layer.
+   *
    * @return style
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STYLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public GeomapWidgetRequestStyle getStyle() {
-        return style;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STYLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GeomapWidgetRequestStyle getStyle() {
+    return style;
+  }
+
   public void setStyle(GeomapWidgetRequestStyle style) {
     this.style = style;
   }
+
   public GeomapWidgetRequest textFormats(List<TableWidgetTextFormatRule> textFormats) {
     this.textFormats = textFormats;
     for (TableWidgetTextFormatRule item : textFormats) {
@@ -381,6 +396,7 @@ public class GeomapWidgetRequest {
     }
     return this;
   }
+
   public GeomapWidgetRequest addTextFormatsItem(TableWidgetTextFormatRule textFormatsItem) {
     if (this.textFormats == null) {
       this.textFormats = new ArrayList<>();
@@ -391,30 +407,30 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>Text formatting rules may be used by a points layer.</p>
+   * Text formatting rules may be used by a points layer.
+   *
    * @return textFormats
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEXT_FORMATS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<TableWidgetTextFormatRule> getTextFormats() {
-        return textFormats;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEXT_FORMATS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TableWidgetTextFormatRule> getTextFormats() {
+    return textFormats;
+  }
+
   public void setTextFormats(List<TableWidgetTextFormatRule> textFormats) {
     this.textFormats = textFormats;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -423,7 +439,7 @@ public class GeomapWidgetRequest {
   @JsonAnySetter
   public GeomapWidgetRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -447,14 +463,12 @@ public class GeomapWidgetRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this GeomapWidgetRequest object is equal to o.
-   */
+  /** Return true if this GeomapWidgetRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -464,13 +478,39 @@ public class GeomapWidgetRequest {
       return false;
     }
     GeomapWidgetRequest geomapWidgetRequest = (GeomapWidgetRequest) o;
-    return Objects.equals(this.columns, geomapWidgetRequest.columns) && Objects.equals(this.conditionalFormats, geomapWidgetRequest.conditionalFormats) && Objects.equals(this.formulas, geomapWidgetRequest.formulas) && Objects.equals(this.logQuery, geomapWidgetRequest.logQuery) && Objects.equals(this.q, geomapWidgetRequest.q) && Objects.equals(this.queries, geomapWidgetRequest.queries) && Objects.equals(this.query, geomapWidgetRequest.query) && Objects.equals(this.responseFormat, geomapWidgetRequest.responseFormat) && Objects.equals(this.rumQuery, geomapWidgetRequest.rumQuery) && Objects.equals(this.securityQuery, geomapWidgetRequest.securityQuery) && Objects.equals(this.sort, geomapWidgetRequest.sort) && Objects.equals(this.style, geomapWidgetRequest.style) && Objects.equals(this.textFormats, geomapWidgetRequest.textFormats) && Objects.equals(this.additionalProperties, geomapWidgetRequest.additionalProperties);
+    return Objects.equals(this.columns, geomapWidgetRequest.columns)
+        && Objects.equals(this.conditionalFormats, geomapWidgetRequest.conditionalFormats)
+        && Objects.equals(this.formulas, geomapWidgetRequest.formulas)
+        && Objects.equals(this.logQuery, geomapWidgetRequest.logQuery)
+        && Objects.equals(this.q, geomapWidgetRequest.q)
+        && Objects.equals(this.queries, geomapWidgetRequest.queries)
+        && Objects.equals(this.query, geomapWidgetRequest.query)
+        && Objects.equals(this.responseFormat, geomapWidgetRequest.responseFormat)
+        && Objects.equals(this.rumQuery, geomapWidgetRequest.rumQuery)
+        && Objects.equals(this.securityQuery, geomapWidgetRequest.securityQuery)
+        && Objects.equals(this.sort, geomapWidgetRequest.sort)
+        && Objects.equals(this.style, geomapWidgetRequest.style)
+        && Objects.equals(this.textFormats, geomapWidgetRequest.textFormats)
+        && Objects.equals(this.additionalProperties, geomapWidgetRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns,conditionalFormats,formulas,logQuery,q,queries,query,responseFormat,rumQuery,securityQuery,sort,style,textFormats, additionalProperties);
+    return Objects.hash(
+        columns,
+        conditionalFormats,
+        formulas,
+        logQuery,
+        q,
+        queries,
+        query,
+        responseFormat,
+        rumQuery,
+        securityQuery,
+        sort,
+        style,
+        textFormats,
+        additionalProperties);
   }
 
   @Override
@@ -498,8 +538,7 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

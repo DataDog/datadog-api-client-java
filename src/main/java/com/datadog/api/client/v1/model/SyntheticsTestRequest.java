@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object describing the Synthetic test request.</p>
- */
+/** Object describing the Synthetic test request. */
 @JsonPropertyOrder({
   SyntheticsTestRequest.JSON_PROPERTY_ALLOW_INSECURE,
   SyntheticsTestRequest.JSON_PROPERTY_BASIC_AUTH,
@@ -70,10 +55,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsTestRequest.JSON_PROPERTY_TIMEOUT,
   SyntheticsTestRequest.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_INSECURE = "allow_insecure";
   private Boolean allowInsecure;
 
@@ -95,7 +80,8 @@ public class SyntheticsTestRequest {
   public static final String JSON_PROPERTY_CERTIFICATE_DOMAINS = "certificateDomains";
   private List<String> certificateDomains = null;
 
-  public static final String JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION = "checkCertificateRevocation";
+  public static final String JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION =
+      "checkCertificateRevocation";
   private Boolean checkCertificateRevocation;
 
   public static final String JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR = "compressedJsonDescriptor";
@@ -104,7 +90,8 @@ public class SyntheticsTestRequest {
   public static final String JSON_PROPERTY_COMPRESSED_PROTO_FILE = "compressedProtoFile";
   private String compressedProtoFile;
 
-  public static final String JSON_PROPERTY_DISABLE_AIA_INTERMEDIATE_FETCHING = "disableAiaIntermediateFetching";
+  public static final String JSON_PROPERTY_DISABLE_AIA_INTERMEDIATE_FETCHING =
+      "disableAiaIntermediateFetching";
   private Boolean disableAiaIntermediateFetching;
 
   public static final String JSON_PROPERTY_DNS_SERVER = "dnsServer";
@@ -182,19 +169,21 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>Allows loading insecure content for an HTTP request in a multistep test step.</p>
+   * Allows loading insecure content for an HTTP request in a multistep test step.
+   *
    * @return allowInsecure
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ALLOW_INSECURE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getAllowInsecure() {
-        return allowInsecure;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_INSECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAllowInsecure() {
+    return allowInsecure;
+  }
+
   public void setAllowInsecure(Boolean allowInsecure) {
     this.allowInsecure = allowInsecure;
   }
+
   public SyntheticsTestRequest basicAuth(SyntheticsBasicAuth basicAuth) {
     this.basicAuth = basicAuth;
     this.unparsed |= basicAuth.unparsed;
@@ -202,38 +191,42 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>Object to handle basic authentication when performing the test.</p>
+   * Object to handle basic authentication when performing the test.
+   *
    * @return basicAuth
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BASIC_AUTH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsBasicAuth getBasicAuth() {
-        return basicAuth;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BASIC_AUTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsBasicAuth getBasicAuth() {
+    return basicAuth;
+  }
+
   public void setBasicAuth(SyntheticsBasicAuth basicAuth) {
     this.basicAuth = basicAuth;
   }
+
   public SyntheticsTestRequest body(String body) {
     this.body = body;
     return this;
   }
 
   /**
-   * <p>Body to include in the test.</p>
+   * Body to include in the test.
+   *
    * @return body
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BODY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getBody() {
-        return body;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BODY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBody() {
+    return body;
+  }
+
   public void setBody(String body) {
     this.body = body;
   }
+
   public SyntheticsTestRequest bodyType(SyntheticsTestRequestBodyType bodyType) {
     this.bodyType = bodyType;
     this.unparsed |= !bodyType.isValid();
@@ -241,22 +234,24 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>Type of the request body.</p>
+   * Type of the request body.
+   *
    * @return bodyType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BODY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestRequestBodyType getBodyType() {
-        return bodyType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BODY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestRequestBodyType getBodyType() {
+    return bodyType;
+  }
+
   public void setBodyType(SyntheticsTestRequestBodyType bodyType) {
     if (!bodyType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.bodyType = bodyType;
   }
+
   public SyntheticsTestRequest callType(SyntheticsTestCallType callType) {
     this.callType = callType;
     this.unparsed |= !callType.isValid();
@@ -264,22 +259,24 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>The type of gRPC call to perform.</p>
+   * The type of gRPC call to perform.
+   *
    * @return callType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CALL_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestCallType getCallType() {
-        return callType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CALL_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestCallType getCallType() {
+    return callType;
+  }
+
   public void setCallType(SyntheticsTestCallType callType) {
     if (!callType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.callType = callType;
   }
+
   public SyntheticsTestRequest certificate(SyntheticsTestRequestCertificate certificate) {
     this.certificate = certificate;
     this.unparsed |= certificate.unparsed;
@@ -287,23 +284,26 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>Client certificate to use when performing the test request.</p>
+   * Client certificate to use when performing the test request.
+   *
    * @return certificate
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CERTIFICATE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestRequestCertificate getCertificate() {
-        return certificate;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestRequestCertificate getCertificate() {
+    return certificate;
+  }
+
   public void setCertificate(SyntheticsTestRequestCertificate certificate) {
     this.certificate = certificate;
   }
+
   public SyntheticsTestRequest certificateDomains(List<String> certificateDomains) {
     this.certificateDomains = certificateDomains;
     return this;
   }
+
   public SyntheticsTestRequest addCertificateDomainsItem(String certificateDomainsItem) {
     if (this.certificateDomains == null) {
       this.certificateDomains = new ArrayList<>();
@@ -313,114 +313,129 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in <code>certificateDomains</code>.</p>
+   * By default, the client certificate is applied on the domain of the starting URL for browser
+   * tests. If you want your client certificate to be applied on other domains instead, add them in
+   * <code>certificateDomains</code>.
+   *
    * @return certificateDomains
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CERTIFICATE_DOMAINS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getCertificateDomains() {
-        return certificateDomains;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE_DOMAINS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCertificateDomains() {
+    return certificateDomains;
+  }
+
   public void setCertificateDomains(List<String> certificateDomains) {
     this.certificateDomains = certificateDomains;
   }
+
   public SyntheticsTestRequest checkCertificateRevocation(Boolean checkCertificateRevocation) {
     this.checkCertificateRevocation = checkCertificateRevocation;
     return this;
   }
 
   /**
-   * <p>Check for certificate revocation.</p>
+   * Check for certificate revocation.
+   *
    * @return checkCertificateRevocation
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getCheckCertificateRevocation() {
-        return checkCertificateRevocation;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCheckCertificateRevocation() {
+    return checkCertificateRevocation;
+  }
+
   public void setCheckCertificateRevocation(Boolean checkCertificateRevocation) {
     this.checkCertificateRevocation = checkCertificateRevocation;
   }
+
   public SyntheticsTestRequest compressedJsonDescriptor(String compressedJsonDescriptor) {
     this.compressedJsonDescriptor = compressedJsonDescriptor;
     return this;
   }
 
   /**
-   * <p>A protobuf JSON descriptor that needs to be gzipped first then base64 encoded.</p>
+   * A protobuf JSON descriptor that needs to be gzipped first then base64 encoded.
+   *
    * @return compressedJsonDescriptor
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getCompressedJsonDescriptor() {
-        return compressedJsonDescriptor;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCompressedJsonDescriptor() {
+    return compressedJsonDescriptor;
+  }
+
   public void setCompressedJsonDescriptor(String compressedJsonDescriptor) {
     this.compressedJsonDescriptor = compressedJsonDescriptor;
   }
+
   public SyntheticsTestRequest compressedProtoFile(String compressedProtoFile) {
     this.compressedProtoFile = compressedProtoFile;
     return this;
   }
 
   /**
-   * <p>A protobuf file that needs to be gzipped first then base64 encoded.</p>
+   * A protobuf file that needs to be gzipped first then base64 encoded.
+   *
    * @return compressedProtoFile
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPRESSED_PROTO_FILE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getCompressedProtoFile() {
-        return compressedProtoFile;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPRESSED_PROTO_FILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCompressedProtoFile() {
+    return compressedProtoFile;
+  }
+
   public void setCompressedProtoFile(String compressedProtoFile) {
     this.compressedProtoFile = compressedProtoFile;
   }
-  public SyntheticsTestRequest disableAiaIntermediateFetching(Boolean disableAiaIntermediateFetching) {
+
+  public SyntheticsTestRequest disableAiaIntermediateFetching(
+      Boolean disableAiaIntermediateFetching) {
     this.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
     return this;
   }
 
   /**
-   * <p>Disable fetching intermediate certificates from AIA.</p>
+   * Disable fetching intermediate certificates from AIA.
+   *
    * @return disableAiaIntermediateFetching
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DISABLE_AIA_INTERMEDIATE_FETCHING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getDisableAiaIntermediateFetching() {
-        return disableAiaIntermediateFetching;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISABLE_AIA_INTERMEDIATE_FETCHING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDisableAiaIntermediateFetching() {
+    return disableAiaIntermediateFetching;
+  }
+
   public void setDisableAiaIntermediateFetching(Boolean disableAiaIntermediateFetching) {
     this.disableAiaIntermediateFetching = disableAiaIntermediateFetching;
   }
+
   public SyntheticsTestRequest dnsServer(String dnsServer) {
     this.dnsServer = dnsServer;
     return this;
   }
 
   /**
-   * <p>DNS server to use for DNS tests.</p>
+   * DNS server to use for DNS tests.
+   *
    * @return dnsServer
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DNS_SERVER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDnsServer() {
-        return dnsServer;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DNS_SERVER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDnsServer() {
+    return dnsServer;
+  }
+
   public void setDnsServer(String dnsServer) {
     this.dnsServer = dnsServer;
   }
+
   public SyntheticsTestRequest dnsServerPort(SyntheticsTestRequestDNSServerPort dnsServerPort) {
     this.dnsServerPort = dnsServerPort;
     this.unparsed |= dnsServerPort.unparsed;
@@ -428,19 +443,21 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>DNS server port to use for DNS tests.</p>
+   * DNS server port to use for DNS tests.
+   *
    * @return dnsServerPort
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DNS_SERVER_PORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestRequestDNSServerPort getDnsServerPort() {
-        return dnsServerPort;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DNS_SERVER_PORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestRequestDNSServerPort getDnsServerPort() {
+    return dnsServerPort;
+  }
+
   public void setDnsServerPort(SyntheticsTestRequestDNSServerPort dnsServerPort) {
     this.dnsServerPort = dnsServerPort;
   }
+
   public SyntheticsTestRequest files(List<SyntheticsTestRequestBodyFile> files) {
     this.files = files;
     for (SyntheticsTestRequestBodyFile item : files) {
@@ -448,6 +465,7 @@ public class SyntheticsTestRequest {
     }
     return this;
   }
+
   public SyntheticsTestRequest addFilesItem(SyntheticsTestRequestBodyFile filesItem) {
     if (this.files == null) {
       this.files = new ArrayList<>();
@@ -458,42 +476,48 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>Files to be used as part of the request in the test. Only valid if <code>bodyType</code> is <code>multipart/form-data</code>.</p>
+   * Files to be used as part of the request in the test. Only valid if <code>bodyType</code> is
+   * <code>multipart/form-data</code>.
+   *
    * @return files
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SyntheticsTestRequestBodyFile> getFiles() {
-        return files;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsTestRequestBodyFile> getFiles() {
+    return files;
+  }
+
   public void setFiles(List<SyntheticsTestRequestBodyFile> files) {
     this.files = files;
   }
+
   public SyntheticsTestRequest followRedirects(Boolean followRedirects) {
     this.followRedirects = followRedirects;
     return this;
   }
 
   /**
-   * <p>Specifies whether or not the request follows redirects.</p>
+   * Specifies whether or not the request follows redirects.
+   *
    * @return followRedirects
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getFollowRedirects() {
-        return followRedirects;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getFollowRedirects() {
+    return followRedirects;
+  }
+
   public void setFollowRedirects(Boolean followRedirects) {
     this.followRedirects = followRedirects;
   }
+
   public SyntheticsTestRequest form(Map<String, String> form) {
     this.form = form;
     return this;
   }
+
   public SyntheticsTestRequest putFormItem(String key, String formItem) {
     if (this.form == null) {
       this.form = new HashMap<>();
@@ -503,23 +527,27 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>Form to be used as part of the request in the test. Only valid if <code>bodyType</code> is <code>multipart/form-data</code>.</p>
+   * Form to be used as part of the request in the test. Only valid if <code>bodyType</code> is
+   * <code>multipart/form-data</code>.
+   *
    * @return form
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FORM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, String> getForm() {
-        return form;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getForm() {
+    return form;
+  }
+
   public void setForm(Map<String, String> form) {
     this.form = form;
   }
+
   public SyntheticsTestRequest headers(Map<String, String> headers) {
     this.headers = headers;
     return this;
   }
+
   public SyntheticsTestRequest putHeadersItem(String key, String headersItem) {
     if (this.headers == null) {
       this.headers = new HashMap<>();
@@ -529,38 +557,42 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>Headers to include when performing the test.</p>
+   * Headers to include when performing the test.
+   *
    * @return headers
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HEADERS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, String> getHeaders() {
-        return headers;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HEADERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getHeaders() {
+    return headers;
+  }
+
   public void setHeaders(Map<String, String> headers) {
     this.headers = headers;
   }
+
   public SyntheticsTestRequest host(String host) {
     this.host = host;
     return this;
   }
 
   /**
-   * <p>Host name to perform the test with.</p>
+   * Host name to perform the test with.
+   *
    * @return host
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOST)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHost() {
-        return host;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHost() {
+    return host;
+  }
+
   public void setHost(String host) {
     this.host = host;
   }
+
   public SyntheticsTestRequest httpVersion(SyntheticsTestOptionsHTTPVersion httpVersion) {
     this.httpVersion = httpVersion;
     this.unparsed |= !httpVersion.isValid();
@@ -568,64 +600,71 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>HTTP version to use for a Synthetic test.</p>
+   * HTTP version to use for a Synthetic test.
+   *
    * @return httpVersion
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HTTP_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestOptionsHTTPVersion getHttpVersion() {
-        return httpVersion;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HTTP_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestOptionsHTTPVersion getHttpVersion() {
+    return httpVersion;
+  }
+
   public void setHttpVersion(SyntheticsTestOptionsHTTPVersion httpVersion) {
     if (!httpVersion.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.httpVersion = httpVersion;
   }
+
   public SyntheticsTestRequest isMessageBase64Encoded(Boolean isMessageBase64Encoded) {
     this.isMessageBase64Encoded = isMessageBase64Encoded;
     return this;
   }
 
   /**
-   * <p>Whether the message is base64 encoded.</p>
+   * Whether the message is base64 encoded.
+   *
    * @return isMessageBase64Encoded
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IS_MESSAGE_BASE64_ENCODED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getIsMessageBase64Encoded() {
-        return isMessageBase64Encoded;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_MESSAGE_BASE64_ENCODED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsMessageBase64Encoded() {
+    return isMessageBase64Encoded;
+  }
+
   public void setIsMessageBase64Encoded(Boolean isMessageBase64Encoded) {
     this.isMessageBase64Encoded = isMessageBase64Encoded;
   }
+
   public SyntheticsTestRequest message(String message) {
     this.message = message;
     return this;
   }
 
   /**
-   * <p>Message to send for UDP or WebSocket tests.</p>
+   * Message to send for UDP or WebSocket tests.
+   *
    * @return message
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MESSAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getMessage() {
-        return message;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
+
   public void setMessage(String message) {
     this.message = message;
   }
+
   public SyntheticsTestRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
     return this;
   }
+
   public SyntheticsTestRequest putMetadataItem(String key, String metadataItem) {
     if (this.metadata == null) {
       this.metadata = new HashMap<>();
@@ -635,97 +674,107 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>Metadata to include when performing the gRPC test.</p>
+   * Metadata to include when performing the gRPC test.
+   *
    * @return metadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, String> getMetadata() {
-        return metadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getMetadata() {
+    return metadata;
+  }
+
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
+
   public SyntheticsTestRequest method(String method) {
     this.method = method;
     return this;
   }
 
   /**
-   * <p>Either the HTTP method/verb to use or a gRPC method available on the service set in the <code>service</code> field. Required if <code>subtype</code> is <code>HTTP</code> or if <code>subtype</code> is <code>grpc</code> and <code>callType</code> is <code>unary</code>.</p>
+   * Either the HTTP method/verb to use or a gRPC method available on the service set in the <code>
+   * service</code> field. Required if <code>subtype</code> is <code>HTTP</code> or if <code>subtype
+   * </code> is <code>grpc</code> and <code>callType</code> is <code>unary</code>.
+   *
    * @return method
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METHOD)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getMethod() {
-        return method;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMethod() {
+    return method;
+  }
+
   public void setMethod(String method) {
     this.method = method;
   }
+
   public SyntheticsTestRequest noSavingResponseBody(Boolean noSavingResponseBody) {
     this.noSavingResponseBody = noSavingResponseBody;
     return this;
   }
 
   /**
-   * <p>Determines whether or not to save the response body.</p>
+   * Determines whether or not to save the response body.
+   *
    * @return noSavingResponseBody
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NO_SAVING_RESPONSE_BODY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getNoSavingResponseBody() {
-        return noSavingResponseBody;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NO_SAVING_RESPONSE_BODY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getNoSavingResponseBody() {
+    return noSavingResponseBody;
+  }
+
   public void setNoSavingResponseBody(Boolean noSavingResponseBody) {
     this.noSavingResponseBody = noSavingResponseBody;
   }
+
   public SyntheticsTestRequest numberOfPackets(Integer numberOfPackets) {
     this.numberOfPackets = numberOfPackets;
     return this;
   }
 
   /**
-   * <p>Number of pings to use per test.</p>
-   * minimum: 0
-   * maximum: 10
+   * Number of pings to use per test. minimum: 0 maximum: 10
+   *
    * @return numberOfPackets
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NUMBER_OF_PACKETS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Integer getNumberOfPackets() {
-        return numberOfPackets;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_PACKETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getNumberOfPackets() {
+    return numberOfPackets;
+  }
+
   public void setNumberOfPackets(Integer numberOfPackets) {
     this.numberOfPackets = numberOfPackets;
   }
+
   public SyntheticsTestRequest persistCookies(Boolean persistCookies) {
     this.persistCookies = persistCookies;
     return this;
   }
 
   /**
-   * <p>Persist cookies across redirects.</p>
+   * Persist cookies across redirects.
+   *
    * @return persistCookies
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PERSIST_COOKIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getPersistCookies() {
-        return persistCookies;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PERSIST_COOKIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getPersistCookies() {
+    return persistCookies;
+  }
+
   public void setPersistCookies(Boolean persistCookies) {
     this.persistCookies = persistCookies;
   }
+
   public SyntheticsTestRequest port(SyntheticsTestRequestPort port) {
     this.port = port;
     this.unparsed |= port.unparsed;
@@ -733,19 +782,21 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>Port to use when performing the test.</p>
+   * Port to use when performing the test.
+   *
    * @return port
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestRequestPort getPort() {
-        return port;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestRequestPort getPort() {
+    return port;
+  }
+
   public void setPort(SyntheticsTestRequestPort port) {
     this.port = port;
   }
+
   public SyntheticsTestRequest proxy(SyntheticsTestRequestProxy proxy) {
     this.proxy = proxy;
     this.unparsed |= proxy.unparsed;
@@ -753,146 +804,158 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * <p>The proxy to perform the test.</p>
+   * The proxy to perform the test.
+   *
    * @return proxy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PROXY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestRequestProxy getProxy() {
-        return proxy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROXY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestRequestProxy getProxy() {
+    return proxy;
+  }
+
   public void setProxy(SyntheticsTestRequestProxy proxy) {
     this.proxy = proxy;
   }
+
   public SyntheticsTestRequest query(Object query) {
     this.query = query;
     return this;
   }
 
   /**
-   * <p>Query to use for the test.</p>
+   * Query to use for the test.
+   *
    * @return query
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getQuery() {
-        return query;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getQuery() {
+    return query;
+  }
+
   public void setQuery(Object query) {
     this.query = query;
   }
+
   public SyntheticsTestRequest servername(String servername) {
     this.servername = servername;
     return this;
   }
 
   /**
-   * <p>For SSL tests, it specifies on which server you want to initiate the TLS handshake,
-   * allowing the server to present one of multiple possible certificates on
-   * the same IP address and TCP port number.</p>
+   * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing
+   * the server to present one of multiple possible certificates on the same IP address and TCP port
+   * number.
+   *
    * @return servername
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SERVERNAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getServername() {
-        return servername;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getServername() {
+    return servername;
+  }
+
   public void setServername(String servername) {
     this.servername = servername;
   }
+
   public SyntheticsTestRequest service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * <p>The gRPC service on which you want to perform the gRPC call.</p>
+   * The gRPC service on which you want to perform the gRPC call.
+   *
    * @return service
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SERVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getService() {
-        return service;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getService() {
+    return service;
+  }
+
   public void setService(String service) {
     this.service = service;
   }
+
   public SyntheticsTestRequest shouldTrackHops(Boolean shouldTrackHops) {
     this.shouldTrackHops = shouldTrackHops;
     return this;
   }
 
   /**
-   * <p>Turns on a traceroute probe to discover all gateways along the path to the host destination.</p>
+   * Turns on a traceroute probe to discover all gateways along the path to the host destination.
+   *
    * @return shouldTrackHops
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHOULD_TRACK_HOPS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getShouldTrackHops() {
-        return shouldTrackHops;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOULD_TRACK_HOPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShouldTrackHops() {
+    return shouldTrackHops;
+  }
+
   public void setShouldTrackHops(Boolean shouldTrackHops) {
     this.shouldTrackHops = shouldTrackHops;
   }
+
   public SyntheticsTestRequest timeout(Double timeout) {
     this.timeout = timeout;
     return this;
   }
 
   /**
-   * <p>Timeout in seconds for the test.</p>
+   * Timeout in seconds for the test.
+   *
    * @return timeout
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMEOUT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getTimeout() {
-        return timeout;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMEOUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getTimeout() {
+    return timeout;
+  }
+
   public void setTimeout(Double timeout) {
     this.timeout = timeout;
   }
+
   public SyntheticsTestRequest url(String url) {
     this.url = url;
     return this;
   }
 
   /**
-   * <p>URL to perform the test with.</p>
+   * URL to perform the test with.
+   *
    * @return url
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_URL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getUrl() {
-        return url;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUrl() {
+    return url;
+  }
+
   public void setUrl(String url) {
     this.url = url;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -901,7 +964,7 @@ public class SyntheticsTestRequest {
   @JsonAnySetter
   public SyntheticsTestRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -925,14 +988,12 @@ public class SyntheticsTestRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsTestRequest object is equal to o.
-   */
+  /** Return true if this SyntheticsTestRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -942,13 +1003,85 @@ public class SyntheticsTestRequest {
       return false;
     }
     SyntheticsTestRequest syntheticsTestRequest = (SyntheticsTestRequest) o;
-    return Objects.equals(this.allowInsecure, syntheticsTestRequest.allowInsecure) && Objects.equals(this.basicAuth, syntheticsTestRequest.basicAuth) && Objects.equals(this.body, syntheticsTestRequest.body) && Objects.equals(this.bodyType, syntheticsTestRequest.bodyType) && Objects.equals(this.callType, syntheticsTestRequest.callType) && Objects.equals(this.certificate, syntheticsTestRequest.certificate) && Objects.equals(this.certificateDomains, syntheticsTestRequest.certificateDomains) && Objects.equals(this.checkCertificateRevocation, syntheticsTestRequest.checkCertificateRevocation) && Objects.equals(this.compressedJsonDescriptor, syntheticsTestRequest.compressedJsonDescriptor) && Objects.equals(this.compressedProtoFile, syntheticsTestRequest.compressedProtoFile) && Objects.equals(this.disableAiaIntermediateFetching, syntheticsTestRequest.disableAiaIntermediateFetching) && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer) && Objects.equals(this.dnsServerPort, syntheticsTestRequest.dnsServerPort) && Objects.equals(this.files, syntheticsTestRequest.files) && Objects.equals(this.followRedirects, syntheticsTestRequest.followRedirects) && Objects.equals(this.form, syntheticsTestRequest.form) && Objects.equals(this.headers, syntheticsTestRequest.headers) && Objects.equals(this.host, syntheticsTestRequest.host) && Objects.equals(this.httpVersion, syntheticsTestRequest.httpVersion) && Objects.equals(this.isMessageBase64Encoded, syntheticsTestRequest.isMessageBase64Encoded) && Objects.equals(this.message, syntheticsTestRequest.message) && Objects.equals(this.metadata, syntheticsTestRequest.metadata) && Objects.equals(this.method, syntheticsTestRequest.method) && Objects.equals(this.noSavingResponseBody, syntheticsTestRequest.noSavingResponseBody) && Objects.equals(this.numberOfPackets, syntheticsTestRequest.numberOfPackets) && Objects.equals(this.persistCookies, syntheticsTestRequest.persistCookies) && Objects.equals(this.port, syntheticsTestRequest.port) && Objects.equals(this.proxy, syntheticsTestRequest.proxy) && Objects.equals(this.query, syntheticsTestRequest.query) && Objects.equals(this.servername, syntheticsTestRequest.servername) && Objects.equals(this.service, syntheticsTestRequest.service) && Objects.equals(this.shouldTrackHops, syntheticsTestRequest.shouldTrackHops) && Objects.equals(this.timeout, syntheticsTestRequest.timeout) && Objects.equals(this.url, syntheticsTestRequest.url) && Objects.equals(this.additionalProperties, syntheticsTestRequest.additionalProperties);
+    return Objects.equals(this.allowInsecure, syntheticsTestRequest.allowInsecure)
+        && Objects.equals(this.basicAuth, syntheticsTestRequest.basicAuth)
+        && Objects.equals(this.body, syntheticsTestRequest.body)
+        && Objects.equals(this.bodyType, syntheticsTestRequest.bodyType)
+        && Objects.equals(this.callType, syntheticsTestRequest.callType)
+        && Objects.equals(this.certificate, syntheticsTestRequest.certificate)
+        && Objects.equals(this.certificateDomains, syntheticsTestRequest.certificateDomains)
+        && Objects.equals(
+            this.checkCertificateRevocation, syntheticsTestRequest.checkCertificateRevocation)
+        && Objects.equals(
+            this.compressedJsonDescriptor, syntheticsTestRequest.compressedJsonDescriptor)
+        && Objects.equals(this.compressedProtoFile, syntheticsTestRequest.compressedProtoFile)
+        && Objects.equals(
+            this.disableAiaIntermediateFetching,
+            syntheticsTestRequest.disableAiaIntermediateFetching)
+        && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer)
+        && Objects.equals(this.dnsServerPort, syntheticsTestRequest.dnsServerPort)
+        && Objects.equals(this.files, syntheticsTestRequest.files)
+        && Objects.equals(this.followRedirects, syntheticsTestRequest.followRedirects)
+        && Objects.equals(this.form, syntheticsTestRequest.form)
+        && Objects.equals(this.headers, syntheticsTestRequest.headers)
+        && Objects.equals(this.host, syntheticsTestRequest.host)
+        && Objects.equals(this.httpVersion, syntheticsTestRequest.httpVersion)
+        && Objects.equals(this.isMessageBase64Encoded, syntheticsTestRequest.isMessageBase64Encoded)
+        && Objects.equals(this.message, syntheticsTestRequest.message)
+        && Objects.equals(this.metadata, syntheticsTestRequest.metadata)
+        && Objects.equals(this.method, syntheticsTestRequest.method)
+        && Objects.equals(this.noSavingResponseBody, syntheticsTestRequest.noSavingResponseBody)
+        && Objects.equals(this.numberOfPackets, syntheticsTestRequest.numberOfPackets)
+        && Objects.equals(this.persistCookies, syntheticsTestRequest.persistCookies)
+        && Objects.equals(this.port, syntheticsTestRequest.port)
+        && Objects.equals(this.proxy, syntheticsTestRequest.proxy)
+        && Objects.equals(this.query, syntheticsTestRequest.query)
+        && Objects.equals(this.servername, syntheticsTestRequest.servername)
+        && Objects.equals(this.service, syntheticsTestRequest.service)
+        && Objects.equals(this.shouldTrackHops, syntheticsTestRequest.shouldTrackHops)
+        && Objects.equals(this.timeout, syntheticsTestRequest.timeout)
+        && Objects.equals(this.url, syntheticsTestRequest.url)
+        && Objects.equals(this.additionalProperties, syntheticsTestRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowInsecure,basicAuth,body,bodyType,callType,certificate,certificateDomains,checkCertificateRevocation,compressedJsonDescriptor,compressedProtoFile,disableAiaIntermediateFetching,dnsServer,dnsServerPort,files,followRedirects,form,headers,host,httpVersion,isMessageBase64Encoded,message,metadata,method,noSavingResponseBody,numberOfPackets,persistCookies,port,proxy,query,servername,service,shouldTrackHops,timeout,url, additionalProperties);
+    return Objects.hash(
+        allowInsecure,
+        basicAuth,
+        body,
+        bodyType,
+        callType,
+        certificate,
+        certificateDomains,
+        checkCertificateRevocation,
+        compressedJsonDescriptor,
+        compressedProtoFile,
+        disableAiaIntermediateFetching,
+        dnsServer,
+        dnsServerPort,
+        files,
+        followRedirects,
+        form,
+        headers,
+        host,
+        httpVersion,
+        isMessageBase64Encoded,
+        message,
+        metadata,
+        method,
+        noSavingResponseBody,
+        numberOfPackets,
+        persistCookies,
+        port,
+        proxy,
+        query,
+        servername,
+        service,
+        shouldTrackHops,
+        timeout,
+        url,
+        additionalProperties);
   }
 
   @Override
@@ -962,10 +1095,18 @@ public class SyntheticsTestRequest {
     sb.append("    callType: ").append(toIndentedString(callType)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    certificateDomains: ").append(toIndentedString(certificateDomains)).append("\n");
-    sb.append("    checkCertificateRevocation: ").append(toIndentedString(checkCertificateRevocation)).append("\n");
-    sb.append("    compressedJsonDescriptor: ").append(toIndentedString(compressedJsonDescriptor)).append("\n");
-    sb.append("    compressedProtoFile: ").append(toIndentedString(compressedProtoFile)).append("\n");
-    sb.append("    disableAiaIntermediateFetching: ").append(toIndentedString(disableAiaIntermediateFetching)).append("\n");
+    sb.append("    checkCertificateRevocation: ")
+        .append(toIndentedString(checkCertificateRevocation))
+        .append("\n");
+    sb.append("    compressedJsonDescriptor: ")
+        .append(toIndentedString(compressedJsonDescriptor))
+        .append("\n");
+    sb.append("    compressedProtoFile: ")
+        .append(toIndentedString(compressedProtoFile))
+        .append("\n");
+    sb.append("    disableAiaIntermediateFetching: ")
+        .append(toIndentedString(disableAiaIntermediateFetching))
+        .append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
     sb.append("    dnsServerPort: ").append(toIndentedString(dnsServerPort)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
@@ -974,11 +1115,15 @@ public class SyntheticsTestRequest {
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
-    sb.append("    isMessageBase64Encoded: ").append(toIndentedString(isMessageBase64Encoded)).append("\n");
+    sb.append("    isMessageBase64Encoded: ")
+        .append(toIndentedString(isMessageBase64Encoded))
+        .append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
-    sb.append("    noSavingResponseBody: ").append(toIndentedString(noSavingResponseBody)).append("\n");
+    sb.append("    noSavingResponseBody: ")
+        .append(toIndentedString(noSavingResponseBody))
+        .append("\n");
     sb.append("    numberOfPackets: ").append(toIndentedString(numberOfPackets)).append("\n");
     sb.append("    persistCookies: ").append(toIndentedString(persistCookies)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
@@ -997,8 +1142,7 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

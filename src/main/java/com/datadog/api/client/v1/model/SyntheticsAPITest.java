@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object containing details about a Synthetic API test.</p>
- */
+/** Object containing details about a Synthetic API test. */
 @JsonPropertyOrder({
   SyntheticsAPITest.JSON_PROPERTY_CONFIG,
   SyntheticsAPITest.JSON_PROPERTY_LOCATIONS,
@@ -47,10 +33,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsAPITest.JSON_PROPERTY_TAGS,
   SyntheticsAPITest.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private SyntheticsAPITestConfig config;
 
@@ -88,22 +74,23 @@ public class SyntheticsAPITest {
 
   @JsonCreator
   public SyntheticsAPITest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CONFIG)SyntheticsAPITestConfig config,
-            @JsonProperty(required=true, value=JSON_PROPERTY_LOCATIONS)List<String> locations,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MESSAGE)String message,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_OPTIONS)SyntheticsTestOptions options,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SyntheticsAPITestType type) {
-        this.config = config;
-        this.unparsed |= config.unparsed;
-        this.locations = locations;
-        this.message = message;
-        this.name = name;
-        this.options = options;
-        this.unparsed |= options.unparsed;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG) SyntheticsAPITestConfig config,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LOCATIONS) List<String> locations,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS) SyntheticsTestOptions options,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsAPITestType type) {
+    this.config = config;
+    this.unparsed |= config.unparsed;
+    this.locations = locations;
+    this.message = message;
+    this.name = name;
+    this.options = options;
+    this.unparsed |= options.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public SyntheticsAPITest config(SyntheticsAPITestConfig config) {
     this.config = config;
     this.unparsed |= config.unparsed;
@@ -111,88 +98,97 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * <p>Configuration object for a Synthetic API test.</p>
+   * Configuration object for a Synthetic API test.
+   *
    * @return config
-  **/
-      @JsonProperty(JSON_PROPERTY_CONFIG)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsAPITestConfig getConfig() {
-        return config;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsAPITestConfig getConfig() {
+    return config;
+  }
+
   public void setConfig(SyntheticsAPITestConfig config) {
     this.config = config;
   }
+
   public SyntheticsAPITest locations(List<String> locations) {
     this.locations = locations;
     return this;
   }
+
   public SyntheticsAPITest addLocationsItem(String locationsItem) {
     this.locations.add(locationsItem);
     return this;
   }
 
   /**
-   * <p>Array of locations used to run the test.</p>
+   * Array of locations used to run the test.
+   *
    * @return locations
-  **/
-      @JsonProperty(JSON_PROPERTY_LOCATIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getLocations() {
-        return locations;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_LOCATIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getLocations() {
+    return locations;
+  }
+
   public void setLocations(List<String> locations) {
     this.locations = locations;
   }
+
   public SyntheticsAPITest message(String message) {
     this.message = message;
     return this;
   }
 
   /**
-   * <p>Notification message associated with the test.</p>
+   * Notification message associated with the test.
+   *
    * @return message
-  **/
-      @JsonProperty(JSON_PROPERTY_MESSAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getMessage() {
-        return message;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMessage() {
+    return message;
+  }
+
   public void setMessage(String message) {
     this.message = message;
   }
 
   /**
-   * <p>The associated monitor ID.</p>
+   * The associated monitor ID.
+   *
    * @return monitorId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MONITOR_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getMonitorId() {
-        return monitorId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONITOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMonitorId() {
+    return monitorId;
+  }
+
   public SyntheticsAPITest name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the test.</p>
+   * Name of the test.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public SyntheticsAPITest options(SyntheticsTestOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
@@ -200,30 +196,32 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * <p>Object describing the extra options for a Synthetic test.</p>
+   * Object describing the extra options for a Synthetic test.
+   *
    * @return options
-  **/
-      @JsonProperty(JSON_PROPERTY_OPTIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsTestOptions getOptions() {
-        return options;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsTestOptions getOptions() {
+    return options;
+  }
+
   public void setOptions(SyntheticsTestOptions options) {
     this.options = options;
   }
 
   /**
-   * <p>The public ID for the test.</p>
+   * The public ID for the test.
+   *
    * @return publicId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublicId() {
-        return publicId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
   public SyntheticsAPITest status(SyntheticsTestPauseStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -231,23 +229,25 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * <p>Define whether you want to start (<code>live</code>) or pause (<code>paused</code>) a
-   * Synthetic test.</p>
+   * Define whether you want to start (<code>live</code>) or pause (<code>paused</code>) a Synthetic
+   * test.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestPauseStatus getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestPauseStatus getStatus() {
+    return status;
+  }
+
   public void setStatus(SyntheticsTestPauseStatus status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
+
   public SyntheticsAPITest subtype(SyntheticsTestDetailsSubType subtype) {
     this.subtype = subtype;
     this.unparsed |= !subtype.isValid();
@@ -255,27 +255,31 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * <p>The subtype of the Synthetic API test, <code>http</code>, <code>ssl</code>, <code>tcp</code>,
-   * <code>dns</code>, <code>icmp</code>, <code>udp</code>, <code>websocket</code>, <code>grpc</code> or <code>multi</code>.</p>
+   * The subtype of the Synthetic API test, <code>http</code>, <code>ssl</code>, <code>tcp</code>,
+   * <code>dns</code>, <code>icmp</code>, <code>udp</code>, <code>websocket</code>, <code>grpc
+   * </code> or <code>multi</code>.
+   *
    * @return subtype
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SUBTYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestDetailsSubType getSubtype() {
-        return subtype;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUBTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestDetailsSubType getSubtype() {
+    return subtype;
+  }
+
   public void setSubtype(SyntheticsTestDetailsSubType subtype) {
     if (!subtype.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.subtype = subtype;
   }
+
   public SyntheticsAPITest tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public SyntheticsAPITest addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -285,19 +289,21 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * <p>Array of tags attached to the test.</p>
+   * Array of tags attached to the test.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public SyntheticsAPITest type(SyntheticsAPITestType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -305,32 +311,32 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * <p>Type of the Synthetic test, <code>api</code>.</p>
+   * Type of the Synthetic test, <code>api</code>.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsAPITestType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsAPITestType getType() {
+    return type;
+  }
+
   public void setType(SyntheticsAPITestType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -339,7 +345,7 @@ public class SyntheticsAPITest {
   @JsonAnySetter
   public SyntheticsAPITest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -363,14 +369,12 @@ public class SyntheticsAPITest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsAPITest object is equal to o.
-   */
+  /** Return true if this SyntheticsAPITest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -380,13 +384,35 @@ public class SyntheticsAPITest {
       return false;
     }
     SyntheticsAPITest syntheticsApiTest = (SyntheticsAPITest) o;
-    return Objects.equals(this.config, syntheticsApiTest.config) && Objects.equals(this.locations, syntheticsApiTest.locations) && Objects.equals(this.message, syntheticsApiTest.message) && Objects.equals(this.monitorId, syntheticsApiTest.monitorId) && Objects.equals(this.name, syntheticsApiTest.name) && Objects.equals(this.options, syntheticsApiTest.options) && Objects.equals(this.publicId, syntheticsApiTest.publicId) && Objects.equals(this.status, syntheticsApiTest.status) && Objects.equals(this.subtype, syntheticsApiTest.subtype) && Objects.equals(this.tags, syntheticsApiTest.tags) && Objects.equals(this.type, syntheticsApiTest.type) && Objects.equals(this.additionalProperties, syntheticsApiTest.additionalProperties);
+    return Objects.equals(this.config, syntheticsApiTest.config)
+        && Objects.equals(this.locations, syntheticsApiTest.locations)
+        && Objects.equals(this.message, syntheticsApiTest.message)
+        && Objects.equals(this.monitorId, syntheticsApiTest.monitorId)
+        && Objects.equals(this.name, syntheticsApiTest.name)
+        && Objects.equals(this.options, syntheticsApiTest.options)
+        && Objects.equals(this.publicId, syntheticsApiTest.publicId)
+        && Objects.equals(this.status, syntheticsApiTest.status)
+        && Objects.equals(this.subtype, syntheticsApiTest.subtype)
+        && Objects.equals(this.tags, syntheticsApiTest.tags)
+        && Objects.equals(this.type, syntheticsApiTest.type)
+        && Objects.equals(this.additionalProperties, syntheticsApiTest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(config,locations,message,monitorId,name,options,publicId,status,subtype,tags,type, additionalProperties);
+    return Objects.hash(
+        config,
+        locations,
+        message,
+        monitorId,
+        name,
+        options,
+        publicId,
+        status,
+        subtype,
+        tags,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -412,8 +438,7 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

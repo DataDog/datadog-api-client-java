@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>A conditional recipient rule composed of a <code>scope</code> (the matching condition) and
-   * <code>recipients</code> (who to notify when it matches).</p>
+ * A conditional recipient rule composed of a <code>scope</code> (the matching condition) and <code>
+ * recipients</code> (who to notify when it matches).
  */
 @JsonPropertyOrder({
   MonitorNotificationRuleCondition.JSON_PROPERTY_RECIPIENTS,
   MonitorNotificationRuleCondition.JSON_PROPERTY_SCOPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorNotificationRuleCondition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RECIPIENTS = "recipients";
   private List<String> recipients = new ArrayList<>();
 
@@ -53,64 +41,70 @@ public class MonitorNotificationRuleCondition {
 
   @JsonCreator
   public MonitorNotificationRuleCondition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_RECIPIENTS)List<String> recipients,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SCOPE)String scope) {
-        this.recipients = recipients;
-        this.scope = scope;
+      @JsonProperty(required = true, value = JSON_PROPERTY_RECIPIENTS) List<String> recipients,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SCOPE) String scope) {
+    this.recipients = recipients;
+    this.scope = scope;
   }
+
   public MonitorNotificationRuleCondition recipients(List<String> recipients) {
     this.recipients = recipients;
     return this;
   }
+
   public MonitorNotificationRuleCondition addRecipientsItem(String recipientsItem) {
     this.recipients.add(recipientsItem);
     return this;
   }
 
   /**
-   * <p>A list of recipients to notify. Uses the same format as the monitor <code>message</code> field. Must not start with an '@'. Cannot be used with <code>conditional_recipients</code>.</p>
+   * A list of recipients to notify. Uses the same format as the monitor <code>message</code> field.
+   * Must not start with an '@'. Cannot be used with <code>conditional_recipients</code>.
+   *
    * @return recipients
-  **/
-      @JsonProperty(JSON_PROPERTY_RECIPIENTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getRecipients() {
-        return recipients;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RECIPIENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getRecipients() {
+    return recipients;
+  }
+
   public void setRecipients(List<String> recipients) {
     this.recipients = recipients;
   }
+
   public MonitorNotificationRuleCondition scope(String scope) {
     this.scope = scope;
     return this;
   }
 
   /**
-   * <p>Defines the condition under which the recipients are notified. Supported formats:
-   * - Monitor status condition using <code>transition_type:&lt;status&gt;</code>, for example <code>transition_type:is_alert</code>.
-   * - A single tag key:value pair, for example <code>env:prod</code>.</p>
+   * Defines the condition under which the recipients are notified. Supported formats: - Monitor
+   * status condition using <code>transition_type:&lt;status&gt;</code>, for example <code>
+   * transition_type:is_alert</code>. - A single tag key:value pair, for example <code>env:prod
+   * </code>.
+   *
    * @return scope
-  **/
-      @JsonProperty(JSON_PROPERTY_SCOPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getScope() {
-        return scope;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getScope() {
+    return scope;
+  }
+
   public void setScope(String scope) {
     this.scope = scope;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -119,7 +113,7 @@ public class MonitorNotificationRuleCondition {
   @JsonAnySetter
   public MonitorNotificationRuleCondition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -143,14 +137,12 @@ public class MonitorNotificationRuleCondition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this MonitorNotificationRuleCondition object is equal to o.
-   */
+  /** Return true if this MonitorNotificationRuleCondition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -159,14 +151,17 @@ public class MonitorNotificationRuleCondition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorNotificationRuleCondition monitorNotificationRuleCondition = (MonitorNotificationRuleCondition) o;
-    return Objects.equals(this.recipients, monitorNotificationRuleCondition.recipients) && Objects.equals(this.scope, monitorNotificationRuleCondition.scope) && Objects.equals(this.additionalProperties, monitorNotificationRuleCondition.additionalProperties);
+    MonitorNotificationRuleCondition monitorNotificationRuleCondition =
+        (MonitorNotificationRuleCondition) o;
+    return Objects.equals(this.recipients, monitorNotificationRuleCondition.recipients)
+        && Objects.equals(this.scope, monitorNotificationRuleCondition.scope)
+        && Objects.equals(
+            this.additionalProperties, monitorNotificationRuleCondition.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(recipients,scope, additionalProperties);
+    return Objects.hash(recipients, scope, additionalProperties);
   }
 
   @Override
@@ -183,8 +178,7 @@ public class MonitorNotificationRuleCondition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

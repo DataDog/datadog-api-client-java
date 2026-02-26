@@ -6,44 +6,29 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The full app definition response object.</p>
- */
+/** The full app definition response object. */
 @JsonPropertyOrder({
   GetAppResponse.JSON_PROPERTY_DATA,
   GetAppResponse.JSON_PROPERTY_INCLUDED,
   GetAppResponse.JSON_PROPERTY_META,
   GetAppResponse.JSON_PROPERTY_RELATIONSHIP
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GetAppResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private GetAppResponseData data;
 
@@ -63,19 +48,21 @@ public class GetAppResponse {
   }
 
   /**
-   * <p>The data object containing the app definition.</p>
+   * The data object containing the app definition.
+   *
    * @return data
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public GetAppResponseData getData() {
-        return data;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GetAppResponseData getData() {
+    return data;
+  }
+
   public void setData(GetAppResponseData data) {
     this.data = data;
   }
+
   public GetAppResponse included(List<Deployment> included) {
     this.included = included;
     for (Deployment item : included) {
@@ -83,6 +70,7 @@ public class GetAppResponse {
     }
     return this;
   }
+
   public GetAppResponse addIncludedItem(Deployment includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
@@ -93,19 +81,21 @@ public class GetAppResponse {
   }
 
   /**
-   * <p>Data on the version of the app that was published.</p>
+   * Data on the version of the app that was published.
+   *
    * @return included
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCLUDED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<Deployment> getIncluded() {
-        return included;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Deployment> getIncluded() {
+    return included;
+  }
+
   public void setIncluded(List<Deployment> included) {
     this.included = included;
   }
+
   public GetAppResponse meta(AppMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -113,19 +103,21 @@ public class GetAppResponse {
   }
 
   /**
-   * <p>Metadata of an app.</p>
+   * Metadata of an app.
+   *
    * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public AppMeta getMeta() {
-        return meta;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AppMeta getMeta() {
+    return meta;
+  }
+
   public void setMeta(AppMeta meta) {
     this.meta = meta;
   }
+
   public GetAppResponse relationship(AppRelationship relationship) {
     this.relationship = relationship;
     this.unparsed |= relationship.unparsed;
@@ -133,30 +125,30 @@ public class GetAppResponse {
   }
 
   /**
-   * <p>The app's publication relationship and custom connections.</p>
+   * The app's publication relationship and custom connections.
+   *
    * @return relationship
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RELATIONSHIP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public AppRelationship getRelationship() {
-        return relationship;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AppRelationship getRelationship() {
+    return relationship;
+  }
+
   public void setRelationship(AppRelationship relationship) {
     this.relationship = relationship;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -165,7 +157,7 @@ public class GetAppResponse {
   @JsonAnySetter
   public GetAppResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -189,14 +181,12 @@ public class GetAppResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this GetAppResponse object is equal to o.
-   */
+  /** Return true if this GetAppResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -206,13 +196,16 @@ public class GetAppResponse {
       return false;
     }
     GetAppResponse getAppResponse = (GetAppResponse) o;
-    return Objects.equals(this.data, getAppResponse.data) && Objects.equals(this.included, getAppResponse.included) && Objects.equals(this.meta, getAppResponse.meta) && Objects.equals(this.relationship, getAppResponse.relationship) && Objects.equals(this.additionalProperties, getAppResponse.additionalProperties);
+    return Objects.equals(this.data, getAppResponse.data)
+        && Objects.equals(this.included, getAppResponse.included)
+        && Objects.equals(this.meta, getAppResponse.meta)
+        && Objects.equals(this.relationship, getAppResponse.relationship)
+        && Objects.equals(this.additionalProperties, getAppResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,included,meta,relationship, additionalProperties);
+    return Objects.hash(data, included, meta, relationship, additionalProperties);
   }
 
   @Override
@@ -231,8 +224,7 @@ public class GetAppResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

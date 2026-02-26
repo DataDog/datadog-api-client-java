@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>The <code>sumo_logic</code> destination forwards logs to Sumo Logic.</p>
-   * <p><strong>Supported pipeline types:</strong> logs</p>
+ * The <code>sumo_logic</code> destination forwards logs to Sumo Logic.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_BUFFER,
@@ -47,10 +36,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineSumoLogicDestination.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSumoLogicDestination {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUFFER = "buffer";
   private ObservabilityPipelineBufferOptions buffer;
 
@@ -61,7 +50,8 @@ public class ObservabilityPipelineSumoLogicDestination {
   private String endpointUrlKey;
 
   public static final String JSON_PROPERTY_HEADER_CUSTOM_FIELDS = "header_custom_fields";
-  private List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem> headerCustomFields = null;
+  private List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem> headerCustomFields =
+      null;
 
   public static final String JSON_PROPERTY_HEADER_HOST_NAME = "header_host_name";
   private String headerHostName;
@@ -79,90 +69,105 @@ public class ObservabilityPipelineSumoLogicDestination {
   private List<String> inputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineSumoLogicDestinationType type = ObservabilityPipelineSumoLogicDestinationType.SUMO_LOGIC;
+  private ObservabilityPipelineSumoLogicDestinationType type =
+      ObservabilityPipelineSumoLogicDestinationType.SUMO_LOGIC;
 
   public ObservabilityPipelineSumoLogicDestination() {}
 
   @JsonCreator
   public ObservabilityPipelineSumoLogicDestination(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_INPUTS)List<String> inputs,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ObservabilityPipelineSumoLogicDestinationType type) {
-        this.id = id;
-        this.inputs = inputs;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ObservabilityPipelineSumoLogicDestinationType type) {
+    this.id = id;
+    this.inputs = inputs;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
-  public ObservabilityPipelineSumoLogicDestination buffer(ObservabilityPipelineBufferOptions buffer) {
+
+  public ObservabilityPipelineSumoLogicDestination buffer(
+      ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
     this.unparsed |= buffer.unparsed;
     return this;
   }
 
   /**
-   * <p>Configuration for buffer settings on destination components.</p>
+   * Configuration for buffer settings on destination components.
+   *
    * @return buffer
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BUFFER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ObservabilityPipelineBufferOptions getBuffer() {
-        return buffer;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUFFER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineBufferOptions getBuffer() {
+    return buffer;
+  }
+
   public void setBuffer(ObservabilityPipelineBufferOptions buffer) {
     this.buffer = buffer;
   }
-  public ObservabilityPipelineSumoLogicDestination encoding(ObservabilityPipelineSumoLogicDestinationEncoding encoding) {
+
+  public ObservabilityPipelineSumoLogicDestination encoding(
+      ObservabilityPipelineSumoLogicDestinationEncoding encoding) {
     this.encoding = encoding;
     this.unparsed |= !encoding.isValid();
     return this;
   }
 
   /**
-   * <p>The output encoding format.</p>
+   * The output encoding format.
+   *
    * @return encoding
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENCODING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ObservabilityPipelineSumoLogicDestinationEncoding getEncoding() {
-        return encoding;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENCODING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineSumoLogicDestinationEncoding getEncoding() {
+    return encoding;
+  }
+
   public void setEncoding(ObservabilityPipelineSumoLogicDestinationEncoding encoding) {
     if (!encoding.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.encoding = encoding;
   }
+
   public ObservabilityPipelineSumoLogicDestination endpointUrlKey(String endpointUrlKey) {
     this.endpointUrlKey = endpointUrlKey;
     return this;
   }
 
   /**
-   * <p>Name of the environment variable or secret that holds the Sumo Logic HTTP endpoint URL.</p>
+   * Name of the environment variable or secret that holds the Sumo Logic HTTP endpoint URL.
+   *
    * @return endpointUrlKey
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getEndpointUrlKey() {
-        return endpointUrlKey;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndpointUrlKey() {
+    return endpointUrlKey;
+  }
+
   public void setEndpointUrlKey(String endpointUrlKey) {
     this.endpointUrlKey = endpointUrlKey;
   }
-  public ObservabilityPipelineSumoLogicDestination headerCustomFields(List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem> headerCustomFields) {
+
+  public ObservabilityPipelineSumoLogicDestination headerCustomFields(
+      List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem> headerCustomFields) {
     this.headerCustomFields = headerCustomFields;
-    for (ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem item : headerCustomFields) {
+    for (ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem item :
+        headerCustomFields) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public ObservabilityPipelineSumoLogicDestination addHeaderCustomFieldsItem(ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem headerCustomFieldsItem) {
+
+  public ObservabilityPipelineSumoLogicDestination addHeaderCustomFieldsItem(
+      ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem headerCustomFieldsItem) {
     if (this.headerCustomFields == null) {
       this.headerCustomFields = new ArrayList<>();
     }
@@ -172,149 +177,166 @@ public class ObservabilityPipelineSumoLogicDestination {
   }
 
   /**
-   * <p>A list of custom headers to include in the request to Sumo Logic.</p>
+   * A list of custom headers to include in the request to Sumo Logic.
+   *
    * @return headerCustomFields
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HEADER_CUSTOM_FIELDS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem> getHeaderCustomFields() {
-        return headerCustomFields;
-      }
-  public void setHeaderCustomFields(List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem> headerCustomFields) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HEADER_CUSTOM_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem>
+      getHeaderCustomFields() {
+    return headerCustomFields;
+  }
+
+  public void setHeaderCustomFields(
+      List<ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem> headerCustomFields) {
     this.headerCustomFields = headerCustomFields;
   }
+
   public ObservabilityPipelineSumoLogicDestination headerHostName(String headerHostName) {
     this.headerHostName = headerHostName;
     return this;
   }
 
   /**
-   * <p>Optional override for the host name header.</p>
+   * Optional override for the host name header.
+   *
    * @return headerHostName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HEADER_HOST_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHeaderHostName() {
-        return headerHostName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HEADER_HOST_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHeaderHostName() {
+    return headerHostName;
+  }
+
   public void setHeaderHostName(String headerHostName) {
     this.headerHostName = headerHostName;
   }
-  public ObservabilityPipelineSumoLogicDestination headerSourceCategory(String headerSourceCategory) {
+
+  public ObservabilityPipelineSumoLogicDestination headerSourceCategory(
+      String headerSourceCategory) {
     this.headerSourceCategory = headerSourceCategory;
     return this;
   }
 
   /**
-   * <p>Optional override for the source category header.</p>
+   * Optional override for the source category header.
+   *
    * @return headerSourceCategory
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HEADER_SOURCE_CATEGORY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHeaderSourceCategory() {
-        return headerSourceCategory;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HEADER_SOURCE_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHeaderSourceCategory() {
+    return headerSourceCategory;
+  }
+
   public void setHeaderSourceCategory(String headerSourceCategory) {
     this.headerSourceCategory = headerSourceCategory;
   }
+
   public ObservabilityPipelineSumoLogicDestination headerSourceName(String headerSourceName) {
     this.headerSourceName = headerSourceName;
     return this;
   }
 
   /**
-   * <p>Optional override for the source name header.</p>
+   * Optional override for the source name header.
+   *
    * @return headerSourceName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HEADER_SOURCE_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHeaderSourceName() {
-        return headerSourceName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HEADER_SOURCE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHeaderSourceName() {
+    return headerSourceName;
+  }
+
   public void setHeaderSourceName(String headerSourceName) {
     this.headerSourceName = headerSourceName;
   }
+
   public ObservabilityPipelineSumoLogicDestination id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The unique identifier for this component.</p>
+   * The unique identifier for this component.
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public ObservabilityPipelineSumoLogicDestination inputs(List<String> inputs) {
     this.inputs = inputs;
     return this;
   }
+
   public ObservabilityPipelineSumoLogicDestination addInputsItem(String inputsItem) {
     this.inputs.add(inputsItem);
     return this;
   }
 
   /**
-   * <p>A list of component IDs whose output is used as the <code>input</code> for this component.</p>
+   * A list of component IDs whose output is used as the <code>input</code> for this component.
+   *
    * @return inputs
-  **/
-      @JsonProperty(JSON_PROPERTY_INPUTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getInputs() {
-        return inputs;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_INPUTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getInputs() {
+    return inputs;
+  }
+
   public void setInputs(List<String> inputs) {
     this.inputs = inputs;
   }
-  public ObservabilityPipelineSumoLogicDestination type(ObservabilityPipelineSumoLogicDestinationType type) {
+
+  public ObservabilityPipelineSumoLogicDestination type(
+      ObservabilityPipelineSumoLogicDestinationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * <p>The destination type. The value should always be <code>sumo_logic</code>.</p>
+   * The destination type. The value should always be <code>sumo_logic</code>.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ObservabilityPipelineSumoLogicDestinationType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineSumoLogicDestinationType getType() {
+    return type;
+  }
+
   public void setType(ObservabilityPipelineSumoLogicDestinationType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -323,7 +345,7 @@ public class ObservabilityPipelineSumoLogicDestination {
   @JsonAnySetter
   public ObservabilityPipelineSumoLogicDestination putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -347,14 +369,12 @@ public class ObservabilityPipelineSumoLogicDestination {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ObservabilityPipelineSumoLogicDestination object is equal to o.
-   */
+  /** Return true if this ObservabilityPipelineSumoLogicDestination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -363,14 +383,43 @@ public class ObservabilityPipelineSumoLogicDestination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineSumoLogicDestination observabilityPipelineSumoLogicDestination = (ObservabilityPipelineSumoLogicDestination) o;
-    return Objects.equals(this.buffer, observabilityPipelineSumoLogicDestination.buffer) && Objects.equals(this.encoding, observabilityPipelineSumoLogicDestination.encoding) && Objects.equals(this.endpointUrlKey, observabilityPipelineSumoLogicDestination.endpointUrlKey) && Objects.equals(this.headerCustomFields, observabilityPipelineSumoLogicDestination.headerCustomFields) && Objects.equals(this.headerHostName, observabilityPipelineSumoLogicDestination.headerHostName) && Objects.equals(this.headerSourceCategory, observabilityPipelineSumoLogicDestination.headerSourceCategory) && Objects.equals(this.headerSourceName, observabilityPipelineSumoLogicDestination.headerSourceName) && Objects.equals(this.id, observabilityPipelineSumoLogicDestination.id) && Objects.equals(this.inputs, observabilityPipelineSumoLogicDestination.inputs) && Objects.equals(this.type, observabilityPipelineSumoLogicDestination.type) && Objects.equals(this.additionalProperties, observabilityPipelineSumoLogicDestination.additionalProperties);
+    ObservabilityPipelineSumoLogicDestination observabilityPipelineSumoLogicDestination =
+        (ObservabilityPipelineSumoLogicDestination) o;
+    return Objects.equals(this.buffer, observabilityPipelineSumoLogicDestination.buffer)
+        && Objects.equals(this.encoding, observabilityPipelineSumoLogicDestination.encoding)
+        && Objects.equals(
+            this.endpointUrlKey, observabilityPipelineSumoLogicDestination.endpointUrlKey)
+        && Objects.equals(
+            this.headerCustomFields, observabilityPipelineSumoLogicDestination.headerCustomFields)
+        && Objects.equals(
+            this.headerHostName, observabilityPipelineSumoLogicDestination.headerHostName)
+        && Objects.equals(
+            this.headerSourceCategory,
+            observabilityPipelineSumoLogicDestination.headerSourceCategory)
+        && Objects.equals(
+            this.headerSourceName, observabilityPipelineSumoLogicDestination.headerSourceName)
+        && Objects.equals(this.id, observabilityPipelineSumoLogicDestination.id)
+        && Objects.equals(this.inputs, observabilityPipelineSumoLogicDestination.inputs)
+        && Objects.equals(this.type, observabilityPipelineSumoLogicDestination.type)
+        && Objects.equals(
+            this.additionalProperties,
+            observabilityPipelineSumoLogicDestination.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(buffer,encoding,endpointUrlKey,headerCustomFields,headerHostName,headerSourceCategory,headerSourceName,id,inputs,type, additionalProperties);
+    return Objects.hash(
+        buffer,
+        encoding,
+        endpointUrlKey,
+        headerCustomFields,
+        headerHostName,
+        headerSourceCategory,
+        headerSourceName,
+        id,
+        inputs,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -382,7 +431,9 @@ public class ObservabilityPipelineSumoLogicDestination {
     sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    headerCustomFields: ").append(toIndentedString(headerCustomFields)).append("\n");
     sb.append("    headerHostName: ").append(toIndentedString(headerHostName)).append("\n");
-    sb.append("    headerSourceCategory: ").append(toIndentedString(headerSourceCategory)).append("\n");
+    sb.append("    headerSourceCategory: ")
+        .append(toIndentedString(headerSourceCategory))
+        .append("\n");
     sb.append("    headerSourceName: ").append(toIndentedString(headerSourceName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
@@ -395,8 +446,7 @@ public class ObservabilityPipelineSumoLogicDestination {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

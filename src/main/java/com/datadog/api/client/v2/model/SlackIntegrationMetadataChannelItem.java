@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Item in the Slack integration metadata channel array.</p>
- */
+/** Item in the Slack integration metadata channel array. */
 @JsonPropertyOrder({
   SlackIntegrationMetadataChannelItem.JSON_PROPERTY_CHANNEL_ID,
   SlackIntegrationMetadataChannelItem.JSON_PROPERTY_CHANNEL_NAME,
   SlackIntegrationMetadataChannelItem.JSON_PROPERTY_REDIRECT_URL,
   SlackIntegrationMetadataChannelItem.JSON_PROPERTY_TEAM_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SlackIntegrationMetadataChannelItem {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHANNEL_ID = "channel_id";
   private String channelId;
 
@@ -60,97 +44,104 @@ public class SlackIntegrationMetadataChannelItem {
 
   @JsonCreator
   public SlackIntegrationMetadataChannelItem(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CHANNEL_ID)String channelId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_CHANNEL_NAME)String channelName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_REDIRECT_URL)String redirectUrl) {
-        this.channelId = channelId;
-        this.channelName = channelName;
-        this.redirectUrl = redirectUrl;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CHANNEL_ID) String channelId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CHANNEL_NAME) String channelName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REDIRECT_URL) String redirectUrl) {
+    this.channelId = channelId;
+    this.channelName = channelName;
+    this.redirectUrl = redirectUrl;
   }
+
   public SlackIntegrationMetadataChannelItem channelId(String channelId) {
     this.channelId = channelId;
     return this;
   }
 
   /**
-   * <p>Slack channel ID.</p>
+   * Slack channel ID.
+   *
    * @return channelId
-  **/
-      @JsonProperty(JSON_PROPERTY_CHANNEL_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getChannelId() {
-        return channelId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CHANNEL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getChannelId() {
+    return channelId;
+  }
+
   public void setChannelId(String channelId) {
     this.channelId = channelId;
   }
+
   public SlackIntegrationMetadataChannelItem channelName(String channelName) {
     this.channelName = channelName;
     return this;
   }
 
   /**
-   * <p>Name of the Slack channel.</p>
+   * Name of the Slack channel.
+   *
    * @return channelName
-  **/
-      @JsonProperty(JSON_PROPERTY_CHANNEL_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getChannelName() {
-        return channelName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CHANNEL_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getChannelName() {
+    return channelName;
+  }
+
   public void setChannelName(String channelName) {
     this.channelName = channelName;
   }
+
   public SlackIntegrationMetadataChannelItem redirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
     return this;
   }
 
   /**
-   * <p>URL redirecting to the Slack channel.</p>
+   * URL redirecting to the Slack channel.
+   *
    * @return redirectUrl
-  **/
-      @JsonProperty(JSON_PROPERTY_REDIRECT_URL)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getRedirectUrl() {
-        return redirectUrl;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REDIRECT_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getRedirectUrl() {
+    return redirectUrl;
+  }
+
   public void setRedirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
   }
+
   public SlackIntegrationMetadataChannelItem teamId(String teamId) {
     this.teamId = teamId;
     return this;
   }
 
   /**
-   * <p>Slack team ID.</p>
+   * Slack team ID.
+   *
    * @return teamId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEAM_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTeamId() {
-        return teamId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTeamId() {
+    return teamId;
+  }
+
   public void setTeamId(String teamId) {
     this.teamId = teamId;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -159,7 +150,7 @@ public class SlackIntegrationMetadataChannelItem {
   @JsonAnySetter
   public SlackIntegrationMetadataChannelItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -183,14 +174,12 @@ public class SlackIntegrationMetadataChannelItem {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SlackIntegrationMetadataChannelItem object is equal to o.
-   */
+  /** Return true if this SlackIntegrationMetadataChannelItem object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -199,14 +188,19 @@ public class SlackIntegrationMetadataChannelItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SlackIntegrationMetadataChannelItem slackIntegrationMetadataChannelItem = (SlackIntegrationMetadataChannelItem) o;
-    return Objects.equals(this.channelId, slackIntegrationMetadataChannelItem.channelId) && Objects.equals(this.channelName, slackIntegrationMetadataChannelItem.channelName) && Objects.equals(this.redirectUrl, slackIntegrationMetadataChannelItem.redirectUrl) && Objects.equals(this.teamId, slackIntegrationMetadataChannelItem.teamId) && Objects.equals(this.additionalProperties, slackIntegrationMetadataChannelItem.additionalProperties);
+    SlackIntegrationMetadataChannelItem slackIntegrationMetadataChannelItem =
+        (SlackIntegrationMetadataChannelItem) o;
+    return Objects.equals(this.channelId, slackIntegrationMetadataChannelItem.channelId)
+        && Objects.equals(this.channelName, slackIntegrationMetadataChannelItem.channelName)
+        && Objects.equals(this.redirectUrl, slackIntegrationMetadataChannelItem.redirectUrl)
+        && Objects.equals(this.teamId, slackIntegrationMetadataChannelItem.teamId)
+        && Objects.equals(
+            this.additionalProperties, slackIntegrationMetadataChannelItem.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(channelId,channelName,redirectUrl,teamId, additionalProperties);
+    return Objects.hash(channelId, channelName, redirectUrl, teamId, additionalProperties);
   }
 
   @Override
@@ -225,8 +219,7 @@ public class SlackIntegrationMetadataChannelItem {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 /** API Exception */
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApiException extends Exception {
   private int code;
   private Map<String, List<String>> responseHeaders = null;

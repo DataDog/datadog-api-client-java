@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object describing a step for a Synthetic test.</p>
- */
+/** Object describing a step for a Synthetic test. */
 @JsonPropertyOrder({
   SyntheticsStepDetail.JSON_PROPERTY_ALLOW_FAILURE,
   SyntheticsStepDetail.JSON_PROPERTY_BROWSER_ERRORS,
@@ -55,10 +40,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsStepDetail.JSON_PROPERTY_VITALS_METRICS,
   SyntheticsStepDetail.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsStepDetail {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
   private Boolean allowFailure;
 
@@ -122,19 +107,21 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * <p>Whether or not the step was allowed to fail.</p>
+   * Whether or not the step was allowed to fail.
+   *
    * @return allowFailure
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getAllowFailure() {
-        return allowFailure;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAllowFailure() {
+    return allowFailure;
+  }
+
   public void setAllowFailure(Boolean allowFailure) {
     this.allowFailure = allowFailure;
   }
+
   public SyntheticsStepDetail browserErrors(List<SyntheticsBrowserError> browserErrors) {
     this.browserErrors = browserErrors;
     for (SyntheticsBrowserError item : browserErrors) {
@@ -142,6 +129,7 @@ public class SyntheticsStepDetail {
     }
     return this;
   }
+
   public SyntheticsStepDetail addBrowserErrorsItem(SyntheticsBrowserError browserErrorsItem) {
     if (this.browserErrors == null) {
       this.browserErrors = new ArrayList<>();
@@ -152,19 +140,21 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * <p>Array of errors collected for a browser test.</p>
+   * Array of errors collected for a browser test.
+   *
    * @return browserErrors
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BROWSER_ERRORS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SyntheticsBrowserError> getBrowserErrors() {
-        return browserErrors;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BROWSER_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsBrowserError> getBrowserErrors() {
+    return browserErrors;
+  }
+
   public void setBrowserErrors(List<SyntheticsBrowserError> browserErrors) {
     this.browserErrors = browserErrors;
   }
+
   public SyntheticsStepDetail checkType(SyntheticsCheckType checkType) {
     this.checkType = checkType;
     this.unparsed |= !checkType.isValid();
@@ -172,79 +162,87 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * <p>Type of assertion to apply in an API test.</p>
+   * Type of assertion to apply in an API test.
+   *
    * @return checkType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CHECK_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsCheckType getCheckType() {
-        return checkType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHECK_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsCheckType getCheckType() {
+    return checkType;
+  }
+
   public void setCheckType(SyntheticsCheckType checkType) {
     if (!checkType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.checkType = checkType;
   }
+
   public SyntheticsStepDetail description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * <p>Description of the test.</p>
+   * Description of the test.
+   *
    * @return description
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDescription() {
-        return description;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
   public void setDescription(String description) {
     this.description = description;
   }
+
   public SyntheticsStepDetail duration(Double duration) {
     this.duration = duration;
     return this;
   }
 
   /**
-   * <p>Total duration in millisecond of the test.</p>
+   * Total duration in millisecond of the test.
+   *
    * @return duration
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DURATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getDuration() {
-        return duration;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDuration() {
+    return duration;
+  }
+
   public void setDuration(Double duration) {
     this.duration = duration;
   }
+
   public SyntheticsStepDetail error(String error) {
     this.error = error;
     return this;
   }
 
   /**
-   * <p>Error returned by the test.</p>
+   * Error returned by the test.
+   *
    * @return error
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ERROR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getError() {
-        return error;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getError() {
+    return error;
+  }
+
   public void setError(String error) {
     this.error = error;
   }
+
   public SyntheticsStepDetail failure(SyntheticsBrowserTestResultFailure failure) {
     this.failure = failure;
     this.unparsed |= failure.unparsed;
@@ -252,19 +250,21 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * <p>The browser test failure details.</p>
+   * The browser test failure details.
+   *
    * @return failure
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FAILURE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsBrowserTestResultFailure getFailure() {
-        return failure;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsBrowserTestResultFailure getFailure() {
+    return failure;
+  }
+
   public void setFailure(SyntheticsBrowserTestResultFailure failure) {
     this.failure = failure;
   }
+
   public SyntheticsStepDetail playingTab(SyntheticsPlayingTab playingTab) {
     this.playingTab = playingTab;
     this.unparsed |= !playingTab.isValid();
@@ -272,98 +272,108 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * <p>Navigate between different tabs for your browser test.</p>
+   * Navigate between different tabs for your browser test.
+   *
    * @return playingTab
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PLAYING_TAB)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsPlayingTab getPlayingTab() {
-        return playingTab;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PLAYING_TAB)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsPlayingTab getPlayingTab() {
+    return playingTab;
+  }
+
   public void setPlayingTab(SyntheticsPlayingTab playingTab) {
     if (!playingTab.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.playingTab = playingTab;
   }
+
   public SyntheticsStepDetail screenshotBucketKey(Boolean screenshotBucketKey) {
     this.screenshotBucketKey = screenshotBucketKey;
     return this;
   }
 
   /**
-   * <p>Whether or not screenshots where collected by the test.</p>
+   * Whether or not screenshots where collected by the test.
+   *
    * @return screenshotBucketKey
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SCREENSHOT_BUCKET_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getScreenshotBucketKey() {
-        return screenshotBucketKey;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCREENSHOT_BUCKET_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getScreenshotBucketKey() {
+    return screenshotBucketKey;
+  }
+
   public void setScreenshotBucketKey(Boolean screenshotBucketKey) {
     this.screenshotBucketKey = screenshotBucketKey;
   }
+
   public SyntheticsStepDetail skipped(Boolean skipped) {
     this.skipped = skipped;
     return this;
   }
 
   /**
-   * <p>Whether or not to skip this step.</p>
+   * Whether or not to skip this step.
+   *
    * @return skipped
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SKIPPED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getSkipped() {
-        return skipped;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SKIPPED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSkipped() {
+    return skipped;
+  }
+
   public void setSkipped(Boolean skipped) {
     this.skipped = skipped;
   }
+
   public SyntheticsStepDetail snapshotBucketKey(Boolean snapshotBucketKey) {
     this.snapshotBucketKey = snapshotBucketKey;
     return this;
   }
 
   /**
-   * <p>Whether or not snapshots where collected by the test.</p>
+   * Whether or not snapshots where collected by the test.
+   *
    * @return snapshotBucketKey
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SNAPSHOT_BUCKET_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getSnapshotBucketKey() {
-        return snapshotBucketKey;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SNAPSHOT_BUCKET_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSnapshotBucketKey() {
+    return snapshotBucketKey;
+  }
+
   public void setSnapshotBucketKey(Boolean snapshotBucketKey) {
     this.snapshotBucketKey = snapshotBucketKey;
   }
+
   public SyntheticsStepDetail stepId(Long stepId) {
     this.stepId = stepId;
     return this;
   }
 
   /**
-   * <p>The step ID.</p>
+   * The step ID.
+   *
    * @return stepId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STEP_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getStepId() {
-        return stepId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STEP_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getStepId() {
+    return stepId;
+  }
+
   public void setStepId(Long stepId) {
     this.stepId = stepId;
   }
+
   public SyntheticsStepDetail subTestStepDetails(List<SyntheticsStepDetail> subTestStepDetails) {
     this.subTestStepDetails = subTestStepDetails;
     for (SyntheticsStepDetail item : subTestStepDetails) {
@@ -371,7 +381,9 @@ public class SyntheticsStepDetail {
     }
     return this;
   }
-  public SyntheticsStepDetail addSubTestStepDetailsItem(SyntheticsStepDetail subTestStepDetailsItem) {
+
+  public SyntheticsStepDetail addSubTestStepDetailsItem(
+      SyntheticsStepDetail subTestStepDetailsItem) {
     if (this.subTestStepDetails == null) {
       this.subTestStepDetails = new ArrayList<>();
     }
@@ -381,39 +393,44 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * <p>If this step includes a sub-test.
-   * <a href="https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests">Subtests documentation</a>.</p>
+   * If this step includes a sub-test. <a
+   * href="https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests">Subtests
+   * documentation</a>.
+   *
    * @return subTestStepDetails
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SUB_TEST_STEP_DETAILS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SyntheticsStepDetail> getSubTestStepDetails() {
-        return subTestStepDetails;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUB_TEST_STEP_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsStepDetail> getSubTestStepDetails() {
+    return subTestStepDetails;
+  }
+
   public void setSubTestStepDetails(List<SyntheticsStepDetail> subTestStepDetails) {
     this.subTestStepDetails = subTestStepDetails;
   }
+
   public SyntheticsStepDetail timeToInteractive(Double timeToInteractive) {
     this.timeToInteractive = timeToInteractive;
     return this;
   }
 
   /**
-   * <p>Time before starting the step.</p>
+   * Time before starting the step.
+   *
    * @return timeToInteractive
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME_TO_INTERACTIVE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getTimeToInteractive() {
-        return timeToInteractive;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME_TO_INTERACTIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getTimeToInteractive() {
+    return timeToInteractive;
+  }
+
   public void setTimeToInteractive(Double timeToInteractive) {
     this.timeToInteractive = timeToInteractive;
   }
+
   public SyntheticsStepDetail type(SyntheticsStepType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -421,60 +438,66 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * <p>Step type used in your Synthetic test.</p>
+   * Step type used in your Synthetic test.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsStepType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsStepType getType() {
+    return type;
+  }
+
   public void setType(SyntheticsStepType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public SyntheticsStepDetail url(String url) {
     this.url = url;
     return this;
   }
 
   /**
-   * <p>URL to perform the step against.</p>
+   * URL to perform the step against.
+   *
    * @return url
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_URL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getUrl() {
-        return url;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUrl() {
+    return url;
+  }
+
   public void setUrl(String url) {
     this.url = url;
   }
+
   public SyntheticsStepDetail value(Object value) {
     this.value = value;
     return this;
   }
 
   /**
-   * <p>Value for the step.</p>
+   * Value for the step.
+   *
    * @return value
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getValue() {
-        return value;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getValue() {
+    return value;
+  }
+
   public void setValue(Object value) {
     this.value = value;
   }
+
   public SyntheticsStepDetail vitalsMetrics(List<SyntheticsCoreWebVitals> vitalsMetrics) {
     this.vitalsMetrics = vitalsMetrics;
     for (SyntheticsCoreWebVitals item : vitalsMetrics) {
@@ -482,6 +505,7 @@ public class SyntheticsStepDetail {
     }
     return this;
   }
+
   public SyntheticsStepDetail addVitalsMetricsItem(SyntheticsCoreWebVitals vitalsMetricsItem) {
     if (this.vitalsMetrics == null) {
       this.vitalsMetrics = new ArrayList<>();
@@ -492,19 +516,21 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * <p>Array of Core Web Vitals metrics for the step.</p>
+   * Array of Core Web Vitals metrics for the step.
+   *
    * @return vitalsMetrics
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VITALS_METRICS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SyntheticsCoreWebVitals> getVitalsMetrics() {
-        return vitalsMetrics;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VITALS_METRICS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsCoreWebVitals> getVitalsMetrics() {
+    return vitalsMetrics;
+  }
+
   public void setVitalsMetrics(List<SyntheticsCoreWebVitals> vitalsMetrics) {
     this.vitalsMetrics = vitalsMetrics;
   }
+
   public SyntheticsStepDetail warnings(List<SyntheticsStepDetailWarning> warnings) {
     this.warnings = warnings;
     for (SyntheticsStepDetailWarning item : warnings) {
@@ -512,6 +538,7 @@ public class SyntheticsStepDetail {
     }
     return this;
   }
+
   public SyntheticsStepDetail addWarningsItem(SyntheticsStepDetailWarning warningsItem) {
     if (this.warnings == null) {
       this.warnings = new ArrayList<>();
@@ -522,30 +549,30 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * <p>Warning collected that didn't failed the step.</p>
+   * Warning collected that didn't failed the step.
+   *
    * @return warnings
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_WARNINGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SyntheticsStepDetailWarning> getWarnings() {
-        return warnings;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsStepDetailWarning> getWarnings() {
+    return warnings;
+  }
+
   public void setWarnings(List<SyntheticsStepDetailWarning> warnings) {
     this.warnings = warnings;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -554,7 +581,7 @@ public class SyntheticsStepDetail {
   @JsonAnySetter
   public SyntheticsStepDetail putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -578,14 +605,12 @@ public class SyntheticsStepDetail {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsStepDetail object is equal to o.
-   */
+  /** Return true if this SyntheticsStepDetail object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -595,13 +620,51 @@ public class SyntheticsStepDetail {
       return false;
     }
     SyntheticsStepDetail syntheticsStepDetail = (SyntheticsStepDetail) o;
-    return Objects.equals(this.allowFailure, syntheticsStepDetail.allowFailure) && Objects.equals(this.browserErrors, syntheticsStepDetail.browserErrors) && Objects.equals(this.checkType, syntheticsStepDetail.checkType) && Objects.equals(this.description, syntheticsStepDetail.description) && Objects.equals(this.duration, syntheticsStepDetail.duration) && Objects.equals(this.error, syntheticsStepDetail.error) && Objects.equals(this.failure, syntheticsStepDetail.failure) && Objects.equals(this.playingTab, syntheticsStepDetail.playingTab) && Objects.equals(this.screenshotBucketKey, syntheticsStepDetail.screenshotBucketKey) && Objects.equals(this.skipped, syntheticsStepDetail.skipped) && Objects.equals(this.snapshotBucketKey, syntheticsStepDetail.snapshotBucketKey) && Objects.equals(this.stepId, syntheticsStepDetail.stepId) && Objects.equals(this.subTestStepDetails, syntheticsStepDetail.subTestStepDetails) && Objects.equals(this.timeToInteractive, syntheticsStepDetail.timeToInteractive) && Objects.equals(this.type, syntheticsStepDetail.type) && Objects.equals(this.url, syntheticsStepDetail.url) && Objects.equals(this.value, syntheticsStepDetail.value) && Objects.equals(this.vitalsMetrics, syntheticsStepDetail.vitalsMetrics) && Objects.equals(this.warnings, syntheticsStepDetail.warnings) && Objects.equals(this.additionalProperties, syntheticsStepDetail.additionalProperties);
+    return Objects.equals(this.allowFailure, syntheticsStepDetail.allowFailure)
+        && Objects.equals(this.browserErrors, syntheticsStepDetail.browserErrors)
+        && Objects.equals(this.checkType, syntheticsStepDetail.checkType)
+        && Objects.equals(this.description, syntheticsStepDetail.description)
+        && Objects.equals(this.duration, syntheticsStepDetail.duration)
+        && Objects.equals(this.error, syntheticsStepDetail.error)
+        && Objects.equals(this.failure, syntheticsStepDetail.failure)
+        && Objects.equals(this.playingTab, syntheticsStepDetail.playingTab)
+        && Objects.equals(this.screenshotBucketKey, syntheticsStepDetail.screenshotBucketKey)
+        && Objects.equals(this.skipped, syntheticsStepDetail.skipped)
+        && Objects.equals(this.snapshotBucketKey, syntheticsStepDetail.snapshotBucketKey)
+        && Objects.equals(this.stepId, syntheticsStepDetail.stepId)
+        && Objects.equals(this.subTestStepDetails, syntheticsStepDetail.subTestStepDetails)
+        && Objects.equals(this.timeToInteractive, syntheticsStepDetail.timeToInteractive)
+        && Objects.equals(this.type, syntheticsStepDetail.type)
+        && Objects.equals(this.url, syntheticsStepDetail.url)
+        && Objects.equals(this.value, syntheticsStepDetail.value)
+        && Objects.equals(this.vitalsMetrics, syntheticsStepDetail.vitalsMetrics)
+        && Objects.equals(this.warnings, syntheticsStepDetail.warnings)
+        && Objects.equals(this.additionalProperties, syntheticsStepDetail.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowFailure,browserErrors,checkType,description,duration,error,failure,playingTab,screenshotBucketKey,skipped,snapshotBucketKey,stepId,subTestStepDetails,timeToInteractive,type,url,value,vitalsMetrics,warnings, additionalProperties);
+    return Objects.hash(
+        allowFailure,
+        browserErrors,
+        checkType,
+        description,
+        duration,
+        error,
+        failure,
+        playingTab,
+        screenshotBucketKey,
+        skipped,
+        snapshotBucketKey,
+        stepId,
+        subTestStepDetails,
+        timeToInteractive,
+        type,
+        url,
+        value,
+        vitalsMetrics,
+        warnings,
+        additionalProperties);
   }
 
   @Override
@@ -616,7 +679,9 @@ public class SyntheticsStepDetail {
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
     sb.append("    playingTab: ").append(toIndentedString(playingTab)).append("\n");
-    sb.append("    screenshotBucketKey: ").append(toIndentedString(screenshotBucketKey)).append("\n");
+    sb.append("    screenshotBucketKey: ")
+        .append(toIndentedString(screenshotBucketKey))
+        .append("\n");
     sb.append("    skipped: ").append(toIndentedString(skipped)).append("\n");
     sb.append("    snapshotBucketKey: ").append(toIndentedString(snapshotBucketKey)).append("\n");
     sb.append("    stepId: ").append(toIndentedString(stepId)).append("\n");
@@ -635,8 +700,7 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

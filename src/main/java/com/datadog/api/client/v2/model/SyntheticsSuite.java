@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object containing details about a Synthetic suite.</p>
- */
+/** Object containing details about a Synthetic suite. */
 @JsonPropertyOrder({
   SyntheticsSuite.JSON_PROPERTY_MESSAGE,
   SyntheticsSuite.JSON_PROPERTY_MONITOR_ID,
@@ -44,10 +30,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsSuite.JSON_PROPERTY_TESTS,
   SyntheticsSuite.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsSuite {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
@@ -76,66 +62,71 @@ public class SyntheticsSuite {
 
   @JsonCreator
   public SyntheticsSuite(
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_OPTIONS)SyntheticsSuiteOptions options,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TESTS)List<SyntheticsSuiteTest> tests,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SyntheticsSuiteType type) {
-        this.name = name;
-        this.options = options;
-        this.unparsed |= options.unparsed;
-        this.tests = tests;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS) SyntheticsSuiteOptions options,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TESTS) List<SyntheticsSuiteTest> tests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsSuiteType type) {
+    this.name = name;
+    this.options = options;
+    this.unparsed |= options.unparsed;
+    this.tests = tests;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public SyntheticsSuite message(String message) {
     this.message = message;
     return this;
   }
 
   /**
-   * <p>Notification message associated with the suite.</p>
+   * Notification message associated with the suite.
+   *
    * @return message
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MESSAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getMessage() {
-        return message;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
+
   public void setMessage(String message) {
     this.message = message;
   }
 
   /**
-   * <p>The associated monitor ID.</p>
+   * The associated monitor ID.
+   *
    * @return monitorId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MONITOR_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getMonitorId() {
-        return monitorId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONITOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMonitorId() {
+    return monitorId;
+  }
+
   public SyntheticsSuite name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the suite.</p>
+   * Name of the suite.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public SyntheticsSuite options(SyntheticsSuiteOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
@@ -143,34 +134,37 @@ public class SyntheticsSuite {
   }
 
   /**
-   * <p>Object describing the extra options for a Synthetic suite.</p>
+   * Object describing the extra options for a Synthetic suite.
+   *
    * @return options
-  **/
-      @JsonProperty(JSON_PROPERTY_OPTIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsSuiteOptions getOptions() {
-        return options;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsSuiteOptions getOptions() {
+    return options;
+  }
+
   public void setOptions(SyntheticsSuiteOptions options) {
     this.options = options;
   }
 
   /**
-   * <p>The public ID for the test.</p>
+   * The public ID for the test.
+   *
    * @return publicId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublicId() {
-        return publicId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
   public SyntheticsSuite tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public SyntheticsSuite addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -180,19 +174,21 @@ public class SyntheticsSuite {
   }
 
   /**
-   * <p>Array of tags attached to the suite.</p>
+   * Array of tags attached to the suite.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public SyntheticsSuite tests(List<SyntheticsSuiteTest> tests) {
     this.tests = tests;
     for (SyntheticsSuiteTest item : tests) {
@@ -200,6 +196,7 @@ public class SyntheticsSuite {
     }
     return this;
   }
+
   public SyntheticsSuite addTestsItem(SyntheticsSuiteTest testsItem) {
     this.tests.add(testsItem);
     this.unparsed |= testsItem.unparsed;
@@ -207,18 +204,20 @@ public class SyntheticsSuite {
   }
 
   /**
-   * <p>Gettests</p>
+   * Gettests
+   *
    * @return tests
-  **/
-      @JsonProperty(JSON_PROPERTY_TESTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<SyntheticsSuiteTest> getTests() {
-        return tests;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TESTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<SyntheticsSuiteTest> getTests() {
+    return tests;
+  }
+
   public void setTests(List<SyntheticsSuiteTest> tests) {
     this.tests = tests;
   }
+
   public SyntheticsSuite type(SyntheticsSuiteType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -226,32 +225,32 @@ public class SyntheticsSuite {
   }
 
   /**
-   * <p>Type of the Synthetic suite, <code>suite</code>.</p>
+   * Type of the Synthetic suite, <code>suite</code>.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsSuiteType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsSuiteType getType() {
+    return type;
+  }
+
   public void setType(SyntheticsSuiteType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -260,7 +259,7 @@ public class SyntheticsSuite {
   @JsonAnySetter
   public SyntheticsSuite putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -284,14 +283,12 @@ public class SyntheticsSuite {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsSuite object is equal to o.
-   */
+  /** Return true if this SyntheticsSuite object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -301,13 +298,21 @@ public class SyntheticsSuite {
       return false;
     }
     SyntheticsSuite syntheticsSuite = (SyntheticsSuite) o;
-    return Objects.equals(this.message, syntheticsSuite.message) && Objects.equals(this.monitorId, syntheticsSuite.monitorId) && Objects.equals(this.name, syntheticsSuite.name) && Objects.equals(this.options, syntheticsSuite.options) && Objects.equals(this.publicId, syntheticsSuite.publicId) && Objects.equals(this.tags, syntheticsSuite.tags) && Objects.equals(this.tests, syntheticsSuite.tests) && Objects.equals(this.type, syntheticsSuite.type) && Objects.equals(this.additionalProperties, syntheticsSuite.additionalProperties);
+    return Objects.equals(this.message, syntheticsSuite.message)
+        && Objects.equals(this.monitorId, syntheticsSuite.monitorId)
+        && Objects.equals(this.name, syntheticsSuite.name)
+        && Objects.equals(this.options, syntheticsSuite.options)
+        && Objects.equals(this.publicId, syntheticsSuite.publicId)
+        && Objects.equals(this.tags, syntheticsSuite.tags)
+        && Objects.equals(this.tests, syntheticsSuite.tests)
+        && Objects.equals(this.type, syntheticsSuite.type)
+        && Objects.equals(this.additionalProperties, syntheticsSuite.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(message,monitorId,name,options,publicId,tags,tests,type, additionalProperties);
+    return Objects.hash(
+        message, monitorId, name, options, publicId, tags, tests, type, additionalProperties);
   }
 
   @Override
@@ -330,8 +335,7 @@ public class SyntheticsSuite {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

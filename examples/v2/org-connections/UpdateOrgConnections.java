@@ -1,7 +1,7 @@
 // Update Org Connection returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OrgConnectionsApi;
 import com.datadog.api.client.v2.model.OrgConnectionResponse;
 import com.datadog.api.client.v2.model.OrgConnectionType;
@@ -9,12 +9,7 @@ import com.datadog.api.client.v2.model.OrgConnectionTypeEnum;
 import com.datadog.api.client.v2.model.OrgConnectionUpdate;
 import com.datadog.api.client.v2.model.OrgConnectionUpdateAttributes;
 import com.datadog.api.client.v2.model.OrgConnectionUpdateRequest;
-import java.io.File;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 public class Example {
@@ -27,15 +22,20 @@ public class Example {
     try {
       ORG_CONNECTION_DATA_ID = UUID.fromString(System.getenv("ORG_CONNECTION_DATA_ID"));
     } catch (IllegalArgumentException e) {
-        System.err.println("Error parsing UUID: " + e.getMessage());
+      System.err.println("Error parsing UUID: " + e.getMessage());
     }
 
-    OrgConnectionUpdateRequest body = new OrgConnectionUpdateRequest()
-.data(new OrgConnectionUpdate()
-.type(OrgConnectionType.ORG_CONNECTION)
-.id(ORG_CONNECTION_DATA_ID)
-.attributes(new OrgConnectionUpdateAttributes()
-.connectionTypes(Arrays.asList(OrgConnectionTypeEnum.LOGS, OrgConnectionTypeEnum.METRICS))));
+    OrgConnectionUpdateRequest body =
+        new OrgConnectionUpdateRequest()
+            .data(
+                new OrgConnectionUpdate()
+                    .type(OrgConnectionType.ORG_CONNECTION)
+                    .id(ORG_CONNECTION_DATA_ID)
+                    .attributes(
+                        new OrgConnectionUpdateAttributes()
+                            .connectionTypes(
+                                Arrays.asList(
+                                    OrgConnectionTypeEnum.LOGS, OrgConnectionTypeEnum.METRICS))));
 
     try {
       OrgConnectionResponse result = apiInstance.updateOrgConnections(ORG_CONNECTION_DATA_ID, body);

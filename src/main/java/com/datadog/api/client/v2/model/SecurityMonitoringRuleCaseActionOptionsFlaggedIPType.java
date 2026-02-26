@@ -6,72 +6,59 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
-   * <p>Used with the case action of type 'flag_ip'. The value specified in this field is applied as a flag to the IP addresses.</p>
+ * Used with the case action of type 'flag_ip'. The value specified in this field is applied as a
+ * flag to the IP addresses.
  */
-@JsonSerialize(using = SecurityMonitoringRuleCaseActionOptionsFlaggedIPType.SecurityMonitoringRuleCaseActionOptionsFlaggedIPTypeSerializer.class)
+@JsonSerialize(
+    using =
+        SecurityMonitoringRuleCaseActionOptionsFlaggedIPType
+            .SecurityMonitoringRuleCaseActionOptionsFlaggedIPTypeSerializer.class)
 public class SecurityMonitoringRuleCaseActionOptionsFlaggedIPType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("SUSPICIOUS", "FLAGGED"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("SUSPICIOUS", "FLAGGED"));
 
-  public static final SecurityMonitoringRuleCaseActionOptionsFlaggedIPType SUSPICIOUS = new SecurityMonitoringRuleCaseActionOptionsFlaggedIPType("SUSPICIOUS");
-  public static final SecurityMonitoringRuleCaseActionOptionsFlaggedIPType FLAGGED = new SecurityMonitoringRuleCaseActionOptionsFlaggedIPType("FLAGGED");
-
+  public static final SecurityMonitoringRuleCaseActionOptionsFlaggedIPType SUSPICIOUS =
+      new SecurityMonitoringRuleCaseActionOptionsFlaggedIPType("SUSPICIOUS");
+  public static final SecurityMonitoringRuleCaseActionOptionsFlaggedIPType FLAGGED =
+      new SecurityMonitoringRuleCaseActionOptionsFlaggedIPType("FLAGGED");
 
   SecurityMonitoringRuleCaseActionOptionsFlaggedIPType(String value) {
     super(value, allowedValues);
   }
 
-  public static class SecurityMonitoringRuleCaseActionOptionsFlaggedIPTypeSerializer extends StdSerializer<SecurityMonitoringRuleCaseActionOptionsFlaggedIPType> {
-      public SecurityMonitoringRuleCaseActionOptionsFlaggedIPTypeSerializer(Class<SecurityMonitoringRuleCaseActionOptionsFlaggedIPType> t) {
-          super(t);
-      }
+  public static class SecurityMonitoringRuleCaseActionOptionsFlaggedIPTypeSerializer
+      extends StdSerializer<SecurityMonitoringRuleCaseActionOptionsFlaggedIPType> {
+    public SecurityMonitoringRuleCaseActionOptionsFlaggedIPTypeSerializer(
+        Class<SecurityMonitoringRuleCaseActionOptionsFlaggedIPType> t) {
+      super(t);
+    }
 
-      public SecurityMonitoringRuleCaseActionOptionsFlaggedIPTypeSerializer() {
-          this(null);
-      }
+    public SecurityMonitoringRuleCaseActionOptionsFlaggedIPTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(SecurityMonitoringRuleCaseActionOptionsFlaggedIPType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        SecurityMonitoringRuleCaseActionOptionsFlaggedIPType value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

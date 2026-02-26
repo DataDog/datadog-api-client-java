@@ -1,37 +1,35 @@
 // Create a tag configuration returns "Created" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.MetricsApi;
-import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
 import com.datadog.api.client.v2.model.MetricTagConfigurationCreateAttributes;
 import com.datadog.api.client.v2.model.MetricTagConfigurationCreateData;
 import com.datadog.api.client.v2.model.MetricTagConfigurationCreateRequest;
 import com.datadog.api.client.v2.model.MetricTagConfigurationMetricTypes;
+import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
 import com.datadog.api.client.v2.model.MetricTagConfigurationType;
-import java.io.File;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
-    MetricTagConfigurationCreateRequest body = new MetricTagConfigurationCreateRequest()
-.data(new MetricTagConfigurationCreateData()
-.type(MetricTagConfigurationType.MANAGE_TAGS)
-.id("ExampleMetric")
-.attributes(new MetricTagConfigurationCreateAttributes()
-.tags(Arrays.asList("app", "datacenter"))
-.metricType(MetricTagConfigurationMetricTypes.GAUGE)));
+    MetricTagConfigurationCreateRequest body =
+        new MetricTagConfigurationCreateRequest()
+            .data(
+                new MetricTagConfigurationCreateData()
+                    .type(MetricTagConfigurationType.MANAGE_TAGS)
+                    .id("ExampleMetric")
+                    .attributes(
+                        new MetricTagConfigurationCreateAttributes()
+                            .tags(Arrays.asList("app", "datacenter"))
+                            .metricType(MetricTagConfigurationMetricTypes.GAUGE)));
 
     try {
-      MetricTagConfigurationResponse result = apiInstance.createTagConfiguration("ExampleMetric", body);
+      MetricTagConfigurationResponse result =
+          apiInstance.createTagConfiguration("ExampleMetric", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#createTagConfiguration");

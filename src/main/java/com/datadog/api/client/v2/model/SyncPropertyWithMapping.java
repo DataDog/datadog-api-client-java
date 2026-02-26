@@ -6,43 +6,26 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Sync property with mapping configuration</p>
- */
+/** Sync property with mapping configuration */
 @JsonPropertyOrder({
   SyncPropertyWithMapping.JSON_PROPERTY_MAPPING,
   SyncPropertyWithMapping.JSON_PROPERTY_NAME_MAPPING,
   SyncPropertyWithMapping.JSON_PROPERTY_SYNC_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyncPropertyWithMapping {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MAPPING = "mapping";
   private Map<String, String> mapping = null;
 
@@ -56,6 +39,7 @@ public class SyncPropertyWithMapping {
     this.mapping = mapping;
     return this;
   }
+
   public SyncPropertyWithMapping putMappingItem(String key, String mappingItem) {
     if (this.mapping == null) {
       this.mapping = new HashMap<>();
@@ -65,23 +49,26 @@ public class SyncPropertyWithMapping {
   }
 
   /**
-   * <p>Getmapping</p>
+   * Getmapping
+   *
    * @return mapping
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MAPPING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, String> getMapping() {
-        return mapping;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAPPING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getMapping() {
+    return mapping;
+  }
+
   public void setMapping(Map<String, String> mapping) {
     this.mapping = mapping;
   }
+
   public SyncPropertyWithMapping nameMapping(Map<String, String> nameMapping) {
     this.nameMapping = nameMapping;
     return this;
   }
+
   public SyncPropertyWithMapping putNameMappingItem(String key, String nameMappingItem) {
     if (this.nameMapping == null) {
       this.nameMapping = new HashMap<>();
@@ -91,49 +78,51 @@ public class SyncPropertyWithMapping {
   }
 
   /**
-   * <p>GetnameMapping</p>
+   * GetnameMapping
+   *
    * @return nameMapping
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME_MAPPING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, String> getNameMapping() {
-        return nameMapping;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME_MAPPING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getNameMapping() {
+    return nameMapping;
+  }
+
   public void setNameMapping(Map<String, String> nameMapping) {
     this.nameMapping = nameMapping;
   }
+
   public SyncPropertyWithMapping syncType(String syncType) {
     this.syncType = syncType;
     return this;
   }
 
   /**
-   * <p>GetsyncType</p>
+   * GetsyncType
+   *
    * @return syncType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SYNC_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSyncType() {
-        return syncType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYNC_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSyncType() {
+    return syncType;
+  }
+
   public void setSyncType(String syncType) {
     this.syncType = syncType;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -142,7 +131,7 @@ public class SyncPropertyWithMapping {
   @JsonAnySetter
   public SyncPropertyWithMapping putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -166,14 +155,12 @@ public class SyncPropertyWithMapping {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyncPropertyWithMapping object is equal to o.
-   */
+  /** Return true if this SyncPropertyWithMapping object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -183,13 +170,15 @@ public class SyncPropertyWithMapping {
       return false;
     }
     SyncPropertyWithMapping syncPropertyWithMapping = (SyncPropertyWithMapping) o;
-    return Objects.equals(this.mapping, syncPropertyWithMapping.mapping) && Objects.equals(this.nameMapping, syncPropertyWithMapping.nameMapping) && Objects.equals(this.syncType, syncPropertyWithMapping.syncType) && Objects.equals(this.additionalProperties, syncPropertyWithMapping.additionalProperties);
+    return Objects.equals(this.mapping, syncPropertyWithMapping.mapping)
+        && Objects.equals(this.nameMapping, syncPropertyWithMapping.nameMapping)
+        && Objects.equals(this.syncType, syncPropertyWithMapping.syncType)
+        && Objects.equals(this.additionalProperties, syncPropertyWithMapping.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(mapping,nameMapping,syncType, additionalProperties);
+    return Objects.hash(mapping, nameMapping, syncType, additionalProperties);
   }
 
   @Override
@@ -207,8 +196,7 @@ public class SyncPropertyWithMapping {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,34 +6,15 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Datadog product integrations for the API entity.</p>
- */
+/** Datadog product integrations for the API entity. */
 @JsonPropertyOrder({
   EntityV3APIDatadog.JSON_PROPERTY_CODE_LOCATIONS,
   EntityV3APIDatadog.JSON_PROPERTY_EVENTS,
@@ -41,10 +22,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   EntityV3APIDatadog.JSON_PROPERTY_PERFORMANCE_DATA,
   EntityV3APIDatadog.JSON_PROPERTY_PIPELINES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EntityV3APIDatadog {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CODE_LOCATIONS = "codeLocations";
   private List<EntityV3DatadogCodeLocationItem> codeLocations = null;
 
@@ -67,7 +48,9 @@ public class EntityV3APIDatadog {
     }
     return this;
   }
-  public EntityV3APIDatadog addCodeLocationsItem(EntityV3DatadogCodeLocationItem codeLocationsItem) {
+
+  public EntityV3APIDatadog addCodeLocationsItem(
+      EntityV3DatadogCodeLocationItem codeLocationsItem) {
     if (this.codeLocations == null) {
       this.codeLocations = new ArrayList<>();
     }
@@ -77,19 +60,21 @@ public class EntityV3APIDatadog {
   }
 
   /**
-   * <p>Schema for mapping source code locations to an entity.</p>
+   * Schema for mapping source code locations to an entity.
+   *
    * @return codeLocations
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CODE_LOCATIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<EntityV3DatadogCodeLocationItem> getCodeLocations() {
-        return codeLocations;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_LOCATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<EntityV3DatadogCodeLocationItem> getCodeLocations() {
+    return codeLocations;
+  }
+
   public void setCodeLocations(List<EntityV3DatadogCodeLocationItem> codeLocations) {
     this.codeLocations = codeLocations;
   }
+
   public EntityV3APIDatadog events(List<EntityV3DatadogEventItem> events) {
     this.events = events;
     for (EntityV3DatadogEventItem item : events) {
@@ -97,6 +82,7 @@ public class EntityV3APIDatadog {
     }
     return this;
   }
+
   public EntityV3APIDatadog addEventsItem(EntityV3DatadogEventItem eventsItem) {
     if (this.events == null) {
       this.events = new ArrayList<>();
@@ -107,19 +93,21 @@ public class EntityV3APIDatadog {
   }
 
   /**
-   * <p>Events associations.</p>
+   * Events associations.
+   *
    * @return events
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EVENTS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<EntityV3DatadogEventItem> getEvents() {
-        return events;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<EntityV3DatadogEventItem> getEvents() {
+    return events;
+  }
+
   public void setEvents(List<EntityV3DatadogEventItem> events) {
     this.events = events;
   }
+
   public EntityV3APIDatadog logs(List<EntityV3DatadogLogItem> logs) {
     this.logs = logs;
     for (EntityV3DatadogLogItem item : logs) {
@@ -127,6 +115,7 @@ public class EntityV3APIDatadog {
     }
     return this;
   }
+
   public EntityV3APIDatadog addLogsItem(EntityV3DatadogLogItem logsItem) {
     if (this.logs == null) {
       this.logs = new ArrayList<>();
@@ -137,19 +126,21 @@ public class EntityV3APIDatadog {
   }
 
   /**
-   * <p>Logs association.</p>
+   * Logs association.
+   *
    * @return logs
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<EntityV3DatadogLogItem> getLogs() {
-        return logs;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<EntityV3DatadogLogItem> getLogs() {
+    return logs;
+  }
+
   public void setLogs(List<EntityV3DatadogLogItem> logs) {
     this.logs = logs;
   }
+
   public EntityV3APIDatadog performanceData(EntityV3DatadogPerformance performanceData) {
     this.performanceData = performanceData;
     this.unparsed |= performanceData.unparsed;
@@ -157,19 +148,21 @@ public class EntityV3APIDatadog {
   }
 
   /**
-   * <p>Performance stats association.</p>
+   * Performance stats association.
+   *
    * @return performanceData
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PERFORMANCE_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EntityV3DatadogPerformance getPerformanceData() {
-        return performanceData;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EntityV3DatadogPerformance getPerformanceData() {
+    return performanceData;
+  }
+
   public void setPerformanceData(EntityV3DatadogPerformance performanceData) {
     this.performanceData = performanceData;
   }
+
   public EntityV3APIDatadog pipelines(EntityV3DatadogPipelines pipelines) {
     this.pipelines = pipelines;
     this.unparsed |= pipelines.unparsed;
@@ -177,23 +170,22 @@ public class EntityV3APIDatadog {
   }
 
   /**
-   * <p>CI Pipelines association.</p>
+   * CI Pipelines association.
+   *
    * @return pipelines
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PIPELINES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EntityV3DatadogPipelines getPipelines() {
-        return pipelines;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PIPELINES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EntityV3DatadogPipelines getPipelines() {
+    return pipelines;
+  }
+
   public void setPipelines(EntityV3DatadogPipelines pipelines) {
     this.pipelines = pipelines;
   }
 
-  /**
-   * Return true if this EntityV3APIDatadog object is equal to o.
-   */
+  /** Return true if this EntityV3APIDatadog object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -203,13 +195,16 @@ public class EntityV3APIDatadog {
       return false;
     }
     EntityV3APIDatadog entityV3ApiDatadog = (EntityV3APIDatadog) o;
-    return Objects.equals(this.codeLocations, entityV3ApiDatadog.codeLocations) && Objects.equals(this.events, entityV3ApiDatadog.events) && Objects.equals(this.logs, entityV3ApiDatadog.logs) && Objects.equals(this.performanceData, entityV3ApiDatadog.performanceData) && Objects.equals(this.pipelines, entityV3ApiDatadog.pipelines);
+    return Objects.equals(this.codeLocations, entityV3ApiDatadog.codeLocations)
+        && Objects.equals(this.events, entityV3ApiDatadog.events)
+        && Objects.equals(this.logs, entityV3ApiDatadog.logs)
+        && Objects.equals(this.performanceData, entityV3ApiDatadog.performanceData)
+        && Objects.equals(this.pipelines, entityV3ApiDatadog.pipelines);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeLocations,events,logs,performanceData,pipelines);
+    return Objects.hash(codeLocations, events, logs, performanceData, pipelines);
   }
 
   @Override
@@ -226,8 +221,7 @@ public class EntityV3APIDatadog {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

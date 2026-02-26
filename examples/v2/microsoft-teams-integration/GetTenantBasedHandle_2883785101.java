@@ -1,16 +1,9 @@
 // Get api handle information returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.MicrosoftTeamsIntegrationApi;
 import com.datadog.api.client.v2.model.MicrosoftTeamsTenantBasedHandleResponse;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,10 +14,12 @@ public class Example {
     String TENANT_BASED_HANDLE_DATA_ID = System.getenv("TENANT_BASED_HANDLE_DATA_ID");
 
     try {
-      MicrosoftTeamsTenantBasedHandleResponse result = apiInstance.getTenantBasedHandle(TENANT_BASED_HANDLE_DATA_ID);
+      MicrosoftTeamsTenantBasedHandleResponse result =
+          apiInstance.getTenantBasedHandle(TENANT_BASED_HANDLE_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MicrosoftTeamsIntegrationApi#getTenantBasedHandle");
+      System.err.println(
+          "Exception when calling MicrosoftTeamsIntegrationApi#getTenantBasedHandle");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

@@ -1,20 +1,13 @@
 // Update Fastly account returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.FastlyIntegrationApi;
 import com.datadog.api.client.v2.model.FastlyAccountResponse;
 import com.datadog.api.client.v2.model.FastlyAccountType;
 import com.datadog.api.client.v2.model.FastlyAccountUpdateRequest;
 import com.datadog.api.client.v2.model.FastlyAccountUpdateRequestAttributes;
 import com.datadog.api.client.v2.model.FastlyAccountUpdateRequestData;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,11 +17,12 @@ public class Example {
     // there is a valid "fastly_account" in the system
     String FASTLY_ACCOUNT_DATA_ID = System.getenv("FASTLY_ACCOUNT_DATA_ID");
 
-    FastlyAccountUpdateRequest body = new FastlyAccountUpdateRequest()
-.data(new FastlyAccountUpdateRequestData()
-.attributes(new FastlyAccountUpdateRequestAttributes()
-.apiKey("update-secret"))
-.type(FastlyAccountType.FASTLY_ACCOUNTS));
+    FastlyAccountUpdateRequest body =
+        new FastlyAccountUpdateRequest()
+            .data(
+                new FastlyAccountUpdateRequestData()
+                    .attributes(new FastlyAccountUpdateRequestAttributes().apiKey("update-secret"))
+                    .type(FastlyAccountType.FASTLY_ACCOUNTS));
 
     try {
       FastlyAccountResponse result = apiInstance.updateFastlyAccount(FASTLY_ACCOUNT_DATA_ID, body);

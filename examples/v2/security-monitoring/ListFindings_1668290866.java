@@ -1,18 +1,12 @@
 // List findings with detection_type query param returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi.ListFindingsOptionalParameters;
-import com.datadog.api.client.v2.model.ListFindingsResponse;
 import com.datadog.api.client.v2.model.FindingVulnerabilityType;
-import java.io.File;
-import java.time.OffsetDateTime;
+import com.datadog.api.client.v2.model.ListFindingsResponse;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,7 +15,13 @@ public class Example {
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     try {
-      ListFindingsResponse result = apiInstance.listFindings(new ListFindingsOptionalParameters().filterVulnerabilityType(Arrays.asList(FindingVulnerabilityType.MISCONFIGURATION, FindingVulnerabilityType.ATTACK_PATH)));
+      ListFindingsResponse result =
+          apiInstance.listFindings(
+              new ListFindingsOptionalParameters()
+                  .filterVulnerabilityType(
+                      Arrays.asList(
+                          FindingVulnerabilityType.MISCONFIGURATION,
+                          FindingVulnerabilityType.ATTACK_PATH)));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SecurityMonitoringApi#listFindings");

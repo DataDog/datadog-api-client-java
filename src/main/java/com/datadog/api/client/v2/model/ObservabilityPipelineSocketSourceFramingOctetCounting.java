@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,22 +13,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Byte frames according to the octet counting format as per RFC6587.</p>
- */
-@JsonPropertyOrder({
-  ObservabilityPipelineSocketSourceFramingOctetCounting.JSON_PROPERTY_METHOD
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Byte frames according to the octet counting format as per RFC6587. */
+@JsonPropertyOrder({ObservabilityPipelineSocketSourceFramingOctetCounting.JSON_PROPERTY_METHOD})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSocketSourceFramingOctetCounting {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_METHOD = "method";
   private ObservabilityPipelineSocketSourceFramingOctetCountingMethod method;
 
@@ -48,52 +30,56 @@ public class ObservabilityPipelineSocketSourceFramingOctetCounting {
 
   @JsonCreator
   public ObservabilityPipelineSocketSourceFramingOctetCounting(
-            @JsonProperty(required=true, value=JSON_PROPERTY_METHOD)ObservabilityPipelineSocketSourceFramingOctetCountingMethod method) {
-        this.method = method;
-        this.unparsed |= !method.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_METHOD)
+          ObservabilityPipelineSocketSourceFramingOctetCountingMethod method) {
+    this.method = method;
+    this.unparsed |= !method.isValid();
   }
-  public ObservabilityPipelineSocketSourceFramingOctetCounting method(ObservabilityPipelineSocketSourceFramingOctetCountingMethod method) {
+
+  public ObservabilityPipelineSocketSourceFramingOctetCounting method(
+      ObservabilityPipelineSocketSourceFramingOctetCountingMethod method) {
     this.method = method;
     this.unparsed |= !method.isValid();
     return this;
   }
 
   /**
-   * <p>Byte frames according to the octet counting format as per RFC6587.</p>
+   * Byte frames according to the octet counting format as per RFC6587.
+   *
    * @return method
-  **/
-      @JsonProperty(JSON_PROPERTY_METHOD)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ObservabilityPipelineSocketSourceFramingOctetCountingMethod getMethod() {
-        return method;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_METHOD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineSocketSourceFramingOctetCountingMethod getMethod() {
+    return method;
+  }
+
   public void setMethod(ObservabilityPipelineSocketSourceFramingOctetCountingMethod method) {
     if (!method.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.method = method;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ObservabilityPipelineSocketSourceFramingOctetCounting
    */
   @JsonAnySetter
-  public ObservabilityPipelineSocketSourceFramingOctetCounting putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineSocketSourceFramingOctetCounting putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -117,7 +103,7 @@ public class ObservabilityPipelineSocketSourceFramingOctetCounting {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
@@ -133,10 +119,14 @@ public class ObservabilityPipelineSocketSourceFramingOctetCounting {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineSocketSourceFramingOctetCounting observabilityPipelineSocketSourceFramingOctetCounting = (ObservabilityPipelineSocketSourceFramingOctetCounting) o;
-    return Objects.equals(this.method, observabilityPipelineSocketSourceFramingOctetCounting.method) && Objects.equals(this.additionalProperties, observabilityPipelineSocketSourceFramingOctetCounting.additionalProperties);
+    ObservabilityPipelineSocketSourceFramingOctetCounting
+        observabilityPipelineSocketSourceFramingOctetCounting =
+            (ObservabilityPipelineSocketSourceFramingOctetCounting) o;
+    return Objects.equals(this.method, observabilityPipelineSocketSourceFramingOctetCounting.method)
+        && Objects.equals(
+            this.additionalProperties,
+            observabilityPipelineSocketSourceFramingOctetCounting.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
@@ -156,8 +146,7 @@ public class ObservabilityPipelineSocketSourceFramingOctetCounting {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

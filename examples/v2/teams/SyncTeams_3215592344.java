@@ -1,7 +1,7 @@
 // Sync teams returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.TeamsApi;
 import com.datadog.api.client.v2.model.TeamSyncAttributes;
 import com.datadog.api.client.v2.model.TeamSyncAttributesSource;
@@ -9,25 +9,21 @@ import com.datadog.api.client.v2.model.TeamSyncAttributesType;
 import com.datadog.api.client.v2.model.TeamSyncBulkType;
 import com.datadog.api.client.v2.model.TeamSyncData;
 import com.datadog.api.client.v2.model.TeamSyncRequest;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
-    TeamSyncRequest body = new TeamSyncRequest()
-.data(new TeamSyncData()
-.attributes(new TeamSyncAttributes()
-.source(TeamSyncAttributesSource.GITHUB)
-.type(TeamSyncAttributesType.LINK))
-.type(TeamSyncBulkType.TEAM_SYNC_BULK));
+    TeamSyncRequest body =
+        new TeamSyncRequest()
+            .data(
+                new TeamSyncData()
+                    .attributes(
+                        new TeamSyncAttributes()
+                            .source(TeamSyncAttributesSource.GITHUB)
+                            .type(TeamSyncAttributesType.LINK))
+                    .type(TeamSyncBulkType.TEAM_SYNC_BULK));
 
     try {
       apiInstance.syncTeams(body);

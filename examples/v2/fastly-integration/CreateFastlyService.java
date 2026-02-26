@@ -1,32 +1,29 @@
 // Add Fastly service returns "CREATED" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.FastlyIntegrationApi;
-import com.datadog.api.client.v2.model.FastlyServiceResponse;
 import com.datadog.api.client.v2.model.FastlyServiceAttributes;
 import com.datadog.api.client.v2.model.FastlyServiceData;
 import com.datadog.api.client.v2.model.FastlyServiceRequest;
+import com.datadog.api.client.v2.model.FastlyServiceResponse;
 import com.datadog.api.client.v2.model.FastlyServiceType;
-import java.io.File;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     FastlyIntegrationApi apiInstance = new FastlyIntegrationApi(defaultClient);
 
-    FastlyServiceRequest body = new FastlyServiceRequest()
-.data(new FastlyServiceData()
-.attributes(new FastlyServiceAttributes()
-.tags(Arrays.asList("myTag", "myTag2:myValue")))
-.id("abc123")
-.type(FastlyServiceType.FASTLY_SERVICES));
+    FastlyServiceRequest body =
+        new FastlyServiceRequest()
+            .data(
+                new FastlyServiceData()
+                    .attributes(
+                        new FastlyServiceAttributes()
+                            .tags(Arrays.asList("myTag", "myTag2:myValue")))
+                    .id("abc123")
+                    .type(FastlyServiceType.FASTLY_SERVICES));
 
     try {
       FastlyServiceResponse result = apiInstance.createFastlyService("account_id", body);

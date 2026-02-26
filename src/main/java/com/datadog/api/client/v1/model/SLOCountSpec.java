@@ -6,41 +6,19 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A metric SLI specification.</p>
- */
-@JsonPropertyOrder({
-  SLOCountSpec.JSON_PROPERTY_COUNT
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** A metric SLI specification. */
+@JsonPropertyOrder({SLOCountSpec.JSON_PROPERTY_COUNT})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCountSpec {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNT = "count";
   private SLOCountDefinition count;
 
@@ -48,10 +26,11 @@ public class SLOCountSpec {
 
   @JsonCreator
   public SLOCountSpec(
-            @JsonProperty(required=true, value=JSON_PROPERTY_COUNT)SLOCountDefinition count) {
-        this.count = count;
-        this.unparsed |= count.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_COUNT) SLOCountDefinition count) {
+    this.count = count;
+    this.unparsed |= count.unparsed;
   }
+
   public SLOCountSpec count(SLOCountDefinition count) {
     this.count = count;
     this.unparsed |= count.unparsed;
@@ -59,23 +38,22 @@ public class SLOCountSpec {
   }
 
   /**
-   * <p>A count-based (metric) SLI specification, composed of three parts: the good events formula, the total events formula,
-   * and the underlying queries.</p>
+   * A count-based (metric) SLI specification, composed of three parts: the good events formula, the
+   * total events formula, and the underlying queries.
+   *
    * @return count
-  **/
-      @JsonProperty(JSON_PROPERTY_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SLOCountDefinition getCount() {
-        return count;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SLOCountDefinition getCount() {
+    return count;
+  }
+
   public void setCount(SLOCountDefinition count) {
     this.count = count;
   }
 
-  /**
-   * Return true if this SLOCountSpec object is equal to o.
-   */
+  /** Return true if this SLOCountSpec object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -87,7 +65,6 @@ public class SLOCountSpec {
     SLOCountSpec sloCountSpec = (SLOCountSpec) o;
     return Objects.equals(this.count, sloCountSpec.count);
   }
-
 
   @Override
   public int hashCode() {
@@ -104,8 +81,7 @@ public class SLOCountSpec {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,44 +6,29 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A host that is part of a deployment with its current status.</p>
- */
+/** A host that is part of a deployment with its current status. */
 @JsonPropertyOrder({
   FleetDeploymentHost.JSON_PROPERTY_ERROR,
   FleetDeploymentHost.JSON_PROPERTY_HOSTNAME,
   FleetDeploymentHost.JSON_PROPERTY_STATUS,
   FleetDeploymentHost.JSON_PROPERTY_VERSIONS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FleetDeploymentHost {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERROR = "error";
   private String error;
 
@@ -62,57 +47,63 @@ public class FleetDeploymentHost {
   }
 
   /**
-   * <p>Error message if the deployment failed on this host.</p>
+   * Error message if the deployment failed on this host.
+   *
    * @return error
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ERROR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getError() {
-        return error;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getError() {
+    return error;
+  }
+
   public void setError(String error) {
     this.error = error;
   }
+
   public FleetDeploymentHost hostname(String hostname) {
     this.hostname = hostname;
     return this;
   }
 
   /**
-   * <p>The hostname of the agent.</p>
+   * The hostname of the agent.
+   *
    * @return hostname
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOSTNAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHostname() {
-        return hostname;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOSTNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHostname() {
+    return hostname;
+  }
+
   public void setHostname(String hostname) {
     this.hostname = hostname;
   }
+
   public FleetDeploymentHost status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * <p>Current deployment status for this specific host.</p>
+   * Current deployment status for this specific host.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatus() {
+    return status;
+  }
+
   public void setStatus(String status) {
     this.status = status;
   }
+
   public FleetDeploymentHost versions(List<FleetDeploymentHostPackage> versions) {
     this.versions = versions;
     for (FleetDeploymentHostPackage item : versions) {
@@ -120,6 +111,7 @@ public class FleetDeploymentHost {
     }
     return this;
   }
+
   public FleetDeploymentHost addVersionsItem(FleetDeploymentHostPackage versionsItem) {
     if (this.versions == null) {
       this.versions = new ArrayList<>();
@@ -130,30 +122,30 @@ public class FleetDeploymentHost {
   }
 
   /**
-   * <p>List of packages and their versions currently installed on this host.</p>
+   * List of packages and their versions currently installed on this host.
+   *
    * @return versions
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERSIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<FleetDeploymentHostPackage> getVersions() {
-        return versions;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FleetDeploymentHostPackage> getVersions() {
+    return versions;
+  }
+
   public void setVersions(List<FleetDeploymentHostPackage> versions) {
     this.versions = versions;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -162,7 +154,7 @@ public class FleetDeploymentHost {
   @JsonAnySetter
   public FleetDeploymentHost putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -186,14 +178,12 @@ public class FleetDeploymentHost {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this FleetDeploymentHost object is equal to o.
-   */
+  /** Return true if this FleetDeploymentHost object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -203,13 +193,16 @@ public class FleetDeploymentHost {
       return false;
     }
     FleetDeploymentHost fleetDeploymentHost = (FleetDeploymentHost) o;
-    return Objects.equals(this.error, fleetDeploymentHost.error) && Objects.equals(this.hostname, fleetDeploymentHost.hostname) && Objects.equals(this.status, fleetDeploymentHost.status) && Objects.equals(this.versions, fleetDeploymentHost.versions) && Objects.equals(this.additionalProperties, fleetDeploymentHost.additionalProperties);
+    return Objects.equals(this.error, fleetDeploymentHost.error)
+        && Objects.equals(this.hostname, fleetDeploymentHost.hostname)
+        && Objects.equals(this.status, fleetDeploymentHost.status)
+        && Objects.equals(this.versions, fleetDeploymentHost.versions)
+        && Objects.equals(this.additionalProperties, fleetDeploymentHost.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(error,hostname,status,versions, additionalProperties);
+    return Objects.hash(error, hostname, status, versions, additionalProperties);
   }
 
   @Override
@@ -228,8 +221,7 @@ public class FleetDeploymentHost {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

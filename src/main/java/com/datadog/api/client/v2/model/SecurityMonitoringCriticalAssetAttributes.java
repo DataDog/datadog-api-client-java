@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The attributes of the critical asset.</p>
- */
+/** The attributes of the critical asset. */
 @JsonPropertyOrder({
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_CREATION_AUTHOR_ID,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_CREATION_DATE,
@@ -48,10 +33,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_UPDATER,
   SecurityMonitoringCriticalAssetAttributes.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringCriticalAssetAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATION_AUTHOR_ID = "creation_author_id";
   private Long creationAuthorId;
 
@@ -94,38 +79,42 @@ public class SecurityMonitoringCriticalAssetAttributes {
   }
 
   /**
-   * <p>ID of user who created the critical asset.</p>
+   * ID of user who created the critical asset.
+   *
    * @return creationAuthorId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATION_AUTHOR_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getCreationAuthorId() {
-        return creationAuthorId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATION_AUTHOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCreationAuthorId() {
+    return creationAuthorId;
+  }
+
   public void setCreationAuthorId(Long creationAuthorId) {
     this.creationAuthorId = creationAuthorId;
   }
+
   public SecurityMonitoringCriticalAssetAttributes creationDate(Long creationDate) {
     this.creationDate = creationDate;
     return this;
   }
 
   /**
-   * <p>A Unix millisecond timestamp given the creation date of the critical asset.</p>
+   * A Unix millisecond timestamp given the creation date of the critical asset.
+   *
    * @return creationDate
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATION_DATE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getCreationDate() {
-        return creationDate;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCreationDate() {
+    return creationDate;
+  }
+
   public void setCreationDate(Long creationDate) {
     this.creationDate = creationDate;
   }
+
   public SecurityMonitoringCriticalAssetAttributes creator(SecurityMonitoringUser creator) {
     this.creator = creator;
     this.unparsed |= creator.unparsed;
@@ -133,103 +122,118 @@ public class SecurityMonitoringCriticalAssetAttributes {
   }
 
   /**
-   * <p>A user.</p>
+   * A user.
+   *
    * @return creator
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecurityMonitoringUser getCreator() {
-        return creator;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringUser getCreator() {
+    return creator;
+  }
+
   public void setCreator(SecurityMonitoringUser creator) {
     this.creator = creator;
   }
+
   public SecurityMonitoringCriticalAssetAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * <p>Whether the critical asset is enabled.</p>
+   * Whether the critical asset is enabled.
+   *
    * @return enabled
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getEnabled() {
-        return enabled;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
+
   public SecurityMonitoringCriticalAssetAttributes query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * <p>The query for the critical asset. It uses the same syntax as the queries to search signals in the Signals Explorer.</p>
+   * The query for the critical asset. It uses the same syntax as the queries to search signals in
+   * the Signals Explorer.
+   *
    * @return query
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getQuery() {
-        return query;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQuery() {
+    return query;
+  }
+
   public void setQuery(String query) {
     this.query = query;
   }
+
   public SecurityMonitoringCriticalAssetAttributes ruleQuery(String ruleQuery) {
     this.ruleQuery = ruleQuery;
     return this;
   }
 
   /**
-   * <p>The rule query of the critical asset, with the same syntax as the search bar for detection rules. This determines which rules this critical asset will apply to.</p>
+   * The rule query of the critical asset, with the same syntax as the search bar for detection
+   * rules. This determines which rules this critical asset will apply to.
+   *
    * @return ruleQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RULE_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRuleQuery() {
-        return ruleQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RULE_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRuleQuery() {
+    return ruleQuery;
+  }
+
   public void setRuleQuery(String ruleQuery) {
     this.ruleQuery = ruleQuery;
   }
-  public SecurityMonitoringCriticalAssetAttributes severity(SecurityMonitoringCriticalAssetSeverity severity) {
+
+  public SecurityMonitoringCriticalAssetAttributes severity(
+      SecurityMonitoringCriticalAssetSeverity severity) {
     this.severity = severity;
     this.unparsed |= !severity.isValid();
     return this;
   }
 
   /**
-   * <p>Severity associated with this critical asset. Either an explicit severity can be set, or the severity can be increased or decreased.</p>
+   * Severity associated with this critical asset. Either an explicit severity can be set, or the
+   * severity can be increased or decreased.
+   *
    * @return severity
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SEVERITY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecurityMonitoringCriticalAssetSeverity getSeverity() {
-        return severity;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEVERITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringCriticalAssetSeverity getSeverity() {
+    return severity;
+  }
+
   public void setSeverity(SecurityMonitoringCriticalAssetSeverity severity) {
     if (!severity.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.severity = severity;
   }
+
   public SecurityMonitoringCriticalAssetAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public SecurityMonitoringCriticalAssetAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -239,57 +243,63 @@ public class SecurityMonitoringCriticalAssetAttributes {
   }
 
   /**
-   * <p>List of tags associated with the critical asset.</p>
+   * List of tags associated with the critical asset.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public SecurityMonitoringCriticalAssetAttributes updateAuthorId(Long updateAuthorId) {
     this.updateAuthorId = updateAuthorId;
     return this;
   }
 
   /**
-   * <p>ID of user who updated the critical asset.</p>
+   * ID of user who updated the critical asset.
+   *
    * @return updateAuthorId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_UPDATE_AUTHOR_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getUpdateAuthorId() {
-        return updateAuthorId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATE_AUTHOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUpdateAuthorId() {
+    return updateAuthorId;
+  }
+
   public void setUpdateAuthorId(Long updateAuthorId) {
     this.updateAuthorId = updateAuthorId;
   }
+
   public SecurityMonitoringCriticalAssetAttributes updateDate(Long updateDate) {
     this.updateDate = updateDate;
     return this;
   }
 
   /**
-   * <p>A Unix millisecond timestamp given the update date of the critical asset.</p>
+   * A Unix millisecond timestamp given the update date of the critical asset.
+   *
    * @return updateDate
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_UPDATE_DATE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getUpdateDate() {
-        return updateDate;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUpdateDate() {
+    return updateDate;
+  }
+
   public void setUpdateDate(Long updateDate) {
     this.updateDate = updateDate;
   }
+
   public SecurityMonitoringCriticalAssetAttributes updater(SecurityMonitoringUser updater) {
     this.updater = updater;
     this.unparsed |= updater.unparsed;
@@ -297,50 +307,52 @@ public class SecurityMonitoringCriticalAssetAttributes {
   }
 
   /**
-   * <p>A user.</p>
+   * A user.
+   *
    * @return updater
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_UPDATER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecurityMonitoringUser getUpdater() {
-        return updater;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringUser getUpdater() {
+    return updater;
+  }
+
   public void setUpdater(SecurityMonitoringUser updater) {
     this.updater = updater;
   }
+
   public SecurityMonitoringCriticalAssetAttributes version(Integer version) {
     this.version = version;
     return this;
   }
 
   /**
-   * <p>The version of the critical asset; it starts at 1, and is incremented at each update.</p>
-   * maximum: 2147483647
+   * The version of the critical asset; it starts at 1, and is incremented at each update. maximum:
+   * 2147483647
+   *
    * @return version
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Integer getVersion() {
-        return version;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getVersion() {
+    return version;
+  }
+
   public void setVersion(Integer version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -349,7 +361,7 @@ public class SecurityMonitoringCriticalAssetAttributes {
   @JsonAnySetter
   public SecurityMonitoringCriticalAssetAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -373,14 +385,12 @@ public class SecurityMonitoringCriticalAssetAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SecurityMonitoringCriticalAssetAttributes object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringCriticalAssetAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -389,14 +399,43 @@ public class SecurityMonitoringCriticalAssetAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringCriticalAssetAttributes securityMonitoringCriticalAssetAttributes = (SecurityMonitoringCriticalAssetAttributes) o;
-    return Objects.equals(this.creationAuthorId, securityMonitoringCriticalAssetAttributes.creationAuthorId) && Objects.equals(this.creationDate, securityMonitoringCriticalAssetAttributes.creationDate) && Objects.equals(this.creator, securityMonitoringCriticalAssetAttributes.creator) && Objects.equals(this.enabled, securityMonitoringCriticalAssetAttributes.enabled) && Objects.equals(this.query, securityMonitoringCriticalAssetAttributes.query) && Objects.equals(this.ruleQuery, securityMonitoringCriticalAssetAttributes.ruleQuery) && Objects.equals(this.severity, securityMonitoringCriticalAssetAttributes.severity) && Objects.equals(this.tags, securityMonitoringCriticalAssetAttributes.tags) && Objects.equals(this.updateAuthorId, securityMonitoringCriticalAssetAttributes.updateAuthorId) && Objects.equals(this.updateDate, securityMonitoringCriticalAssetAttributes.updateDate) && Objects.equals(this.updater, securityMonitoringCriticalAssetAttributes.updater) && Objects.equals(this.version, securityMonitoringCriticalAssetAttributes.version) && Objects.equals(this.additionalProperties, securityMonitoringCriticalAssetAttributes.additionalProperties);
+    SecurityMonitoringCriticalAssetAttributes securityMonitoringCriticalAssetAttributes =
+        (SecurityMonitoringCriticalAssetAttributes) o;
+    return Objects.equals(
+            this.creationAuthorId, securityMonitoringCriticalAssetAttributes.creationAuthorId)
+        && Objects.equals(this.creationDate, securityMonitoringCriticalAssetAttributes.creationDate)
+        && Objects.equals(this.creator, securityMonitoringCriticalAssetAttributes.creator)
+        && Objects.equals(this.enabled, securityMonitoringCriticalAssetAttributes.enabled)
+        && Objects.equals(this.query, securityMonitoringCriticalAssetAttributes.query)
+        && Objects.equals(this.ruleQuery, securityMonitoringCriticalAssetAttributes.ruleQuery)
+        && Objects.equals(this.severity, securityMonitoringCriticalAssetAttributes.severity)
+        && Objects.equals(this.tags, securityMonitoringCriticalAssetAttributes.tags)
+        && Objects.equals(
+            this.updateAuthorId, securityMonitoringCriticalAssetAttributes.updateAuthorId)
+        && Objects.equals(this.updateDate, securityMonitoringCriticalAssetAttributes.updateDate)
+        && Objects.equals(this.updater, securityMonitoringCriticalAssetAttributes.updater)
+        && Objects.equals(this.version, securityMonitoringCriticalAssetAttributes.version)
+        && Objects.equals(
+            this.additionalProperties,
+            securityMonitoringCriticalAssetAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationAuthorId,creationDate,creator,enabled,query,ruleQuery,severity,tags,updateAuthorId,updateDate,updater,version, additionalProperties);
+    return Objects.hash(
+        creationAuthorId,
+        creationDate,
+        creator,
+        enabled,
+        query,
+        ruleQuery,
+        severity,
+        tags,
+        updateAuthorId,
+        updateDate,
+        updater,
+        version,
+        additionalProperties);
   }
 
   @Override
@@ -423,8 +462,7 @@ public class SecurityMonitoringCriticalAssetAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

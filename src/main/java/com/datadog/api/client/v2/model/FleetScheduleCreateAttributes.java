@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for creating a new schedule.</p>
- */
+/** Attributes for creating a new schedule. */
 @JsonPropertyOrder({
   FleetScheduleCreateAttributes.JSON_PROPERTY_NAME,
   FleetScheduleCreateAttributes.JSON_PROPERTY_QUERY,
@@ -41,10 +25,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   FleetScheduleCreateAttributes.JSON_PROPERTY_STATUS,
   FleetScheduleCreateAttributes.JSON_PROPERTY_VERSION_TO_LATEST
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FleetScheduleCreateAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -64,50 +48,56 @@ public class FleetScheduleCreateAttributes {
 
   @JsonCreator
   public FleetScheduleCreateAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RULE)FleetScheduleRecurrenceRule rule) {
-        this.name = name;
-        this.query = query;
-        this.rule = rule;
-        this.unparsed |= rule.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULE) FleetScheduleRecurrenceRule rule) {
+    this.name = name;
+    this.query = query;
+    this.rule = rule;
+    this.unparsed |= rule.unparsed;
   }
+
   public FleetScheduleCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Human-readable name for the schedule.</p>
+   * Human-readable name for the schedule.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public FleetScheduleCreateAttributes query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * <p>Query used to filter and select target hosts for scheduled deployments. Uses the Datadog query syntax.</p>
+   * Query used to filter and select target hosts for scheduled deployments. Uses the Datadog query
+   * syntax.
+   *
    * @return query
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getQuery() {
-        return query;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQuery() {
+    return query;
+  }
+
   public void setQuery(String query) {
     this.query = query;
   }
+
   public FleetScheduleCreateAttributes rule(FleetScheduleRecurrenceRule rule) {
     this.rule = rule;
     this.unparsed |= rule.unparsed;
@@ -115,19 +105,21 @@ public class FleetScheduleCreateAttributes {
   }
 
   /**
-   * <p>Defines the recurrence pattern for the schedule. Specifies when deployments should be
-   * automatically triggered based on maintenance windows.</p>
+   * Defines the recurrence pattern for the schedule. Specifies when deployments should be
+   * automatically triggered based on maintenance windows.
+   *
    * @return rule
-  **/
-      @JsonProperty(JSON_PROPERTY_RULE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public FleetScheduleRecurrenceRule getRule() {
-        return rule;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FleetScheduleRecurrenceRule getRule() {
+    return rule;
+  }
+
   public void setRule(FleetScheduleRecurrenceRule rule) {
     this.rule = rule;
   }
+
   public FleetScheduleCreateAttributes status(FleetScheduleStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -135,60 +127,58 @@ public class FleetScheduleCreateAttributes {
   }
 
   /**
-   * <p>The status of the schedule.
-   * - <code>active</code>: The schedule is active and will create deployments according to its recurrence rule.
-   * - <code>inactive</code>: The schedule is inactive and will not create any deployments.</p>
+   * The status of the schedule. - <code>active</code>: The schedule is active and will create
+   * deployments according to its recurrence rule. - <code>inactive</code>: The schedule is inactive
+   * and will not create any deployments.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FleetScheduleStatus getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FleetScheduleStatus getStatus() {
+    return status;
+  }
+
   public void setStatus(FleetScheduleStatus status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
+
   public FleetScheduleCreateAttributes versionToLatest(Long versionToLatest) {
     this.versionToLatest = versionToLatest;
     return this;
   }
 
   /**
-   * <p>Number of major versions behind the latest to target for upgrades.
-   * - 0: Always upgrade to the latest version (default)
-   * - 1: Upgrade to latest minus 1 major version
-   * - 2: Upgrade to latest minus 2 major versions
-   * Maximum value is 2.</p>
-   * minimum: 0
-   * maximum: 2
+   * Number of major versions behind the latest to target for upgrades. - 0: Always upgrade to the
+   * latest version (default) - 1: Upgrade to latest minus 1 major version - 2: Upgrade to latest
+   * minus 2 major versions Maximum value is 2. minimum: 0 maximum: 2
+   *
    * @return versionToLatest
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERSION_TO_LATEST)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getVersionToLatest() {
-        return versionToLatest;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION_TO_LATEST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getVersionToLatest() {
+    return versionToLatest;
+  }
+
   public void setVersionToLatest(Long versionToLatest) {
     this.versionToLatest = versionToLatest;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -197,7 +187,7 @@ public class FleetScheduleCreateAttributes {
   @JsonAnySetter
   public FleetScheduleCreateAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -221,14 +211,12 @@ public class FleetScheduleCreateAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this FleetScheduleCreateAttributes object is equal to o.
-   */
+  /** Return true if this FleetScheduleCreateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -238,13 +226,18 @@ public class FleetScheduleCreateAttributes {
       return false;
     }
     FleetScheduleCreateAttributes fleetScheduleCreateAttributes = (FleetScheduleCreateAttributes) o;
-    return Objects.equals(this.name, fleetScheduleCreateAttributes.name) && Objects.equals(this.query, fleetScheduleCreateAttributes.query) && Objects.equals(this.rule, fleetScheduleCreateAttributes.rule) && Objects.equals(this.status, fleetScheduleCreateAttributes.status) && Objects.equals(this.versionToLatest, fleetScheduleCreateAttributes.versionToLatest) && Objects.equals(this.additionalProperties, fleetScheduleCreateAttributes.additionalProperties);
+    return Objects.equals(this.name, fleetScheduleCreateAttributes.name)
+        && Objects.equals(this.query, fleetScheduleCreateAttributes.query)
+        && Objects.equals(this.rule, fleetScheduleCreateAttributes.rule)
+        && Objects.equals(this.status, fleetScheduleCreateAttributes.status)
+        && Objects.equals(this.versionToLatest, fleetScheduleCreateAttributes.versionToLatest)
+        && Objects.equals(
+            this.additionalProperties, fleetScheduleCreateAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(name,query,rule,status,versionToLatest, additionalProperties);
+    return Objects.hash(name, query, rule, status, versionToLatest, additionalProperties);
   }
 
   @Override
@@ -264,8 +257,7 @@ public class FleetScheduleCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

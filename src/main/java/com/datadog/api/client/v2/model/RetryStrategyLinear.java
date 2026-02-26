@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The definition of <code>RetryStrategyLinear</code> object.</p>
- */
+/** The definition of <code>RetryStrategyLinear</code> object. */
 @JsonPropertyOrder({
   RetryStrategyLinear.JSON_PROPERTY_INTERVAL,
   RetryStrategyLinear.JSON_PROPERTY_MAX_RETRIES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RetryStrategyLinear {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INTERVAL = "interval";
   private String interval;
 
@@ -52,58 +36,62 @@ public class RetryStrategyLinear {
 
   @JsonCreator
   public RetryStrategyLinear(
-            @JsonProperty(required=true, value=JSON_PROPERTY_INTERVAL)String interval,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MAX_RETRIES)Double maxRetries) {
-        this.interval = interval;
-        this.maxRetries = maxRetries;
+      @JsonProperty(required = true, value = JSON_PROPERTY_INTERVAL) String interval,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MAX_RETRIES) Double maxRetries) {
+    this.interval = interval;
+    this.maxRetries = maxRetries;
   }
+
   public RetryStrategyLinear interval(String interval) {
     this.interval = interval;
     return this;
   }
 
   /**
-   * <p>The <code>RetryStrategyLinear</code> <code>interval</code>. The expected format is the number of seconds ending with an s. For example, 1 day is 86400s</p>
+   * The <code>RetryStrategyLinear</code> <code>interval</code>. The expected format is the number
+   * of seconds ending with an s. For example, 1 day is 86400s
+   *
    * @return interval
-  **/
-      @JsonProperty(JSON_PROPERTY_INTERVAL)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getInterval() {
-        return interval;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getInterval() {
+    return interval;
+  }
+
   public void setInterval(String interval) {
     this.interval = interval;
   }
+
   public RetryStrategyLinear maxRetries(Double maxRetries) {
     this.maxRetries = maxRetries;
     return this;
   }
 
   /**
-   * <p>The <code>RetryStrategyLinear</code> <code>maxRetries</code>.</p>
+   * The <code>RetryStrategyLinear</code> <code>maxRetries</code>.
+   *
    * @return maxRetries
-  **/
-      @JsonProperty(JSON_PROPERTY_MAX_RETRIES)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Double getMaxRetries() {
-        return maxRetries;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MAX_RETRIES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Double getMaxRetries() {
+    return maxRetries;
+  }
+
   public void setMaxRetries(Double maxRetries) {
     this.maxRetries = maxRetries;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -112,7 +100,7 @@ public class RetryStrategyLinear {
   @JsonAnySetter
   public RetryStrategyLinear putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -136,14 +124,12 @@ public class RetryStrategyLinear {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this RetryStrategyLinear object is equal to o.
-   */
+  /** Return true if this RetryStrategyLinear object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,13 +139,14 @@ public class RetryStrategyLinear {
       return false;
     }
     RetryStrategyLinear retryStrategyLinear = (RetryStrategyLinear) o;
-    return Objects.equals(this.interval, retryStrategyLinear.interval) && Objects.equals(this.maxRetries, retryStrategyLinear.maxRetries) && Objects.equals(this.additionalProperties, retryStrategyLinear.additionalProperties);
+    return Objects.equals(this.interval, retryStrategyLinear.interval)
+        && Objects.equals(this.maxRetries, retryStrategyLinear.maxRetries)
+        && Objects.equals(this.additionalProperties, retryStrategyLinear.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(interval,maxRetries, additionalProperties);
+    return Objects.hash(interval, maxRetries, additionalProperties);
   }
 
   @Override
@@ -176,8 +163,7 @@ public class RetryStrategyLinear {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

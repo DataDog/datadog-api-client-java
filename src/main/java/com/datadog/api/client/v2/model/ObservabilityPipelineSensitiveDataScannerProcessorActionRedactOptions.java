@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,22 +13,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Configuration for fully redacting sensitive data.</p>
- */
+/** Configuration for fully redacting sensitive data. */
 @JsonPropertyOrder({
   ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions.JSON_PROPERTY_REPLACE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_REPLACE = "replace";
   private String replace;
 
@@ -48,47 +32,51 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptio
 
   @JsonCreator
   public ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions(
-            @JsonProperty(required=true, value=JSON_PROPERTY_REPLACE)String replace) {
-        this.replace = replace;
+      @JsonProperty(required = true, value = JSON_PROPERTY_REPLACE) String replace) {
+    this.replace = replace;
   }
-  public ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions replace(String replace) {
+
+  public ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions replace(
+      String replace) {
     this.replace = replace;
     return this;
   }
 
   /**
-   * <p>The <code>ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions</code> <code>replace</code>.</p>
+   * The <code>ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions</code> <code>
+   * replace</code>.
+   *
    * @return replace
-  **/
-      @JsonProperty(JSON_PROPERTY_REPLACE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getReplace() {
-        return replace;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REPLACE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getReplace() {
+    return replace;
+  }
+
   public void setReplace(String replace) {
     this.replace = replace;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions
    */
   @JsonAnySetter
-  public ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions
+      putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -112,13 +100,14 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptio
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions object is equal to o.
+   * Return true if this ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions
+   * object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -128,10 +117,17 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptio
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions observabilityPipelineSensitiveDataScannerProcessorActionRedactOptions = (ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions) o;
-    return Objects.equals(this.replace, observabilityPipelineSensitiveDataScannerProcessorActionRedactOptions.replace) && Objects.equals(this.additionalProperties, observabilityPipelineSensitiveDataScannerProcessorActionRedactOptions.additionalProperties);
+    ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions
+        observabilityPipelineSensitiveDataScannerProcessorActionRedactOptions =
+            (ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions) o;
+    return Objects.equals(
+            this.replace,
+            observabilityPipelineSensitiveDataScannerProcessorActionRedactOptions.replace)
+        && Objects.equals(
+            this.additionalProperties,
+            observabilityPipelineSensitiveDataScannerProcessorActionRedactOptions
+                .additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
@@ -151,8 +147,7 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptio
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

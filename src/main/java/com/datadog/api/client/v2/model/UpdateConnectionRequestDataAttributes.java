@@ -6,43 +6,28 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-
- */
+/** */
 @JsonPropertyOrder({
   UpdateConnectionRequestDataAttributes.JSON_PROPERTY_FIELDS_TO_ADD,
   UpdateConnectionRequestDataAttributes.JSON_PROPERTY_FIELDS_TO_DELETE,
   UpdateConnectionRequestDataAttributes.JSON_PROPERTY_FIELDS_TO_UPDATE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UpdateConnectionRequestDataAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELDS_TO_ADD = "fields_to_add";
   private List<CreateConnectionRequestDataAttributesFieldsItems> fieldsToAdd = null;
 
@@ -52,14 +37,17 @@ public class UpdateConnectionRequestDataAttributes {
   public static final String JSON_PROPERTY_FIELDS_TO_UPDATE = "fields_to_update";
   private List<UpdateConnectionRequestDataAttributesFieldsToUpdateItems> fieldsToUpdate = null;
 
-  public UpdateConnectionRequestDataAttributes fieldsToAdd(List<CreateConnectionRequestDataAttributesFieldsItems> fieldsToAdd) {
+  public UpdateConnectionRequestDataAttributes fieldsToAdd(
+      List<CreateConnectionRequestDataAttributesFieldsItems> fieldsToAdd) {
     this.fieldsToAdd = fieldsToAdd;
     for (CreateConnectionRequestDataAttributesFieldsItems item : fieldsToAdd) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public UpdateConnectionRequestDataAttributes addFieldsToAddItem(CreateConnectionRequestDataAttributesFieldsItems fieldsToAddItem) {
+
+  public UpdateConnectionRequestDataAttributes addFieldsToAddItem(
+      CreateConnectionRequestDataAttributesFieldsItems fieldsToAddItem) {
     if (this.fieldsToAdd == null) {
       this.fieldsToAdd = new ArrayList<>();
     }
@@ -69,23 +57,26 @@ public class UpdateConnectionRequestDataAttributes {
   }
 
   /**
-   * <p>GetfieldsToAdd</p>
+   * GetfieldsToAdd
+   *
    * @return fieldsToAdd
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FIELDS_TO_ADD)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<CreateConnectionRequestDataAttributesFieldsItems> getFieldsToAdd() {
-        return fieldsToAdd;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIELDS_TO_ADD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CreateConnectionRequestDataAttributesFieldsItems> getFieldsToAdd() {
+    return fieldsToAdd;
+  }
+
   public void setFieldsToAdd(List<CreateConnectionRequestDataAttributesFieldsItems> fieldsToAdd) {
     this.fieldsToAdd = fieldsToAdd;
   }
+
   public UpdateConnectionRequestDataAttributes fieldsToDelete(List<String> fieldsToDelete) {
     this.fieldsToDelete = fieldsToDelete;
     return this;
   }
+
   public UpdateConnectionRequestDataAttributes addFieldsToDeleteItem(String fieldsToDeleteItem) {
     if (this.fieldsToDelete == null) {
       this.fieldsToDelete = new ArrayList<>();
@@ -95,27 +86,32 @@ public class UpdateConnectionRequestDataAttributes {
   }
 
   /**
-   * <p>GetfieldsToDelete</p>
+   * GetfieldsToDelete
+   *
    * @return fieldsToDelete
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FIELDS_TO_DELETE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getFieldsToDelete() {
-        return fieldsToDelete;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIELDS_TO_DELETE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getFieldsToDelete() {
+    return fieldsToDelete;
+  }
+
   public void setFieldsToDelete(List<String> fieldsToDelete) {
     this.fieldsToDelete = fieldsToDelete;
   }
-  public UpdateConnectionRequestDataAttributes fieldsToUpdate(List<UpdateConnectionRequestDataAttributesFieldsToUpdateItems> fieldsToUpdate) {
+
+  public UpdateConnectionRequestDataAttributes fieldsToUpdate(
+      List<UpdateConnectionRequestDataAttributesFieldsToUpdateItems> fieldsToUpdate) {
     this.fieldsToUpdate = fieldsToUpdate;
     for (UpdateConnectionRequestDataAttributesFieldsToUpdateItems item : fieldsToUpdate) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public UpdateConnectionRequestDataAttributes addFieldsToUpdateItem(UpdateConnectionRequestDataAttributesFieldsToUpdateItems fieldsToUpdateItem) {
+
+  public UpdateConnectionRequestDataAttributes addFieldsToUpdateItem(
+      UpdateConnectionRequestDataAttributesFieldsToUpdateItems fieldsToUpdateItem) {
     if (this.fieldsToUpdate == null) {
       this.fieldsToUpdate = new ArrayList<>();
     }
@@ -125,30 +121,31 @@ public class UpdateConnectionRequestDataAttributes {
   }
 
   /**
-   * <p>GetfieldsToUpdate</p>
+   * GetfieldsToUpdate
+   *
    * @return fieldsToUpdate
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FIELDS_TO_UPDATE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<UpdateConnectionRequestDataAttributesFieldsToUpdateItems> getFieldsToUpdate() {
-        return fieldsToUpdate;
-      }
-  public void setFieldsToUpdate(List<UpdateConnectionRequestDataAttributesFieldsToUpdateItems> fieldsToUpdate) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIELDS_TO_UPDATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<UpdateConnectionRequestDataAttributesFieldsToUpdateItems> getFieldsToUpdate() {
+    return fieldsToUpdate;
+  }
+
+  public void setFieldsToUpdate(
+      List<UpdateConnectionRequestDataAttributesFieldsToUpdateItems> fieldsToUpdate) {
     this.fieldsToUpdate = fieldsToUpdate;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -157,7 +154,7 @@ public class UpdateConnectionRequestDataAttributes {
   @JsonAnySetter
   public UpdateConnectionRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -181,14 +178,12 @@ public class UpdateConnectionRequestDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this UpdateConnectionRequestDataAttributes object is equal to o.
-   */
+  /** Return true if this UpdateConnectionRequestDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -197,14 +192,18 @@ public class UpdateConnectionRequestDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateConnectionRequestDataAttributes updateConnectionRequestDataAttributes = (UpdateConnectionRequestDataAttributes) o;
-    return Objects.equals(this.fieldsToAdd, updateConnectionRequestDataAttributes.fieldsToAdd) && Objects.equals(this.fieldsToDelete, updateConnectionRequestDataAttributes.fieldsToDelete) && Objects.equals(this.fieldsToUpdate, updateConnectionRequestDataAttributes.fieldsToUpdate) && Objects.equals(this.additionalProperties, updateConnectionRequestDataAttributes.additionalProperties);
+    UpdateConnectionRequestDataAttributes updateConnectionRequestDataAttributes =
+        (UpdateConnectionRequestDataAttributes) o;
+    return Objects.equals(this.fieldsToAdd, updateConnectionRequestDataAttributes.fieldsToAdd)
+        && Objects.equals(this.fieldsToDelete, updateConnectionRequestDataAttributes.fieldsToDelete)
+        && Objects.equals(this.fieldsToUpdate, updateConnectionRequestDataAttributes.fieldsToUpdate)
+        && Objects.equals(
+            this.additionalProperties, updateConnectionRequestDataAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldsToAdd,fieldsToDelete,fieldsToUpdate, additionalProperties);
+    return Objects.hash(fieldsToAdd, fieldsToDelete, fieldsToUpdate, additionalProperties);
   }
 
   @Override
@@ -222,8 +221,7 @@ public class UpdateConnectionRequestDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

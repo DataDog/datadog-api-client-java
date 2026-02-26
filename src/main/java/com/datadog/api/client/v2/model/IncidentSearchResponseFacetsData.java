@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Facet data for incidents returned by a search query.</p>
- */
+/** Facet data for incidents returned by a search query. */
 @JsonPropertyOrder({
   IncidentSearchResponseFacetsData.JSON_PROPERTY_COMMANDER,
   IncidentSearchResponseFacetsData.JSON_PROPERTY_CREATED_BY,
@@ -47,10 +32,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   IncidentSearchResponseFacetsData.JSON_PROPERTY_TIME_TO_REPAIR,
   IncidentSearchResponseFacetsData.JSON_PROPERTY_TIME_TO_RESOLVE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentSearchResponseFacetsData {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMANDER = "commander";
   private List<IncidentSearchResponseUserFacetData> commander = null;
 
@@ -84,14 +69,17 @@ public class IncidentSearchResponseFacetsData {
   public static final String JSON_PROPERTY_TIME_TO_RESOLVE = "time_to_resolve";
   private List<IncidentSearchResponseNumericFacetData> timeToResolve = null;
 
-  public IncidentSearchResponseFacetsData commander(List<IncidentSearchResponseUserFacetData> commander) {
+  public IncidentSearchResponseFacetsData commander(
+      List<IncidentSearchResponseUserFacetData> commander) {
     this.commander = commander;
     for (IncidentSearchResponseUserFacetData item : commander) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public IncidentSearchResponseFacetsData addCommanderItem(IncidentSearchResponseUserFacetData commanderItem) {
+
+  public IncidentSearchResponseFacetsData addCommanderItem(
+      IncidentSearchResponseUserFacetData commanderItem) {
     if (this.commander == null) {
       this.commander = new ArrayList<>();
     }
@@ -101,27 +89,32 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * <p>Facet data for incident commander users.</p>
+   * Facet data for incident commander users.
+   *
    * @return commander
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMMANDER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentSearchResponseUserFacetData> getCommander() {
-        return commander;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMMANDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentSearchResponseUserFacetData> getCommander() {
+    return commander;
+  }
+
   public void setCommander(List<IncidentSearchResponseUserFacetData> commander) {
     this.commander = commander;
   }
-  public IncidentSearchResponseFacetsData createdBy(List<IncidentSearchResponseUserFacetData> createdBy) {
+
+  public IncidentSearchResponseFacetsData createdBy(
+      List<IncidentSearchResponseUserFacetData> createdBy) {
     this.createdBy = createdBy;
     for (IncidentSearchResponseUserFacetData item : createdBy) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public IncidentSearchResponseFacetsData addCreatedByItem(IncidentSearchResponseUserFacetData createdByItem) {
+
+  public IncidentSearchResponseFacetsData addCreatedByItem(
+      IncidentSearchResponseUserFacetData createdByItem) {
     if (this.createdBy == null) {
       this.createdBy = new ArrayList<>();
     }
@@ -131,27 +124,32 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * <p>Facet data for incident creator users.</p>
+   * Facet data for incident creator users.
+   *
    * @return createdBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentSearchResponseUserFacetData> getCreatedBy() {
-        return createdBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentSearchResponseUserFacetData> getCreatedBy() {
+    return createdBy;
+  }
+
   public void setCreatedBy(List<IncidentSearchResponseUserFacetData> createdBy) {
     this.createdBy = createdBy;
   }
-  public IncidentSearchResponseFacetsData fields(List<IncidentSearchResponsePropertyFieldFacetData> fields) {
+
+  public IncidentSearchResponseFacetsData fields(
+      List<IncidentSearchResponsePropertyFieldFacetData> fields) {
     this.fields = fields;
     for (IncidentSearchResponsePropertyFieldFacetData item : fields) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public IncidentSearchResponseFacetsData addFieldsItem(IncidentSearchResponsePropertyFieldFacetData fieldsItem) {
+
+  public IncidentSearchResponseFacetsData addFieldsItem(
+      IncidentSearchResponsePropertyFieldFacetData fieldsItem) {
     if (this.fields == null) {
       this.fields = new ArrayList<>();
     }
@@ -161,27 +159,32 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * <p>Facet data for incident property fields.</p>
+   * Facet data for incident property fields.
+   *
    * @return fields
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FIELDS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentSearchResponsePropertyFieldFacetData> getFields() {
-        return fields;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentSearchResponsePropertyFieldFacetData> getFields() {
+    return fields;
+  }
+
   public void setFields(List<IncidentSearchResponsePropertyFieldFacetData> fields) {
     this.fields = fields;
   }
-  public IncidentSearchResponseFacetsData impact(List<IncidentSearchResponseFieldFacetData> impact) {
+
+  public IncidentSearchResponseFacetsData impact(
+      List<IncidentSearchResponseFieldFacetData> impact) {
     this.impact = impact;
     for (IncidentSearchResponseFieldFacetData item : impact) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public IncidentSearchResponseFacetsData addImpactItem(IncidentSearchResponseFieldFacetData impactItem) {
+
+  public IncidentSearchResponseFacetsData addImpactItem(
+      IncidentSearchResponseFieldFacetData impactItem) {
     if (this.impact == null) {
       this.impact = new ArrayList<>();
     }
@@ -191,27 +194,32 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * <p>Facet data for incident impact attributes.</p>
+   * Facet data for incident impact attributes.
+   *
    * @return impact
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IMPACT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentSearchResponseFieldFacetData> getImpact() {
-        return impact;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IMPACT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentSearchResponseFieldFacetData> getImpact() {
+    return impact;
+  }
+
   public void setImpact(List<IncidentSearchResponseFieldFacetData> impact) {
     this.impact = impact;
   }
-  public IncidentSearchResponseFacetsData lastModifiedBy(List<IncidentSearchResponseUserFacetData> lastModifiedBy) {
+
+  public IncidentSearchResponseFacetsData lastModifiedBy(
+      List<IncidentSearchResponseUserFacetData> lastModifiedBy) {
     this.lastModifiedBy = lastModifiedBy;
     for (IncidentSearchResponseUserFacetData item : lastModifiedBy) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public IncidentSearchResponseFacetsData addLastModifiedByItem(IncidentSearchResponseUserFacetData lastModifiedByItem) {
+
+  public IncidentSearchResponseFacetsData addLastModifiedByItem(
+      IncidentSearchResponseUserFacetData lastModifiedByItem) {
     if (this.lastModifiedBy == null) {
       this.lastModifiedBy = new ArrayList<>();
     }
@@ -221,27 +229,32 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * <p>Facet data for incident last modified by users.</p>
+   * Facet data for incident last modified by users.
+   *
    * @return lastModifiedBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentSearchResponseUserFacetData> getLastModifiedBy() {
-        return lastModifiedBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentSearchResponseUserFacetData> getLastModifiedBy() {
+    return lastModifiedBy;
+  }
+
   public void setLastModifiedBy(List<IncidentSearchResponseUserFacetData> lastModifiedBy) {
     this.lastModifiedBy = lastModifiedBy;
   }
-  public IncidentSearchResponseFacetsData postmortem(List<IncidentSearchResponseFieldFacetData> postmortem) {
+
+  public IncidentSearchResponseFacetsData postmortem(
+      List<IncidentSearchResponseFieldFacetData> postmortem) {
     this.postmortem = postmortem;
     for (IncidentSearchResponseFieldFacetData item : postmortem) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public IncidentSearchResponseFacetsData addPostmortemItem(IncidentSearchResponseFieldFacetData postmortemItem) {
+
+  public IncidentSearchResponseFacetsData addPostmortemItem(
+      IncidentSearchResponseFieldFacetData postmortemItem) {
     if (this.postmortem == null) {
       this.postmortem = new ArrayList<>();
     }
@@ -251,27 +264,32 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * <p>Facet data for incident postmortem existence.</p>
+   * Facet data for incident postmortem existence.
+   *
    * @return postmortem
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_POSTMORTEM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentSearchResponseFieldFacetData> getPostmortem() {
-        return postmortem;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POSTMORTEM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentSearchResponseFieldFacetData> getPostmortem() {
+    return postmortem;
+  }
+
   public void setPostmortem(List<IncidentSearchResponseFieldFacetData> postmortem) {
     this.postmortem = postmortem;
   }
-  public IncidentSearchResponseFacetsData responder(List<IncidentSearchResponseUserFacetData> responder) {
+
+  public IncidentSearchResponseFacetsData responder(
+      List<IncidentSearchResponseUserFacetData> responder) {
     this.responder = responder;
     for (IncidentSearchResponseUserFacetData item : responder) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public IncidentSearchResponseFacetsData addResponderItem(IncidentSearchResponseUserFacetData responderItem) {
+
+  public IncidentSearchResponseFacetsData addResponderItem(
+      IncidentSearchResponseUserFacetData responderItem) {
     if (this.responder == null) {
       this.responder = new ArrayList<>();
     }
@@ -281,27 +299,32 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * <p>Facet data for incident responder users.</p>
+   * Facet data for incident responder users.
+   *
    * @return responder
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESPONDER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentSearchResponseUserFacetData> getResponder() {
-        return responder;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentSearchResponseUserFacetData> getResponder() {
+    return responder;
+  }
+
   public void setResponder(List<IncidentSearchResponseUserFacetData> responder) {
     this.responder = responder;
   }
-  public IncidentSearchResponseFacetsData severity(List<IncidentSearchResponseFieldFacetData> severity) {
+
+  public IncidentSearchResponseFacetsData severity(
+      List<IncidentSearchResponseFieldFacetData> severity) {
     this.severity = severity;
     for (IncidentSearchResponseFieldFacetData item : severity) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public IncidentSearchResponseFacetsData addSeverityItem(IncidentSearchResponseFieldFacetData severityItem) {
+
+  public IncidentSearchResponseFacetsData addSeverityItem(
+      IncidentSearchResponseFieldFacetData severityItem) {
     if (this.severity == null) {
       this.severity = new ArrayList<>();
     }
@@ -311,19 +334,21 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * <p>Facet data for incident severity attributes.</p>
+   * Facet data for incident severity attributes.
+   *
    * @return severity
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SEVERITY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentSearchResponseFieldFacetData> getSeverity() {
-        return severity;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEVERITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentSearchResponseFieldFacetData> getSeverity() {
+    return severity;
+  }
+
   public void setSeverity(List<IncidentSearchResponseFieldFacetData> severity) {
     this.severity = severity;
   }
+
   public IncidentSearchResponseFacetsData state(List<IncidentSearchResponseFieldFacetData> state) {
     this.state = state;
     for (IncidentSearchResponseFieldFacetData item : state) {
@@ -331,7 +356,9 @@ public class IncidentSearchResponseFacetsData {
     }
     return this;
   }
-  public IncidentSearchResponseFacetsData addStateItem(IncidentSearchResponseFieldFacetData stateItem) {
+
+  public IncidentSearchResponseFacetsData addStateItem(
+      IncidentSearchResponseFieldFacetData stateItem) {
     if (this.state == null) {
       this.state = new ArrayList<>();
     }
@@ -341,27 +368,32 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * <p>Facet data for incident state attributes.</p>
+   * Facet data for incident state attributes.
+   *
    * @return state
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentSearchResponseFieldFacetData> getState() {
-        return state;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentSearchResponseFieldFacetData> getState() {
+    return state;
+  }
+
   public void setState(List<IncidentSearchResponseFieldFacetData> state) {
     this.state = state;
   }
-  public IncidentSearchResponseFacetsData timeToRepair(List<IncidentSearchResponseNumericFacetData> timeToRepair) {
+
+  public IncidentSearchResponseFacetsData timeToRepair(
+      List<IncidentSearchResponseNumericFacetData> timeToRepair) {
     this.timeToRepair = timeToRepair;
     for (IncidentSearchResponseNumericFacetData item : timeToRepair) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public IncidentSearchResponseFacetsData addTimeToRepairItem(IncidentSearchResponseNumericFacetData timeToRepairItem) {
+
+  public IncidentSearchResponseFacetsData addTimeToRepairItem(
+      IncidentSearchResponseNumericFacetData timeToRepairItem) {
     if (this.timeToRepair == null) {
       this.timeToRepair = new ArrayList<>();
     }
@@ -371,27 +403,32 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * <p>Facet data for incident time to repair metrics.</p>
+   * Facet data for incident time to repair metrics.
+   *
    * @return timeToRepair
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME_TO_REPAIR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentSearchResponseNumericFacetData> getTimeToRepair() {
-        return timeToRepair;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME_TO_REPAIR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentSearchResponseNumericFacetData> getTimeToRepair() {
+    return timeToRepair;
+  }
+
   public void setTimeToRepair(List<IncidentSearchResponseNumericFacetData> timeToRepair) {
     this.timeToRepair = timeToRepair;
   }
-  public IncidentSearchResponseFacetsData timeToResolve(List<IncidentSearchResponseNumericFacetData> timeToResolve) {
+
+  public IncidentSearchResponseFacetsData timeToResolve(
+      List<IncidentSearchResponseNumericFacetData> timeToResolve) {
     this.timeToResolve = timeToResolve;
     for (IncidentSearchResponseNumericFacetData item : timeToResolve) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public IncidentSearchResponseFacetsData addTimeToResolveItem(IncidentSearchResponseNumericFacetData timeToResolveItem) {
+
+  public IncidentSearchResponseFacetsData addTimeToResolveItem(
+      IncidentSearchResponseNumericFacetData timeToResolveItem) {
     if (this.timeToResolve == null) {
       this.timeToResolve = new ArrayList<>();
     }
@@ -401,30 +438,30 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * <p>Facet data for incident time to resolve metrics.</p>
+   * Facet data for incident time to resolve metrics.
+   *
    * @return timeToResolve
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME_TO_RESOLVE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentSearchResponseNumericFacetData> getTimeToResolve() {
-        return timeToResolve;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME_TO_RESOLVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentSearchResponseNumericFacetData> getTimeToResolve() {
+    return timeToResolve;
+  }
+
   public void setTimeToResolve(List<IncidentSearchResponseNumericFacetData> timeToResolve) {
     this.timeToResolve = timeToResolve;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -433,7 +470,7 @@ public class IncidentSearchResponseFacetsData {
   @JsonAnySetter
   public IncidentSearchResponseFacetsData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -457,14 +494,12 @@ public class IncidentSearchResponseFacetsData {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this IncidentSearchResponseFacetsData object is equal to o.
-   */
+  /** Return true if this IncidentSearchResponseFacetsData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -473,14 +508,38 @@ public class IncidentSearchResponseFacetsData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentSearchResponseFacetsData incidentSearchResponseFacetsData = (IncidentSearchResponseFacetsData) o;
-    return Objects.equals(this.commander, incidentSearchResponseFacetsData.commander) && Objects.equals(this.createdBy, incidentSearchResponseFacetsData.createdBy) && Objects.equals(this.fields, incidentSearchResponseFacetsData.fields) && Objects.equals(this.impact, incidentSearchResponseFacetsData.impact) && Objects.equals(this.lastModifiedBy, incidentSearchResponseFacetsData.lastModifiedBy) && Objects.equals(this.postmortem, incidentSearchResponseFacetsData.postmortem) && Objects.equals(this.responder, incidentSearchResponseFacetsData.responder) && Objects.equals(this.severity, incidentSearchResponseFacetsData.severity) && Objects.equals(this.state, incidentSearchResponseFacetsData.state) && Objects.equals(this.timeToRepair, incidentSearchResponseFacetsData.timeToRepair) && Objects.equals(this.timeToResolve, incidentSearchResponseFacetsData.timeToResolve) && Objects.equals(this.additionalProperties, incidentSearchResponseFacetsData.additionalProperties);
+    IncidentSearchResponseFacetsData incidentSearchResponseFacetsData =
+        (IncidentSearchResponseFacetsData) o;
+    return Objects.equals(this.commander, incidentSearchResponseFacetsData.commander)
+        && Objects.equals(this.createdBy, incidentSearchResponseFacetsData.createdBy)
+        && Objects.equals(this.fields, incidentSearchResponseFacetsData.fields)
+        && Objects.equals(this.impact, incidentSearchResponseFacetsData.impact)
+        && Objects.equals(this.lastModifiedBy, incidentSearchResponseFacetsData.lastModifiedBy)
+        && Objects.equals(this.postmortem, incidentSearchResponseFacetsData.postmortem)
+        && Objects.equals(this.responder, incidentSearchResponseFacetsData.responder)
+        && Objects.equals(this.severity, incidentSearchResponseFacetsData.severity)
+        && Objects.equals(this.state, incidentSearchResponseFacetsData.state)
+        && Objects.equals(this.timeToRepair, incidentSearchResponseFacetsData.timeToRepair)
+        && Objects.equals(this.timeToResolve, incidentSearchResponseFacetsData.timeToResolve)
+        && Objects.equals(
+            this.additionalProperties, incidentSearchResponseFacetsData.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(commander,createdBy,fields,impact,lastModifiedBy,postmortem,responder,severity,state,timeToRepair,timeToResolve, additionalProperties);
+    return Objects.hash(
+        commander,
+        createdBy,
+        fields,
+        impact,
+        lastModifiedBy,
+        postmortem,
+        responder,
+        severity,
+        state,
+        timeToRepair,
+        timeToResolve,
+        additionalProperties);
   }
 
   @Override
@@ -506,8 +565,7 @@ public class IncidentSearchResponseFacetsData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

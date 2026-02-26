@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Updated change widget.</p>
- */
+/** Updated change widget. */
 @JsonPropertyOrder({
   ChangeWidgetRequest.JSON_PROPERTY_APM_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_CHANGE_TYPE,
@@ -54,10 +39,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ChangeWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_SHOW_PRESENT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ChangeWidgetRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
 
@@ -119,19 +104,21 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return apmQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_APM_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getApmQuery() {
-        return apmQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getApmQuery() {
+    return apmQuery;
+  }
+
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
   }
+
   public ChangeWidgetRequest changeType(WidgetChangeType changeType) {
     this.changeType = changeType;
     this.unparsed |= !changeType.isValid();
@@ -139,22 +126,24 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>Show the absolute or the relative change.</p>
+   * Show the absolute or the relative change.
+   *
    * @return changeType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CHANGE_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetChangeType getChangeType() {
-        return changeType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHANGE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetChangeType getChangeType() {
+    return changeType;
+  }
+
   public void setChangeType(WidgetChangeType changeType) {
     if (!changeType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.changeType = changeType;
   }
+
   public ChangeWidgetRequest compareTo(WidgetCompareTo compareTo) {
     this.compareTo = compareTo;
     this.unparsed |= !compareTo.isValid();
@@ -162,22 +151,24 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>Timeframe used for the change comparison.</p>
+   * Timeframe used for the change comparison.
+   *
    * @return compareTo
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPARE_TO)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetCompareTo getCompareTo() {
-        return compareTo;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPARE_TO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetCompareTo getCompareTo() {
+    return compareTo;
+  }
+
   public void setCompareTo(WidgetCompareTo compareTo) {
     if (!compareTo.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.compareTo = compareTo;
   }
+
   public ChangeWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
     this.unparsed |= eventQuery.unparsed;
@@ -185,19 +176,21 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return eventQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getEventQuery() {
-        return eventQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getEventQuery() {
+    return eventQuery;
+  }
+
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
   }
+
   public ChangeWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
     for (WidgetFormula item : formulas) {
@@ -205,6 +198,7 @@ public class ChangeWidgetRequest {
     }
     return this;
   }
+
   public ChangeWidgetRequest addFormulasItem(WidgetFormula formulasItem) {
     if (this.formulas == null) {
       this.formulas = new ArrayList<>();
@@ -215,38 +209,42 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>List of formulas that operate on queries.</p>
+   * List of formulas that operate on queries.
+   *
    * @return formulas
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FORMULAS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<WidgetFormula> getFormulas() {
-        return formulas;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORMULAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetFormula> getFormulas() {
+    return formulas;
+  }
+
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
   }
+
   public ChangeWidgetRequest increaseGood(Boolean increaseGood) {
     this.increaseGood = increaseGood;
     return this;
   }
 
   /**
-   * <p>Whether to show increase as good.</p>
+   * Whether to show increase as good.
+   *
    * @return increaseGood
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCREASE_GOOD)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getIncreaseGood() {
-        return increaseGood;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCREASE_GOOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIncreaseGood() {
+    return increaseGood;
+  }
+
   public void setIncreaseGood(Boolean increaseGood) {
     this.increaseGood = increaseGood;
   }
+
   public ChangeWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
     this.unparsed |= logQuery.unparsed;
@@ -254,19 +252,21 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return logQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOG_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getLogQuery() {
-        return logQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOG_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getLogQuery() {
+    return logQuery;
+  }
+
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
   }
+
   public ChangeWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
     this.unparsed |= networkQuery.unparsed;
@@ -274,19 +274,21 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return networkQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getNetworkQuery() {
-        return networkQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getNetworkQuery() {
+    return networkQuery;
+  }
+
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
   }
+
   public ChangeWidgetRequest orderBy(WidgetOrderBy orderBy) {
     this.orderBy = orderBy;
     this.unparsed |= !orderBy.isValid();
@@ -294,22 +296,24 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>What to order by.</p>
+   * What to order by.
+   *
    * @return orderBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORDER_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetOrderBy getOrderBy() {
-        return orderBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORDER_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetOrderBy getOrderBy() {
+    return orderBy;
+  }
+
   public void setOrderBy(WidgetOrderBy orderBy) {
     if (!orderBy.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.orderBy = orderBy;
   }
+
   public ChangeWidgetRequest orderDir(WidgetSort orderDir) {
     this.orderDir = orderDir;
     this.unparsed |= !orderDir.isValid();
@@ -317,22 +321,24 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>Widget sorting methods.</p>
+   * Widget sorting methods.
+   *
    * @return orderDir
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORDER_DIR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetSort getOrderDir() {
-        return orderDir;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORDER_DIR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetSort getOrderDir() {
+    return orderDir;
+  }
+
   public void setOrderDir(WidgetSort orderDir) {
     if (!orderDir.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.orderDir = orderDir;
   }
+
   public ChangeWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
     this.unparsed |= processQuery.unparsed;
@@ -340,19 +346,21 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>The process query to use in the widget.</p>
+   * The process query to use in the widget.
+   *
    * @return processQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ProcessQueryDefinition getProcessQuery() {
-        return processQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProcessQueryDefinition getProcessQuery() {
+    return processQuery;
+  }
+
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
   }
+
   public ChangeWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
     this.unparsed |= profileMetricsQuery.unparsed;
@@ -360,38 +368,42 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return profileMetricsQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getProfileMetricsQuery() {
-        return profileMetricsQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getProfileMetricsQuery() {
+    return profileMetricsQuery;
+  }
+
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
   }
+
   public ChangeWidgetRequest q(String q) {
     this.q = q;
     return this;
   }
 
   /**
-   * <p>Query definition.</p>
+   * Query definition.
+   *
    * @return q
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_Q)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getQ() {
-        return q;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_Q)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQ() {
+    return q;
+  }
+
   public void setQ(String q) {
     this.q = q;
   }
+
   public ChangeWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
     for (FormulaAndFunctionQueryDefinition item : queries) {
@@ -399,6 +411,7 @@ public class ChangeWidgetRequest {
     }
     return this;
   }
+
   public ChangeWidgetRequest addQueriesItem(FormulaAndFunctionQueryDefinition queriesItem) {
     if (this.queries == null) {
       this.queries = new ArrayList<>();
@@ -409,19 +422,21 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>List of queries that can be returned directly or used in formulas.</p>
+   * List of queries that can be returned directly or used in formulas.
+   *
    * @return queries
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUERIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<FormulaAndFunctionQueryDefinition> getQueries() {
-        return queries;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FormulaAndFunctionQueryDefinition> getQueries() {
+    return queries;
+  }
+
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
   }
+
   public ChangeWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
     this.unparsed |= !responseFormat.isValid();
@@ -429,22 +444,25 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.</p>
+   * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap
+   * widgets.
+   *
    * @return responseFormat
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FormulaAndFunctionResponseFormat getResponseFormat() {
-        return responseFormat;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionResponseFormat getResponseFormat() {
+    return responseFormat;
+  }
+
   public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     if (!responseFormat.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.responseFormat = responseFormat;
   }
+
   public ChangeWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     this.unparsed |= rumQuery.unparsed;
@@ -452,19 +470,21 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return rumQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RUM_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getRumQuery() {
-        return rumQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getRumQuery() {
+    return rumQuery;
+  }
+
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
   }
+
   public ChangeWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
     this.unparsed |= securityQuery.unparsed;
@@ -472,49 +492,51 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return securityQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getSecurityQuery() {
-        return securityQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
   }
+
   public ChangeWidgetRequest showPresent(Boolean showPresent) {
     this.showPresent = showPresent;
     return this;
   }
 
   /**
-   * <p>Whether to show the present value.</p>
+   * Whether to show the present value.
+   *
    * @return showPresent
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHOW_PRESENT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getShowPresent() {
-        return showPresent;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_PRESENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowPresent() {
+    return showPresent;
+  }
+
   public void setShowPresent(Boolean showPresent) {
     this.showPresent = showPresent;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -523,7 +545,7 @@ public class ChangeWidgetRequest {
   @JsonAnySetter
   public ChangeWidgetRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -547,14 +569,12 @@ public class ChangeWidgetRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ChangeWidgetRequest object is equal to o.
-   */
+  /** Return true if this ChangeWidgetRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -564,13 +584,49 @@ public class ChangeWidgetRequest {
       return false;
     }
     ChangeWidgetRequest changeWidgetRequest = (ChangeWidgetRequest) o;
-    return Objects.equals(this.apmQuery, changeWidgetRequest.apmQuery) && Objects.equals(this.changeType, changeWidgetRequest.changeType) && Objects.equals(this.compareTo, changeWidgetRequest.compareTo) && Objects.equals(this.eventQuery, changeWidgetRequest.eventQuery) && Objects.equals(this.formulas, changeWidgetRequest.formulas) && Objects.equals(this.increaseGood, changeWidgetRequest.increaseGood) && Objects.equals(this.logQuery, changeWidgetRequest.logQuery) && Objects.equals(this.networkQuery, changeWidgetRequest.networkQuery) && Objects.equals(this.orderBy, changeWidgetRequest.orderBy) && Objects.equals(this.orderDir, changeWidgetRequest.orderDir) && Objects.equals(this.processQuery, changeWidgetRequest.processQuery) && Objects.equals(this.profileMetricsQuery, changeWidgetRequest.profileMetricsQuery) && Objects.equals(this.q, changeWidgetRequest.q) && Objects.equals(this.queries, changeWidgetRequest.queries) && Objects.equals(this.responseFormat, changeWidgetRequest.responseFormat) && Objects.equals(this.rumQuery, changeWidgetRequest.rumQuery) && Objects.equals(this.securityQuery, changeWidgetRequest.securityQuery) && Objects.equals(this.showPresent, changeWidgetRequest.showPresent) && Objects.equals(this.additionalProperties, changeWidgetRequest.additionalProperties);
+    return Objects.equals(this.apmQuery, changeWidgetRequest.apmQuery)
+        && Objects.equals(this.changeType, changeWidgetRequest.changeType)
+        && Objects.equals(this.compareTo, changeWidgetRequest.compareTo)
+        && Objects.equals(this.eventQuery, changeWidgetRequest.eventQuery)
+        && Objects.equals(this.formulas, changeWidgetRequest.formulas)
+        && Objects.equals(this.increaseGood, changeWidgetRequest.increaseGood)
+        && Objects.equals(this.logQuery, changeWidgetRequest.logQuery)
+        && Objects.equals(this.networkQuery, changeWidgetRequest.networkQuery)
+        && Objects.equals(this.orderBy, changeWidgetRequest.orderBy)
+        && Objects.equals(this.orderDir, changeWidgetRequest.orderDir)
+        && Objects.equals(this.processQuery, changeWidgetRequest.processQuery)
+        && Objects.equals(this.profileMetricsQuery, changeWidgetRequest.profileMetricsQuery)
+        && Objects.equals(this.q, changeWidgetRequest.q)
+        && Objects.equals(this.queries, changeWidgetRequest.queries)
+        && Objects.equals(this.responseFormat, changeWidgetRequest.responseFormat)
+        && Objects.equals(this.rumQuery, changeWidgetRequest.rumQuery)
+        && Objects.equals(this.securityQuery, changeWidgetRequest.securityQuery)
+        && Objects.equals(this.showPresent, changeWidgetRequest.showPresent)
+        && Objects.equals(this.additionalProperties, changeWidgetRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery,changeType,compareTo,eventQuery,formulas,increaseGood,logQuery,networkQuery,orderBy,orderDir,processQuery,profileMetricsQuery,q,queries,responseFormat,rumQuery,securityQuery,showPresent, additionalProperties);
+    return Objects.hash(
+        apmQuery,
+        changeType,
+        compareTo,
+        eventQuery,
+        formulas,
+        increaseGood,
+        logQuery,
+        networkQuery,
+        orderBy,
+        orderDir,
+        processQuery,
+        profileMetricsQuery,
+        q,
+        queries,
+        responseFormat,
+        rumQuery,
+        securityQuery,
+        showPresent,
+        additionalProperties);
   }
 
   @Override
@@ -588,7 +644,9 @@ public class ChangeWidgetRequest {
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    orderDir: ").append(toIndentedString(orderDir)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
-    sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
+    sb.append("    profileMetricsQuery: ")
+        .append(toIndentedString(profileMetricsQuery))
+        .append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
@@ -603,8 +661,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

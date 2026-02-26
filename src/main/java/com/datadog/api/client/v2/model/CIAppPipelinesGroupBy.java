@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A group-by rule.</p>
- */
+/** A group-by rule. */
 @JsonPropertyOrder({
   CIAppPipelinesGroupBy.JSON_PROPERTY_FACET,
   CIAppPipelinesGroupBy.JSON_PROPERTY_HISTOGRAM,
@@ -42,10 +26,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   CIAppPipelinesGroupBy.JSON_PROPERTY_SORT,
   CIAppPipelinesGroupBy.JSON_PROPERTY_TOTAL
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CIAppPipelinesGroupBy {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
   private String facet;
 
@@ -68,27 +52,30 @@ public class CIAppPipelinesGroupBy {
 
   @JsonCreator
   public CIAppPipelinesGroupBy(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FACET)String facet) {
-        this.facet = facet;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FACET) String facet) {
+    this.facet = facet;
   }
+
   public CIAppPipelinesGroupBy facet(String facet) {
     this.facet = facet;
     return this;
   }
 
   /**
-   * <p>The name of the facet to use (required).</p>
+   * The name of the facet to use (required).
+   *
    * @return facet
-  **/
-      @JsonProperty(JSON_PROPERTY_FACET)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getFacet() {
-        return facet;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FACET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getFacet() {
+    return facet;
+  }
+
   public void setFacet(String facet) {
     this.facet = facet;
   }
+
   public CIAppPipelinesGroupBy histogram(CIAppGroupByHistogram histogram) {
     this.histogram = histogram;
     this.unparsed |= histogram.unparsed;
@@ -96,39 +83,43 @@ public class CIAppPipelinesGroupBy {
   }
 
   /**
-   * <p>Used to perform a histogram computation (only for measure facets).
-   * At most, 100 buckets are allowed, the number of buckets is <code>(max - min)/interval</code>.</p>
+   * Used to perform a histogram computation (only for measure facets). At most, 100 buckets are
+   * allowed, the number of buckets is <code>(max - min)/interval</code>.
+   *
    * @return histogram
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HISTOGRAM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppGroupByHistogram getHistogram() {
-        return histogram;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HISTOGRAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppGroupByHistogram getHistogram() {
+    return histogram;
+  }
+
   public void setHistogram(CIAppGroupByHistogram histogram) {
     this.histogram = histogram;
   }
+
   public CIAppPipelinesGroupBy limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * <p>The maximum buckets to return for this group-by.</p>
+   * The maximum buckets to return for this group-by.
+   *
    * @return limit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LIMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getLimit() {
-        return limit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLimit() {
+    return limit;
+  }
+
   public void setLimit(Long limit) {
     this.limit = limit;
   }
+
   public CIAppPipelinesGroupBy missing(CIAppGroupByMissing missing) {
     this.missing = missing;
     this.unparsed |= missing.unparsed;
@@ -136,19 +127,21 @@ public class CIAppPipelinesGroupBy {
   }
 
   /**
-   * <p>The value to use for logs that don't have the facet used to group-by.</p>
+   * The value to use for logs that don't have the facet used to group-by.
+   *
    * @return missing
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MISSING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppGroupByMissing getMissing() {
-        return missing;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MISSING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppGroupByMissing getMissing() {
+    return missing;
+  }
+
   public void setMissing(CIAppGroupByMissing missing) {
     this.missing = missing;
   }
+
   public CIAppPipelinesGroupBy sort(CIAppAggregateSort sort) {
     this.sort = sort;
     this.unparsed |= sort.unparsed;
@@ -156,19 +149,22 @@ public class CIAppPipelinesGroupBy {
   }
 
   /**
-   * <p>A sort rule. The <code>aggregation</code> field is required when <code>type</code> is <code>measure</code>.</p>
+   * A sort rule. The <code>aggregation</code> field is required when <code>type</code> is <code>
+   * measure</code>.
+   *
    * @return sort
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppAggregateSort getSort() {
-        return sort;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppAggregateSort getSort() {
+    return sort;
+  }
+
   public void setSort(CIAppAggregateSort sort) {
     this.sort = sort;
   }
+
   public CIAppPipelinesGroupBy total(CIAppGroupByTotal total) {
     this.total = total;
     this.unparsed |= total.unparsed;
@@ -176,30 +172,30 @@ public class CIAppPipelinesGroupBy {
   }
 
   /**
-   * <p>A resulting object to put the given computes in over all the matching records.</p>
+   * A resulting object to put the given computes in over all the matching records.
+   *
    * @return total
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOTAL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppGroupByTotal getTotal() {
-        return total;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppGroupByTotal getTotal() {
+    return total;
+  }
+
   public void setTotal(CIAppGroupByTotal total) {
     this.total = total;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -208,7 +204,7 @@ public class CIAppPipelinesGroupBy {
   @JsonAnySetter
   public CIAppPipelinesGroupBy putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -232,14 +228,12 @@ public class CIAppPipelinesGroupBy {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CIAppPipelinesGroupBy object is equal to o.
-   */
+  /** Return true if this CIAppPipelinesGroupBy object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -249,13 +243,18 @@ public class CIAppPipelinesGroupBy {
       return false;
     }
     CIAppPipelinesGroupBy ciAppPipelinesGroupBy = (CIAppPipelinesGroupBy) o;
-    return Objects.equals(this.facet, ciAppPipelinesGroupBy.facet) && Objects.equals(this.histogram, ciAppPipelinesGroupBy.histogram) && Objects.equals(this.limit, ciAppPipelinesGroupBy.limit) && Objects.equals(this.missing, ciAppPipelinesGroupBy.missing) && Objects.equals(this.sort, ciAppPipelinesGroupBy.sort) && Objects.equals(this.total, ciAppPipelinesGroupBy.total) && Objects.equals(this.additionalProperties, ciAppPipelinesGroupBy.additionalProperties);
+    return Objects.equals(this.facet, ciAppPipelinesGroupBy.facet)
+        && Objects.equals(this.histogram, ciAppPipelinesGroupBy.histogram)
+        && Objects.equals(this.limit, ciAppPipelinesGroupBy.limit)
+        && Objects.equals(this.missing, ciAppPipelinesGroupBy.missing)
+        && Objects.equals(this.sort, ciAppPipelinesGroupBy.sort)
+        && Objects.equals(this.total, ciAppPipelinesGroupBy.total)
+        && Objects.equals(this.additionalProperties, ciAppPipelinesGroupBy.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(facet,histogram,limit,missing,sort,total, additionalProperties);
+    return Objects.hash(facet, histogram, limit, missing, sort, total, additionalProperties);
   }
 
   @Override
@@ -276,8 +275,7 @@ public class CIAppPipelinesGroupBy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

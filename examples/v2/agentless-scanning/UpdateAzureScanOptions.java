@@ -1,32 +1,28 @@
 // Update Azure scan options returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.AgentlessScanningApi;
 import com.datadog.api.client.v2.model.AzureScanOptions;
 import com.datadog.api.client.v2.model.AzureScanOptionsInputUpdate;
 import com.datadog.api.client.v2.model.AzureScanOptionsInputUpdateData;
 import com.datadog.api.client.v2.model.AzureScanOptionsInputUpdateDataType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AgentlessScanningApi apiInstance = new AgentlessScanningApi(defaultClient);
 
-    AzureScanOptionsInputUpdate body = new AzureScanOptionsInputUpdate()
-.data(new AzureScanOptionsInputUpdateData()
-.id("12345678-90ab-cdef-1234-567890abcdef")
-.type(AzureScanOptionsInputUpdateDataType.AZURE_SCAN_OPTIONS));
+    AzureScanOptionsInputUpdate body =
+        new AzureScanOptionsInputUpdate()
+            .data(
+                new AzureScanOptionsInputUpdateData()
+                    .id("12345678-90ab-cdef-1234-567890abcdef")
+                    .type(AzureScanOptionsInputUpdateDataType.AZURE_SCAN_OPTIONS));
 
     try {
-      AzureScanOptions result = apiInstance.updateAzureScanOptions("12345678-90ab-cdef-1234-567890abcdef", body);
+      AzureScanOptions result =
+          apiInstance.updateAzureScanOptions("12345678-90ab-cdef-1234-567890abcdef", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AgentlessScanningApi#updateAzureScanOptions");

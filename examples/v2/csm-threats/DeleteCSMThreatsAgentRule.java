@@ -1,16 +1,9 @@
 // Delete a Workload Protection agent rule returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CsmThreatsApi;
 import com.datadog.api.client.v2.api.CsmThreatsApi.DeleteCSMThreatsAgentRuleOptionalParameters;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,7 +17,9 @@ public class Example {
     String POLICY_DATA_ID = System.getenv("POLICY_DATA_ID");
 
     try {
-      apiInstance.deleteCSMThreatsAgentRule(AGENT_RULE_DATA_ID,new DeleteCSMThreatsAgentRuleOptionalParameters().policyId(POLICY_DATA_ID));
+      apiInstance.deleteCSMThreatsAgentRule(
+          AGENT_RULE_DATA_ID,
+          new DeleteCSMThreatsAgentRuleOptionalParameters().policyId(POLICY_DATA_ID));
     } catch (ApiException e) {
       System.err.println("Exception when calling CsmThreatsApi#deleteCSMThreatsAgentRule");
       System.err.println("Status code: " + e.getCode());

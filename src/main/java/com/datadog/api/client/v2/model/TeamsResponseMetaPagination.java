@@ -6,34 +6,17 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Teams response metadata.</p>
- */
+/** Teams response metadata. */
 @JsonPropertyOrder({
   TeamsResponseMetaPagination.JSON_PROPERTY_FIRST_OFFSET,
   TeamsResponseMetaPagination.JSON_PROPERTY_LAST_OFFSET,
@@ -44,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   TeamsResponseMetaPagination.JSON_PROPERTY_TOTAL,
   TeamsResponseMetaPagination.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamsResponseMetaPagination {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIRST_OFFSET = "first_offset";
   private Long firstOffset;
 
@@ -78,163 +61,177 @@ public class TeamsResponseMetaPagination {
   }
 
   /**
-   * <p>The first offset.</p>
+   * The first offset.
+   *
    * @return firstOffset
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FIRST_OFFSET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getFirstOffset() {
-        return firstOffset;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIRST_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFirstOffset() {
+    return firstOffset;
+  }
+
   public void setFirstOffset(Long firstOffset) {
     this.firstOffset = firstOffset;
   }
+
   public TeamsResponseMetaPagination lastOffset(Long lastOffset) {
     this.lastOffset = lastOffset;
     return this;
   }
 
   /**
-   * <p>The last offset.</p>
+   * The last offset.
+   *
    * @return lastOffset
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getLastOffset() {
-        return lastOffset;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLastOffset() {
+    return lastOffset;
+  }
+
   public void setLastOffset(Long lastOffset) {
     this.lastOffset = lastOffset;
   }
+
   public TeamsResponseMetaPagination limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * <p>Pagination limit.</p>
+   * Pagination limit.
+   *
    * @return limit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LIMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getLimit() {
-        return limit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLimit() {
+    return limit;
+  }
+
   public void setLimit(Long limit) {
     this.limit = limit;
   }
+
   public TeamsResponseMetaPagination nextOffset(Long nextOffset) {
     this.nextOffset = nextOffset;
     return this;
   }
 
   /**
-   * <p>The next offset.</p>
+   * The next offset.
+   *
    * @return nextOffset
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getNextOffset() {
-        return nextOffset;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getNextOffset() {
+    return nextOffset;
+  }
+
   public void setNextOffset(Long nextOffset) {
     this.nextOffset = nextOffset;
   }
+
   public TeamsResponseMetaPagination offset(Long offset) {
     this.offset = offset;
     return this;
   }
 
   /**
-   * <p>The offset.</p>
+   * The offset.
+   *
    * @return offset
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OFFSET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getOffset() {
-        return offset;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOffset() {
+    return offset;
+  }
+
   public void setOffset(Long offset) {
     this.offset = offset;
   }
+
   public TeamsResponseMetaPagination prevOffset(Long prevOffset) {
     this.prevOffset = prevOffset;
     return this;
   }
 
   /**
-   * <p>The previous offset.</p>
+   * The previous offset.
+   *
    * @return prevOffset
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PREV_OFFSET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getPrevOffset() {
-        return prevOffset;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PREV_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getPrevOffset() {
+    return prevOffset;
+  }
+
   public void setPrevOffset(Long prevOffset) {
     this.prevOffset = prevOffset;
   }
+
   public TeamsResponseMetaPagination total(Long total) {
     this.total = total;
     return this;
   }
 
   /**
-   * <p>Total results.</p>
+   * Total results.
+   *
    * @return total
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOTAL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTotal() {
-        return total;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotal() {
+    return total;
+  }
+
   public void setTotal(Long total) {
     this.total = total;
   }
+
   public TeamsResponseMetaPagination type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * <p>Offset type.</p>
+   * Offset type.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getType() {
+    return type;
+  }
+
   public void setType(String type) {
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -243,7 +240,7 @@ public class TeamsResponseMetaPagination {
   @JsonAnySetter
   public TeamsResponseMetaPagination putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -267,14 +264,12 @@ public class TeamsResponseMetaPagination {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TeamsResponseMetaPagination object is equal to o.
-   */
+  /** Return true if this TeamsResponseMetaPagination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -284,13 +279,30 @@ public class TeamsResponseMetaPagination {
       return false;
     }
     TeamsResponseMetaPagination teamsResponseMetaPagination = (TeamsResponseMetaPagination) o;
-    return Objects.equals(this.firstOffset, teamsResponseMetaPagination.firstOffset) && Objects.equals(this.lastOffset, teamsResponseMetaPagination.lastOffset) && Objects.equals(this.limit, teamsResponseMetaPagination.limit) && Objects.equals(this.nextOffset, teamsResponseMetaPagination.nextOffset) && Objects.equals(this.offset, teamsResponseMetaPagination.offset) && Objects.equals(this.prevOffset, teamsResponseMetaPagination.prevOffset) && Objects.equals(this.total, teamsResponseMetaPagination.total) && Objects.equals(this.type, teamsResponseMetaPagination.type) && Objects.equals(this.additionalProperties, teamsResponseMetaPagination.additionalProperties);
+    return Objects.equals(this.firstOffset, teamsResponseMetaPagination.firstOffset)
+        && Objects.equals(this.lastOffset, teamsResponseMetaPagination.lastOffset)
+        && Objects.equals(this.limit, teamsResponseMetaPagination.limit)
+        && Objects.equals(this.nextOffset, teamsResponseMetaPagination.nextOffset)
+        && Objects.equals(this.offset, teamsResponseMetaPagination.offset)
+        && Objects.equals(this.prevOffset, teamsResponseMetaPagination.prevOffset)
+        && Objects.equals(this.total, teamsResponseMetaPagination.total)
+        && Objects.equals(this.type, teamsResponseMetaPagination.type)
+        && Objects.equals(
+            this.additionalProperties, teamsResponseMetaPagination.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstOffset,lastOffset,limit,nextOffset,offset,prevOffset,total,type, additionalProperties);
+    return Objects.hash(
+        firstOffset,
+        lastOffset,
+        limit,
+        nextOffset,
+        offset,
+        prevOffset,
+        total,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -313,8 +325,7 @@ public class TeamsResponseMetaPagination {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

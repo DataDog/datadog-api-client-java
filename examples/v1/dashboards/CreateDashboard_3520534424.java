@@ -1,9 +1,8 @@
 // Create a new dashboard with timeseries widget with custom_unit
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.DashboardsApi;
-import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
 import com.datadog.api.client.v1.model.DashboardReflowType;
@@ -28,58 +27,68 @@ import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetNumberFormat;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import com.datadog.api.client.v1.model.WidgetTime;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
-    Dashboard body = new Dashboard()
-.title("Example-Dashboard")
-.description("")
-.widgets(Collections.singletonList(new Widget()
-.definition(new WidgetDefinition(
-new TimeseriesWidgetDefinition()
-.title("")
-.titleSize("16")
-.titleAlign(WidgetTextAlign.LEFT)
-.showLegend(true)
-.legendLayout(TimeseriesWidgetLegendLayout.AUTO)
-.time(new WidgetTime(
-new WidgetLegacyLiveSpan()))
-.type(TimeseriesWidgetDefinitionType.TIMESERIES)
-.requests(Collections.singletonList(new TimeseriesWidgetRequest()
-.formulas(Collections.singletonList(new WidgetFormula()
-.formula("query1")
-.numberFormat(new WidgetNumberFormat()
-.unitScale(new NumberFormatUnitScale()
-.type(NumberFormatUnitScaleType.CANONICAL_UNIT)
-.unitName("apdex"))
-.unit(new NumberFormatUnit(
-new NumberFormatUnitCanonical()
-.type(NumberFormatUnitScaleType.CANONICAL_UNIT)
-.unitName("fraction"))))))
-.queries(Collections.singletonList(new FormulaAndFunctionQueryDefinition(
-new FormulaAndFunctionMetricQueryDefinition()
-.dataSource(FormulaAndFunctionMetricDataSource.METRICS)
-.name("query1")
-.query("avg:system.cpu.user{*}"))))
-.responseFormat(FormulaAndFunctionResponseFormat.TIMESERIES)
-.displayType(WidgetDisplayType.LINE)))))
-.layout(new WidgetLayout()
-.x(0L)
-.y(0L)
-.width(12L)
-.height(5L))))
-.layoutType(DashboardLayoutType.ORDERED)
-.reflowType(DashboardReflowType.FIXED);
+    Dashboard body =
+        new Dashboard()
+            .title("Example-Dashboard")
+            .description("")
+            .widgets(
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new TimeseriesWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .showLegend(true)
+                                    .legendLayout(TimeseriesWidgetLegendLayout.AUTO)
+                                    .time(new WidgetTime(new WidgetLegacyLiveSpan()))
+                                    .type(TimeseriesWidgetDefinitionType.TIMESERIES)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new TimeseriesWidgetRequest()
+                                                .formulas(
+                                                    Collections.singletonList(
+                                                        new WidgetFormula()
+                                                            .formula("query1")
+                                                            .numberFormat(
+                                                                new WidgetNumberFormat()
+                                                                    .unitScale(
+                                                                        new NumberFormatUnitScale()
+                                                                            .type(
+                                                                                NumberFormatUnitScaleType
+                                                                                    .CANONICAL_UNIT)
+                                                                            .unitName("apdex"))
+                                                                    .unit(
+                                                                        new NumberFormatUnit(
+                                                                            new NumberFormatUnitCanonical()
+                                                                                .type(
+                                                                                    NumberFormatUnitScaleType
+                                                                                        .CANONICAL_UNIT)
+                                                                                .unitName(
+                                                                                    "fraction"))))))
+                                                .queries(
+                                                    Collections.singletonList(
+                                                        new FormulaAndFunctionQueryDefinition(
+                                                            new FormulaAndFunctionMetricQueryDefinition()
+                                                                .dataSource(
+                                                                    FormulaAndFunctionMetricDataSource
+                                                                        .METRICS)
+                                                                .name("query1")
+                                                                .query("avg:system.cpu.user{*}"))))
+                                                .responseFormat(
+                                                    FormulaAndFunctionResponseFormat.TIMESERIES)
+                                                .displayType(WidgetDisplayType.LINE)))))
+                        .layout(new WidgetLayout().x(0L).y(0L).width(12L).height(5L))))
+            .layoutType(DashboardLayoutType.ORDERED)
+            .reflowType(DashboardReflowType.FIXED);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

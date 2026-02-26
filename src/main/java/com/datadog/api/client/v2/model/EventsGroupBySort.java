@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The dimension by which to sort a query's results.</p>
- */
+/** The dimension by which to sort a query's results. */
 @JsonPropertyOrder({
   EventsGroupBySort.JSON_PROPERTY_AGGREGATION,
   EventsGroupBySort.JSON_PROPERTY_METRIC,
   EventsGroupBySort.JSON_PROPERTY_ORDER,
   EventsGroupBySort.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventsGroupBySort {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private EventsAggregation aggregation = EventsAggregation.COUNT;
 
@@ -60,10 +44,12 @@ public class EventsGroupBySort {
 
   @JsonCreator
   public EventsGroupBySort(
-            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)EventsAggregation aggregation) {
-        this.aggregation = aggregation;
-        this.unparsed |= !aggregation.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
+          EventsAggregation aggregation) {
+    this.aggregation = aggregation;
+    this.unparsed |= !aggregation.isValid();
   }
+
   public EventsGroupBySort aggregation(EventsAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
@@ -71,40 +57,45 @@ public class EventsGroupBySort {
   }
 
   /**
-   * <p>The type of aggregation that can be performed on events-based queries.</p>
+   * The type of aggregation that can be performed on events-based queries.
+   *
    * @return aggregation
-  **/
-      @JsonProperty(JSON_PROPERTY_AGGREGATION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public EventsAggregation getAggregation() {
-        return aggregation;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public EventsAggregation getAggregation() {
+    return aggregation;
+  }
+
   public void setAggregation(EventsAggregation aggregation) {
     if (!aggregation.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.aggregation = aggregation;
   }
+
   public EventsGroupBySort metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * <p>The metric's calculated value which should be used to define the sort order of a query's results.</p>
+   * The metric's calculated value which should be used to define the sort order of a query's
+   * results.
+   *
    * @return metric
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METRIC)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getMetric() {
-        return metric;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMetric() {
+    return metric;
+  }
+
   public void setMetric(String metric) {
     this.metric = metric;
   }
+
   public EventsGroupBySort order(QuerySortOrder order) {
     this.order = order;
     this.unparsed |= !order.isValid();
@@ -112,22 +103,24 @@ public class EventsGroupBySort {
   }
 
   /**
-   * <p>Direction of sort.</p>
+   * Direction of sort.
+   *
    * @return order
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORDER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public QuerySortOrder getOrder() {
-        return order;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public QuerySortOrder getOrder() {
+    return order;
+  }
+
   public void setOrder(QuerySortOrder order) {
     if (!order.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.order = order;
   }
+
   public EventsGroupBySort type(EventsSortType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -135,33 +128,33 @@ public class EventsGroupBySort {
   }
 
   /**
-   * <p>The type of sort to use on the calculated value.</p>
+   * The type of sort to use on the calculated value.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EventsSortType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EventsSortType getType() {
+    return type;
+  }
+
   public void setType(EventsSortType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -170,7 +163,7 @@ public class EventsGroupBySort {
   @JsonAnySetter
   public EventsGroupBySort putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -194,14 +187,12 @@ public class EventsGroupBySort {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this EventsGroupBySort object is equal to o.
-   */
+  /** Return true if this EventsGroupBySort object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -211,13 +202,16 @@ public class EventsGroupBySort {
       return false;
     }
     EventsGroupBySort eventsGroupBySort = (EventsGroupBySort) o;
-    return Objects.equals(this.aggregation, eventsGroupBySort.aggregation) && Objects.equals(this.metric, eventsGroupBySort.metric) && Objects.equals(this.order, eventsGroupBySort.order) && Objects.equals(this.type, eventsGroupBySort.type) && Objects.equals(this.additionalProperties, eventsGroupBySort.additionalProperties);
+    return Objects.equals(this.aggregation, eventsGroupBySort.aggregation)
+        && Objects.equals(this.metric, eventsGroupBySort.metric)
+        && Objects.equals(this.order, eventsGroupBySort.order)
+        && Objects.equals(this.type, eventsGroupBySort.type)
+        && Objects.equals(this.additionalProperties, eventsGroupBySort.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation,metric,order,type, additionalProperties);
+    return Objects.hash(aggregation, metric, order, type, additionalProperties);
   }
 
   @Override
@@ -236,8 +230,7 @@ public class EventsGroupBySort {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

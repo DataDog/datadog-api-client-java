@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>The <code>kafka</code> source ingests data from Apache Kafka topics.</p>
-   * <p><strong>Supported pipeline types:</strong> logs</p>
+ * The <code>kafka</code> source ingests data from Apache Kafka topics.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineKafkaSource.JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY,
@@ -45,10 +34,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ObservabilityPipelineKafkaSource.JSON_PROPERTY_TOPICS,
   ObservabilityPipelineKafkaSource.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineKafkaSource {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY = "bootstrap_servers_key";
   private String bootstrapServersKey;
 
@@ -77,79 +66,91 @@ public class ObservabilityPipelineKafkaSource {
 
   @JsonCreator
   public ObservabilityPipelineKafkaSource(
-            @JsonProperty(required=true, value=JSON_PROPERTY_GROUP_ID)String groupId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TOPICS)List<String> topics,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ObservabilityPipelineKafkaSourceType type) {
-        this.groupId = groupId;
-        this.id = id;
-        this.topics = topics;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_GROUP_ID) String groupId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TOPICS) List<String> topics,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ObservabilityPipelineKafkaSourceType type) {
+    this.groupId = groupId;
+    this.id = id;
+    this.topics = topics;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public ObservabilityPipelineKafkaSource bootstrapServersKey(String bootstrapServersKey) {
     this.bootstrapServersKey = bootstrapServersKey;
     return this;
   }
 
   /**
-   * <p>Name of the environment variable or secret that holds the Kafka bootstrap servers list.</p>
+   * Name of the environment variable or secret that holds the Kafka bootstrap servers list.
+   *
    * @return bootstrapServersKey
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getBootstrapServersKey() {
-        return bootstrapServersKey;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BOOTSTRAP_SERVERS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBootstrapServersKey() {
+    return bootstrapServersKey;
+  }
+
   public void setBootstrapServersKey(String bootstrapServersKey) {
     this.bootstrapServersKey = bootstrapServersKey;
   }
+
   public ObservabilityPipelineKafkaSource groupId(String groupId) {
     this.groupId = groupId;
     return this;
   }
 
   /**
-   * <p>Consumer group ID used by the Kafka client.</p>
+   * Consumer group ID used by the Kafka client.
+   *
    * @return groupId
-  **/
-      @JsonProperty(JSON_PROPERTY_GROUP_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getGroupId() {
-        return groupId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_GROUP_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getGroupId() {
+    return groupId;
+  }
+
   public void setGroupId(String groupId) {
     this.groupId = groupId;
   }
+
   public ObservabilityPipelineKafkaSource id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the <code>input</code> to downstream components).</p>
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
-  public ObservabilityPipelineKafkaSource librdkafkaOptions(List<ObservabilityPipelineKafkaLibrdkafkaOption> librdkafkaOptions) {
+
+  public ObservabilityPipelineKafkaSource librdkafkaOptions(
+      List<ObservabilityPipelineKafkaLibrdkafkaOption> librdkafkaOptions) {
     this.librdkafkaOptions = librdkafkaOptions;
     for (ObservabilityPipelineKafkaLibrdkafkaOption item : librdkafkaOptions) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public ObservabilityPipelineKafkaSource addLibrdkafkaOptionsItem(ObservabilityPipelineKafkaLibrdkafkaOption librdkafkaOptionsItem) {
+
+  public ObservabilityPipelineKafkaSource addLibrdkafkaOptionsItem(
+      ObservabilityPipelineKafkaLibrdkafkaOption librdkafkaOptionsItem) {
     if (this.librdkafkaOptions == null) {
       this.librdkafkaOptions = new ArrayList<>();
     }
@@ -159,19 +160,22 @@ public class ObservabilityPipelineKafkaSource {
   }
 
   /**
-   * <p>Optional list of advanced Kafka client configuration options, defined as key-value pairs.</p>
+   * Optional list of advanced Kafka client configuration options, defined as key-value pairs.
+   *
    * @return librdkafkaOptions
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LIBRDKAFKA_OPTIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ObservabilityPipelineKafkaLibrdkafkaOption> getLibrdkafkaOptions() {
-        return librdkafkaOptions;
-      }
-  public void setLibrdkafkaOptions(List<ObservabilityPipelineKafkaLibrdkafkaOption> librdkafkaOptions) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIBRDKAFKA_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ObservabilityPipelineKafkaLibrdkafkaOption> getLibrdkafkaOptions() {
+    return librdkafkaOptions;
+  }
+
+  public void setLibrdkafkaOptions(
+      List<ObservabilityPipelineKafkaLibrdkafkaOption> librdkafkaOptions) {
     this.librdkafkaOptions = librdkafkaOptions;
   }
+
   public ObservabilityPipelineKafkaSource sasl(ObservabilityPipelineKafkaSasl sasl) {
     this.sasl = sasl;
     this.unparsed |= sasl.unparsed;
@@ -179,19 +183,21 @@ public class ObservabilityPipelineKafkaSource {
   }
 
   /**
-   * <p>Specifies the SASL mechanism for authenticating with a Kafka cluster.</p>
+   * Specifies the SASL mechanism for authenticating with a Kafka cluster.
+   *
    * @return sasl
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SASL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ObservabilityPipelineKafkaSasl getSasl() {
-        return sasl;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SASL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineKafkaSasl getSasl() {
+    return sasl;
+  }
+
   public void setSasl(ObservabilityPipelineKafkaSasl sasl) {
     this.sasl = sasl;
   }
+
   public ObservabilityPipelineKafkaSource tls(ObservabilityPipelineTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
@@ -199,41 +205,47 @@ public class ObservabilityPipelineKafkaSource {
   }
 
   /**
-   * <p>Configuration for enabling TLS encryption between the pipeline component and external services.</p>
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   *
    * @return tls
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TLS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ObservabilityPipelineTls getTls() {
-        return tls;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineTls getTls() {
+    return tls;
+  }
+
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
   }
+
   public ObservabilityPipelineKafkaSource topics(List<String> topics) {
     this.topics = topics;
     return this;
   }
+
   public ObservabilityPipelineKafkaSource addTopicsItem(String topicsItem) {
     this.topics.add(topicsItem);
     return this;
   }
 
   /**
-   * <p>A list of Kafka topic names to subscribe to. The source ingests messages from each topic specified.</p>
+   * A list of Kafka topic names to subscribe to. The source ingests messages from each topic
+   * specified.
+   *
    * @return topics
-  **/
-      @JsonProperty(JSON_PROPERTY_TOPICS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getTopics() {
-        return topics;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TOPICS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getTopics() {
+    return topics;
+  }
+
   public void setTopics(List<String> topics) {
     this.topics = topics;
   }
+
   public ObservabilityPipelineKafkaSource type(ObservabilityPipelineKafkaSourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -241,32 +253,32 @@ public class ObservabilityPipelineKafkaSource {
   }
 
   /**
-   * <p>The source type. The value should always be <code>kafka</code>.</p>
+   * The source type. The value should always be <code>kafka</code>.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ObservabilityPipelineKafkaSourceType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineKafkaSourceType getType() {
+    return type;
+  }
+
   public void setType(ObservabilityPipelineKafkaSourceType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -275,7 +287,7 @@ public class ObservabilityPipelineKafkaSource {
   @JsonAnySetter
   public ObservabilityPipelineKafkaSource putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -299,14 +311,12 @@ public class ObservabilityPipelineKafkaSource {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ObservabilityPipelineKafkaSource object is equal to o.
-   */
+  /** Return true if this ObservabilityPipelineKafkaSource object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -315,21 +325,43 @@ public class ObservabilityPipelineKafkaSource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineKafkaSource observabilityPipelineKafkaSource = (ObservabilityPipelineKafkaSource) o;
-    return Objects.equals(this.bootstrapServersKey, observabilityPipelineKafkaSource.bootstrapServersKey) && Objects.equals(this.groupId, observabilityPipelineKafkaSource.groupId) && Objects.equals(this.id, observabilityPipelineKafkaSource.id) && Objects.equals(this.librdkafkaOptions, observabilityPipelineKafkaSource.librdkafkaOptions) && Objects.equals(this.sasl, observabilityPipelineKafkaSource.sasl) && Objects.equals(this.tls, observabilityPipelineKafkaSource.tls) && Objects.equals(this.topics, observabilityPipelineKafkaSource.topics) && Objects.equals(this.type, observabilityPipelineKafkaSource.type) && Objects.equals(this.additionalProperties, observabilityPipelineKafkaSource.additionalProperties);
+    ObservabilityPipelineKafkaSource observabilityPipelineKafkaSource =
+        (ObservabilityPipelineKafkaSource) o;
+    return Objects.equals(
+            this.bootstrapServersKey, observabilityPipelineKafkaSource.bootstrapServersKey)
+        && Objects.equals(this.groupId, observabilityPipelineKafkaSource.groupId)
+        && Objects.equals(this.id, observabilityPipelineKafkaSource.id)
+        && Objects.equals(
+            this.librdkafkaOptions, observabilityPipelineKafkaSource.librdkafkaOptions)
+        && Objects.equals(this.sasl, observabilityPipelineKafkaSource.sasl)
+        && Objects.equals(this.tls, observabilityPipelineKafkaSource.tls)
+        && Objects.equals(this.topics, observabilityPipelineKafkaSource.topics)
+        && Objects.equals(this.type, observabilityPipelineKafkaSource.type)
+        && Objects.equals(
+            this.additionalProperties, observabilityPipelineKafkaSource.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(bootstrapServersKey,groupId,id,librdkafkaOptions,sasl,tls,topics,type, additionalProperties);
+    return Objects.hash(
+        bootstrapServersKey,
+        groupId,
+        id,
+        librdkafkaOptions,
+        sasl,
+        tls,
+        topics,
+        type,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineKafkaSource {\n");
-    sb.append("    bootstrapServersKey: ").append(toIndentedString(bootstrapServersKey)).append("\n");
+    sb.append("    bootstrapServersKey: ")
+        .append(toIndentedString(bootstrapServersKey))
+        .append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    librdkafkaOptions: ").append(toIndentedString(librdkafkaOptions)).append("\n");
@@ -345,8 +377,7 @@ public class ObservabilityPipelineKafkaSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

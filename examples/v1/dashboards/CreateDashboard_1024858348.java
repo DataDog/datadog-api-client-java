@@ -1,9 +1,8 @@
 // Create a new dashboard with a formulas and functions treemap widget
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.DashboardsApi;
-import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventAggregation;
@@ -20,46 +19,55 @@ import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetFormula;
 import com.datadog.api.client.v1.model.WidgetLayout;
-import java.io.File;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
-    Dashboard body = new Dashboard()
-.title("Example-Dashboard")
-.widgets(Collections.singletonList(new Widget()
-.definition(new WidgetDefinition(
-new TreeMapWidgetDefinition()
-.title("")
-.type(TreeMapWidgetDefinitionType.TREEMAP)
-.requests(Collections.singletonList(new TreeMapWidgetRequest()
-.formulas(Arrays.asList(new WidgetFormula()
-.formula("hour_before(query1)"), new WidgetFormula()
-.formula("query1")))
-.queries(Collections.singletonList(new FormulaAndFunctionQueryDefinition(
-new FormulaAndFunctionEventQueryDefinition()
-.dataSource(FormulaAndFunctionEventsDataSource.LOGS)
-.name("query1")
-.search(new FormulaAndFunctionEventQueryDefinitionSearch()
-.query(""))
-.indexes(Collections.singletonList("*"))
-.compute(new FormulaAndFunctionEventQueryDefinitionCompute()
-.aggregation(FormulaAndFunctionEventAggregation.COUNT)))))
-.responseFormat(FormulaAndFunctionResponseFormat.SCALAR)))))
-.layout(new WidgetLayout()
-.x(0L)
-.y(0L)
-.width(4L)
-.height(4L))))
-.layoutType(DashboardLayoutType.ORDERED);
+    Dashboard body =
+        new Dashboard()
+            .title("Example-Dashboard")
+            .widgets(
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new TreeMapWidgetDefinition()
+                                    .title("")
+                                    .type(TreeMapWidgetDefinitionType.TREEMAP)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new TreeMapWidgetRequest()
+                                                .formulas(
+                                                    Arrays.asList(
+                                                        new WidgetFormula()
+                                                            .formula("hour_before(query1)"),
+                                                        new WidgetFormula().formula("query1")))
+                                                .queries(
+                                                    Collections.singletonList(
+                                                        new FormulaAndFunctionQueryDefinition(
+                                                            new FormulaAndFunctionEventQueryDefinition()
+                                                                .dataSource(
+                                                                    FormulaAndFunctionEventsDataSource
+                                                                        .LOGS)
+                                                                .name("query1")
+                                                                .search(
+                                                                    new FormulaAndFunctionEventQueryDefinitionSearch()
+                                                                        .query(""))
+                                                                .indexes(
+                                                                    Collections.singletonList("*"))
+                                                                .compute(
+                                                                    new FormulaAndFunctionEventQueryDefinitionCompute()
+                                                                        .aggregation(
+                                                                            FormulaAndFunctionEventAggregation
+                                                                                .COUNT)))))
+                                                .responseFormat(
+                                                    FormulaAndFunctionResponseFormat.SCALAR)))))
+                        .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L))))
+            .layoutType(DashboardLayoutType.ORDERED);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

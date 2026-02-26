@@ -6,34 +6,20 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.UUID;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-
- */
+/** */
 @JsonPropertyOrder({
   CreateStatusPageRequestDataAttributesComponentsItems.JSON_PROPERTY_COMPONENTS,
   CreateStatusPageRequestDataAttributesComponentsItems.JSON_PROPERTY_ID,
@@ -42,12 +28,13 @@ import com.datadog.api.client.JsonTimeSerializer;
   CreateStatusPageRequestDataAttributesComponentsItems.JSON_PROPERTY_STATUS,
   CreateStatusPageRequestDataAttributesComponentsItems.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateStatusPageRequestDataAttributesComponentsItems {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPONENTS = "components";
-  private List<CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems> components = null;
+  private List<CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems> components =
+      null;
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -64,14 +51,17 @@ public class CreateStatusPageRequestDataAttributesComponentsItems {
   public static final String JSON_PROPERTY_TYPE = "type";
   private CreateComponentRequestDataAttributesType type;
 
-  public CreateStatusPageRequestDataAttributesComponentsItems components(List<CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems> components) {
+  public CreateStatusPageRequestDataAttributesComponentsItems components(
+      List<CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems> components) {
     this.components = components;
     for (CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems item : components) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public CreateStatusPageRequestDataAttributesComponentsItems addComponentsItem(CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems componentsItem) {
+
+  public CreateStatusPageRequestDataAttributesComponentsItems addComponentsItem(
+      CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems componentsItem) {
     if (this.components == null) {
       this.components = new ArrayList<>();
     }
@@ -81,124 +71,133 @@ public class CreateStatusPageRequestDataAttributesComponentsItems {
   }
 
   /**
-   * <p>If creating a component of type <code>group</code>, the components to create within the group.</p>
+   * If creating a component of type <code>group</code>, the components to create within the group.
+   *
    * @return components
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPONENTS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems> getComponents() {
-        return components;
-      }
-  public void setComponents(List<CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems> components) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPONENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems> getComponents() {
+    return components;
+  }
+
+  public void setComponents(
+      List<CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems> components) {
     this.components = components;
   }
 
   /**
-   * <p>The ID of the component.</p>
+   * The ID of the component.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public UUID getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UUID getId() {
+    return id;
+  }
+
   public CreateStatusPageRequestDataAttributesComponentsItems name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public CreateStatusPageRequestDataAttributesComponentsItems position(Long position) {
     this.position = position;
     return this;
   }
 
   /**
-   * <p>The zero-indexed position of the component.</p>
+   * The zero-indexed position of the component.
+   *
    * @return position
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_POSITION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getPosition() {
-        return position;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POSITION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getPosition() {
+    return position;
+  }
+
   public void setPosition(Long position) {
     this.position = position;
   }
 
   /**
-   * <p>The status of the component.</p>
+   * The status of the component.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public StatusPagesComponentGroupAttributesComponentsItemsStatus getStatus() {
-        return status;
-      }
-  public CreateStatusPageRequestDataAttributesComponentsItems type(CreateComponentRequestDataAttributesType type) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public StatusPagesComponentGroupAttributesComponentsItemsStatus getStatus() {
+    return status;
+  }
+
+  public CreateStatusPageRequestDataAttributesComponentsItems type(
+      CreateComponentRequestDataAttributesType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * <p>The type of the component.</p>
+   * The type of the component.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CreateComponentRequestDataAttributesType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CreateComponentRequestDataAttributesType getType() {
+    return type;
+  }
+
   public void setType(CreateComponentRequestDataAttributesType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return CreateStatusPageRequestDataAttributesComponentsItems
    */
   @JsonAnySetter
-  public CreateStatusPageRequestDataAttributesComponentsItems putAdditionalProperty(String key, Object value) {
+  public CreateStatusPageRequestDataAttributesComponentsItems putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -222,7 +221,7 @@ public class CreateStatusPageRequestDataAttributesComponentsItems {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
@@ -238,14 +237,25 @@ public class CreateStatusPageRequestDataAttributesComponentsItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateStatusPageRequestDataAttributesComponentsItems createStatusPageRequestDataAttributesComponentsItems = (CreateStatusPageRequestDataAttributesComponentsItems) o;
-    return Objects.equals(this.components, createStatusPageRequestDataAttributesComponentsItems.components) && Objects.equals(this.id, createStatusPageRequestDataAttributesComponentsItems.id) && Objects.equals(this.name, createStatusPageRequestDataAttributesComponentsItems.name) && Objects.equals(this.position, createStatusPageRequestDataAttributesComponentsItems.position) && Objects.equals(this.status, createStatusPageRequestDataAttributesComponentsItems.status) && Objects.equals(this.type, createStatusPageRequestDataAttributesComponentsItems.type) && Objects.equals(this.additionalProperties, createStatusPageRequestDataAttributesComponentsItems.additionalProperties);
+    CreateStatusPageRequestDataAttributesComponentsItems
+        createStatusPageRequestDataAttributesComponentsItems =
+            (CreateStatusPageRequestDataAttributesComponentsItems) o;
+    return Objects.equals(
+            this.components, createStatusPageRequestDataAttributesComponentsItems.components)
+        && Objects.equals(this.id, createStatusPageRequestDataAttributesComponentsItems.id)
+        && Objects.equals(this.name, createStatusPageRequestDataAttributesComponentsItems.name)
+        && Objects.equals(
+            this.position, createStatusPageRequestDataAttributesComponentsItems.position)
+        && Objects.equals(this.status, createStatusPageRequestDataAttributesComponentsItems.status)
+        && Objects.equals(this.type, createStatusPageRequestDataAttributesComponentsItems.type)
+        && Objects.equals(
+            this.additionalProperties,
+            createStatusPageRequestDataAttributesComponentsItems.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(components,id,name,position,status,type, additionalProperties);
+    return Objects.hash(components, id, name, position, status, type, additionalProperties);
   }
 
   @Override
@@ -266,8 +276,7 @@ public class CreateStatusPageRequestDataAttributesComponentsItems {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

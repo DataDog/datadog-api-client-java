@@ -6,34 +6,20 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>JSON object containing all span attributes and their associated values.</p>
- */
+/** JSON object containing all span attributes and their associated values. */
 @JsonPropertyOrder({
   SpansAttributes.JSON_PROPERTY_ATTRIBUTES,
   SpansAttributes.JSON_PROPERTY_CUSTOM,
@@ -53,10 +39,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SpansAttributes.JSON_PROPERTY_TRACE_ID,
   SpansAttributes.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SpansAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private Map<String, Object> attributes = null;
 
@@ -112,6 +98,7 @@ public class SpansAttributes {
     this.attributes = attributes;
     return this;
   }
+
   public SpansAttributes putAttributesItem(String key, Object attributesItem) {
     if (this.attributes == null) {
       this.attributes = new HashMap<>();
@@ -121,23 +108,26 @@ public class SpansAttributes {
   }
 
   /**
-   * <p>JSON object of attributes from your span.</p>
+   * JSON object of attributes from your span.
+   *
    * @return attributes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getAttributes() {
-        return attributes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
+
   public SpansAttributes custom(Map<String, Object> custom) {
     this.custom = custom;
     return this;
   }
+
   public SpansAttributes putCustomItem(String key, Object customItem) {
     if (this.custom == null) {
       this.custom = new HashMap<>();
@@ -147,253 +137,280 @@ public class SpansAttributes {
   }
 
   /**
-   * <p>JSON object of custom spans data.</p>
+   * JSON object of custom spans data.
+   *
    * @return custom
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CUSTOM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getCustom() {
-        return custom;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getCustom() {
+    return custom;
+  }
+
   public void setCustom(Map<String, Object> custom) {
     this.custom = custom;
   }
+
   public SpansAttributes endTimestamp(OffsetDateTime endTimestamp) {
     this.endTimestamp = endTimestamp;
     return this;
   }
 
   /**
-   * <p>End timestamp of your span.</p>
+   * End timestamp of your span.
+   *
    * @return endTimestamp
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_END_TIMESTAMP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getEndTimestamp() {
-        return endTimestamp;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_END_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getEndTimestamp() {
+    return endTimestamp;
+  }
+
   public void setEndTimestamp(OffsetDateTime endTimestamp) {
     this.endTimestamp = endTimestamp;
   }
+
   public SpansAttributes env(String env) {
     this.env = env;
     return this;
   }
 
   /**
-   * <p>Name of the environment from where the spans are being sent.</p>
+   * Name of the environment from where the spans are being sent.
+   *
    * @return env
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENV)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getEnv() {
-        return env;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEnv() {
+    return env;
+  }
+
   public void setEnv(String env) {
     this.env = env;
   }
+
   public SpansAttributes host(String host) {
     this.host = host;
     return this;
   }
 
   /**
-   * <p>Name of the machine from where the spans are being sent.</p>
+   * Name of the machine from where the spans are being sent.
+   *
    * @return host
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOST)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHost() {
-        return host;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHost() {
+    return host;
+  }
+
   public void setHost(String host) {
     this.host = host;
   }
+
   public SpansAttributes ingestionReason(String ingestionReason) {
     this.ingestionReason = ingestionReason;
     return this;
   }
 
   /**
-   * <p>The reason why the span was ingested.</p>
+   * The reason why the span was ingested.
+   *
    * @return ingestionReason
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INGESTION_REASON)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getIngestionReason() {
-        return ingestionReason;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INGESTION_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIngestionReason() {
+    return ingestionReason;
+  }
+
   public void setIngestionReason(String ingestionReason) {
     this.ingestionReason = ingestionReason;
   }
+
   public SpansAttributes parentId(String parentId) {
     this.parentId = parentId;
     return this;
   }
 
   /**
-   * <p>Id of the span that's parent of this span.</p>
+   * Id of the span that's parent of this span.
+   *
    * @return parentId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PARENT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getParentId() {
-        return parentId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getParentId() {
+    return parentId;
+  }
+
   public void setParentId(String parentId) {
     this.parentId = parentId;
   }
+
   public SpansAttributes resourceHash(String resourceHash) {
     this.resourceHash = resourceHash;
     return this;
   }
 
   /**
-   * <p>Unique identifier of the resource.</p>
+   * Unique identifier of the resource.
+   *
    * @return resourceHash
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESOURCE_HASH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getResourceHash() {
-        return resourceHash;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCE_HASH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getResourceHash() {
+    return resourceHash;
+  }
+
   public void setResourceHash(String resourceHash) {
     this.resourceHash = resourceHash;
   }
+
   public SpansAttributes resourceName(String resourceName) {
     this.resourceName = resourceName;
     return this;
   }
 
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @return resourceName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESOURCE_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getResourceName() {
-        return resourceName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getResourceName() {
+    return resourceName;
+  }
+
   public void setResourceName(String resourceName) {
     this.resourceName = resourceName;
   }
+
   public SpansAttributes retainedBy(String retainedBy) {
     this.retainedBy = retainedBy;
     return this;
   }
 
   /**
-   * <p>The reason why the span was indexed.</p>
+   * The reason why the span was indexed.
+   *
    * @return retainedBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RETAINED_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRetainedBy() {
-        return retainedBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RETAINED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRetainedBy() {
+    return retainedBy;
+  }
+
   public void setRetainedBy(String retainedBy) {
     this.retainedBy = retainedBy;
   }
+
   public SpansAttributes service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * <p>The name of the application or service generating the span events.
-   * It is used to switch from APM to Logs, so make sure you define the same
-   * value when you use both products.</p>
+   * The name of the application or service generating the span events. It is used to switch from
+   * APM to Logs, so make sure you define the same value when you use both products.
+   *
    * @return service
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SERVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getService() {
-        return service;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getService() {
+    return service;
+  }
+
   public void setService(String service) {
     this.service = service;
   }
+
   public SpansAttributes singleSpan(Boolean singleSpan) {
     this.singleSpan = singleSpan;
     return this;
   }
 
   /**
-   * <p>Whether or not the span was collected as a stand-alone span. Always associated to "single_span" ingestion_reason if true.</p>
+   * Whether or not the span was collected as a stand-alone span. Always associated to "single_span"
+   * ingestion_reason if true.
+   *
    * @return singleSpan
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SINGLE_SPAN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getSingleSpan() {
-        return singleSpan;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SINGLE_SPAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSingleSpan() {
+    return singleSpan;
+  }
+
   public void setSingleSpan(Boolean singleSpan) {
     this.singleSpan = singleSpan;
   }
+
   public SpansAttributes spanId(String spanId) {
     this.spanId = spanId;
     return this;
   }
 
   /**
-   * <p>Id of the span.</p>
+   * Id of the span.
+   *
    * @return spanId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SPAN_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSpanId() {
-        return spanId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SPAN_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSpanId() {
+    return spanId;
+  }
+
   public void setSpanId(String spanId) {
     this.spanId = spanId;
   }
+
   public SpansAttributes startTimestamp(OffsetDateTime startTimestamp) {
     this.startTimestamp = startTimestamp;
     return this;
   }
 
   /**
-   * <p>Start timestamp of your span.</p>
+   * Start timestamp of your span.
+   *
    * @return startTimestamp
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_START_TIMESTAMP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getStartTimestamp() {
-        return startTimestamp;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_START_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getStartTimestamp() {
+    return startTimestamp;
+  }
+
   public void setStartTimestamp(OffsetDateTime startTimestamp) {
     this.startTimestamp = startTimestamp;
   }
+
   public SpansAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public SpansAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -403,68 +420,72 @@ public class SpansAttributes {
   }
 
   /**
-   * <p>Array of tags associated with your span.</p>
+   * Array of tags associated with your span.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public SpansAttributes traceId(String traceId) {
     this.traceId = traceId;
     return this;
   }
 
   /**
-   * <p>Id of the trace to which the span belongs.</p>
+   * Id of the trace to which the span belongs.
+   *
    * @return traceId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TRACE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTraceId() {
-        return traceId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRACE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTraceId() {
+    return traceId;
+  }
+
   public void setTraceId(String traceId) {
     this.traceId = traceId;
   }
+
   public SpansAttributes type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * <p>The type of the span.</p>
+   * The type of the span.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getType() {
+    return type;
+  }
+
   public void setType(String type) {
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -473,7 +494,7 @@ public class SpansAttributes {
   @JsonAnySetter
   public SpansAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -497,14 +518,12 @@ public class SpansAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SpansAttributes object is equal to o.
-   */
+  /** Return true if this SpansAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -514,13 +533,47 @@ public class SpansAttributes {
       return false;
     }
     SpansAttributes spansAttributes = (SpansAttributes) o;
-    return Objects.equals(this.attributes, spansAttributes.attributes) && Objects.equals(this.custom, spansAttributes.custom) && Objects.equals(this.endTimestamp, spansAttributes.endTimestamp) && Objects.equals(this.env, spansAttributes.env) && Objects.equals(this.host, spansAttributes.host) && Objects.equals(this.ingestionReason, spansAttributes.ingestionReason) && Objects.equals(this.parentId, spansAttributes.parentId) && Objects.equals(this.resourceHash, spansAttributes.resourceHash) && Objects.equals(this.resourceName, spansAttributes.resourceName) && Objects.equals(this.retainedBy, spansAttributes.retainedBy) && Objects.equals(this.service, spansAttributes.service) && Objects.equals(this.singleSpan, spansAttributes.singleSpan) && Objects.equals(this.spanId, spansAttributes.spanId) && Objects.equals(this.startTimestamp, spansAttributes.startTimestamp) && Objects.equals(this.tags, spansAttributes.tags) && Objects.equals(this.traceId, spansAttributes.traceId) && Objects.equals(this.type, spansAttributes.type) && Objects.equals(this.additionalProperties, spansAttributes.additionalProperties);
+    return Objects.equals(this.attributes, spansAttributes.attributes)
+        && Objects.equals(this.custom, spansAttributes.custom)
+        && Objects.equals(this.endTimestamp, spansAttributes.endTimestamp)
+        && Objects.equals(this.env, spansAttributes.env)
+        && Objects.equals(this.host, spansAttributes.host)
+        && Objects.equals(this.ingestionReason, spansAttributes.ingestionReason)
+        && Objects.equals(this.parentId, spansAttributes.parentId)
+        && Objects.equals(this.resourceHash, spansAttributes.resourceHash)
+        && Objects.equals(this.resourceName, spansAttributes.resourceName)
+        && Objects.equals(this.retainedBy, spansAttributes.retainedBy)
+        && Objects.equals(this.service, spansAttributes.service)
+        && Objects.equals(this.singleSpan, spansAttributes.singleSpan)
+        && Objects.equals(this.spanId, spansAttributes.spanId)
+        && Objects.equals(this.startTimestamp, spansAttributes.startTimestamp)
+        && Objects.equals(this.tags, spansAttributes.tags)
+        && Objects.equals(this.traceId, spansAttributes.traceId)
+        && Objects.equals(this.type, spansAttributes.type)
+        && Objects.equals(this.additionalProperties, spansAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,custom,endTimestamp,env,host,ingestionReason,parentId,resourceHash,resourceName,retainedBy,service,singleSpan,spanId,startTimestamp,tags,traceId,type, additionalProperties);
+    return Objects.hash(
+        attributes,
+        custom,
+        endTimestamp,
+        env,
+        host,
+        ingestionReason,
+        parentId,
+        resourceHash,
+        resourceName,
+        retainedBy,
+        service,
+        singleSpan,
+        spanId,
+        startTimestamp,
+        tags,
+        traceId,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -552,8 +605,7 @@ public class SpansAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

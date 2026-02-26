@@ -1,18 +1,10 @@
 // Get a list of tests events returns "OK" response
-import java.time.OffsetDateTime;
-
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CiVisibilityTestsApi;
 import com.datadog.api.client.v2.api.CiVisibilityTestsApi.ListCIAppTestEventsOptionalParameters;
 import com.datadog.api.client.v2.model.CIAppTestEventsResponse;
-import java.io.File;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -20,7 +12,13 @@ public class Example {
     CiVisibilityTestsApi apiInstance = new CiVisibilityTestsApi(defaultClient);
 
     try {
-      CIAppTestEventsResponse result = apiInstance.listCIAppTestEvents(new ListCIAppTestEventsOptionalParameters().filterQuery("@test.service:web-ui-tests").filterFrom(OffsetDateTime.now().plusSeconds(-30)).filterTo(OffsetDateTime.now()).pageLimit(5));
+      CIAppTestEventsResponse result =
+          apiInstance.listCIAppTestEvents(
+              new ListCIAppTestEventsOptionalParameters()
+                  .filterQuery("@test.service:web-ui-tests")
+                  .filterFrom(OffsetDateTime.now().plusSeconds(-30))
+                  .filterTo(OffsetDateTime.now())
+                  .pageLimit(5));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CiVisibilityTestsApi#listCIAppTestEvents");

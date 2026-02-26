@@ -6,44 +6,27 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Team notification rule attributes</p>
- */
+/** Team notification rule attributes */
 @JsonPropertyOrder({
   TeamNotificationRuleAttributes.JSON_PROPERTY_EMAIL,
   TeamNotificationRuleAttributes.JSON_PROPERTY_MS_TEAMS,
   TeamNotificationRuleAttributes.JSON_PROPERTY_PAGERDUTY,
   TeamNotificationRuleAttributes.JSON_PROPERTY_SLACK
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamNotificationRuleAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAIL = "email";
   private TeamNotificationRuleAttributesEmail email;
 
@@ -63,19 +46,21 @@ public class TeamNotificationRuleAttributes {
   }
 
   /**
-   * <p>Email notification settings for the team</p>
+   * Email notification settings for the team
+   *
    * @return email
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EMAIL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TeamNotificationRuleAttributesEmail getEmail() {
-        return email;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamNotificationRuleAttributesEmail getEmail() {
+    return email;
+  }
+
   public void setEmail(TeamNotificationRuleAttributesEmail email) {
     this.email = email;
   }
+
   public TeamNotificationRuleAttributes msTeams(TeamNotificationRuleAttributesMsTeams msTeams) {
     this.msTeams = msTeams;
     this.unparsed |= msTeams.unparsed;
@@ -83,39 +68,44 @@ public class TeamNotificationRuleAttributes {
   }
 
   /**
-   * <p>MS Teams notification settings for the team</p>
+   * MS Teams notification settings for the team
+   *
    * @return msTeams
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MS_TEAMS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TeamNotificationRuleAttributesMsTeams getMsTeams() {
-        return msTeams;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MS_TEAMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamNotificationRuleAttributesMsTeams getMsTeams() {
+    return msTeams;
+  }
+
   public void setMsTeams(TeamNotificationRuleAttributesMsTeams msTeams) {
     this.msTeams = msTeams;
   }
-  public TeamNotificationRuleAttributes pagerduty(TeamNotificationRuleAttributesPagerduty pagerduty) {
+
+  public TeamNotificationRuleAttributes pagerduty(
+      TeamNotificationRuleAttributesPagerduty pagerduty) {
     this.pagerduty = pagerduty;
     this.unparsed |= pagerduty.unparsed;
     return this;
   }
 
   /**
-   * <p>PagerDuty notification settings for the team</p>
+   * PagerDuty notification settings for the team
+   *
    * @return pagerduty
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PAGERDUTY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TeamNotificationRuleAttributesPagerduty getPagerduty() {
-        return pagerduty;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGERDUTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamNotificationRuleAttributesPagerduty getPagerduty() {
+    return pagerduty;
+  }
+
   public void setPagerduty(TeamNotificationRuleAttributesPagerduty pagerduty) {
     this.pagerduty = pagerduty;
   }
+
   public TeamNotificationRuleAttributes slack(TeamNotificationRuleAttributesSlack slack) {
     this.slack = slack;
     this.unparsed |= slack.unparsed;
@@ -123,30 +113,30 @@ public class TeamNotificationRuleAttributes {
   }
 
   /**
-   * <p>Slack notification settings for the team</p>
+   * Slack notification settings for the team
+   *
    * @return slack
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SLACK)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TeamNotificationRuleAttributesSlack getSlack() {
-        return slack;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SLACK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamNotificationRuleAttributesSlack getSlack() {
+    return slack;
+  }
+
   public void setSlack(TeamNotificationRuleAttributesSlack slack) {
     this.slack = slack;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -155,7 +145,7 @@ public class TeamNotificationRuleAttributes {
   @JsonAnySetter
   public TeamNotificationRuleAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -179,14 +169,12 @@ public class TeamNotificationRuleAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TeamNotificationRuleAttributes object is equal to o.
-   */
+  /** Return true if this TeamNotificationRuleAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -195,14 +183,19 @@ public class TeamNotificationRuleAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamNotificationRuleAttributes teamNotificationRuleAttributes = (TeamNotificationRuleAttributes) o;
-    return Objects.equals(this.email, teamNotificationRuleAttributes.email) && Objects.equals(this.msTeams, teamNotificationRuleAttributes.msTeams) && Objects.equals(this.pagerduty, teamNotificationRuleAttributes.pagerduty) && Objects.equals(this.slack, teamNotificationRuleAttributes.slack) && Objects.equals(this.additionalProperties, teamNotificationRuleAttributes.additionalProperties);
+    TeamNotificationRuleAttributes teamNotificationRuleAttributes =
+        (TeamNotificationRuleAttributes) o;
+    return Objects.equals(this.email, teamNotificationRuleAttributes.email)
+        && Objects.equals(this.msTeams, teamNotificationRuleAttributes.msTeams)
+        && Objects.equals(this.pagerduty, teamNotificationRuleAttributes.pagerduty)
+        && Objects.equals(this.slack, teamNotificationRuleAttributes.slack)
+        && Objects.equals(
+            this.additionalProperties, teamNotificationRuleAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(email,msTeams,pagerduty,slack, additionalProperties);
+    return Objects.hash(email, msTeams, pagerduty, slack, additionalProperties);
   }
 
   @Override
@@ -221,8 +214,7 @@ public class TeamNotificationRuleAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

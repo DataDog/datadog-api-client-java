@@ -6,43 +6,28 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Get all groups response.</p>
- */
+/** Get all groups response. */
 @JsonPropertyOrder({
   SensitiveDataScannerGetConfigResponse.JSON_PROPERTY_DATA,
   SensitiveDataScannerGetConfigResponse.JSON_PROPERTY_INCLUDED,
   SensitiveDataScannerGetConfigResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SensitiveDataScannerGetConfigResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private SensitiveDataScannerGetConfigResponseData data;
 
@@ -52,34 +37,40 @@ public class SensitiveDataScannerGetConfigResponse {
   public static final String JSON_PROPERTY_META = "meta";
   private SensitiveDataScannerMeta meta;
 
-  public SensitiveDataScannerGetConfigResponse data(SensitiveDataScannerGetConfigResponseData data) {
+  public SensitiveDataScannerGetConfigResponse data(
+      SensitiveDataScannerGetConfigResponseData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * <p>Response data related to the scanning groups.</p>
+   * Response data related to the scanning groups.
+   *
    * @return data
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SensitiveDataScannerGetConfigResponseData getData() {
-        return data;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SensitiveDataScannerGetConfigResponseData getData() {
+    return data;
+  }
+
   public void setData(SensitiveDataScannerGetConfigResponseData data) {
     this.data = data;
   }
-  public SensitiveDataScannerGetConfigResponse included(List<SensitiveDataScannerGetConfigIncludedItem> included) {
+
+  public SensitiveDataScannerGetConfigResponse included(
+      List<SensitiveDataScannerGetConfigIncludedItem> included) {
     this.included = included;
     for (SensitiveDataScannerGetConfigIncludedItem item : included) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public SensitiveDataScannerGetConfigResponse addIncludedItem(SensitiveDataScannerGetConfigIncludedItem includedItem) {
+
+  public SensitiveDataScannerGetConfigResponse addIncludedItem(
+      SensitiveDataScannerGetConfigIncludedItem includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
     }
@@ -89,19 +80,21 @@ public class SensitiveDataScannerGetConfigResponse {
   }
 
   /**
-   * <p>Included objects from relationships.</p>
+   * Included objects from relationships.
+   *
    * @return included
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCLUDED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SensitiveDataScannerGetConfigIncludedItem> getIncluded() {
-        return included;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SensitiveDataScannerGetConfigIncludedItem> getIncluded() {
+    return included;
+  }
+
   public void setIncluded(List<SensitiveDataScannerGetConfigIncludedItem> included) {
     this.included = included;
   }
+
   public SensitiveDataScannerGetConfigResponse meta(SensitiveDataScannerMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -109,30 +102,30 @@ public class SensitiveDataScannerGetConfigResponse {
   }
 
   /**
-   * <p>Meta response containing information about the API.</p>
+   * Meta response containing information about the API.
+   *
    * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SensitiveDataScannerMeta getMeta() {
-        return meta;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SensitiveDataScannerMeta getMeta() {
+    return meta;
+  }
+
   public void setMeta(SensitiveDataScannerMeta meta) {
     this.meta = meta;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -141,7 +134,7 @@ public class SensitiveDataScannerGetConfigResponse {
   @JsonAnySetter
   public SensitiveDataScannerGetConfigResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -165,14 +158,12 @@ public class SensitiveDataScannerGetConfigResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SensitiveDataScannerGetConfigResponse object is equal to o.
-   */
+  /** Return true if this SensitiveDataScannerGetConfigResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -181,14 +172,18 @@ public class SensitiveDataScannerGetConfigResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SensitiveDataScannerGetConfigResponse sensitiveDataScannerGetConfigResponse = (SensitiveDataScannerGetConfigResponse) o;
-    return Objects.equals(this.data, sensitiveDataScannerGetConfigResponse.data) && Objects.equals(this.included, sensitiveDataScannerGetConfigResponse.included) && Objects.equals(this.meta, sensitiveDataScannerGetConfigResponse.meta) && Objects.equals(this.additionalProperties, sensitiveDataScannerGetConfigResponse.additionalProperties);
+    SensitiveDataScannerGetConfigResponse sensitiveDataScannerGetConfigResponse =
+        (SensitiveDataScannerGetConfigResponse) o;
+    return Objects.equals(this.data, sensitiveDataScannerGetConfigResponse.data)
+        && Objects.equals(this.included, sensitiveDataScannerGetConfigResponse.included)
+        && Objects.equals(this.meta, sensitiveDataScannerGetConfigResponse.meta)
+        && Objects.equals(
+            this.additionalProperties, sensitiveDataScannerGetConfigResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,included,meta, additionalProperties);
+    return Objects.hash(data, included, meta, additionalProperties);
   }
 
   @Override
@@ -206,8 +201,7 @@ public class SensitiveDataScannerGetConfigResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

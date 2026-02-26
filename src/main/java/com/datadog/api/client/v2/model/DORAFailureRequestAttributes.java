@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes to create a DORA incident event.</p>
- */
+/** Attributes to create a DORA incident event. */
 @JsonPropertyOrder({
   DORAFailureRequestAttributes.JSON_PROPERTY_CUSTOM_TAGS,
   DORAFailureRequestAttributes.JSON_PROPERTY_ENV,
@@ -47,10 +34,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   DORAFailureRequestAttributes.JSON_PROPERTY_TEAM,
   DORAFailureRequestAttributes.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DORAFailureRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_TAGS = "custom_tags";
   private JsonNullable<List<String>> customTags = JsonNullable.<List<String>>undefined();
 
@@ -88,13 +75,15 @@ public class DORAFailureRequestAttributes {
 
   @JsonCreator
   public DORAFailureRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_STARTED_AT)Long startedAt) {
-        this.startedAt = startedAt;
+      @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) Long startedAt) {
+    this.startedAt = startedAt;
   }
+
   public DORAFailureRequestAttributes customTags(List<String> customTags) {
     this.customTags = JsonNullable.<List<String>>of(customTags);
     return this;
   }
+
   public DORAFailureRequestAttributes addCustomTagsItem(String customTagsItem) {
     if (this.customTags == null || !this.customTags.isPresent()) {
       this.customTags = JsonNullable.<List<String>>of(new ArrayList<>());
@@ -108,64 +97,74 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * <p>A list of user-defined tags. The tags must follow the <code>key:value</code> pattern. Up to 100 may be added per event.</p>
+   * A list of user-defined tags. The tags must follow the <code>key:value</code> pattern. Up to 100
+   * may be added per event.
+   *
    * @return customTags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public List<String> getCustomTags() {
-        return customTags.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getCustomTags() {
+    return customTags.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getCustomTags_JsonNullable() {
     return customTags;
   }
-  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)public void setCustomTags_JsonNullable(JsonNullable<List<String>> customTags) {
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)
+  public void setCustomTags_JsonNullable(JsonNullable<List<String>> customTags) {
     this.customTags = customTags;
   }
+
   public void setCustomTags(List<String> customTags) {
     this.customTags = JsonNullable.<List<String>>of(customTags);
   }
+
   public DORAFailureRequestAttributes env(String env) {
     this.env = env;
     return this;
   }
 
   /**
-   * <p>Environment name that was impacted by the incident.</p>
+   * Environment name that was impacted by the incident.
+   *
    * @return env
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENV)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getEnv() {
-        return env;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEnv() {
+    return env;
+  }
+
   public void setEnv(String env) {
     this.env = env;
   }
+
   public DORAFailureRequestAttributes finishedAt(Long finishedAt) {
     this.finishedAt = finishedAt;
     return this;
   }
 
   /**
-   * <p>Unix timestamp when the incident finished. It must be in nanoseconds, milliseconds, or seconds.</p>
+   * Unix timestamp when the incident finished. It must be in nanoseconds, milliseconds, or seconds.
+   *
    * @return finishedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FINISHED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getFinishedAt() {
-        return finishedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FINISHED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFinishedAt() {
+    return finishedAt;
+  }
+
   public void setFinishedAt(Long finishedAt) {
     this.finishedAt = finishedAt;
   }
+
   public DORAFailureRequestAttributes git(DORAGitInfo git) {
     this.git = git;
     this.unparsed |= git.unparsed;
@@ -173,61 +172,69 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * <p>Git info for DORA Metrics events.</p>
+   * Git info for DORA Metrics events.
+   *
    * @return git
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public DORAGitInfo getGit() {
-        return git;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DORAGitInfo getGit() {
+    return git;
+  }
+
   public void setGit(DORAGitInfo git) {
     this.git = git;
   }
+
   public DORAFailureRequestAttributes id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>Incident ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens, underscores, periods, and colons (a-z, A-Z, 0-9, -, _, ., :).</p>
+   * Incident ID. Must be 16-128 characters and contain only alphanumeric characters, hyphens,
+   * underscores, periods, and colons (a-z, A-Z, 0-9, -, _, ., :).
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public DORAFailureRequestAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Incident name.</p>
+   * Incident name.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public DORAFailureRequestAttributes services(List<String> services) {
     this.services = services;
     return this;
   }
+
   public DORAFailureRequestAttributes addServicesItem(String servicesItem) {
     if (this.services == null) {
       this.services = new ArrayList<>();
@@ -237,105 +244,117 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * <p>Service names impacted by the incident. If possible, use names registered in the Service Catalog. Required when the team field is not provided.</p>
+   * Service names impacted by the incident. If possible, use names registered in the Service
+   * Catalog. Required when the team field is not provided.
+   *
    * @return services
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SERVICES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getServices() {
-        return services;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getServices() {
+    return services;
+  }
+
   public void setServices(List<String> services) {
     this.services = services;
   }
+
   public DORAFailureRequestAttributes severity(String severity) {
     this.severity = severity;
     return this;
   }
 
   /**
-   * <p>Incident severity.</p>
+   * Incident severity.
+   *
    * @return severity
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SEVERITY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSeverity() {
-        return severity;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEVERITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSeverity() {
+    return severity;
+  }
+
   public void setSeverity(String severity) {
     this.severity = severity;
   }
+
   public DORAFailureRequestAttributes startedAt(Long startedAt) {
     this.startedAt = startedAt;
     return this;
   }
 
   /**
-   * <p>Unix timestamp when the incident started. It must be in nanoseconds, milliseconds, or seconds.</p>
+   * Unix timestamp when the incident started. It must be in nanoseconds, milliseconds, or seconds.
+   *
    * @return startedAt
-  **/
-      @JsonProperty(JSON_PROPERTY_STARTED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getStartedAt() {
-        return startedAt;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_STARTED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getStartedAt() {
+    return startedAt;
+  }
+
   public void setStartedAt(Long startedAt) {
     this.startedAt = startedAt;
   }
+
   public DORAFailureRequestAttributes team(String team) {
     this.team = team;
     return this;
   }
 
   /**
-   * <p>Name of the team owning the services impacted. If possible, use team handles registered in Datadog. Required when the services field is not provided.</p>
+   * Name of the team owning the services impacted. If possible, use team handles registered in
+   * Datadog. Required when the services field is not provided.
+   *
    * @return team
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEAM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTeam() {
-        return team;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTeam() {
+    return team;
+  }
+
   public void setTeam(String team) {
     this.team = team;
   }
+
   public DORAFailureRequestAttributes version(String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * <p>Version to correlate with <a href="https://docs.datadoghq.com/tracing/services/deployment_tracking/">APM Deployment Tracking</a>.</p>
+   * Version to correlate with <a
+   * href="https://docs.datadoghq.com/tracing/services/deployment_tracking/">APM Deployment
+   * Tracking</a>.
+   *
    * @return version
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getVersion() {
-        return version;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVersion() {
+    return version;
+  }
+
   public void setVersion(String version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -344,7 +363,7 @@ public class DORAFailureRequestAttributes {
   @JsonAnySetter
   public DORAFailureRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -368,14 +387,12 @@ public class DORAFailureRequestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this DORAFailureRequestAttributes object is equal to o.
-   */
+  /** Return true if this DORAFailureRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -385,13 +402,36 @@ public class DORAFailureRequestAttributes {
       return false;
     }
     DORAFailureRequestAttributes doraFailureRequestAttributes = (DORAFailureRequestAttributes) o;
-    return Objects.equals(this.customTags, doraFailureRequestAttributes.customTags) && Objects.equals(this.env, doraFailureRequestAttributes.env) && Objects.equals(this.finishedAt, doraFailureRequestAttributes.finishedAt) && Objects.equals(this.git, doraFailureRequestAttributes.git) && Objects.equals(this.id, doraFailureRequestAttributes.id) && Objects.equals(this.name, doraFailureRequestAttributes.name) && Objects.equals(this.services, doraFailureRequestAttributes.services) && Objects.equals(this.severity, doraFailureRequestAttributes.severity) && Objects.equals(this.startedAt, doraFailureRequestAttributes.startedAt) && Objects.equals(this.team, doraFailureRequestAttributes.team) && Objects.equals(this.version, doraFailureRequestAttributes.version) && Objects.equals(this.additionalProperties, doraFailureRequestAttributes.additionalProperties);
+    return Objects.equals(this.customTags, doraFailureRequestAttributes.customTags)
+        && Objects.equals(this.env, doraFailureRequestAttributes.env)
+        && Objects.equals(this.finishedAt, doraFailureRequestAttributes.finishedAt)
+        && Objects.equals(this.git, doraFailureRequestAttributes.git)
+        && Objects.equals(this.id, doraFailureRequestAttributes.id)
+        && Objects.equals(this.name, doraFailureRequestAttributes.name)
+        && Objects.equals(this.services, doraFailureRequestAttributes.services)
+        && Objects.equals(this.severity, doraFailureRequestAttributes.severity)
+        && Objects.equals(this.startedAt, doraFailureRequestAttributes.startedAt)
+        && Objects.equals(this.team, doraFailureRequestAttributes.team)
+        && Objects.equals(this.version, doraFailureRequestAttributes.version)
+        && Objects.equals(
+            this.additionalProperties, doraFailureRequestAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(customTags,env,finishedAt,git,id,name,services,severity,startedAt,team,version, additionalProperties);
+    return Objects.hash(
+        customTags,
+        env,
+        finishedAt,
+        git,
+        id,
+        name,
+        services,
+        severity,
+        startedAt,
+        team,
+        version,
+        additionalProperties);
   }
 
   @Override
@@ -417,8 +457,7 @@ public class DORAFailureRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

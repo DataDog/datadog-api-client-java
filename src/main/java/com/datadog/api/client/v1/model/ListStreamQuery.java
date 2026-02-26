@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Updated list stream widget.</p>
- */
+/** Updated list stream widget. */
 @JsonPropertyOrder({
   ListStreamQuery.JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH,
   ListStreamQuery.JSON_PROPERTY_COMPUTE,
@@ -45,11 +31,12 @@ import com.datadog.api.client.JsonTimeSerializer;
   ListStreamQuery.JSON_PROPERTY_SORT,
   ListStreamQuery.JSON_PROPERTY_STORAGE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamQuery {
-  @JsonIgnore
-  public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH = "clustering_pattern_field_path";
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH =
+      "clustering_pattern_field_path";
   private String clusteringPatternFieldPath;
 
   public static final String JSON_PROPERTY_COMPUTE = "compute";
@@ -80,31 +67,34 @@ public class ListStreamQuery {
 
   @JsonCreator
   public ListStreamQuery(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)ListStreamSource dataSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY_STRING)String queryString) {
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.queryString = queryString;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE) ListStreamSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY_STRING) String queryString) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.queryString = queryString;
   }
+
   public ListStreamQuery clusteringPatternFieldPath(String clusteringPatternFieldPath) {
     this.clusteringPatternFieldPath = clusteringPatternFieldPath;
     return this;
   }
 
   /**
-   * <p>Specifies the field for logs pattern clustering. Usable only with logs_pattern_stream.</p>
+   * Specifies the field for logs pattern clustering. Usable only with logs_pattern_stream.
+   *
    * @return clusteringPatternFieldPath
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getClusteringPatternFieldPath() {
-        return clusteringPatternFieldPath;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getClusteringPatternFieldPath() {
+    return clusteringPatternFieldPath;
+  }
+
   public void setClusteringPatternFieldPath(String clusteringPatternFieldPath) {
     this.clusteringPatternFieldPath = clusteringPatternFieldPath;
   }
+
   public ListStreamQuery compute(List<ListStreamComputeItems> compute) {
     this.compute = compute;
     for (ListStreamComputeItems item : compute) {
@@ -112,6 +102,7 @@ public class ListStreamQuery {
     }
     return this;
   }
+
   public ListStreamQuery addComputeItem(ListStreamComputeItems computeItem) {
     if (this.compute == null) {
       this.compute = new ArrayList<>();
@@ -122,19 +113,22 @@ public class ListStreamQuery {
   }
 
   /**
-   * <p>Compute configuration for the List Stream Widget. Compute can be used only with the logs_transaction_stream (from 1 to 5 items) list stream source.</p>
+   * Compute configuration for the List Stream Widget. Compute can be used only with the
+   * logs_transaction_stream (from 1 to 5 items) list stream source.
+   *
    * @return compute
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPUTE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ListStreamComputeItems> getCompute() {
-        return compute;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ListStreamComputeItems> getCompute() {
+    return compute;
+  }
+
   public void setCompute(List<ListStreamComputeItems> compute) {
     this.compute = compute;
   }
+
   public ListStreamQuery dataSource(ListStreamSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -142,21 +136,23 @@ public class ListStreamQuery {
   }
 
   /**
-   * <p>Source from which to query items to display in the stream.</p>
+   * Source from which to query items to display in the stream.
+   *
    * @return dataSource
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ListStreamSource getDataSource() {
-        return dataSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ListStreamSource getDataSource() {
+    return dataSource;
+  }
+
   public void setDataSource(ListStreamSource dataSource) {
     if (!dataSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
+
   public ListStreamQuery eventSize(WidgetEventSize eventSize) {
     this.eventSize = eventSize;
     this.unparsed |= !eventSize.isValid();
@@ -164,22 +160,24 @@ public class ListStreamQuery {
   }
 
   /**
-   * <p>Size to use to display an event.</p>
+   * Size to use to display an event.
+   *
    * @return eventSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EVENT_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetEventSize getEventSize() {
-        return eventSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetEventSize getEventSize() {
+    return eventSize;
+  }
+
   public void setEventSize(WidgetEventSize eventSize) {
     if (!eventSize.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.eventSize = eventSize;
   }
+
   public ListStreamQuery groupBy(List<ListStreamGroupByItems> groupBy) {
     this.groupBy = groupBy;
     for (ListStreamGroupByItems item : groupBy) {
@@ -187,6 +185,7 @@ public class ListStreamQuery {
     }
     return this;
   }
+
   public ListStreamQuery addGroupByItem(ListStreamGroupByItems groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
@@ -197,23 +196,28 @@ public class ListStreamQuery {
   }
 
   /**
-   * <p>Group by configuration for the List Stream Widget. Group by can be used only with logs_pattern_stream (up to 4 items) or logs_transaction_stream (one group by item is required) list stream source.</p>
+   * Group by configuration for the List Stream Widget. Group by can be used only with
+   * logs_pattern_stream (up to 4 items) or logs_transaction_stream (one group by item is required)
+   * list stream source.
+   *
    * @return groupBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ListStreamGroupByItems> getGroupBy() {
-        return groupBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ListStreamGroupByItems> getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(List<ListStreamGroupByItems> groupBy) {
     this.groupBy = groupBy;
   }
+
   public ListStreamQuery indexes(List<String> indexes) {
     this.indexes = indexes;
     return this;
   }
+
   public ListStreamQuery addIndexesItem(String indexesItem) {
     if (this.indexes == null) {
       this.indexes = new ArrayList<>();
@@ -223,37 +227,41 @@ public class ListStreamQuery {
   }
 
   /**
-   * <p>List of indexes.</p>
+   * List of indexes.
+   *
    * @return indexes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INDEXES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getIndexes() {
-        return indexes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIndexes() {
+    return indexes;
+  }
+
   public void setIndexes(List<String> indexes) {
     this.indexes = indexes;
   }
+
   public ListStreamQuery queryString(String queryString) {
     this.queryString = queryString;
     return this;
   }
 
   /**
-   * <p>Widget query.</p>
+   * Widget query.
+   *
    * @return queryString
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY_STRING)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getQueryString() {
-        return queryString;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY_STRING)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQueryString() {
+    return queryString;
+  }
+
   public void setQueryString(String queryString) {
     this.queryString = queryString;
   }
+
   public ListStreamQuery sort(WidgetFieldSort sort) {
     this.sort = sort;
     this.unparsed |= sort.unparsed;
@@ -261,49 +269,51 @@ public class ListStreamQuery {
   }
 
   /**
-   * <p>Which column and order to sort by</p>
+   * Which column and order to sort by
+   *
    * @return sort
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetFieldSort getSort() {
-        return sort;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetFieldSort getSort() {
+    return sort;
+  }
+
   public void setSort(WidgetFieldSort sort) {
     this.sort = sort;
   }
+
   public ListStreamQuery storage(String storage) {
     this.storage = storage;
     return this;
   }
 
   /**
-   * <p>Option for storage location. Feature in Private Beta.</p>
+   * Option for storage location. Feature in Private Beta.
+   *
    * @return storage
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STORAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStorage() {
-        return storage;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STORAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStorage() {
+    return storage;
+  }
+
   public void setStorage(String storage) {
     this.storage = storage;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -312,7 +322,7 @@ public class ListStreamQuery {
   @JsonAnySetter
   public ListStreamQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -336,14 +346,12 @@ public class ListStreamQuery {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ListStreamQuery object is equal to o.
-   */
+  /** Return true if this ListStreamQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -353,20 +361,41 @@ public class ListStreamQuery {
       return false;
     }
     ListStreamQuery listStreamQuery = (ListStreamQuery) o;
-    return Objects.equals(this.clusteringPatternFieldPath, listStreamQuery.clusteringPatternFieldPath) && Objects.equals(this.compute, listStreamQuery.compute) && Objects.equals(this.dataSource, listStreamQuery.dataSource) && Objects.equals(this.eventSize, listStreamQuery.eventSize) && Objects.equals(this.groupBy, listStreamQuery.groupBy) && Objects.equals(this.indexes, listStreamQuery.indexes) && Objects.equals(this.queryString, listStreamQuery.queryString) && Objects.equals(this.sort, listStreamQuery.sort) && Objects.equals(this.storage, listStreamQuery.storage) && Objects.equals(this.additionalProperties, listStreamQuery.additionalProperties);
+    return Objects.equals(
+            this.clusteringPatternFieldPath, listStreamQuery.clusteringPatternFieldPath)
+        && Objects.equals(this.compute, listStreamQuery.compute)
+        && Objects.equals(this.dataSource, listStreamQuery.dataSource)
+        && Objects.equals(this.eventSize, listStreamQuery.eventSize)
+        && Objects.equals(this.groupBy, listStreamQuery.groupBy)
+        && Objects.equals(this.indexes, listStreamQuery.indexes)
+        && Objects.equals(this.queryString, listStreamQuery.queryString)
+        && Objects.equals(this.sort, listStreamQuery.sort)
+        && Objects.equals(this.storage, listStreamQuery.storage)
+        && Objects.equals(this.additionalProperties, listStreamQuery.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusteringPatternFieldPath,compute,dataSource,eventSize,groupBy,indexes,queryString,sort,storage, additionalProperties);
+    return Objects.hash(
+        clusteringPatternFieldPath,
+        compute,
+        dataSource,
+        eventSize,
+        groupBy,
+        indexes,
+        queryString,
+        sort,
+        storage,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListStreamQuery {\n");
-    sb.append("    clusteringPatternFieldPath: ").append(toIndentedString(clusteringPatternFieldPath)).append("\n");
+    sb.append("    clusteringPatternFieldPath: ")
+        .append(toIndentedString(clusteringPatternFieldPath))
+        .append("\n");
     sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    eventSize: ").append(toIndentedString(eventSize)).append("\n");
@@ -383,8 +412,7 @@ public class ListStreamQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

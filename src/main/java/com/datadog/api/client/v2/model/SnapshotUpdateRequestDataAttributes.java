@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-
- */
+/** */
 @JsonPropertyOrder({
   SnapshotUpdateRequestDataAttributes.JSON_PROPERTY_EVENT_ID,
   SnapshotUpdateRequestDataAttributes.JSON_PROPERTY_IS_DEVICE_TYPE_SELECTED_BY_USER,
@@ -41,14 +25,15 @@ import com.datadog.api.client.JsonTimeSerializer;
   SnapshotUpdateRequestDataAttributes.JSON_PROPERTY_START,
   SnapshotUpdateRequestDataAttributes.JSON_PROPERTY_VIEW_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SnapshotUpdateRequestDataAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EVENT_ID = "event_id";
   private String eventId;
 
-  public static final String JSON_PROPERTY_IS_DEVICE_TYPE_SELECTED_BY_USER = "is_device_type_selected_by_user";
+  public static final String JSON_PROPERTY_IS_DEVICE_TYPE_SELECTED_BY_USER =
+      "is_device_type_selected_by_user";
   private Boolean isDeviceTypeSelectedByUser;
 
   public static final String JSON_PROPERTY_SESSION_ID = "session_id";
@@ -64,116 +49,127 @@ public class SnapshotUpdateRequestDataAttributes {
 
   @JsonCreator
   public SnapshotUpdateRequestDataAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_EVENT_ID)String eventId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_IS_DEVICE_TYPE_SELECTED_BY_USER)Boolean isDeviceTypeSelectedByUser,
-            @JsonProperty(required=true, value=JSON_PROPERTY_START)Long start) {
-        this.eventId = eventId;
-        this.isDeviceTypeSelectedByUser = isDeviceTypeSelectedByUser;
-        this.start = start;
+      @JsonProperty(required = true, value = JSON_PROPERTY_EVENT_ID) String eventId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_IS_DEVICE_TYPE_SELECTED_BY_USER)
+          Boolean isDeviceTypeSelectedByUser,
+      @JsonProperty(required = true, value = JSON_PROPERTY_START) Long start) {
+    this.eventId = eventId;
+    this.isDeviceTypeSelectedByUser = isDeviceTypeSelectedByUser;
+    this.start = start;
   }
+
   public SnapshotUpdateRequestDataAttributes eventId(String eventId) {
     this.eventId = eventId;
     return this;
   }
 
   /**
-   * <p>GeteventId</p>
+   * GeteventId
+   *
    * @return eventId
-  **/
-      @JsonProperty(JSON_PROPERTY_EVENT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getEventId() {
-        return eventId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_EVENT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getEventId() {
+    return eventId;
+  }
+
   public void setEventId(String eventId) {
     this.eventId = eventId;
   }
-  public SnapshotUpdateRequestDataAttributes isDeviceTypeSelectedByUser(Boolean isDeviceTypeSelectedByUser) {
+
+  public SnapshotUpdateRequestDataAttributes isDeviceTypeSelectedByUser(
+      Boolean isDeviceTypeSelectedByUser) {
     this.isDeviceTypeSelectedByUser = isDeviceTypeSelectedByUser;
     return this;
   }
 
   /**
-   * <p>GetisDeviceTypeSelectedByUser</p>
+   * GetisDeviceTypeSelectedByUser
+   *
    * @return isDeviceTypeSelectedByUser
-  **/
-      @JsonProperty(JSON_PROPERTY_IS_DEVICE_TYPE_SELECTED_BY_USER)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Boolean getIsDeviceTypeSelectedByUser() {
-        return isDeviceTypeSelectedByUser;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_IS_DEVICE_TYPE_SELECTED_BY_USER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getIsDeviceTypeSelectedByUser() {
+    return isDeviceTypeSelectedByUser;
+  }
+
   public void setIsDeviceTypeSelectedByUser(Boolean isDeviceTypeSelectedByUser) {
     this.isDeviceTypeSelectedByUser = isDeviceTypeSelectedByUser;
   }
+
   public SnapshotUpdateRequestDataAttributes sessionId(String sessionId) {
     this.sessionId = sessionId;
     return this;
   }
 
   /**
-   * <p>GetsessionId</p>
+   * GetsessionId
+   *
    * @return sessionId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SESSION_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSessionId() {
-        return sessionId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SESSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSessionId() {
+    return sessionId;
+  }
+
   public void setSessionId(String sessionId) {
     this.sessionId = sessionId;
   }
+
   public SnapshotUpdateRequestDataAttributes start(Long start) {
     this.start = start;
     return this;
   }
 
   /**
-   * <p>Getstart</p>
+   * Getstart
+   *
    * @return start
-  **/
-      @JsonProperty(JSON_PROPERTY_START)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Long getStart() {
-        return start;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_START)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getStart() {
+    return start;
+  }
+
   public void setStart(Long start) {
     this.start = start;
   }
+
   public SnapshotUpdateRequestDataAttributes viewId(String viewId) {
     this.viewId = viewId;
     return this;
   }
 
   /**
-   * <p>GetviewId</p>
+   * GetviewId
+   *
    * @return viewId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VIEW_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getViewId() {
-        return viewId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VIEW_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getViewId() {
+    return viewId;
+  }
+
   public void setViewId(String viewId) {
     this.viewId = viewId;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -182,7 +178,7 @@ public class SnapshotUpdateRequestDataAttributes {
   @JsonAnySetter
   public SnapshotUpdateRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -206,14 +202,12 @@ public class SnapshotUpdateRequestDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SnapshotUpdateRequestDataAttributes object is equal to o.
-   */
+  /** Return true if this SnapshotUpdateRequestDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -222,14 +216,23 @@ public class SnapshotUpdateRequestDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SnapshotUpdateRequestDataAttributes snapshotUpdateRequestDataAttributes = (SnapshotUpdateRequestDataAttributes) o;
-    return Objects.equals(this.eventId, snapshotUpdateRequestDataAttributes.eventId) && Objects.equals(this.isDeviceTypeSelectedByUser, snapshotUpdateRequestDataAttributes.isDeviceTypeSelectedByUser) && Objects.equals(this.sessionId, snapshotUpdateRequestDataAttributes.sessionId) && Objects.equals(this.start, snapshotUpdateRequestDataAttributes.start) && Objects.equals(this.viewId, snapshotUpdateRequestDataAttributes.viewId) && Objects.equals(this.additionalProperties, snapshotUpdateRequestDataAttributes.additionalProperties);
+    SnapshotUpdateRequestDataAttributes snapshotUpdateRequestDataAttributes =
+        (SnapshotUpdateRequestDataAttributes) o;
+    return Objects.equals(this.eventId, snapshotUpdateRequestDataAttributes.eventId)
+        && Objects.equals(
+            this.isDeviceTypeSelectedByUser,
+            snapshotUpdateRequestDataAttributes.isDeviceTypeSelectedByUser)
+        && Objects.equals(this.sessionId, snapshotUpdateRequestDataAttributes.sessionId)
+        && Objects.equals(this.start, snapshotUpdateRequestDataAttributes.start)
+        && Objects.equals(this.viewId, snapshotUpdateRequestDataAttributes.viewId)
+        && Objects.equals(
+            this.additionalProperties, snapshotUpdateRequestDataAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventId,isDeviceTypeSelectedByUser,sessionId,start,viewId, additionalProperties);
+    return Objects.hash(
+        eventId, isDeviceTypeSelectedByUser, sessionId, start, viewId, additionalProperties);
   }
 
   @Override
@@ -237,7 +240,9 @@ public class SnapshotUpdateRequestDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class SnapshotUpdateRequestDataAttributes {\n");
     sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
-    sb.append("    isDeviceTypeSelectedByUser: ").append(toIndentedString(isDeviceTypeSelectedByUser)).append("\n");
+    sb.append("    isDeviceTypeSelectedByUser: ")
+        .append(toIndentedString(isDeviceTypeSelectedByUser))
+        .append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    viewId: ").append(toIndentedString(viewId)).append("\n");
@@ -249,8 +254,7 @@ public class SnapshotUpdateRequestDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

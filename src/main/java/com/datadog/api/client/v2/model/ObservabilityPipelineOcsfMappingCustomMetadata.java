@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Metadata for the custom OCSF mapping.</p>
- */
+/** Metadata for the custom OCSF mapping. */
 @JsonPropertyOrder({
   ObservabilityPipelineOcsfMappingCustomMetadata.JSON_PROPERTY_CLASS,
   ObservabilityPipelineOcsfMappingCustomMetadata.JSON_PROPERTY_PROFILES,
   ObservabilityPipelineOcsfMappingCustomMetadata.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineOcsfMappingCustomMetadata {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CLASS = "class";
   private String _class;
 
@@ -56,33 +42,37 @@ public class ObservabilityPipelineOcsfMappingCustomMetadata {
 
   @JsonCreator
   public ObservabilityPipelineOcsfMappingCustomMetadata(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CLASS)String _class,
-            @JsonProperty(required=true, value=JSON_PROPERTY_VERSION)String version) {
-        this._class = _class;
-        this.version = version;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CLASS) String _class,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) String version) {
+    this._class = _class;
+    this.version = version;
   }
+
   public ObservabilityPipelineOcsfMappingCustomMetadata _class(String _class) {
     this._class = _class;
     return this;
   }
 
   /**
-   * <p>The OCSF event class name.</p>
+   * The OCSF event class name.
+   *
    * @return _class
-  **/
-      @JsonProperty(JSON_PROPERTY_CLASS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getClassAttribute() {
-        return _class;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CLASS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getClassAttribute() {
+    return _class;
+  }
+
   public void setClassAttribute(String _class) {
     this._class = _class;
   }
+
   public ObservabilityPipelineOcsfMappingCustomMetadata profiles(List<String> profiles) {
     this.profiles = profiles;
     return this;
   }
+
   public ObservabilityPipelineOcsfMappingCustomMetadata addProfilesItem(String profilesItem) {
     if (this.profiles == null) {
       this.profiles = new ArrayList<>();
@@ -92,57 +82,60 @@ public class ObservabilityPipelineOcsfMappingCustomMetadata {
   }
 
   /**
-   * <p>A list of OCSF profiles to apply.</p>
+   * A list of OCSF profiles to apply.
+   *
    * @return profiles
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PROFILES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getProfiles() {
-        return profiles;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROFILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getProfiles() {
+    return profiles;
+  }
+
   public void setProfiles(List<String> profiles) {
     this.profiles = profiles;
   }
+
   public ObservabilityPipelineOcsfMappingCustomMetadata version(String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * <p>The OCSF schema version.</p>
+   * The OCSF schema version.
+   *
    * @return version
-  **/
-      @JsonProperty(JSON_PROPERTY_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getVersion() {
-        return version;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getVersion() {
+    return version;
+  }
+
   public void setVersion(String version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ObservabilityPipelineOcsfMappingCustomMetadata
    */
   @JsonAnySetter
-  public ObservabilityPipelineOcsfMappingCustomMetadata putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineOcsfMappingCustomMetadata putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -166,14 +159,12 @@ public class ObservabilityPipelineOcsfMappingCustomMetadata {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ObservabilityPipelineOcsfMappingCustomMetadata object is equal to o.
-   */
+  /** Return true if this ObservabilityPipelineOcsfMappingCustomMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -182,14 +173,19 @@ public class ObservabilityPipelineOcsfMappingCustomMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineOcsfMappingCustomMetadata observabilityPipelineOcsfMappingCustomMetadata = (ObservabilityPipelineOcsfMappingCustomMetadata) o;
-    return Objects.equals(this._class, observabilityPipelineOcsfMappingCustomMetadata._class) && Objects.equals(this.profiles, observabilityPipelineOcsfMappingCustomMetadata.profiles) && Objects.equals(this.version, observabilityPipelineOcsfMappingCustomMetadata.version) && Objects.equals(this.additionalProperties, observabilityPipelineOcsfMappingCustomMetadata.additionalProperties);
+    ObservabilityPipelineOcsfMappingCustomMetadata observabilityPipelineOcsfMappingCustomMetadata =
+        (ObservabilityPipelineOcsfMappingCustomMetadata) o;
+    return Objects.equals(this._class, observabilityPipelineOcsfMappingCustomMetadata._class)
+        && Objects.equals(this.profiles, observabilityPipelineOcsfMappingCustomMetadata.profiles)
+        && Objects.equals(this.version, observabilityPipelineOcsfMappingCustomMetadata.version)
+        && Objects.equals(
+            this.additionalProperties,
+            observabilityPipelineOcsfMappingCustomMetadata.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(_class,profiles,version, additionalProperties);
+    return Objects.hash(_class, profiles, version, additionalProperties);
   }
 
   @Override
@@ -207,8 +203,7 @@ public class ObservabilityPipelineOcsfMappingCustomMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

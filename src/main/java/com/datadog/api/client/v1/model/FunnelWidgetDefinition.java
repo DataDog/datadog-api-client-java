@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,14 +13,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>The funnel visualization displays a funnel of user sessions that maps a sequence of view navigation and user interaction in your application.</p>
+ * The funnel visualization displays a funnel of user sessions that maps a sequence of view
+ * navigation and user interaction in your application.
  */
 @JsonPropertyOrder({
   FunnelWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -42,10 +31,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   FunnelWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   FunnelWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FunnelWidgetDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<FunnelWidgetRequest> requests = new ArrayList<>();
 
@@ -68,12 +57,14 @@ public class FunnelWidgetDefinition {
 
   @JsonCreator
   public FunnelWidgetDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS)List<FunnelWidgetRequest> requests,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)FunnelWidgetDefinitionType type) {
-        this.requests = requests;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<FunnelWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FunnelWidgetDefinitionType type) {
+    this.requests = requests;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public FunnelWidgetDefinition requests(List<FunnelWidgetRequest> requests) {
     this.requests = requests;
     for (FunnelWidgetRequest item : requests) {
@@ -81,6 +72,7 @@ public class FunnelWidgetDefinition {
     }
     return this;
   }
+
   public FunnelWidgetDefinition addRequestsItem(FunnelWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
@@ -88,18 +80,20 @@ public class FunnelWidgetDefinition {
   }
 
   /**
-   * <p>Request payload used to query items.</p>
+   * Request payload used to query items.
+   *
    * @return requests
-  **/
-      @JsonProperty(JSON_PROPERTY_REQUESTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<FunnelWidgetRequest> getRequests() {
-        return requests;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REQUESTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<FunnelWidgetRequest> getRequests() {
+    return requests;
+  }
+
   public void setRequests(List<FunnelWidgetRequest> requests) {
     this.requests = requests;
   }
+
   public FunnelWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -107,38 +101,42 @@ public class FunnelWidgetDefinition {
   }
 
   /**
-   * <p>Time setting for the widget.</p>
+   * Time setting for the widget.
+   *
    * @return time
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTime getTime() {
-        return time;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
   public FunnelWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>The title of the widget.</p>
+   * The title of the widget.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
+
   public FunnelWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -146,41 +144,45 @@ public class FunnelWidgetDefinition {
   }
 
   /**
-   * <p>How to align the text on the widget.</p>
+   * How to align the text on the widget.
+   *
    * @return titleAlign
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTextAlign getTitleAlign() {
-        return titleAlign;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
   public FunnelWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * <p>The size of the title.</p>
+   * The size of the title.
+   *
    * @return titleSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitleSize() {
-        return titleSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitleSize() {
+    return titleSize;
+  }
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
   public FunnelWidgetDefinition type(FunnelWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -188,32 +190,32 @@ public class FunnelWidgetDefinition {
   }
 
   /**
-   * <p>Type of funnel widget.</p>
+   * Type of funnel widget.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public FunnelWidgetDefinitionType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FunnelWidgetDefinitionType getType() {
+    return type;
+  }
+
   public void setType(FunnelWidgetDefinitionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -222,7 +224,7 @@ public class FunnelWidgetDefinition {
   @JsonAnySetter
   public FunnelWidgetDefinition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -246,14 +248,12 @@ public class FunnelWidgetDefinition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this FunnelWidgetDefinition object is equal to o.
-   */
+  /** Return true if this FunnelWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -263,13 +263,18 @@ public class FunnelWidgetDefinition {
       return false;
     }
     FunnelWidgetDefinition funnelWidgetDefinition = (FunnelWidgetDefinition) o;
-    return Objects.equals(this.requests, funnelWidgetDefinition.requests) && Objects.equals(this.time, funnelWidgetDefinition.time) && Objects.equals(this.title, funnelWidgetDefinition.title) && Objects.equals(this.titleAlign, funnelWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, funnelWidgetDefinition.titleSize) && Objects.equals(this.type, funnelWidgetDefinition.type) && Objects.equals(this.additionalProperties, funnelWidgetDefinition.additionalProperties);
+    return Objects.equals(this.requests, funnelWidgetDefinition.requests)
+        && Objects.equals(this.time, funnelWidgetDefinition.time)
+        && Objects.equals(this.title, funnelWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, funnelWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, funnelWidgetDefinition.titleSize)
+        && Objects.equals(this.type, funnelWidgetDefinition.type)
+        && Objects.equals(this.additionalProperties, funnelWidgetDefinition.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(requests,time,title,titleAlign,titleSize,type, additionalProperties);
+    return Objects.hash(requests, time, title, titleAlign, titleSize, type, additionalProperties);
   }
 
   @Override
@@ -290,8 +295,7 @@ public class FunnelWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
