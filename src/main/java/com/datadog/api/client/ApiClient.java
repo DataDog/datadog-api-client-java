@@ -671,7 +671,7 @@ public class ApiClient {
               new ArrayList<ServerConfiguration>(
                   Arrays.asList(
                       new ServerConfiguration(
-                          "https://{subdomain}.{site}",
+                          "https://{subdomain}-{site}",
                           "No description provided",
                           new HashMap<String, ServerVariable>() {
                             {
