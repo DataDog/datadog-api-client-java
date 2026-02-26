@@ -8,6 +8,8 @@ import com.datadog.api.client.v2.model.AWSAccountCreateRequest;
 import com.datadog.api.client.v2.model.AWSAccountResponse;
 import com.datadog.api.client.v2.model.AWSAccountUpdateRequest;
 import com.datadog.api.client.v2.model.AWSAccountsResponse;
+import com.datadog.api.client.v2.model.AWSCcmConfigRequest;
+import com.datadog.api.client.v2.model.AWSCcmConfigResponse;
 import com.datadog.api.client.v2.model.AWSEventBridgeCreateRequest;
 import com.datadog.api.client.v2.model.AWSEventBridgeCreateResponse;
 import com.datadog.api.client.v2.model.AWSEventBridgeDeleteRequest;
@@ -185,6 +187,206 @@ public class AwsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AWSAccountResponse>() {});
+  }
+
+  /**
+   * Create AWS CCM config.
+   *
+   * <p>See {@link #createAWSAccountCCMConfigWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Create a Cloud Cost Management config for an AWS Account Integration Config.
+   *     (required)
+   * @return AWSCcmConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSCcmConfigResponse createAWSAccountCCMConfig(
+      String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
+    return createAWSAccountCCMConfigWithHttpInfo(awsAccountConfigId, body).getData();
+  }
+
+  /**
+   * Create AWS CCM config.
+   *
+   * <p>See {@link #createAWSAccountCCMConfigWithHttpInfoAsync}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Create a Cloud Cost Management config for an AWS Account Integration Config.
+   *     (required)
+   * @return CompletableFuture&lt;AWSCcmConfigResponse&gt;
+   */
+  public CompletableFuture<AWSCcmConfigResponse> createAWSAccountCCMConfigAsync(
+      String awsAccountConfigId, AWSCcmConfigRequest body) {
+    return createAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create the Cloud Cost Management config for an AWS Account Integration Config using Cost and
+   * Usage Report (CUR) 2.0 by config ID.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Create a Cloud Cost Management config for an AWS Account Integration Config.
+   *     (required)
+   * @return ApiResponse&lt;AWSCcmConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> AWS CCM Config object </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSCcmConfigResponse> createAWSAccountCCMConfigWithHttpInfo(
+      String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createAWSAccountCCMConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'awsAccountConfigId' when calling"
+              + " createAWSAccountCCMConfig");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createAWSAccountCCMConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AwsIntegrationApi.createAWSAccountCCMConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCcmConfigResponse>() {});
+  }
+
+  /**
+   * Create AWS CCM config.
+   *
+   * <p>See {@link #createAWSAccountCCMConfigWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Create a Cloud Cost Management config for an AWS Account Integration Config.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSCcmConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSCcmConfigResponse>>
+      createAWSAccountCCMConfigWithHttpInfoAsync(
+          String awsAccountConfigId, AWSCcmConfigRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createAWSAccountCCMConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'awsAccountConfigId' when calling"
+                  + " createAWSAccountCCMConfig"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createAWSAccountCCMConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AwsIntegrationApi.createAWSAccountCCMConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCcmConfigResponse>() {});
   }
 
   /**
@@ -592,6 +794,178 @@ public class AwsIntegrationApi {
   }
 
   /**
+   * Delete AWS CCM config.
+   *
+   * <p>See {@link #deleteAWSAccountCCMConfigWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteAWSAccountCCMConfig(String awsAccountConfigId) throws ApiException {
+    deleteAWSAccountCCMConfigWithHttpInfo(awsAccountConfigId);
+  }
+
+  /**
+   * Delete AWS CCM config.
+   *
+   * <p>See {@link #deleteAWSAccountCCMConfigWithHttpInfoAsync}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteAWSAccountCCMConfigAsync(String awsAccountConfigId) {
+    return deleteAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete the Cloud Cost Management config for an AWS Account Integration Config using Cost and
+   * Usage Report (CUR) 2.0 by config ID.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteAWSAccountCCMConfigWithHttpInfo(String awsAccountConfigId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAWSAccountCCMConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'awsAccountConfigId' when calling"
+              + " deleteAWSAccountCCMConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AwsIntegrationApi.deleteAWSAccountCCMConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete AWS CCM config.
+   *
+   * <p>See {@link #deleteAWSAccountCCMConfigWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteAWSAccountCCMConfigWithHttpInfoAsync(
+      String awsAccountConfigId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteAWSAccountCCMConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'awsAccountConfigId' when calling"
+                  + " deleteAWSAccountCCMConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AwsIntegrationApi.deleteAWSAccountCCMConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete an Amazon EventBridge source.
    *
    * <p>See {@link #deleteAWSEventBridgeSourceWithHttpInfo}.
@@ -882,6 +1256,181 @@ public class AwsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AWSAccountResponse>() {});
+  }
+
+  /**
+   * Get AWS CCM config.
+   *
+   * <p>See {@link #getAWSAccountCCMConfigWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @return AWSCcmConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSCcmConfigResponse getAWSAccountCCMConfig(String awsAccountConfigId)
+      throws ApiException {
+    return getAWSAccountCCMConfigWithHttpInfo(awsAccountConfigId).getData();
+  }
+
+  /**
+   * Get AWS CCM config.
+   *
+   * <p>See {@link #getAWSAccountCCMConfigWithHttpInfoAsync}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @return CompletableFuture&lt;AWSCcmConfigResponse&gt;
+   */
+  public CompletableFuture<AWSCcmConfigResponse> getAWSAccountCCMConfigAsync(
+      String awsAccountConfigId) {
+    return getAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the Cloud Cost Management config for an AWS Account Integration Config using Cost and Usage
+   * Report (CUR) 2.0 by config ID.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @return ApiResponse&lt;AWSCcmConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> AWS CCM Config object </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSCcmConfigResponse> getAWSAccountCCMConfigWithHttpInfo(
+      String awsAccountConfigId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getAWSAccountCCMConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'awsAccountConfigId' when calling"
+              + " getAWSAccountCCMConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AwsIntegrationApi.getAWSAccountCCMConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCcmConfigResponse>() {});
+  }
+
+  /**
+   * Get AWS CCM config.
+   *
+   * <p>See {@link #getAWSAccountCCMConfigWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSCcmConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSCcmConfigResponse>>
+      getAWSAccountCCMConfigWithHttpInfoAsync(String awsAccountConfigId) {
+    // Check if unstable operation is enabled
+    String operationId = "getAWSAccountCCMConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'awsAccountConfigId' when calling"
+                  + " getAWSAccountCCMConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AwsIntegrationApi.getAWSAccountCCMConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCcmConfigResponse>() {});
   }
 
   /**
@@ -1786,5 +2335,204 @@ public class AwsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AWSAccountResponse>() {});
+  }
+
+  /**
+   * Update AWS CCM config.
+   *
+   * <p>See {@link #updateAWSAccountCCMConfigWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Update a Cloud Cost Management config for an AWS Account Integration Config.
+   *     (required)
+   * @return AWSCcmConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSCcmConfigResponse updateAWSAccountCCMConfig(
+      String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
+    return updateAWSAccountCCMConfigWithHttpInfo(awsAccountConfigId, body).getData();
+  }
+
+  /**
+   * Update AWS CCM config.
+   *
+   * <p>See {@link #updateAWSAccountCCMConfigWithHttpInfoAsync}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Update a Cloud Cost Management config for an AWS Account Integration Config.
+   *     (required)
+   * @return CompletableFuture&lt;AWSCcmConfigResponse&gt;
+   */
+  public CompletableFuture<AWSCcmConfigResponse> updateAWSAccountCCMConfigAsync(
+      String awsAccountConfigId, AWSCcmConfigRequest body) {
+    return updateAWSAccountCCMConfigWithHttpInfoAsync(awsAccountConfigId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the Cloud Cost Management config for an AWS Account Integration Config using Cost and
+   * Usage Report (CUR) 2.0 by config ID.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Update a Cloud Cost Management config for an AWS Account Integration Config.
+   *     (required)
+   * @return ApiResponse&lt;AWSCcmConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> AWS CCM Config object </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSCcmConfigResponse> updateAWSAccountCCMConfigWithHttpInfo(
+      String awsAccountConfigId, AWSCcmConfigRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateAWSAccountCCMConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'awsAccountConfigId' when calling"
+              + " updateAWSAccountCCMConfig");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateAWSAccountCCMConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AwsIntegrationApi.updateAWSAccountCCMConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCcmConfigResponse>() {});
+  }
+
+  /**
+   * Update AWS CCM config.
+   *
+   * <p>See {@link #updateAWSAccountCCMConfigWithHttpInfo}.
+   *
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
+   * @param body Update a Cloud Cost Management config for an AWS Account Integration Config.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSCcmConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSCcmConfigResponse>>
+      updateAWSAccountCCMConfigWithHttpInfoAsync(
+          String awsAccountConfigId, AWSCcmConfigRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateAWSAccountCCMConfig";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'awsAccountConfigId' is set
+    if (awsAccountConfigId == null) {
+      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'awsAccountConfigId' when calling"
+                  + " updateAWSAccountCCMConfig"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateAWSAccountCCMConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config"
+            .replaceAll(
+                "\\{" + "aws_account_config_id" + "\\}",
+                apiClient.escapeString(awsAccountConfigId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AwsIntegrationApi.updateAWSAccountCCMConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSCcmConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSCcmConfigResponse>() {});
   }
 }
