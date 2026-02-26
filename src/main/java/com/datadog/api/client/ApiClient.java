@@ -782,6 +782,12 @@ public class ApiClient {
           put("v2.linkJiraIssueToCase", false);
           put("v2.moveCaseToProject", false);
           put("v2.unlinkJiraIssue", false);
+          put("v2.acceptRecommendedEntities", false);
+          put("v2.convertCatalogEntities", false);
+          put("v2.declineRecommendedEntities", false);
+          put("v2.getIDPConfigValue", false);
+          put("v2.triggerRecommendedEntities", false);
+          put("v2.upsertIDPConfigValue", false);
           put("v2.createChangeRequest", false);
           put("v2.createChangeRequestBranch", false);
           put("v2.deleteChangeRequestDecision", false);
