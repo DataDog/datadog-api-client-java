@@ -74,6 +74,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_AWS_HOST_TOP99P_SUM,
@@ -449,6 +450,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P_SUM =
       "csm_host_enterprise_gcp_host_count_top99p_sum";
   private Long csmHostEnterpriseGcpHostCountTop99pSum;
+
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P_SUM =
+      "csm_host_enterprise_oci_host_count_top99p_sum";
+  private Long csmHostEnterpriseOciHostCountTop99pSum;
 
   public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P_SUM =
       "csm_host_enterprise_total_host_count_top99p_sum";
@@ -2253,6 +2258,30 @@ public class UsageSummaryResponse {
   public void setCsmHostEnterpriseGcpHostCountTop99pSum(
       Long csmHostEnterpriseGcpHostCountTop99pSum) {
     this.csmHostEnterpriseGcpHostCountTop99pSum = csmHostEnterpriseGcpHostCountTop99pSum;
+  }
+
+  public UsageSummaryResponse csmHostEnterpriseOciHostCountTop99pSum(
+      Long csmHostEnterpriseOciHostCountTop99pSum) {
+    this.csmHostEnterpriseOciHostCountTop99pSum = csmHostEnterpriseOciHostCountTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise OCI hosts over all hours
+   * in the current month for all organizations.
+   *
+   * @return csmHostEnterpriseOciHostCountTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostEnterpriseOciHostCountTop99pSum() {
+    return csmHostEnterpriseOciHostCountTop99pSum;
+  }
+
+  public void setCsmHostEnterpriseOciHostCountTop99pSum(
+      Long csmHostEnterpriseOciHostCountTop99pSum) {
+    this.csmHostEnterpriseOciHostCountTop99pSum = csmHostEnterpriseOciHostCountTop99pSum;
   }
 
   public UsageSummaryResponse csmHostEnterpriseTotalHostCountTop99pSum(
@@ -6449,6 +6478,9 @@ public class UsageSummaryResponse {
             this.csmHostEnterpriseGcpHostCountTop99pSum,
             usageSummaryResponse.csmHostEnterpriseGcpHostCountTop99pSum)
         && Objects.equals(
+            this.csmHostEnterpriseOciHostCountTop99pSum,
+            usageSummaryResponse.csmHostEnterpriseOciHostCountTop99pSum)
+        && Objects.equals(
             this.csmHostEnterpriseTotalHostCountTop99pSum,
             usageSummaryResponse.csmHostEnterpriseTotalHostCountTop99pSum)
         && Objects.equals(this.cspmAasHostTop99pSum, usageSummaryResponse.cspmAasHostTop99pSum)
@@ -6881,6 +6913,7 @@ public class UsageSummaryResponse {
         csmHostEnterpriseComplianceHostCountTop99pSum,
         csmHostEnterpriseCwsHostCountTop99pSum,
         csmHostEnterpriseGcpHostCountTop99pSum,
+        csmHostEnterpriseOciHostCountTop99pSum,
         csmHostEnterpriseTotalHostCountTop99pSum,
         cspmAasHostTop99pSum,
         cspmAwsHostTop99pSum,
@@ -7196,6 +7229,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    csmHostEnterpriseGcpHostCountTop99pSum: ")
         .append(toIndentedString(csmHostEnterpriseGcpHostCountTop99pSum))
+        .append("\n");
+    sb.append("    csmHostEnterpriseOciHostCountTop99pSum: ")
+        .append(toIndentedString(csmHostEnterpriseOciHostCountTop99pSum))
         .append("\n");
     sb.append("    csmHostEnterpriseTotalHostCountTop99pSum: ")
         .append(toIndentedString(csmHostEnterpriseTotalHostCountTop99pSum))
