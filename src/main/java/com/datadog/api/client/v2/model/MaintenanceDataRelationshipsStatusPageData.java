@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,36 +16,76 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** Response metadata. */
-@JsonPropertyOrder({StatusPagesResponseMeta.JSON_PROPERTY_PAGE})
+/** */
+@JsonPropertyOrder({
+  MaintenanceDataRelationshipsStatusPageData.JSON_PROPERTY_ID,
+  MaintenanceDataRelationshipsStatusPageData.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class StatusPagesResponseMeta {
+public class MaintenanceDataRelationshipsStatusPageData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PAGE = "page";
-  private StatusPagesPagination page;
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
 
-  public StatusPagesResponseMeta page(StatusPagesPagination page) {
-    this.page = page;
-    this.unparsed |= page.unparsed;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private StatusPageDataType type = StatusPageDataType.STATUS_PAGES;
+
+  public MaintenanceDataRelationshipsStatusPageData() {}
+
+  @JsonCreator
+  public MaintenanceDataRelationshipsStatusPageData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) StatusPageDataType type) {
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public MaintenanceDataRelationshipsStatusPageData id(UUID id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Offset-based pagination schema.
+   * The ID of the status page.
    *
-   * @return page
+   * @return id
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public StatusPagesPagination getPage() {
-    return page;
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UUID getId() {
+    return id;
   }
 
-  public void setPage(StatusPagesPagination page) {
-    this.page = page;
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+  public MaintenanceDataRelationshipsStatusPageData type(StatusPageDataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Status pages resource type.
+   *
+   * @return type
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public StatusPageDataType getType() {
+    return type;
+  }
+
+  public void setType(StatusPageDataType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -59,10 +100,11 @@ public class StatusPagesResponseMeta {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return StatusPagesResponseMeta
+   * @return MaintenanceDataRelationshipsStatusPageData
    */
   @JsonAnySetter
-  public StatusPagesResponseMeta putAdditionalProperty(String key, Object value) {
+  public MaintenanceDataRelationshipsStatusPageData putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +135,7 @@ public class StatusPagesResponseMeta {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this StatusPagesResponseMeta object is equal to o. */
+  /** Return true if this MaintenanceDataRelationshipsStatusPageData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,21 +144,26 @@ public class StatusPagesResponseMeta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusPagesResponseMeta statusPagesResponseMeta = (StatusPagesResponseMeta) o;
-    return Objects.equals(this.page, statusPagesResponseMeta.page)
-        && Objects.equals(this.additionalProperties, statusPagesResponseMeta.additionalProperties);
+    MaintenanceDataRelationshipsStatusPageData maintenanceDataRelationshipsStatusPageData =
+        (MaintenanceDataRelationshipsStatusPageData) o;
+    return Objects.equals(this.id, maintenanceDataRelationshipsStatusPageData.id)
+        && Objects.equals(this.type, maintenanceDataRelationshipsStatusPageData.type)
+        && Objects.equals(
+            this.additionalProperties,
+            maintenanceDataRelationshipsStatusPageData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(page, additionalProperties);
+    return Objects.hash(id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusPagesResponseMeta {\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("class MaintenanceDataRelationshipsStatusPageData {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

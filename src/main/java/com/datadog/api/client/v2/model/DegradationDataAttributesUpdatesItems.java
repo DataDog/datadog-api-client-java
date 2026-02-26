@@ -27,6 +27,7 @@ import java.util.UUID;
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_DESCRIPTION,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_ID,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_MODIFIED_AT,
+  DegradationDataAttributesUpdatesItems.JSON_PROPERTY_STARTED_AT,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_STATUS
 })
 @jakarta.annotation.Generated(
@@ -48,6 +49,9 @@ public class DegradationDataAttributesUpdatesItems {
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
+
+  public static final String JSON_PROPERTY_STARTED_AT = "started_at";
+  private OffsetDateTime startedAt;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private CreateDegradationRequestDataAttributesStatus status;
@@ -146,6 +150,27 @@ public class DegradationDataAttributesUpdatesItems {
     return modifiedAt;
   }
 
+  public DegradationDataAttributesUpdatesItems startedAt(OffsetDateTime startedAt) {
+    this.startedAt = startedAt;
+    return this;
+  }
+
+  /**
+   * Timestamp of when the update started.
+   *
+   * @return startedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STARTED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getStartedAt() {
+    return startedAt;
+  }
+
+  public void setStartedAt(OffsetDateTime startedAt) {
+    this.startedAt = startedAt;
+  }
+
   public DegradationDataAttributesUpdatesItems status(
       CreateDegradationRequestDataAttributesStatus status) {
     this.status = status;
@@ -235,6 +260,7 @@ public class DegradationDataAttributesUpdatesItems {
         && Objects.equals(this.description, degradationDataAttributesUpdatesItems.description)
         && Objects.equals(this.id, degradationDataAttributesUpdatesItems.id)
         && Objects.equals(this.modifiedAt, degradationDataAttributesUpdatesItems.modifiedAt)
+        && Objects.equals(this.startedAt, degradationDataAttributesUpdatesItems.startedAt)
         && Objects.equals(this.status, degradationDataAttributesUpdatesItems.status)
         && Objects.equals(
             this.additionalProperties, degradationDataAttributesUpdatesItems.additionalProperties);
@@ -243,7 +269,14 @@ public class DegradationDataAttributesUpdatesItems {
   @Override
   public int hashCode() {
     return Objects.hash(
-        componentsAffected, createdAt, description, id, modifiedAt, status, additionalProperties);
+        componentsAffected,
+        createdAt,
+        description,
+        id,
+        modifiedAt,
+        startedAt,
+        status,
+        additionalProperties);
   }
 
   @Override
@@ -255,6 +288,7 @@ public class DegradationDataAttributesUpdatesItems {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
