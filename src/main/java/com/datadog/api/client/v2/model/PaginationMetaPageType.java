@@ -19,39 +19,39 @@ import java.util.HashSet;
 import java.util.Set;
 
 /** */
-@JsonSerialize(using = StatusPagesPaginationType.StatusPagesPaginationTypeSerializer.class)
-public class StatusPagesPaginationType extends ModelEnum<String> {
+@JsonSerialize(using = PaginationMetaPageType.PaginationMetaPageTypeSerializer.class)
+public class PaginationMetaPageType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("offset_limit"));
 
-  public static final StatusPagesPaginationType OFFSET_LIMIT =
-      new StatusPagesPaginationType("offset_limit");
+  public static final PaginationMetaPageType OFFSET_LIMIT =
+      new PaginationMetaPageType("offset_limit");
 
-  StatusPagesPaginationType(String value) {
+  PaginationMetaPageType(String value) {
     super(value, allowedValues);
   }
 
-  public static class StatusPagesPaginationTypeSerializer
-      extends StdSerializer<StatusPagesPaginationType> {
-    public StatusPagesPaginationTypeSerializer(Class<StatusPagesPaginationType> t) {
+  public static class PaginationMetaPageTypeSerializer
+      extends StdSerializer<PaginationMetaPageType> {
+    public PaginationMetaPageTypeSerializer(Class<PaginationMetaPageType> t) {
       super(t);
     }
 
-    public StatusPagesPaginationTypeSerializer() {
+    public PaginationMetaPageTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        StatusPagesPaginationType value, JsonGenerator jgen, SerializerProvider provider)
+        PaginationMetaPageType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static StatusPagesPaginationType fromValue(String value) {
-    return new StatusPagesPaginationType(value);
+  public static PaginationMetaPageType fromValue(String value) {
+    return new PaginationMetaPageType(value);
   }
 }

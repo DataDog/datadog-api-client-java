@@ -6,11 +6,15 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CreateComponentRequest;
 import com.datadog.api.client.v2.model.CreateDegradationRequest;
+import com.datadog.api.client.v2.model.CreateMaintenanceRequest;
 import com.datadog.api.client.v2.model.CreateStatusPageRequest;
 import com.datadog.api.client.v2.model.Degradation;
 import com.datadog.api.client.v2.model.DegradationArray;
+import com.datadog.api.client.v2.model.Maintenance;
+import com.datadog.api.client.v2.model.MaintenanceArray;
 import com.datadog.api.client.v2.model.PatchComponentRequest;
 import com.datadog.api.client.v2.model.PatchDegradationRequest;
+import com.datadog.api.client.v2.model.PatchMaintenanceRequest;
 import com.datadog.api.client.v2.model.PatchStatusPageRequest;
 import com.datadog.api.client.v2.model.StatusPage;
 import com.datadog.api.client.v2.model.StatusPageArray;
@@ -512,6 +516,245 @@ public class StatusPagesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Degradation>() {});
+  }
+
+  /** Manage optional parameters to createMaintenance. */
+  public static class CreateMaintenanceOptionalParameters {
+    private Boolean notifySubscribers;
+    private String include;
+
+    /**
+     * Set notifySubscribers.
+     *
+     * @param notifySubscribers Whether to notify page subscribers of the maintenance. (optional,
+     *     default to true)
+     * @return CreateMaintenanceOptionalParameters
+     */
+    public CreateMaintenanceOptionalParameters notifySubscribers(Boolean notifySubscribers) {
+      this.notifySubscribers = notifySubscribers;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of resources to include. Supported values:
+     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @return CreateMaintenanceOptionalParameters
+     */
+    public CreateMaintenanceOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Schedule maintenance.
+   *
+   * <p>See {@link #createMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @return Maintenance
+   * @throws ApiException if fails to make API call
+   */
+  public Maintenance createMaintenance(UUID pageId, CreateMaintenanceRequest body)
+      throws ApiException {
+    return createMaintenanceWithHttpInfo(pageId, body, new CreateMaintenanceOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Schedule maintenance.
+   *
+   * <p>See {@link #createMaintenanceWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;Maintenance&gt;
+   */
+  public CompletableFuture<Maintenance> createMaintenanceAsync(
+      UUID pageId, CreateMaintenanceRequest body) {
+    return createMaintenanceWithHttpInfoAsync(
+            pageId, body, new CreateMaintenanceOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Schedule maintenance.
+   *
+   * <p>See {@link #createMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return Maintenance
+   * @throws ApiException if fails to make API call
+   */
+  public Maintenance createMaintenance(
+      UUID pageId, CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters)
+      throws ApiException {
+    return createMaintenanceWithHttpInfo(pageId, body, parameters).getData();
+  }
+
+  /**
+   * Schedule maintenance.
+   *
+   * <p>See {@link #createMaintenanceWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;Maintenance&gt;
+   */
+  public CompletableFuture<Maintenance> createMaintenanceAsync(
+      UUID pageId, CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters) {
+    return createMaintenanceWithHttpInfoAsync(pageId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Schedules a new maintenance.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Maintenance&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Maintenance> createMaintenanceWithHttpInfo(
+      UUID pageId, CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling createMaintenance");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createMaintenance");
+    }
+    Boolean notifySubscribers = parameters.notifySubscribers;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/maintenances"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.createMaintenance",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Maintenance>() {});
+  }
+
+  /**
+   * Schedule maintenance.
+   *
+   * <p>See {@link #createMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Maintenance&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Maintenance>> createMaintenanceWithHttpInfoAsync(
+      UUID pageId, CreateMaintenanceRequest body, CreateMaintenanceOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling createMaintenance"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createMaintenance"));
+      return result;
+    }
+    Boolean notifySubscribers = parameters.notifySubscribers;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/maintenances"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.createMaintenance",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Maintenance>() {});
   }
 
   /** Manage optional parameters to createStatusPage. */
@@ -1589,6 +1832,228 @@ public class StatusPagesApi {
         new GenericType<Degradation>() {});
   }
 
+  /** Manage optional parameters to getMaintenance. */
+  public static class GetMaintenanceOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of resources to include. Supported values:
+     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @return GetMaintenanceOptionalParameters
+     */
+    public GetMaintenanceOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get maintenance.
+   *
+   * <p>See {@link #getMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @return Maintenance
+   * @throws ApiException if fails to make API call
+   */
+  public Maintenance getMaintenance(UUID pageId, UUID maintenanceId) throws ApiException {
+    return getMaintenanceWithHttpInfo(pageId, maintenanceId, new GetMaintenanceOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get maintenance.
+   *
+   * <p>See {@link #getMaintenanceWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @return CompletableFuture&lt;Maintenance&gt;
+   */
+  public CompletableFuture<Maintenance> getMaintenanceAsync(UUID pageId, UUID maintenanceId) {
+    return getMaintenanceWithHttpInfoAsync(
+            pageId, maintenanceId, new GetMaintenanceOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get maintenance.
+   *
+   * <p>See {@link #getMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param parameters Optional parameters for the request.
+   * @return Maintenance
+   * @throws ApiException if fails to make API call
+   */
+  public Maintenance getMaintenance(
+      UUID pageId, UUID maintenanceId, GetMaintenanceOptionalParameters parameters)
+      throws ApiException {
+    return getMaintenanceWithHttpInfo(pageId, maintenanceId, parameters).getData();
+  }
+
+  /**
+   * Get maintenance.
+   *
+   * <p>See {@link #getMaintenanceWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;Maintenance&gt;
+   */
+  public CompletableFuture<Maintenance> getMaintenanceAsync(
+      UUID pageId, UUID maintenanceId, GetMaintenanceOptionalParameters parameters) {
+    return getMaintenanceWithHttpInfoAsync(pageId, maintenanceId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieves a specific maintenance by its ID.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Maintenance&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Maintenance> getMaintenanceWithHttpInfo(
+      UUID pageId, UUID maintenanceId, GetMaintenanceOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling getMaintenance");
+    }
+
+    // verify the required parameter 'maintenanceId' is set
+    if (maintenanceId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'maintenanceId' when calling getMaintenance");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll(
+                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.getMaintenance",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Maintenance>() {});
+  }
+
+  /**
+   * Get maintenance.
+   *
+   * <p>See {@link #getMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Maintenance&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Maintenance>> getMaintenanceWithHttpInfoAsync(
+      UUID pageId, UUID maintenanceId, GetMaintenanceOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling getMaintenance"));
+      return result;
+    }
+
+    // verify the required parameter 'maintenanceId' is set
+    if (maintenanceId == null) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'maintenanceId' when calling getMaintenance"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll(
+                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.getMaintenance",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Maintenance>() {});
+  }
+
   /** Manage optional parameters to getStatusPage. */
   public static class GetStatusPageOptionalParameters {
     private String include;
@@ -1982,6 +2447,7 @@ public class StatusPagesApi {
     private Integer pageLimit;
     private String include;
     private String filterStatus;
+    private String sort;
 
     /**
      * Set filterPageId.
@@ -2037,6 +2503,18 @@ public class StatusPagesApi {
      */
     public ListDegradationsOptionalParameters filterStatus(String filterStatus) {
       this.filterStatus = filterStatus;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort order. Prefix with '-' for descending. Supported values: created_at,
+     *     -created_at, modified_at, -modified_at. (optional)
+     * @return ListDegradationsOptionalParameters
+     */
+    public ListDegradationsOptionalParameters sort(String sort) {
+      this.sort = sort;
       return this;
     }
   }
@@ -2121,6 +2599,7 @@ public class StatusPagesApi {
     Integer pageLimit = parameters.pageLimit;
     String include = parameters.include;
     String filterStatus = parameters.filterStatus;
+    String sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/statuspages/degradations";
 
@@ -2132,6 +2611,7 @@ public class StatusPagesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2169,6 +2649,7 @@ public class StatusPagesApi {
     Integer pageLimit = parameters.pageLimit;
     String include = parameters.include;
     String filterStatus = parameters.filterStatus;
+    String sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/statuspages/degradations";
 
@@ -2180,6 +2661,7 @@ public class StatusPagesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
     Invocation.Builder builder;
     try {
@@ -2206,6 +2688,256 @@ public class StatusPagesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<DegradationArray>() {});
+  }
+
+  /** Manage optional parameters to listMaintenances. */
+  public static class ListMaintenancesOptionalParameters {
+    private String filterPageId;
+    private Integer pageOffset;
+    private Integer pageLimit;
+    private String include;
+    private String filterStatus;
+    private String sort;
+
+    /**
+     * Set filterPageId.
+     *
+     * @param filterPageId Optional page id filter. (optional)
+     * @return ListMaintenancesOptionalParameters
+     */
+    public ListMaintenancesOptionalParameters filterPageId(String filterPageId) {
+      this.filterPageId = filterPageId;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Offset to use as the start of the page. (optional, default to 0)
+     * @return ListMaintenancesOptionalParameters
+     */
+    public ListMaintenancesOptionalParameters pageOffset(Integer pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit The number of maintenances to return per page. (optional, default to 50)
+     * @return ListMaintenancesOptionalParameters
+     */
+    public ListMaintenancesOptionalParameters pageLimit(Integer pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of resources to include. Supported values:
+     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @return ListMaintenancesOptionalParameters
+     */
+    public ListMaintenancesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+
+    /**
+     * Set filterStatus.
+     *
+     * @param filterStatus Optional maintenance status filter. Supported values: scheduled,
+     *     in_progress, completed. (optional)
+     * @return ListMaintenancesOptionalParameters
+     */
+    public ListMaintenancesOptionalParameters filterStatus(String filterStatus) {
+      this.filterStatus = filterStatus;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort order. Prefix with '-' for descending. Supported values: created_at,
+     *     -created_at, start_date, -start_date. (optional)
+     * @return ListMaintenancesOptionalParameters
+     */
+    public ListMaintenancesOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+  }
+
+  /**
+   * List maintenances.
+   *
+   * <p>See {@link #listMaintenancesWithHttpInfo}.
+   *
+   * @return MaintenanceArray
+   * @throws ApiException if fails to make API call
+   */
+  public MaintenanceArray listMaintenances() throws ApiException {
+    return listMaintenancesWithHttpInfo(new ListMaintenancesOptionalParameters()).getData();
+  }
+
+  /**
+   * List maintenances.
+   *
+   * <p>See {@link #listMaintenancesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;MaintenanceArray&gt;
+   */
+  public CompletableFuture<MaintenanceArray> listMaintenancesAsync() {
+    return listMaintenancesWithHttpInfoAsync(new ListMaintenancesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List maintenances.
+   *
+   * <p>See {@link #listMaintenancesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return MaintenanceArray
+   * @throws ApiException if fails to make API call
+   */
+  public MaintenanceArray listMaintenances(ListMaintenancesOptionalParameters parameters)
+      throws ApiException {
+    return listMaintenancesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List maintenances.
+   *
+   * <p>See {@link #listMaintenancesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;MaintenanceArray&gt;
+   */
+  public CompletableFuture<MaintenanceArray> listMaintenancesAsync(
+      ListMaintenancesOptionalParameters parameters) {
+    return listMaintenancesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Lists all maintenances for the organization. Optionally filter by status and page.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;MaintenanceArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MaintenanceArray> listMaintenancesWithHttpInfo(
+      ListMaintenancesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String filterPageId = parameters.filterPageId;
+    Integer pageOffset = parameters.pageOffset;
+    Integer pageLimit = parameters.pageLimit;
+    String include = parameters.include;
+    String filterStatus = parameters.filterStatus;
+    String sort = parameters.sort;
+    // create path and map variables
+    String localVarPath = "/api/v2/statuspages/maintenances";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[page_id]", filterPageId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.listMaintenances",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MaintenanceArray>() {});
+  }
+
+  /**
+   * List maintenances.
+   *
+   * <p>See {@link #listMaintenancesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;MaintenanceArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MaintenanceArray>> listMaintenancesWithHttpInfoAsync(
+      ListMaintenancesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String filterPageId = parameters.filterPageId;
+    Integer pageOffset = parameters.pageOffset;
+    Integer pageLimit = parameters.pageLimit;
+    String include = parameters.include;
+    String filterStatus = parameters.filterStatus;
+    String sort = parameters.sort;
+    // create path and map variables
+    String localVarPath = "/api/v2/statuspages/maintenances";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[page_id]", filterPageId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.listMaintenances",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MaintenanceArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MaintenanceArray>() {});
   }
 
   /** Manage optional parameters to listStatusPages. */
@@ -2942,6 +3674,284 @@ public class StatusPagesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Degradation>() {});
+  }
+
+  /** Manage optional parameters to updateMaintenance. */
+  public static class UpdateMaintenanceOptionalParameters {
+    private Boolean notifySubscribers;
+    private String include;
+
+    /**
+     * Set notifySubscribers.
+     *
+     * @param notifySubscribers Whether to notify page subscribers of the maintenance. (optional,
+     *     default to true)
+     * @return UpdateMaintenanceOptionalParameters
+     */
+    public UpdateMaintenanceOptionalParameters notifySubscribers(Boolean notifySubscribers) {
+      this.notifySubscribers = notifySubscribers;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of resources to include. Supported values:
+     *     created_by_user, last_modified_by_user, status_page. (optional)
+     * @return UpdateMaintenanceOptionalParameters
+     */
+    public UpdateMaintenanceOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Update maintenance.
+   *
+   * <p>See {@link #updateMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param body (required)
+   * @return Maintenance
+   * @throws ApiException if fails to make API call
+   */
+  public Maintenance updateMaintenance(
+      UUID pageId, UUID maintenanceId, PatchMaintenanceRequest body) throws ApiException {
+    return updateMaintenanceWithHttpInfo(
+            pageId, maintenanceId, body, new UpdateMaintenanceOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Update maintenance.
+   *
+   * <p>See {@link #updateMaintenanceWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;Maintenance&gt;
+   */
+  public CompletableFuture<Maintenance> updateMaintenanceAsync(
+      UUID pageId, UUID maintenanceId, PatchMaintenanceRequest body) {
+    return updateMaintenanceWithHttpInfoAsync(
+            pageId, maintenanceId, body, new UpdateMaintenanceOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update maintenance.
+   *
+   * <p>See {@link #updateMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return Maintenance
+   * @throws ApiException if fails to make API call
+   */
+  public Maintenance updateMaintenance(
+      UUID pageId,
+      UUID maintenanceId,
+      PatchMaintenanceRequest body,
+      UpdateMaintenanceOptionalParameters parameters)
+      throws ApiException {
+    return updateMaintenanceWithHttpInfo(pageId, maintenanceId, body, parameters).getData();
+  }
+
+  /**
+   * Update maintenance.
+   *
+   * <p>See {@link #updateMaintenanceWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;Maintenance&gt;
+   */
+  public CompletableFuture<Maintenance> updateMaintenanceAsync(
+      UUID pageId,
+      UUID maintenanceId,
+      PatchMaintenanceRequest body,
+      UpdateMaintenanceOptionalParameters parameters) {
+    return updateMaintenanceWithHttpInfoAsync(pageId, maintenanceId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates an existing maintenance's attributes.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Maintenance&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Maintenance> updateMaintenanceWithHttpInfo(
+      UUID pageId,
+      UUID maintenanceId,
+      PatchMaintenanceRequest body,
+      UpdateMaintenanceOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling updateMaintenance");
+    }
+
+    // verify the required parameter 'maintenanceId' is set
+    if (maintenanceId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'maintenanceId' when calling updateMaintenance");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateMaintenance");
+    }
+    Boolean notifySubscribers = parameters.notifySubscribers;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll(
+                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.updateMaintenance",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Maintenance>() {});
+  }
+
+  /**
+   * Update maintenance.
+   *
+   * <p>See {@link #updateMaintenanceWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @param maintenanceId The ID of the maintenance. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Maintenance&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Maintenance>> updateMaintenanceWithHttpInfoAsync(
+      UUID pageId,
+      UUID maintenanceId,
+      PatchMaintenanceRequest body,
+      UpdateMaintenanceOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling updateMaintenance"));
+      return result;
+    }
+
+    // verify the required parameter 'maintenanceId' is set
+    if (maintenanceId == null) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'maintenanceId' when calling updateMaintenance"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateMaintenance"));
+      return result;
+    }
+    Boolean notifySubscribers = parameters.notifySubscribers;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()))
+            .replaceAll(
+                "\\{" + "maintenance_id" + "\\}", apiClient.escapeString(maintenanceId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "notify_subscribers", notifySubscribers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.updateMaintenance",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Maintenance>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Maintenance>() {});
   }
 
   /** Manage optional parameters to updateStatusPage. */

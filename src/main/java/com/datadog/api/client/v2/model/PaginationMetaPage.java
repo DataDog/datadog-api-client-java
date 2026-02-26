@@ -19,18 +19,18 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Offset-based pagination schema. */
 @JsonPropertyOrder({
-  StatusPagesPagination.JSON_PROPERTY_FIRST_OFFSET,
-  StatusPagesPagination.JSON_PROPERTY_LAST_OFFSET,
-  StatusPagesPagination.JSON_PROPERTY_LIMIT,
-  StatusPagesPagination.JSON_PROPERTY_NEXT_OFFSET,
-  StatusPagesPagination.JSON_PROPERTY_OFFSET,
-  StatusPagesPagination.JSON_PROPERTY_PREV_OFFSET,
-  StatusPagesPagination.JSON_PROPERTY_TOTAL,
-  StatusPagesPagination.JSON_PROPERTY_TYPE
+  PaginationMetaPage.JSON_PROPERTY_FIRST_OFFSET,
+  PaginationMetaPage.JSON_PROPERTY_LAST_OFFSET,
+  PaginationMetaPage.JSON_PROPERTY_LIMIT,
+  PaginationMetaPage.JSON_PROPERTY_NEXT_OFFSET,
+  PaginationMetaPage.JSON_PROPERTY_OFFSET,
+  PaginationMetaPage.JSON_PROPERTY_PREV_OFFSET,
+  PaginationMetaPage.JSON_PROPERTY_TOTAL,
+  PaginationMetaPage.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class StatusPagesPagination {
+public class PaginationMetaPage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIRST_OFFSET = "first_offset";
   private Long firstOffset;
@@ -54,9 +54,9 @@ public class StatusPagesPagination {
   private JsonNullable<Long> total = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private StatusPagesPaginationType type = StatusPagesPaginationType.OFFSET_LIMIT;
+  private PaginationMetaPageType type = PaginationMetaPageType.OFFSET_LIMIT;
 
-  public StatusPagesPagination firstOffset(Long firstOffset) {
+  public PaginationMetaPage firstOffset(Long firstOffset) {
     this.firstOffset = firstOffset;
     return this;
   }
@@ -77,7 +77,7 @@ public class StatusPagesPagination {
     this.firstOffset = firstOffset;
   }
 
-  public StatusPagesPagination lastOffset(Long lastOffset) {
+  public PaginationMetaPage lastOffset(Long lastOffset) {
     this.lastOffset = JsonNullable.<Long>of(lastOffset);
     return this;
   }
@@ -108,13 +108,13 @@ public class StatusPagesPagination {
     this.lastOffset = JsonNullable.<Long>of(lastOffset);
   }
 
-  public StatusPagesPagination limit(Long limit) {
+  public PaginationMetaPage limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * Integer representing the number of elements to returned in the results.
+   * Integer representing the number of elements to be returned in the results.
    *
    * @return limit
    */
@@ -129,7 +129,7 @@ public class StatusPagesPagination {
     this.limit = limit;
   }
 
-  public StatusPagesPagination nextOffset(Long nextOffset) {
+  public PaginationMetaPage nextOffset(Long nextOffset) {
     this.nextOffset = JsonNullable.<Long>of(nextOffset);
     return this;
   }
@@ -161,7 +161,7 @@ public class StatusPagesPagination {
     this.nextOffset = JsonNullable.<Long>of(nextOffset);
   }
 
-  public StatusPagesPagination offset(Long offset) {
+  public PaginationMetaPage offset(Long offset) {
     this.offset = offset;
     return this;
   }
@@ -182,7 +182,7 @@ public class StatusPagesPagination {
     this.offset = offset;
   }
 
-  public StatusPagesPagination prevOffset(Long prevOffset) {
+  public PaginationMetaPage prevOffset(Long prevOffset) {
     this.prevOffset = JsonNullable.<Long>of(prevOffset);
     return this;
   }
@@ -213,7 +213,7 @@ public class StatusPagesPagination {
     this.prevOffset = JsonNullable.<Long>of(prevOffset);
   }
 
-  public StatusPagesPagination total(Long total) {
+  public PaginationMetaPage total(Long total) {
     this.total = JsonNullable.<Long>of(total);
     return this;
   }
@@ -244,7 +244,7 @@ public class StatusPagesPagination {
     this.total = JsonNullable.<Long>of(total);
   }
 
-  public StatusPagesPagination type(StatusPagesPaginationType type) {
+  public PaginationMetaPage type(PaginationMetaPageType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -258,11 +258,11 @@ public class StatusPagesPagination {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public StatusPagesPaginationType getType() {
+  public PaginationMetaPageType getType() {
     return type;
   }
 
-  public void setType(StatusPagesPaginationType type) {
+  public void setType(PaginationMetaPageType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -281,10 +281,10 @@ public class StatusPagesPagination {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return StatusPagesPagination
+   * @return PaginationMetaPage
    */
   @JsonAnySetter
-  public StatusPagesPagination putAdditionalProperty(String key, Object value) {
+  public PaginationMetaPage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -315,7 +315,7 @@ public class StatusPagesPagination {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this StatusPagesPagination object is equal to o. */
+  /** Return true if this PaginationMetaPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -324,16 +324,16 @@ public class StatusPagesPagination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusPagesPagination statusPagesPagination = (StatusPagesPagination) o;
-    return Objects.equals(this.firstOffset, statusPagesPagination.firstOffset)
-        && Objects.equals(this.lastOffset, statusPagesPagination.lastOffset)
-        && Objects.equals(this.limit, statusPagesPagination.limit)
-        && Objects.equals(this.nextOffset, statusPagesPagination.nextOffset)
-        && Objects.equals(this.offset, statusPagesPagination.offset)
-        && Objects.equals(this.prevOffset, statusPagesPagination.prevOffset)
-        && Objects.equals(this.total, statusPagesPagination.total)
-        && Objects.equals(this.type, statusPagesPagination.type)
-        && Objects.equals(this.additionalProperties, statusPagesPagination.additionalProperties);
+    PaginationMetaPage paginationMetaPage = (PaginationMetaPage) o;
+    return Objects.equals(this.firstOffset, paginationMetaPage.firstOffset)
+        && Objects.equals(this.lastOffset, paginationMetaPage.lastOffset)
+        && Objects.equals(this.limit, paginationMetaPage.limit)
+        && Objects.equals(this.nextOffset, paginationMetaPage.nextOffset)
+        && Objects.equals(this.offset, paginationMetaPage.offset)
+        && Objects.equals(this.prevOffset, paginationMetaPage.prevOffset)
+        && Objects.equals(this.total, paginationMetaPage.total)
+        && Objects.equals(this.type, paginationMetaPage.type)
+        && Objects.equals(this.additionalProperties, paginationMetaPage.additionalProperties);
   }
 
   @Override
@@ -353,7 +353,7 @@ public class StatusPagesPagination {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusPagesPagination {\n");
+    sb.append("class PaginationMetaPage {\n");
     sb.append("    firstOffset: ").append(toIndentedString(firstOffset)).append("\n");
     sb.append("    lastOffset: ").append(toIndentedString(lastOffset)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
