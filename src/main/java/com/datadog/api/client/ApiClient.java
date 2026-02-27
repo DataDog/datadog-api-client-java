@@ -930,6 +930,14 @@ public class ApiClient {
           put("v2.queryEventFilteredUsers", false);
           put("v2.queryUsers", false);
           put("v2.updateConnection", false);
+          put("v2.createRumSegment", false);
+          put("v2.createRumStaticSegment", false);
+          put("v2.deleteRumSegment", false);
+          put("v2.getRumSegment", false);
+          put("v2.initializeRumSegments", false);
+          put("v2.listRumSegments", false);
+          put("v2.listRumSegmentTemplates", false);
+          put("v2.updateRumSegment", false);
           put("v2.createScorecardOutcomesBatch", false);
           put("v2.createScorecardRule", false);
           put("v2.deleteScorecardRule", false);
