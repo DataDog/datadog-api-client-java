@@ -37,6 +37,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Dashboard.JSON_PROPERTY_NOTIFY_LIST,
   Dashboard.JSON_PROPERTY_REFLOW_TYPE,
   Dashboard.JSON_PROPERTY_RESTRICTED_ROLES,
+  Dashboard.JSON_PROPERTY_TABS,
   Dashboard.JSON_PROPERTY_TAGS,
   Dashboard.JSON_PROPERTY_TEMPLATE_VARIABLE_PRESETS,
   Dashboard.JSON_PROPERTY_TEMPLATE_VARIABLES,
@@ -80,6 +81,9 @@ public class Dashboard {
 
   public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
   private List<String> restrictedRoles = null;
+
+  public static final String JSON_PROPERTY_TABS = "tabs";
+  private JsonNullable<List<DashboardTab>> tabs = JsonNullable.<List<DashboardTab>>undefined();
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
@@ -373,6 +377,49 @@ public class Dashboard {
     this.restrictedRoles = restrictedRoles;
   }
 
+  public Dashboard tabs(List<DashboardTab> tabs) {
+    this.tabs = JsonNullable.<List<DashboardTab>>of(tabs);
+    return this;
+  }
+
+  public Dashboard addTabsItem(DashboardTab tabsItem) {
+    if (this.tabs == null || !this.tabs.isPresent()) {
+      this.tabs = JsonNullable.<List<DashboardTab>>of(new ArrayList<>());
+    }
+    try {
+      this.tabs.get().add(tabsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * List of tabs for organizing dashboard widgets into groups.
+   *
+   * @return tabs
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<DashboardTab> getTabs() {
+    return tabs.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TABS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<DashboardTab>> getTabs_JsonNullable() {
+    return tabs;
+  }
+
+  @JsonProperty(JSON_PROPERTY_TABS)
+  public void setTabs_JsonNullable(JsonNullable<List<DashboardTab>> tabs) {
+    this.tabs = tabs;
+  }
+
+  public void setTabs(List<DashboardTab> tabs) {
+    this.tabs = JsonNullable.<List<DashboardTab>>of(tabs);
+  }
+
   public Dashboard tags(List<String> tags) {
     this.tags = JsonNullable.<List<String>>of(tags);
     return this;
@@ -639,6 +686,7 @@ public class Dashboard {
         && Objects.equals(this.notifyList, dashboard.notifyList)
         && Objects.equals(this.reflowType, dashboard.reflowType)
         && Objects.equals(this.restrictedRoles, dashboard.restrictedRoles)
+        && Objects.equals(this.tabs, dashboard.tabs)
         && Objects.equals(this.tags, dashboard.tags)
         && Objects.equals(this.templateVariablePresets, dashboard.templateVariablePresets)
         && Objects.equals(this.templateVariables, dashboard.templateVariables)
@@ -662,6 +710,7 @@ public class Dashboard {
         notifyList,
         reflowType,
         restrictedRoles,
+        tabs,
         tags,
         templateVariablePresets,
         templateVariables,
@@ -686,6 +735,7 @@ public class Dashboard {
     sb.append("    notifyList: ").append(toIndentedString(notifyList)).append("\n");
     sb.append("    reflowType: ").append(toIndentedString(reflowType)).append("\n");
     sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
+    sb.append("    tabs: ").append(toIndentedString(tabs)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    templateVariablePresets: ")
         .append(toIndentedString(templateVariablePresets))
