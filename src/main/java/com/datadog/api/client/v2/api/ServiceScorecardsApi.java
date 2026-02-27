@@ -5,14 +5,25 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.CampaignResponse;
+import com.datadog.api.client.v2.model.CreateCampaignRequest;
 import com.datadog.api.client.v2.model.CreateRuleRequest;
 import com.datadog.api.client.v2.model.CreateRuleResponse;
+import com.datadog.api.client.v2.model.GenerateCampaignReportRequest;
+import com.datadog.api.client.v2.model.GenerateCampaignTeamReportsRequest;
+import com.datadog.api.client.v2.model.ListCampaignsResponse;
+import com.datadog.api.client.v2.model.ListDefaultRulesResponse;
+import com.datadog.api.client.v2.model.ListFacetsResponse;
 import com.datadog.api.client.v2.model.ListRulesResponse;
 import com.datadog.api.client.v2.model.ListRulesResponseDataItem;
+import com.datadog.api.client.v2.model.ListScorecardsResponse;
+import com.datadog.api.client.v2.model.ListScoresResponse;
 import com.datadog.api.client.v2.model.OutcomesBatchRequest;
 import com.datadog.api.client.v2.model.OutcomesBatchResponse;
 import com.datadog.api.client.v2.model.OutcomesResponse;
 import com.datadog.api.client.v2.model.OutcomesResponseDataItem;
+import com.datadog.api.client.v2.model.SetupRulesRequest;
+import com.datadog.api.client.v2.model.UpdateCampaignRequest;
 import com.datadog.api.client.v2.model.UpdateOutcomesAsyncRequest;
 import com.datadog.api.client.v2.model.UpdateRuleRequest;
 import com.datadog.api.client.v2.model.UpdateRuleResponse;
@@ -54,6 +65,155 @@ public class ServiceScorecardsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Create a new campaign.
+   *
+   * <p>See {@link #createScorecardCampaignWithHttpInfo}.
+   *
+   * @param body Campaign data. (required)
+   * @return CampaignResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CampaignResponse createScorecardCampaign(CreateCampaignRequest body) throws ApiException {
+    return createScorecardCampaignWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a new campaign.
+   *
+   * <p>See {@link #createScorecardCampaignWithHttpInfoAsync}.
+   *
+   * @param body Campaign data. (required)
+   * @return CompletableFuture&lt;CampaignResponse&gt;
+   */
+  public CompletableFuture<CampaignResponse> createScorecardCampaignAsync(
+      CreateCampaignRequest body) {
+    return createScorecardCampaignWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates a new scorecard campaign.
+   *
+   * @param body Campaign data. (required)
+   * @return ApiResponse&lt;CampaignResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CampaignResponse> createScorecardCampaignWithHttpInfo(
+      CreateCampaignRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createScorecardCampaign";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createScorecardCampaign");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/campaigns";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.createScorecardCampaign",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CampaignResponse>() {});
+  }
+
+  /**
+   * Create a new campaign.
+   *
+   * <p>See {@link #createScorecardCampaignWithHttpInfo}.
+   *
+   * @param body Campaign data. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CampaignResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CampaignResponse>> createScorecardCampaignWithHttpInfoAsync(
+      CreateCampaignRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createScorecardCampaign";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CampaignResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CampaignResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createScorecardCampaign"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/campaigns";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.createScorecardCampaign",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CampaignResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CampaignResponse>() {});
   }
 
   /**
@@ -356,6 +516,161 @@ public class ServiceScorecardsApi {
   }
 
   /**
+   * Delete a campaign.
+   *
+   * <p>See {@link #deleteScorecardCampaignWithHttpInfo}.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteScorecardCampaign(String campaignId) throws ApiException {
+    deleteScorecardCampaignWithHttpInfo(campaignId);
+  }
+
+  /**
+   * Delete a campaign.
+   *
+   * <p>See {@link #deleteScorecardCampaignWithHttpInfoAsync}.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteScorecardCampaignAsync(String campaignId) {
+    return deleteScorecardCampaignWithHttpInfoAsync(campaignId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Deletes a single campaign by ID or key.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteScorecardCampaignWithHttpInfo(String campaignId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteScorecardCampaign";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'campaignId' is set
+    if (campaignId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'campaignId' when calling deleteScorecardCampaign");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/campaigns/{campaign_id}"
+            .replaceAll(
+                "\\{" + "campaign_id" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.deleteScorecardCampaign",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a campaign.
+   *
+   * <p>See {@link #deleteScorecardCampaignWithHttpInfo}.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteScorecardCampaignWithHttpInfoAsync(
+      String campaignId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteScorecardCampaign";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'campaignId' is set
+    if (campaignId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'campaignId' when calling deleteScorecardCampaign"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/campaigns/{campaign_id}"
+            .replaceAll(
+                "\\{" + "campaign_id" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.deleteScorecardCampaign",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete a rule.
    *
    * <p>See {@link #deleteScorecardRuleWithHttpInfo}.
@@ -505,6 +820,1333 @@ public class ServiceScorecardsApi {
         null);
   }
 
+  /**
+   * Delete rule workflow.
+   *
+   * <p>See {@link #deleteScorecardRuleWorkflowWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteScorecardRuleWorkflow(String ruleId) throws ApiException {
+    deleteScorecardRuleWorkflowWithHttpInfo(ruleId);
+  }
+
+  /**
+   * Delete rule workflow.
+   *
+   * <p>See {@link #deleteScorecardRuleWorkflowWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteScorecardRuleWorkflowAsync(String ruleId) {
+    return deleteScorecardRuleWorkflowWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Removes workflow association from a scorecard rule.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteScorecardRuleWorkflowWithHttpInfo(String ruleId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteScorecardRuleWorkflow";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling deleteScorecardRuleWorkflow");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/rules/{rule_id}/workflow"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.deleteScorecardRuleWorkflow",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete rule workflow.
+   *
+   * <p>See {@link #deleteScorecardRuleWorkflowWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteScorecardRuleWorkflowWithHttpInfoAsync(
+      String ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteScorecardRuleWorkflow";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling deleteScorecardRuleWorkflow"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/rules/{rule_id}/workflow"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.deleteScorecardRuleWorkflow",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Generate campaign report.
+   *
+   * <p>See {@link #generateScorecardCampaignReportWithHttpInfo}.
+   *
+   * @param campaignId Campaign ID. (required)
+   * @param body Report generation request. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void generateScorecardCampaignReport(String campaignId, GenerateCampaignReportRequest body)
+      throws ApiException {
+    generateScorecardCampaignReportWithHttpInfo(campaignId, body);
+  }
+
+  /**
+   * Generate campaign report.
+   *
+   * <p>See {@link #generateScorecardCampaignReportWithHttpInfoAsync}.
+   *
+   * @param campaignId Campaign ID. (required)
+   * @param body Report generation request. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> generateScorecardCampaignReportAsync(
+      String campaignId, GenerateCampaignReportRequest body) {
+    return generateScorecardCampaignReportWithHttpInfoAsync(campaignId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Generates and sends a campaign report to Slack.
+   *
+   * @param campaignId Campaign ID. (required)
+   * @param body Report generation request. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> generateScorecardCampaignReportWithHttpInfo(
+      String campaignId, GenerateCampaignReportRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "generateScorecardCampaignReport";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'campaignId' is set
+    if (campaignId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'campaignId' when calling"
+              + " generateScorecardCampaignReport");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling generateScorecardCampaignReport");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/campaigns/{campaign_id}/report"
+            .replaceAll(
+                "\\{" + "campaign_id" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.generateScorecardCampaignReport",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Generate campaign report.
+   *
+   * <p>See {@link #generateScorecardCampaignReportWithHttpInfo}.
+   *
+   * @param campaignId Campaign ID. (required)
+   * @param body Report generation request. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> generateScorecardCampaignReportWithHttpInfoAsync(
+      String campaignId, GenerateCampaignReportRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "generateScorecardCampaignReport";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'campaignId' is set
+    if (campaignId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'campaignId' when calling"
+                  + " generateScorecardCampaignReport"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " generateScorecardCampaignReport"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/campaigns/{campaign_id}/report"
+            .replaceAll(
+                "\\{" + "campaign_id" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.generateScorecardCampaignReport",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Generate team-specific campaign reports.
+   *
+   * <p>See {@link #generateScorecardCampaignTeamReportsWithHttpInfo}.
+   *
+   * @param campaignId Campaign ID. (required)
+   * @param body Team report generation request. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void generateScorecardCampaignTeamReports(
+      String campaignId, GenerateCampaignTeamReportsRequest body) throws ApiException {
+    generateScorecardCampaignTeamReportsWithHttpInfo(campaignId, body);
+  }
+
+  /**
+   * Generate team-specific campaign reports.
+   *
+   * <p>See {@link #generateScorecardCampaignTeamReportsWithHttpInfoAsync}.
+   *
+   * @param campaignId Campaign ID. (required)
+   * @param body Team report generation request. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> generateScorecardCampaignTeamReportsAsync(
+      String campaignId, GenerateCampaignTeamReportsRequest body) {
+    return generateScorecardCampaignTeamReportsWithHttpInfoAsync(campaignId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Generates and sends team-specific campaign reports to Slack.
+   *
+   * @param campaignId Campaign ID. (required)
+   * @param body Team report generation request. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> generateScorecardCampaignTeamReportsWithHttpInfo(
+      String campaignId, GenerateCampaignTeamReportsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "generateScorecardCampaignTeamReports";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'campaignId' is set
+    if (campaignId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'campaignId' when calling"
+              + " generateScorecardCampaignTeamReports");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " generateScorecardCampaignTeamReports");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/campaigns/{campaign_id}/entity-owner-report"
+            .replaceAll(
+                "\\{" + "campaign_id" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.generateScorecardCampaignTeamReports",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Generate team-specific campaign reports.
+   *
+   * <p>See {@link #generateScorecardCampaignTeamReportsWithHttpInfo}.
+   *
+   * @param campaignId Campaign ID. (required)
+   * @param body Team report generation request. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> generateScorecardCampaignTeamReportsWithHttpInfoAsync(
+      String campaignId, GenerateCampaignTeamReportsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "generateScorecardCampaignTeamReports";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'campaignId' is set
+    if (campaignId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'campaignId' when calling"
+                  + " generateScorecardCampaignTeamReports"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " generateScorecardCampaignTeamReports"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/campaigns/{campaign_id}/entity-owner-report"
+            .replaceAll(
+                "\\{" + "campaign_id" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.generateScorecardCampaignTeamReports",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /** Manage optional parameters to getScorecardCampaign. */
+  public static class GetScorecardCampaignOptionalParameters {
+    private String include;
+    private Boolean includeMeta;
+
+    /**
+     * Set include.
+     *
+     * @param include Include related data (for example, scores). (optional)
+     * @return GetScorecardCampaignOptionalParameters
+     */
+    public GetScorecardCampaignOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+
+    /**
+     * Set includeMeta.
+     *
+     * @param includeMeta Include metadata (entity and rule counts). (optional)
+     * @return GetScorecardCampaignOptionalParameters
+     */
+    public GetScorecardCampaignOptionalParameters includeMeta(Boolean includeMeta) {
+      this.includeMeta = includeMeta;
+      return this;
+    }
+  }
+
+  /**
+   * Get a campaign.
+   *
+   * <p>See {@link #getScorecardCampaignWithHttpInfo}.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @return CampaignResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CampaignResponse getScorecardCampaign(String campaignId) throws ApiException {
+    return getScorecardCampaignWithHttpInfo(
+            campaignId, new GetScorecardCampaignOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a campaign.
+   *
+   * <p>See {@link #getScorecardCampaignWithHttpInfoAsync}.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @return CompletableFuture&lt;CampaignResponse&gt;
+   */
+  public CompletableFuture<CampaignResponse> getScorecardCampaignAsync(String campaignId) {
+    return getScorecardCampaignWithHttpInfoAsync(
+            campaignId, new GetScorecardCampaignOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a campaign.
+   *
+   * <p>See {@link #getScorecardCampaignWithHttpInfo}.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CampaignResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CampaignResponse getScorecardCampaign(
+      String campaignId, GetScorecardCampaignOptionalParameters parameters) throws ApiException {
+    return getScorecardCampaignWithHttpInfo(campaignId, parameters).getData();
+  }
+
+  /**
+   * Get a campaign.
+   *
+   * <p>See {@link #getScorecardCampaignWithHttpInfoAsync}.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CampaignResponse&gt;
+   */
+  public CompletableFuture<CampaignResponse> getScorecardCampaignAsync(
+      String campaignId, GetScorecardCampaignOptionalParameters parameters) {
+    return getScorecardCampaignWithHttpInfoAsync(campaignId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetches a single campaign by ID or key.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CampaignResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CampaignResponse> getScorecardCampaignWithHttpInfo(
+      String campaignId, GetScorecardCampaignOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getScorecardCampaign";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'campaignId' is set
+    if (campaignId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'campaignId' when calling getScorecardCampaign");
+    }
+    String include = parameters.include;
+    Boolean includeMeta = parameters.includeMeta;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/campaigns/{campaign_id}"
+            .replaceAll(
+                "\\{" + "campaign_id" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_meta", includeMeta));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.getScorecardCampaign",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CampaignResponse>() {});
+  }
+
+  /**
+   * Get a campaign.
+   *
+   * <p>See {@link #getScorecardCampaignWithHttpInfo}.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CampaignResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CampaignResponse>> getScorecardCampaignWithHttpInfoAsync(
+      String campaignId, GetScorecardCampaignOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getScorecardCampaign";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CampaignResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'campaignId' is set
+    if (campaignId == null) {
+      CompletableFuture<ApiResponse<CampaignResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'campaignId' when calling getScorecardCampaign"));
+      return result;
+    }
+    String include = parameters.include;
+    Boolean includeMeta = parameters.includeMeta;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/campaigns/{campaign_id}"
+            .replaceAll(
+                "\\{" + "campaign_id" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_meta", includeMeta));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.getScorecardCampaign",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CampaignResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CampaignResponse>() {});
+  }
+
+  /** Manage optional parameters to listScorecardCampaigns. */
+  public static class ListScorecardCampaignsOptionalParameters {
+    private Long pageLimit;
+    private Long pageOffset;
+    private String filterCampaignName;
+    private String filterCampaignStatus;
+    private String filterCampaignOwner;
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of campaigns to return. (optional, default to 10)
+     * @return ListScorecardCampaignsOptionalParameters
+     */
+    public ListScorecardCampaignsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Offset for pagination. (optional, default to 0)
+     * @return ListScorecardCampaignsOptionalParameters
+     */
+    public ListScorecardCampaignsOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set filterCampaignName.
+     *
+     * @param filterCampaignName Filter campaigns by name (full-text search). (optional)
+     * @return ListScorecardCampaignsOptionalParameters
+     */
+    public ListScorecardCampaignsOptionalParameters filterCampaignName(String filterCampaignName) {
+      this.filterCampaignName = filterCampaignName;
+      return this;
+    }
+
+    /**
+     * Set filterCampaignStatus.
+     *
+     * @param filterCampaignStatus Filter campaigns by status. (optional)
+     * @return ListScorecardCampaignsOptionalParameters
+     */
+    public ListScorecardCampaignsOptionalParameters filterCampaignStatus(
+        String filterCampaignStatus) {
+      this.filterCampaignStatus = filterCampaignStatus;
+      return this;
+    }
+
+    /**
+     * Set filterCampaignOwner.
+     *
+     * @param filterCampaignOwner Filter campaigns by owner UUID. (optional)
+     * @return ListScorecardCampaignsOptionalParameters
+     */
+    public ListScorecardCampaignsOptionalParameters filterCampaignOwner(
+        String filterCampaignOwner) {
+      this.filterCampaignOwner = filterCampaignOwner;
+      return this;
+    }
+  }
+
+  /**
+   * List all campaigns.
+   *
+   * <p>See {@link #listScorecardCampaignsWithHttpInfo}.
+   *
+   * @return ListCampaignsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListCampaignsResponse listScorecardCampaigns() throws ApiException {
+    return listScorecardCampaignsWithHttpInfo(new ListScorecardCampaignsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List all campaigns.
+   *
+   * <p>See {@link #listScorecardCampaignsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListCampaignsResponse&gt;
+   */
+  public CompletableFuture<ListCampaignsResponse> listScorecardCampaignsAsync() {
+    return listScorecardCampaignsWithHttpInfoAsync(new ListScorecardCampaignsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all campaigns.
+   *
+   * <p>See {@link #listScorecardCampaignsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListCampaignsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListCampaignsResponse listScorecardCampaigns(
+      ListScorecardCampaignsOptionalParameters parameters) throws ApiException {
+    return listScorecardCampaignsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List all campaigns.
+   *
+   * <p>See {@link #listScorecardCampaignsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListCampaignsResponse&gt;
+   */
+  public CompletableFuture<ListCampaignsResponse> listScorecardCampaignsAsync(
+      ListScorecardCampaignsOptionalParameters parameters) {
+    return listScorecardCampaignsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetches all scorecard campaigns.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListCampaignsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListCampaignsResponse> listScorecardCampaignsWithHttpInfo(
+      ListScorecardCampaignsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listScorecardCampaigns";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    String filterCampaignName = parameters.filterCampaignName;
+    String filterCampaignStatus = parameters.filterCampaignStatus;
+    String filterCampaignOwner = parameters.filterCampaignOwner;
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/campaigns";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[campaign][name]", filterCampaignName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[campaign][status]", filterCampaignStatus));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[campaign][owner]", filterCampaignOwner));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.listScorecardCampaigns",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListCampaignsResponse>() {});
+  }
+
+  /**
+   * List all campaigns.
+   *
+   * <p>See {@link #listScorecardCampaignsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListCampaignsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListCampaignsResponse>>
+      listScorecardCampaignsWithHttpInfoAsync(ListScorecardCampaignsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listScorecardCampaigns";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListCampaignsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    String filterCampaignName = parameters.filterCampaignName;
+    String filterCampaignStatus = parameters.filterCampaignStatus;
+    String filterCampaignOwner = parameters.filterCampaignOwner;
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/campaigns";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[campaign][name]", filterCampaignName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[campaign][status]", filterCampaignStatus));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[campaign][owner]", filterCampaignOwner));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.listScorecardCampaigns",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListCampaignsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListCampaignsResponse>() {});
+  }
+
+  /**
+   * List default rules.
+   *
+   * <p>See {@link #listScorecardDefaultRulesWithHttpInfo}.
+   *
+   * @return ListDefaultRulesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListDefaultRulesResponse listScorecardDefaultRules() throws ApiException {
+    return listScorecardDefaultRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * List default rules.
+   *
+   * <p>See {@link #listScorecardDefaultRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListDefaultRulesResponse&gt;
+   */
+  public CompletableFuture<ListDefaultRulesResponse> listScorecardDefaultRulesAsync() {
+    return listScorecardDefaultRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetches all default scorecard rules available for the organization.
+   *
+   * @return ApiResponse&lt;ListDefaultRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListDefaultRulesResponse> listScorecardDefaultRulesWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listScorecardDefaultRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/default-rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.listScorecardDefaultRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListDefaultRulesResponse>() {});
+  }
+
+  /**
+   * List default rules.
+   *
+   * <p>See {@link #listScorecardDefaultRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;ListDefaultRulesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListDefaultRulesResponse>>
+      listScorecardDefaultRulesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listScorecardDefaultRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListDefaultRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/default-rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.listScorecardDefaultRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListDefaultRulesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListDefaultRulesResponse>() {});
+  }
+
+  /** Manage optional parameters to listScorecardFacets. */
+  public static class ListScorecardFacetsOptionalParameters {
+    private String filterEntityQuery;
+
+    /**
+     * Set filterEntityQuery.
+     *
+     * @param filterEntityQuery Entity query filter. (optional)
+     * @return ListScorecardFacetsOptionalParameters
+     */
+    public ListScorecardFacetsOptionalParameters filterEntityQuery(String filterEntityQuery) {
+      this.filterEntityQuery = filterEntityQuery;
+      return this;
+    }
+  }
+
+  /**
+   * List entity facets.
+   *
+   * <p>See {@link #listScorecardFacetsWithHttpInfo}.
+   *
+   * @return ListFacetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListFacetsResponse listScorecardFacets() throws ApiException {
+    return listScorecardFacetsWithHttpInfo(new ListScorecardFacetsOptionalParameters()).getData();
+  }
+
+  /**
+   * List entity facets.
+   *
+   * <p>See {@link #listScorecardFacetsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListFacetsResponse&gt;
+   */
+  public CompletableFuture<ListFacetsResponse> listScorecardFacetsAsync() {
+    return listScorecardFacetsWithHttpInfoAsync(new ListScorecardFacetsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List entity facets.
+   *
+   * <p>See {@link #listScorecardFacetsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListFacetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListFacetsResponse listScorecardFacets(ListScorecardFacetsOptionalParameters parameters)
+      throws ApiException {
+    return listScorecardFacetsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List entity facets.
+   *
+   * <p>See {@link #listScorecardFacetsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListFacetsResponse&gt;
+   */
+  public CompletableFuture<ListFacetsResponse> listScorecardFacetsAsync(
+      ListScorecardFacetsOptionalParameters parameters) {
+    return listScorecardFacetsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetches facets for scorecard entities with counts.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListFacetsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListFacetsResponse> listScorecardFacetsWithHttpInfo(
+      ListScorecardFacetsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listScorecardFacets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String filterEntityQuery = parameters.filterEntityQuery;
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/facets";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[entity][query]", filterEntityQuery));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.listScorecardFacets",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListFacetsResponse>() {});
+  }
+
+  /**
+   * List entity facets.
+   *
+   * <p>See {@link #listScorecardFacetsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListFacetsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListFacetsResponse>> listScorecardFacetsWithHttpInfoAsync(
+      ListScorecardFacetsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listScorecardFacets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListFacetsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String filterEntityQuery = parameters.filterEntityQuery;
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/facets";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[entity][query]", filterEntityQuery));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.listScorecardFacets",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListFacetsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListFacetsResponse>() {});
+  }
+
   /** Manage optional parameters to listScorecardOutcomes. */
   public static class ListScorecardOutcomesOptionalParameters {
     private Long pageSize;
@@ -578,7 +2220,7 @@ public class ServiceScorecardsApi {
     /**
      * Set filterOutcomeServiceName.
      *
-     * @param filterOutcomeServiceName Filter the outcomes on a specific service name. (optional)
+     * @param filterOutcomeServiceName Filter outcomes on a specific service name. (optional)
      * @return ListScorecardOutcomesOptionalParameters
      */
     public ListScorecardOutcomesOptionalParameters filterOutcomeServiceName(
@@ -590,7 +2232,7 @@ public class ServiceScorecardsApi {
     /**
      * Set filterOutcomeState.
      *
-     * @param filterOutcomeState Filter the outcomes by a specific state. (optional)
+     * @param filterOutcomeState Filter outcomes by a specific state. (optional)
      * @return ListScorecardOutcomesOptionalParameters
      */
     public ListScorecardOutcomesOptionalParameters filterOutcomeState(String filterOutcomeState) {
@@ -601,7 +2243,8 @@ public class ServiceScorecardsApi {
     /**
      * Set filterRuleEnabled.
      *
-     * @param filterRuleEnabled Filter outcomes on whether a rule is enabled/disabled. (optional)
+     * @param filterRuleEnabled Filter outcomes based on whether a rule is enabled or disabled.
+     *     (optional)
      * @return ListScorecardOutcomesOptionalParameters
      */
     public ListScorecardOutcomesOptionalParameters filterRuleEnabled(Boolean filterRuleEnabled) {
@@ -1296,6 +2939,914 @@ public class ServiceScorecardsApi {
         new GenericType<ListRulesResponse>() {});
   }
 
+  /** Manage optional parameters to listScorecards. */
+  public static class ListScorecardsOptionalParameters {
+    private Long pageOffset;
+    private Long pageSize;
+    private String filterScorecardId;
+    private String filterScorecardName;
+    private String filterScorecardDescription;
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Offset for pagination. (optional, default to 0)
+     * @return ListScorecardsOptionalParameters
+     */
+    public ListScorecardsOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Maximum number of scorecards to return. (optional, default to 100)
+     * @return ListScorecardsOptionalParameters
+     */
+    public ListScorecardsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set filterScorecardId.
+     *
+     * @param filterScorecardId Filter by scorecard ID. (optional)
+     * @return ListScorecardsOptionalParameters
+     */
+    public ListScorecardsOptionalParameters filterScorecardId(String filterScorecardId) {
+      this.filterScorecardId = filterScorecardId;
+      return this;
+    }
+
+    /**
+     * Set filterScorecardName.
+     *
+     * @param filterScorecardName Filter by scorecard name (partial match). (optional)
+     * @return ListScorecardsOptionalParameters
+     */
+    public ListScorecardsOptionalParameters filterScorecardName(String filterScorecardName) {
+      this.filterScorecardName = filterScorecardName;
+      return this;
+    }
+
+    /**
+     * Set filterScorecardDescription.
+     *
+     * @param filterScorecardDescription Filter by scorecard description (partial match). (optional)
+     * @return ListScorecardsOptionalParameters
+     */
+    public ListScorecardsOptionalParameters filterScorecardDescription(
+        String filterScorecardDescription) {
+      this.filterScorecardDescription = filterScorecardDescription;
+      return this;
+    }
+  }
+
+  /**
+   * List all scorecards.
+   *
+   * <p>See {@link #listScorecardsWithHttpInfo}.
+   *
+   * @return ListScorecardsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListScorecardsResponse listScorecards() throws ApiException {
+    return listScorecardsWithHttpInfo(new ListScorecardsOptionalParameters()).getData();
+  }
+
+  /**
+   * List all scorecards.
+   *
+   * <p>See {@link #listScorecardsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListScorecardsResponse&gt;
+   */
+  public CompletableFuture<ListScorecardsResponse> listScorecardsAsync() {
+    return listScorecardsWithHttpInfoAsync(new ListScorecardsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all scorecards.
+   *
+   * <p>See {@link #listScorecardsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListScorecardsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListScorecardsResponse listScorecards(ListScorecardsOptionalParameters parameters)
+      throws ApiException {
+    return listScorecardsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List all scorecards.
+   *
+   * <p>See {@link #listScorecardsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListScorecardsResponse&gt;
+   */
+  public CompletableFuture<ListScorecardsResponse> listScorecardsAsync(
+      ListScorecardsOptionalParameters parameters) {
+    return listScorecardsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetches all scorecards.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListScorecardsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListScorecardsResponse> listScorecardsWithHttpInfo(
+      ListScorecardsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listScorecards";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageOffset = parameters.pageOffset;
+    Long pageSize = parameters.pageSize;
+    String filterScorecardId = parameters.filterScorecardId;
+    String filterScorecardName = parameters.filterScorecardName;
+    String filterScorecardDescription = parameters.filterScorecardDescription;
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/scorecards";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[scorecard][id]", filterScorecardId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[scorecard][name]", filterScorecardName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[scorecard][description]", filterScorecardDescription));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.listScorecards",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListScorecardsResponse>() {});
+  }
+
+  /**
+   * List all scorecards.
+   *
+   * <p>See {@link #listScorecardsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListScorecardsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListScorecardsResponse>> listScorecardsWithHttpInfoAsync(
+      ListScorecardsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listScorecards";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListScorecardsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageOffset = parameters.pageOffset;
+    Long pageSize = parameters.pageSize;
+    String filterScorecardId = parameters.filterScorecardId;
+    String filterScorecardName = parameters.filterScorecardName;
+    String filterScorecardDescription = parameters.filterScorecardDescription;
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/scorecards";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[scorecard][id]", filterScorecardId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[scorecard][name]", filterScorecardName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[scorecard][description]", filterScorecardDescription));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.listScorecards",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListScorecardsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListScorecardsResponse>() {});
+  }
+
+  /** Manage optional parameters to listScorecardScores. */
+  public static class ListScorecardScoresOptionalParameters {
+    private Long pageLimit;
+    private Long pageOffset;
+    private String filterEntityQuery;
+    private String filterRuleId;
+    private Boolean filterRuleEnabled;
+    private Boolean filterRuleCustom;
+    private String sort;
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of scores to return. (optional, default to 100)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Offset for pagination. (optional, default to 0)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set filterEntityQuery.
+     *
+     * @param filterEntityQuery Entity query filter. (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters filterEntityQuery(String filterEntityQuery) {
+      this.filterEntityQuery = filterEntityQuery;
+      return this;
+    }
+
+    /**
+     * Set filterRuleId.
+     *
+     * @param filterRuleId Filter by rule IDs (comma-separated). (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters filterRuleId(String filterRuleId) {
+      this.filterRuleId = filterRuleId;
+      return this;
+    }
+
+    /**
+     * Set filterRuleEnabled.
+     *
+     * @param filterRuleEnabled Filter by rule enabled status. (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters filterRuleEnabled(Boolean filterRuleEnabled) {
+      this.filterRuleEnabled = filterRuleEnabled;
+      return this;
+    }
+
+    /**
+     * Set filterRuleCustom.
+     *
+     * @param filterRuleCustom Filter by custom rules. (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters filterRuleCustom(Boolean filterRuleCustom) {
+      this.filterRuleCustom = filterRuleCustom;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Sort order (comma-separated list of fields; prefix a field with - for descending
+     *     order). (optional)
+     * @return ListScorecardScoresOptionalParameters
+     */
+    public ListScorecardScoresOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+  }
+
+  /**
+   * List scores by aggregation.
+   *
+   * <p>See {@link #listScorecardScoresWithHttpInfo}.
+   *
+   * @param aggregation Aggregation type (by-entity, by-rule, by-scorecard, by-service, by-team).
+   *     (required)
+   * @return ListScoresResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListScoresResponse listScorecardScores(String aggregation) throws ApiException {
+    return listScorecardScoresWithHttpInfo(aggregation, new ListScorecardScoresOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List scores by aggregation.
+   *
+   * <p>See {@link #listScorecardScoresWithHttpInfoAsync}.
+   *
+   * @param aggregation Aggregation type (by-entity, by-rule, by-scorecard, by-service, by-team).
+   *     (required)
+   * @return CompletableFuture&lt;ListScoresResponse&gt;
+   */
+  public CompletableFuture<ListScoresResponse> listScorecardScoresAsync(String aggregation) {
+    return listScorecardScoresWithHttpInfoAsync(
+            aggregation, new ListScorecardScoresOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List scores by aggregation.
+   *
+   * <p>See {@link #listScorecardScoresWithHttpInfo}.
+   *
+   * @param aggregation Aggregation type (by-entity, by-rule, by-scorecard, by-service, by-team).
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return ListScoresResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListScoresResponse listScorecardScores(
+      String aggregation, ListScorecardScoresOptionalParameters parameters) throws ApiException {
+    return listScorecardScoresWithHttpInfo(aggregation, parameters).getData();
+  }
+
+  /**
+   * List scores by aggregation.
+   *
+   * <p>See {@link #listScorecardScoresWithHttpInfoAsync}.
+   *
+   * @param aggregation Aggregation type (by-entity, by-rule, by-scorecard, by-service, by-team).
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListScoresResponse&gt;
+   */
+  public CompletableFuture<ListScoresResponse> listScorecardScoresAsync(
+      String aggregation, ListScorecardScoresOptionalParameters parameters) {
+    return listScorecardScoresWithHttpInfoAsync(aggregation, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetches scorecard scores aggregated by entity, rule, scorecard, service, or team.
+   *
+   * @param aggregation Aggregation type (by-entity, by-rule, by-scorecard, by-service, by-team).
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListScoresResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListScoresResponse> listScorecardScoresWithHttpInfo(
+      String aggregation, ListScorecardScoresOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listScorecardScores";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'aggregation' is set
+    if (aggregation == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'aggregation' when calling listScorecardScores");
+    }
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    String filterEntityQuery = parameters.filterEntityQuery;
+    String filterRuleId = parameters.filterRuleId;
+    Boolean filterRuleEnabled = parameters.filterRuleEnabled;
+    Boolean filterRuleCustom = parameters.filterRuleCustom;
+    String sort = parameters.sort;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/scores/{aggregation}"
+            .replaceAll(
+                "\\{" + "aggregation" + "\\}", apiClient.escapeString(aggregation.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[entity][query]", filterEntityQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[rule][id]", filterRuleId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][enabled]", filterRuleEnabled));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][custom]", filterRuleCustom));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.listScorecardScores",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListScoresResponse>() {});
+  }
+
+  /**
+   * List scores by aggregation.
+   *
+   * <p>See {@link #listScorecardScoresWithHttpInfo}.
+   *
+   * @param aggregation Aggregation type (by-entity, by-rule, by-scorecard, by-service, by-team).
+   *     (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListScoresResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListScoresResponse>> listScorecardScoresWithHttpInfoAsync(
+      String aggregation, ListScorecardScoresOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listScorecardScores";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListScoresResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'aggregation' is set
+    if (aggregation == null) {
+      CompletableFuture<ApiResponse<ListScoresResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'aggregation' when calling listScorecardScores"));
+      return result;
+    }
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    String filterEntityQuery = parameters.filterEntityQuery;
+    String filterRuleId = parameters.filterRuleId;
+    Boolean filterRuleEnabled = parameters.filterRuleEnabled;
+    Boolean filterRuleCustom = parameters.filterRuleCustom;
+    String sort = parameters.sort;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/scores/{aggregation}"
+            .replaceAll(
+                "\\{" + "aggregation" + "\\}", apiClient.escapeString(aggregation.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[entity][query]", filterEntityQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[rule][id]", filterRuleId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][enabled]", filterRuleEnabled));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[rule][custom]", filterRuleCustom));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.listScorecardScores",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListScoresResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListScoresResponse>() {});
+  }
+
+  /**
+   * Set up rules for organization.
+   *
+   * <p>See {@link #setupScorecardRulesWithHttpInfo}.
+   *
+   * @param body Setup rules request. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setupScorecardRules(SetupRulesRequest body) throws ApiException {
+    setupScorecardRulesWithHttpInfo(body);
+  }
+
+  /**
+   * Set up rules for organization.
+   *
+   * <p>See {@link #setupScorecardRulesWithHttpInfoAsync}.
+   *
+   * @param body Setup rules request. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> setupScorecardRulesAsync(SetupRulesRequest body) {
+    return setupScorecardRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Sets up default scorecard rules for the organization.
+   *
+   * @param body Setup rules request. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> setupScorecardRulesWithHttpInfo(SetupRulesRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "setupScorecardRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling setupScorecardRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/setup";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.setupScorecardRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Set up rules for organization.
+   *
+   * <p>See {@link #setupScorecardRulesWithHttpInfo}.
+   *
+   * @param body Setup rules request. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> setupScorecardRulesWithHttpInfoAsync(
+      SetupRulesRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "setupScorecardRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling setupScorecardRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/scorecard/setup";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.setupScorecardRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update a campaign.
+   *
+   * <p>See {@link #updateScorecardCampaignWithHttpInfo}.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @param body Campaign data. (required)
+   * @return CampaignResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CampaignResponse updateScorecardCampaign(String campaignId, UpdateCampaignRequest body)
+      throws ApiException {
+    return updateScorecardCampaignWithHttpInfo(campaignId, body).getData();
+  }
+
+  /**
+   * Update a campaign.
+   *
+   * <p>See {@link #updateScorecardCampaignWithHttpInfoAsync}.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @param body Campaign data. (required)
+   * @return CompletableFuture&lt;CampaignResponse&gt;
+   */
+  public CompletableFuture<CampaignResponse> updateScorecardCampaignAsync(
+      String campaignId, UpdateCampaignRequest body) {
+    return updateScorecardCampaignWithHttpInfoAsync(campaignId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates an existing campaign.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @param body Campaign data. (required)
+   * @return ApiResponse&lt;CampaignResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CampaignResponse> updateScorecardCampaignWithHttpInfo(
+      String campaignId, UpdateCampaignRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateScorecardCampaign";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'campaignId' is set
+    if (campaignId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'campaignId' when calling updateScorecardCampaign");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateScorecardCampaign");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/campaigns/{campaign_id}"
+            .replaceAll(
+                "\\{" + "campaign_id" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.updateScorecardCampaign",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CampaignResponse>() {});
+  }
+
+  /**
+   * Update a campaign.
+   *
+   * <p>See {@link #updateScorecardCampaignWithHttpInfo}.
+   *
+   * @param campaignId Campaign ID or key. (required)
+   * @param body Campaign data. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CampaignResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CampaignResponse>> updateScorecardCampaignWithHttpInfoAsync(
+      String campaignId, UpdateCampaignRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateScorecardCampaign";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CampaignResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'campaignId' is set
+    if (campaignId == null) {
+      CompletableFuture<ApiResponse<CampaignResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'campaignId' when calling updateScorecardCampaign"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CampaignResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateScorecardCampaign"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/campaigns/{campaign_id}"
+            .replaceAll(
+                "\\{" + "campaign_id" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.updateScorecardCampaign",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CampaignResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CampaignResponse>() {});
+  }
+
   /**
    * Update Scorecard outcomes asynchronously.
    *
@@ -1617,5 +4168,185 @@ public class ServiceScorecardsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UpdateRuleResponse>() {});
+  }
+
+  /**
+   * Associate workflow with rule.
+   *
+   * <p>See {@link #updateScorecardRuleWorkflowWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param workflowId Workflow ID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateScorecardRuleWorkflow(String ruleId, String workflowId) throws ApiException {
+    updateScorecardRuleWorkflowWithHttpInfo(ruleId, workflowId);
+  }
+
+  /**
+   * Associate workflow with rule.
+   *
+   * <p>See {@link #updateScorecardRuleWorkflowWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param workflowId Workflow ID. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateScorecardRuleWorkflowAsync(
+      String ruleId, String workflowId) {
+    return updateScorecardRuleWorkflowWithHttpInfoAsync(ruleId, workflowId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Associates a workflow with a scorecard rule.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param workflowId Workflow ID. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateScorecardRuleWorkflowWithHttpInfo(String ruleId, String workflowId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateScorecardRuleWorkflow";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling updateScorecardRuleWorkflow");
+    }
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'workflowId' when calling updateScorecardRuleWorkflow");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/rules/{rule_id}/workflow/{workflow_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.updateScorecardRuleWorkflow",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Associate workflow with rule.
+   *
+   * <p>See {@link #updateScorecardRuleWorkflowWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param workflowId Workflow ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateScorecardRuleWorkflowWithHttpInfoAsync(
+      String ruleId, String workflowId) {
+    // Check if unstable operation is enabled
+    String operationId = "updateScorecardRuleWorkflow";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling updateScorecardRuleWorkflow"));
+      return result;
+    }
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'workflowId' when calling"
+                  + " updateScorecardRuleWorkflow"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/rules/{rule_id}/workflow/{workflow_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()))
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.updateScorecardRuleWorkflow",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 }
