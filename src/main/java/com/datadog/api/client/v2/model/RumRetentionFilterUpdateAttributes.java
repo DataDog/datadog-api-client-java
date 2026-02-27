@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** The object describing attributes of a RUM retention filter to update. */
 @JsonPropertyOrder({
+  RumRetentionFilterUpdateAttributes.JSON_PROPERTY_CROSS_PRODUCT_SAMPLING,
   RumRetentionFilterUpdateAttributes.JSON_PROPERTY_ENABLED,
   RumRetentionFilterUpdateAttributes.JSON_PROPERTY_EVENT_TYPE,
   RumRetentionFilterUpdateAttributes.JSON_PROPERTY_NAME,
@@ -28,6 +29,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RumRetentionFilterUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CROSS_PRODUCT_SAMPLING = "cross_product_sampling";
+  private RumCrossProductSamplingUpdate crossProductSampling;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -42,6 +46,30 @@ public class RumRetentionFilterUpdateAttributes {
 
   public static final String JSON_PROPERTY_SAMPLE_RATE = "sample_rate";
   private Double sampleRate;
+
+  public RumRetentionFilterUpdateAttributes crossProductSampling(
+      RumCrossProductSamplingUpdate crossProductSampling) {
+    this.crossProductSampling = crossProductSampling;
+    this.unparsed |= crossProductSampling.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for cross-product sampling when updating a retention filter. All fields are
+   * optional for partial updates.
+   *
+   * @return crossProductSampling
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_PRODUCT_SAMPLING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RumCrossProductSamplingUpdate getCrossProductSampling() {
+    return crossProductSampling;
+  }
+
+  public void setCrossProductSampling(RumCrossProductSamplingUpdate crossProductSampling) {
+    this.crossProductSampling = crossProductSampling;
+  }
 
   public RumRetentionFilterUpdateAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -209,7 +237,9 @@ public class RumRetentionFilterUpdateAttributes {
     }
     RumRetentionFilterUpdateAttributes rumRetentionFilterUpdateAttributes =
         (RumRetentionFilterUpdateAttributes) o;
-    return Objects.equals(this.enabled, rumRetentionFilterUpdateAttributes.enabled)
+    return Objects.equals(
+            this.crossProductSampling, rumRetentionFilterUpdateAttributes.crossProductSampling)
+        && Objects.equals(this.enabled, rumRetentionFilterUpdateAttributes.enabled)
         && Objects.equals(this.eventType, rumRetentionFilterUpdateAttributes.eventType)
         && Objects.equals(this.name, rumRetentionFilterUpdateAttributes.name)
         && Objects.equals(this.query, rumRetentionFilterUpdateAttributes.query)
@@ -220,13 +250,17 @@ public class RumRetentionFilterUpdateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, eventType, name, query, sampleRate, additionalProperties);
+    return Objects.hash(
+        crossProductSampling, enabled, eventType, name, query, sampleRate, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RumRetentionFilterUpdateAttributes {\n");
+    sb.append("    crossProductSampling: ")
+        .append(toIndentedString(crossProductSampling))
+        .append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
