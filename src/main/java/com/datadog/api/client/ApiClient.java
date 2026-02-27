@@ -901,6 +901,8 @@ public class ApiClient {
           put("v2.listServiceNowTemplates", false);
           put("v2.listServiceNowUsers", false);
           put("v2.updateServiceNowTemplate", false);
+          put("v2.updateLoginOrgConfigMaxSessionDuration", false);
+          put("v2.updateOrgSamlConfigurations", false);
           put("v2.addRoleToRestrictionQuery", false);
           put("v2.createRestrictionQuery", false);
           put("v2.deleteRestrictionQuery", false);
