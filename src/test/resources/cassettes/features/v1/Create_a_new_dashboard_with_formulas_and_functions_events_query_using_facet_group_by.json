@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_formulas_and_functions_events_query_using_facet_group_by-1771612256 with events facet group_by\",\"widgets\":[{\"definition\":{\"requests\":[{\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"events\",\"group_by\":[{\"facet\":\"service\",\"limit\":10}],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"timeseries\"}],\"type\":\"timeseries\"},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"cuw-94b-6q6\",\"title\":\"Test-Create_a_new_dashboard_with_formulas_and_functions_events_query_using_facet_group_by-1771612256 with events facet group_by\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":\"frog\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/cuw-94b-6q6/test-createanewdashboardwithformulasandfunctionseventsqueryusingfacetgroupby-177\",\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"events\",\"group_by\":[{\"facet\":\"service\",\"limit\":10}],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"timeseries\"}],\"type\":\"timeseries\"},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0},\"id\":5025516440057016}],\"notify_list\":null,\"created_at\":\"2026-02-20T18:30:56.681735+00:00\",\"modified_at\":\"2026-02-20T18:30:56.681735+00:00\",\"restricted_roles\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5a375271-e48f-133c-8569-fa5df58f555f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/cuw-94b-6q6",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"cuw-94b-6q6\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6435acec-e970-4432-9074-9e3c27dbfbef"
+  }
+]

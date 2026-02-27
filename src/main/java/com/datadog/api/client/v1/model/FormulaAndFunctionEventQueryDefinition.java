@@ -44,7 +44,7 @@ public class FormulaAndFunctionEventQueryDefinition {
   private FormulaAndFunctionEventsDataSource dataSource;
 
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
-  private List<FormulaAndFunctionEventQueryGroupBy> groupBy = null;
+  private FormulaAndFunctionEventQueryGroupByConfig groupBy;
 
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
@@ -151,37 +151,26 @@ public class FormulaAndFunctionEventQueryDefinition {
   }
 
   public FormulaAndFunctionEventQueryDefinition groupBy(
-      List<FormulaAndFunctionEventQueryGroupBy> groupBy) {
+      FormulaAndFunctionEventQueryGroupByConfig groupBy) {
     this.groupBy = groupBy;
-    for (FormulaAndFunctionEventQueryGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public FormulaAndFunctionEventQueryDefinition addGroupByItem(
-      FormulaAndFunctionEventQueryGroupBy groupByItem) {
-    if (this.groupBy == null) {
-      this.groupBy = new ArrayList<>();
-    }
-    this.groupBy.add(groupByItem);
-    this.unparsed |= groupByItem.unparsed;
+    this.unparsed |= groupBy.unparsed;
     return this;
   }
 
   /**
-   * Group by options.
+   * Group by configuration for a formula and functions events query. Can be a list of facet objects
+   * or a flat object with a list of fields.
    *
    * @return groupBy
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<FormulaAndFunctionEventQueryGroupBy> getGroupBy() {
+  public FormulaAndFunctionEventQueryGroupByConfig getGroupBy() {
     return groupBy;
   }
 
-  public void setGroupBy(List<FormulaAndFunctionEventQueryGroupBy> groupBy) {
+  public void setGroupBy(FormulaAndFunctionEventQueryGroupByConfig groupBy) {
     this.groupBy = groupBy;
   }
 
