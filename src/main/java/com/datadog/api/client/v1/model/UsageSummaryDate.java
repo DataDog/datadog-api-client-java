@@ -83,6 +83,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_CWS_FARGATE_TASK_AVG,
   UsageSummaryDate.JSON_PROPERTY_CWS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM,
+  UsageSummaryDate.JSON_PROPERTY_DATA_OBSERVABILITY_QUALITY_MONITORING_AVG,
   UsageSummaryDate.JSON_PROPERTY_DATE,
   UsageSummaryDate.JSON_PROPERTY_DBM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_DBM_QUERIES_COUNT_AVG,
@@ -461,6 +462,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM =
       "data_jobs_monitoring_host_hr_sum";
   private Long dataJobsMonitoringHostHrSum;
+
+  public static final String JSON_PROPERTY_DATA_OBSERVABILITY_QUALITY_MONITORING_AVG =
+      "data_observability_quality_monitoring_avg";
+  private Long dataObservabilityQualityMonitoringAvg;
 
   public static final String JSON_PROPERTY_DATE = "date";
   private OffsetDateTime date;
@@ -2412,6 +2417,29 @@ public class UsageSummaryDate {
 
   public void setDataJobsMonitoringHostHrSum(Long dataJobsMonitoringHostHrSum) {
     this.dataJobsMonitoringHostHrSum = dataJobsMonitoringHostHrSum;
+  }
+
+  public UsageSummaryDate dataObservabilityQualityMonitoringAvg(
+      Long dataObservabilityQualityMonitoringAvg) {
+    this.dataObservabilityQualityMonitoringAvg = dataObservabilityQualityMonitoringAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all Data Observability Quality Monitoring usage over all hours in the
+   * current date for the given org.
+   *
+   * @return dataObservabilityQualityMonitoringAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_OBSERVABILITY_QUALITY_MONITORING_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDataObservabilityQualityMonitoringAvg() {
+    return dataObservabilityQualityMonitoringAvg;
+  }
+
+  public void setDataObservabilityQualityMonitoringAvg(Long dataObservabilityQualityMonitoringAvg) {
+    this.dataObservabilityQualityMonitoringAvg = dataObservabilityQualityMonitoringAvg;
   }
 
   public UsageSummaryDate date(OffsetDateTime date) {
@@ -6029,6 +6057,9 @@ public class UsageSummaryDate {
         && Objects.equals(this.cwsHostTop99p, usageSummaryDate.cwsHostTop99p)
         && Objects.equals(
             this.dataJobsMonitoringHostHrSum, usageSummaryDate.dataJobsMonitoringHostHrSum)
+        && Objects.equals(
+            this.dataObservabilityQualityMonitoringAvg,
+            usageSummaryDate.dataObservabilityQualityMonitoringAvg)
         && Objects.equals(this.date, usageSummaryDate.date)
         && Objects.equals(this.dbmHostTop99p, usageSummaryDate.dbmHostTop99p)
         && Objects.equals(this.dbmQueriesCountAvg, usageSummaryDate.dbmQueriesCountAvg)
@@ -6378,6 +6409,7 @@ public class UsageSummaryDate {
         cwsFargateTaskAvg,
         cwsHostTop99p,
         dataJobsMonitoringHostHrSum,
+        dataObservabilityQualityMonitoringAvg,
         date,
         dbmHostTop99p,
         dbmQueriesCountAvg,
@@ -6682,6 +6714,9 @@ public class UsageSummaryDate {
     sb.append("    cwsHostTop99p: ").append(toIndentedString(cwsHostTop99p)).append("\n");
     sb.append("    dataJobsMonitoringHostHrSum: ")
         .append(toIndentedString(dataJobsMonitoringHostHrSum))
+        .append("\n");
+    sb.append("    dataObservabilityQualityMonitoringAvg: ")
+        .append(toIndentedString(dataObservabilityQualityMonitoringAvg))
         .append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    dbmHostTop99p: ").append(toIndentedString(dbmHostTop99p)).append("\n");
