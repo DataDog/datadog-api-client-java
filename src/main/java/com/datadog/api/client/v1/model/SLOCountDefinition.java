@@ -21,9 +21,10 @@ import java.util.Objects;
 
 /**
  * A count-based (metric) SLI specification, composed of three parts: the good events formula, the
- * total events formula, and the underlying queries.
+ * bad or total events formula, and the underlying queries.
  */
 @JsonPropertyOrder({
+  SLOCountDefinition.JSON_PROPERTY_BAD_EVENTS_FORMULA,
   SLOCountDefinition.JSON_PROPERTY_GOOD_EVENTS_FORMULA,
   SLOCountDefinition.JSON_PROPERTY_QUERIES,
   SLOCountDefinition.JSON_PROPERTY_TOTAL_EVENTS_FORMULA
@@ -32,6 +33,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCountDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BAD_EVENTS_FORMULA = "bad_events_formula";
+  private SLOFormula badEventsFormula;
+
   public static final String JSON_PROPERTY_GOOD_EVENTS_FORMULA = "good_events_formula";
   private SLOFormula goodEventsFormula;
 
@@ -48,14 +52,32 @@ public class SLOCountDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_GOOD_EVENTS_FORMULA)
           SLOFormula goodEventsFormula,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
-          List<SLODataSourceQueryDefinition> queries,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL_EVENTS_FORMULA)
-          SLOFormula totalEventsFormula) {
+          List<SLODataSourceQueryDefinition> queries) {
     this.goodEventsFormula = goodEventsFormula;
     this.unparsed |= goodEventsFormula.unparsed;
     this.queries = queries;
-    this.totalEventsFormula = totalEventsFormula;
-    this.unparsed |= totalEventsFormula.unparsed;
+  }
+
+  public SLOCountDefinition badEventsFormula(SLOFormula badEventsFormula) {
+    this.badEventsFormula = badEventsFormula;
+    this.unparsed |= badEventsFormula.unparsed;
+    return this;
+  }
+
+  /**
+   * A formula that specifies how to combine the results of multiple queries.
+   *
+   * @return badEventsFormula
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BAD_EVENTS_FORMULA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOFormula getBadEventsFormula() {
+    return badEventsFormula;
+  }
+
+  public void setBadEventsFormula(SLOFormula badEventsFormula) {
+    this.badEventsFormula = badEventsFormula;
   }
 
   public SLOCountDefinition goodEventsFormula(SLOFormula goodEventsFormula) {
@@ -119,8 +141,9 @@ public class SLOCountDefinition {
    *
    * @return totalEventsFormula
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_EVENTS_FORMULA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOFormula getTotalEventsFormula() {
     return totalEventsFormula;
   }
@@ -185,7 +208,8 @@ public class SLOCountDefinition {
       return false;
     }
     SLOCountDefinition sloCountDefinition = (SLOCountDefinition) o;
-    return Objects.equals(this.goodEventsFormula, sloCountDefinition.goodEventsFormula)
+    return Objects.equals(this.badEventsFormula, sloCountDefinition.badEventsFormula)
+        && Objects.equals(this.goodEventsFormula, sloCountDefinition.goodEventsFormula)
         && Objects.equals(this.queries, sloCountDefinition.queries)
         && Objects.equals(this.totalEventsFormula, sloCountDefinition.totalEventsFormula)
         && Objects.equals(this.additionalProperties, sloCountDefinition.additionalProperties);
@@ -193,13 +217,15 @@ public class SLOCountDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(goodEventsFormula, queries, totalEventsFormula, additionalProperties);
+    return Objects.hash(
+        badEventsFormula, goodEventsFormula, queries, totalEventsFormula, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SLOCountDefinition {\n");
+    sb.append("    badEventsFormula: ").append(toIndentedString(badEventsFormula)).append("\n");
     sb.append("    goodEventsFormula: ").append(toIndentedString(goodEventsFormula)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    totalEventsFormula: ").append(toIndentedString(totalEventsFormula)).append("\n");
