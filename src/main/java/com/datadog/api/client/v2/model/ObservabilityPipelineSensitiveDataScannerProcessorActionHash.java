@@ -74,8 +74,10 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorActionHash {
   }
 
   /**
-   * The <code>ObservabilityPipelineSensitiveDataScannerProcessorActionHash</code> <code>options
-   * </code>.
+   * Optional settings for the hash action. When omitted or empty, matched sensitive data is
+   * replaced with a deterministic hashed value that preserves structure for analytics while
+   * protecting the original content. Reserved for future hash configuration (for example, algorithm
+   * or salt).
    *
    * @return options
    */
