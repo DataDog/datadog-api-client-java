@@ -795,6 +795,7 @@ public class ApiClient {
           put("v2.activateContentPack", false);
           put("v2.cancelThreatHuntingJob", false);
           put("v2.convertJobResultToSignal", false);
+          put("v2.createSecurityFinding", false);
           put("v2.deactivateContentPack", false);
           put("v2.deleteThreatHuntingJob", false);
           put("v2.getContentPacksStates", false);
@@ -804,6 +805,8 @@ public class ApiClient {
           put("v2.getSecurityMonitoringHistsignal", false);
           put("v2.getSecurityMonitoringHistsignalsByJobId", false);
           put("v2.getThreatHuntingJob", false);
+          put("v2.importSecurityVulnerabilities", false);
+          put("v2.importThreatIntel", false);
           put("v2.listFindings", false);
           put("v2.listMultipleRulesets", false);
           put("v2.listScannedAssetsMetadata", false);
