@@ -389,10 +389,12 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Query definition.
+   * Query definition. Deprecated - Use <code>queries</code> and <code>formulas</code> instead.
    *
    * @return q
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -400,6 +402,7 @@ public class ChangeWidgetRequest {
     return q;
   }
 
+  @Deprecated
   public void setQ(String q) {
     this.q = q;
   }

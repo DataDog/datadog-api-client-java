@@ -23,7 +23,10 @@ import java.util.Objects;
  * <p>See the dedicated <a
  * href="https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema">Events JSON
  * schema documentation</a> to learn how to build the <code>&lt;EVENTS_SCHEMA&gt;</code>.
+ *
+ * @deprecated
  */
+@Deprecated
 @JsonPropertyOrder({WidgetEvent.JSON_PROPERTY_Q, WidgetEvent.JSON_PROPERTY_TAGS_EXECUTION})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
