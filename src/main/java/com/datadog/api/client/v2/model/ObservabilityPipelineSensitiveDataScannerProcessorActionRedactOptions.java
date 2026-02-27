@@ -43,8 +43,7 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptio
   }
 
   /**
-   * The <code>ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions</code> <code>
-   * replace</code>.
+   * The string used to replace matched sensitive data (for example, "***" or "[REDACTED]").
    *
    * @return replace
    */
