@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Request type for the histogram request. */
+/**
+ * Request type for distribution of point values for distribution metrics. Query space aggregator
+ * must be <code>histogram:&lt;metric name&gt;</code> for points distributions.
+ */
 @JsonSerialize(using = WidgetHistogramRequestType.WidgetHistogramRequestTypeSerializer.class)
 public class WidgetHistogramRequestType extends ModelEnum<String> {
 
