@@ -919,6 +919,9 @@ public class ApiClient {
           put("v2.updateMonitorUserTemplate", false);
           put("v2.validateExistingMonitorUserTemplate", false);
           put("v2.validateMonitorUserTemplate", false);
+          put("v2.createOnPremManagementServiceEnrollment", false);
+          put("v2.getOnPremManagementServiceEnrollment", false);
+          put("v2.registerOnPremManagementServiceToken", false);
           put("v2.listRoleTemplates", false);
           put("v2.createConnection", false);
           put("v2.deleteConnection", false);
