@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Flat group by using multiple event facets. */
+/** Flat group by configuration using multiple event facet fields. */
 @JsonPropertyOrder({
   FormulaAndFunctionEventQueryGroupByFields.JSON_PROPERTY_FIELDS,
   FormulaAndFunctionEventQueryGroupByFields.JSON_PROPERTY_LIMIT,
