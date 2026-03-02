@@ -10,6 +10,7 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionCompute;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionSearch;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryGroupBy;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryGroupByConfig;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryGroupBySort;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventsDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
@@ -80,19 +81,20 @@ public class Example {
                                                                             FormulaAndFunctionEventAggregation
                                                                                 .COUNT))
                                                                 .groupBy(
-                                                                    Collections.singletonList(
-                                                                        new FormulaAndFunctionEventQueryGroupBy()
-                                                                            .facet(
-                                                                                "@geo.country_iso_code")
-                                                                            .limit(250L)
-                                                                            .sort(
-                                                                                new FormulaAndFunctionEventQueryGroupBySort()
-                                                                                    .order(
-                                                                                        QuerySortOrder
-                                                                                            .DESC)
-                                                                                    .aggregation(
-                                                                                        FormulaAndFunctionEventAggregation
-                                                                                            .COUNT)))))))
+                                                                    new FormulaAndFunctionEventQueryGroupByConfig(
+                                                                        Collections.singletonList(
+                                                                            new FormulaAndFunctionEventQueryGroupBy()
+                                                                                .facet(
+                                                                                    "@geo.country_iso_code")
+                                                                                .limit(250L)
+                                                                                .sort(
+                                                                                    new FormulaAndFunctionEventQueryGroupBySort()
+                                                                                        .order(
+                                                                                            QuerySortOrder
+                                                                                                .DESC)
+                                                                                        .aggregation(
+                                                                                            FormulaAndFunctionEventAggregation
+                                                                                                .COUNT))))))))
                                                 .sort(
                                                     new WidgetSortBy()
                                                         .count(250L)
