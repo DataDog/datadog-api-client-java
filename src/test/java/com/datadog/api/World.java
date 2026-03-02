@@ -681,7 +681,17 @@ public class World {
         }
         if (part.contains("]")) {
           int index = Integer.parseInt(part.replaceAll("]", ""));
-          result = List.class.cast(result).get(index);
+          // Unwrap oneOf wrapper before indexing into array
+          try {
+            result = List.class.cast(result).get(index);
+          } catch (ClassCastException e) {
+            try {
+              Object unwrapped = result.getClass().getMethod("getActualInstance").invoke(result);
+              result = List.class.cast(unwrapped).get(index);
+            } catch (Exception ex) {
+              throw e;
+            }
+          }
         } else {
           try {
             result = HashMap.class.cast(result).get(part);
