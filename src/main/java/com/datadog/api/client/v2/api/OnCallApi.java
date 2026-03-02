@@ -1790,6 +1790,7 @@ public class OnCallApi {
   /** Manage optional parameters to getOnCallTeamRoutingRules. */
   public static class GetOnCallTeamRoutingRulesOptionalParameters {
     private String include;
+    private Boolean usePolicyAction;
 
     /**
      * Set include.
@@ -1800,6 +1801,19 @@ public class OnCallApi {
      */
     public GetOnCallTeamRoutingRulesOptionalParameters include(String include) {
       this.include = include;
+      return this;
+    }
+
+    /**
+     * Set usePolicyAction.
+     *
+     * @param usePolicyAction When set to <code>true</code>, escalation policies are returned as
+     *     actions within routing rules rather than as a separate <code>policy_id</code> field.
+     *     (optional)
+     * @return GetOnCallTeamRoutingRulesOptionalParameters
+     */
+    public GetOnCallTeamRoutingRulesOptionalParameters usePolicyAction(Boolean usePolicyAction) {
+      this.usePolicyAction = usePolicyAction;
       return this;
     }
   }
@@ -1894,6 +1908,7 @@ public class OnCallApi {
           400, "Missing the required parameter 'teamId' when calling getOnCallTeamRoutingRules");
     }
     String include = parameters.include;
+    Boolean usePolicyAction = parameters.usePolicyAction;
     // create path and map variables
     String localVarPath =
         "/api/v2/on-call/teams/{team_id}/routing-rules"
@@ -1903,6 +1918,8 @@ public class OnCallApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "use_policy_action", usePolicyAction));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1948,6 +1965,7 @@ public class OnCallApi {
       return result;
     }
     String include = parameters.include;
+    Boolean usePolicyAction = parameters.usePolicyAction;
     // create path and map variables
     String localVarPath =
         "/api/v2/on-call/teams/{team_id}/routing-rules"
@@ -1957,6 +1975,8 @@ public class OnCallApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "use_policy_action", usePolicyAction));
 
     Invocation.Builder builder;
     try {
@@ -3154,6 +3174,7 @@ public class OnCallApi {
   /** Manage optional parameters to setOnCallTeamRoutingRules. */
   public static class SetOnCallTeamRoutingRulesOptionalParameters {
     private String include;
+    private Boolean usePolicyAction;
 
     /**
      * Set include.
@@ -3164,6 +3185,19 @@ public class OnCallApi {
      */
     public SetOnCallTeamRoutingRulesOptionalParameters include(String include) {
       this.include = include;
+      return this;
+    }
+
+    /**
+     * Set usePolicyAction.
+     *
+     * @param usePolicyAction When set to <code>true</code>, escalation policies are returned as
+     *     actions within routing rules rather than as a separate <code>policy_id</code> field.
+     *     (optional)
+     * @return SetOnCallTeamRoutingRulesOptionalParameters
+     */
+    public SetOnCallTeamRoutingRulesOptionalParameters usePolicyAction(Boolean usePolicyAction) {
+      this.usePolicyAction = usePolicyAction;
       return this;
     }
   }
@@ -3279,6 +3313,7 @@ public class OnCallApi {
           400, "Missing the required parameter 'body' when calling setOnCallTeamRoutingRules");
     }
     String include = parameters.include;
+    Boolean usePolicyAction = parameters.usePolicyAction;
     // create path and map variables
     String localVarPath =
         "/api/v2/on-call/teams/{team_id}/routing-rules"
@@ -3288,6 +3323,8 @@ public class OnCallApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "use_policy_action", usePolicyAction));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -3345,6 +3382,7 @@ public class OnCallApi {
       return result;
     }
     String include = parameters.include;
+    Boolean usePolicyAction = parameters.usePolicyAction;
     // create path and map variables
     String localVarPath =
         "/api/v2/on-call/teams/{team_id}/routing-rules"
@@ -3354,6 +3392,8 @@ public class OnCallApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "use_policy_action", usePolicyAction));
 
     Invocation.Builder builder;
     try {

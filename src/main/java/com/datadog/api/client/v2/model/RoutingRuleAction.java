@@ -167,6 +167,51 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'SendTeamsMessageAction'", e);
       }
 
+      // deserialize EscalationPolicyAction
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (EscalationPolicyAction.class.equals(Integer.class)
+            || EscalationPolicyAction.class.equals(Long.class)
+            || EscalationPolicyAction.class.equals(Float.class)
+            || EscalationPolicyAction.class.equals(Double.class)
+            || EscalationPolicyAction.class.equals(Boolean.class)
+            || EscalationPolicyAction.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((EscalationPolicyAction.class.equals(Integer.class)
+                        || EscalationPolicyAction.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((EscalationPolicyAction.class.equals(Float.class)
+                        || EscalationPolicyAction.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (EscalationPolicyAction.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (EscalationPolicyAction.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(EscalationPolicyAction.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((EscalationPolicyAction) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'EscalationPolicyAction'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'EscalationPolicyAction'", e);
+      }
+
       RoutingRuleAction ret = new RoutingRuleAction();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -205,9 +250,15 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public RoutingRuleAction(EscalationPolicyAction o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("SendSlackMessageAction", new GenericType<SendSlackMessageAction>() {});
     schemas.put("SendTeamsMessageAction", new GenericType<SendTeamsMessageAction>() {});
+    schemas.put("EscalationPolicyAction", new GenericType<EscalationPolicyAction>() {});
     JSON.registerDescendants(RoutingRuleAction.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -218,7 +269,8 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: SendSlackMessageAction, SendTeamsMessageAction
+   * against the oneOf child schemas: SendSlackMessageAction, SendTeamsMessageAction,
+   * EscalationPolicyAction
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -233,20 +285,26 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(EscalationPolicyAction.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be SendSlackMessageAction, SendTeamsMessageAction");
+        "Invalid instance type. Must be SendSlackMessageAction, SendTeamsMessageAction,"
+            + " EscalationPolicyAction");
   }
 
   /**
    * Get the actual instance, which can be the following: SendSlackMessageAction,
-   * SendTeamsMessageAction
+   * SendTeamsMessageAction, EscalationPolicyAction
    *
-   * @return The actual instance (SendSlackMessageAction, SendTeamsMessageAction)
+   * @return The actual instance (SendSlackMessageAction, SendTeamsMessageAction,
+   *     EscalationPolicyAction)
    */
   @Override
   public Object getActualInstance() {
@@ -273,5 +331,16 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
    */
   public SendTeamsMessageAction getSendTeamsMessageAction() throws ClassCastException {
     return (SendTeamsMessageAction) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `EscalationPolicyAction`. If the actual instance is not
+   * `EscalationPolicyAction`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `EscalationPolicyAction`
+   * @throws ClassCastException if the instance is not `EscalationPolicyAction`
+   */
+  public EscalationPolicyAction getEscalationPolicyAction() throws ClassCastException {
+    return (EscalationPolicyAction) super.getActualInstance();
   }
 }
