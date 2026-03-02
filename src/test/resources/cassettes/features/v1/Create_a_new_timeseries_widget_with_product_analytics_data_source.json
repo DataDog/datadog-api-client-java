@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"reflow_type\":\"auto\",\"title\":\"Test-Create_a_new_timeseries_widget_with_product_analytics_data_source-1758221477 with product_analytics datasource\",\"widgets\":[{\"definition\":{\"legend_columns\":[\"avg\",\"min\",\"max\",\"value\",\"sum\"],\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"product_analytics\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"test_level:test\"}}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"time\":{},\"title\":\"\",\"type\":\"timeseries\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"reflow_type\":\"auto\",\"title\":\"Test-Create_a_new_timeseries_widget_with_product_analytics_data_source-1772451188 with product_analytics datasource\",\"widgets\":[{\"definition\":{\"legend_columns\":[\"avg\",\"min\",\"max\",\"value\",\"sum\"],\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"product_analytics\",\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"test_level:test\"}}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"time\":{},\"title\":\"\",\"type\":\"timeseries\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"zvr-td5-ppm\",\"title\":\"Test-Create_a_new_timeseries_widget_with_product_analytics_data_source-1758221477 with product_analytics datasource\",\"description\":null,\"author_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"author_name\":\"CI Account\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/zvr-td5-ppm/test-createanewtimeserieswidgetwithproductanalyticsdatasource-1758221477-with-pr\",\"template_variables\":null,\"widgets\":[{\"definition\":{\"legend_columns\":[\"avg\",\"min\",\"max\",\"value\",\"sum\"],\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"product_analytics\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"test_level:test\"}}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"time\":{},\"title\":\"\",\"type\":\"timeseries\"},\"id\":6058978575853641}],\"notify_list\":null,\"created_at\":\"2025-09-18T18:51:18.107135+00:00\",\"modified_at\":\"2025-09-18T18:51:18.107135+00:00\",\"reflow_type\":\"auto\",\"restricted_roles\":[]}",
+      "body": "{\"id\":\"i2r-t4n-8wa\",\"title\":\"Test-Create_a_new_timeseries_widget_with_product_analytics_data_source-1772451188 with product_analytics datasource\",\"description\":null,\"author_handle\":\"archana.asokan@datadoghq.com\",\"author_name\":\"Archana Asokan\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/i2r-t4n-8wa/test-createanewtimeserieswidgetwithproductanalyticsdatasource-1772451188-with-pr\",\"template_variables\":null,\"widgets\":[{\"definition\":{\"legend_columns\":[\"avg\",\"min\",\"max\",\"value\",\"sum\"],\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"product_analytics\",\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"test_level:test\"}}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"time\":{},\"title\":\"\",\"type\":\"timeseries\"},\"id\":2831258963755573}],\"notify_list\":null,\"created_at\":\"2026-03-02T11:33:08.943469+00:00\",\"modified_at\":\"2026-03-02T11:33:08.943469+00:00\",\"reflow_type\":\"auto\",\"restricted_roles\":[]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8fcc4923-c4ef-8c94-eabc-b970afb3a8e2"
+    "id": "9df81c80-987a-2103-58b3-7aa603c4b34f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/zvr-td5-ppm",
+      "path": "/api/v1/dashboard/i2r-t4n-8wa",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"zvr-td5-ppm\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"i2r-t4n-8wa\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b2bcdc4b-8964-a91c-4df0-a3bfb46ad9f5"
+    "id": "bf21a777-7c69-6574-2699-a2591149964b"
   }
 ]
