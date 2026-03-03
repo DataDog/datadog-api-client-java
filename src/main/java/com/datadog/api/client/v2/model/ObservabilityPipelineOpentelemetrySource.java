@@ -21,7 +21,7 @@ import java.util.Objects;
  * The <code>opentelemetry</code> source receives telemetry data using the OpenTelemetry Protocol
  * (OTLP) over gRPC and HTTP.
  *
- * <p><strong>Supported pipeline types:</strong> logs
+ * <p><strong>Supported pipeline types:</strong> logs, metrics
  */
 @JsonPropertyOrder({
   ObservabilityPipelineOpentelemetrySource.JSON_PROPERTY_GRPC_ADDRESS_KEY,
