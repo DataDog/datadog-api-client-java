@@ -3499,7 +3499,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows sum of the high-water marks of incident management monthly active users in the current
+   * Shows sum of the high-water marks of Incident Management monthly active users in the current
    * month for all organizations.
    *
    * @return incidentManagementMonthlyActiveUsersHwmSum

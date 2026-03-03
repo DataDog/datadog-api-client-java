@@ -1,8 +1,8 @@
-// Get hourly usage for Incident Management returns "OK" response
-
+// Get hourly usage for incident management returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
+import com.datadog.api.client.v1.api.UsageMeteringApi.GetIncidentManagementOptionalParameters;
 import com.datadog.api.client.v1.model.UsageIncidentManagementResponse;
 import java.time.OffsetDateTime;
 
@@ -13,7 +13,10 @@ public class Example {
 
     try {
       UsageIncidentManagementResponse result =
-          apiInstance.getIncidentManagement(OffsetDateTime.parse("2021-11-11T11:11:11.111+00:00"));
+          apiInstance.getIncidentManagement(
+              OffsetDateTime.now().plusDays(-5),
+              new GetIncidentManagementOptionalParameters()
+                  .endHr(OffsetDateTime.now().plusDays(-3)));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsageMeteringApi#getIncidentManagement");
