@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"reflow_type\":\"auto\",\"title\":\"Test-Create_a_new_timeseries_widget_with_new_fixed_span_time_format-1756237678 with new fixed span time\",\"widgets\":[{\"definition\":{\"legend_columns\":[\"avg\",\"min\",\"max\",\"value\",\"sum\"],\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\",\"metric\":\"@ci.queue_time\"},\"data_source\":\"ci_pipelines\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"ci_level:job\"}}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"time\":{\"from\":1712080128,\"hide_incomplete_cost_data\":true,\"to\":1712083128,\"type\":\"fixed\"},\"title\":\"\",\"type\":\"timeseries\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"reflow_type\":\"auto\",\"title\":\"Test-Create_a_new_timeseries_widget_with_new_fixed_span_time_format-1772451172 with new fixed span time\",\"widgets\":[{\"definition\":{\"legend_columns\":[\"avg\",\"min\",\"max\",\"value\",\"sum\"],\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\",\"metric\":\"@ci.queue_time\"},\"data_source\":\"ci_pipelines\",\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"ci_level:job\"}}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"time\":{\"from\":1712080128,\"hide_incomplete_cost_data\":true,\"to\":1712083128,\"type\":\"fixed\"},\"title\":\"\",\"type\":\"timeseries\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"43b-7uw-9hv\",\"title\":\"Test-Create_a_new_timeseries_widget_with_new_fixed_span_time_format-1756237678 with new fixed span time\",\"description\":null,\"author_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"author_name\":\"CI Account\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/43b-7uw-9hv/test-createanewtimeserieswidgetwithnewfixedspantimeformat-1756237678-with-new-fi\",\"template_variables\":null,\"widgets\":[{\"definition\":{\"legend_columns\":[\"avg\",\"min\",\"max\",\"value\",\"sum\"],\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\",\"metric\":\"@ci.queue_time\"},\"data_source\":\"ci_pipelines\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"ci_level:job\"}}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"time\":{\"from\":1712080128,\"hide_incomplete_cost_data\":true,\"to\":1712083128,\"type\":\"fixed\"},\"title\":\"\",\"type\":\"timeseries\"},\"id\":7908755715912813}],\"notify_list\":null,\"created_at\":\"2025-08-26T19:47:59.063106+00:00\",\"modified_at\":\"2025-08-26T19:47:59.063106+00:00\",\"reflow_type\":\"auto\",\"restricted_roles\":[]}",
+      "body": "{\"id\":\"tyc-7bs-dg2\",\"title\":\"Test-Create_a_new_timeseries_widget_with_new_fixed_span_time_format-1772451172 with new fixed span time\",\"description\":null,\"author_handle\":\"archana.asokan@datadoghq.com\",\"author_name\":\"Archana Asokan\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/tyc-7bs-dg2/test-createanewtimeserieswidgetwithnewfixedspantimeformat-1772451172-with-new-fi\",\"template_variables\":null,\"widgets\":[{\"definition\":{\"legend_columns\":[\"avg\",\"min\",\"max\",\"value\",\"sum\"],\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\",\"metric\":\"@ci.queue_time\"},\"data_source\":\"ci_pipelines\",\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"ci_level:job\"}}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"time\":{\"from\":1712080128,\"hide_incomplete_cost_data\":true,\"to\":1712083128,\"type\":\"fixed\"},\"title\":\"\",\"type\":\"timeseries\"},\"id\":3025372441855102}],\"notify_list\":null,\"created_at\":\"2026-03-02T11:32:53.112506+00:00\",\"modified_at\":\"2026-03-02T11:32:53.112506+00:00\",\"reflow_type\":\"auto\",\"restricted_roles\":[]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "37a8c1a0-5556-4d72-3512-709d2a071c71"
+    "id": "2b46e455-67b5-a605-be50-e9ba086efedc"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/43b-7uw-9hv",
+      "path": "/api/v1/dashboard/tyc-7bs-dg2",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"43b-7uw-9hv\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"tyc-7bs-dg2\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dd0a7cb4-6f6e-80f1-7627-8667b08ddc4d"
+    "id": "fd793347-f715-fe33-75a0-8e7809f08697"
   }
 ]
