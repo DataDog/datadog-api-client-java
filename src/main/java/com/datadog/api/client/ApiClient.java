@@ -671,29 +671,23 @@ public class ApiClient {
               new ArrayList<ServerConfiguration>(
                   Arrays.asList(
                       new ServerConfiguration(
-                          "https://{subdomain}.{site}",
+                          "https://{site}",
                           "No description provided",
                           new HashMap<String, ServerVariable>() {
                             {
                               put(
                                   "site",
                                   new ServerVariable(
-                                      "The regional site for customers.",
-                                      "datadoghq.com",
+                                      "The intake domain for the regional site.",
+                                      "browser-intake-datadoghq.com",
                                       new HashSet<String>(
                                           Arrays.asList(
-                                              "datadoghq.com",
-                                              "us3.datadoghq.com",
-                                              "us5.datadoghq.com",
-                                              "ap1.datadoghq.com",
-                                              "ap2.datadoghq.com",
-                                              "datadoghq.eu"))));
-                              put(
-                                  "subdomain",
-                                  new ServerVariable(
-                                      "The subdomain where the API is deployed.",
-                                      "browser-intake",
-                                      new HashSet<String>()));
+                                              "browser-intake-datadoghq.com",
+                                              "browser-intake-us3-datadoghq.com",
+                                              "browser-intake-us5-datadoghq.com",
+                                              "browser-intake-ap1-datadoghq.com",
+                                              "browser-intake-ap2-datadoghq.com",
+                                              "browser-intake-datadoghq.eu"))));
                             }
                           }),
                       new ServerConfiguration(
@@ -730,7 +724,7 @@ public class ApiClient {
                                   "subdomain",
                                   new ServerVariable(
                                       "The subdomain where the API is deployed.",
-                                      "browser-intake",
+                                      "api",
                                       new HashSet<String>()));
                             }
                           }))));
