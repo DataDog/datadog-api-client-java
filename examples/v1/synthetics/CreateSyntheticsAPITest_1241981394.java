@@ -116,7 +116,8 @@ public class Example {
                                         .name("file name")
                                         .originalFileName("image.png")
                                         .content("file content")
-                                        .type("file type")))
+                                        .type("file type")
+                                        .encoding("base64")))
                             .basicAuth(
                                 new SyntheticsBasicAuth(
                                     new SyntheticsBasicAuthOauthClient()
