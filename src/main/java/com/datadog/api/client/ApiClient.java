@@ -833,6 +833,14 @@ public class ApiClient {
           put("v2.getDeploymentRule", false);
           put("v2.updateDeploymentGate", false);
           put("v2.updateDeploymentRule", false);
+          put("v2.createEventEmailAddress", false);
+          put("v2.createOnCallEventEmailAddress", false);
+          put("v2.deleteEventEmailAddress", false);
+          put("v2.deleteOnCallEventEmailAddress", false);
+          put("v2.getEventEmailAddress", false);
+          put("v2.listEventEmailAddresses", false);
+          put("v2.listOnCallEventEmailAddresses", false);
+          put("v2.updateEventEmailAddress", false);
           put("v2.createHamrOrgConnection", false);
           put("v2.getHamrOrgConnection", false);
           put("v2.createGlobalIncidentHandle", false);
