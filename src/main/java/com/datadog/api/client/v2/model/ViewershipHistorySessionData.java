@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Viewership history session data. */
 @JsonPropertyOrder({
   ViewershipHistorySessionData.JSON_PROPERTY_ATTRIBUTES,
   ViewershipHistorySessionData.JSON_PROPERTY_ID,
