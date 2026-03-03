@@ -116,10 +116,12 @@ public class UsageBillableSummaryHour {
   }
 
   /**
-   * The billing plan.
+   * The billing plan (metadata). (Deprecated from May 2026)
    *
    * @return billingPlan
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,6 +129,7 @@ public class UsageBillableSummaryHour {
     return billingPlan;
   }
 
+  @Deprecated
   public void setBillingPlan(String billingPlan) {
     this.billingPlan = billingPlan;
   }
