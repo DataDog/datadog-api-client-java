@@ -40,6 +40,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_BITS_AI_INVESTIGATIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CI_CODE_COVERAGE_COMMITTERS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CI_CODE_COVERAGE_COMMITTERS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_PERCENTAGE,
@@ -244,6 +246,14 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_BROWSER_USAGE = "browser_usage";
   private Double browserUsage;
+
+  public static final String JSON_PROPERTY_CI_CODE_COVERAGE_COMMITTERS_PERCENTAGE =
+      "ci_code_coverage_committers_percentage";
+  private Double ciCodeCoverageCommittersPercentage;
+
+  public static final String JSON_PROPERTY_CI_CODE_COVERAGE_COMMITTERS_USAGE =
+      "ci_code_coverage_committers_usage";
+  private Double ciCodeCoverageCommittersUsage;
 
   public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_PERCENTAGE =
       "ci_pipeline_indexed_spans_percentage";
@@ -1118,6 +1128,50 @@ public class MonthlyUsageAttributionValues {
 
   public void setBrowserUsage(Double browserUsage) {
     this.browserUsage = browserUsage;
+  }
+
+  public MonthlyUsageAttributionValues ciCodeCoverageCommittersPercentage(
+      Double ciCodeCoverageCommittersPercentage) {
+    this.ciCodeCoverageCommittersPercentage = ciCodeCoverageCommittersPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Code Coverage committers usage by tag(s).
+   *
+   * @return ciCodeCoverageCommittersPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CI_CODE_COVERAGE_COMMITTERS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCiCodeCoverageCommittersPercentage() {
+    return ciCodeCoverageCommittersPercentage;
+  }
+
+  public void setCiCodeCoverageCommittersPercentage(Double ciCodeCoverageCommittersPercentage) {
+    this.ciCodeCoverageCommittersPercentage = ciCodeCoverageCommittersPercentage;
+  }
+
+  public MonthlyUsageAttributionValues ciCodeCoverageCommittersUsage(
+      Double ciCodeCoverageCommittersUsage) {
+    this.ciCodeCoverageCommittersUsage = ciCodeCoverageCommittersUsage;
+    return this;
+  }
+
+  /**
+   * The total Code Coverage committers usage by tag(s).
+   *
+   * @return ciCodeCoverageCommittersUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CI_CODE_COVERAGE_COMMITTERS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCiCodeCoverageCommittersUsage() {
+    return ciCodeCoverageCommittersUsage;
+  }
+
+  public void setCiCodeCoverageCommittersUsage(Double ciCodeCoverageCommittersUsage) {
+    this.ciCodeCoverageCommittersUsage = ciCodeCoverageCommittersUsage;
   }
 
   public MonthlyUsageAttributionValues ciPipelineIndexedSpansPercentage(
@@ -4238,6 +4292,12 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(this.browserPercentage, monthlyUsageAttributionValues.browserPercentage)
         && Objects.equals(this.browserUsage, monthlyUsageAttributionValues.browserUsage)
         && Objects.equals(
+            this.ciCodeCoverageCommittersPercentage,
+            monthlyUsageAttributionValues.ciCodeCoverageCommittersPercentage)
+        && Objects.equals(
+            this.ciCodeCoverageCommittersUsage,
+            monthlyUsageAttributionValues.ciCodeCoverageCommittersUsage)
+        && Objects.equals(
             this.ciPipelineIndexedSpansPercentage,
             monthlyUsageAttributionValues.ciPipelineIndexedSpansPercentage)
         && Objects.equals(
@@ -4565,6 +4625,8 @@ public class MonthlyUsageAttributionValues {
         bitsAiInvestigationsUsage,
         browserPercentage,
         browserUsage,
+        ciCodeCoverageCommittersPercentage,
+        ciCodeCoverageCommittersUsage,
         ciPipelineIndexedSpansPercentage,
         ciPipelineIndexedSpansUsage,
         ciTestIndexedSpansPercentage,
@@ -4744,6 +4806,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    browserPercentage: ").append(toIndentedString(browserPercentage)).append("\n");
     sb.append("    browserUsage: ").append(toIndentedString(browserUsage)).append("\n");
+    sb.append("    ciCodeCoverageCommittersPercentage: ")
+        .append(toIndentedString(ciCodeCoverageCommittersPercentage))
+        .append("\n");
+    sb.append("    ciCodeCoverageCommittersUsage: ")
+        .append(toIndentedString(ciCodeCoverageCommittersUsage))
+        .append("\n");
     sb.append("    ciPipelineIndexedSpansPercentage: ")
         .append(toIndentedString(ciPipelineIndexedSpansPercentage))
         .append("\n");
