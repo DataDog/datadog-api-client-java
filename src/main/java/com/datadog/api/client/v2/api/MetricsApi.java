@@ -1693,7 +1693,7 @@ public class MetricsApi {
      * Set windowSeconds.
      *
      * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag]
-     *     or filter[queried] query. Default value is 3600 (1 hour), maximum value is 2,592,000 (30
+     *     or filter[queried] query. Default value is 3600 (1 hour), maximum value is 5,184,000 (60
      *     days). (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
@@ -1841,13 +1841,13 @@ public class MetricsApi {
   }
 
   /**
-   * Returns all metrics that can be configured in the Metrics Summary page or with Metrics without
-   * Limits™ (matching additional filters if specified). Optionally, paginate by using the <code>
-   * page[cursor]</code> and/or <code>page[size]</code> query parameters. To fetch the first page,
-   * pass in a query parameter with either a valid <code>page[size]</code> or an empty cursor like
-   * <code>page[cursor]=</code>. To fetch the next page, pass in the <code>next_cursor</code> value
-   * from the response as the new <code>page[cursor]</code> value. Once the <code>
-   * meta.pagination.next_cursor</code> value is null, all pages have been retrieved.
+   * Returns all metrics for your organization that match the given filter parameters. Optionally,
+   * paginate by using the <code>page[cursor]</code> and/or <code>page[size]</code> query
+   * parameters. To fetch the first page, pass in a query parameter with either a valid <code>
+   * page[size]</code> or an empty cursor like <code>page[cursor]=</code>. To fetch the next page,
+   * pass in the <code>next_cursor</code> value from the response as the new <code>page[cursor]
+   * </code> value. Once the <code>meta.pagination.next_cursor</code> value is null, all pages have
+   * been retrieved.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;
