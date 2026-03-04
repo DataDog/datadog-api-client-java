@@ -27,7 +27,8 @@ public class StatusPagesComponentGroupAttributesComponentsItemsStatus extends Mo
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("operational", "degraded", "partial_outage", "major_outage"));
+          Arrays.asList(
+              "operational", "degraded", "partial_outage", "major_outage", "maintenance"));
 
   public static final StatusPagesComponentGroupAttributesComponentsItemsStatus OPERATIONAL =
       new StatusPagesComponentGroupAttributesComponentsItemsStatus("operational");
@@ -37,6 +38,8 @@ public class StatusPagesComponentGroupAttributesComponentsItemsStatus extends Mo
       new StatusPagesComponentGroupAttributesComponentsItemsStatus("partial_outage");
   public static final StatusPagesComponentGroupAttributesComponentsItemsStatus MAJOR_OUTAGE =
       new StatusPagesComponentGroupAttributesComponentsItemsStatus("major_outage");
+  public static final StatusPagesComponentGroupAttributesComponentsItemsStatus MAINTENANCE =
+      new StatusPagesComponentGroupAttributesComponentsItemsStatus("maintenance");
 
   StatusPagesComponentGroupAttributesComponentsItemsStatus(String value) {
     super(value, allowedValues);

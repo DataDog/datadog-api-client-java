@@ -36,7 +36,7 @@ public class StatusPageArray {
   private List<StatusPageArrayIncluded> included = null;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private StatusPagesResponseMeta meta;
+  private PaginationMeta meta;
 
   public StatusPageArray() {}
 
@@ -117,7 +117,7 @@ public class StatusPageArray {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public StatusPagesResponseMeta getMeta() {
+  public PaginationMeta getMeta() {
     return meta;
   }
 

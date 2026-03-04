@@ -36,43 +36,41 @@ import java.util.logging.Logger;
 
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-@JsonDeserialize(using = DegradationArrayIncluded.DegradationArrayIncludedDeserializer.class)
-@JsonSerialize(using = DegradationArrayIncluded.DegradationArrayIncludedSerializer.class)
-public class DegradationArrayIncluded extends AbstractOpenApiSchema {
-  private static final Logger log = Logger.getLogger(DegradationArrayIncluded.class.getName());
+@JsonDeserialize(using = DegradationIncluded.DegradationIncludedDeserializer.class)
+@JsonSerialize(using = DegradationIncluded.DegradationIncludedSerializer.class)
+public class DegradationIncluded extends AbstractOpenApiSchema {
+  private static final Logger log = Logger.getLogger(DegradationIncluded.class.getName());
 
   @JsonIgnore public boolean unparsed = false;
 
-  public static class DegradationArrayIncludedSerializer
-      extends StdSerializer<DegradationArrayIncluded> {
-    public DegradationArrayIncludedSerializer(Class<DegradationArrayIncluded> t) {
+  public static class DegradationIncludedSerializer extends StdSerializer<DegradationIncluded> {
+    public DegradationIncludedSerializer(Class<DegradationIncluded> t) {
       super(t);
     }
 
-    public DegradationArrayIncludedSerializer() {
+    public DegradationIncludedSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        DegradationArrayIncluded value, JsonGenerator jgen, SerializerProvider provider)
+        DegradationIncluded value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.getActualInstance());
     }
   }
 
-  public static class DegradationArrayIncludedDeserializer
-      extends StdDeserializer<DegradationArrayIncluded> {
-    public DegradationArrayIncludedDeserializer() {
-      this(DegradationArrayIncluded.class);
+  public static class DegradationIncludedDeserializer extends StdDeserializer<DegradationIncluded> {
+    public DegradationIncludedDeserializer() {
+      this(DegradationIncluded.class);
     }
 
-    public DegradationArrayIncludedDeserializer(Class<?> vc) {
+    public DegradationIncludedDeserializer(Class<?> vc) {
       super(vc);
     }
 
     @Override
-    public DegradationArrayIncluded deserialize(JsonParser jp, DeserializationContext ctxt)
+    public DegradationIncluded deserialize(JsonParser jp, DeserializationContext ctxt)
         throws IOException, JsonProcessingException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
@@ -169,7 +167,7 @@ public class DegradationArrayIncluded extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'StatusPageAsIncluded'", e);
       }
 
-      DegradationArrayIncluded ret = new DegradationArrayIncluded();
+      DegradationIncluded ret = new DegradationIncluded();
       if (match == 1) {
         ret.setActualInstance(deserialized);
       } else {
@@ -185,25 +183,25 @@ public class DegradationArrayIncluded extends AbstractOpenApiSchema {
 
     /** Handle deserialization of the 'null' value. */
     @Override
-    public DegradationArrayIncluded getNullValue(DeserializationContext ctxt)
+    public DegradationIncluded getNullValue(DeserializationContext ctxt)
         throws JsonMappingException {
-      throw new JsonMappingException(ctxt.getParser(), "DegradationArrayIncluded cannot be null");
+      throw new JsonMappingException(ctxt.getParser(), "DegradationIncluded cannot be null");
     }
   }
 
   // store a list of schema names defined in oneOf
   public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
-  public DegradationArrayIncluded() {
+  public DegradationIncluded() {
     super("oneOf", Boolean.FALSE);
   }
 
-  public DegradationArrayIncluded(StatusPagesUser o) {
+  public DegradationIncluded(StatusPagesUser o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
-  public DegradationArrayIncluded(StatusPageAsIncluded o) {
+  public DegradationIncluded(StatusPageAsIncluded o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -211,12 +209,12 @@ public class DegradationArrayIncluded extends AbstractOpenApiSchema {
   static {
     schemas.put("StatusPagesUser", new GenericType<StatusPagesUser>() {});
     schemas.put("StatusPageAsIncluded", new GenericType<StatusPageAsIncluded>() {});
-    JSON.registerDescendants(DegradationArrayIncluded.class, Collections.unmodifiableMap(schemas));
+    JSON.registerDescendants(DegradationIncluded.class, Collections.unmodifiableMap(schemas));
   }
 
   @Override
   public Map<String, GenericType> getSchemas() {
-    return DegradationArrayIncluded.schemas;
+    return DegradationIncluded.schemas;
   }
 
   /**

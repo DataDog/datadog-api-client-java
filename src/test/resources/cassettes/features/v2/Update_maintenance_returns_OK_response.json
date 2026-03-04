@@ -1,0 +1,113 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"components\":[{\"name\":\"Login\",\"position\":0,\"type\":\"component\"},{\"name\":\"Settings\",\"position\":1,\"type\":\"component\"}],\"name\":\"Application\",\"type\":\"group\"}],\"domain_prefix\":\"bd41b0432241277c\",\"enabled\":true,\"name\":\"A Status Page\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/statuspages",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"47eedb78-70c8-4492-94d9-d6072b1b461a\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"14510904-00d4-49a0-b4fb-f352e0bbee44\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"8dbbf907-e6bf-4f52-9087-9faf83662618\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"303d4a51-952f-4e2f-8124-bcac0008f20d\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-02-24T17:01:05.895153Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"bd41b0432241277c\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-02-24T17:01:05.895153Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/47eedb78-70c8-4492-94d9-d6072b1b461a/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "61075c19-b7b0-f0d3-bdb7-9b9387dfff92"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"completed_date\":\"2026-02-24T19:01:05.730Z\",\"completed_description\":\"We have completed maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"8dbbf907-e6bf-4f52-9087-9faf83662618\",\"status\":\"operational\"}],\"in_progress_description\":\"We are currently performing maintenance on the API to improve performance.\",\"scheduled_description\":\"We will be performing maintenance on the API to improve performance.\",\"start_date\":\"2026-02-24T18:01:05.730Z\",\"title\":\"API Maintenance\"},\"type\":\"maintenances\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/statuspages/47eedb78-70c8-4492-94d9-d6072b1b461a/maintenances",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"6e4bdbf5-d781-4db9-80c0-38d6a0b042d5\",\"type\":\"maintenances\",\"attributes\":{\"completed_date\":\"2026-02-24T19:01:05.73Z\",\"completed_description\":\"We have completed maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"8dbbf907-e6bf-4f52-9087-9faf83662618\",\"name\":\"Login\",\"status\":\"operational\"}],\"in_progress_description\":\"We are currently performing maintenance on the API to improve performance.\",\"modified_at\":\"2026-02-24T17:01:06.54667Z\",\"published_date\":\"2026-02-24T17:01:06.54667Z\",\"scheduled_description\":\"We will be performing maintenance on the API to improve performance.\",\"start_date\":\"2026-02-24T18:01:05.73Z\",\"status\":\"scheduled\",\"title\":\"API Maintenance\",\"updates\":[{\"id\":\"5757da5d-1852-474f-9321-b80824f1d54c\",\"created_at\":\"2026-02-24T17:01:06.54667Z\",\"modified_at\":\"2026-02-24T17:01:06.54667Z\",\"started_at\":\"2026-02-24T17:01:06.54667Z\",\"manual_transition\":false,\"status\":\"scheduled\",\"description\":\"We will be performing maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"8dbbf907-e6bf-4f52-9087-9faf83662618\",\"name\":\"Login\",\"status\":\"operational\"}]}]},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"47eedb78-70c8-4492-94d9-d6072b1b461a\",\"type\":\"status_pages\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "282c5e5a-0f1c-5288-d5d5-ea1d06766522"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"in_progress_description\":\"We are currently performing maintenance on the API to improve performance for 40 minutes.\",\"scheduled_description\":\"We will be performing maintenance on the API to improve performance for 40 minutes.\"},\"id\":\"6e4bdbf5-d781-4db9-80c0-38d6a0b042d5\",\"type\":\"maintenances\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/statuspages/47eedb78-70c8-4492-94d9-d6072b1b461a/maintenances/6e4bdbf5-d781-4db9-80c0-38d6a0b042d5",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"6e4bdbf5-d781-4db9-80c0-38d6a0b042d5\",\"type\":\"maintenances\",\"attributes\":{\"completed_date\":\"2026-02-24T19:01:05.73Z\",\"completed_description\":\"We have completed maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"8dbbf907-e6bf-4f52-9087-9faf83662618\",\"name\":\"Login\",\"status\":\"operational\"}],\"in_progress_description\":\"We are currently performing maintenance on the API to improve performance for 40 minutes.\",\"modified_at\":\"2026-02-24T17:01:06.746611Z\",\"published_date\":\"2026-02-24T17:01:06.54667Z\",\"scheduled_description\":\"We will be performing maintenance on the API to improve performance for 40 minutes.\",\"start_date\":\"2026-02-24T18:01:05.73Z\",\"status\":\"scheduled\",\"title\":\"API Maintenance\",\"updates\":[{\"id\":\"5757da5d-1852-474f-9321-b80824f1d54c\",\"created_at\":\"2026-02-24T17:01:06.54667Z\",\"modified_at\":\"2026-02-24T17:01:06.54667Z\",\"started_at\":\"2026-02-24T17:01:06.54667Z\",\"manual_transition\":false,\"status\":\"scheduled\",\"description\":\"We will be performing maintenance on the API to improve performance.\",\"components_affected\":[{\"id\":\"8dbbf907-e6bf-4f52-9087-9faf83662618\",\"name\":\"Login\",\"status\":\"operational\"}]}]},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"status_page\":{\"data\":{\"id\":\"47eedb78-70c8-4492-94d9-d6072b1b461a\",\"type\":\"status_pages\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8a908825-2839-0733-1af1-48e13a58f5da"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/statuspages/47eedb78-70c8-4492-94d9-d6072b1b461a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b7593177-5484-6589-3bf8-56043b909074"
+  }
+]

@@ -28,7 +28,7 @@ public class Degradation {
   private DegradationData data;
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<DegradationArrayIncluded> included = null;
+  private List<DegradationIncluded> included = null;
 
   public Degradation data(DegradationData data) {
     this.data = data;
@@ -52,15 +52,15 @@ public class Degradation {
     this.data = data;
   }
 
-  public Degradation included(List<DegradationArrayIncluded> included) {
+  public Degradation included(List<DegradationIncluded> included) {
     this.included = included;
-    for (DegradationArrayIncluded item : included) {
+    for (DegradationIncluded item : included) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public Degradation addIncludedItem(DegradationArrayIncluded includedItem) {
+  public Degradation addIncludedItem(DegradationIncluded includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
     }
@@ -78,11 +78,11 @@ public class Degradation {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DegradationArrayIncluded> getIncluded() {
+  public List<DegradationIncluded> getIncluded() {
     return included;
   }
 
-  public void setIncluded(List<DegradationArrayIncluded> included) {
+  public void setIncluded(List<DegradationIncluded> included) {
     this.included = included;
   }
 

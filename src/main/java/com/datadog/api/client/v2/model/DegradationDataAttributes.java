@@ -25,6 +25,7 @@ import java.util.Objects;
   DegradationDataAttributes.JSON_PROPERTY_CREATED_AT,
   DegradationDataAttributes.JSON_PROPERTY_DESCRIPTION,
   DegradationDataAttributes.JSON_PROPERTY_MODIFIED_AT,
+  DegradationDataAttributes.JSON_PROPERTY_SOURCE,
   DegradationDataAttributes.JSON_PROPERTY_STATUS,
   DegradationDataAttributes.JSON_PROPERTY_TITLE,
   DegradationDataAttributes.JSON_PROPERTY_UPDATES
@@ -44,6 +45,9 @@ public class DegradationDataAttributes {
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
+
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  private DegradationDataAttributesSource source;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private CreateDegradationRequestDataAttributesStatus status;
@@ -151,6 +155,28 @@ public class DegradationDataAttributes {
 
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
+  }
+
+  public DegradationDataAttributes source(DegradationDataAttributesSource source) {
+    this.source = source;
+    this.unparsed |= source.unparsed;
+    return this;
+  }
+
+  /**
+   * The source of the degradation.
+   *
+   * @return source
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DegradationDataAttributesSource getSource() {
+    return source;
+  }
+
+  public void setSource(DegradationDataAttributesSource source) {
+    this.source = source;
   }
 
   public DegradationDataAttributes status(CreateDegradationRequestDataAttributesStatus status) {
@@ -293,6 +319,7 @@ public class DegradationDataAttributes {
         && Objects.equals(this.createdAt, degradationDataAttributes.createdAt)
         && Objects.equals(this.description, degradationDataAttributes.description)
         && Objects.equals(this.modifiedAt, degradationDataAttributes.modifiedAt)
+        && Objects.equals(this.source, degradationDataAttributes.source)
         && Objects.equals(this.status, degradationDataAttributes.status)
         && Objects.equals(this.title, degradationDataAttributes.title)
         && Objects.equals(this.updates, degradationDataAttributes.updates)
@@ -307,6 +334,7 @@ public class DegradationDataAttributes {
         createdAt,
         description,
         modifiedAt,
+        source,
         status,
         title,
         updates,
@@ -321,6 +349,7 @@ public class DegradationDataAttributes {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    updates: ").append(toIndentedString(updates)).append("\n");
