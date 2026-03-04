@@ -1596,6 +1596,7 @@ public class MetricsApi {
     private MetricTagConfigurationMetricTypeCategory filterMetricType;
     private Boolean filterIncludePercentiles;
     private Boolean filterQueried;
+    private Long filterQueriedWindowSeconds;
     private String filterTags;
     private Boolean filterRelatedAssets;
     private Long windowSeconds;
@@ -1660,6 +1661,25 @@ public class MetricsApi {
      */
     public ListTagConfigurationsOptionalParameters filterQueried(Boolean filterQueried) {
       this.filterQueried = filterQueried;
+      return this;
+    }
+
+    /**
+     * Set filterQueriedWindowSeconds.
+     *
+     * @param filterQueriedWindowSeconds The number of seconds of look back (from now) used by the
+     *     <code>filter[queried]</code> filter logic. Must be sent with <code>filter[queried]</code>
+     *     and is only applied when <code>filter[queried]=true</code>. If <code>
+     *     filter[queried]=false</code>, this parameter is ignored and default queried-window
+     *     behavior applies. If <code>filter[queried]</code> is not provided, sending this parameter
+     *     returns a 400. For example: <code>
+     *     GET /api/v2/metrics?filter[queried]=true&amp;filter[queried][window][seconds]=7776000
+     *     </code>. (optional)
+     * @return ListTagConfigurationsOptionalParameters
+     */
+    public ListTagConfigurationsOptionalParameters filterQueriedWindowSeconds(
+        Long filterQueriedWindowSeconds) {
+      this.filterQueriedWindowSeconds = filterQueriedWindowSeconds;
       return this;
     }
 
@@ -1870,6 +1890,7 @@ public class MetricsApi {
     MetricTagConfigurationMetricTypeCategory filterMetricType = parameters.filterMetricType;
     Boolean filterIncludePercentiles = parameters.filterIncludePercentiles;
     Boolean filterQueried = parameters.filterQueried;
+    Long filterQueriedWindowSeconds = parameters.filterQueriedWindowSeconds;
     String filterTags = parameters.filterTags;
     Boolean filterRelatedAssets = parameters.filterRelatedAssets;
     Long windowSeconds = parameters.windowSeconds;
@@ -1890,6 +1911,9 @@ public class MetricsApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_percentiles]", filterIncludePercentiles));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[queried]", filterQueried));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[queried][window][seconds]", filterQueriedWindowSeconds));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[related_assets]", filterRelatedAssets));
@@ -1933,6 +1957,7 @@ public class MetricsApi {
     MetricTagConfigurationMetricTypeCategory filterMetricType = parameters.filterMetricType;
     Boolean filterIncludePercentiles = parameters.filterIncludePercentiles;
     Boolean filterQueried = parameters.filterQueried;
+    Long filterQueriedWindowSeconds = parameters.filterQueriedWindowSeconds;
     String filterTags = parameters.filterTags;
     Boolean filterRelatedAssets = parameters.filterRelatedAssets;
     Long windowSeconds = parameters.windowSeconds;
@@ -1953,6 +1978,9 @@ public class MetricsApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_percentiles]", filterIncludePercentiles));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[queried]", filterQueried));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[queried][window][seconds]", filterQueriedWindowSeconds));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[related_assets]", filterRelatedAssets));
