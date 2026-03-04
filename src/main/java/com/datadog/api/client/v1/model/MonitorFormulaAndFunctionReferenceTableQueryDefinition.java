@@ -1,0 +1,232 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v1.model;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+/** A reference table query for use in aggregate queries. */
+@JsonPropertyOrder({
+  MonitorFormulaAndFunctionReferenceTableQueryDefinition.JSON_PROPERTY_COLUMNS,
+  MonitorFormulaAndFunctionReferenceTableQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
+  MonitorFormulaAndFunctionReferenceTableQueryDefinition.JSON_PROPERTY_NAME,
+  MonitorFormulaAndFunctionReferenceTableQueryDefinition.JSON_PROPERTY_QUERY_FILTER,
+  MonitorFormulaAndFunctionReferenceTableQueryDefinition.JSON_PROPERTY_TABLE_NAME
+})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class MonitorFormulaAndFunctionReferenceTableQueryDefinition {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COLUMNS = "columns";
+  private List<MonitorFormulaAndFunctionReferenceTableColumn> columns = null;
+
+  public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
+  private MonitorFormulaAndFunctionReferenceTableDataSource dataSource;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
+  public static final String JSON_PROPERTY_QUERY_FILTER = "query_filter";
+  private String queryFilter;
+
+  public static final String JSON_PROPERTY_TABLE_NAME = "table_name";
+  private String tableName;
+
+  public MonitorFormulaAndFunctionReferenceTableQueryDefinition() {}
+
+  @JsonCreator
+  public MonitorFormulaAndFunctionReferenceTableQueryDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          MonitorFormulaAndFunctionReferenceTableDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TABLE_NAME) String tableName) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.tableName = tableName;
+  }
+
+  public MonitorFormulaAndFunctionReferenceTableQueryDefinition columns(
+      List<MonitorFormulaAndFunctionReferenceTableColumn> columns) {
+    this.columns = columns;
+    for (MonitorFormulaAndFunctionReferenceTableColumn item : columns) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public MonitorFormulaAndFunctionReferenceTableQueryDefinition addColumnsItem(
+      MonitorFormulaAndFunctionReferenceTableColumn columnsItem) {
+    if (this.columns == null) {
+      this.columns = new ArrayList<>();
+    }
+    this.columns.add(columnsItem);
+    this.unparsed |= columnsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of columns to retrieve from the reference table.
+   *
+   * @return columns
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COLUMNS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorFormulaAndFunctionReferenceTableColumn> getColumns() {
+    return columns;
+  }
+
+  public void setColumns(List<MonitorFormulaAndFunctionReferenceTableColumn> columns) {
+    this.columns = columns;
+  }
+
+  public MonitorFormulaAndFunctionReferenceTableQueryDefinition dataSource(
+      MonitorFormulaAndFunctionReferenceTableDataSource dataSource) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    return this;
+  }
+
+  /**
+   * Data source for reference table queries.
+   *
+   * @return dataSource
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MonitorFormulaAndFunctionReferenceTableDataSource getDataSource() {
+    return dataSource;
+  }
+
+  public void setDataSource(MonitorFormulaAndFunctionReferenceTableDataSource dataSource) {
+    if (!dataSource.isValid()) {
+      this.unparsed = true;
+    }
+    this.dataSource = dataSource;
+  }
+
+  public MonitorFormulaAndFunctionReferenceTableQueryDefinition name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the query.
+   *
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public MonitorFormulaAndFunctionReferenceTableQueryDefinition queryFilter(String queryFilter) {
+    this.queryFilter = queryFilter;
+    return this;
+  }
+
+  /**
+   * Optional filter expression for the reference table query.
+   *
+   * @return queryFilter
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQueryFilter() {
+    return queryFilter;
+  }
+
+  public void setQueryFilter(String queryFilter) {
+    this.queryFilter = queryFilter;
+  }
+
+  public MonitorFormulaAndFunctionReferenceTableQueryDefinition tableName(String tableName) {
+    this.tableName = tableName;
+    return this;
+  }
+
+  /**
+   * Name of the reference table.
+   *
+   * @return tableName
+   */
+  @JsonProperty(JSON_PROPERTY_TABLE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getTableName() {
+    return tableName;
+  }
+
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
+  /**
+   * Return true if this MonitorFormulaAndFunctionReferenceTableQueryDefinition object is equal to
+   * o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    MonitorFormulaAndFunctionReferenceTableQueryDefinition
+        monitorFormulaAndFunctionReferenceTableQueryDefinition =
+            (MonitorFormulaAndFunctionReferenceTableQueryDefinition) o;
+    return Objects.equals(
+            this.columns, monitorFormulaAndFunctionReferenceTableQueryDefinition.columns)
+        && Objects.equals(
+            this.dataSource, monitorFormulaAndFunctionReferenceTableQueryDefinition.dataSource)
+        && Objects.equals(this.name, monitorFormulaAndFunctionReferenceTableQueryDefinition.name)
+        && Objects.equals(
+            this.queryFilter, monitorFormulaAndFunctionReferenceTableQueryDefinition.queryFilter)
+        && Objects.equals(
+            this.tableName, monitorFormulaAndFunctionReferenceTableQueryDefinition.tableName);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(columns, dataSource, name, queryFilter, tableName);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class MonitorFormulaAndFunctionReferenceTableQueryDefinition {\n");
+    sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
+    sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    queryFilter: ").append(toIndentedString(queryFilter)).append("\n");
+    sb.append("    tableName: ").append(toIndentedString(tableName)).append("\n");
+    sb.append('}');
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
