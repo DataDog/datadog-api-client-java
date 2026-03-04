@@ -116,7 +116,7 @@ public class UsageBillableSummaryHour {
   }
 
   /**
-   * The billing plan (metadata). (Deprecated from May 2026)
+   * The billing plan (metadata). (Deprecated from June 2026)
    *
    * @return billingPlan
    * @deprecated
