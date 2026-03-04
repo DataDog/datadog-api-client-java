@@ -205,10 +205,13 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * The widget metrics query.
+   * The widget metrics query. Deprecated - Use <code>queries</code> and <code>formulas</code>
+   * instead.
    *
    * @return q
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,6 +219,7 @@ public class GeomapWidgetRequest {
     return q;
   }
 
+  @Deprecated
   public void setQ(String q) {
     this.q = q;
   }

@@ -365,10 +365,12 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Widget query.
+   * Widget query. Deprecated - Use <code>queries</code> and <code>formulas</code> instead.
    *
    * @return q
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -376,6 +378,7 @@ public class TimeseriesWidgetRequest {
     return q;
   }
 
+  @Deprecated
   public void setQ(String q) {
     this.q = q;
   }
