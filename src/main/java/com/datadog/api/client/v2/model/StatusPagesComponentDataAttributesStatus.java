@@ -27,7 +27,8 @@ public class StatusPagesComponentDataAttributesStatus extends ModelEnum<String> 
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("operational", "degraded", "partial_outage", "major_outage"));
+          Arrays.asList(
+              "operational", "degraded", "partial_outage", "major_outage", "maintenance"));
 
   public static final StatusPagesComponentDataAttributesStatus OPERATIONAL =
       new StatusPagesComponentDataAttributesStatus("operational");
@@ -37,6 +38,8 @@ public class StatusPagesComponentDataAttributesStatus extends ModelEnum<String> 
       new StatusPagesComponentDataAttributesStatus("partial_outage");
   public static final StatusPagesComponentDataAttributesStatus MAJOR_OUTAGE =
       new StatusPagesComponentDataAttributesStatus("major_outage");
+  public static final StatusPagesComponentDataAttributesStatus MAINTENANCE =
+      new StatusPagesComponentDataAttributesStatus("maintenance");
 
   StatusPagesComponentDataAttributesStatus(String value) {
     super(value, allowedValues);
