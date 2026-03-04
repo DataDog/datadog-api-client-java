@@ -256,10 +256,12 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Widget query.
+   * Widget query. Deprecated - Use <code>queries</code> and <code>formulas</code> instead.
    *
    * @return q
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,6 +269,7 @@ public class HeatMapWidgetRequest {
     return q;
   }
 
+  @Deprecated
   public void setQ(String q) {
     this.q = q;
   }
@@ -333,7 +336,8 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Request type for the histogram request.
+   * Request type for distribution of point values for distribution metrics. Query space aggregator
+   * must be <code>histogram:&lt;metric name&gt;</code> for points distributions.
    *
    * @return requestType
    */

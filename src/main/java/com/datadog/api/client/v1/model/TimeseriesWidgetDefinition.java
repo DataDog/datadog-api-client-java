@@ -153,10 +153,12 @@ public class TimeseriesWidgetDefinition {
   }
 
   /**
-   * List of widget events.
+   * List of widget events. Deprecated - Use <code>overlay</code> request type instead.
    *
    * @return events
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,6 +166,7 @@ public class TimeseriesWidgetDefinition {
     return events;
   }
 
+  @Deprecated
   public void setEvents(List<WidgetEvent> events) {
     this.events = events;
   }
