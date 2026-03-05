@@ -18,7 +18,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Supported metrics for monthly usage attribution requests. */
+/**
+ * Supported metrics for monthly usage attribution requests. Usage types are in the format <code>
+ * &lt;usage_type&gt;_usage</code>. To obtain the complete list of valid usage types, make a request
+ * to the <a
+ * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+ * usage attribution types API</a>.
+ */
 @JsonSerialize(
     using =
         MonthlyUsageAttributionSupportedMetrics.MonthlyUsageAttributionSupportedMetricsSerializer

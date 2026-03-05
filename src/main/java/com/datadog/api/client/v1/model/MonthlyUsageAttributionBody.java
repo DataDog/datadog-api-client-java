@@ -244,9 +244,7 @@ public class MonthlyUsageAttributionBody {
   }
 
   /**
-   * Fields in Usage Summary by tag(s). The following values have been <strong>deprecated</strong>:
-   * <code>estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
-   * <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage</code>.
+   * Fields in Usage Summary by tag(s).
    *
    * @return values
    */

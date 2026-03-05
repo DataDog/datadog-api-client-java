@@ -385,9 +385,12 @@ public class UsageMeteringApi {
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. The following values have been
-   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
-   *     estimated_ingested_spans_usage</code>. (required)
+   * @param usageType Usage type to retrieve. Usage types are in the format <code>
+   *     &lt;usage_type&gt;_usage</code>. Example: <code>infra_host_usage</code> To obtain the
+   *     complete list of active usage types that can be used to replace <code>&lt;usage_type&gt;
+   *     </code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @return HourlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
    */
@@ -405,9 +408,12 @@ public class UsageMeteringApi {
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. The following values have been
-   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
-   *     estimated_ingested_spans_usage</code>. (required)
+   * @param usageType Usage type to retrieve. Usage types are in the format <code>
+   *     &lt;usage_type&gt;_usage</code>. Example: <code>infra_host_usage</code> To obtain the
+   *     complete list of active usage types that can be used to replace <code>&lt;usage_type&gt;
+   *     </code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @return CompletableFuture&lt;HourlyUsageAttributionResponse&gt;
    */
   public CompletableFuture<HourlyUsageAttributionResponse> getHourlyUsageAttributionAsync(
@@ -427,9 +433,12 @@ public class UsageMeteringApi {
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. The following values have been
-   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
-   *     estimated_ingested_spans_usage</code>. (required)
+   * @param usageType Usage type to retrieve. Usage types are in the format <code>
+   *     &lt;usage_type&gt;_usage</code>. Example: <code>infra_host_usage</code> To obtain the
+   *     complete list of active usage types that can be used to replace <code>&lt;usage_type&gt;
+   *     </code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @param parameters Optional parameters for the request.
    * @return HourlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
@@ -449,9 +458,12 @@ public class UsageMeteringApi {
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. The following values have been
-   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
-   *     estimated_ingested_spans_usage</code>. (required)
+   * @param usageType Usage type to retrieve. Usage types are in the format <code>
+   *     &lt;usage_type&gt;_usage</code>. Example: <code>infra_host_usage</code> To obtain the
+   *     complete list of active usage types that can be used to replace <code>&lt;usage_type&gt;
+   *     </code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;HourlyUsageAttributionResponse&gt;
    */
@@ -479,16 +491,16 @@ public class UsageMeteringApi {
    *   sleep(5 seconds)  # Avoid running into rate limit
    *   response := GetHourlyUsageAttribution(start_month, next_record_id=cursor)
    *   cursor := response.metadata.pagination.next_record_id
-   * END</code> The following values have been <strong>deprecated</strong>: <code>
-   * estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>, <code>
-   * estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage</code>, <code>
-   * llm_observability_usage</code>, <code>llm_observability_percentage</code>.
+   * END</code>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. The following values have been
-   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
-   *     estimated_ingested_spans_usage</code>. (required)
+   * @param usageType Usage type to retrieve. Usage types are in the format <code>
+   *     &lt;usage_type&gt;_usage</code>. Example: <code>infra_host_usage</code> To obtain the
+   *     complete list of active usage types that can be used to replace <code>&lt;usage_type&gt;
+   *     </code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HourlyUsageAttributionResponse&gt;
    * @throws ApiException if fails to make API call
@@ -565,9 +577,12 @@ public class UsageMeteringApi {
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
-   * @param usageType Usage type to retrieve. The following values have been
-   *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
-   *     estimated_ingested_spans_usage</code>. (required)
+   * @param usageType Usage type to retrieve. Usage types are in the format <code>
+   *     &lt;usage_type&gt;_usage</code>. Example: <code>infra_host_usage</code> To obtain the
+   *     complete list of active usage types that can be used to replace <code>&lt;usage_type&gt;
+   *     </code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;HourlyUsageAttributionResponse&gt;&gt;
    */
@@ -1367,10 +1382,12 @@ public class UsageMeteringApi {
     /**
      * Set sortName.
      *
-     * @param sortName The field to sort by. The following values have been
-     *     <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
-     *     estimated_indexed_spans_percentage</code>, <code>estimated_ingested_spans_usage</code>,
-     *     <code>estimated_ingested_spans_percentage</code>. (optional)
+     * @param sortName The field to sort by. Sort fields are in the format <code>
+     *     &lt;usage_type&gt;_usage</code>. Example: <code>infra_host_usage</code> To obtain the
+     *     complete list of usage attribution types that can be used to replace <code>
+     *     &lt;usage_type&gt;</code> in the field names, make a request to the <a
+     *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+     *     usage attribution types API</a>. (optional)
      * @return GetMonthlyUsageAttributionOptionalParameters
      */
     public GetMonthlyUsageAttributionOptionalParameters sortName(
@@ -1426,11 +1443,12 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. The following values have been <strong>deprecated</strong>: <code>
-   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
-   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
-   *     (required)
+   *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
+   *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
+   *     </code> To obtain the complete list of usage attribution types that can be used to replace
+   *     <code>&lt;usage_type&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @return MonthlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
    */
@@ -1450,11 +1468,12 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. The following values have been <strong>deprecated</strong>: <code>
-   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
-   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
-   *     (required)
+   *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
+   *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
+   *     </code> To obtain the complete list of usage attribution types that can be used to replace
+   *     <code>&lt;usage_type&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @return CompletableFuture&lt;MonthlyUsageAttributionResponse&gt;
    */
   public CompletableFuture<MonthlyUsageAttributionResponse> getMonthlyUsageAttributionAsync(
@@ -1475,11 +1494,12 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. The following values have been <strong>deprecated</strong>: <code>
-   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
-   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
-   *     (required)
+   *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
+   *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
+   *     </code> To obtain the complete list of usage attribution types that can be used to replace
+   *     <code>&lt;usage_type&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @param parameters Optional parameters for the request.
    * @return MonthlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
@@ -1500,11 +1520,12 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. The following values have been <strong>deprecated</strong>: <code>
-   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
-   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
-   *     (required)
+   *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
+   *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
+   *     </code> To obtain the complete list of usage attribution types that can be used to replace
+   *     <code>&lt;usage_type&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;MonthlyUsageAttributionResponse&gt;
    */
@@ -1537,11 +1558,12 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. The following values have been <strong>deprecated</strong>: <code>
-   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
-   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
-   *     (required)
+   *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
+   *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
+   *     </code> To obtain the complete list of usage attribution types that can be used to replace
+   *     <code>&lt;usage_type&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MonthlyUsageAttributionResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1624,11 +1646,12 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
-   *     types. The following values have been <strong>deprecated</strong>: <code>
-   *     estimated_indexed_spans_usage</code>, <code>estimated_indexed_spans_percentage</code>,
-   *     <code>estimated_ingested_spans_usage</code>, <code>estimated_ingested_spans_percentage
-   *     </code>, <code>llm_observability_usage</code>, <code>llm_observability_percentage</code>.
-   *     (required)
+   *     types. Usage types are in the format <code>&lt;usage_type&gt;_usage</code> and <code>
+   *     &lt;usage_type&gt;_percentage</code>. Example: <code>infra_host_usage,infra_host_percentage
+   *     </code> To obtain the complete list of usage attribution types that can be used to replace
+   *     <code>&lt;usage_type&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+   *     usage attribution types API</a>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MonthlyUsageAttributionResponse&gt;&gt;
    */
