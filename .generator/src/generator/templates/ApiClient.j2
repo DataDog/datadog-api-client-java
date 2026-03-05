@@ -223,6 +223,16 @@ public class ApiClient {
     }
     defaultApiClient.configureApiKeys(secrets);
 
+    {%- for name, schema in specs.v2.components.securitySchemes.items() %}
+    {%- if schema.type == "http" and "x-env-name" in schema %}
+    // Configure {{ name }} authorization
+    String {{ name }}Token = System.getenv("{{ schema["x-env-name"] }}");
+    if ({{ name }}Token != null) {
+      defaultApiClient.setBearerToken({{ name }}Token);
+    }
+    {%- endif %}
+    {%- endfor %}
+
     return defaultApiClient;
   }
 
@@ -278,6 +288,15 @@ public class ApiClient {
       authentications.put("{{ name }}", auth);
     } else {
       authentications.put("{{ name }}", new {{ schema.type|upperfirst ~ "Auth" }}("{{ schema["in"] }}", "{{ schema.name }}"));
+    }
+    {%- elif schema.type == "http" %}
+    if (authMap != null) {
+      auth = authMap.get("{{ name }}");
+    }
+    if (auth instanceof HttpBearerAuth) {
+      authentications.put("{{ name }}", auth);
+    } else {
+      authentications.put("{{ name }}", new HttpBearerAuth("{{ schema.scheme }}"));
     }
     {%- endif %}
     {%- endfor %}
@@ -1580,5 +1599,15 @@ public class ApiClient {
       }
       auth.applyToParams(queryParams, headerParams, cookieParams, "", "", uri);
     }
+    {%- for name, schema in specs.v2.components.securitySchemes.items() %}
+    {%- if schema.type == "http" %}
+    // Apply bearer token auth if configured (sent alongside any other auth headers).
+    Authentication {{ name }} = authentications.get("{{ name }}");
+    if ({{ name }} instanceof HttpBearerAuth
+        && ((HttpBearerAuth) {{ name }}).getBearerToken() != null) {
+      {{ name }}.applyToParams(queryParams, headerParams, cookieParams, "", "", uri);
+    }
+    {%- endif %}
+    {%- endfor %}
   }
 }
