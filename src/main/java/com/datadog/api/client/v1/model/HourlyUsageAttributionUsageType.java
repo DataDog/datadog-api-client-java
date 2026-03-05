@@ -19,9 +19,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Supported products for hourly usage attribution requests. The following values have been
- * <strong>deprecated</strong>: <code>estimated_indexed_spans_usage</code>, <code>
- * estimated_ingested_spans_usage</code>.
+ * Supported products for hourly usage attribution requests. Usage types are in the format <code>
+ * &lt;usage_type&gt;_usage</code>. To obtain the complete list of valid usage types, make a request
+ * to the <a
+ * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-usage-attribution-types">Get
+ * usage attribution types API</a>.
  */
 @JsonSerialize(
     using = HourlyUsageAttributionUsageType.HourlyUsageAttributionUsageTypeSerializer.class)

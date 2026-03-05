@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.MonthlyCostAttributionResponse;
 import com.datadog.api.client.v2.model.ProjectedCostResponse;
 import com.datadog.api.client.v2.model.SortDirection;
 import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringResponse;
+import com.datadog.api.client.v2.model.UsageAttributionTypesResponse;
 import com.datadog.api.client.v2.model.UsageLambdaTracedInvocationsResponse;
 import com.datadog.api.client.v2.model.UsageObservabilityPipelinesResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -2410,6 +2411,118 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageApplicationSecurityMonitoringResponse>() {});
+  }
+
+  /**
+   * Get usage attribution types.
+   *
+   * <p>See {@link #getUsageAttributionTypesWithHttpInfo}.
+   *
+   * @return UsageAttributionTypesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageAttributionTypesResponse getUsageAttributionTypes() throws ApiException {
+    return getUsageAttributionTypesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get usage attribution types.
+   *
+   * <p>See {@link #getUsageAttributionTypesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;UsageAttributionTypesResponse&gt;
+   */
+  public CompletableFuture<UsageAttributionTypesResponse> getUsageAttributionTypesAsync() {
+    return getUsageAttributionTypesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get usage attribution types.
+   *
+   * @return ApiResponse&lt;UsageAttributionTypesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageAttributionTypesResponse> getUsageAttributionTypesWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/usage-attribution-types";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getUsageAttributionTypes",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageAttributionTypesResponse>() {});
+  }
+
+  /**
+   * Get usage attribution types.
+   *
+   * <p>See {@link #getUsageAttributionTypesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageAttributionTypesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageAttributionTypesResponse>>
+      getUsageAttributionTypesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/usage-attribution-types";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.getUsageAttributionTypes",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageAttributionTypesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageAttributionTypesResponse>() {});
   }
 
   /** Manage optional parameters to getUsageLambdaTracedInvocations. */
