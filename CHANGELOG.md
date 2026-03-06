@@ -1,5 +1,41 @@
 # CHANGELOG
 
+## 2.52.0/2026-03-06
+
+### Added
+* Billing_plan field deprecation - correction start date [#3556](https://github.com/DataDog/datadog-api-client-java/pull/3556)
+* Add ci_code_coverage_committers to usage API [#3553](https://github.com/DataDog/datadog-api-client-java/pull/3553)
+* Expose usage-attribution-types publicly and update attribution descriptions [#3552](https://github.com/DataDog/datadog-api-client-java/pull/3552)
+* Add new param to api/v2/metrics [#3546](https://github.com/DataDog/datadog-api-client-java/pull/3546)
+* Add FormulaAndFunctionEventQueryGroupByFields schema to support flat group_by form [#3542](https://github.com/DataDog/datadog-api-client-java/pull/3542)
+* billing_plan field deprecation in billable-summary endpoint [#3538](https://github.com/DataDog/datadog-api-client-java/pull/3538)
+* Add OpenAPI spec for LLM Observability Experiments API [#3537](https://github.com/DataDog/datadog-api-client-java/pull/3537)
+* Add missing persona_mapping endpoints [#3525](https://github.com/DataDog/datadog-api-client-java/pull/3525)
+* Adding Observability Pipelines Secret Management feature support [#3523](https://github.com/DataDog/datadog-api-client-java/pull/3523)
+* Workflow Automation - Add Form Trigger [#3522](https://github.com/DataDog/datadog-api-client-java/pull/3522)
+* Add Maintenances and minor updates to Status Pages API [#3520](https://github.com/DataDog/datadog-api-client-java/pull/3520)
+* Introduce api/v2/integration API endpoint [#3513](https://github.com/DataDog/datadog-api-client-java/pull/3513)
+* Add OpenAPI spec for Change Management endpoints [#3511](https://github.com/DataDog/datadog-api-client-java/pull/3511)
+* Add sort parameter to detection rules list endpoint [#3508](https://github.com/DataDog/datadog-api-client-java/pull/3508)
+* Add public documentation on NDM interface tags endpoint [#3505](https://github.com/DataDog/datadog-api-client-java/pull/3505)
+* Add documentation for POST api/v2/incidents/import [#3503](https://github.com/DataDog/datadog-api-client-java/pull/3503)
+* Post an event v2 API - add a new enum value to links.category field and add pattern validation on changed_resource.name field [#3502](https://github.com/DataDog/datadog-api-client-java/pull/3502)
+* Add receives_permissions_from field to Roles API [#3482](https://github.com/DataDog/datadog-api-client-java/pull/3482)
+* Adding custom mapper support to Observability Pipelines OCSF Mapper [#3478](https://github.com/DataDog/datadog-api-client-java/pull/3478)
+* Add seats API v2 endpoints with error responses and required fields [#3473](https://github.com/DataDog/datadog-api-client-java/pull/3473)
+* Added support for Google Chat Organization Handles Public API [#3452](https://github.com/DataDog/datadog-api-client-java/pull/3452)
+* Add Network Path test endpoints to v2 spec [#3448](https://github.com/DataDog/datadog-api-client-java/pull/3448)
+* Add OpenAPI documentation for cloud-auth-config service [#3419](https://github.com/DataDog/datadog-api-client-java/pull/3419)
+* Add suppression sort by create date [#3404](https://github.com/DataDog/datadog-api-client-java/pull/3404)
+
+### Deprecated
+* Mark legacy non-FnF query fields and WidgetEvent as deprecated in dashboard spec + update Distribuition docs [#3540](https://github.com/DataDog/datadog-api-client-java/pull/3540)
+
+### Fixed
+* Fix WidgetNewFixedSpan - timestamps are milliseconds not seconds [#3516](https://github.com/DataDog/datadog-api-client-java/pull/3516)
+* Increase validation limit on integration type [#3509](https://github.com/DataDog/datadog-api-client-java/pull/3509)
+* Add equals to reserved keywords and escape method names [#3499](https://github.com/DataDog/datadog-api-client-java/pull/3499)
+
 ## 2.51.0/2026-02-17
 
 ### Fixed
