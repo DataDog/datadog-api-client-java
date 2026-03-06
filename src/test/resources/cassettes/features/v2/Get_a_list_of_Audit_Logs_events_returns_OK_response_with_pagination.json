@@ -63,5 +63,39 @@
       "unlimited": true
     },
     "id": "2b753e88-a4c7-f7a4-51dd-856c3642bfae"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/audit/events",
+      "queryStringParameters": {
+        "page[limit]": [
+          "2"
+        ],
+        "page[cursor]": [
+          "eyJhZnRlciI6IkFRQUFBWUFpUWhuWTNRM3VVUUFBQUFCQldVRnBVV2h3YmtGQlEwczJhSGMyTWtoNGNtOTNRVUUifQ"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ce9bbfa2-c690-7d15-7c4d-36d38aa65d46"
   }
 ]

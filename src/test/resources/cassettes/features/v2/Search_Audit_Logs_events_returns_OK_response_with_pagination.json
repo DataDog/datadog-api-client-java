@@ -58,5 +58,35 @@
       "unlimited": true
     },
     "id": "283de1d2-fab4-ace0-bf88-f0d7465a4d1e"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"from\":\"now-15m\",\"to\":\"now\"},\"options\":{\"timezone\":\"GMT\"},\"page\":{\"cursor\":\"eyJhZnRlciI6IkFRQUFBWUFpT2hnV2pkb1otUUFBQUFCQldVRnBUMmgzVFVGQlJHSkxUR1pvU1U1MFRrOW5RVUUifQ\",\"limit\":2},\"sort\":\"timestamp\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/audit/events/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cf7178e1-1618-cd79-a1c8-ba5c142d4049"
   }
 ]

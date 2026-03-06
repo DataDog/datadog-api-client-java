@@ -63,5 +63,39 @@
       "unlimited": true
     },
     "id": "0907a899-8644-3453-9bb6-19daf9428f81"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/containers",
+      "queryStringParameters": {
+        "page[size]": [
+          "2"
+        ],
+        "page[cursor]": [
+          "c3RhcnRlZDoxNjk3MTE4NDExMDAwLjAwMDAwMHxpZC5yYXc6ODY4OWY2ODUtZTQ0MS00ODJjLTYwNDMtNWQ5ZA=="
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f831b6fe-7b05-02df-371d-d39587b281eb"
   }
 ]

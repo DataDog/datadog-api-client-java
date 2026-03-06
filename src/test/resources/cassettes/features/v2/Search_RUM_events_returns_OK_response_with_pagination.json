@@ -58,5 +58,35 @@
       "unlimited": true
     },
     "id": "8b916a34-67a6-910b-7517-c8593af9a56b"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"from\":\"now-15m\",\"query\":\"@type:session AND @session.type:user\",\"to\":\"now\"},\"options\":{\"time_offset\":0,\"timezone\":\"GMT\"},\"page\":{\"cursor\":\"eyJhZnRlciI6IkFRQUFBWUFkTzNLYXN2VDNLd0FBQUFCQldVRmtUek5UVFVGQlFrOXRiRkZaY3kwNGFVcDNRVWMifQ\",\"limit\":2},\"sort\":\"timestamp\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/rum/events/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1c0f1f31-e267-131c-f064-cb27cb28ad48"
   }
 ]
