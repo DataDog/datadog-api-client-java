@@ -21864,9 +21864,20 @@ components:
             org.
           format: int64
           type: integer
+        csm_host_enterprise_oci_host_count_top99p:
+          description: Shows the 99th percentile of all Cloud Security Management
+            Enterprise OCI hosts over all hours in the current date for the given
+            org.
+          format: int64
+          type: integer
         csm_host_enterprise_total_host_count_top99p:
           description: Shows the 99th percentile of all Cloud Security Management
             Enterprise hosts over all hours in the current date for the given org.
+          format: int64
+          type: integer
+        csm_host_pro_oci_host_count_top99p:
+          description: Shows the 99th percentile of all Cloud Security Management
+            Pro OCI hosts over all hours in the current date for the given org.
           format: int64
           type: integer
         cspm_aas_host_top99p:
@@ -23007,9 +23018,20 @@ components:
             org.
           format: int64
           type: integer
+        csm_host_enterprise_oci_host_count_top99p:
+          description: Shows the 99th percentile of all Cloud Security Management
+            Enterprise OCI hosts over all hours in the current date for the given
+            org.
+          format: int64
+          type: integer
         csm_host_enterprise_total_host_count_top99p:
           description: Shows the 99th percentile of all Cloud Security Management
             Enterprise hosts over all hours in the current date for the given org.
+          format: int64
+          type: integer
+        csm_host_pro_oci_host_count_top99p:
+          description: Shows the 99th percentile of all Cloud Security Management
+            Pro OCI hosts over all hours in the current date for the given org.
           format: int64
           type: integer
         cspm_aas_host_top99p:
@@ -24157,9 +24179,19 @@ components:
             Enterprise GCP hosts over all hours in the current month for all organizations.
           format: int64
           type: integer
+        csm_host_enterprise_oci_host_count_top99p_sum:
+          description: Shows the 99th percentile of all Cloud Security Management
+            Enterprise OCI hosts over all hours in the current month for all organizations.
+          format: int64
+          type: integer
         csm_host_enterprise_total_host_count_top99p_sum:
           description: Shows the 99th percentile of all Cloud Security Management
             Enterprise hosts over all hours in the current month for all organizations.
+          format: int64
+          type: integer
+        csm_host_pro_oci_host_count_top99p_sum:
+          description: Shows the 99th percentile of all Cloud Security Management
+            Pro OCI hosts over all hours in the current month for all organizations.
           format: int64
           type: integer
         cspm_aas_host_top99p_sum:
