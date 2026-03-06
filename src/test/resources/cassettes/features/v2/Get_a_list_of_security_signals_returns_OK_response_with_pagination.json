@@ -58,5 +58,39 @@
       "unlimited": true
     },
     "id": "061a9b64-a1e0-5379-4d1b-17a96dd06e5c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/security_monitoring/signals",
+      "queryStringParameters": {
+        "page[limit]": [
+          "2"
+        ],
+        "page[cursor]": [
+          "eyJhZnRlciI6IkFRQUFBWUFlRGFHZENMd21QZ0FBQUFCQldVRmxSR0ZIWkVGQlJFa3lkakpuYjFCSmF6Um5RVUUifQ"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "34062e0c-ed3d-3e52-4789-8a3a16fc113e"
   }
 ]
