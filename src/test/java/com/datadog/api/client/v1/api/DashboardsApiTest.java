@@ -552,7 +552,7 @@ public class DashboardsApiTest extends V1ApiTest {
                 new TimeseriesWidgetRequest()
                     .q("avg:system.load.1{*}")
                     .style(
-                        new WidgetRequestStyle()
+                        new TimeseriesRequestStyle()
                             .palette("dog_classic")
                             .lineType(WidgetLineType.DASHED)
                             .lineWidth(WidgetLineWidth.THICK))
@@ -614,7 +614,7 @@ public class DashboardsApiTest extends V1ApiTest {
                             .limit(10L)
                             .searchBy("editor"))
                     .style(
-                        new WidgetRequestStyle()
+                        new TimeseriesRequestStyle()
                             .palette("dog_classic")
                             .lineType(WidgetLineType.DASHED)
                             .lineWidth(WidgetLineWidth.THICK))
@@ -673,7 +673,7 @@ public class DashboardsApiTest extends V1ApiTest {
                                             .aggregation("count")
                                             .order(WidgetSort.ASCENDING))))
                     .style(
-                        new WidgetRequestStyle()
+                        new TimeseriesRequestStyle()
                             .palette("dog_classic")
                             .lineType(WidgetLineType.DASHED)
                             .lineWidth(WidgetLineWidth.THICK))
@@ -731,7 +731,7 @@ public class DashboardsApiTest extends V1ApiTest {
                                             .aggregation("count")
                                             .order(WidgetSort.ASCENDING))))
                     .style(
-                        new WidgetRequestStyle()
+                        new TimeseriesRequestStyle()
                             .palette("dog_classic")
                             .lineType(WidgetLineType.DASHED)
                             .lineWidth(WidgetLineWidth.THICK))

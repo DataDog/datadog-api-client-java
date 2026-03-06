@@ -1,4 +1,4 @@
-// Create a new dashboard with timeseries widget using order_by values
+// Create a new dashboard with timeseries widget using has_value_labels
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -12,7 +12,8 @@ import com.datadog.api.client.v1.model.TimeseriesWidgetRequest;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetDisplayType;
-import com.datadog.api.client.v1.model.WidgetStyleOrderBy;
+import com.datadog.api.client.v1.model.WidgetLineType;
+import com.datadog.api.client.v1.model.WidgetLineWidth;
 import java.util.Collections;
 
 public class Example {
@@ -23,7 +24,7 @@ public class Example {
     Dashboard body =
         new Dashboard()
             .layoutType(DashboardLayoutType.ORDERED)
-            .title("Example-Dashboard with order_by values")
+            .title("Example-Dashboard with has_value_labels")
             .widgets(
                 Collections.singletonList(
                     new Widget()
@@ -37,8 +38,10 @@ public class Example {
                                                 .q("avg:system.cpu.user{*} by {host}")
                                                 .style(
                                                     new TimeseriesRequestStyle()
-                                                        .palette("warm")
-                                                        .orderBy(WidgetStyleOrderBy.VALUES))
+                                                        .palette("dog_classic")
+                                                        .lineType(WidgetLineType.SOLID)
+                                                        .lineWidth(WidgetLineWidth.NORMAL)
+                                                        .hasValueLabels(true))
                                                 .displayType(WidgetDisplayType.LINE)))))));
 
     try {
