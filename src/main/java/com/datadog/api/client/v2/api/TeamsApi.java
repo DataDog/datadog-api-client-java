@@ -3211,7 +3211,6 @@ public class TeamsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Team sync configurations not found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -5026,6 +5025,9 @@ public class TeamsApi {
    *
    * <p>This operation is read-only on the GitHub side, no teams will be modified or created.
    *
+   * <p>Optionally, provide <code>selection_state</code> to limit synchronization to specific teams
+   * or organizations and their subtrees, instead of syncing all teams.
+   *
    * <p><a href="https://docs.datadoghq.com/integrations/github/">A GitHub organization must be
    * connected to your Datadog account</a>, and the GitHub App integrated with Datadog must have the
    * <code>Members Read</code> permission. Matching is performed by comparing the Datadog team
@@ -5041,6 +5043,7 @@ public class TeamsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *       <tr><td> 500 </td><td> Internal Server Error - Unexpected error during linking. </td><td>  -  </td></tr>
