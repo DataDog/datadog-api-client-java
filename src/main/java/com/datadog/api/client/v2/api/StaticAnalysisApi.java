@@ -13,6 +13,7 @@ import com.datadog.api.client.v2.model.CustomRuleRevisionResponse;
 import com.datadog.api.client.v2.model.CustomRuleRevisionsResponse;
 import com.datadog.api.client.v2.model.CustomRulesetRequest;
 import com.datadog.api.client.v2.model.CustomRulesetResponse;
+import com.datadog.api.client.v2.model.LicensesListRequest;
 import com.datadog.api.client.v2.model.ResolveVulnerableSymbolsRequest;
 import com.datadog.api.client.v2.model.ResolveVulnerableSymbolsResponse;
 import com.datadog.api.client.v2.model.RevertCustomRuleRevisionRequest;
@@ -1587,6 +1588,133 @@ public class StaticAnalysisApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CustomRulesetResponse>() {});
+  }
+
+  /**
+   * Get list of available licenses.
+   *
+   * <p>See {@link #getLicensesWithHttpInfo}.
+   *
+   * @return LicensesListRequest
+   * @throws ApiException if fails to make API call
+   */
+  public LicensesListRequest getLicenses() throws ApiException {
+    return getLicensesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get list of available licenses.
+   *
+   * <p>See {@link #getLicensesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LicensesListRequest&gt;
+   */
+  public CompletableFuture<LicensesListRequest> getLicensesAsync() {
+    return getLicensesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns a list of all available license identifiers and display names that can be used for
+   * filtering and categorization in SCA.
+   *
+   * @return ApiResponse&lt;LicensesListRequest&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LicensesListRequest> getLicensesWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getLicenses";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis-sca/licenses/list";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StaticAnalysisApi.getLicenses",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LicensesListRequest>() {});
+  }
+
+  /**
+   * Get list of available licenses.
+   *
+   * <p>See {@link #getLicensesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;LicensesListRequest&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LicensesListRequest>> getLicensesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getLicenses";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LicensesListRequest>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/static-analysis-sca/licenses/list";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StaticAnalysisApi.getLicenses",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LicensesListRequest>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LicensesListRequest>() {});
   }
 
   /** Manage optional parameters to listCustomRuleRevisions. */

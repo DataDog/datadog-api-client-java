@@ -969,6 +969,7 @@ public class ApiClient {
           put("v2.getCustomRule", false);
           put("v2.getCustomRuleRevision", false);
           put("v2.getCustomRuleset", false);
+          put("v2.getLicenses", false);
           put("v2.listCustomRuleRevisions", false);
           put("v2.revertCustomRuleRevision", false);
           put("v2.updateCustomRuleset", false);
