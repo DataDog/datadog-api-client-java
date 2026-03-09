@@ -69,7 +69,9 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_AWS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P,
@@ -431,9 +433,17 @@ public class UsageSummaryDateOrg {
       "csm_host_enterprise_gcp_host_count_top99p";
   private Long csmHostEnterpriseGcpHostCountTop99p;
 
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P =
+      "csm_host_enterprise_oci_host_count_top99p";
+  private Long csmHostEnterpriseOciHostCountTop99p;
+
   public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P =
       "csm_host_enterprise_total_host_count_top99p";
   private Long csmHostEnterpriseTotalHostCountTop99p;
+
+  public static final String JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P =
+      "csm_host_pro_oci_host_count_top99p";
+  private Long csmHostProOciHostCountTop99p;
 
   public static final String JSON_PROPERTY_CSPM_AAS_HOST_TOP99P = "cspm_aas_host_top99p";
   private Long cspmAasHostTop99p;
@@ -2189,6 +2199,29 @@ public class UsageSummaryDateOrg {
     this.csmHostEnterpriseGcpHostCountTop99p = csmHostEnterpriseGcpHostCountTop99p;
   }
 
+  public UsageSummaryDateOrg csmHostEnterpriseOciHostCountTop99p(
+      Long csmHostEnterpriseOciHostCountTop99p) {
+    this.csmHostEnterpriseOciHostCountTop99p = csmHostEnterpriseOciHostCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise OCI hosts over all hours
+   * in the current date for the given org.
+   *
+   * @return csmHostEnterpriseOciHostCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_OCI_HOST_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostEnterpriseOciHostCountTop99p() {
+    return csmHostEnterpriseOciHostCountTop99p;
+  }
+
+  public void setCsmHostEnterpriseOciHostCountTop99p(Long csmHostEnterpriseOciHostCountTop99p) {
+    this.csmHostEnterpriseOciHostCountTop99p = csmHostEnterpriseOciHostCountTop99p;
+  }
+
   public UsageSummaryDateOrg csmHostEnterpriseTotalHostCountTop99p(
       Long csmHostEnterpriseTotalHostCountTop99p) {
     this.csmHostEnterpriseTotalHostCountTop99p = csmHostEnterpriseTotalHostCountTop99p;
@@ -2210,6 +2243,28 @@ public class UsageSummaryDateOrg {
 
   public void setCsmHostEnterpriseTotalHostCountTop99p(Long csmHostEnterpriseTotalHostCountTop99p) {
     this.csmHostEnterpriseTotalHostCountTop99p = csmHostEnterpriseTotalHostCountTop99p;
+  }
+
+  public UsageSummaryDateOrg csmHostProOciHostCountTop99p(Long csmHostProOciHostCountTop99p) {
+    this.csmHostProOciHostCountTop99p = csmHostProOciHostCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro OCI hosts over all hours in the
+   * current date for the given org.
+   *
+   * @return csmHostProOciHostCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_PRO_OCI_HOST_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostProOciHostCountTop99p() {
+    return csmHostProOciHostCountTop99p;
+  }
+
+  public void setCsmHostProOciHostCountTop99p(Long csmHostProOciHostCountTop99p) {
+    this.csmHostProOciHostCountTop99p = csmHostProOciHostCountTop99p;
   }
 
   public UsageSummaryDateOrg cspmAasHostTop99p(Long cspmAasHostTop99p) {
@@ -6160,8 +6215,13 @@ public class UsageSummaryDateOrg {
             this.csmHostEnterpriseGcpHostCountTop99p,
             usageSummaryDateOrg.csmHostEnterpriseGcpHostCountTop99p)
         && Objects.equals(
+            this.csmHostEnterpriseOciHostCountTop99p,
+            usageSummaryDateOrg.csmHostEnterpriseOciHostCountTop99p)
+        && Objects.equals(
             this.csmHostEnterpriseTotalHostCountTop99p,
             usageSummaryDateOrg.csmHostEnterpriseTotalHostCountTop99p)
+        && Objects.equals(
+            this.csmHostProOciHostCountTop99p, usageSummaryDateOrg.csmHostProOciHostCountTop99p)
         && Objects.equals(this.cspmAasHostTop99p, usageSummaryDateOrg.cspmAasHostTop99p)
         && Objects.equals(this.cspmAwsHostTop99p, usageSummaryDateOrg.cspmAwsHostTop99p)
         && Objects.equals(this.cspmAzureHostTop99p, usageSummaryDateOrg.cspmAzureHostTop99p)
@@ -6533,7 +6593,9 @@ public class UsageSummaryDateOrg {
         csmHostEnterpriseComplianceHostCountTop99p,
         csmHostEnterpriseCwsHostCountTop99p,
         csmHostEnterpriseGcpHostCountTop99p,
+        csmHostEnterpriseOciHostCountTop99p,
         csmHostEnterpriseTotalHostCountTop99p,
+        csmHostProOciHostCountTop99p,
         cspmAasHostTop99p,
         cspmAwsHostTop99p,
         cspmAzureHostTop99p,
@@ -6836,8 +6898,14 @@ public class UsageSummaryDateOrg {
     sb.append("    csmHostEnterpriseGcpHostCountTop99p: ")
         .append(toIndentedString(csmHostEnterpriseGcpHostCountTop99p))
         .append("\n");
+    sb.append("    csmHostEnterpriseOciHostCountTop99p: ")
+        .append(toIndentedString(csmHostEnterpriseOciHostCountTop99p))
+        .append("\n");
     sb.append("    csmHostEnterpriseTotalHostCountTop99p: ")
         .append(toIndentedString(csmHostEnterpriseTotalHostCountTop99p))
+        .append("\n");
+    sb.append("    csmHostProOciHostCountTop99p: ")
+        .append(toIndentedString(csmHostProOciHostCountTop99p))
         .append("\n");
     sb.append("    cspmAasHostTop99p: ").append(toIndentedString(cspmAasHostTop99p)).append("\n");
     sb.append("    cspmAwsHostTop99p: ").append(toIndentedString(cspmAwsHostTop99p)).append("\n");
