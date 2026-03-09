@@ -63,5 +63,39 @@
       "unlimited": true
     },
     "id": "d10c8212-87e2-e19d-652d-8cbbb7a9be42"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/logs/events",
+      "queryStringParameters": {
+        "page[limit]": [
+          "2"
+        ],
+        "page[cursor]": [
+          "eyJhZnRlciI6IkFRQUFBWUFkTDlKNG1jT2g2QUFBQUFCQldVRmtUQzFPUzBGQlFucExkREpLZFZOYVlrTjNRVUkifQ"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f1244801-3032-34b8-d0d6-17dbcb632024"
   }
 ]

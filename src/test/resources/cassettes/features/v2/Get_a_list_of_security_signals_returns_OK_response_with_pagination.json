@@ -58,5 +58,35 @@
       "unlimited": true
     },
     "id": "061a9b64-a1e0-5379-4d1b-17a96dd06e5c"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"from\":\"2022-04-13T11:17:57.080Z\",\"query\":\"security:attack status:high\",\"to\":\"2022-04-13T11:32:57.080Z\"},\"page\":{\"cursor\":\"eyJhZnRlciI6IkFRQUFBWUFlRGFHZENMd21QZ0FBQUFCQldVRmxSR0ZIWkVGQlJFa3lkakpuYjFCSmF6Um5RVUUifQ\",\"limit\":2},\"sort\":\"timestamp\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/signals/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f16b41c7-90b8-d28e-8fd1-11a6b537762b"
   }
 ]

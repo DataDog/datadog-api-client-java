@@ -63,5 +63,39 @@
       "unlimited": true
     },
     "id": "dac4f5c3-8ea4-9aa7-310c-e48c0e650ceb"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/spans/events",
+      "queryStringParameters": {
+        "page[limit]": [
+          "2"
+        ],
+        "page[cursor]": [
+          "eyJhZnRlciI6IkFnQUFBWWtHdzRwa083amdBZ0FBQUFBQUFBQVlBQUFBQUVGWmEwZDNOVmRSUVVGQ01sbFRNV3N3WTNGdGVsQndad0FBQUNRQUFBQUFNREU0T1RBMll6TXRPR0UyTkMwMFpETmlMV0ZqWm1NdFlUaGxaR1kxTW1ZeE1Ua3kiLCJ2YWx1ZXMiOlsiMjAyMy0wNi0yOVQxMDo0NzowNS41NzJaIiwxMDAxOTcxNzE0XX0="
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "71a898e4-2263-698e-3030-826d7d36b4e4"
   }
 ]
