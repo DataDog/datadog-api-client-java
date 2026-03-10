@@ -128,7 +128,6 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM,
   UsageSummaryDate.JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM,
   UsageSummaryDate.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
-  UsageSummaryDate.JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_INFRA_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_IOT_DEVICE_SUM,
@@ -627,10 +626,6 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM = "indexed_events_count_sum";
   private Long indexedEventsCountSum;
-
-  public static final String JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P =
-      "infra_edge_monitoring_devices_top99p";
-  private Long infraEdgeMonitoringDevicesTop99p;
 
   public static final String JSON_PROPERTY_INFRA_HOST_TOP99P = "infra_host_top99p";
   private Long infraHostTop99p;
@@ -3438,28 +3433,6 @@ public class UsageSummaryDate {
     this.indexedEventsCountSum = indexedEventsCountSum;
   }
 
-  public UsageSummaryDate infraEdgeMonitoringDevicesTop99p(Long infraEdgeMonitoringDevicesTop99p) {
-    this.infraEdgeMonitoringDevicesTop99p = infraEdgeMonitoringDevicesTop99p;
-    return this;
-  }
-
-  /**
-   * Shows the 99th percentile of all Edge Devices Monitoring devices over all hours in the current
-   * date for all organizations.
-   *
-   * @return infraEdgeMonitoringDevicesTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraEdgeMonitoringDevicesTop99p() {
-    return infraEdgeMonitoringDevicesTop99p;
-  }
-
-  public void setInfraEdgeMonitoringDevicesTop99p(Long infraEdgeMonitoringDevicesTop99p) {
-    this.infraEdgeMonitoringDevicesTop99p = infraEdgeMonitoringDevicesTop99p;
-  }
-
   public UsageSummaryDate infraHostTop99p(Long infraHostTop99p) {
     this.infraHostTop99p = infraHostTop99p;
     return this;
@@ -6180,9 +6153,6 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.incidentManagementSeatsHwm, usageSummaryDate.incidentManagementSeatsHwm)
         && Objects.equals(this.indexedEventsCountSum, usageSummaryDate.indexedEventsCountSum)
-        && Objects.equals(
-            this.infraEdgeMonitoringDevicesTop99p,
-            usageSummaryDate.infraEdgeMonitoringDevicesTop99p)
         && Objects.equals(this.infraHostTop99p, usageSummaryDate.infraHostTop99p)
         && Objects.equals(this.ingestedEventsBytesSum, usageSummaryDate.ingestedEventsBytesSum)
         && Objects.equals(this.iotDeviceSum, usageSummaryDate.iotDeviceSum)
@@ -6513,7 +6483,6 @@ public class UsageSummaryDate {
         incidentManagementMonthlyActiveUsersHwm,
         incidentManagementSeatsHwm,
         indexedEventsCountSum,
-        infraEdgeMonitoringDevicesTop99p,
         infraHostTop99p,
         ingestedEventsBytesSum,
         iotDeviceSum,
@@ -6888,9 +6857,6 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    indexedEventsCountSum: ")
         .append(toIndentedString(indexedEventsCountSum))
-        .append("\n");
-    sb.append("    infraEdgeMonitoringDevicesTop99p: ")
-        .append(toIndentedString(infraEdgeMonitoringDevicesTop99p))
         .append("\n");
     sb.append("    infraHostTop99p: ").append(toIndentedString(infraHostTop99p)).append("\n");
     sb.append("    ingestedEventsBytesSum: ")
