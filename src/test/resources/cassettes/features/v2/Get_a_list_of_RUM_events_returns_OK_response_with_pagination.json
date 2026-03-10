@@ -63,5 +63,39 @@
       "unlimited": true
     },
     "id": "5ddbd2a2-b87a-98d4-705a-0d1993c8b388"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/rum/events",
+      "queryStringParameters": {
+        "page[limit]": [
+          "2"
+        ],
+        "page[cursor]": [
+          "eyJhZnRlciI6IkFRQUFBWUFkTzNLYXN2VDNLd0FBQUFCQldVRmtUek5UVFVGQlFrOXRiRkZaY3kwNGFVcDNRVWMifQ"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ffaad040-bc62-fb3a-f9f0-84cb3a16b744"
   }
 ]
