@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** The object describing attributes of a RUM retention filter. */
 @JsonPropertyOrder({
+  RumRetentionFilterAttributes.JSON_PROPERTY_CROSS_PRODUCT_SAMPLING,
   RumRetentionFilterAttributes.JSON_PROPERTY_ENABLED,
   RumRetentionFilterAttributes.JSON_PROPERTY_EVENT_TYPE,
   RumRetentionFilterAttributes.JSON_PROPERTY_NAME,
@@ -28,6 +29,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RumRetentionFilterAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CROSS_PRODUCT_SAMPLING = "cross_product_sampling";
+  private RumCrossProductSampling crossProductSampling;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -42,6 +46,32 @@ public class RumRetentionFilterAttributes {
 
   public static final String JSON_PROPERTY_SAMPLE_RATE = "sample_rate";
   private Double sampleRate;
+
+  public RumRetentionFilterAttributes crossProductSampling(
+      RumCrossProductSampling crossProductSampling) {
+    this.crossProductSampling = crossProductSampling;
+    this.unparsed |= crossProductSampling.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for additional APM trace data retention for sessions that match this retention
+   * filter. When a session matches the filter and is retained (based on <code>sample_rate</code>),
+   * you can configure the percentage of retained sessions with ingested traces whose traces are
+   * indexed.
+   *
+   * @return crossProductSampling
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_PRODUCT_SAMPLING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RumCrossProductSampling getCrossProductSampling() {
+    return crossProductSampling;
+  }
+
+  public void setCrossProductSampling(RumCrossProductSampling crossProductSampling) {
+    this.crossProductSampling = crossProductSampling;
+  }
 
   public RumRetentionFilterAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -208,7 +238,9 @@ public class RumRetentionFilterAttributes {
       return false;
     }
     RumRetentionFilterAttributes rumRetentionFilterAttributes = (RumRetentionFilterAttributes) o;
-    return Objects.equals(this.enabled, rumRetentionFilterAttributes.enabled)
+    return Objects.equals(
+            this.crossProductSampling, rumRetentionFilterAttributes.crossProductSampling)
+        && Objects.equals(this.enabled, rumRetentionFilterAttributes.enabled)
         && Objects.equals(this.eventType, rumRetentionFilterAttributes.eventType)
         && Objects.equals(this.name, rumRetentionFilterAttributes.name)
         && Objects.equals(this.query, rumRetentionFilterAttributes.query)
@@ -219,13 +251,17 @@ public class RumRetentionFilterAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, eventType, name, query, sampleRate, additionalProperties);
+    return Objects.hash(
+        crossProductSampling, enabled, eventType, name, query, sampleRate, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RumRetentionFilterAttributes {\n");
+    sb.append("    crossProductSampling: ")
+        .append(toIndentedString(crossProductSampling))
+        .append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
