@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Request object for updating a maintenance. */
 @JsonPropertyOrder({PatchMaintenanceRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class PatchMaintenanceRequest {
   }
 
   /**
-   * Getdata
+   * The data object for updating a maintenance.
    *
    * @return data
    */

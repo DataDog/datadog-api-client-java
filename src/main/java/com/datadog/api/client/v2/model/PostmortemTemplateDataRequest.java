@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for creating or updating a postmortem template. */
 @JsonPropertyOrder({
   PostmortemTemplateDataRequest.JSON_PROPERTY_ATTRIBUTES,
   PostmortemTemplateDataRequest.JSON_PROPERTY_TYPE
@@ -52,7 +52,7 @@ public class PostmortemTemplateDataRequest {
   }
 
   /**
-   * Getattributes
+   * Attributes for creating or updating a postmortem template.
    *
    * @return attributes
    */

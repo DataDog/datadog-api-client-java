@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** A status update recorded during a degradation. */
 @JsonPropertyOrder({
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_COMPONENTS_AFFECTED,
   DegradationDataAttributesUpdatesItems.JSON_PROPERTY_CREATED_AT,

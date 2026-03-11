@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object for updating a maintenance. */
 @JsonPropertyOrder({
   PatchMaintenanceRequestData.JSON_PROPERTY_ATTRIBUTES,
   PatchMaintenanceRequestData.JSON_PROPERTY_ID,

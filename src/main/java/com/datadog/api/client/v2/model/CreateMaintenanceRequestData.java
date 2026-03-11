@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object for creating a maintenance. */
 @JsonPropertyOrder({
   CreateMaintenanceRequestData.JSON_PROPERTY_ATTRIBUTES,
   CreateMaintenanceRequestData.JSON_PROPERTY_TYPE

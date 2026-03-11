@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response object for a single maintenance. */
 @JsonPropertyOrder({Maintenance.JSON_PROPERTY_DATA, Maintenance.JSON_PROPERTY_INCLUDED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -37,7 +37,7 @@ public class Maintenance {
   }
 
   /**
-   * Getdata
+   * The data object for a maintenance.
    *
    * @return data
    */

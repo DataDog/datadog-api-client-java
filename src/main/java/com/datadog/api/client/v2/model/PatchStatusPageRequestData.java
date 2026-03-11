@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object for updating a status page. */
 @JsonPropertyOrder({
   PatchStatusPageRequestData.JSON_PROPERTY_ATTRIBUTES,
   PatchStatusPageRequestData.JSON_PROPERTY_ID,

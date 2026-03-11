@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** A grouped component to be created within a status page component group. */
 @JsonPropertyOrder({
   CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems.JSON_PROPERTY_ID,
   CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems.JSON_PROPERTY_NAME,

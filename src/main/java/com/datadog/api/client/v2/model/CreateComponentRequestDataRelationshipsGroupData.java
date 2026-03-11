@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object identifying the group to create the component within. */
 @JsonPropertyOrder({
   CreateComponentRequestDataRelationshipsGroupData.JSON_PROPERTY_ID,
   CreateComponentRequestDataRelationshipsGroupData.JSON_PROPERTY_TYPE

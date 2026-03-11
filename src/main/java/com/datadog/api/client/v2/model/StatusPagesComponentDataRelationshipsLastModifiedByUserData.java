@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object identifying the Datadog user who last modified the component. */
 @JsonPropertyOrder({
   StatusPagesComponentDataRelationshipsLastModifiedByUserData.JSON_PROPERTY_ID,
   StatusPagesComponentDataRelationshipsLastModifiedByUserData.JSON_PROPERTY_TYPE

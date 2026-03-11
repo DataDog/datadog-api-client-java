@@ -73,7 +73,7 @@ public class CreateAttachmentRequestData {
   }
 
   /**
-   * Getid
+   * The unique identifier of the attachment.
    *
    * @return id
    */

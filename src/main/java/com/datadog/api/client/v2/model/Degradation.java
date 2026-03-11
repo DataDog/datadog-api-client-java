@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response object for a single degradation. */
 @JsonPropertyOrder({Degradation.JSON_PROPERTY_DATA, Degradation.JSON_PROPERTY_INCLUDED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -37,7 +37,7 @@ public class Degradation {
   }
 
   /**
-   * Getdata
+   * The data object for a degradation.
    *
    * @return data
    */
