@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response containing the list of deleted Synthetic tests. */
 @JsonPropertyOrder({DeletedTestsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,7 +45,7 @@ public class DeletedTestsResponse {
   }
 
   /**
-   * Getdata
+   * List of deleted Synthetic test data objects.
    *
    * @return data
    */

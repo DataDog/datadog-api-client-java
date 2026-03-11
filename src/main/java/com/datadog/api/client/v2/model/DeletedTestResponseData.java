@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for a deleted Synthetic test. */
 @JsonPropertyOrder({
   DeletedTestResponseData.JSON_PROPERTY_ATTRIBUTES,
   DeletedTestResponseData.JSON_PROPERTY_ID,
@@ -42,7 +42,7 @@ public class DeletedTestResponseData {
   }
 
   /**
-   * Getattributes
+   * Attributes of a deleted Synthetic test, including deletion timestamp and public ID.
    *
    * @return attributes
    */
@@ -63,7 +63,7 @@ public class DeletedTestResponseData {
   }
 
   /**
-   * Getid
+   * The public ID of the deleted Synthetic test.
    *
    * @return id
    */
@@ -85,7 +85,7 @@ public class DeletedTestResponseData {
   }
 
   /**
-   * Gettype
+   * Type for the bulk delete Synthetic tests response, <code>delete_tests</code>.
    *
    * @return type
    */

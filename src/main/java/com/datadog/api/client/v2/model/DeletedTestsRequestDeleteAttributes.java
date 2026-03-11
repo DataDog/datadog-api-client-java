@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes for a bulk delete Synthetic tests request. */
 @JsonPropertyOrder({
   DeletedTestsRequestDeleteAttributes.JSON_PROPERTY_FORCE_DELETE_DEPENDENCIES,
   DeletedTestsRequestDeleteAttributes.JSON_PROPERTY_PUBLIC_IDS
@@ -49,7 +49,7 @@ public class DeletedTestsRequestDeleteAttributes {
   }
 
   /**
-   * GetforceDeleteDependencies
+   * Whether to force deletion of tests that have dependent resources.
    *
    * @return forceDeleteDependencies
    */
@@ -75,7 +75,7 @@ public class DeletedTestsRequestDeleteAttributes {
   }
 
   /**
-   * GetpublicIds
+   * List of public IDs of the Synthetic tests to delete.
    *
    * @return publicIds
    */

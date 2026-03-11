@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes for a JSON Patch request on a Synthetic global variable. */
 @JsonPropertyOrder({GlobalVariableJsonPatchRequestDataAttributes.JSON_PROPERTY_JSON_PATCH})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
