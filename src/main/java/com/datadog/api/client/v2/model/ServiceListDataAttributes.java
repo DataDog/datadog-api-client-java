@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of a service list entry, containing metadata and a list of service names. */
 @JsonPropertyOrder({
   ServiceListDataAttributes.JSON_PROPERTY_METADATA,
   ServiceListDataAttributes.JSON_PROPERTY_SERVICES
@@ -52,7 +52,7 @@ public class ServiceListDataAttributes {
   }
 
   /**
-   * Getmetadata
+   * A list of metadata items associated with the service.
    *
    * @return metadata
    */
@@ -81,7 +81,7 @@ public class ServiceListDataAttributes {
   }
 
   /**
-   * Getservices
+   * A list of service names.
    *
    * @return services
    */
