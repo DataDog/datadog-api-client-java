@@ -49,7 +49,7 @@ public class BatchDeleteRowsRequestData {
   }
 
   /**
-   * Getid
+   * The primary key value that uniquely identifies the row to delete.
    *
    * @return id
    */
