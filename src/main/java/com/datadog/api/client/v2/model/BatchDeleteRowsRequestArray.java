@@ -52,7 +52,7 @@ public class BatchDeleteRowsRequestArray {
   }
 
   /**
-   * Getdata
+   * List of row resources to delete from the reference table.
    *
    * @return data
    */

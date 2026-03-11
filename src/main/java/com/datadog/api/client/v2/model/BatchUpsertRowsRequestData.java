@@ -75,7 +75,7 @@ public class BatchUpsertRowsRequestData {
   }
 
   /**
-   * Getid
+   * The primary key value that uniquely identifies the row to create or update.
    *
    * @return id
    */
