@@ -52,7 +52,7 @@ public class CreateJiraIssueRequestArray {
   }
 
   /**
-   * Getdata
+   * Array of Jira issue creation request data objects.
    *
    * @return data
    */
