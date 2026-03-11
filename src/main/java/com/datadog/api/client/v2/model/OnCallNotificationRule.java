@@ -82,7 +82,7 @@ public class OnCallNotificationRule {
   }
 
   /**
-   * Getincluded
+   * Array of related resources included in the response.
    *
    * @return included
    */
