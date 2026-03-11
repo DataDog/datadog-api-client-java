@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Request body for querying accounts with optional filtering, column selection, and sorting. */
 @JsonPropertyOrder({QueryAccountRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class QueryAccountRequest {
   }
 
   /**
-   * Getdata
+   * The data object containing the resource type and attributes for querying accounts.
    *
    * @return data
    */

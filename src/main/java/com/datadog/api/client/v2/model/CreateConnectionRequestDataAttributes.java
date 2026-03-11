@@ -19,7 +19,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes defining the data source connection, including join configuration and custom fields.
+ */
 @JsonPropertyOrder({
   CreateConnectionRequestDataAttributes.JSON_PROPERTY_FIELDS,
   CreateConnectionRequestDataAttributes.JSON_PROPERTY_JOIN_ATTRIBUTE,
@@ -78,7 +80,7 @@ public class CreateConnectionRequestDataAttributes {
   }
 
   /**
-   * Getfields
+   * List of custom attribute fields to import from the data source.
    *
    * @return fields
    */
@@ -99,7 +101,7 @@ public class CreateConnectionRequestDataAttributes {
   }
 
   /**
-   * GetjoinAttribute
+   * The attribute in the data source used to join records with the entity.
    *
    * @return joinAttribute
    */
@@ -119,7 +121,8 @@ public class CreateConnectionRequestDataAttributes {
   }
 
   /**
-   * GetjoinType
+   * The type of join key used to link the data source to the entity (for example, email or
+   * user_id).
    *
    * @return joinType
    */
@@ -147,7 +150,7 @@ public class CreateConnectionRequestDataAttributes {
   }
 
   /**
-   * Getmetadata
+   * Additional key-value metadata associated with the connection.
    *
    * @return metadata
    */
@@ -168,7 +171,7 @@ public class CreateConnectionRequestDataAttributes {
   }
 
   /**
-   * Gettype
+   * The type of data source connection (for example, ref_table).
    *
    * @return type
    */

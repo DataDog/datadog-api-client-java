@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object containing the resource type and attributes for the facet info response. */
 @JsonPropertyOrder({
   FacetInfoResponseData.JSON_PROPERTY_ATTRIBUTES,
   FacetInfoResponseData.JSON_PROPERTY_ID,
@@ -52,7 +52,7 @@ public class FacetInfoResponseData {
   }
 
   /**
-   * Getattributes
+   * Attributes of the facet info response, containing the facet result data.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class FacetInfoResponseData {
   }
 
   /**
-   * Getid
+   * Unique identifier for the facet info response resource.
    *
    * @return id
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object containing the resource type and attributes for the get mapping response. */
 @JsonPropertyOrder({
   GetMappingResponseData.JSON_PROPERTY_ATTRIBUTES,
   GetMappingResponseData.JSON_PROPERTY_ID,
@@ -52,7 +52,7 @@ public class GetMappingResponseData {
   }
 
   /**
-   * Getattributes
+   * Attributes of the get mapping response, containing the list of configured entity attributes.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class GetMappingResponseData {
   }
 
   /**
-   * Getid
+   * Unique identifier for the get mapping response resource.
    *
    * @return id
    */

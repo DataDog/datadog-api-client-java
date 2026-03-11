@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes for filtering and shaping the user query results. */
 @JsonPropertyOrder({
   QueryUsersRequestDataAttributes.JSON_PROPERTY_LIMIT,
   QueryUsersRequestDataAttributes.JSON_PROPERTY_QUERY,
@@ -51,7 +51,7 @@ public class QueryUsersRequestDataAttributes {
   }
 
   /**
-   * Getlimit
+   * Maximum number of user records to return in the response.
    *
    * @return limit
    */
@@ -72,7 +72,7 @@ public class QueryUsersRequestDataAttributes {
   }
 
   /**
-   * Getquery
+   * Filter expression using user attribute conditions to narrow results.
    *
    * @return query
    */
@@ -101,7 +101,7 @@ public class QueryUsersRequestDataAttributes {
   }
 
   /**
-   * GetselectColumns
+   * List of user attribute column names to include in the response.
    *
    * @return selectColumns
    */
@@ -123,7 +123,7 @@ public class QueryUsersRequestDataAttributes {
   }
 
   /**
-   * Getsort
+   * Sorting configuration specifying the field and direction for ordering user query results.
    *
    * @return sort
    */
@@ -144,7 +144,7 @@ public class QueryUsersRequestDataAttributes {
   }
 
   /**
-   * GetwildcardSearchTerm
+   * Free-text term used for wildcard search across user attribute values.
    *
    * @return wildcardSearchTerm
    */

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of the query response, containing the matched records and total count. */
 @JsonPropertyOrder({
   QueryResponseDataAttributes.JSON_PROPERTY_HITS,
   QueryResponseDataAttributes.JSON_PROPERTY_TOTAL
@@ -47,7 +47,7 @@ public class QueryResponseDataAttributes {
   }
 
   /**
-   * Gethits
+   * The list of matching records returned by the query, each as a map of attribute names to values.
    *
    * @return hits
    */
@@ -68,7 +68,7 @@ public class QueryResponseDataAttributes {
   }
 
   /**
-   * Gettotal
+   * Total number of records matching the query, regardless of the limit applied.
    *
    * @return total
    */

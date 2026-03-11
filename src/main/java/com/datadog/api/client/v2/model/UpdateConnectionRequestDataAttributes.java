@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes specifying the field modifications to apply to an existing connection. */
 @JsonPropertyOrder({
   UpdateConnectionRequestDataAttributes.JSON_PROPERTY_FIELDS_TO_ADD,
   UpdateConnectionRequestDataAttributes.JSON_PROPERTY_FIELDS_TO_DELETE,
@@ -57,7 +57,7 @@ public class UpdateConnectionRequestDataAttributes {
   }
 
   /**
-   * GetfieldsToAdd
+   * New fields to add to the connection from the data source.
    *
    * @return fieldsToAdd
    */
@@ -86,7 +86,7 @@ public class UpdateConnectionRequestDataAttributes {
   }
 
   /**
-   * GetfieldsToDelete
+   * Identifiers of existing fields to remove from the connection.
    *
    * @return fieldsToDelete
    */
@@ -121,7 +121,7 @@ public class UpdateConnectionRequestDataAttributes {
   }
 
   /**
-   * GetfieldsToUpdate
+   * Existing fields with updated metadata to apply to the connection.
    *
    * @return fieldsToUpdate
    */

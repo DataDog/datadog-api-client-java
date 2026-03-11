@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Request body for querying users filtered by user properties combined with event platform
+ * activity.
+ */
 @JsonPropertyOrder({QueryEventFilteredUsersRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +35,7 @@ public class QueryEventFilteredUsersRequest {
   }
 
   /**
-   * Getdata
+   * The data object containing the resource type and attributes for querying event-filtered users.
    *
    * @return data
    */

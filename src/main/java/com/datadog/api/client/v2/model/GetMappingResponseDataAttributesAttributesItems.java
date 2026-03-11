@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Details of a single entity attribute including its mapping configuration and metadata. */
 @JsonPropertyOrder({
   GetMappingResponseDataAttributesAttributesItems.JSON_PROPERTY_ATTRIBUTE,
   GetMappingResponseDataAttributesAttributesItems.JSON_PROPERTY_DESCRIPTION,
@@ -55,7 +55,7 @@ public class GetMappingResponseDataAttributesAttributesItems {
   }
 
   /**
-   * Getattribute
+   * The attribute identifier as used in the entity data model.
    *
    * @return attribute
    */
@@ -76,7 +76,7 @@ public class GetMappingResponseDataAttributesAttributesItems {
   }
 
   /**
-   * Getdescription
+   * Human-readable explanation of what the attribute represents.
    *
    * @return description
    */
@@ -97,7 +97,7 @@ public class GetMappingResponseDataAttributesAttributesItems {
   }
 
   /**
-   * GetdisplayName
+   * The human-readable label for the attribute shown in the UI.
    *
    * @return displayName
    */
@@ -126,7 +126,7 @@ public class GetMappingResponseDataAttributesAttributesItems {
   }
 
   /**
-   * Getgroups
+   * List of group labels used to categorize the attribute.
    *
    * @return groups
    */
@@ -147,7 +147,7 @@ public class GetMappingResponseDataAttributesAttributesItems {
   }
 
   /**
-   * GetisCustom
+   * Whether this attribute is a custom user-defined attribute rather than a built-in one.
    *
    * @return isCustom
    */
@@ -168,7 +168,7 @@ public class GetMappingResponseDataAttributesAttributesItems {
   }
 
   /**
-   * Gettype
+   * The data type of the attribute (for example, string or number).
    *
    * @return type
    */

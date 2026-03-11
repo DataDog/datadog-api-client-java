@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A single facet value with its occurrence count in the dataset. */
 @JsonPropertyOrder({
   FacetInfoResponseDataAttributesResultValuesItems.JSON_PROPERTY_COUNT,
   FacetInfoResponseDataAttributesResultValuesItems.JSON_PROPERTY_VALUE
@@ -37,7 +37,7 @@ public class FacetInfoResponseDataAttributesResultValuesItems {
   }
 
   /**
-   * Getcount
+   * The number of records that have this facet value.
    *
    * @return count
    */
@@ -58,7 +58,7 @@ public class FacetInfoResponseDataAttributesResultValuesItems {
   }
 
   /**
-   * Getvalue
+   * The facet value (for example, a browser name or country code).
    *
    * @return value
    */

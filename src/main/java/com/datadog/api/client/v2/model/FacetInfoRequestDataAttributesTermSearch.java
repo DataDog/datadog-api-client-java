@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Term-level search configuration for filtering facet values by an exact or partial term match. */
 @JsonPropertyOrder({FacetInfoRequestDataAttributesTermSearch.JSON_PROPERTY_VALUE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,7 +31,7 @@ public class FacetInfoRequestDataAttributesTermSearch {
   }
 
   /**
-   * Getvalue
+   * The term string to match against facet values.
    *
    * @return value
    */

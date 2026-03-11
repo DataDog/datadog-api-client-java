@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes for filtering and shaping the account query results. */
 @JsonPropertyOrder({
   QueryAccountRequestDataAttributes.JSON_PROPERTY_LIMIT,
   QueryAccountRequestDataAttributes.JSON_PROPERTY_QUERY,
@@ -51,7 +51,7 @@ public class QueryAccountRequestDataAttributes {
   }
 
   /**
-   * Getlimit
+   * Maximum number of account records to return in the response.
    *
    * @return limit
    */
@@ -72,7 +72,7 @@ public class QueryAccountRequestDataAttributes {
   }
 
   /**
-   * Getquery
+   * Filter expression using account attribute conditions to narrow results.
    *
    * @return query
    */
@@ -101,7 +101,7 @@ public class QueryAccountRequestDataAttributes {
   }
 
   /**
-   * GetselectColumns
+   * List of account attribute column names to include in the response.
    *
    * @return selectColumns
    */
@@ -123,7 +123,7 @@ public class QueryAccountRequestDataAttributes {
   }
 
   /**
-   * Getsort
+   * Sorting configuration specifying the field and direction for ordering query results.
    *
    * @return sort
    */
@@ -144,7 +144,7 @@ public class QueryAccountRequestDataAttributes {
   }
 
   /**
-   * GetwildcardSearchTerm
+   * Free-text term used for wildcard search across account attribute values.
    *
    * @return wildcardSearchTerm
    */

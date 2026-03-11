@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object containing the resource type and attributes for creating a new connection. */
 @JsonPropertyOrder({
   CreateConnectionRequestData.JSON_PROPERTY_ATTRIBUTES,
   CreateConnectionRequestData.JSON_PROPERTY_ID,
@@ -53,7 +53,7 @@ public class CreateConnectionRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes defining the data source connection, including join configuration and custom fields.
    *
    * @return attributes
    */
@@ -74,7 +74,7 @@ public class CreateConnectionRequestData {
   }
 
   /**
-   * Getid
+   * Unique identifier for the new connection resource.
    *
    * @return id
    */
