@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A single RUM replay session watch resource returned by create operations. */
 @JsonPropertyOrder({Watch.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -41,7 +41,8 @@ public class Watch {
   }
 
   /**
-   * Getdata
+   * Data object representing a session watch record, including its identifier, type, and
+   * attributes.
    *
    * @return data
    */

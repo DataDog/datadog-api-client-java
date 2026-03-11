@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Data object for a heatmap snapshot update request, containing the resource identifier, type, and
+ * attributes.
+ */
 @JsonPropertyOrder({
   SnapshotUpdateRequestData.JSON_PROPERTY_ATTRIBUTES,
   SnapshotUpdateRequestData.JSON_PROPERTY_ID,
@@ -53,7 +56,7 @@ public class SnapshotUpdateRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes for updating a heatmap snapshot, including event, session, and view context.
    *
    * @return attributes
    */
@@ -74,7 +77,7 @@ public class SnapshotUpdateRequestData {
   }
 
   /**
-   * Getid
+   * Unique identifier of the heatmap snapshot to update.
    *
    * @return id
    */

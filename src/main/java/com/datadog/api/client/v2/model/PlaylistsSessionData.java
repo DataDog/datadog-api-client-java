@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Data object representing a session within a playlist, including its identifier, type, and
+ * attributes.
+ */
 @JsonPropertyOrder({
   PlaylistsSessionData.JSON_PROPERTY_ATTRIBUTES,
   PlaylistsSessionData.JSON_PROPERTY_ID,
@@ -54,7 +57,8 @@ public class PlaylistsSessionData {
   }
 
   /**
-   * Getattributes
+   * Attributes of a session within a playlist, including the session event data and its replay
+   * track.
    *
    * @return attributes
    */
@@ -75,7 +79,7 @@ public class PlaylistsSessionData {
   }
 
   /**
-   * Getid
+   * Unique identifier of the RUM replay session.
    *
    * @return id
    */

@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Data object representing a RUM replay playlist, including its identifier, type, and attributes.
+ */
 @JsonPropertyOrder({
   PlaylistData.JSON_PROPERTY_ATTRIBUTES,
   PlaylistData.JSON_PROPERTY_ID,
@@ -52,7 +54,8 @@ public class PlaylistData {
   }
 
   /**
-   * Getattributes
+   * Attributes of a RUM replay playlist, including its name, description, session count, and audit
+   * timestamps.
    *
    * @return attributes
    */
@@ -73,7 +76,7 @@ public class PlaylistData {
   }
 
   /**
-   * Getid
+   * Unique identifier of the playlist.
    *
    * @return id
    */

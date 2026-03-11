@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Data object representing a session watch record, including its identifier, type, and attributes.
+ */
 @JsonPropertyOrder({
   WatchData.JSON_PROPERTY_ATTRIBUTES,
   WatchData.JSON_PROPERTY_ID,
@@ -51,7 +53,8 @@ public class WatchData {
   }
 
   /**
-   * Getattributes
+   * Attributes for recording a session watch event, including the application, event reference, and
+   * timestamp.
    *
    * @return attributes
    */
@@ -72,7 +75,7 @@ public class WatchData {
   }
 
   /**
-   * Getid
+   * Unique identifier of the watch record.
    *
    * @return id
    */

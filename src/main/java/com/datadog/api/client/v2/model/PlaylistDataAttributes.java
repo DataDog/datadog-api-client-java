@@ -18,7 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes of a RUM replay playlist, including its name, description, session count, and audit
+ * timestamps.
+ */
 @JsonPropertyOrder({
   PlaylistDataAttributes.JSON_PROPERTY_CREATED_AT,
   PlaylistDataAttributes.JSON_PROPERTY_CREATED_BY,
@@ -63,7 +66,7 @@ public class PlaylistDataAttributes {
   }
 
   /**
-   * GetcreatedAt
+   * Timestamp when the playlist was created.
    *
    * @return createdAt
    */
@@ -85,7 +88,7 @@ public class PlaylistDataAttributes {
   }
 
   /**
-   * GetcreatedBy
+   * Information about the user who created the playlist.
    *
    * @return createdBy
    */
@@ -106,7 +109,7 @@ public class PlaylistDataAttributes {
   }
 
   /**
-   * Getdescription
+   * Optional human-readable description of the playlist's purpose or contents.
    *
    * @return description
    */
@@ -127,7 +130,7 @@ public class PlaylistDataAttributes {
   }
 
   /**
-   * Getname
+   * Human-readable name of the playlist.
    *
    * @return name
    */
@@ -147,7 +150,7 @@ public class PlaylistDataAttributes {
   }
 
   /**
-   * GetsessionCount
+   * Number of replay sessions currently in the playlist.
    *
    * @return sessionCount
    */
@@ -168,7 +171,7 @@ public class PlaylistDataAttributes {
   }
 
   /**
-   * GetupdatedAt
+   * Timestamp when the playlist was last updated.
    *
    * @return updatedAt
    */
