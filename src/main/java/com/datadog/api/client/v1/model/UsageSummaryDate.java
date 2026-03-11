@@ -146,6 +146,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_NETWORK_PATH_SUM,
   UsageSummaryDate.JSON_PROPERTY_NPM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM,
   UsageSummaryDate.JSON_PROPERTY_OCI_HOST_SUM,
@@ -692,6 +693,9 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_NETWORK_DEVICE_WIRELESS_TOP99P =
       "network_device_wireless_top99p";
   private Long networkDeviceWirelessTop99p;
+
+  public static final String JSON_PROPERTY_NETWORK_PATH_SUM = "network_path_sum";
+  private Long networkPathSum;
 
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P = "npm_host_top99p";
   private Long npmHostTop99p;
@@ -3860,6 +3864,28 @@ public class UsageSummaryDate {
     this.networkDeviceWirelessTop99p = networkDeviceWirelessTop99p;
   }
 
+  public UsageSummaryDate networkPathSum(Long networkPathSum) {
+    this.networkPathSum = networkPathSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Network Path scheduled tests over all hours in the current date for all
+   * organizations.
+   *
+   * @return networkPathSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NETWORK_PATH_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getNetworkPathSum() {
+    return networkPathSum;
+  }
+
+  public void setNetworkPathSum(Long networkPathSum) {
+    this.networkPathSum = networkPathSum;
+  }
+
   public UsageSummaryDate npmHostTop99p(Long npmHostTop99p) {
     this.npmHostTop99p = npmHostTop99p;
     return this;
@@ -6210,6 +6236,7 @@ public class UsageSummaryDate {
             this.netflowIndexedEventsCountSum, usageSummaryDate.netflowIndexedEventsCountSum)
         && Objects.equals(
             this.networkDeviceWirelessTop99p, usageSummaryDate.networkDeviceWirelessTop99p)
+        && Objects.equals(this.networkPathSum, usageSummaryDate.networkPathSum)
         && Objects.equals(this.npmHostTop99p, usageSummaryDate.npmHostTop99p)
         && Objects.equals(
             this.observabilityPipelinesBytesProcessedSum,
@@ -6531,6 +6558,7 @@ public class UsageSummaryDate {
         ndmNetflowEventsSum,
         netflowIndexedEventsCountSum,
         networkDeviceWirelessTop99p,
+        networkPathSum,
         npmHostTop99p,
         observabilityPipelinesBytesProcessedSum,
         ociHostSum,
@@ -6935,6 +6963,7 @@ public class UsageSummaryDate {
     sb.append("    networkDeviceWirelessTop99p: ")
         .append(toIndentedString(networkDeviceWirelessTop99p))
         .append("\n");
+    sb.append("    networkPathSum: ").append(toIndentedString(networkPathSum)).append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
     sb.append("    observabilityPipelinesBytesProcessedSum: ")
         .append(toIndentedString(observabilityPipelinesBytesProcessedSum))
