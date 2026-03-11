@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Synchronization configuration for Jira integration */
 @JsonPropertyOrder({
   IntegrationJiraSync.JSON_PROPERTY_ENABLED,
   IntegrationJiraSync.JSON_PROPERTY_PROPERTIES
@@ -37,7 +37,7 @@ public class IntegrationJiraSync {
   }
 
   /**
-   * Getenabled
+   * Whether Jira field synchronization is enabled
    *
    * @return enabled
    */
@@ -59,7 +59,7 @@ public class IntegrationJiraSync {
   }
 
   /**
-   * Getproperties
+   * Field synchronization properties for Jira integration
    *
    * @return properties
    */

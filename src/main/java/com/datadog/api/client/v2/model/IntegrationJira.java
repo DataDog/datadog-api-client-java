@@ -46,7 +46,7 @@ public class IntegrationJira {
   }
 
   /**
-   * GetautoCreation
+   * Auto-creation settings for Jira issues from cases
    *
    * @return autoCreation
    */
@@ -89,7 +89,7 @@ public class IntegrationJira {
   }
 
   /**
-   * Getmetadata
+   * Metadata for connecting a case management project to a Jira project
    *
    * @return metadata
    */
@@ -111,7 +111,7 @@ public class IntegrationJira {
   }
 
   /**
-   * Getsync
+   * Synchronization configuration for Jira integration
    *
    * @return sync
    */

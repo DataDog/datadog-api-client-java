@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Sort configuration for a project board column */
 @JsonPropertyOrder({
   ProjectColumnsConfigColumnsItemsSort.JSON_PROPERTY_ASCENDING,
   ProjectColumnsConfigColumnsItemsSort.JSON_PROPERTY_PRIORITY
@@ -37,7 +37,7 @@ public class ProjectColumnsConfigColumnsItemsSort {
   }
 
   /**
-   * Getascending
+   * Whether to sort in ascending order
    *
    * @return ascending
    */
@@ -58,7 +58,7 @@ public class ProjectColumnsConfigColumnsItemsSort {
   }
 
   /**
-   * Getpriority
+   * The sort priority order for this column
    *
    * @return priority
    */
