@@ -247,6 +247,59 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             e);
       }
 
+      // deserialize ObservabilityPipelineAmazonS3GenericDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineAmazonS3GenericDestination.class.equals(Integer.class)
+            || ObservabilityPipelineAmazonS3GenericDestination.class.equals(Long.class)
+            || ObservabilityPipelineAmazonS3GenericDestination.class.equals(Float.class)
+            || ObservabilityPipelineAmazonS3GenericDestination.class.equals(Double.class)
+            || ObservabilityPipelineAmazonS3GenericDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineAmazonS3GenericDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineAmazonS3GenericDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineAmazonS3GenericDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineAmazonS3GenericDestination.class.equals(Float.class)
+                        || ObservabilityPipelineAmazonS3GenericDestination.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineAmazonS3GenericDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineAmazonS3GenericDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineAmazonS3GenericDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineAmazonS3GenericDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineAmazonS3GenericDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineAmazonS3GenericDestination'",
+            e);
+      }
+
       // deserialize ObservabilityPipelineAmazonSecurityLakeDestination
       try {
         boolean attemptParsing = true;
@@ -1320,6 +1373,12 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   }
 
   public ObservabilityPipelineConfigDestinationItem(
+      ObservabilityPipelineAmazonS3GenericDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigDestinationItem(
       ObservabilityPipelineAmazonSecurityLakeDestination o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1437,6 +1496,9 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
         "ObservabilityPipelineAmazonS3Destination",
         new GenericType<ObservabilityPipelineAmazonS3Destination>() {});
     schemas.put(
+        "ObservabilityPipelineAmazonS3GenericDestination",
+        new GenericType<ObservabilityPipelineAmazonS3GenericDestination>() {});
+    schemas.put(
         "ObservabilityPipelineAmazonSecurityLakeDestination",
         new GenericType<ObservabilityPipelineAmazonSecurityLakeDestination>() {});
     schemas.put("AzureStorageDestination", new GenericType<AzureStorageDestination>() {});
@@ -1505,6 +1567,7 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: ObservabilityPipelineHttpClientDestination,
    * ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineAmazonS3Destination,
+   * ObservabilityPipelineAmazonS3GenericDestination,
    * ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,
    * ObservabilityPipelineCloudPremDestination,
    * ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
@@ -1537,6 +1600,11 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
     }
     if (JSON.isInstanceOf(
         ObservabilityPipelineAmazonS3Destination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineAmazonS3GenericDestination.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1653,6 +1721,7 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
         "Invalid instance type. Must be ObservabilityPipelineHttpClientDestination,"
             + " ObservabilityPipelineAmazonOpenSearchDestination,"
             + " ObservabilityPipelineAmazonS3Destination,"
+            + " ObservabilityPipelineAmazonS3GenericDestination,"
             + " ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,"
             + " ObservabilityPipelineCloudPremDestination,"
             + " ObservabilityPipelineCrowdStrikeNextGenSiemDestination,"
@@ -1675,8 +1744,9 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   /**
    * Get the actual instance, which can be the following:
    * ObservabilityPipelineHttpClientDestination, ObservabilityPipelineAmazonOpenSearchDestination,
-   * ObservabilityPipelineAmazonS3Destination, ObservabilityPipelineAmazonSecurityLakeDestination,
-   * AzureStorageDestination, ObservabilityPipelineCloudPremDestination,
+   * ObservabilityPipelineAmazonS3Destination, ObservabilityPipelineAmazonS3GenericDestination,
+   * ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,
+   * ObservabilityPipelineCloudPremDestination,
    * ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
    * ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineElasticsearchDestination,
    * ObservabilityPipelineGoogleChronicleDestination,
@@ -1690,6 +1760,7 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    *
    * @return The actual instance (ObservabilityPipelineHttpClientDestination,
    *     ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineAmazonS3Destination,
+   *     ObservabilityPipelineAmazonS3GenericDestination,
    *     ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,
    *     ObservabilityPipelineCloudPremDestination,
    *     ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
@@ -1744,6 +1815,20 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   public ObservabilityPipelineAmazonS3Destination getObservabilityPipelineAmazonS3Destination()
       throws ClassCastException {
     return (ObservabilityPipelineAmazonS3Destination) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineAmazonS3GenericDestination`. If the actual
+   * instance is not `ObservabilityPipelineAmazonS3GenericDestination`, the ClassCastException will
+   * be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineAmazonS3GenericDestination`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineAmazonS3GenericDestination`
+   */
+  public ObservabilityPipelineAmazonS3GenericDestination
+      getObservabilityPipelineAmazonS3GenericDestination() throws ClassCastException {
+    return (ObservabilityPipelineAmazonS3GenericDestination) super.getActualInstance();
   }
 
   /**

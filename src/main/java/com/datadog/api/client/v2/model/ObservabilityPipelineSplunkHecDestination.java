@@ -32,7 +32,6 @@ import java.util.Objects;
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_ID,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_INDEX,
-  ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_INDEXED_FIELDS,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_SOURCETYPE,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_TOKEN_KEY,
@@ -59,9 +58,6 @@ public class ObservabilityPipelineSplunkHecDestination {
 
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
-
-  public static final String JSON_PROPERTY_INDEXED_FIELDS = "indexed_fields";
-  private List<String> indexedFields = null;
 
   public static final String JSON_PROPERTY_INPUTS = "inputs";
   private List<String> inputs = new ArrayList<>();
@@ -225,36 +221,6 @@ public class ObservabilityPipelineSplunkHecDestination {
     this.index = index;
   }
 
-  public ObservabilityPipelineSplunkHecDestination indexedFields(List<String> indexedFields) {
-    this.indexedFields = indexedFields;
-    return this;
-  }
-
-  public ObservabilityPipelineSplunkHecDestination addIndexedFieldsItem(String indexedFieldsItem) {
-    if (this.indexedFields == null) {
-      this.indexedFields = new ArrayList<>();
-    }
-    this.indexedFields.add(indexedFieldsItem);
-    return this;
-  }
-
-  /**
-   * List of log field names to send as indexed fields to Splunk HEC. Available only when <code>
-   * encoding</code> is <code>json</code>.
-   *
-   * @return indexedFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEXED_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getIndexedFields() {
-    return indexedFields;
-  }
-
-  public void setIndexedFields(List<String> indexedFields) {
-    this.indexedFields = indexedFields;
-  }
-
   public ObservabilityPipelineSplunkHecDestination inputs(List<String> inputs) {
     this.inputs = inputs;
     return this;
@@ -413,8 +379,6 @@ public class ObservabilityPipelineSplunkHecDestination {
             this.endpointUrlKey, observabilityPipelineSplunkHecDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineSplunkHecDestination.id)
         && Objects.equals(this.index, observabilityPipelineSplunkHecDestination.index)
-        && Objects.equals(
-            this.indexedFields, observabilityPipelineSplunkHecDestination.indexedFields)
         && Objects.equals(this.inputs, observabilityPipelineSplunkHecDestination.inputs)
         && Objects.equals(this.sourcetype, observabilityPipelineSplunkHecDestination.sourcetype)
         && Objects.equals(this.tokenKey, observabilityPipelineSplunkHecDestination.tokenKey)
@@ -433,7 +397,6 @@ public class ObservabilityPipelineSplunkHecDestination {
         endpointUrlKey,
         id,
         index,
-        indexedFields,
         inputs,
         sourcetype,
         tokenKey,
@@ -453,7 +416,6 @@ public class ObservabilityPipelineSplunkHecDestination {
     sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
-    sb.append("    indexedFields: ").append(toIndentedString(indexedFields)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    sourcetype: ").append(toIndentedString(sourcetype)).append("\n");
     sb.append("    tokenKey: ").append(toIndentedString(tokenKey)).append("\n");
