@@ -1673,7 +1673,7 @@ public class MetricsApi {
      *     filter[queried]=false</code>, this parameter is ignored and default queried-window
      *     behavior applies. If <code>filter[queried]</code> is not provided, sending this parameter
      *     returns a 400. For example: <code>
-     *     GET /api/v2/metrics?filter[queried]=true&amp;filter[queried][window][seconds]=7776000
+     *     GET /api/v2/metrics?filter[queried]=true&amp;filter[queried][window][seconds]=15552000
      *     </code>. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
@@ -1713,8 +1713,7 @@ public class MetricsApi {
      * Set windowSeconds.
      *
      * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag]
-     *     or filter[queried] query. Default value is 3600 (1 hour), maximum value is 5,184,000 (60
-     *     days). (optional)
+     *     query. Default value is 3600 (1 hour), maximum value is 5,184,000 (60 days). (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters windowSeconds(Long windowSeconds) {
