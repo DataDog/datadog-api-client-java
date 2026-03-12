@@ -45,7 +45,7 @@ public class DORADeploymentObjectAttributes {
   private Long finishedAt;
 
   public static final String JSON_PROPERTY_GIT = "git";
-  private DORAGitInfo git;
+  private DORAGitInfoResponse git;
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
@@ -156,25 +156,25 @@ public class DORADeploymentObjectAttributes {
     this.finishedAt = finishedAt;
   }
 
-  public DORADeploymentObjectAttributes git(DORAGitInfo git) {
+  public DORADeploymentObjectAttributes git(DORAGitInfoResponse git) {
     this.git = git;
     this.unparsed |= git.unparsed;
     return this;
   }
 
   /**
-   * Git info for DORA Metrics events.
+   * Git info returned by DORA Metrics events.
    *
    * @return git
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DORAGitInfo getGit() {
+  public DORAGitInfoResponse getGit() {
     return git;
   }
 
-  public void setGit(DORAGitInfo git) {
+  public void setGit(DORAGitInfoResponse git) {
     this.git = git;
   }
 
