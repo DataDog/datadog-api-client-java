@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,26 +17,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object for a single metric tag configuration. */
+/** Relationship data for a metric's ingested and indexed volumes. */
 @JsonPropertyOrder({
-  Metric.JSON_PROPERTY_ID,
-  Metric.JSON_PROPERTY_RELATIONSHIPS,
-  Metric.JSON_PROPERTY_TYPE
+  MetricVolumesRelationshipData.JSON_PROPERTY_ID,
+  MetricVolumesRelationshipData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Metric {
+public class MetricVolumesRelationshipData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private MetricRelationships relationships;
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private MetricType type = MetricType.METRICS;
+  private MetricIngestedIndexedVolumeType type = MetricIngestedIndexedVolumeType.METRIC_VOLUMES;
 
-  public Metric id(String id) {
+  public MetricVolumesRelationshipData() {}
+
+  @JsonCreator
+  public MetricVolumesRelationshipData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          MetricIngestedIndexedVolumeType type) {
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public MetricVolumesRelationshipData id(String id) {
     this.id = id;
     return this;
   }
@@ -45,9 +54,8 @@ public class Metric {
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
@@ -56,47 +64,24 @@ public class Metric {
     this.id = id;
   }
 
-  public Metric relationships(MetricRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
-  /**
-   * Relationships to related metric objects.
-   *
-   * @return relationships
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MetricRelationships getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(MetricRelationships relationships) {
-    this.relationships = relationships;
-  }
-
-  public Metric type(MetricType type) {
+  public MetricVolumesRelationshipData type(MetricIngestedIndexedVolumeType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The metric resource type.
+   * The metric ingested and indexed volume type.
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MetricType getType() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MetricIngestedIndexedVolumeType getType() {
     return type;
   }
 
-  public void setType(MetricType type) {
+  public void setType(MetricIngestedIndexedVolumeType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -115,10 +100,10 @@ public class Metric {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return Metric
+   * @return MetricVolumesRelationshipData
    */
   @JsonAnySetter
-  public Metric putAdditionalProperty(String key, Object value) {
+  public MetricVolumesRelationshipData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -149,7 +134,7 @@ public class Metric {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this Metric object is equal to o. */
+  /** Return true if this MetricVolumesRelationshipData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,24 +143,23 @@ public class Metric {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Metric metric = (Metric) o;
-    return Objects.equals(this.id, metric.id)
-        && Objects.equals(this.relationships, metric.relationships)
-        && Objects.equals(this.type, metric.type)
-        && Objects.equals(this.additionalProperties, metric.additionalProperties);
+    MetricVolumesRelationshipData metricVolumesRelationshipData = (MetricVolumesRelationshipData) o;
+    return Objects.equals(this.id, metricVolumesRelationshipData.id)
+        && Objects.equals(this.type, metricVolumesRelationshipData.type)
+        && Objects.equals(
+            this.additionalProperties, metricVolumesRelationshipData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, relationships, type, additionalProperties);
+    return Objects.hash(id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Metric {\n");
+    sb.append("class MetricVolumesRelationshipData {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
