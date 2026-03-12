@@ -17,8 +17,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Configuration for cross-product sampling when updating a retention filter. All fields are
- * optional for partial updates.
+ * The configuration for cross-product retention filters. All fields are optional for partial
+ * updates.
  */
 @JsonPropertyOrder({
   RumCrossProductSamplingUpdate.JSON_PROPERTY_TRACE_ENABLED,
@@ -40,7 +40,7 @@ public class RumCrossProductSamplingUpdate {
   }
 
   /**
-   * Indicates whether trace cross-product sampling is enabled.
+   * Whether the cross-product retention filter for APM traces is enabled.
    *
    * @return traceEnabled
    */
@@ -61,8 +61,8 @@ public class RumCrossProductSamplingUpdate {
   }
 
   /**
-   * The percentage (0-100) of retained sessions with ingested traces whose traces are indexed.
-   * minimum: 0 maximum: 100
+   * The sample rate for the APM cross-product retention filter, between 0 and 100. minimum: 0
+   * maximum: 100
    *
    * @return traceSampleRate
    */

@@ -55,10 +55,7 @@ public class RumRetentionFilterAttributes {
   }
 
   /**
-   * Configuration for additional APM trace data retention for sessions that match this retention
-   * filter. When a session matches the filter and is retained (based on <code>sample_rate</code>),
-   * you can configure the percentage of retained sessions with ingested traces whose traces are
-   * indexed.
+   * The configuration for cross-product retention filters.
    *
    * @return crossProductSampling
    */

@@ -16,12 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Configuration for additional APM trace data retention for sessions that match this retention
- * filter. When a session matches the filter and is retained (based on <code>sample_rate</code>),
- * you can configure the percentage of retained sessions with ingested traces whose traces are
- * indexed.
- */
+/** The configuration for cross-product retention filters. */
 @JsonPropertyOrder({
   RumCrossProductSampling.JSON_PROPERTY_TRACE_ENABLED,
   RumCrossProductSampling.JSON_PROPERTY_TRACE_SAMPLE_RATE
@@ -42,8 +37,7 @@ public class RumCrossProductSampling {
   }
 
   /**
-   * Indicates whether trace cross-product sampling is enabled. If <code>false</code>, no traces are
-   * indexed regardless of <code>trace_sample_rate</code>.
+   * Whether the cross-product retention filter for APM traces is enabled.
    *
    * @return traceEnabled
    */
@@ -64,9 +58,8 @@ public class RumCrossProductSampling {
   }
 
   /**
-   * The percentage (0-100) of retained sessions with ingested traces whose traces are indexed. For
-   * example, 25.0 means 25% of retained sessions with ingested traces have their traces indexed.
-   * minimum: 0 maximum: 100
+   * The sample rate for the APM cross-product retention filter, between 0 and 100. minimum: 0
+   * maximum: 100
    *
    * @return traceSampleRate
    */
