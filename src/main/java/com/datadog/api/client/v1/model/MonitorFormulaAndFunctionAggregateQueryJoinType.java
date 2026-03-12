@@ -1,0 +1,65 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v1.model;
+
+import com.datadog.api.client.ModelEnum;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+/** Join type for aggregate query join conditions. */
+@JsonSerialize(
+    using =
+        MonitorFormulaAndFunctionAggregateQueryJoinType
+            .MonitorFormulaAndFunctionAggregateQueryJoinTypeSerializer.class)
+public class MonitorFormulaAndFunctionAggregateQueryJoinType extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("inner", "left"));
+
+  public static final MonitorFormulaAndFunctionAggregateQueryJoinType INNER =
+      new MonitorFormulaAndFunctionAggregateQueryJoinType("inner");
+  public static final MonitorFormulaAndFunctionAggregateQueryJoinType LEFT =
+      new MonitorFormulaAndFunctionAggregateQueryJoinType("left");
+
+  MonitorFormulaAndFunctionAggregateQueryJoinType(String value) {
+    super(value, allowedValues);
+  }
+
+  public static class MonitorFormulaAndFunctionAggregateQueryJoinTypeSerializer
+      extends StdSerializer<MonitorFormulaAndFunctionAggregateQueryJoinType> {
+    public MonitorFormulaAndFunctionAggregateQueryJoinTypeSerializer(
+        Class<MonitorFormulaAndFunctionAggregateQueryJoinType> t) {
+      super(t);
+    }
+
+    public MonitorFormulaAndFunctionAggregateQueryJoinTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        MonitorFormulaAndFunctionAggregateQueryJoinType value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
+  @JsonCreator
+  public static MonitorFormulaAndFunctionAggregateQueryJoinType fromValue(String value) {
+    return new MonitorFormulaAndFunctionAggregateQueryJoinType(value);
+  }
+}
