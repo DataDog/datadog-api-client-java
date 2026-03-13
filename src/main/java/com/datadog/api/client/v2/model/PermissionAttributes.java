@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -25,6 +27,7 @@ import java.util.Objects;
   PermissionAttributes.JSON_PROPERTY_DISPLAY_TYPE,
   PermissionAttributes.JSON_PROPERTY_GROUP_NAME,
   PermissionAttributes.JSON_PROPERTY_NAME,
+  PermissionAttributes.JSON_PROPERTY_NAME_ALIASES,
   PermissionAttributes.JSON_PROPERTY_RESTRICTED
 })
 @jakarta.annotation.Generated(
@@ -48,6 +51,9 @@ public class PermissionAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_NAME_ALIASES = "name_aliases";
+  private List<String> nameAliases = null;
 
   public static final String JSON_PROPERTY_RESTRICTED = "restricted";
   private Boolean restricted;
@@ -178,6 +184,35 @@ public class PermissionAttributes {
     this.name = name;
   }
 
+  public PermissionAttributes nameAliases(List<String> nameAliases) {
+    this.nameAliases = nameAliases;
+    return this;
+  }
+
+  public PermissionAttributes addNameAliasesItem(String nameAliasesItem) {
+    if (this.nameAliases == null) {
+      this.nameAliases = new ArrayList<>();
+    }
+    this.nameAliases.add(nameAliasesItem);
+    return this;
+  }
+
+  /**
+   * List of alias names for the permission.
+   *
+   * @return nameAliases
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME_ALIASES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getNameAliases() {
+    return nameAliases;
+  }
+
+  public void setNameAliases(List<String> nameAliases) {
+    this.nameAliases = nameAliases;
+  }
+
   public PermissionAttributes restricted(Boolean restricted) {
     this.restricted = restricted;
     return this;
@@ -261,6 +296,7 @@ public class PermissionAttributes {
         && Objects.equals(this.displayType, permissionAttributes.displayType)
         && Objects.equals(this.groupName, permissionAttributes.groupName)
         && Objects.equals(this.name, permissionAttributes.name)
+        && Objects.equals(this.nameAliases, permissionAttributes.nameAliases)
         && Objects.equals(this.restricted, permissionAttributes.restricted)
         && Objects.equals(this.additionalProperties, permissionAttributes.additionalProperties);
   }
@@ -274,6 +310,7 @@ public class PermissionAttributes {
         displayType,
         groupName,
         name,
+        nameAliases,
         restricted,
         additionalProperties);
   }
@@ -288,6 +325,7 @@ public class PermissionAttributes {
     sb.append("    displayType: ").append(toIndentedString(displayType)).append("\n");
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nameAliases: ").append(toIndentedString(nameAliases)).append("\n");
     sb.append("    restricted: ").append(toIndentedString(restricted)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
