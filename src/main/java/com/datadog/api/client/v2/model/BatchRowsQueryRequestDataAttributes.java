@@ -19,51 +19,74 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The request body for deleting multiple rows from a reference table. */
-@JsonPropertyOrder({BatchDeleteRowsRequestArray.JSON_PROPERTY_DATA})
+/** */
+@JsonPropertyOrder({
+  BatchRowsQueryRequestDataAttributes.JSON_PROPERTY_ROW_IDS,
+  BatchRowsQueryRequestDataAttributes.JSON_PROPERTY_TABLE_ID
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class BatchDeleteRowsRequestArray {
+public class BatchRowsQueryRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<TableRowResourceIdentifier> data = new ArrayList<>();
+  public static final String JSON_PROPERTY_ROW_IDS = "row_ids";
+  private List<String> rowIds = new ArrayList<>();
 
-  public BatchDeleteRowsRequestArray() {}
+  public static final String JSON_PROPERTY_TABLE_ID = "table_id";
+  private String tableId;
+
+  public BatchRowsQueryRequestDataAttributes() {}
 
   @JsonCreator
-  public BatchDeleteRowsRequestArray(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<TableRowResourceIdentifier> data) {
-    this.data = data;
+  public BatchRowsQueryRequestDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ROW_IDS) List<String> rowIds,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TABLE_ID) String tableId) {
+    this.rowIds = rowIds;
+    this.tableId = tableId;
   }
 
-  public BatchDeleteRowsRequestArray data(List<TableRowResourceIdentifier> data) {
-    this.data = data;
-    for (TableRowResourceIdentifier item : data) {
-      this.unparsed |= item.unparsed;
-    }
+  public BatchRowsQueryRequestDataAttributes rowIds(List<String> rowIds) {
+    this.rowIds = rowIds;
     return this;
   }
 
-  public BatchDeleteRowsRequestArray addDataItem(TableRowResourceIdentifier dataItem) {
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+  public BatchRowsQueryRequestDataAttributes addRowIdsItem(String rowIdsItem) {
+    this.rowIds.add(rowIdsItem);
     return this;
   }
 
   /**
-   * Getdata
+   * GetrowIds
    *
-   * @return data
+   * @return rowIds
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_ROW_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<TableRowResourceIdentifier> getData() {
-    return data;
+  public List<String> getRowIds() {
+    return rowIds;
   }
 
-  public void setData(List<TableRowResourceIdentifier> data) {
-    this.data = data;
+  public void setRowIds(List<String> rowIds) {
+    this.rowIds = rowIds;
+  }
+
+  public BatchRowsQueryRequestDataAttributes tableId(String tableId) {
+    this.tableId = tableId;
+    return this;
+  }
+
+  /**
+   * GettableId
+   *
+   * @return tableId
+   */
+  @JsonProperty(JSON_PROPERTY_TABLE_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getTableId() {
+    return tableId;
+  }
+
+  public void setTableId(String tableId) {
+    this.tableId = tableId;
   }
 
   /**
@@ -78,10 +101,10 @@ public class BatchDeleteRowsRequestArray {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return BatchDeleteRowsRequestArray
+   * @return BatchRowsQueryRequestDataAttributes
    */
   @JsonAnySetter
-  public BatchDeleteRowsRequestArray putAdditionalProperty(String key, Object value) {
+  public BatchRowsQueryRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -112,7 +135,7 @@ public class BatchDeleteRowsRequestArray {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this BatchDeleteRowsRequestArray object is equal to o. */
+  /** Return true if this BatchRowsQueryRequestDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -121,22 +144,25 @@ public class BatchDeleteRowsRequestArray {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BatchDeleteRowsRequestArray batchDeleteRowsRequestArray = (BatchDeleteRowsRequestArray) o;
-    return Objects.equals(this.data, batchDeleteRowsRequestArray.data)
+    BatchRowsQueryRequestDataAttributes batchRowsQueryRequestDataAttributes =
+        (BatchRowsQueryRequestDataAttributes) o;
+    return Objects.equals(this.rowIds, batchRowsQueryRequestDataAttributes.rowIds)
+        && Objects.equals(this.tableId, batchRowsQueryRequestDataAttributes.tableId)
         && Objects.equals(
-            this.additionalProperties, batchDeleteRowsRequestArray.additionalProperties);
+            this.additionalProperties, batchRowsQueryRequestDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(rowIds, tableId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BatchDeleteRowsRequestArray {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class BatchRowsQueryRequestDataAttributes {\n");
+    sb.append("    rowIds: ").append(toIndentedString(rowIds)).append("\n");
+    sb.append("    tableId: ").append(toIndentedString(tableId)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

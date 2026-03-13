@@ -4,8 +4,8 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ReferenceTablesApi;
 import com.datadog.api.client.v2.model.BatchDeleteRowsRequestArray;
-import com.datadog.api.client.v2.model.BatchDeleteRowsRequestData;
 import com.datadog.api.client.v2.model.TableRowResourceDataType;
+import com.datadog.api.client.v2.model.TableRowResourceIdentifier;
 import java.util.Collections;
 
 public class Example {
@@ -17,7 +17,7 @@ public class Example {
         new BatchDeleteRowsRequestArray()
             .data(
                 Collections.singletonList(
-                    new BatchDeleteRowsRequestData()
+                    new TableRowResourceIdentifier()
                         .id("primary_key_value")
                         .type(TableRowResourceDataType.ROW)));
 

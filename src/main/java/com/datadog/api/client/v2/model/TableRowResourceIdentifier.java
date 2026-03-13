@@ -17,14 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Row resource containing a single row identifier for deletion. */
+/** Row resource containing a single row identifier. */
 @JsonPropertyOrder({
-  BatchDeleteRowsRequestData.JSON_PROPERTY_ID,
-  BatchDeleteRowsRequestData.JSON_PROPERTY_TYPE
+  TableRowResourceIdentifier.JSON_PROPERTY_ID,
+  TableRowResourceIdentifier.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class BatchDeleteRowsRequestData {
+public class TableRowResourceIdentifier {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -32,10 +32,10 @@ public class BatchDeleteRowsRequestData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TableRowResourceDataType type = TableRowResourceDataType.ROW;
 
-  public BatchDeleteRowsRequestData() {}
+  public TableRowResourceIdentifier() {}
 
   @JsonCreator
-  public BatchDeleteRowsRequestData(
+  public TableRowResourceIdentifier(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TableRowResourceDataType type) {
     this.id = id;
@@ -43,7 +43,7 @@ public class BatchDeleteRowsRequestData {
     this.unparsed |= !type.isValid();
   }
 
-  public BatchDeleteRowsRequestData id(String id) {
+  public TableRowResourceIdentifier id(String id) {
     this.id = id;
     return this;
   }
@@ -63,7 +63,7 @@ public class BatchDeleteRowsRequestData {
     this.id = id;
   }
 
-  public BatchDeleteRowsRequestData type(TableRowResourceDataType type) {
+  public TableRowResourceIdentifier type(TableRowResourceDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -99,10 +99,10 @@ public class BatchDeleteRowsRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return BatchDeleteRowsRequestData
+   * @return TableRowResourceIdentifier
    */
   @JsonAnySetter
-  public BatchDeleteRowsRequestData putAdditionalProperty(String key, Object value) {
+  public TableRowResourceIdentifier putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +133,7 @@ public class BatchDeleteRowsRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this BatchDeleteRowsRequestData object is equal to o. */
+  /** Return true if this TableRowResourceIdentifier object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,11 +142,11 @@ public class BatchDeleteRowsRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BatchDeleteRowsRequestData batchDeleteRowsRequestData = (BatchDeleteRowsRequestData) o;
-    return Objects.equals(this.id, batchDeleteRowsRequestData.id)
-        && Objects.equals(this.type, batchDeleteRowsRequestData.type)
+    TableRowResourceIdentifier tableRowResourceIdentifier = (TableRowResourceIdentifier) o;
+    return Objects.equals(this.id, tableRowResourceIdentifier.id)
+        && Objects.equals(this.type, tableRowResourceIdentifier.type)
         && Objects.equals(
-            this.additionalProperties, batchDeleteRowsRequestData.additionalProperties);
+            this.additionalProperties, tableRowResourceIdentifier.additionalProperties);
   }
 
   @Override
@@ -157,7 +157,7 @@ public class BatchDeleteRowsRequestData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BatchDeleteRowsRequestData {\n");
+    sb.append("class TableRowResourceIdentifier {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
