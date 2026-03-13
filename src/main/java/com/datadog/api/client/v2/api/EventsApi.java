@@ -137,7 +137,7 @@ public class EventsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -183,7 +183,7 @@ public class EventsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<EventCreateResponsePayload>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
