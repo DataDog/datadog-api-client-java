@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Compression algorithm. */
+/** The compression algorithm used for HTTP client destinations. */
 @JsonSerialize(
     using =
         ObservabilityPipelineHttpClientDestinationCompressionAlgorithm
