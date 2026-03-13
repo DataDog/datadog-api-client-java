@@ -17,6 +17,7 @@ import com.datadog.api.client.v2.model.CreateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.CreateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.CreateJiraIssueRequestArray;
 import com.datadog.api.client.v2.model.CreateNotificationRuleParameters;
+import com.datadog.api.client.v2.model.CycloneDXBOM;
 import com.datadog.api.client.v2.model.DeleteCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.DetachCaseRequest;
 import com.datadog.api.client.v2.model.Finding;
@@ -51,6 +52,7 @@ import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
 import com.datadog.api.client.v2.model.SecurityFilterUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityFiltersResponse;
+import com.datadog.api.client.v2.model.SecurityFindingType;
 import com.datadog.api.client.v2.model.SecurityFindingsData;
 import com.datadog.api.client.v2.model.SecurityFindingsSearchRequest;
 import com.datadog.api.client.v2.model.SecurityFindingsSearchRequestData;
@@ -90,6 +92,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionSort;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionsResponse;
 import com.datadog.api.client.v2.model.ThreatHuntingJobResponse;
+import com.datadog.api.client.v2.model.ThreatIntelIndicatorType;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.UpdateResourceEvaluationFiltersRequest;
@@ -1876,6 +1879,214 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityFilterResponse>() {});
+  }
+
+  /**
+   * Create security finding.
+   *
+   * <p>See {@link #createSecurityFindingWithHttpInfo}.
+   *
+   * @param vendor The vendor providing the security finding. Must be lowercase. (required)
+   * @param findingType The type of security finding. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void createSecurityFinding(
+      String vendor, SecurityFindingType findingType, Map<String, Object> body)
+      throws ApiException {
+    createSecurityFindingWithHttpInfo(vendor, findingType, body);
+  }
+
+  /**
+   * Create security finding.
+   *
+   * <p>See {@link #createSecurityFindingWithHttpInfoAsync}.
+   *
+   * @param vendor The vendor providing the security finding. Must be lowercase. (required)
+   * @param findingType The type of security finding. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> createSecurityFindingAsync(
+      String vendor, SecurityFindingType findingType, Map<String, Object> body) {
+    return createSecurityFindingWithHttpInfoAsync(vendor, findingType, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Allows external integrations to send security findings to Datadog. This endpoint accepts
+   * finding data in a custom format and returns an empty response on success.
+   *
+   * <p><strong>Note</strong>: This endpoint is in preview and is subject to change. If you have any
+   * feedback, contact <a href="https://docs.datadoghq.com/help/">Datadog support</a>.
+   *
+   * @param vendor The vendor providing the security finding. Must be lowercase. (required)
+   * @param findingType The type of security finding. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> createSecurityFindingWithHttpInfo(
+      String vendor, SecurityFindingType findingType, Map<String, Object> body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFinding";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'vendor' is set
+    if (vendor == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'vendor' when calling createSecurityFinding");
+    }
+
+    // verify the required parameter 'findingType' is set
+    if (findingType == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'findingType' when calling createSecurityFinding");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createSecurityFinding");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    if (vendor != null) {
+      localVarHeaderParams.put("vendor", apiClient.parameterToString(vendor));
+    }
+    if (findingType != null) {
+      localVarHeaderParams.put("finding_type", apiClient.parameterToString(findingType));
+    }
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityFinding",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create security finding.
+   *
+   * <p>See {@link #createSecurityFindingWithHttpInfo}.
+   *
+   * @param vendor The vendor providing the security finding. Must be lowercase. (required)
+   * @param findingType The type of security finding. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> createSecurityFindingWithHttpInfoAsync(
+      String vendor, SecurityFindingType findingType, Map<String, Object> body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSecurityFinding";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'vendor' is set
+    if (vendor == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'vendor' when calling createSecurityFinding"));
+      return result;
+    }
+
+    // verify the required parameter 'findingType' is set
+    if (findingType == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'findingType' when calling createSecurityFinding"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createSecurityFinding"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/findings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    if (vendor != null) {
+      localVarHeaderParams.put("vendor", apiClient.parameterToString(vendor));
+    }
+    if (findingType != null) {
+      localVarHeaderParams.put("finding_type", apiClient.parameterToString(findingType));
+    }
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityFinding",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -8338,6 +8549,452 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Object>() {});
+  }
+
+  /**
+   * Import vulnerabilities.
+   *
+   * <p>See {@link #importSecurityVulnerabilitiesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void importSecurityVulnerabilities(CycloneDXBOM body) throws ApiException {
+    importSecurityVulnerabilitiesWithHttpInfo(body);
+  }
+
+  /**
+   * Import vulnerabilities.
+   *
+   * <p>See {@link #importSecurityVulnerabilitiesWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> importSecurityVulnerabilitiesAsync(CycloneDXBOM body) {
+    return importSecurityVulnerabilitiesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Import vulnerabilities in CycloneDX 1.5 format. This endpoint validates the payload against the
+   * CycloneDX 1.5 schema and additional mandatory field requirements.
+   *
+   * <p><strong>Note</strong>: This endpoint is in preview and is subject to change. If you have any
+   * feedback, contact <a href="https://docs.datadoghq.com/help/">Datadog support</a>.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> importSecurityVulnerabilitiesWithHttpInfo(CycloneDXBOM body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "importSecurityVulnerabilities";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling importSecurityVulnerabilities");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.importSecurityVulnerabilities",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Import vulnerabilities.
+   *
+   * <p>See {@link #importSecurityVulnerabilitiesWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> importSecurityVulnerabilitiesWithHttpInfoAsync(
+      CycloneDXBOM body) {
+    // Check if unstable operation is enabled
+    String operationId = "importSecurityVulnerabilities";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling importSecurityVulnerabilities"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.importSecurityVulnerabilities",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /** Manage optional parameters to importThreatIntel. */
+  public static class ImportThreatIntelOptionalParameters {
+    private String tiIntegrationAccount;
+
+    /**
+     * Set tiIntegrationAccount.
+     *
+     * @param tiIntegrationAccount Optional integration account identifier. (optional)
+     * @return ImportThreatIntelOptionalParameters
+     */
+    public ImportThreatIntelOptionalParameters tiIntegrationAccount(String tiIntegrationAccount) {
+      this.tiIntegrationAccount = tiIntegrationAccount;
+      return this;
+    }
+  }
+
+  /**
+   * Import threat intelligence feed.
+   *
+   * <p>See {@link #importThreatIntelWithHttpInfo}.
+   *
+   * @param tiVendor The vendor providing the threat intelligence feed. (required)
+   * @param tiIndicator The type of threat indicator. Valid values are ip_address, domain, or
+   *     sha256. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void importThreatIntel(String tiVendor, ThreatIntelIndicatorType tiIndicator, Object body)
+      throws ApiException {
+    importThreatIntelWithHttpInfo(
+        tiVendor, tiIndicator, body, new ImportThreatIntelOptionalParameters());
+  }
+
+  /**
+   * Import threat intelligence feed.
+   *
+   * <p>See {@link #importThreatIntelWithHttpInfoAsync}.
+   *
+   * @param tiVendor The vendor providing the threat intelligence feed. (required)
+   * @param tiIndicator The type of threat indicator. Valid values are ip_address, domain, or
+   *     sha256. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> importThreatIntelAsync(
+      String tiVendor, ThreatIntelIndicatorType tiIndicator, Object body) {
+    return importThreatIntelWithHttpInfoAsync(
+            tiVendor, tiIndicator, body, new ImportThreatIntelOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Import threat intelligence feed.
+   *
+   * <p>See {@link #importThreatIntelWithHttpInfo}.
+   *
+   * @param tiVendor The vendor providing the threat intelligence feed. (required)
+   * @param tiIndicator The type of threat indicator. Valid values are ip_address, domain, or
+   *     sha256. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @throws ApiException if fails to make API call
+   */
+  public void importThreatIntel(
+      String tiVendor,
+      ThreatIntelIndicatorType tiIndicator,
+      Object body,
+      ImportThreatIntelOptionalParameters parameters)
+      throws ApiException {
+    importThreatIntelWithHttpInfo(tiVendor, tiIndicator, body, parameters);
+  }
+
+  /**
+   * Import threat intelligence feed.
+   *
+   * <p>See {@link #importThreatIntelWithHttpInfoAsync}.
+   *
+   * @param tiVendor The vendor providing the threat intelligence feed. (required)
+   * @param tiIndicator The type of threat indicator. Valid values are ip_address, domain, or
+   *     sha256. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> importThreatIntelAsync(
+      String tiVendor,
+      ThreatIntelIndicatorType tiIndicator,
+      Object body,
+      ImportThreatIntelOptionalParameters parameters) {
+    return importThreatIntelWithHttpInfoAsync(tiVendor, tiIndicator, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Import threat intelligence feeds with support for IP addresses, domains, and SHA256 hashes.
+   * This endpoint requires specific headers to identify the vendor and indicator type.
+   *
+   * <p><strong>Note</strong>: This endpoint is in preview and is subject to change. If you have any
+   * feedback, contact <a href="https://docs.datadoghq.com/help/">Datadog support</a>.
+   *
+   * @param tiVendor The vendor providing the threat intelligence feed. (required)
+   * @param tiIndicator The type of threat indicator. Valid values are ip_address, domain, or
+   *     sha256. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *       <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> importThreatIntelWithHttpInfo(
+      String tiVendor,
+      ThreatIntelIndicatorType tiIndicator,
+      Object body,
+      ImportThreatIntelOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "importThreatIntel";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'tiVendor' is set
+    if (tiVendor == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'tiVendor' when calling importThreatIntel");
+    }
+
+    // verify the required parameter 'tiIndicator' is set
+    if (tiIndicator == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'tiIndicator' when calling importThreatIntel");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling importThreatIntel");
+    }
+    String tiIntegrationAccount = parameters.tiIntegrationAccount;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/threat-intel-feed";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    if (tiVendor != null) {
+      localVarHeaderParams.put("ti_vendor", apiClient.parameterToString(tiVendor));
+    }
+    if (tiIndicator != null) {
+      localVarHeaderParams.put("ti_indicator", apiClient.parameterToString(tiIndicator));
+    }
+    if (tiIntegrationAccount != null) {
+      localVarHeaderParams.put(
+          "ti_integration_account", apiClient.parameterToString(tiIntegrationAccount));
+    }
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.importThreatIntel",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json", "application/octet-stream"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Import threat intelligence feed.
+   *
+   * <p>See {@link #importThreatIntelWithHttpInfo}.
+   *
+   * @param tiVendor The vendor providing the threat intelligence feed. (required)
+   * @param tiIndicator The type of threat indicator. Valid values are ip_address, domain, or
+   *     sha256. (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> importThreatIntelWithHttpInfoAsync(
+      String tiVendor,
+      ThreatIntelIndicatorType tiIndicator,
+      Object body,
+      ImportThreatIntelOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "importThreatIntel";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'tiVendor' is set
+    if (tiVendor == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'tiVendor' when calling importThreatIntel"));
+      return result;
+    }
+
+    // verify the required parameter 'tiIndicator' is set
+    if (tiIndicator == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'tiIndicator' when calling importThreatIntel"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling importThreatIntel"));
+      return result;
+    }
+    String tiIntegrationAccount = parameters.tiIntegrationAccount;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/threat-intel-feed";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    if (tiVendor != null) {
+      localVarHeaderParams.put("ti_vendor", apiClient.parameterToString(tiVendor));
+    }
+    if (tiIndicator != null) {
+      localVarHeaderParams.put("ti_indicator", apiClient.parameterToString(tiIndicator));
+    }
+    if (tiIntegrationAccount != null) {
+      localVarHeaderParams.put(
+          "ti_integration_account", apiClient.parameterToString(tiIntegrationAccount));
+    }
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.importThreatIntel",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json", "application/octet-stream"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /** Manage optional parameters to listAssetsSBOMs. */
