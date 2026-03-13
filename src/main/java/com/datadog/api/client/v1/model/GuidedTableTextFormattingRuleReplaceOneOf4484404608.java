@@ -1,0 +1,216 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v1.model;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+/** Replace a specific substring. */
+@JsonPropertyOrder({
+  GuidedTableTextFormattingRuleReplaceOneOf4484404608.JSON_PROPERTY_SUBSTRING,
+  GuidedTableTextFormattingRuleReplaceOneOf4484404608.JSON_PROPERTY_TYPE,
+  GuidedTableTextFormattingRuleReplaceOneOf4484404608.JSON_PROPERTY_WITH
+})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class GuidedTableTextFormattingRuleReplaceOneOf4484404608 {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_SUBSTRING = "substring";
+  private String substring;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TableWidgetTextFormatReplaceSubstringType type;
+
+  public static final String JSON_PROPERTY_WITH = "with";
+  private String with;
+
+  public GuidedTableTextFormattingRuleReplaceOneOf4484404608() {}
+
+  @JsonCreator
+  public GuidedTableTextFormattingRuleReplaceOneOf4484404608(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SUBSTRING) String substring,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          TableWidgetTextFormatReplaceSubstringType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_WITH) String with) {
+    this.substring = substring;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    this.with = with;
+  }
+
+  public GuidedTableTextFormattingRuleReplaceOneOf4484404608 substring(String substring) {
+    this.substring = substring;
+    return this;
+  }
+
+  /**
+   * Getsubstring
+   *
+   * @return substring
+   */
+  @JsonProperty(JSON_PROPERTY_SUBSTRING)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getSubstring() {
+    return substring;
+  }
+
+  public void setSubstring(String substring) {
+    this.substring = substring;
+  }
+
+  public GuidedTableTextFormattingRuleReplaceOneOf4484404608 type(
+      TableWidgetTextFormatReplaceSubstringType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Table widget text format replace sub-string type.
+   *
+   * @return type
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TableWidgetTextFormatReplaceSubstringType getType() {
+    return type;
+  }
+
+  public void setType(TableWidgetTextFormatReplaceSubstringType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
+  }
+
+  public GuidedTableTextFormattingRuleReplaceOneOf4484404608 with(String with) {
+    this.with = with;
+    return this;
+  }
+
+  /**
+   * Getwith
+   *
+   * @return with
+   */
+  @JsonProperty(JSON_PROPERTY_WITH)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getWith() {
+    return with;
+  }
+
+  public void setWith(String with) {
+    this.with = with;
+  }
+
+  /**
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return GuidedTableTextFormattingRuleReplaceOneOf4484404608
+   */
+  @JsonAnySetter
+  public GuidedTableTextFormattingRuleReplaceOneOf4484404608 putAdditionalProperty(
+      String key, Object value) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return The additional properties
+   */
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+      return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
+  /**
+   * Return true if this GuidedTableTextFormattingRuleReplaceOneOf4484404608 object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    GuidedTableTextFormattingRuleReplaceOneOf4484404608
+        guidedTableTextFormattingRuleReplaceOneOf4484404608 =
+            (GuidedTableTextFormattingRuleReplaceOneOf4484404608) o;
+    return Objects.equals(
+            this.substring, guidedTableTextFormattingRuleReplaceOneOf4484404608.substring)
+        && Objects.equals(this.type, guidedTableTextFormattingRuleReplaceOneOf4484404608.type)
+        && Objects.equals(this.with, guidedTableTextFormattingRuleReplaceOneOf4484404608.with)
+        && Objects.equals(
+            this.additionalProperties,
+            guidedTableTextFormattingRuleReplaceOneOf4484404608.additionalProperties);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(substring, type, with, additionalProperties);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class GuidedTableTextFormattingRuleReplaceOneOf4484404608 {\n");
+    sb.append("    substring: ").append(toIndentedString(substring)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    with: ").append(toIndentedString(with)).append("\n");
+    sb.append("    additionalProperties: ")
+        .append(toIndentedString(additionalProperties))
+        .append("\n");
+    sb.append('}');
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
