@@ -1023,6 +1023,11 @@ public class ApiClient {
       secrets.put("appKeyAuth", appKeyAuth);
     }
     defaultApiClient.configureApiKeys(secrets);
+    // Configure bearerAuth authorization
+    String bearerAuthToken = System.getenv("DD_BEARER_TOKEN");
+    if (bearerAuthToken != null) {
+      defaultApiClient.setBearerToken(bearerAuthToken);
+    }
 
     return defaultApiClient;
   }
@@ -1082,6 +1087,14 @@ public class ApiClient {
       authentications.put("appKeyAuth", auth);
     } else {
       authentications.put("appKeyAuth", new ApiKeyAuth("header", "DD-APPLICATION-KEY"));
+    }
+    if (authMap != null) {
+      auth = authMap.get("bearerAuth");
+    }
+    if (auth instanceof HttpBearerAuth) {
+      authentications.put("bearerAuth", auth);
+    } else {
+      authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
     }
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
@@ -2464,6 +2477,12 @@ public class ApiClient {
         continue;
       }
       auth.applyToParams(queryParams, headerParams, cookieParams, "", "", uri);
+    }
+    // Apply bearer token auth if configured (sent alongside any other auth headers).
+    Authentication bearerAuth = authentications.get("bearerAuth");
+    if (bearerAuth instanceof HttpBearerAuth
+        && ((HttpBearerAuth) bearerAuth).getBearerToken() != null) {
+      bearerAuth.applyToParams(queryParams, headerParams, cookieParams, "", "", uri);
     }
   }
 }
