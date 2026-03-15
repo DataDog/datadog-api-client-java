@@ -30,10 +30,10 @@ public class Example {
                                     .query(
                                         """
 flaky_test_state:active @git.repository.id_v2:"github.com/datadog/shopist"
-"""))
+""")
+                                    .includeHistory(true))
                             .page(new FlakyTestsSearchPageOptions().limit(10L))
-                            .sort(FlakyTestsSearchSort.FQN_ASCENDING)
-                            .includeHistory(true))
+                            .sort(FlakyTestsSearchSort.FQN_ASCENDING))
                     .type(FlakyTestsSearchRequestDataType.SEARCH_FLAKY_TESTS_REQUEST));
 
     try {
