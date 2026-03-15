@@ -51,7 +51,7 @@ public class ListOnCallNotificationRulesResponse {
   }
 
   /**
-   * Getdata
+   * Array of notification rule data objects.
    *
    * @return data
    */
@@ -86,7 +86,7 @@ public class ListOnCallNotificationRulesResponse {
   }
 
   /**
-   * Getincluded
+   * Array of related resources included in the response.
    *
    * @return included
    */
