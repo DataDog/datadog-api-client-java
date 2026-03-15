@@ -19,7 +19,10 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** */
+/**
+ * A single series in a timeseries query response, containing the query index, unit information, and
+ * group tags.
+ */
 @JsonPropertyOrder({
   TimeseriesResponseSeries.JSON_PROPERTY_GROUP_TAGS,
   TimeseriesResponseSeries.JSON_PROPERTY_QUERY_INDEX,
