@@ -45,7 +45,7 @@ public class ProjectColumnsConfig {
   }
 
   /**
-   * Getcolumns
+   * List of column configurations for the project board view
    *
    * @return columns
    */

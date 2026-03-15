@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The target recipient for an On-Call escalation query */
 @JsonPropertyOrder({
   IntegrationOnCallEscalationQueriesItemsTarget.JSON_PROPERTY_DYNAMIC_TEAM_PAGING,
   IntegrationOnCallEscalationQueriesItemsTarget.JSON_PROPERTY_TEAM_ID,
@@ -42,7 +42,7 @@ public class IntegrationOnCallEscalationQueriesItemsTarget {
   }
 
   /**
-   * GetdynamicTeamPaging
+   * Whether to use dynamic team paging for escalation
    *
    * @return dynamicTeamPaging
    */
@@ -63,7 +63,7 @@ public class IntegrationOnCallEscalationQueriesItemsTarget {
   }
 
   /**
-   * GetteamId
+   * The identifier of the team to escalate to
    *
    * @return teamId
    */
@@ -84,7 +84,7 @@ public class IntegrationOnCallEscalationQueriesItemsTarget {
   }
 
   /**
-   * GetuserId
+   * The identifier of the user to escalate to
    *
    * @return userId
    */

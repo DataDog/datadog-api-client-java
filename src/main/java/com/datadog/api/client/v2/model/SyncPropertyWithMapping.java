@@ -49,7 +49,7 @@ public class SyncPropertyWithMapping {
   }
 
   /**
-   * Getmapping
+   * Map of source values to destination values for synchronization
    *
    * @return mapping
    */
@@ -78,7 +78,7 @@ public class SyncPropertyWithMapping {
   }
 
   /**
-   * GetnameMapping
+   * Map of source names to display names used during synchronization
    *
    * @return nameMapping
    */
@@ -99,7 +99,7 @@ public class SyncPropertyWithMapping {
   }
 
   /**
-   * GetsyncType
+   * The direction and type of synchronization for this property
    *
    * @return syncType
    */

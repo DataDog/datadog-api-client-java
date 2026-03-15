@@ -133,7 +133,7 @@ public class IntegrationIncident {
   }
 
   /**
-   * GetfieldMappings
+   * List of mappings between incident fields and case fields
    *
    * @return fieldMappings
    */
@@ -176,7 +176,7 @@ public class IntegrationIncident {
   }
 
   /**
-   * GetseverityConfig
+   * Severity configuration for mapping incident priorities to case priorities
    *
    * @return severityConfig
    */

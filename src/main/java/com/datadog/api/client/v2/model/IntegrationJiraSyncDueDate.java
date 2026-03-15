@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Due date synchronization configuration for Jira integration */
 @JsonPropertyOrder({
   IntegrationJiraSyncDueDate.JSON_PROPERTY_JIRA_FIELD_ID,
   IntegrationJiraSyncDueDate.JSON_PROPERTY_SYNC_TYPE
@@ -37,7 +37,7 @@ public class IntegrationJiraSyncDueDate {
   }
 
   /**
-   * GetjiraFieldId
+   * The Jira field identifier used to store the due date
    *
    * @return jiraFieldId
    */
@@ -58,7 +58,7 @@ public class IntegrationJiraSyncDueDate {
   }
 
   /**
-   * GetsyncType
+   * The type of synchronization to apply for the due date field
    *
    * @return syncType
    */

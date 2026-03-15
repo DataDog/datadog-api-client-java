@@ -71,7 +71,7 @@ public class IntegrationServiceNow {
   }
 
   /**
-   * GetautoCreation
+   * Auto-creation settings for ServiceNow incidents from cases
    *
    * @return autoCreation
    */
@@ -135,7 +135,7 @@ public class IntegrationServiceNow {
   }
 
   /**
-   * GetsyncConfig
+   * Synchronization configuration for ServiceNow integration
    *
    * @return syncConfig
    */
