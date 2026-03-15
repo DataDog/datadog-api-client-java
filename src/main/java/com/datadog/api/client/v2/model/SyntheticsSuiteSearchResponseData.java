@@ -65,7 +65,7 @@ public class SyntheticsSuiteSearchResponseData {
   }
 
   /**
-   * Getid
+   * The unique identifier of the suite search response data.
    *
    * @return id
    */
@@ -87,7 +87,7 @@ public class SyntheticsSuiteSearchResponseData {
   }
 
   /**
-   * Gettype
+   * Type for the Synthetics suites search response, <code>suites_search</code>.
    *
    * @return type
    */

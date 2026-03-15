@@ -51,7 +51,7 @@ public class SyntheticsSuiteSearchResponseDataAttributes {
   }
 
   /**
-   * Getsuites
+   * List of Synthetic suites matching the search query.
    *
    * @return suites
    */
@@ -72,7 +72,7 @@ public class SyntheticsSuiteSearchResponseDataAttributes {
   }
 
   /**
-   * Gettotal maximum: 2147483647
+   * Total number of Synthetic suites matching the search query. maximum: 2147483647
    *
    * @return total
    */

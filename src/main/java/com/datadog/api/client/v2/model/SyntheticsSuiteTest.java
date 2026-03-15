@@ -72,7 +72,7 @@ public class SyntheticsSuiteTest {
   }
 
   /**
-   * GetpublicId
+   * The public ID of the Synthetic test included in the suite.
    *
    * @return publicId
    */

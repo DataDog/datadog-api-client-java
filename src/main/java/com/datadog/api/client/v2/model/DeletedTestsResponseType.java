@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** */
+/** Type for the bulk delete Synthetic tests response, <code>delete_tests</code>. */
 @JsonSerialize(using = DeletedTestsResponseType.DeletedTestsResponseTypeSerializer.class)
 public class DeletedTestsResponseType extends ModelEnum<String> {
 
