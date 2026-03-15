@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A single RUM replay session resource as it appears within a playlist context. */
 @JsonPropertyOrder({PlaylistsSession.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,8 @@ public class PlaylistsSession {
   }
 
   /**
-   * Getdata
+   * Data object representing a session within a playlist, including its identifier, type, and
+   * attributes.
    *
    * @return data
    */

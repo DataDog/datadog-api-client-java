@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes for creating a heatmap snapshot, including the view, session, event, and device
+ * context.
+ */
 @JsonPropertyOrder({
   SnapshotCreateRequestDataAttributes.JSON_PROPERTY_APPLICATION_ID,
   SnapshotCreateRequestDataAttributes.JSON_PROPERTY_DEVICE_TYPE,
@@ -88,7 +91,7 @@ public class SnapshotCreateRequestDataAttributes {
   }
 
   /**
-   * GetapplicationId
+   * Unique identifier of the RUM application.
    *
    * @return applicationId
    */
@@ -108,7 +111,7 @@ public class SnapshotCreateRequestDataAttributes {
   }
 
   /**
-   * GetdeviceType
+   * Device type used when capturing the snapshot (e.g., desktop, mobile, tablet).
    *
    * @return deviceType
    */
@@ -128,7 +131,7 @@ public class SnapshotCreateRequestDataAttributes {
   }
 
   /**
-   * GeteventId
+   * Unique identifier of the RUM event associated with the snapshot.
    *
    * @return eventId
    */
@@ -149,7 +152,8 @@ public class SnapshotCreateRequestDataAttributes {
   }
 
   /**
-   * GetisDeviceTypeSelectedByUser
+   * Indicates whether the device type was explicitly selected by the user rather than
+   * auto-detected.
    *
    * @return isDeviceTypeSelectedByUser
    */
@@ -169,7 +173,7 @@ public class SnapshotCreateRequestDataAttributes {
   }
 
   /**
-   * GetsessionId
+   * Unique identifier of the RUM session associated with the snapshot.
    *
    * @return sessionId
    */
@@ -190,7 +194,7 @@ public class SnapshotCreateRequestDataAttributes {
   }
 
   /**
-   * GetsnapshotName
+   * Human-readable name for the snapshot.
    *
    * @return snapshotName
    */
@@ -210,7 +214,7 @@ public class SnapshotCreateRequestDataAttributes {
   }
 
   /**
-   * Getstart
+   * Offset in milliseconds from the start of the session at which the snapshot was captured.
    *
    * @return start
    */
@@ -230,7 +234,7 @@ public class SnapshotCreateRequestDataAttributes {
   }
 
   /**
-   * GetviewId
+   * Unique identifier of the RUM view associated with the snapshot.
    *
    * @return viewId
    */
@@ -251,7 +255,7 @@ public class SnapshotCreateRequestDataAttributes {
   }
 
   /**
-   * GetviewName
+   * URL path or name of the view where the snapshot was captured.
    *
    * @return viewName
    */

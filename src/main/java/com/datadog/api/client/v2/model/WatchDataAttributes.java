@@ -18,7 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes for recording a session watch event, including the application, event reference, and
+ * timestamp.
+ */
 @JsonPropertyOrder({
   WatchDataAttributes.JSON_PROPERTY_APPLICATION_ID,
   WatchDataAttributes.JSON_PROPERTY_DATA_SOURCE,
@@ -59,7 +62,7 @@ public class WatchDataAttributes {
   }
 
   /**
-   * GetapplicationId
+   * Unique identifier of the RUM application containing the session.
    *
    * @return applicationId
    */
@@ -79,7 +82,7 @@ public class WatchDataAttributes {
   }
 
   /**
-   * GetdataSource
+   * Data source type indicating the origin of the session data (e.g., rum or product_analytics).
    *
    * @return dataSource
    */
@@ -100,7 +103,7 @@ public class WatchDataAttributes {
   }
 
   /**
-   * GeteventId
+   * Unique identifier of the RUM event that was watched.
    *
    * @return eventId
    */
@@ -120,7 +123,7 @@ public class WatchDataAttributes {
   }
 
   /**
-   * Gettimestamp
+   * Timestamp when the session was watched.
    *
    * @return timestamp
    */

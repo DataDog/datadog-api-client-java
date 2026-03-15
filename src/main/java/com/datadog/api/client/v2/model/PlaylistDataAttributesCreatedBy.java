@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Information about the user who created the playlist. */
 @JsonPropertyOrder({
   PlaylistDataAttributesCreatedBy.JSON_PROPERTY_HANDLE,
   PlaylistDataAttributesCreatedBy.JSON_PROPERTY_ICON,
@@ -62,7 +62,7 @@ public class PlaylistDataAttributesCreatedBy {
   }
 
   /**
-   * Gethandle
+   * Email handle of the user who created the playlist.
    *
    * @return handle
    */
@@ -82,7 +82,7 @@ public class PlaylistDataAttributesCreatedBy {
   }
 
   /**
-   * Geticon
+   * URL or identifier of the user's avatar icon.
    *
    * @return icon
    */
@@ -103,7 +103,7 @@ public class PlaylistDataAttributesCreatedBy {
   }
 
   /**
-   * Getid
+   * Unique identifier of the user who created the playlist.
    *
    * @return id
    */
@@ -123,7 +123,7 @@ public class PlaylistDataAttributesCreatedBy {
   }
 
   /**
-   * Getname
+   * Display name of the user who created the playlist.
    *
    * @return name
    */
@@ -144,7 +144,7 @@ public class PlaylistDataAttributesCreatedBy {
   }
 
   /**
-   * Getuuid
+   * UUID of the user who created the playlist.
    *
    * @return uuid
    */
