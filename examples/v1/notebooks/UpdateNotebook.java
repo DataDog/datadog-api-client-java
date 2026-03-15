@@ -16,6 +16,7 @@ import com.datadog.api.client.v1.model.NotebookResourceType;
 import com.datadog.api.client.v1.model.NotebookResponse;
 import com.datadog.api.client.v1.model.NotebookSplitBy;
 import com.datadog.api.client.v1.model.NotebookStatus;
+import com.datadog.api.client.v1.model.NotebookTemplateVariable;
 import com.datadog.api.client.v1.model.NotebookTimeseriesCellAttributes;
 import com.datadog.api.client.v1.model.NotebookUpdateCell;
 import com.datadog.api.client.v1.model.NotebookUpdateData;
@@ -108,6 +109,12 @@ y = 6;
                                             .type(NotebookCellResourceType.NOTEBOOK_CELLS))))
                             .name("Example-Notebook-updated")
                             .status(NotebookStatus.PUBLISHED)
+                            .templateVariables(
+                                Collections.singletonList(
+                                    new NotebookTemplateVariable()
+                                        .name("example-notebook")
+                                        .prefix("service")
+                                        ._default("*")))
                             .time(
                                 new NotebookGlobalTime(
                                     new NotebookRelativeTime()
