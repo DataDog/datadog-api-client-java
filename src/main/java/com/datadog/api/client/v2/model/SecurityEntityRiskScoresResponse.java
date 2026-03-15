@@ -61,7 +61,7 @@ public class SecurityEntityRiskScoresResponse {
   }
 
   /**
-   * Getdata
+   * Array of entity risk score objects.
    *
    * @return data
    */
