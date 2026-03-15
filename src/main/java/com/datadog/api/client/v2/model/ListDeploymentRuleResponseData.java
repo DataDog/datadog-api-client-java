@@ -59,7 +59,7 @@ public class ListDeploymentRuleResponseData {
   }
 
   /**
-   * Getattributes
+   * Attributes of the response for listing deployment rules.
    *
    * @return attributes
    */
