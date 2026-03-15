@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object representing a security finding. */
 @JsonPropertyOrder({FindingData.JSON_PROPERTY_ID, FindingData.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

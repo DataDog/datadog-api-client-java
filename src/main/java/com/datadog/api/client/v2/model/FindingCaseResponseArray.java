@@ -52,7 +52,7 @@ public class FindingCaseResponseArray {
   }
 
   /**
-   * Getdata
+   * Array of case response data objects.
    *
    * @return data
    */

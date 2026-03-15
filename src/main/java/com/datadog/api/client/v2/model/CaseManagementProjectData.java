@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object representing a case management project. */
 @JsonPropertyOrder({
   CaseManagementProjectData.JSON_PROPERTY_ID,
   CaseManagementProjectData.JSON_PROPERTY_TYPE
