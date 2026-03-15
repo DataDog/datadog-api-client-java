@@ -44,7 +44,7 @@ public class TableWidgetDefinition {
   private TableWidgetHasSearchBar hasSearchBar;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
-  private List<TableWidgetRequest> requests = new ArrayList<>();
+  private List<Object> requests = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TIME = "time";
   private WidgetTime time;
@@ -65,8 +65,7 @@ public class TableWidgetDefinition {
 
   @JsonCreator
   public TableWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          List<TableWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS) List<Object> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TableWidgetDefinitionType type) {
     this.requests = requests;
     this.type = type;
@@ -131,32 +130,34 @@ public class TableWidgetDefinition {
     this.hasSearchBar = hasSearchBar;
   }
 
-  public TableWidgetDefinition requests(List<TableWidgetRequest> requests) {
+  public TableWidgetDefinition requests(List<Object> requests) {
     this.requests = requests;
-    for (TableWidgetRequest item : requests) {
+    for (Object item : requests) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public TableWidgetDefinition addRequestsItem(TableWidgetRequest requestsItem) {
+  public TableWidgetDefinition addRequestsItem(Object requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
     return this;
   }
 
   /**
-   * Widget definition.
+   * Widget definition. Each item is either a classic <code>TableWidgetRequest</code> or an
+   * experimental <code>GuidedTableRequest</code> (used when the <code>
+   * graphing_new_table_widget_editor</code> feature flag is enabled).
    *
    * @return requests
    */
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<TableWidgetRequest> getRequests() {
+  public List<Object> getRequests() {
     return requests;
   }
 
-  public void setRequests(List<TableWidgetRequest> requests) {
+  public void setRequests(List<Object> requests) {
     this.requests = requests;
   }
 
