@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * An object containing metadata flags for a service, indicating whether it is traced by APM or
+ * monitored via Universal Service Monitoring.
+ */
 @JsonPropertyOrder({
   ServiceListDataAttributesMetadataItems.JSON_PROPERTY_IS_TRACED,
   ServiceListDataAttributesMetadataItems.JSON_PROPERTY_IS_USM
@@ -37,7 +40,7 @@ public class ServiceListDataAttributesMetadataItems {
   }
 
   /**
-   * GetisTraced
+   * Indicates whether the service is traced by APM.
    *
    * @return isTraced
    */
@@ -58,7 +61,7 @@ public class ServiceListDataAttributesMetadataItems {
   }
 
   /**
-   * GetisUsm
+   * Indicates whether the service uses Universal Service Monitoring.
    *
    * @return isUsm
    */
