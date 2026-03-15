@@ -44,7 +44,7 @@ public class ObservabilityPipelineHttpClientDestinationCompression {
   }
 
   /**
-   * Compression algorithm.
+   * The compression algorithm used for HTTP client destinations.
    *
    * @return algorithm
    */
