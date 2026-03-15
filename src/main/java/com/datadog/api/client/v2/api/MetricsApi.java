@@ -20,6 +20,7 @@ import com.datadog.api.client.v2.model.MetricTagConfigurationCreateRequest;
 import com.datadog.api.client.v2.model.MetricTagConfigurationMetricTypeCategory;
 import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
 import com.datadog.api.client.v2.model.MetricTagConfigurationUpdateRequest;
+import com.datadog.api.client.v2.model.MetricVolumesInclude;
 import com.datadog.api.client.v2.model.MetricVolumesResponse;
 import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurations;
 import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurationsResponse;
@@ -1599,6 +1600,7 @@ public class MetricsApi {
     private Long filterQueriedWindowSeconds;
     private String filterTags;
     private Boolean filterRelatedAssets;
+    private MetricVolumesInclude include;
     private Long windowSeconds;
     private Integer pageSize;
     private String pageCursor;
@@ -1706,6 +1708,21 @@ public class MetricsApi {
     public ListTagConfigurationsOptionalParameters filterRelatedAssets(
         Boolean filterRelatedAssets) {
       this.filterRelatedAssets = filterRelatedAssets;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of additional data to include in the response. Allowed
+     *     values: <code>metric_volumes</code>. When <code>metric_volumes</code> is specified, the
+     *     response includes volume data for each custom metric in the <code>included</code> array,
+     *     with a corresponding <code>relationships</code> link on each metric in <code>data</code>.
+     *     (optional)
+     * @return ListTagConfigurationsOptionalParameters
+     */
+    public ListTagConfigurationsOptionalParameters include(MetricVolumesInclude include) {
+      this.include = include;
       return this;
     }
 
@@ -1866,7 +1883,11 @@ public class MetricsApi {
    * page[size]</code> or an empty cursor like <code>page[cursor]=</code>. To fetch the next page,
    * pass in the <code>next_cursor</code> value from the response as the new <code>page[cursor]
    * </code> value. Once the <code>meta.pagination.next_cursor</code> value is null, all pages have
-   * been retrieved.
+   * been retrieved. Use the <code>include</code> query parameter to fetch additional data with the
+   * response. When <code>include=metric_volumes</code> is specified, the response includes volume
+   * data for each custom metric in the <code>included</code> array, with a corresponding <code>
+   * relationships</code> link on each metric in <code>data</code>. Volume data is only returned for
+   * custom metrics. All volume values represent a 1-hour timeframe.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;
@@ -1892,6 +1913,7 @@ public class MetricsApi {
     Long filterQueriedWindowSeconds = parameters.filterQueriedWindowSeconds;
     String filterTags = parameters.filterTags;
     Boolean filterRelatedAssets = parameters.filterRelatedAssets;
+    MetricVolumesInclude include = parameters.include;
     Long windowSeconds = parameters.windowSeconds;
     Integer pageSize = parameters.pageSize;
     String pageCursor = parameters.pageCursor;
@@ -1916,6 +1938,7 @@ public class MetricsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[related_assets]", filterRelatedAssets));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
@@ -1959,6 +1982,7 @@ public class MetricsApi {
     Long filterQueriedWindowSeconds = parameters.filterQueriedWindowSeconds;
     String filterTags = parameters.filterTags;
     Boolean filterRelatedAssets = parameters.filterRelatedAssets;
+    MetricVolumesInclude include = parameters.include;
     Long windowSeconds = parameters.windowSeconds;
     Integer pageSize = parameters.pageSize;
     String pageCursor = parameters.pageCursor;
@@ -1983,6 +2007,7 @@ public class MetricsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[related_assets]", filterRelatedAssets));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));

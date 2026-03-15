@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Response object that includes metrics and metric tag configurations. */
 @JsonPropertyOrder({
   MetricsAndMetricTagConfigurationsResponse.JSON_PROPERTY_DATA,
+  MetricsAndMetricTagConfigurationsResponse.JSON_PROPERTY_INCLUDED,
   MetricsAndMetricTagConfigurationsResponse.JSON_PROPERTY_LINKS,
   MetricsAndMetricTagConfigurationsResponse.JSON_PROPERTY_META
 })
@@ -30,6 +31,9 @@ public class MetricsAndMetricTagConfigurationsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<MetricsAndMetricTagConfigurations> data = null;
+
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<MetricIngestedIndexedVolume> included = null;
 
   public static final String JSON_PROPERTY_LINKS = "links";
   private MetricsListResponseLinks links;
@@ -70,6 +74,42 @@ public class MetricsAndMetricTagConfigurationsResponse {
 
   public void setData(List<MetricsAndMetricTagConfigurations> data) {
     this.data = data;
+  }
+
+  public MetricsAndMetricTagConfigurationsResponse included(
+      List<MetricIngestedIndexedVolume> included) {
+    this.included = included;
+    for (MetricIngestedIndexedVolume item : included) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public MetricsAndMetricTagConfigurationsResponse addIncludedItem(
+      MetricIngestedIndexedVolume includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Array of included metric volume objects. Only present when <code>include=metric_volumes</code>
+   * is requested.
+   *
+   * @return included
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MetricIngestedIndexedVolume> getIncluded() {
+    return included;
+  }
+
+  public void setIncluded(List<MetricIngestedIndexedVolume> included) {
+    this.included = included;
   }
 
   public MetricsAndMetricTagConfigurationsResponse links(MetricsListResponseLinks links) {
@@ -174,6 +214,7 @@ public class MetricsAndMetricTagConfigurationsResponse {
     MetricsAndMetricTagConfigurationsResponse metricsAndMetricTagConfigurationsResponse =
         (MetricsAndMetricTagConfigurationsResponse) o;
     return Objects.equals(this.data, metricsAndMetricTagConfigurationsResponse.data)
+        && Objects.equals(this.included, metricsAndMetricTagConfigurationsResponse.included)
         && Objects.equals(this.links, metricsAndMetricTagConfigurationsResponse.links)
         && Objects.equals(this.meta, metricsAndMetricTagConfigurationsResponse.meta)
         && Objects.equals(
@@ -183,7 +224,7 @@ public class MetricsAndMetricTagConfigurationsResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, meta, additionalProperties);
+    return Objects.hash(data, included, links, meta, additionalProperties);
   }
 
   @Override
@@ -191,6 +232,7 @@ public class MetricsAndMetricTagConfigurationsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricsAndMetricTagConfigurationsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
