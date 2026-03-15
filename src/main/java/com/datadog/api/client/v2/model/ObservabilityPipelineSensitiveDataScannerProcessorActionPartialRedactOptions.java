@@ -55,8 +55,8 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorActionPartialReda
   }
 
   /**
-   * The <code>ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions</code>
-   * <code>characters</code>.
+   * Number of characters to leave visible from the start or end of the matched value; the rest are
+   * redacted.
    *
    * @return characters
    */
