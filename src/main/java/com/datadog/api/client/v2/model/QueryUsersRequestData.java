@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object containing the resource type and attributes for querying users. */
 @JsonPropertyOrder({
   QueryUsersRequestData.JSON_PROPERTY_ATTRIBUTES,
   QueryUsersRequestData.JSON_PROPERTY_ID,
@@ -52,7 +52,7 @@ public class QueryUsersRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes for filtering and shaping the user query results.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class QueryUsersRequestData {
   }
 
   /**
-   * Getid
+   * Unique identifier for the query users request resource.
    *
    * @return id
    */

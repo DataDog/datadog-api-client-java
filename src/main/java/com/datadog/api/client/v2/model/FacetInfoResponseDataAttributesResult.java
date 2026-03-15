@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The facet query result containing discrete value counts or a numeric range for the requested
+ * facet.
+ */
 @JsonPropertyOrder({
   FacetInfoResponseDataAttributesResult.JSON_PROPERTY_RANGE,
   FacetInfoResponseDataAttributesResult.JSON_PROPERTY_VALUES
@@ -41,7 +44,7 @@ public class FacetInfoResponseDataAttributesResult {
   }
 
   /**
-   * Getrange
+   * The numeric range of a facet attribute, representing the minimum and maximum observed values.
    *
    * @return range
    */
@@ -76,7 +79,7 @@ public class FacetInfoResponseDataAttributesResult {
   }
 
   /**
-   * Getvalues
+   * List of discrete facet values with their occurrence counts.
    *
    * @return values
    */

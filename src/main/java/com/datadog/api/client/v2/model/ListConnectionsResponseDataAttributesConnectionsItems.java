@@ -19,7 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Details of a single data source connection, including its fields, join configuration, and audit
+ * metadata.
+ */
 @JsonPropertyOrder({
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_CREATED_AT,
   ListConnectionsResponseDataAttributesConnectionsItems.JSON_PROPERTY_CREATED_BY,
@@ -68,7 +71,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * GetcreatedAt
+   * Timestamp indicating when the connection was created.
    *
    * @return createdAt
    */
@@ -89,7 +92,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * GetcreatedBy
+   * Identifier of the user who created the connection.
    *
    * @return createdBy
    */
@@ -124,7 +127,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * Getfields
+   * List of custom attribute fields imported from the data source.
    *
    * @return fields
    */
@@ -145,7 +148,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * Getid
+   * Unique identifier of the connection.
    *
    * @return id
    */
@@ -168,7 +171,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * Getjoin
+   * The join configuration describing how the data source is linked to the entity.
    *
    * @return join
    */
@@ -199,7 +202,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * Getmetadata
+   * Additional key-value metadata associated with the connection.
    *
    * @return metadata
    */
@@ -220,7 +223,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * Gettype
+   * The type of data source connection (for example, ref_table).
    *
    * @return type
    */
@@ -241,7 +244,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * GetupdatedAt
+   * Timestamp indicating when the connection was last updated.
    *
    * @return updatedAt
    */
@@ -262,7 +265,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItems {
   }
 
   /**
-   * GetupdatedBy
+   * Identifier of the user who last updated the connection.
    *
    * @return updatedBy
    */

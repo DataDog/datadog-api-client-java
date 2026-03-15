@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The numeric range of a facet attribute, representing the minimum and maximum observed values. */
 @JsonPropertyOrder({
   FacetInfoResponseDataAttributesResultRange.JSON_PROPERTY_MAX,
   FacetInfoResponseDataAttributesResultRange.JSON_PROPERTY_MIN
@@ -37,7 +37,7 @@ public class FacetInfoResponseDataAttributesResultRange {
   }
 
   /**
-   * Getmax
+   * The maximum observed value for the numeric facet attribute.
    *
    * @return max
    */
@@ -58,7 +58,7 @@ public class FacetInfoResponseDataAttributesResultRange {
   }
 
   /**
-   * Getmin
+   * The minimum observed value for the numeric facet attribute.
    *
    * @return min
    */

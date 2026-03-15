@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of the facet info response, containing the facet result data. */
 @JsonPropertyOrder({FacetInfoResponseDataAttributes.JSON_PROPERTY_RESULT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,8 @@ public class FacetInfoResponseDataAttributes {
   }
 
   /**
-   * Getresult
+   * The facet query result containing discrete value counts or a numeric range for the requested
+   * facet.
    *
    * @return result
    */
