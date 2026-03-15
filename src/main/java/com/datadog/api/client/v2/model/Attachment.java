@@ -70,7 +70,7 @@ public class Attachment {
   }
 
   /**
-   * Getincluded
+   * A list of related objects included in the response.
    *
    * @return included
    */

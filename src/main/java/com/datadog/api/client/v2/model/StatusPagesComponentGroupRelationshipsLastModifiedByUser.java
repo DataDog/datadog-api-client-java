@@ -44,7 +44,7 @@ public class StatusPagesComponentGroupRelationshipsLastModifiedByUser {
   }
 
   /**
-   * Getdata
+   * The data object identifying the Datadog user who last modified the component group.
    *
    * @return data
    */

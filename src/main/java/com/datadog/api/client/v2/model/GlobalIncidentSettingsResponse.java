@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response payload containing global incident settings. */
 @JsonPropertyOrder({GlobalIncidentSettingsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class GlobalIncidentSettingsResponse {
   }
 
   /**
-   * Getdata
+   * Data object in the global incident settings response.
    *
    * @return data
    */

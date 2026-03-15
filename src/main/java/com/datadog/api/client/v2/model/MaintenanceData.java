@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object for a maintenance. */
 @JsonPropertyOrder({
   MaintenanceData.JSON_PROPERTY_ATTRIBUTES,
   MaintenanceData.JSON_PROPERTY_ID,

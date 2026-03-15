@@ -251,7 +251,7 @@ public class PaginationMetaPage {
   }
 
   /**
-   * Gettype
+   * The pagination type used for offset-based pagination.
    *
    * @return type
    */

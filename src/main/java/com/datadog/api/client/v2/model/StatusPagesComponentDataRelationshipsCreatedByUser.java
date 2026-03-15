@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The Datadog user who created the component. */
 @JsonPropertyOrder({StatusPagesComponentDataRelationshipsCreatedByUser.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -44,7 +44,7 @@ public class StatusPagesComponentDataRelationshipsCreatedByUser {
   }
 
   /**
-   * Getdata
+   * The data object identifying the Datadog user who created the component.
    *
    * @return data
    */

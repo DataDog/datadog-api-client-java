@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object identifying the Datadog user who last modified the degradation. */
 @JsonPropertyOrder({
   DegradationDataRelationshipsLastModifiedByUserData.JSON_PROPERTY_ID,
   DegradationDataRelationshipsLastModifiedByUserData.JSON_PROPERTY_TYPE

@@ -47,7 +47,7 @@ public class StatusPagesComponentDataRelationships {
   }
 
   /**
-   * GetcreatedByUser
+   * The Datadog user who created the component.
    *
    * @return createdByUser
    */
@@ -70,7 +70,7 @@ public class StatusPagesComponentDataRelationships {
   }
 
   /**
-   * Getgroup
+   * The group the component belongs to.
    *
    * @return group
    */
@@ -93,7 +93,7 @@ public class StatusPagesComponentDataRelationships {
   }
 
   /**
-   * GetlastModifiedByUser
+   * The Datadog user who last modified the component.
    *
    * @return lastModifiedByUser
    */
@@ -117,7 +117,7 @@ public class StatusPagesComponentDataRelationships {
   }
 
   /**
-   * GetstatusPage
+   * The status page the component belongs to.
    *
    * @return statusPage
    */

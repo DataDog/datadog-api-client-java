@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** A component displayed on an included status page. */
 @JsonPropertyOrder({
   StatusPageAsIncludedAttributesComponentsItems.JSON_PROPERTY_COMPONENTS,
   StatusPageAsIncludedAttributesComponentsItems.JSON_PROPERTY_ID,
@@ -70,7 +70,7 @@ public class StatusPageAsIncludedAttributesComponentsItems {
   }
 
   /**
-   * Getcomponents
+   * If the component is of type <code>group</code>, the components within the group.
    *
    * @return components
    */

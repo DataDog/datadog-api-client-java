@@ -33,7 +33,7 @@ public class CreateComponentRequestDataRelationships {
   }
 
   /**
-   * Getgroup
+   * The group to create the component within.
    *
    * @return group
    */

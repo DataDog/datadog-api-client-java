@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object for a degradation. */
 @JsonPropertyOrder({
   DegradationData.JSON_PROPERTY_ATTRIBUTES,
   DegradationData.JSON_PROPERTY_ID,

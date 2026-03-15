@@ -44,7 +44,7 @@ public class StatusPagesComponentGroupRelationshipsCreatedByUser {
   }
 
   /**
-   * Getdata
+   * The data object identifying the Datadog user who created the component group.
    *
    * @return data
    */

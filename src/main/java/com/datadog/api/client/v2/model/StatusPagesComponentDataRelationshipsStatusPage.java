@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The status page the component belongs to. */
 @JsonPropertyOrder({StatusPagesComponentDataRelationshipsStatusPage.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -44,7 +44,7 @@ public class StatusPagesComponentDataRelationshipsStatusPage {
   }
 
   /**
-   * Getdata
+   * The data object identifying the status page the component belongs to.
    *
    * @return data
    */
