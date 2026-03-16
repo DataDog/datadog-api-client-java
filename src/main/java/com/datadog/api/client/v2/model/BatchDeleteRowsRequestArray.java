@@ -26,26 +26,26 @@ import java.util.Objects;
 public class BatchDeleteRowsRequestArray {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<TableRowResourceIdentifier> data = new ArrayList<>();
+  private List<BatchDeleteRowsRequestData> data = new ArrayList<>();
 
   public BatchDeleteRowsRequestArray() {}
 
   @JsonCreator
   public BatchDeleteRowsRequestArray(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<TableRowResourceIdentifier> data) {
+          List<BatchDeleteRowsRequestData> data) {
     this.data = data;
   }
 
-  public BatchDeleteRowsRequestArray data(List<TableRowResourceIdentifier> data) {
+  public BatchDeleteRowsRequestArray data(List<BatchDeleteRowsRequestData> data) {
     this.data = data;
-    for (TableRowResourceIdentifier item : data) {
+    for (BatchDeleteRowsRequestData item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public BatchDeleteRowsRequestArray addDataItem(TableRowResourceIdentifier dataItem) {
+  public BatchDeleteRowsRequestArray addDataItem(BatchDeleteRowsRequestData dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
     return this;
@@ -58,11 +58,11 @@ public class BatchDeleteRowsRequestArray {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<TableRowResourceIdentifier> getData() {
+  public List<BatchDeleteRowsRequestData> getData() {
     return data;
   }
 
-  public void setData(List<TableRowResourceIdentifier> data) {
+  public void setData(List<BatchDeleteRowsRequestData> data) {
     this.data = data;
   }
 
