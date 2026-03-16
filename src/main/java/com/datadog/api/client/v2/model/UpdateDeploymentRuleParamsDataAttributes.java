@@ -97,7 +97,7 @@ public class UpdateDeploymentRuleParamsDataAttributes {
   }
 
   /**
-   * Options for deployment rule response representing either faulty deployment detection or monitor
+   * Options for deployment rule requests representing either faulty deployment detection or monitor
    * options.
    *
    * @return options

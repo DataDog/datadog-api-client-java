@@ -50,7 +50,7 @@ public class DeploymentRuleResponseDataAttributes {
   private String name;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
-  private DeploymentRulesOptions options;
+  private DeploymentRulesOptionsResponse options;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private DeploymentRuleResponseDataAttributesType type;
@@ -71,7 +71,8 @@ public class DeploymentRuleResponseDataAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_DRY_RUN) Boolean dryRun,
       @JsonProperty(required = true, value = JSON_PROPERTY_GATE_ID) String gateId,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS) DeploymentRulesOptions options,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS)
+          DeploymentRulesOptionsResponse options,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           DeploymentRuleResponseDataAttributesType type) {
     this.createdAt = createdAt;
@@ -188,25 +189,26 @@ public class DeploymentRuleResponseDataAttributes {
     this.name = name;
   }
 
-  public DeploymentRuleResponseDataAttributes options(DeploymentRulesOptions options) {
+  public DeploymentRuleResponseDataAttributes options(DeploymentRulesOptionsResponse options) {
     this.options = options;
     this.unparsed |= options.unparsed;
     return this;
   }
 
   /**
-   * Options for deployment rule response representing either faulty deployment detection or monitor
-   * options.
+   * Options returned in deployment rule responses representing either faulty deployment detection
+   * or monitor options. Faulty deployment detection responses always include <code>
+   * excluded_resources</code>, making the two variants unambiguous.
    *
    * @return options
    */
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DeploymentRulesOptions getOptions() {
+  public DeploymentRulesOptionsResponse getOptions() {
     return options;
   }
 
-  public void setOptions(DeploymentRulesOptions options) {
+  public void setOptions(DeploymentRulesOptionsResponse options) {
     this.options = options;
   }
 
