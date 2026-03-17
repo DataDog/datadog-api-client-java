@@ -36,19 +36,29 @@ public class ApplicationSecurityWafCustomRuleConditionInputAddress extends Model
               "server.request.uri.raw",
               "server.request.path_params",
               "server.request.query",
+              "server.request.headers",
               "server.request.headers.no_cookies",
+              "server.request.custom-auth",
               "server.request.cookies",
               "server.request.trailers",
               "server.request.body",
+              "server.request.body.filenames",
               "server.response.status",
               "server.response.headers.no_cookies",
               "server.response.trailers",
+              "server.response.body",
               "grpc.server.request.metadata",
               "grpc.server.request.message",
               "grpc.server.method",
               "graphql.server.all_resolvers",
               "usr.id",
-              "http.client_ip"));
+              "http.client_ip",
+              "server.llm.event",
+              "server.llm.guard.verdict",
+              "_dd.appsec.fp.http.header",
+              "_dd.appsec.fp.http.network",
+              "_dd.appsec.fp.session",
+              "_dd.appsec.fp.http.endpoint"));
 
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_DB_STATEMENT =
       new ApplicationSecurityWafCustomRuleConditionInputAddress("server.db.statement");
@@ -67,10 +77,15 @@ public class ApplicationSecurityWafCustomRuleConditionInputAddress extends Model
           new ApplicationSecurityWafCustomRuleConditionInputAddress("server.request.path_params");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_REQUEST_QUERY =
       new ApplicationSecurityWafCustomRuleConditionInputAddress("server.request.query");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_REQUEST_HEADERS =
+      new ApplicationSecurityWafCustomRuleConditionInputAddress("server.request.headers");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress
       SERVER_REQUEST_HEADERS_NO_COOKIES =
           new ApplicationSecurityWafCustomRuleConditionInputAddress(
               "server.request.headers.no_cookies");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress
+      SERVER_REQUEST_CUSTOM_AUTH =
+          new ApplicationSecurityWafCustomRuleConditionInputAddress("server.request.custom-auth");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_REQUEST_COOKIES =
       new ApplicationSecurityWafCustomRuleConditionInputAddress("server.request.cookies");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress
@@ -78,6 +93,10 @@ public class ApplicationSecurityWafCustomRuleConditionInputAddress extends Model
           new ApplicationSecurityWafCustomRuleConditionInputAddress("server.request.trailers");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_REQUEST_BODY =
       new ApplicationSecurityWafCustomRuleConditionInputAddress("server.request.body");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress
+      SERVER_REQUEST_BODY_FILENAMES =
+          new ApplicationSecurityWafCustomRuleConditionInputAddress(
+              "server.request.body.filenames");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_RESPONSE_STATUS =
       new ApplicationSecurityWafCustomRuleConditionInputAddress("server.response.status");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress
@@ -87,6 +106,8 @@ public class ApplicationSecurityWafCustomRuleConditionInputAddress extends Model
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress
       SERVER_RESPONSE_TRAILERS =
           new ApplicationSecurityWafCustomRuleConditionInputAddress("server.response.trailers");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_RESPONSE_BODY =
+      new ApplicationSecurityWafCustomRuleConditionInputAddress("server.response.body");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress
       GRPC_SERVER_REQUEST_METADATA =
           new ApplicationSecurityWafCustomRuleConditionInputAddress("grpc.server.request.metadata");
@@ -102,6 +123,22 @@ public class ApplicationSecurityWafCustomRuleConditionInputAddress extends Model
       new ApplicationSecurityWafCustomRuleConditionInputAddress("usr.id");
   public static final ApplicationSecurityWafCustomRuleConditionInputAddress HTTP_CLIENT_IP =
       new ApplicationSecurityWafCustomRuleConditionInputAddress("http.client_ip");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress SERVER_LLM_EVENT =
+      new ApplicationSecurityWafCustomRuleConditionInputAddress("server.llm.event");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress
+      SERVER_LLM_GUARD_VERDICT =
+          new ApplicationSecurityWafCustomRuleConditionInputAddress("server.llm.guard.verdict");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress
+      DD_APPSEC_FP_HTTP_HEADER =
+          new ApplicationSecurityWafCustomRuleConditionInputAddress("_dd.appsec.fp.http.header");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress
+      DD_APPSEC_FP_HTTP_NETWORK =
+          new ApplicationSecurityWafCustomRuleConditionInputAddress("_dd.appsec.fp.http.network");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress DD_APPSEC_FP_SESSION =
+      new ApplicationSecurityWafCustomRuleConditionInputAddress("_dd.appsec.fp.session");
+  public static final ApplicationSecurityWafCustomRuleConditionInputAddress
+      DD_APPSEC_FP_HTTP_ENDPOINT =
+          new ApplicationSecurityWafCustomRuleConditionInputAddress("_dd.appsec.fp.http.endpoint");
 
   ApplicationSecurityWafCustomRuleConditionInputAddress(String value) {
     super(value, allowedValues);
