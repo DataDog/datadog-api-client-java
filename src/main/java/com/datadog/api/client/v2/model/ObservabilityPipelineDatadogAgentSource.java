@@ -23,6 +23,7 @@ import java.util.Objects;
  * <p><strong>Supported pipeline types:</strong> logs, metrics
  */
 @JsonPropertyOrder({
+  ObservabilityPipelineDatadogAgentSource.JSON_PROPERTY_ADDRESS_KEY,
   ObservabilityPipelineDatadogAgentSource.JSON_PROPERTY_ID,
   ObservabilityPipelineDatadogAgentSource.JSON_PROPERTY_TLS,
   ObservabilityPipelineDatadogAgentSource.JSON_PROPERTY_TYPE
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineDatadogAgentSource {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
+  private String addressKey;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -51,6 +55,28 @@ public class ObservabilityPipelineDatadogAgentSource {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ObservabilityPipelineDatadogAgentSource addressKey(String addressKey) {
+    this.addressKey = addressKey;
+    return this;
+  }
+
+  /**
+   * Name of the environment variable or secret that holds the listen address for the Datadog Agent
+   * source.
+   *
+   * @return addressKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAddressKey() {
+    return addressKey;
+  }
+
+  public void setAddressKey(String addressKey) {
+    this.addressKey = addressKey;
   }
 
   public ObservabilityPipelineDatadogAgentSource id(String id) {
@@ -178,7 +204,8 @@ public class ObservabilityPipelineDatadogAgentSource {
     }
     ObservabilityPipelineDatadogAgentSource observabilityPipelineDatadogAgentSource =
         (ObservabilityPipelineDatadogAgentSource) o;
-    return Objects.equals(this.id, observabilityPipelineDatadogAgentSource.id)
+    return Objects.equals(this.addressKey, observabilityPipelineDatadogAgentSource.addressKey)
+        && Objects.equals(this.id, observabilityPipelineDatadogAgentSource.id)
         && Objects.equals(this.tls, observabilityPipelineDatadogAgentSource.tls)
         && Objects.equals(this.type, observabilityPipelineDatadogAgentSource.type)
         && Objects.equals(
@@ -188,13 +215,14 @@ public class ObservabilityPipelineDatadogAgentSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tls, type, additionalProperties);
+    return Objects.hash(addressKey, id, tls, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineDatadogAgentSource {\n");
+    sb.append("    addressKey: ").append(toIndentedString(addressKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
