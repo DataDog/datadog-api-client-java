@@ -1,4 +1,4 @@
-// Create a new metric SLO object using sli_specification returns "OK" response
+// Create a new metric SLO object using bad events formula returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricQueryDefinition;
 import com.datadog.api.client.v1.model.SLOCountDefinition;
-import com.datadog.api.client.v1.model.SLOCountDefinitionWithTotalEventsFormula;
+import com.datadog.api.client.v1.model.SLOCountDefinitionWithBadEventsFormula;
 import com.datadog.api.client.v1.model.SLOCountSpec;
 import com.datadog.api.client.v1.model.SLODataSourceQueryDefinition;
 import com.datadog.api.client.v1.model.SLOFormula;
@@ -34,9 +34,9 @@ public class Example {
                     new SLOCountSpec()
                         .count(
                             new SLOCountDefinition(
-                                new SLOCountDefinitionWithTotalEventsFormula()
+                                new SLOCountDefinitionWithBadEventsFormula()
                                     .goodEventsFormula(new SLOFormula().formula("query1 - query2"))
-                                    .totalEventsFormula(new SLOFormula().formula("query1"))
+                                    .badEventsFormula(new SLOFormula().formula("query2"))
                                     .queries(
                                         Arrays.asList(
                                             new SLODataSourceQueryDefinition(

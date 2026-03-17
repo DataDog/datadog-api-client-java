@@ -39,7 +39,8 @@ public class SLOCountSpec {
 
   /**
    * A count-based (metric) SLI specification, composed of three parts: the good events formula, the
-   * total events formula, and the underlying queries.
+   * bad or total events formula, and the underlying queries. Exactly one of <code>
+   * total_events_formula</code> or <code>bad_events_formula</code> must be provided.
    *
    * @return count
    */
