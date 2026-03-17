@@ -1606,7 +1606,8 @@ public class MetricsApi {
     /**
      * Set filterConfigured.
      *
-     * @param filterConfigured Filter custom metrics that have configured tags. (optional)
+     * @param filterConfigured Only return custom metrics that have been configured with Metrics
+     *     Without Limits. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterConfigured(Boolean filterConfigured) {
@@ -1617,7 +1618,8 @@ public class MetricsApi {
     /**
      * Set filterTagsConfigured.
      *
-     * @param filterTagsConfigured Filter tag configurations by configured tags. (optional)
+     * @param filterTagsConfigured Only return metrics that have the given tag key(s) in their
+     *     Metrics Without Limits configuration (included or excluded). (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterTagsConfigured(
@@ -1629,7 +1631,8 @@ public class MetricsApi {
     /**
      * Set filterMetricType.
      *
-     * @param filterMetricType Filter metrics by metric type. (optional, default to "distribution")
+     * @param filterMetricType Only return metrics of the given metric type. (optional, default to
+     *     "distribution")
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterMetricType(
@@ -1641,8 +1644,8 @@ public class MetricsApi {
     /**
      * Set filterIncludePercentiles.
      *
-     * @param filterIncludePercentiles Filter distributions with additional percentile aggregations
-     *     enabled or disabled. (optional)
+     * @param filterIncludePercentiles Only return distribution metrics that have percentile
+     *     aggregations enabled (true) or disabled (false). (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterIncludePercentiles(
@@ -1654,9 +1657,9 @@ public class MetricsApi {
     /**
      * Set filterQueried.
      *
-     * @param filterQueried (Preview) Filter custom metrics that have or have not been queried in
-     *     the specified window[seconds]. If no window is provided or the window is less than 2
-     *     hours, a default of 2 hours will be applied. (optional)
+     * @param filterQueried Only return metrics that have been queried (true) or not queried (false)
+     *     in the look back window. Set the window with <code>filter[queried][window][seconds]
+     *     </code>; if omitted, a default window is used. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterQueried(Boolean filterQueried) {
@@ -1667,14 +1670,9 @@ public class MetricsApi {
     /**
      * Set filterQueriedWindowSeconds.
      *
-     * @param filterQueriedWindowSeconds The number of seconds of look back (from now) used by the
-     *     <code>filter[queried]</code> filter logic. Must be sent with <code>filter[queried]</code>
-     *     and is only applied when <code>filter[queried]=true</code>. If <code>
-     *     filter[queried]=false</code>, this parameter is ignored and default queried-window
-     *     behavior applies. If <code>filter[queried]</code> is not provided, sending this parameter
-     *     returns a 400. For example: <code>
-     *     GET /api/v2/metrics?filter[queried]=true&amp;filter[queried][window][seconds]=15552000
-     *     </code>. (optional)
+     * @param filterQueriedWindowSeconds Only return metrics that have been queried or not queried
+     *     in the specified window. Dependent on being sent with <code>filter[queried]</code>.
+     *     (optional, default to 2592000)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterQueriedWindowSeconds(
@@ -1686,9 +1684,8 @@ public class MetricsApi {
     /**
      * Set filterTags.
      *
-     * @param filterTags Filter metrics that have been submitted with the given tags. Supports
-     *     boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
-     *     (optional)
+     * @param filterTags Only return metrics that were submitted with tags matching this expression.
+     *     You can use AND, OR, IN, and wildcards (for example, service:web*). (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterTags(String filterTags) {
@@ -1699,8 +1696,8 @@ public class MetricsApi {
     /**
      * Set filterRelatedAssets.
      *
-     * @param filterRelatedAssets (Preview) Filter metrics that are used in dashboards, monitors,
-     *     notebooks, SLOs. (optional)
+     * @param filterRelatedAssets Only return metrics that are used in at least one dashboard,
+     *     monitor, notebook, or SLO. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterRelatedAssets(
@@ -1712,8 +1709,8 @@ public class MetricsApi {
     /**
      * Set windowSeconds.
      *
-     * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag]
-     *     query. Default value is 3600 (1 hour), maximum value is 5,184,000 (60 days). (optional)
+     * @param windowSeconds Only return metrics that have been actively reporting in the specified
+     *     window. (optional, default to 3600)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters windowSeconds(Long windowSeconds) {
@@ -1724,7 +1721,8 @@ public class MetricsApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Maximum number of results returned. (optional, default to 10000)
+     * @param pageSize Maximum number of results per page. Use with <code>page[cursor]</code> for
+     *     pagination. (optional, default to 10000)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters pageSize(Integer pageSize) {
@@ -1735,9 +1733,10 @@ public class MetricsApi {
     /**
      * Set pageCursor.
      *
-     * @param pageCursor String to query the next page of results. This key is provided with each
-     *     valid response from the API in <code>meta.pagination.next_cursor</code>. Once the <code>
-     *     meta.pagination.next_cursor</code> key is null, all pages have been retrieved. (optional)
+     * @param pageCursor Cursor for pagination. Use <code>page[size]</code> to opt-in to pagination
+     *     and get the first page; for subsequent pages, use the value from <code>
+     *     meta.pagination.next_cursor</code> in the response. Pagination is complete when <code>
+     *     next_cursor</code> is null. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters pageCursor(String pageCursor) {
@@ -1860,13 +1859,8 @@ public class MetricsApi {
   }
 
   /**
-   * Returns all metrics for your organization that match the given filter parameters. Optionally,
-   * paginate by using the <code>page[cursor]</code> and/or <code>page[size]</code> query
-   * parameters. To fetch the first page, pass in a query parameter with either a valid <code>
-   * page[size]</code> or an empty cursor like <code>page[cursor]=</code>. To fetch the next page,
-   * pass in the <code>next_cursor</code> value from the response as the new <code>page[cursor]
-   * </code> value. Once the <code>meta.pagination.next_cursor</code> value is null, all pages have
-   * been retrieved.
+   * Get a list of actively reporting metrics for your organization. Pagination is optional using
+   * the <code>page[cursor]</code> and <code>page[size]</code> query parameters.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;
