@@ -10087,6 +10087,22 @@ public class SecurityMonitoringApi {
         new GenericType<ListSecurityFindingsResponse>() {});
   }
 
+  /** Manage optional parameters to listSecurityMonitoringCriticalAssets. */
+  public static class ListSecurityMonitoringCriticalAssetsOptionalParameters {
+    private String query;
+
+    /**
+     * Set query.
+     *
+     * @param query Query string. (optional)
+     * @return ListSecurityMonitoringCriticalAssetsOptionalParameters
+     */
+    public ListSecurityMonitoringCriticalAssetsOptionalParameters query(String query) {
+      this.query = query;
+      return this;
+    }
+  }
+
   /**
    * Get all critical assets.
    *
@@ -10097,7 +10113,9 @@ public class SecurityMonitoringApi {
    */
   public SecurityMonitoringCriticalAssetsResponse listSecurityMonitoringCriticalAssets()
       throws ApiException {
-    return listSecurityMonitoringCriticalAssetsWithHttpInfo().getData();
+    return listSecurityMonitoringCriticalAssetsWithHttpInfo(
+            new ListSecurityMonitoringCriticalAssetsOptionalParameters())
+        .getData();
   }
 
   /**
@@ -10109,7 +10127,40 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<SecurityMonitoringCriticalAssetsResponse>
       listSecurityMonitoringCriticalAssetsAsync() {
-    return listSecurityMonitoringCriticalAssetsWithHttpInfoAsync()
+    return listSecurityMonitoringCriticalAssetsWithHttpInfoAsync(
+            new ListSecurityMonitoringCriticalAssetsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all critical assets.
+   *
+   * <p>See {@link #listSecurityMonitoringCriticalAssetsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringCriticalAssetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringCriticalAssetsResponse listSecurityMonitoringCriticalAssets(
+      ListSecurityMonitoringCriticalAssetsOptionalParameters parameters) throws ApiException {
+    return listSecurityMonitoringCriticalAssetsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all critical assets.
+   *
+   * <p>See {@link #listSecurityMonitoringCriticalAssetsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SecurityMonitoringCriticalAssetsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringCriticalAssetsResponse>
+      listSecurityMonitoringCriticalAssetsAsync(
+          ListSecurityMonitoringCriticalAssetsOptionalParameters parameters) {
+    return listSecurityMonitoringCriticalAssetsWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -10119,6 +10170,7 @@ public class SecurityMonitoringApi {
   /**
    * Get the list of all critical assets.
    *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SecurityMonitoringCriticalAssetsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -10131,18 +10183,23 @@ public class SecurityMonitoringApi {
    *     </table>
    */
   public ApiResponse<SecurityMonitoringCriticalAssetsResponse>
-      listSecurityMonitoringCriticalAssetsWithHttpInfo() throws ApiException {
+      listSecurityMonitoringCriticalAssetsWithHttpInfo(
+          ListSecurityMonitoringCriticalAssetsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    String query = parameters.query;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/configuration/critical_assets";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.SecurityMonitoringApi.listSecurityMonitoringCriticalAssets",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -10163,15 +10220,21 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #listSecurityMonitoringCriticalAssetsWithHttpInfo}.
    *
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringCriticalAssetsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SecurityMonitoringCriticalAssetsResponse>>
-      listSecurityMonitoringCriticalAssetsWithHttpInfoAsync() {
+      listSecurityMonitoringCriticalAssetsWithHttpInfoAsync(
+          ListSecurityMonitoringCriticalAssetsOptionalParameters parameters) {
     Object localVarPostBody = null;
+    String query = parameters.query;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/configuration/critical_assets";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
 
     Invocation.Builder builder;
     try {
@@ -10179,7 +10242,7 @@ public class SecurityMonitoringApi {
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.listSecurityMonitoringCriticalAssets",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
