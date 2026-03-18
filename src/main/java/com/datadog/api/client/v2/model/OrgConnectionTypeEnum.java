@@ -23,10 +23,11 @@ import java.util.Set;
 public class OrgConnectionTypeEnum extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("logs", "metrics"));
+      new HashSet<String>(Arrays.asList("logs", "metrics", "audit"));
 
   public static final OrgConnectionTypeEnum LOGS = new OrgConnectionTypeEnum("logs");
   public static final OrgConnectionTypeEnum METRICS = new OrgConnectionTypeEnum("metrics");
+  public static final OrgConnectionTypeEnum AUDIT = new OrgConnectionTypeEnum("audit");
 
   OrgConnectionTypeEnum(String value) {
     super(value, allowedValues);
