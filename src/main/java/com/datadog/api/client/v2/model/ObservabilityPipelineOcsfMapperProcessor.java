@@ -30,6 +30,7 @@ import java.util.Objects;
   ObservabilityPipelineOcsfMapperProcessor.JSON_PROPERTY_ENABLED,
   ObservabilityPipelineOcsfMapperProcessor.JSON_PROPERTY_ID,
   ObservabilityPipelineOcsfMapperProcessor.JSON_PROPERTY_INCLUDE,
+  ObservabilityPipelineOcsfMapperProcessor.JSON_PROPERTY_KEEP_UNMATCHED,
   ObservabilityPipelineOcsfMapperProcessor.JSON_PROPERTY_MAPPINGS,
   ObservabilityPipelineOcsfMapperProcessor.JSON_PROPERTY_TYPE
 })
@@ -48,6 +49,9 @@ public class ObservabilityPipelineOcsfMapperProcessor {
 
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private String include;
+
+  public static final String JSON_PROPERTY_KEEP_UNMATCHED = "keep_unmatched";
+  private Boolean keepUnmatched;
 
   public static final String JSON_PROPERTY_MAPPINGS = "mappings";
   private List<ObservabilityPipelineOcsfMapperProcessorMapping> mappings = new ArrayList<>();
@@ -155,6 +159,27 @@ public class ObservabilityPipelineOcsfMapperProcessor {
 
   public void setInclude(String include) {
     this.include = include;
+  }
+
+  public ObservabilityPipelineOcsfMapperProcessor keepUnmatched(Boolean keepUnmatched) {
+    this.keepUnmatched = keepUnmatched;
+    return this;
+  }
+
+  /**
+   * Whether to keep an event that does not match any of the mapping filters.
+   *
+   * @return keepUnmatched
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KEEP_UNMATCHED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getKeepUnmatched() {
+    return keepUnmatched;
+  }
+
+  public void setKeepUnmatched(Boolean keepUnmatched) {
+    this.keepUnmatched = keepUnmatched;
   }
 
   public ObservabilityPipelineOcsfMapperProcessor mappings(
@@ -274,6 +299,8 @@ public class ObservabilityPipelineOcsfMapperProcessor {
         && Objects.equals(this.enabled, observabilityPipelineOcsfMapperProcessor.enabled)
         && Objects.equals(this.id, observabilityPipelineOcsfMapperProcessor.id)
         && Objects.equals(this.include, observabilityPipelineOcsfMapperProcessor.include)
+        && Objects.equals(
+            this.keepUnmatched, observabilityPipelineOcsfMapperProcessor.keepUnmatched)
         && Objects.equals(this.mappings, observabilityPipelineOcsfMapperProcessor.mappings)
         && Objects.equals(this.type, observabilityPipelineOcsfMapperProcessor.type)
         && Objects.equals(
@@ -283,7 +310,8 @@ public class ObservabilityPipelineOcsfMapperProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, enabled, id, include, mappings, type, additionalProperties);
+    return Objects.hash(
+        displayName, enabled, id, include, keepUnmatched, mappings, type, additionalProperties);
   }
 
   @Override
@@ -294,6 +322,7 @@ public class ObservabilityPipelineOcsfMapperProcessor {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    include: ").append(toIndentedString(include)).append("\n");
+    sb.append("    keepUnmatched: ").append(toIndentedString(keepUnmatched)).append("\n");
     sb.append("    mappings: ").append(toIndentedString(mappings)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
