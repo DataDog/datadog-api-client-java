@@ -42,7 +42,7 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
   private MonitorFormulaAndFunctionAggregateFilteredDataSource dataSource;
 
   public static final String JSON_PROPERTY_FILTER_QUERY = "filter_query";
-  private MonitorFormulaAndFunctionAggregateFilterQuery filterQuery;
+  private MonitorFormulaAndFunctionAggregateSubQuery filterQuery;
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<MonitorFormulaAndFunctionAggregateQueryFilter> filters = new ArrayList<>();
@@ -62,7 +62,7 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
           MonitorFormulaAndFunctionAggregateFilteredDataSource dataSource,
       @JsonProperty(required = true, value = JSON_PROPERTY_FILTER_QUERY)
-          MonitorFormulaAndFunctionAggregateFilterQuery filterQuery,
+          MonitorFormulaAndFunctionAggregateSubQuery filterQuery,
       @JsonProperty(required = true, value = JSON_PROPERTY_FILTERS)
           List<MonitorFormulaAndFunctionAggregateQueryFilter> filters) {
     this.baseQuery = baseQuery;
@@ -157,24 +157,25 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
   }
 
   public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition filterQuery(
-      MonitorFormulaAndFunctionAggregateFilterQuery filterQuery) {
+      MonitorFormulaAndFunctionAggregateSubQuery filterQuery) {
     this.filterQuery = filterQuery;
     this.unparsed |= filterQuery.unparsed;
     return this;
   }
 
   /**
-   * Filter query for aggregate filtered queries. Can be an events query or a reference table query.
+   * Sub-query for aggregate composite queries (augmented or filtered). Can be an events query or a
+   * reference table query.
    *
    * @return filterQuery
    */
   @JsonProperty(JSON_PROPERTY_FILTER_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MonitorFormulaAndFunctionAggregateFilterQuery getFilterQuery() {
+  public MonitorFormulaAndFunctionAggregateSubQuery getFilterQuery() {
     return filterQuery;
   }
 
-  public void setFilterQuery(MonitorFormulaAndFunctionAggregateFilterQuery filterQuery) {
+  public void setFilterQuery(MonitorFormulaAndFunctionAggregateSubQuery filterQuery) {
     this.filterQuery = filterQuery;
   }
 

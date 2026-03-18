@@ -5,10 +5,10 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.MonitorsApi;
 import com.datadog.api.client.v1.model.Monitor;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateBaseQuery;
-import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateFilterQuery;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateFilteredDataSource;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateFilteredQueryDefinition;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateQueryFilter;
+import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateSubQuery;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionMetricsDataSource;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionMetricsQueryDefinition;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionQueryDefinition;
@@ -55,7 +55,7 @@ formula("query1").rollup("sum").last("5m") > 100
                                                     "max:container.cpu.usage{*} by"
                                                         + " {kube_cluster_name}.rollup(max)")))
                                     .filterQuery(
-                                        new MonitorFormulaAndFunctionAggregateFilterQuery(
+                                        new MonitorFormulaAndFunctionAggregateSubQuery(
                                             new MonitorFormulaAndFunctionReferenceTableQueryDefinition()
                                                 .name("filter_query")
                                                 .dataSource(

@@ -38,32 +38,32 @@ import java.util.logging.Logger;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 @JsonDeserialize(
     using =
-        MonitorFormulaAndFunctionAggregateAugmentQuery
-            .MonitorFormulaAndFunctionAggregateAugmentQueryDeserializer.class)
+        MonitorFormulaAndFunctionAggregateSubQuery
+            .MonitorFormulaAndFunctionAggregateSubQueryDeserializer.class)
 @JsonSerialize(
     using =
-        MonitorFormulaAndFunctionAggregateAugmentQuery
-            .MonitorFormulaAndFunctionAggregateAugmentQuerySerializer.class)
-public class MonitorFormulaAndFunctionAggregateAugmentQuery extends AbstractOpenApiSchema {
+        MonitorFormulaAndFunctionAggregateSubQuery
+            .MonitorFormulaAndFunctionAggregateSubQuerySerializer.class)
+public class MonitorFormulaAndFunctionAggregateSubQuery extends AbstractOpenApiSchema {
   private static final Logger log =
-      Logger.getLogger(MonitorFormulaAndFunctionAggregateAugmentQuery.class.getName());
+      Logger.getLogger(MonitorFormulaAndFunctionAggregateSubQuery.class.getName());
 
   @JsonIgnore public boolean unparsed = false;
 
-  public static class MonitorFormulaAndFunctionAggregateAugmentQuerySerializer
-      extends StdSerializer<MonitorFormulaAndFunctionAggregateAugmentQuery> {
-    public MonitorFormulaAndFunctionAggregateAugmentQuerySerializer(
-        Class<MonitorFormulaAndFunctionAggregateAugmentQuery> t) {
+  public static class MonitorFormulaAndFunctionAggregateSubQuerySerializer
+      extends StdSerializer<MonitorFormulaAndFunctionAggregateSubQuery> {
+    public MonitorFormulaAndFunctionAggregateSubQuerySerializer(
+        Class<MonitorFormulaAndFunctionAggregateSubQuery> t) {
       super(t);
     }
 
-    public MonitorFormulaAndFunctionAggregateAugmentQuerySerializer() {
+    public MonitorFormulaAndFunctionAggregateSubQuerySerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        MonitorFormulaAndFunctionAggregateAugmentQuery value,
+        MonitorFormulaAndFunctionAggregateSubQuery value,
         JsonGenerator jgen,
         SerializerProvider provider)
         throws IOException, JsonProcessingException {
@@ -71,18 +71,18 @@ public class MonitorFormulaAndFunctionAggregateAugmentQuery extends AbstractOpen
     }
   }
 
-  public static class MonitorFormulaAndFunctionAggregateAugmentQueryDeserializer
-      extends StdDeserializer<MonitorFormulaAndFunctionAggregateAugmentQuery> {
-    public MonitorFormulaAndFunctionAggregateAugmentQueryDeserializer() {
-      this(MonitorFormulaAndFunctionAggregateAugmentQuery.class);
+  public static class MonitorFormulaAndFunctionAggregateSubQueryDeserializer
+      extends StdDeserializer<MonitorFormulaAndFunctionAggregateSubQuery> {
+    public MonitorFormulaAndFunctionAggregateSubQueryDeserializer() {
+      this(MonitorFormulaAndFunctionAggregateSubQuery.class);
     }
 
-    public MonitorFormulaAndFunctionAggregateAugmentQueryDeserializer(Class<?> vc) {
+    public MonitorFormulaAndFunctionAggregateSubQueryDeserializer(Class<?> vc) {
       super(vc);
     }
 
     @Override
-    public MonitorFormulaAndFunctionAggregateAugmentQuery deserialize(
+    public MonitorFormulaAndFunctionAggregateSubQuery deserialize(
         JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
@@ -197,8 +197,8 @@ public class MonitorFormulaAndFunctionAggregateAugmentQuery extends AbstractOpen
             e);
       }
 
-      MonitorFormulaAndFunctionAggregateAugmentQuery ret =
-          new MonitorFormulaAndFunctionAggregateAugmentQuery();
+      MonitorFormulaAndFunctionAggregateSubQuery ret =
+          new MonitorFormulaAndFunctionAggregateSubQuery();
       if (match == 1) {
         ret.setActualInstance(deserialized);
       } else {
@@ -214,27 +214,27 @@ public class MonitorFormulaAndFunctionAggregateAugmentQuery extends AbstractOpen
 
     /** Handle deserialization of the 'null' value. */
     @Override
-    public MonitorFormulaAndFunctionAggregateAugmentQuery getNullValue(DeserializationContext ctxt)
+    public MonitorFormulaAndFunctionAggregateSubQuery getNullValue(DeserializationContext ctxt)
         throws JsonMappingException {
       throw new JsonMappingException(
-          ctxt.getParser(), "MonitorFormulaAndFunctionAggregateAugmentQuery cannot be null");
+          ctxt.getParser(), "MonitorFormulaAndFunctionAggregateSubQuery cannot be null");
     }
   }
 
   // store a list of schema names defined in oneOf
   public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
-  public MonitorFormulaAndFunctionAggregateAugmentQuery() {
+  public MonitorFormulaAndFunctionAggregateSubQuery() {
     super("oneOf", Boolean.FALSE);
   }
 
-  public MonitorFormulaAndFunctionAggregateAugmentQuery(
+  public MonitorFormulaAndFunctionAggregateSubQuery(
       MonitorFormulaAndFunctionEventQueryDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
-  public MonitorFormulaAndFunctionAggregateAugmentQuery(
+  public MonitorFormulaAndFunctionAggregateSubQuery(
       MonitorFormulaAndFunctionReferenceTableQueryDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -248,12 +248,12 @@ public class MonitorFormulaAndFunctionAggregateAugmentQuery extends AbstractOpen
         "MonitorFormulaAndFunctionReferenceTableQueryDefinition",
         new GenericType<MonitorFormulaAndFunctionReferenceTableQueryDefinition>() {});
     JSON.registerDescendants(
-        MonitorFormulaAndFunctionAggregateAugmentQuery.class, Collections.unmodifiableMap(schemas));
+        MonitorFormulaAndFunctionAggregateSubQuery.class, Collections.unmodifiableMap(schemas));
   }
 
   @Override
   public Map<String, GenericType> getSchemas() {
-    return MonitorFormulaAndFunctionAggregateAugmentQuery.schemas;
+    return MonitorFormulaAndFunctionAggregateSubQuery.schemas;
   }
 
   /**

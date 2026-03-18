@@ -33,7 +33,7 @@ import java.util.Objects;
 public class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUGMENT_QUERY = "augment_query";
-  private MonitorFormulaAndFunctionAggregateAugmentQuery augmentQuery;
+  private MonitorFormulaAndFunctionAggregateSubQuery augmentQuery;
 
   public static final String JSON_PROPERTY_BASE_QUERY = "base_query";
   private MonitorFormulaAndFunctionAggregateBaseQuery baseQuery;
@@ -58,7 +58,7 @@ public class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
   @JsonCreator
   public MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition(
       @JsonProperty(required = true, value = JSON_PROPERTY_AUGMENT_QUERY)
-          MonitorFormulaAndFunctionAggregateAugmentQuery augmentQuery,
+          MonitorFormulaAndFunctionAggregateSubQuery augmentQuery,
       @JsonProperty(required = true, value = JSON_PROPERTY_BASE_QUERY)
           MonitorFormulaAndFunctionAggregateBaseQuery baseQuery,
       @JsonProperty(required = true, value = JSON_PROPERTY_COMPUTE)
@@ -82,25 +82,25 @@ public class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
   }
 
   public MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition augmentQuery(
-      MonitorFormulaAndFunctionAggregateAugmentQuery augmentQuery) {
+      MonitorFormulaAndFunctionAggregateSubQuery augmentQuery) {
     this.augmentQuery = augmentQuery;
     this.unparsed |= augmentQuery.unparsed;
     return this;
   }
 
   /**
-   * Augment query for aggregate augmented queries. Can be an events query or a reference table
-   * query.
+   * Sub-query for aggregate composite queries (augmented or filtered). Can be an events query or a
+   * reference table query.
    *
    * @return augmentQuery
    */
   @JsonProperty(JSON_PROPERTY_AUGMENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MonitorFormulaAndFunctionAggregateAugmentQuery getAugmentQuery() {
+  public MonitorFormulaAndFunctionAggregateSubQuery getAugmentQuery() {
     return augmentQuery;
   }
 
-  public void setAugmentQuery(MonitorFormulaAndFunctionAggregateAugmentQuery augmentQuery) {
+  public void setAugmentQuery(MonitorFormulaAndFunctionAggregateSubQuery augmentQuery) {
     this.augmentQuery = augmentQuery;
   }
 

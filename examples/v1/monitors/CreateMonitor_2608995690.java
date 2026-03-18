@@ -4,12 +4,12 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.MonitorsApi;
 import com.datadog.api.client.v1.model.Monitor;
-import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateAugmentQuery;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateAugmentedDataSource;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateBaseQuery;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateQueryJoinCondition;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateQueryJoinType;
+import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionAggregateSubQuery;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionEventAggregation;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionEventQueryDefinitionCompute;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionEventQueryGroupBy;
@@ -62,7 +62,7 @@ formula("query1").rollup("sum").last("5m") > 124
                                                 .aggregation(
                                                     MonitorFormulaAndFunctionEventAggregation.MAX)))
                                     .augmentQuery(
-                                        new MonitorFormulaAndFunctionAggregateAugmentQuery(
+                                        new MonitorFormulaAndFunctionAggregateSubQuery(
                                             new MonitorFormulaAndFunctionReferenceTableQueryDefinition()
                                                 .name("filter_query")
                                                 .dataSource(
