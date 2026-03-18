@@ -147,7 +147,8 @@ public class MetricTagConfigurationCreateAttributes {
   }
 
   /**
-   * The metric's type.
+   * The metric's type. Contact your Customer Success Manager (CSM) for instructions on how to use
+   * the histogram types.
    *
    * @return metricType
    */

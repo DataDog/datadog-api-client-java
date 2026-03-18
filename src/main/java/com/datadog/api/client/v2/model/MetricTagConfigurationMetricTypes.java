@@ -18,13 +18,23 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The metric's type. */
+/**
+ * The metric's type. Contact your Customer Success Manager (CSM) for instructions on how to use the
+ * histogram types.
+ */
 @JsonSerialize(
     using = MetricTagConfigurationMetricTypes.MetricTagConfigurationMetricTypesSerializer.class)
 public class MetricTagConfigurationMetricTypes extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("gauge", "count", "rate", "distribution"));
+      new HashSet<String>(
+          Arrays.asList(
+              "gauge",
+              "count",
+              "rate",
+              "distribution",
+              "exponential_histogram",
+              "explicit_histogram"));
 
   public static final MetricTagConfigurationMetricTypes GAUGE =
       new MetricTagConfigurationMetricTypes("gauge");
@@ -34,6 +44,10 @@ public class MetricTagConfigurationMetricTypes extends ModelEnum<String> {
       new MetricTagConfigurationMetricTypes("rate");
   public static final MetricTagConfigurationMetricTypes DISTRIBUTION =
       new MetricTagConfigurationMetricTypes("distribution");
+  public static final MetricTagConfigurationMetricTypes EXPONENTIAL_HISTOGRAM =
+      new MetricTagConfigurationMetricTypes("exponential_histogram");
+  public static final MetricTagConfigurationMetricTypes EXPLICIT_HISTOGRAM =
+      new MetricTagConfigurationMetricTypes("explicit_histogram");
 
   MetricTagConfigurationMetricTypes(String value) {
     super(value, allowedValues);
