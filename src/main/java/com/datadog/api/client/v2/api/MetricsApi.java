@@ -555,7 +555,7 @@ public class MetricsApi {
 
   /**
    * Deletes a metric's tag configuration. Can only be used with application keys from users with
-   * the <code>Manage Tags for Metrics</code> permission.
+   * the <code>Manage Tags for Metrics</code> permission. Note: This operation is irreversible.
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;Void&gt;
