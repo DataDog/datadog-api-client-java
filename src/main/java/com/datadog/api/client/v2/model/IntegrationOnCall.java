@@ -99,7 +99,7 @@ public class IntegrationOnCall {
   }
 
   /**
-   * GetescalationQueries
+   * List of escalation queries for routing cases to on-call responders
    *
    * @return escalationQueries
    */

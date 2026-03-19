@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** */
+/** Synchronization configuration for a Jira custom field */
 @JsonPropertyOrder({
   IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties.JSON_PROPERTY_SYNC_TYPE,
   IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties.JSON_PROPERTY_VALUE
@@ -38,7 +38,7 @@ public class IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties {
   }
 
   /**
-   * GetsyncType
+   * The type of synchronization to apply for this custom field
    *
    * @return syncType
    */

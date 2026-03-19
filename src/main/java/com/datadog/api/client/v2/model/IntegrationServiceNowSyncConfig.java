@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Synchronization configuration for ServiceNow integration */
 @JsonPropertyOrder({
   IntegrationServiceNowSyncConfig.JSON_PROPERTY_ENABLED,
   IntegrationServiceNowSyncConfig.JSON_PROPERTY_PROPERTIES
@@ -37,7 +37,7 @@ public class IntegrationServiceNowSyncConfig {
   }
 
   /**
-   * Getenabled
+   * Whether ServiceNow synchronization is enabled
    *
    * @return enabled
    */
@@ -60,7 +60,7 @@ public class IntegrationServiceNowSyncConfig {
   }
 
   /**
-   * Getproperties
+   * Field-level synchronization properties for ServiceNow integration
    *
    * @return properties
    */

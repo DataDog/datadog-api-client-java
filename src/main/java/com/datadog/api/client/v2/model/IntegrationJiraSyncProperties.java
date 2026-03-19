@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Field synchronization properties for Jira integration */
 @JsonPropertyOrder({
   IntegrationJiraSyncProperties.JSON_PROPERTY_ASSIGNEE,
   IntegrationJiraSyncProperties.JSON_PROPERTY_COMMENTS,
@@ -116,7 +116,7 @@ public class IntegrationJiraSyncProperties {
   }
 
   /**
-   * GetcustomFields
+   * Map of custom field identifiers to their sync configurations
    *
    * @return customFields
    */
@@ -162,7 +162,7 @@ public class IntegrationJiraSyncProperties {
   }
 
   /**
-   * GetdueDate
+   * Due date synchronization configuration for Jira integration
    *
    * @return dueDate
    */

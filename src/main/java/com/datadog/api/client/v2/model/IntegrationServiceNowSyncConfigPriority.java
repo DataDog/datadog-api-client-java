@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Priority synchronization configuration for ServiceNow integration */
 @JsonPropertyOrder({
   IntegrationServiceNowSyncConfigPriority.JSON_PROPERTY_IMPACT_MAPPING,
   IntegrationServiceNowSyncConfigPriority.JSON_PROPERTY_SYNC_TYPE,
@@ -50,7 +50,7 @@ public class IntegrationServiceNowSyncConfigPriority {
   }
 
   /**
-   * GetimpactMapping
+   * Mapping of case priority values to ServiceNow impact values
    *
    * @return impactMapping
    */
@@ -71,7 +71,7 @@ public class IntegrationServiceNowSyncConfigPriority {
   }
 
   /**
-   * GetsyncType
+   * The type of synchronization to apply for priority
    *
    * @return syncType
    */
@@ -102,7 +102,7 @@ public class IntegrationServiceNowSyncConfigPriority {
   }
 
   /**
-   * GeturgencyMapping
+   * Mapping of case priority values to ServiceNow urgency values
    *
    * @return urgencyMapping
    */

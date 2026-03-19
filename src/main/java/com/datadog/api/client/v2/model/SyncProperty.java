@@ -31,7 +31,7 @@ public class SyncProperty {
   }
 
   /**
-   * GetsyncType
+   * The direction and type of synchronization for this property
    *
    * @return syncType
    */
