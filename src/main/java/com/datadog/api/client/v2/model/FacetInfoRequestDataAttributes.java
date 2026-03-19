@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes for the facet info request, specifying which facet to query and optional filters to
+ * apply.
+ */
 @JsonPropertyOrder({
   FacetInfoRequestDataAttributes.JSON_PROPERTY_FACET_ID,
   FacetInfoRequestDataAttributes.JSON_PROPERTY_LIMIT,
@@ -56,7 +59,7 @@ public class FacetInfoRequestDataAttributes {
   }
 
   /**
-   * GetfacetId
+   * The identifier of the facet attribute to retrieve value information for.
    *
    * @return facetId
    */
@@ -76,7 +79,7 @@ public class FacetInfoRequestDataAttributes {
   }
 
   /**
-   * Getlimit
+   * Maximum number of facet values to return in the response.
    *
    * @return limit
    */
@@ -97,7 +100,8 @@ public class FacetInfoRequestDataAttributes {
   }
 
   /**
-   * Getsearch
+   * Query-based search configuration for filtering the audience context when retrieving facet
+   * values.
    *
    * @return search
    */
@@ -120,7 +124,7 @@ public class FacetInfoRequestDataAttributes {
   }
 
   /**
-   * GettermSearch
+   * Term-level search configuration for filtering facet values by an exact or partial term match.
    *
    * @return termSearch
    */

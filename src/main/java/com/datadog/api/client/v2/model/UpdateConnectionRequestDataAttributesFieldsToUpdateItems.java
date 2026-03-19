@@ -19,7 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Specification for updating an existing field in a connection, including which field to modify and
+ * the new values.
+ */
 @JsonPropertyOrder({
   UpdateConnectionRequestDataAttributesFieldsToUpdateItems.JSON_PROPERTY_FIELD_ID,
   UpdateConnectionRequestDataAttributesFieldsToUpdateItems.JSON_PROPERTY_UPDATED_DESCRIPTION,
@@ -60,7 +63,7 @@ public class UpdateConnectionRequestDataAttributesFieldsToUpdateItems {
   }
 
   /**
-   * GetfieldId
+   * The identifier of the existing field to update.
    *
    * @return fieldId
    */
@@ -81,7 +84,7 @@ public class UpdateConnectionRequestDataAttributesFieldsToUpdateItems {
   }
 
   /**
-   * GetupdatedDescription
+   * The new description to set for the field.
    *
    * @return updatedDescription
    */
@@ -103,7 +106,7 @@ public class UpdateConnectionRequestDataAttributesFieldsToUpdateItems {
   }
 
   /**
-   * GetupdatedDisplayName
+   * The new human-readable display name to set for the field.
    *
    * @return updatedDisplayName
    */
@@ -125,7 +128,7 @@ public class UpdateConnectionRequestDataAttributesFieldsToUpdateItems {
   }
 
   /**
-   * GetupdatedFieldId
+   * The new identifier to assign to the field, if renaming it.
    *
    * @return updatedFieldId
    */
@@ -156,7 +159,7 @@ public class UpdateConnectionRequestDataAttributesFieldsToUpdateItems {
   }
 
   /**
-   * GetupdatedGroups
+   * The updated list of group labels to associate with the field.
    *
    * @return updatedGroups
    */

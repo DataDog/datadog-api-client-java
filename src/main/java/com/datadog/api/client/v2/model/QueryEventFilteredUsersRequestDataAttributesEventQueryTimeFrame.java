@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The time window defining the start and end of the event query period as Unix timestamps. */
 @JsonPropertyOrder({
   QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame.JSON_PROPERTY_END,
   QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame.JSON_PROPERTY_START
@@ -37,7 +37,7 @@ public class QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame {
   }
 
   /**
-   * Getend
+   * End of the time frame as a Unix timestamp in seconds.
    *
    * @return end
    */
@@ -58,7 +58,7 @@ public class QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame {
   }
 
   /**
-   * Getstart
+   * Start of the time frame as a Unix timestamp in seconds.
    *
    * @return start
    */

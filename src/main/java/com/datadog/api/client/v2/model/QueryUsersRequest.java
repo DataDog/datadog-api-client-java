@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Request body for querying users with optional filtering, column selection, and sorting. */
 @JsonPropertyOrder({QueryUsersRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class QueryUsersRequest {
   }
 
   /**
-   * Getdata
+   * The data object containing the resource type and attributes for querying users.
    *
    * @return data
    */

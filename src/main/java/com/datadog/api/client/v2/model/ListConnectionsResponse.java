@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response containing the list of all data source connections configured for an entity. */
 @JsonPropertyOrder({ListConnectionsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class ListConnectionsResponse {
   }
 
   /**
-   * Getdata
+   * The data object containing the resource type and attributes for the list connections response.
    *
    * @return data
    */

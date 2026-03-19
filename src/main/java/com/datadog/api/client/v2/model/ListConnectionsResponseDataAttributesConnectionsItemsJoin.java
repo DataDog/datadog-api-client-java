@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The join configuration describing how the data source is linked to the entity. */
 @JsonPropertyOrder({
   ListConnectionsResponseDataAttributesConnectionsItemsJoin.JSON_PROPERTY_ATTRIBUTE,
   ListConnectionsResponseDataAttributesConnectionsItemsJoin.JSON_PROPERTY_TYPE
@@ -37,7 +37,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItemsJoin {
   }
 
   /**
-   * Getattribute
+   * The entity attribute used as the join key to link records from the data source.
    *
    * @return attribute
    */
@@ -58,7 +58,7 @@ public class ListConnectionsResponseDataAttributesConnectionsItemsJoin {
   }
 
   /**
-   * Gettype
+   * The type of join key used (for example, email or user_id).
    *
    * @return type
    */

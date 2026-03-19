@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes for filtering users by both user properties and event platform activity. */
 @JsonPropertyOrder({
   QueryEventFilteredUsersRequestDataAttributes.JSON_PROPERTY_EVENT_QUERY,
   QueryEventFilteredUsersRequestDataAttributes.JSON_PROPERTY_INCLUDE_ROW_COUNT,
@@ -53,7 +53,8 @@ public class QueryEventFilteredUsersRequestDataAttributes {
   }
 
   /**
-   * GeteventQuery
+   * Event platform query used to filter users based on their event activity within a specified time
+   * window.
    *
    * @return eventQuery
    */
@@ -74,7 +75,7 @@ public class QueryEventFilteredUsersRequestDataAttributes {
   }
 
   /**
-   * GetincludeRowCount
+   * Whether to include the total count of matching users in the response.
    *
    * @return includeRowCount
    */
@@ -95,7 +96,7 @@ public class QueryEventFilteredUsersRequestDataAttributes {
   }
 
   /**
-   * Getlimit
+   * Maximum number of user records to return in the response.
    *
    * @return limit
    */
@@ -116,7 +117,7 @@ public class QueryEventFilteredUsersRequestDataAttributes {
   }
 
   /**
-   * Getquery
+   * Filter expression using user attribute conditions to narrow results.
    *
    * @return query
    */
@@ -146,7 +147,7 @@ public class QueryEventFilteredUsersRequestDataAttributes {
   }
 
   /**
-   * GetselectColumns
+   * List of user attribute column names to include in the response.
    *
    * @return selectColumns
    */
