@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"description\":\"Pipeline containing nested processor with tags and description\",\"filter\":{\"query\":\"source:python\"},\"name\":\"testPipelineWithNested\",\"processors\":[{\"description\":\"This is a nested pipeline for production logs\",\"filter\":{\"query\":\"env:production\"},\"is_enabled\":true,\"name\":\"nested_pipeline_with_metadata\",\"tags\":[\"env:prod\",\"type:nested\"],\"type\":\"pipeline\"}],\"tags\":[\"team:test\"]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/logs/config/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"GyYNpCrVQtOB3KhqJSpOOA\",\"type\":\"pipeline\",\"name\":\"testPipelineWithNested\",\"is_enabled\":false,\"is_read_only\":false,\"filter\":{\"query\":\"source:python\"},\"processors\":[{\"type\":\"pipeline\",\"name\":\"nested_pipeline_with_metadata\",\"is_enabled\":true,\"filter\":{\"query\":\"env:production\"},\"processors\":[],\"tags\":[\"env:prod\",\"type:nested\"],\"description\":\"This is a nested pipeline for production logs\"}],\"tags\":[\"team:test\"],\"description\":\"Pipeline containing nested processor with tags and description\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "43e467db-3052-c3f2-f66c-542643a0e3a7"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/logs/config/pipelines/GyYNpCrVQtOB3KhqJSpOOA",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9d46b7bd-ff78-f8c6-c944-e3cd37cf4ca4"
+  }
+]

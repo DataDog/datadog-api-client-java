@@ -28,16 +28,21 @@ import java.util.Objects;
  * contain Processors.
  */
 @JsonPropertyOrder({
+  LogsPipelineProcessor.JSON_PROPERTY_DESCRIPTION,
   LogsPipelineProcessor.JSON_PROPERTY_FILTER,
   LogsPipelineProcessor.JSON_PROPERTY_IS_ENABLED,
   LogsPipelineProcessor.JSON_PROPERTY_NAME,
   LogsPipelineProcessor.JSON_PROPERTY_PROCESSORS,
+  LogsPipelineProcessor.JSON_PROPERTY_TAGS,
   LogsPipelineProcessor.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsPipelineProcessor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsFilter filter;
 
@@ -50,6 +55,9 @@ public class LogsPipelineProcessor {
   public static final String JSON_PROPERTY_PROCESSORS = "processors";
   private List<LogsProcessor> processors = null;
 
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsPipelineProcessorType type = LogsPipelineProcessorType.PIPELINE;
 
@@ -60,6 +68,27 @@ public class LogsPipelineProcessor {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsPipelineProcessorType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public LogsPipelineProcessor description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * A description of the pipeline.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public LogsPipelineProcessor filter(LogsFilter filter) {
@@ -159,6 +188,35 @@ public class LogsPipelineProcessor {
     this.processors = processors;
   }
 
+  public LogsPipelineProcessor tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public LogsPipelineProcessor addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * A list of tags associated with the pipeline.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   public LogsPipelineProcessor type(LogsPipelineProcessorType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -239,27 +297,32 @@ public class LogsPipelineProcessor {
       return false;
     }
     LogsPipelineProcessor logsPipelineProcessor = (LogsPipelineProcessor) o;
-    return Objects.equals(this.filter, logsPipelineProcessor.filter)
+    return Objects.equals(this.description, logsPipelineProcessor.description)
+        && Objects.equals(this.filter, logsPipelineProcessor.filter)
         && Objects.equals(this.isEnabled, logsPipelineProcessor.isEnabled)
         && Objects.equals(this.name, logsPipelineProcessor.name)
         && Objects.equals(this.processors, logsPipelineProcessor.processors)
+        && Objects.equals(this.tags, logsPipelineProcessor.tags)
         && Objects.equals(this.type, logsPipelineProcessor.type)
         && Objects.equals(this.additionalProperties, logsPipelineProcessor.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, isEnabled, name, processors, type, additionalProperties);
+    return Objects.hash(
+        description, filter, isEnabled, name, processors, tags, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsPipelineProcessor {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
