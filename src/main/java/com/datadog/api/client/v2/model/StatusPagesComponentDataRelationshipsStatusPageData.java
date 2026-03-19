@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object identifying the status page the component belongs to. */
 @JsonPropertyOrder({
   StatusPagesComponentDataRelationshipsStatusPageData.JSON_PROPERTY_ID,
   StatusPagesComponentDataRelationshipsStatusPageData.JSON_PROPERTY_TYPE

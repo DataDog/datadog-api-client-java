@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** */
+/** Data object representing an incident handle in a create or update request. */
 @JsonPropertyOrder({
   IncidentHandleDataRequest.JSON_PROPERTY_ATTRIBUTES,
   IncidentHandleDataRequest.JSON_PROPERTY_ID,
@@ -103,7 +103,7 @@ public class IncidentHandleDataRequest {
   }
 
   /**
-   * Getrelationships
+   * Relationships to associate with an incident handle in a create or update request.
    *
    * @return relationships
    */

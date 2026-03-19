@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object identifying the Datadog user who created the component group. */
 @JsonPropertyOrder({
   StatusPagesComponentGroupRelationshipsCreatedByUserData.JSON_PROPERTY_ID,
   StatusPagesComponentGroupRelationshipsCreatedByUserData.JSON_PROPERTY_TYPE

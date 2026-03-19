@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A component to be created within a group. */
 @JsonPropertyOrder({
   CreateComponentRequestDataAttributesComponentsItems.JSON_PROPERTY_NAME,
   CreateComponentRequestDataAttributesComponentsItems.JSON_PROPERTY_POSITION,

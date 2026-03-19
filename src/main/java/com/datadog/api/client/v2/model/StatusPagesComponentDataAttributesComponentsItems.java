@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** A component within a component group. */
 @JsonPropertyOrder({
   StatusPagesComponentDataAttributesComponentsItems.JSON_PROPERTY_ID,
   StatusPagesComponentDataAttributesComponentsItems.JSON_PROPERTY_NAME,
@@ -45,7 +45,7 @@ public class StatusPagesComponentDataAttributesComponentsItems {
   private StatusPagesComponentGroupAttributesComponentsItemsType type;
 
   /**
-   * Getid
+   * The ID of the component within the group.
    *
    * @return id
    */
@@ -62,7 +62,7 @@ public class StatusPagesComponentDataAttributesComponentsItems {
   }
 
   /**
-   * Getname
+   * The name of the component within the group.
    *
    * @return name
    */
@@ -83,7 +83,7 @@ public class StatusPagesComponentDataAttributesComponentsItems {
   }
 
   /**
-   * Getposition
+   * The zero-indexed position of the component within the group.
    *
    * @return position
    */

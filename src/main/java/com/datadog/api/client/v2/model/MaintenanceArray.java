@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response object for a list of maintenances. */
 @JsonPropertyOrder({
   MaintenanceArray.JSON_PROPERTY_DATA,
   MaintenanceArray.JSON_PROPERTY_INCLUDED,
@@ -61,7 +61,7 @@ public class MaintenanceArray {
   }
 
   /**
-   * Getdata
+   * A list of maintenance data objects.
    *
    * @return data
    */

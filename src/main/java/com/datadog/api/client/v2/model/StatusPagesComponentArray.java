@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response object for a list of components. */
 @JsonPropertyOrder({
   StatusPagesComponentArray.JSON_PROPERTY_DATA,
   StatusPagesComponentArray.JSON_PROPERTY_INCLUDED
@@ -58,7 +58,7 @@ public class StatusPagesComponentArray {
   }
 
   /**
-   * Getdata
+   * A list of component data objects.
    *
    * @return data
    */

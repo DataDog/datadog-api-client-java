@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object in the global incident settings request. */
 @JsonPropertyOrder({
   GlobalIncidentSettingsDataRequest.JSON_PROPERTY_ATTRIBUTES,
   GlobalIncidentSettingsDataRequest.JSON_PROPERTY_TYPE

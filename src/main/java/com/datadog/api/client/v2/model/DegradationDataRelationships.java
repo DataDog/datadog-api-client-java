@@ -43,7 +43,7 @@ public class DegradationDataRelationships {
   }
 
   /**
-   * GetcreatedByUser
+   * The Datadog user who created the degradation.
    *
    * @return createdByUser
    */
@@ -66,7 +66,7 @@ public class DegradationDataRelationships {
   }
 
   /**
-   * GetlastModifiedByUser
+   * The Datadog user who last modified the degradation.
    *
    * @return lastModifiedByUser
    */
@@ -90,7 +90,7 @@ public class DegradationDataRelationships {
   }
 
   /**
-   * GetstatusPage
+   * The status page the degradation belongs to.
    *
    * @return statusPage
    */

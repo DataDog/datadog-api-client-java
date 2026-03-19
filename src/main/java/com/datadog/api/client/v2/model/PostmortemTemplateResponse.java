@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response containing a single postmortem template. */
 @JsonPropertyOrder({PostmortemTemplateResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class PostmortemTemplateResponse {
   }
 
   /**
-   * Getdata
+   * Data object for a postmortem template returned in a response.
    *
    * @return data
    */

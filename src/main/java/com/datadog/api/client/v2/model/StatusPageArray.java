@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response object for a list of status pages. */
 @JsonPropertyOrder({
   StatusPageArray.JSON_PROPERTY_DATA,
   StatusPageArray.JSON_PROPERTY_INCLUDED,
@@ -61,7 +61,7 @@ public class StatusPageArray {
   }
 
   /**
-   * Getdata
+   * A list of status page data objects.
    *
    * @return data
    */

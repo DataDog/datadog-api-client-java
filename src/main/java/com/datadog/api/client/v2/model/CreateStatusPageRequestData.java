@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object for creating a status page. */
 @JsonPropertyOrder({
   CreateStatusPageRequestData.JSON_PROPERTY_ATTRIBUTES,
   CreateStatusPageRequestData.JSON_PROPERTY_TYPE

@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** A component displayed on a status page. */
 @JsonPropertyOrder({
   StatusPageDataAttributesComponentsItems.JSON_PROPERTY_COMPONENTS,
   StatusPageDataAttributesComponentsItems.JSON_PROPERTY_ID,

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A single relationship object for an incident handle, wrapping the related resource data. */
 @JsonPropertyOrder({IncidentHandleRelationship.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class IncidentHandleRelationship {
   }
 
   /**
-   * Getdata
+   * Relationship data for an incident handle, containing the ID and type of the related resource.
    *
    * @return data
    */

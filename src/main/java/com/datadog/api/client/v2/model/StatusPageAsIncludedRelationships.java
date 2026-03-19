@@ -39,7 +39,7 @@ public class StatusPageAsIncludedRelationships {
   }
 
   /**
-   * GetcreatedByUser
+   * The Datadog user who created the status page.
    *
    * @return createdByUser
    */
@@ -62,7 +62,7 @@ public class StatusPageAsIncludedRelationships {
   }
 
   /**
-   * GetlastModifiedByUser
+   * The Datadog user who last modified the status page.
    *
    * @return lastModifiedByUser
    */

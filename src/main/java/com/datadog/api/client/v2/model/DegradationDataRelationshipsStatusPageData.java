@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object identifying the status page the degradation belongs to. */
 @JsonPropertyOrder({
   DegradationDataRelationshipsStatusPageData.JSON_PROPERTY_ID,
   DegradationDataRelationshipsStatusPageData.JSON_PROPERTY_TYPE

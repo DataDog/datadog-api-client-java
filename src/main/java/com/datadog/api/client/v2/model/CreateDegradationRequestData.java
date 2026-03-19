@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object for creating a degradation. */
 @JsonPropertyOrder({
   CreateDegradationRequestData.JSON_PROPERTY_ATTRIBUTES,
   CreateDegradationRequestData.JSON_PROPERTY_TYPE

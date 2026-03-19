@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object for a component. */
 @JsonPropertyOrder({
   StatusPagesComponentData.JSON_PROPERTY_ATTRIBUTES,
   StatusPagesComponentData.JSON_PROPERTY_ID,

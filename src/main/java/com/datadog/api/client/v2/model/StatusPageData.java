@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object for a status page. */
 @JsonPropertyOrder({
   StatusPageData.JSON_PROPERTY_ATTRIBUTES,
   StatusPageData.JSON_PROPERTY_ID,

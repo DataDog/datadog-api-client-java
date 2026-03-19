@@ -5819,6 +5819,7 @@ components:
         data:
           $ref: '#/components/schemas/AttachmentData'
         included:
+          description: A list of related objects included in the response.
           items:
             $ref: '#/components/schemas/AttachmentIncluded'
           type: array
@@ -5827,10 +5828,12 @@ components:
       description: A list of incident attachments.
       properties:
         data:
+          description: An array of attachment data objects.
           items:
             $ref: '#/components/schemas/AttachmentData'
           type: array
         included:
+          description: A list of related objects included in the response.
           items:
             $ref: '#/components/schemas/AttachmentIncluded'
           type: array
@@ -14754,6 +14757,7 @@ components:
         attributes:
           $ref: '#/components/schemas/CreateAttachmentRequestDataAttributes'
         id:
+          description: The unique identifier of the attachment.
           type: string
         type:
           $ref: '#/components/schemas/IncidentAttachmentType'
@@ -14839,6 +14843,7 @@ components:
       - project
       type: object
     CreateComponentRequest:
+      description: Request object for creating a component.
       example:
         data:
           attributes:
@@ -14854,6 +14859,7 @@ components:
           $ref: '#/components/schemas/CreateComponentRequestData'
       type: object
     CreateComponentRequestData:
+      description: The data object for creating a component.
       properties:
         attributes:
           $ref: '#/components/schemas/CreateComponentRequestDataAttributes'
@@ -14900,6 +14906,7 @@ components:
       - type
       type: object
     CreateComponentRequestDataAttributesComponentsItems:
+      description: A component to be created within a group.
       properties:
         name:
           description: The name of the grouped component.
@@ -14936,6 +14943,7 @@ components:
           description: The group to create the component within.
       type: object
     CreateComponentRequestDataRelationshipsGroup:
+      description: The group to create the component within.
       properties:
         data:
           $ref: '#/components/schemas/CreateComponentRequestDataRelationshipsGroupData'
@@ -14943,6 +14951,7 @@ components:
       - data
       type: object
     CreateComponentRequestDataRelationshipsGroupData:
+      description: The data object identifying the group to create the component within.
       nullable: true
       properties:
         id:
@@ -15127,6 +15136,7 @@ components:
           $ref: '#/components/schemas/DataDeletionResponseMeta'
       type: object
     CreateDegradationRequest:
+      description: Request object for creating a degradation.
       example:
         data:
           attributes:
@@ -15143,6 +15153,7 @@ components:
           $ref: '#/components/schemas/CreateDegradationRequestData'
       type: object
     CreateDegradationRequestData:
+      description: The data object for creating a degradation.
       properties:
         attributes:
           $ref: '#/components/schemas/CreateDegradationRequestDataAttributes'
@@ -15182,6 +15193,7 @@ components:
       - title
       type: object
     CreateDegradationRequestDataAttributesComponentsAffectedItems:
+      description: A component affected by a degradation.
       properties:
         id:
           description: The ID of the component. Must be a component of type `component`.
@@ -15189,6 +15201,7 @@ components:
           format: uuid
           type: string
         name:
+          description: The name of the component.
           readOnly: true
           type: string
         status:
@@ -15407,6 +15420,7 @@ components:
       - project
       type: object
     CreateMaintenanceRequest:
+      description: Request object for creating a maintenance.
       example:
         data:
           attributes:
@@ -15428,6 +15442,7 @@ components:
           $ref: '#/components/schemas/CreateMaintenanceRequestData'
       type: object
     CreateMaintenanceRequestData:
+      description: The data object for creating a maintenance.
       properties:
         attributes:
           $ref: '#/components/schemas/CreateMaintenanceRequestDataAttributes'
@@ -15471,6 +15486,7 @@ components:
       - title
       type: object
     CreateMaintenanceRequestDataAttributesComponentsAffectedItems:
+      description: A component affected by a maintenance.
       properties:
         id:
           description: The ID of the component. Must be a component of type `component`.
@@ -15928,6 +15944,7 @@ components:
       x-enum-varnames:
       - CREATE_RULESET
     CreateStatusPageRequest:
+      description: Request object for creating a status page.
       example:
         data:
           attributes:
@@ -15963,6 +15980,7 @@ components:
           $ref: '#/components/schemas/CreateStatusPageRequestData'
       type: object
     CreateStatusPageRequestData:
+      description: The data object for creating a status page.
       properties:
         attributes:
           $ref: '#/components/schemas/CreateStatusPageRequestDataAttributes'
@@ -16041,6 +16059,7 @@ components:
       - visualization_type
       type: object
     CreateStatusPageRequestDataAttributesComponentsItems:
+      description: A component to be created on a status page.
       properties:
         components:
           description: If creating a component of type `group`, the components to
@@ -16066,6 +16085,8 @@ components:
           $ref: '#/components/schemas/CreateComponentRequestDataAttributesType'
       type: object
     CreateStatusPageRequestDataAttributesComponentsItemsComponentsItems:
+      description: A grouped component to be created within a status page component
+        group.
       properties:
         id:
           description: The ID of the grouped component.
@@ -20294,6 +20315,7 @@ components:
       format: int64
       type: integer
     Degradation:
+      description: Response object for a single degradation.
       properties:
         data:
           $ref: '#/components/schemas/DegradationData'
@@ -20305,8 +20327,10 @@ components:
           type: array
       type: object
     DegradationArray:
+      description: Response object for a list of degradations.
       properties:
         data:
+          description: A list of degradation data objects.
           items:
             $ref: '#/components/schemas/DegradationData'
           type: array
@@ -20322,6 +20346,7 @@ components:
       - data
       type: object
     DegradationData:
+      description: The data object for a degradation.
       properties:
         attributes:
           $ref: '#/components/schemas/DegradationDataAttributes'
@@ -20369,6 +20394,7 @@ components:
           type: array
       type: object
     DegradationDataAttributesComponentsAffectedItems:
+      description: A component affected by a degradation.
       properties:
         id:
           description: The ID of the component.
@@ -20413,6 +20439,7 @@ components:
       x-enum-varnames:
       - INCIDENT
     DegradationDataAttributesUpdatesItems:
+      description: A status update recorded during a degradation.
       properties:
         components_affected:
           description: The components affected at the time of the update.
@@ -20445,6 +20472,7 @@ components:
           $ref: '#/components/schemas/CreateDegradationRequestDataAttributesStatus'
       type: object
     DegradationDataAttributesUpdatesItemsComponentsAffectedItems:
+      description: A component affected at the time of a degradation update.
       properties:
         id:
           description: Identifier of the component affected at the time of the update.
@@ -20476,6 +20504,7 @@ components:
           description: The status page the degradation belongs to.
       type: object
     DegradationDataRelationshipsCreatedByUser:
+      description: The Datadog user who created the degradation.
       properties:
         data:
           $ref: '#/components/schemas/DegradationDataRelationshipsCreatedByUserData'
@@ -20483,6 +20512,7 @@ components:
       - data
       type: object
     DegradationDataRelationshipsCreatedByUserData:
+      description: The data object identifying the Datadog user who created the degradation.
       properties:
         id:
           description: The ID of the Datadog user who created the degradation.
@@ -20495,6 +20525,7 @@ components:
       - id
       type: object
     DegradationDataRelationshipsLastModifiedByUser:
+      description: The Datadog user who last modified the degradation.
       properties:
         data:
           $ref: '#/components/schemas/DegradationDataRelationshipsLastModifiedByUserData'
@@ -20502,6 +20533,8 @@ components:
       - data
       type: object
     DegradationDataRelationshipsLastModifiedByUserData:
+      description: The data object identifying the Datadog user who last modified
+        the degradation.
       properties:
         id:
           description: The ID of the Datadog user who last modified the degradation.
@@ -20514,6 +20547,7 @@ components:
       - id
       type: object
     DegradationDataRelationshipsStatusPage:
+      description: The status page the degradation belongs to.
       properties:
         data:
           $ref: '#/components/schemas/DegradationDataRelationshipsStatusPageData'
@@ -20521,6 +20555,8 @@ components:
       - data
       type: object
     DegradationDataRelationshipsStatusPageData:
+      description: The data object identifying the status page the degradation belongs
+        to.
       properties:
         id:
           description: The ID of the status page.
@@ -20534,6 +20570,7 @@ components:
       - id
       type: object
     DegradationIncluded:
+      description: An included resource related to a degradation or maintenance.
       oneOf:
       - $ref: '#/components/schemas/StatusPagesUser'
       - $ref: '#/components/schemas/StatusPageAsIncluded'
@@ -28857,6 +28894,7 @@ components:
       - analytics_dashboard_id
       type: object
     GlobalIncidentSettingsDataRequest:
+      description: Data object in the global incident settings request.
       properties:
         attributes:
           $ref: '#/components/schemas/GlobalIncidentSettingsAttributesRequest'
@@ -28866,6 +28904,7 @@ components:
       - type
       type: object
     GlobalIncidentSettingsDataResponse:
+      description: Data object in the global incident settings response.
       properties:
         attributes:
           $ref: '#/components/schemas/GlobalIncidentSettingsAttributesResponse'
@@ -28881,6 +28920,7 @@ components:
       - attributes
       type: object
     GlobalIncidentSettingsRequest:
+      description: Request payload for updating global incident settings.
       properties:
         data:
           $ref: '#/components/schemas/GlobalIncidentSettingsDataRequest'
@@ -28888,6 +28928,7 @@ components:
       - data
       type: object
     GlobalIncidentSettingsResponse:
+      description: Response payload containing global incident settings.
       properties:
         data:
           $ref: '#/components/schemas/GlobalIncidentSettingsDataResponse'
@@ -30143,6 +30184,7 @@ components:
           type: array
       type: object
     IncidentHandleAttributesFieldsSeverity:
+      description: Severity level associated with an incident handle.
       example: SEV-1
       type: string
     IncidentHandleAttributesRequest:
@@ -30183,6 +30225,8 @@ components:
       - modified_at
       type: object
     IncidentHandleDataRequest:
+      description: Data object representing an incident handle in a create or update
+        request.
       properties:
         attributes:
           $ref: '#/components/schemas/IncidentHandleAttributesRequest'
@@ -30199,6 +30243,7 @@ components:
       - attributes
       type: object
     IncidentHandleDataResponse:
+      description: Data object representing an incident handle in a response.
       properties:
         attributes:
           $ref: '#/components/schemas/IncidentHandleAttributesResponse'
@@ -30216,6 +30261,8 @@ components:
       - attributes
       type: object
     IncidentHandleIncludedItemResponse:
+      description: A single included resource item in an incident handle response,
+        which can be a user or an incident type.
       oneOf:
       - $ref: '#/components/schemas/IncidentUserData'
       - $ref: '#/components/schemas/IncidentTypeObject'
@@ -30225,6 +30272,8 @@ components:
         $ref: '#/components/schemas/IncidentHandleIncludedItemResponse'
       type: array
     IncidentHandleRelationship:
+      description: A single relationship object for an incident handle, wrapping the
+        related resource data.
       properties:
         data:
           $ref: '#/components/schemas/IncidentHandleRelationshipData'
@@ -30232,6 +30281,8 @@ components:
       - data
       type: object
     IncidentHandleRelationshipData:
+      description: Relationship data for an incident handle, containing the ID and
+        type of the related resource.
       properties:
         id:
           description: The ID of the related resource
@@ -30246,6 +30297,8 @@ components:
       - type
       type: object
     IncidentHandleRelationships:
+      description: Relationships associated with an incident handle response, including
+        linked users and incident type.
       nullable: true
       properties:
         commander_user:
@@ -30262,6 +30315,8 @@ components:
       - last_modified_by_user
       type: object
     IncidentHandleRelationshipsRequest:
+      description: Relationships to associate with an incident handle in a create
+        or update request.
       nullable: true
       properties:
         commander_user:
@@ -30272,6 +30327,7 @@ components:
       - incident_type
       type: object
     IncidentHandleRequest:
+      description: Request payload for creating or updating a global incident handle.
       properties:
         data:
           $ref: '#/components/schemas/IncidentHandleDataRequest'
@@ -30279,6 +30335,8 @@ components:
       - data
       type: object
     IncidentHandleResponse:
+      description: Response payload for a single incident handle, including the handle
+        data and related resources.
       properties:
         data:
           $ref: '#/components/schemas/IncidentHandleDataResponse'
@@ -30296,6 +30354,8 @@ components:
       x-enum-varnames:
       - INCIDENTS_HANDLES
     IncidentHandlesResponse:
+      description: Response payload for a list of global incident handles, including
+        handle data and related resources.
       properties:
         data:
           $ref: '#/components/schemas/IncidentHandlesResponseData'
@@ -30305,6 +30365,7 @@ components:
       - data
       type: object
     IncidentHandlesResponseData:
+      description: Array of incident handle data objects returned in a list response.
       items:
         $ref: '#/components/schemas/IncidentHandleDataResponse'
       type: array
@@ -31117,6 +31178,7 @@ components:
           - SEV-1
           - SEV-2
           items:
+            description: A value to compare against the incident field.
             type: string
           type: array
       required:
@@ -38313,6 +38375,7 @@ components:
       - redirect_url
       type: object
     Maintenance:
+      description: Response object for a single maintenance.
       properties:
         data:
           $ref: '#/components/schemas/MaintenanceData'
@@ -38324,8 +38387,10 @@ components:
           type: array
       type: object
     MaintenanceArray:
+      description: Response object for a list of maintenances.
       properties:
         data:
+          description: A list of maintenance data objects.
           items:
             $ref: '#/components/schemas/MaintenanceData'
           type: array
@@ -38341,6 +38406,7 @@ components:
       - data
       type: object
     MaintenanceData:
+      description: The data object for a maintenance.
       properties:
         attributes:
           $ref: '#/components/schemas/MaintenanceDataAttributes'
@@ -38401,6 +38467,7 @@ components:
           type: array
       type: object
     MaintenanceDataAttributesComponentsAffectedItems:
+      description: A component affected by a maintenance.
       properties:
         id:
           description: The ID of the component. Must be a component of type `component`.
@@ -38429,6 +38496,7 @@ components:
       - IN_PROGRESS
       - COMPLETED
     MaintenanceDataAttributesUpdatesItems:
+      description: A status update recorded during a maintenance.
       properties:
         components_affected:
           description: The components affected at the time of the update.
@@ -38467,6 +38535,7 @@ components:
           type: string
       type: object
     MaintenanceDataAttributesUpdatesItemsComponentsAffectedItems:
+      description: A component affected at the time of a maintenance update.
       properties:
         id:
           description: Identifier of the component affected at the time of the update.
@@ -38498,6 +38567,7 @@ components:
           description: The status page the maintenance belongs to.
       type: object
     MaintenanceDataRelationshipsCreatedByUser:
+      description: The Datadog user who created the maintenance.
       properties:
         data:
           $ref: '#/components/schemas/MaintenanceDataRelationshipsCreatedByUserData'
@@ -38505,6 +38575,7 @@ components:
       - data
       type: object
     MaintenanceDataRelationshipsCreatedByUserData:
+      description: The data object identifying the Datadog user who created the maintenance.
       properties:
         id:
           description: The ID of the Datadog user who created the maintenance.
@@ -38518,6 +38589,7 @@ components:
       - id
       type: object
     MaintenanceDataRelationshipsLastModifiedByUser:
+      description: The Datadog user who last modified the maintenance.
       properties:
         data:
           $ref: '#/components/schemas/MaintenanceDataRelationshipsLastModifiedByUserData'
@@ -38525,6 +38597,8 @@ components:
       - data
       type: object
     MaintenanceDataRelationshipsLastModifiedByUserData:
+      description: The data object identifying the Datadog user who last modified
+        the maintenance.
       properties:
         id:
           description: The ID of the Datadog user who last modified the maintenance.
@@ -38538,6 +38612,7 @@ components:
       - id
       type: object
     MaintenanceDataRelationshipsStatusPage:
+      description: The status page the maintenance belongs to.
       properties:
         data:
           $ref: '#/components/schemas/MaintenanceDataRelationshipsStatusPageData'
@@ -38545,6 +38620,7 @@ components:
       - data
       type: object
     MaintenanceDataRelationshipsStatusPageData:
+      description: The data object identifying the status page associated with a maintenance.
       properties:
         id:
           description: The ID of the status page.
@@ -45118,7 +45194,7 @@ components:
         Protocol (OTLP) over gRPC and HTTP.
 
 
-        **Supported pipeline types:** logs, metrics'
+        **Supported pipeline types:** logs'
       properties:
         grpc_address_key:
           description: Environment variable name containing the gRPC server address
@@ -45148,7 +45224,6 @@ components:
       type: object
       x-pipeline-types:
       - logs
-      - metrics
     ObservabilityPipelineOpentelemetrySourceType:
       default: opentelemetry
       description: The source type. The value should always be `opentelemetry`.
@@ -48633,6 +48708,7 @@ components:
       type: object
     PaginationMetaPageType:
       default: offset_limit
+      description: The pagination type used for offset-based pagination.
       enum:
       - offset_limit
       example: offset_limit
@@ -48803,6 +48879,7 @@ components:
           type: string
       type: object
     PatchComponentRequest:
+      description: Request object for updating a component.
       example:
         data:
           attributes:
@@ -48815,6 +48892,7 @@ components:
           $ref: '#/components/schemas/PatchComponentRequestData'
       type: object
     PatchComponentRequestData:
+      description: The data object for updating a component.
       properties:
         attributes:
           $ref: '#/components/schemas/PatchComponentRequestDataAttributes'
@@ -48845,6 +48923,7 @@ components:
           type: integer
       type: object
     PatchDegradationRequest:
+      description: Request object for updating a degradation.
       example:
         data:
           attributes:
@@ -48861,6 +48940,7 @@ components:
           $ref: '#/components/schemas/PatchDegradationRequestData'
       type: object
     PatchDegradationRequestData:
+      description: The data object for updating a degradation.
       properties:
         attributes:
           $ref: '#/components/schemas/PatchDegradationRequestDataAttributes'
@@ -48901,6 +48981,7 @@ components:
           type: string
       type: object
     PatchDegradationRequestDataAttributesComponentsAffectedItems:
+      description: A component affected by a degradation.
       properties:
         id:
           description: The ID of the component. Must be a component of type `component`.
@@ -48908,6 +48989,7 @@ components:
           format: uuid
           type: string
         name:
+          description: The name of the component.
           readOnly: true
           type: string
         status:
@@ -48947,6 +49029,7 @@ components:
       - data
       type: object
     PatchMaintenanceRequest:
+      description: Request object for updating a maintenance.
       example:
         data:
           attributes:
@@ -48964,6 +49047,7 @@ components:
           $ref: '#/components/schemas/PatchMaintenanceRequestData'
       type: object
     PatchMaintenanceRequestData:
+      description: The data object for updating a maintenance.
       properties:
         attributes:
           $ref: '#/components/schemas/PatchMaintenanceRequestDataAttributes'
@@ -49012,6 +49096,7 @@ components:
           type: string
       type: object
     PatchMaintenanceRequestDataAttributesComponentsAffectedItems:
+      description: A component affected by a maintenance.
       properties:
         id:
           description: The ID of the component. Must be a component of type `component`.
@@ -49086,6 +49171,7 @@ components:
           $ref: '#/components/schemas/Version'
       type: object
     PatchStatusPageRequest:
+      description: Request object for updating a status page.
       example:
         data:
           attributes:
@@ -49105,6 +49191,7 @@ components:
           $ref: '#/components/schemas/PatchStatusPageRequestData'
       type: object
     PatchStatusPageRequestData:
+      description: The data object for updating a status page.
       properties:
         attributes:
           $ref: '#/components/schemas/PatchStatusPageRequestDataAttributes'
@@ -49552,6 +49639,7 @@ components:
           type: string
       type: object
     PostmortemAttachmentRequest:
+      description: Request body for creating a postmortem attachment.
       properties:
         data:
           $ref: '#/components/schemas/PostmortemAttachmentRequestData'
@@ -49629,6 +49717,7 @@ components:
       x-enum-varnames:
       - MARKDOWN
     PostmortemTemplateAttributesRequest:
+      description: Attributes for creating or updating a postmortem template.
       properties:
         name:
           description: The name of the template
@@ -49638,6 +49727,7 @@ components:
       - name
       type: object
     PostmortemTemplateAttributesResponse:
+      description: Attributes of a postmortem template returned in a response.
       properties:
         createdAt:
           description: When the template was created
@@ -49659,6 +49749,7 @@ components:
       - modifiedAt
       type: object
     PostmortemTemplateDataRequest:
+      description: Data object for creating or updating a postmortem template.
       properties:
         attributes:
           $ref: '#/components/schemas/PostmortemTemplateAttributesRequest'
@@ -49669,6 +49760,7 @@ components:
       - attributes
       type: object
     PostmortemTemplateDataResponse:
+      description: Data object for a postmortem template returned in a response.
       properties:
         attributes:
           $ref: '#/components/schemas/PostmortemTemplateAttributesResponse'
@@ -49684,6 +49776,7 @@ components:
       - attributes
       type: object
     PostmortemTemplateRequest:
+      description: Request body for creating or updating a postmortem template.
       properties:
         data:
           $ref: '#/components/schemas/PostmortemTemplateDataRequest'
@@ -49691,6 +49784,7 @@ components:
       - data
       type: object
     PostmortemTemplateResponse:
+      description: Response containing a single postmortem template.
       properties:
         data:
           $ref: '#/components/schemas/PostmortemTemplateDataResponse'
@@ -49706,8 +49800,10 @@ components:
       x-enum-varnames:
       - POSTMORTEM_TEMPLATE
     PostmortemTemplatesResponse:
+      description: Response containing a list of postmortem templates.
       properties:
         data:
+          description: An array of postmortem template data objects.
           items:
             $ref: '#/components/schemas/PostmortemTemplateDataResponse'
           type: array
@@ -65074,6 +65170,7 @@ components:
       - type
       type: object
     StatusPage:
+      description: Response object for a single status page.
       properties:
         data:
           $ref: '#/components/schemas/StatusPageData'
@@ -65085,8 +65182,10 @@ components:
           type: array
       type: object
     StatusPageArray:
+      description: Response object for a list of status pages.
       properties:
         data:
+          description: A list of status page data objects.
           items:
             $ref: '#/components/schemas/StatusPageData'
           type: array
@@ -65102,6 +65201,7 @@ components:
       - data
       type: object
     StatusPageArrayIncluded:
+      description: An included resource related to a status page.
       oneOf:
       - $ref: '#/components/schemas/StatusPagesUser'
     StatusPageAsIncluded:
@@ -65174,8 +65274,11 @@ components:
           $ref: '#/components/schemas/CreateStatusPageRequestDataAttributesVisualizationType'
       type: object
     StatusPageAsIncludedAttributesComponentsItems:
+      description: A component displayed on an included status page.
       properties:
         components:
+          description: If the component is of type `group`, the components within
+            the group.
           items:
             $ref: '#/components/schemas/StatusPageAsIncludedAttributesComponentsItemsComponentsItems'
           type: array
@@ -65197,6 +65300,7 @@ components:
           $ref: '#/components/schemas/CreateComponentRequestDataAttributesType'
       type: object
     StatusPageAsIncludedAttributesComponentsItemsComponentsItems:
+      description: A grouped component within a status page component group.
       properties:
         id:
           description: The ID of the grouped component.
@@ -65227,6 +65331,7 @@ components:
           description: The Datadog user who last modified the status page.
       type: object
     StatusPageAsIncludedRelationshipsCreatedByUser:
+      description: The Datadog user who created the status page.
       properties:
         data:
           $ref: '#/components/schemas/StatusPageAsIncludedRelationshipsCreatedByUserData'
@@ -65234,6 +65339,8 @@ components:
       - data
       type: object
     StatusPageAsIncludedRelationshipsCreatedByUserData:
+      description: The data object identifying the Datadog user who created the status
+        page.
       properties:
         id:
           description: The ID of the Datadog user who created the status page.
@@ -65246,6 +65353,7 @@ components:
       - id
       type: object
     StatusPageAsIncludedRelationshipsLastModifiedByUser:
+      description: The Datadog user who last modified the status page.
       properties:
         data:
           $ref: '#/components/schemas/StatusPageAsIncludedRelationshipsLastModifiedByUserData'
@@ -65253,6 +65361,8 @@ components:
       - data
       type: object
     StatusPageAsIncludedRelationshipsLastModifiedByUserData:
+      description: The data object identifying the Datadog user who last modified
+        the status page.
       properties:
         id:
           description: The ID of the Datadog user who last modified the status page.
@@ -65265,6 +65375,7 @@ components:
       - id
       type: object
     StatusPageData:
+      description: The data object for a status page.
       properties:
         attributes:
           $ref: '#/components/schemas/StatusPageDataAttributes'
@@ -65337,6 +65448,7 @@ components:
           $ref: '#/components/schemas/CreateStatusPageRequestDataAttributesVisualizationType'
       type: object
     StatusPageDataAttributesComponentsItems:
+      description: A component displayed on a status page.
       properties:
         components:
           description: If the component is of type `group`, the components within
@@ -65361,6 +65473,7 @@ components:
           $ref: '#/components/schemas/CreateComponentRequestDataAttributesType'
       type: object
     StatusPageDataAttributesComponentsItemsComponentsItems:
+      description: A grouped component within a status page component group.
       properties:
         id:
           description: The ID of the component.
@@ -65390,6 +65503,7 @@ components:
           description: The Datadog user who last modified the status page.
       type: object
     StatusPageDataRelationshipsCreatedByUser:
+      description: The Datadog user who created the status page.
       properties:
         data:
           $ref: '#/components/schemas/StatusPageDataRelationshipsCreatedByUserData'
@@ -65397,6 +65511,8 @@ components:
       - data
       type: object
     StatusPageDataRelationshipsCreatedByUserData:
+      description: The data object identifying the Datadog user who created the status
+        page.
       properties:
         id:
           description: The ID of the Datadog user who created the status page.
@@ -65409,6 +65525,7 @@ components:
       - id
       type: object
     StatusPageDataRelationshipsLastModifiedByUser:
+      description: The Datadog user who last modified the status page.
       properties:
         data:
           $ref: '#/components/schemas/StatusPageDataRelationshipsLastModifiedByUserData'
@@ -65416,6 +65533,8 @@ components:
       - data
       type: object
     StatusPageDataRelationshipsLastModifiedByUserData:
+      description: The data object identifying the Datadog user who last modified
+        the status page.
       properties:
         id:
           description: The ID of the Datadog user who last modified the status page.
@@ -65437,6 +65556,7 @@ components:
       x-enum-varnames:
       - STATUS_PAGES
     StatusPagesComponent:
+      description: Response object for a single component.
       properties:
         data:
           $ref: '#/components/schemas/StatusPagesComponentData'
@@ -65448,8 +65568,10 @@ components:
           type: array
       type: object
     StatusPagesComponentArray:
+      description: Response object for a list of components.
       properties:
         data:
+          description: A list of component data objects.
           items:
             $ref: '#/components/schemas/StatusPagesComponentData'
           type: array
@@ -65463,11 +65585,13 @@ components:
       - data
       type: object
     StatusPagesComponentArrayIncluded:
+      description: An included resource related to a component.
       oneOf:
       - $ref: '#/components/schemas/StatusPagesUser'
       - $ref: '#/components/schemas/StatusPageAsIncluded'
       - $ref: '#/components/schemas/StatusPagesComponentGroup'
     StatusPagesComponentData:
+      description: The data object for a component.
       properties:
         attributes:
           $ref: '#/components/schemas/StatusPagesComponentDataAttributes'
@@ -65514,14 +65638,18 @@ components:
       - type
       type: object
     StatusPagesComponentDataAttributesComponentsItems:
+      description: A component within a component group.
       properties:
         id:
+          description: The ID of the component within the group.
           format: uuid
           readOnly: true
           type: string
         name:
+          description: The name of the component within the group.
           type: string
         position:
+          description: The zero-indexed position of the component within the group.
           format: int64
           type: integer
         status:
@@ -65562,6 +65690,7 @@ components:
           description: The status page the component belongs to.
       type: object
     StatusPagesComponentDataRelationshipsCreatedByUser:
+      description: The Datadog user who created the component.
       properties:
         data:
           $ref: '#/components/schemas/StatusPagesComponentDataRelationshipsCreatedByUserData'
@@ -65569,6 +65698,7 @@ components:
       - data
       type: object
     StatusPagesComponentDataRelationshipsCreatedByUserData:
+      description: The data object identifying the Datadog user who created the component.
       properties:
         id:
           description: The ID of the Datadog user who created the component.
@@ -65581,6 +65711,7 @@ components:
       - id
       type: object
     StatusPagesComponentDataRelationshipsGroup:
+      description: The group the component belongs to.
       properties:
         data:
           $ref: '#/components/schemas/StatusPagesComponentDataRelationshipsGroupData'
@@ -65588,6 +65719,7 @@ components:
       - data
       type: object
     StatusPagesComponentDataRelationshipsGroupData:
+      description: The data object identifying the group the component belongs to.
       nullable: true
       properties:
         id:
@@ -65602,6 +65734,7 @@ components:
       - id
       type: object
     StatusPagesComponentDataRelationshipsLastModifiedByUser:
+      description: The Datadog user who last modified the component.
       properties:
         data:
           $ref: '#/components/schemas/StatusPagesComponentDataRelationshipsLastModifiedByUserData'
@@ -65609,6 +65742,8 @@ components:
       - data
       type: object
     StatusPagesComponentDataRelationshipsLastModifiedByUserData:
+      description: The data object identifying the Datadog user who last modified
+        the component.
       properties:
         id:
           description: The ID of the Datadog user who last modified the component.
@@ -65621,6 +65756,7 @@ components:
       - id
       type: object
     StatusPagesComponentDataRelationshipsStatusPage:
+      description: The status page the component belongs to.
       properties:
         data:
           $ref: '#/components/schemas/StatusPagesComponentDataRelationshipsStatusPageData'
@@ -65628,6 +65764,8 @@ components:
       - data
       type: object
     StatusPagesComponentDataRelationshipsStatusPageData:
+      description: The data object identifying the status page the component belongs
+        to.
       properties:
         id:
           description: The ID of the status page the component belongs to.
@@ -65688,6 +65826,7 @@ components:
       - type
       type: object
     StatusPagesComponentGroupAttributesComponentsItems:
+      description: A component within a component group.
       properties:
         id:
           description: The ID of the grouped component.
@@ -65752,6 +65891,8 @@ components:
       - data
       type: object
     StatusPagesComponentGroupRelationshipsCreatedByUserData:
+      description: The data object identifying the Datadog user who created the component
+        group.
       properties:
         id:
           description: The ID of the Datadog user who created the component group.
@@ -65772,9 +65913,11 @@ components:
       - data
       type: object
     StatusPagesComponentGroupRelationshipsGroupData:
+      description: The data object identifying the parent group of a component group.
       nullable: true
       properties:
         id:
+          description: The ID of the parent group.
           example: 1234abcd-12ab-34cd-56ef-123456abcdef
           format: uuid
           type: string
@@ -65793,6 +65936,8 @@ components:
       - data
       type: object
     StatusPagesComponentGroupRelationshipsLastModifiedByUserData:
+      description: The data object identifying the Datadog user who last modified
+        the component group.
       properties:
         id:
           description: The ID of the Datadog user who last modified the component
@@ -65814,6 +65959,8 @@ components:
       - data
       type: object
     StatusPagesComponentGroupRelationshipsStatusPageData:
+      description: The data object identifying the status page the component group
+        belongs to.
       properties:
         id:
           description: The ID of the status page.
