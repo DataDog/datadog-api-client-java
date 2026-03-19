@@ -350,7 +350,8 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Deletes the endpoint with the name <code>&lt;WEBHOOK NAME&gt;</code>.
+   * Deletes the endpoint with the name <code>&lt;WEBHOOK NAME&gt;</code>. This action cannot be
+   * undone.
    *
    * @param webhookName The name of the webhook. (required)
    * @return ApiResponse&lt;Void&gt;
