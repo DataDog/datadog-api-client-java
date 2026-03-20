@@ -20,7 +20,7 @@ import java.util.Set;
 
 /**
  * Severity associated with this critical asset. Either an explicit severity can be set, or the
- * severity can be increased or decreased.
+ * severity can be increased or decreased, or the severity can be left unchanged (no-op).
  */
 @JsonSerialize(
     using =
@@ -30,7 +30,8 @@ public class SecurityMonitoringCriticalAssetSeverity extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("info", "low", "medium", "high", "critical", "increase", "decrease"));
+          Arrays.asList(
+              "info", "low", "medium", "high", "critical", "increase", "decrease", "no-op"));
 
   public static final SecurityMonitoringCriticalAssetSeverity INFO =
       new SecurityMonitoringCriticalAssetSeverity("info");
@@ -46,6 +47,8 @@ public class SecurityMonitoringCriticalAssetSeverity extends ModelEnum<String> {
       new SecurityMonitoringCriticalAssetSeverity("increase");
   public static final SecurityMonitoringCriticalAssetSeverity DECREASE =
       new SecurityMonitoringCriticalAssetSeverity("decrease");
+  public static final SecurityMonitoringCriticalAssetSeverity NO_OP =
+      new SecurityMonitoringCriticalAssetSeverity("no-op");
 
   SecurityMonitoringCriticalAssetSeverity(String value) {
     super(value, allowedValues);
