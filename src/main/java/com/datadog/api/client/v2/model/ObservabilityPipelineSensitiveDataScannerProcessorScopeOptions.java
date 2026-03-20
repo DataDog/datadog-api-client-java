@@ -51,8 +51,8 @@ public class ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions {
   }
 
   /**
-   * The <code>ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions</code> <code>fields
-   * </code>.
+   * List of log attribute names (field paths) to which the scope applies. Only these fields are
+   * included in or excluded from pattern matching.
    *
    * @return fields
    */
