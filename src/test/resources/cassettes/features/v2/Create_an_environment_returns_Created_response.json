@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test Environment Test-Create_an_environment_returns_Created_response-1773768383\",\"queries\":[\"test-Test-Create_an_environment_returns_Created_response-1773768383\",\"env-Test-Create_an_environment_returns_Created_response-1773768383\"]},\"type\":\"environments\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/feature-flags/environments",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"b7fd5cfe-3350-4db5-9731-1702b2fc9ab7\",\"type\":\"environments\",\"attributes\":{\"is_production\":false,\"name\":\"Test Environment Test-Create_an_environment_returns_Created_response-1773768383\",\"queries\":[\"test-Test-Create_an_environment_returns_Created_response-1773768383\",\"env-Test-Create_an_environment_returns_Created_response-1773768383\"],\"require_feature_flag_approval\":false}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ab87ebd6-cb38-c6e2-cde2-71eeb436dc8d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/feature-flags/environments/b7fd5cfe-3350-4db5-9731-1702b2fc9ab7",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "70868c2f-5d6c-8b94-0250-e3f5ccb37ac8"
+  }
+]
