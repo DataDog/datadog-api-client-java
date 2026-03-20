@@ -32,7 +32,7 @@ public class MonitorFormulaAndFunctionCostQueryDefinition {
   private MonitorFormulaAndFunctionCostAggregator aggregator;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
-  private MonitorFormulaAndFunctionMetricsDataSource dataSource;
+  private MonitorFormulaAndFunctionCostDataSource dataSource;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -45,7 +45,7 @@ public class MonitorFormulaAndFunctionCostQueryDefinition {
   @JsonCreator
   public MonitorFormulaAndFunctionCostQueryDefinition(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
-          MonitorFormulaAndFunctionMetricsDataSource dataSource,
+          MonitorFormulaAndFunctionCostDataSource dataSource,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
     this.dataSource = dataSource;
@@ -81,24 +81,24 @@ public class MonitorFormulaAndFunctionCostQueryDefinition {
   }
 
   public MonitorFormulaAndFunctionCostQueryDefinition dataSource(
-      MonitorFormulaAndFunctionMetricsDataSource dataSource) {
+      MonitorFormulaAndFunctionCostDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     return this;
   }
 
   /**
-   * Data source for metrics queries.
+   * Data source for cost queries.
    *
    * @return dataSource
    */
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MonitorFormulaAndFunctionMetricsDataSource getDataSource() {
+  public MonitorFormulaAndFunctionCostDataSource getDataSource() {
     return dataSource;
   }
 
-  public void setDataSource(MonitorFormulaAndFunctionMetricsDataSource dataSource) {
+  public void setDataSource(MonitorFormulaAndFunctionCostDataSource dataSource) {
     if (!dataSource.isValid()) {
       this.unparsed = true;
     }

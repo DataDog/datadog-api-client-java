@@ -5,8 +5,8 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.MonitorsApi;
 import com.datadog.api.client.v1.model.Monitor;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionCostAggregator;
+import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionCostDataSource;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionCostQueryDefinition;
-import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionMetricsDataSource;
 import com.datadog.api.client.v1.model.MonitorFormulaAndFunctionQueryDefinition;
 import com.datadog.api.client.v1.model.MonitorOptions;
 import com.datadog.api.client.v1.model.MonitorThresholds;
@@ -37,8 +37,7 @@ formula("exclude_null(query1)").last("7d").anomaly(direction="above", threshold=
                         Collections.singletonList(
                             new MonitorFormulaAndFunctionQueryDefinition(
                                 new MonitorFormulaAndFunctionCostQueryDefinition()
-                                    .dataSource(
-                                        MonitorFormulaAndFunctionMetricsDataSource.CLOUD_COST)
+                                    .dataSource(MonitorFormulaAndFunctionCostDataSource.CLOUD_COST)
                                     .query(
                                         "sum:aws.cost.net.amortized.shared.resources.allocated{aws_product"
                                             + " IN (amplify ,athena, backup, bedrock ) } by"
