@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"dry_run\":false,\"name\":\"My deployment rule\",\"options\":{\"duration\":3600,\"excluded_resources\":[\"resource1\",\"resource2\"]},\"type\":\"faulty_deployment_detection\"},\"type\":\"deployment_rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/deployment_gates/not-a-valid-id/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"attribute \\\"gate_id\\\" Invalid id\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3c48aa89-c5df-8a1d-8958-5b444e815819"
+  }
+]

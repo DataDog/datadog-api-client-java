@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"env\":\"staging\",\"service\":\"non-existent-service-xyz\"},\"type\":\"deployment_gates_evaluation_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/deployments/gates/evaluation",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"no gate found for service non-existent-service-xyz, env staging, and identifier default\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "98ce8f93-e367-4c45-1f46-caec999199e1"
+  }
+]

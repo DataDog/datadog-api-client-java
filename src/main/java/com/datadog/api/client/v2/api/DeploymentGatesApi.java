@@ -8,6 +8,10 @@ import com.datadog.api.client.v2.model.CreateDeploymentGateParams;
 import com.datadog.api.client.v2.model.CreateDeploymentRuleParams;
 import com.datadog.api.client.v2.model.DeploymentGateResponse;
 import com.datadog.api.client.v2.model.DeploymentGateRulesResponse;
+import com.datadog.api.client.v2.model.DeploymentGatesEvaluationRequest;
+import com.datadog.api.client.v2.model.DeploymentGatesEvaluationResponse;
+import com.datadog.api.client.v2.model.DeploymentGatesEvaluationResultResponse;
+import com.datadog.api.client.v2.model.DeploymentGatesListResponse;
 import com.datadog.api.client.v2.model.DeploymentRuleResponse;
 import com.datadog.api.client.v2.model.UpdateDeploymentGateParams;
 import com.datadog.api.client.v2.model.UpdateDeploymentRuleParams;
@@ -15,7 +19,9 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -1016,6 +1022,173 @@ public class DeploymentGatesApi {
   }
 
   /**
+   * Get a deployment gate evaluation result.
+   *
+   * <p>See {@link #getDeploymentGatesEvaluationResultWithHttpInfo}.
+   *
+   * @param id The evaluation ID returned by the trigger endpoint. (required)
+   * @return DeploymentGatesEvaluationResultResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DeploymentGatesEvaluationResultResponse getDeploymentGatesEvaluationResult(UUID id)
+      throws ApiException {
+    return getDeploymentGatesEvaluationResultWithHttpInfo(id).getData();
+  }
+
+  /**
+   * Get a deployment gate evaluation result.
+   *
+   * <p>See {@link #getDeploymentGatesEvaluationResultWithHttpInfoAsync}.
+   *
+   * @param id The evaluation ID returned by the trigger endpoint. (required)
+   * @return CompletableFuture&lt;DeploymentGatesEvaluationResultResponse&gt;
+   */
+  public CompletableFuture<DeploymentGatesEvaluationResultResponse>
+      getDeploymentGatesEvaluationResultAsync(UUID id) {
+    return getDeploymentGatesEvaluationResultWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieves the result of a deployment gate evaluation by its evaluation ID. If the evaluation is
+   * still in progress, <code>data.attributes.gate_status</code> will be <code>in_progress</code>;
+   * continue polling until it returns <code>pass</code> or <code>fail</code>. Polling every 10-20
+   * seconds is recommended. The endpoint may return a 404 if called too soon after triggering;
+   * retry after a few seconds.
+   *
+   * @param id The evaluation ID returned by the trigger endpoint. (required)
+   * @return ApiResponse&lt;DeploymentGatesEvaluationResultResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Deployment gate not found. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DeploymentGatesEvaluationResultResponse>
+      getDeploymentGatesEvaluationResultWithHttpInfo(UUID id) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getDeploymentGatesEvaluationResult";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'id' when calling getDeploymentGatesEvaluationResult");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/deployments/gates/evaluation/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.DeploymentGatesApi.getDeploymentGatesEvaluationResult",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeploymentGatesEvaluationResultResponse>() {});
+  }
+
+  /**
+   * Get a deployment gate evaluation result.
+   *
+   * <p>See {@link #getDeploymentGatesEvaluationResultWithHttpInfo}.
+   *
+   * @param id The evaluation ID returned by the trigger endpoint. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DeploymentGatesEvaluationResultResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DeploymentGatesEvaluationResultResponse>>
+      getDeploymentGatesEvaluationResultWithHttpInfoAsync(UUID id) {
+    // Check if unstable operation is enabled
+    String operationId = "getDeploymentGatesEvaluationResult";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DeploymentGatesEvaluationResultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<DeploymentGatesEvaluationResultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling"
+                  + " getDeploymentGatesEvaluationResult"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/deployments/gates/evaluation/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.DeploymentGatesApi.getDeploymentGatesEvaluationResult",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DeploymentGatesEvaluationResultResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeploymentGatesEvaluationResultResponse>() {});
+  }
+
+  /**
    * Get deployment rule.
    *
    * <p>See {@link #getDeploymentRuleWithHttpInfo}.
@@ -1190,6 +1363,377 @@ public class DeploymentGatesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<DeploymentRuleResponse>() {});
+  }
+
+  /** Manage optional parameters to listDeploymentGates. */
+  public static class ListDeploymentGatesOptionalParameters {
+    private String pageCursor;
+    private Long pageSize;
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor Cursor for pagination. Use the <code>meta.page.next_cursor</code> value
+     *     from the previous response. (optional)
+     * @return ListDeploymentGatesOptionalParameters
+     */
+    public ListDeploymentGatesOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Number of results per page. Defaults to 50. Must be between 1 and 1000.
+     *     (optional, default to 50)
+     * @return ListDeploymentGatesOptionalParameters
+     */
+    public ListDeploymentGatesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+  }
+
+  /**
+   * Get all deployment gates.
+   *
+   * <p>See {@link #listDeploymentGatesWithHttpInfo}.
+   *
+   * @return DeploymentGatesListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DeploymentGatesListResponse listDeploymentGates() throws ApiException {
+    return listDeploymentGatesWithHttpInfo(new ListDeploymentGatesOptionalParameters()).getData();
+  }
+
+  /**
+   * Get all deployment gates.
+   *
+   * <p>See {@link #listDeploymentGatesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;DeploymentGatesListResponse&gt;
+   */
+  public CompletableFuture<DeploymentGatesListResponse> listDeploymentGatesAsync() {
+    return listDeploymentGatesWithHttpInfoAsync(new ListDeploymentGatesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all deployment gates.
+   *
+   * <p>See {@link #listDeploymentGatesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return DeploymentGatesListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DeploymentGatesListResponse listDeploymentGates(
+      ListDeploymentGatesOptionalParameters parameters) throws ApiException {
+    return listDeploymentGatesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all deployment gates.
+   *
+   * <p>See {@link #listDeploymentGatesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;DeploymentGatesListResponse&gt;
+   */
+  public CompletableFuture<DeploymentGatesListResponse> listDeploymentGatesAsync(
+      ListDeploymentGatesOptionalParameters parameters) {
+    return listDeploymentGatesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns a paginated list of all deployment gates for the organization. Use <code>page[cursor]
+   * </code> and <code>page[size]</code> query parameters to paginate through results.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;DeploymentGatesListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DeploymentGatesListResponse> listDeploymentGatesWithHttpInfo(
+      ListDeploymentGatesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listDeploymentGates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String pageCursor = parameters.pageCursor;
+    Long pageSize = parameters.pageSize;
+    // create path and map variables
+    String localVarPath = "/api/v2/deployment_gates";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.DeploymentGatesApi.listDeploymentGates",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeploymentGatesListResponse>() {});
+  }
+
+  /**
+   * Get all deployment gates.
+   *
+   * <p>See {@link #listDeploymentGatesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;DeploymentGatesListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DeploymentGatesListResponse>>
+      listDeploymentGatesWithHttpInfoAsync(ListDeploymentGatesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listDeploymentGates";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DeploymentGatesListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String pageCursor = parameters.pageCursor;
+    Long pageSize = parameters.pageSize;
+    // create path and map variables
+    String localVarPath = "/api/v2/deployment_gates";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.DeploymentGatesApi.listDeploymentGates",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DeploymentGatesListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeploymentGatesListResponse>() {});
+  }
+
+  /**
+   * Trigger a deployment gate evaluation.
+   *
+   * <p>See {@link #triggerDeploymentGatesEvaluationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return DeploymentGatesEvaluationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DeploymentGatesEvaluationResponse triggerDeploymentGatesEvaluation(
+      DeploymentGatesEvaluationRequest body) throws ApiException {
+    return triggerDeploymentGatesEvaluationWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Trigger a deployment gate evaluation.
+   *
+   * <p>See {@link #triggerDeploymentGatesEvaluationWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;DeploymentGatesEvaluationResponse&gt;
+   */
+  public CompletableFuture<DeploymentGatesEvaluationResponse> triggerDeploymentGatesEvaluationAsync(
+      DeploymentGatesEvaluationRequest body) {
+    return triggerDeploymentGatesEvaluationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Triggers an asynchronous deployment gate evaluation for the given service and environment.
+   * Returns an evaluation ID that can be used to poll for the result via the <code>
+   * GET /api/v2/deployments/gates/evaluation/{id}</code> endpoint.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;DeploymentGatesEvaluationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Deployment gate not found. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DeploymentGatesEvaluationResponse>
+      triggerDeploymentGatesEvaluationWithHttpInfo(DeploymentGatesEvaluationRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "triggerDeploymentGatesEvaluation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling triggerDeploymentGatesEvaluation");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/deployments/gates/evaluation";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.DeploymentGatesApi.triggerDeploymentGatesEvaluation",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeploymentGatesEvaluationResponse>() {});
+  }
+
+  /**
+   * Trigger a deployment gate evaluation.
+   *
+   * <p>See {@link #triggerDeploymentGatesEvaluationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DeploymentGatesEvaluationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DeploymentGatesEvaluationResponse>>
+      triggerDeploymentGatesEvaluationWithHttpInfoAsync(DeploymentGatesEvaluationRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "triggerDeploymentGatesEvaluation";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<DeploymentGatesEvaluationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DeploymentGatesEvaluationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " triggerDeploymentGatesEvaluation"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/deployments/gates/evaluation";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.DeploymentGatesApi.triggerDeploymentGatesEvaluation",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DeploymentGatesEvaluationResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeploymentGatesEvaluationResponse>() {});
   }
 
   /**

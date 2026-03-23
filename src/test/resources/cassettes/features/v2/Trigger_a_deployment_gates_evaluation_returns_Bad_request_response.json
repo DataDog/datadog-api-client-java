@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"env\":\"\",\"service\":\"my-service\"},\"type\":\"deployment_gates_evaluation_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/deployments/gates/evaluation",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"required env field is missing\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1c3abbc2-6587-119f-61fe-c01d3340a6cf"
+  }
+]
