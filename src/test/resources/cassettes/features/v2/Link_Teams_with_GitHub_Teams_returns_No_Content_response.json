@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"source\":\"github\",\"type\":\"link\"},\"type\":\"team_sync_bulk\"}}"
+        "json": "{\"data\":{\"attributes\":{\"selection_state\":[{\"external_id\":{\"type\":\"organization\",\"value\":\"1\"}}],\"source\":\"github\",\"type\":\"link\"},\"type\":\"team_sync_bulk\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,13 +12,9 @@
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Content-Type": [
-          "text/plain"
-        ]
-      },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
     },
     "times": {
       "remainingTimes": 1
@@ -26,6 +22,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "39416307-2f49-be15-7e10-9223981e6839"
+    "id": "56fda770-a389-5f07-97c8-e26a49e8311d"
   }
 ]
