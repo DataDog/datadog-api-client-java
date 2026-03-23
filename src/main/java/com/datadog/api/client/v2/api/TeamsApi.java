@@ -3211,6 +3211,7 @@ public class TeamsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Team sync configurations not found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -5018,15 +5019,12 @@ public class TeamsApi {
   }
 
   /**
-   * This endpoint configures synchronization between your existing Datadog teams and GitHub teams
-   * by matching their names. It evaluates all current Datadog teams and compares them against teams
-   * in the GitHub organization connected to your Datadog account, based on Datadog Team handle and
-   * GitHub Team slug (lowercased and kebab-cased).
+   * This endpoint attempts to link your existing Datadog teams with GitHub teams by matching their
+   * names. It evaluates all current Datadog teams and compares them against teams in the GitHub
+   * organization connected to your Datadog account, based on Datadog Team handle and GitHub Team
+   * slug (lowercased and kebab-cased).
    *
    * <p>This operation is read-only on the GitHub side, no teams will be modified or created.
-   *
-   * <p>Optionally, provide <code>selection_state</code> to limit synchronization to specific teams
-   * or organizations and their subtrees, instead of syncing all teams.
    *
    * <p><a href="https://docs.datadoghq.com/integrations/github/">A GitHub organization must be
    * connected to your Datadog account</a>, and the GitHub App integrated with Datadog must have the
@@ -5043,7 +5041,6 @@ public class TeamsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *       <tr><td> 500 </td><td> Internal Server Error - Unexpected error during linking. </td><td>  -  </td></tr>

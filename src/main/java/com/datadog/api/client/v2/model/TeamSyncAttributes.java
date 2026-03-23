@@ -13,16 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Team sync attributes. */
 @JsonPropertyOrder({
   TeamSyncAttributes.JSON_PROPERTY_FREQUENCY,
-  TeamSyncAttributes.JSON_PROPERTY_SELECTION_STATE,
   TeamSyncAttributes.JSON_PROPERTY_SOURCE,
   TeamSyncAttributes.JSON_PROPERTY_SYNC_MEMBERSHIP,
   TeamSyncAttributes.JSON_PROPERTY_TYPE
@@ -34,14 +31,11 @@ public class TeamSyncAttributes {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private TeamSyncAttributesFrequency frequency;
 
-  public static final String JSON_PROPERTY_SELECTION_STATE = "selection_state";
-  private List<TeamSyncSelectionStateItem> selectionState = null;
-
   public static final String JSON_PROPERTY_SOURCE = "source";
   private TeamSyncAttributesSource source;
 
   public static final String JSON_PROPERTY_SYNC_MEMBERSHIP = "sync_membership";
-  private Boolean syncMembership = false;
+  private Boolean syncMembership;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TeamSyncAttributesType type;
@@ -81,40 +75,6 @@ public class TeamSyncAttributes {
       this.unparsed = true;
     }
     this.frequency = frequency;
-  }
-
-  public TeamSyncAttributes selectionState(List<TeamSyncSelectionStateItem> selectionState) {
-    this.selectionState = selectionState;
-    for (TeamSyncSelectionStateItem item : selectionState) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public TeamSyncAttributes addSelectionStateItem(TeamSyncSelectionStateItem selectionStateItem) {
-    if (this.selectionState == null) {
-      this.selectionState = new ArrayList<>();
-    }
-    this.selectionState.add(selectionStateItem);
-    this.unparsed |= selectionStateItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Specifies which teams or organizations to sync. When provided, synchronization is limited to
-   * the specified items and their subtrees.
-   *
-   * @return selectionState
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SELECTION_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<TeamSyncSelectionStateItem> getSelectionState() {
-    return selectionState;
-  }
-
-  public void setSelectionState(List<TeamSyncSelectionStateItem> selectionState) {
-    this.selectionState = selectionState;
   }
 
   public TeamSyncAttributes source(TeamSyncAttributesSource source) {
@@ -245,7 +205,6 @@ public class TeamSyncAttributes {
     }
     TeamSyncAttributes teamSyncAttributes = (TeamSyncAttributes) o;
     return Objects.equals(this.frequency, teamSyncAttributes.frequency)
-        && Objects.equals(this.selectionState, teamSyncAttributes.selectionState)
         && Objects.equals(this.source, teamSyncAttributes.source)
         && Objects.equals(this.syncMembership, teamSyncAttributes.syncMembership)
         && Objects.equals(this.type, teamSyncAttributes.type)
@@ -254,8 +213,7 @@ public class TeamSyncAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        frequency, selectionState, source, syncMembership, type, additionalProperties);
+    return Objects.hash(frequency, source, syncMembership, type, additionalProperties);
   }
 
   @Override
@@ -263,7 +221,6 @@ public class TeamSyncAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class TeamSyncAttributes {\n");
     sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
-    sb.append("    selectionState: ").append(toIndentedString(selectionState)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    syncMembership: ").append(toIndentedString(syncMembership)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
