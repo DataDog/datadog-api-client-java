@@ -113,7 +113,7 @@ public class TopologyMapWidgetDefinition {
   }
 
   /**
-   * One or more Topology requests.
+   * One Topology request.
    *
    * @return requests
    */

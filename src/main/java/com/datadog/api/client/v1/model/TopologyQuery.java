@@ -6,200 +6,213 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/** Query to service-based topology data sources like the service map or data streams. */
-@JsonPropertyOrder({
-  TopologyQuery.JSON_PROPERTY_DATA_SOURCE,
-  TopologyQuery.JSON_PROPERTY_FILTERS,
-  TopologyQuery.JSON_PROPERTY_SERVICE
-})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TopologyQuery {
+@JsonDeserialize(using = TopologyQuery.TopologyQueryDeserializer.class)
+@JsonSerialize(using = TopologyQuery.TopologyQuerySerializer.class)
+public class TopologyQuery extends AbstractOpenApiSchema {
+  private static final Logger log = Logger.getLogger(TopologyQuery.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
-  private TopologyQueryDataSource dataSource;
 
-  public static final String JSON_PROPERTY_FILTERS = "filters";
-  private List<String> filters = null;
-
-  public static final String JSON_PROPERTY_SERVICE = "service";
-  private String service;
-
-  public TopologyQuery dataSource(TopologyQueryDataSource dataSource) {
-    this.dataSource = dataSource;
-    this.unparsed |= !dataSource.isValid();
-    return this;
-  }
-
-  /**
-   * Name of the data source
-   *
-   * @return dataSource
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TopologyQueryDataSource getDataSource() {
-    return dataSource;
-  }
-
-  public void setDataSource(TopologyQueryDataSource dataSource) {
-    if (!dataSource.isValid()) {
-      this.unparsed = true;
+  public static class TopologyQuerySerializer extends StdSerializer<TopologyQuery> {
+    public TopologyQuerySerializer(Class<TopologyQuery> t) {
+      super(t);
     }
-    this.dataSource = dataSource;
-  }
 
-  public TopologyQuery filters(List<String> filters) {
-    this.filters = filters;
-    return this;
-  }
-
-  public TopologyQuery addFiltersItem(String filtersItem) {
-    if (this.filters == null) {
-      this.filters = new ArrayList<>();
+    public TopologyQuerySerializer() {
+      this(null);
     }
-    this.filters.add(filtersItem);
-    return this;
-  }
 
-  /**
-   * Your environment and primary tag (or * if enabled for your account).
-   *
-   * @return filters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getFilters() {
-    return filters;
-  }
-
-  public void setFilters(List<String> filters) {
-    this.filters = filters;
-  }
-
-  public TopologyQuery service(String service) {
-    this.service = service;
-    return this;
-  }
-
-  /**
-   * Name of the service
-   *
-   * @return service
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getService() {
-    return service;
-  }
-
-  public void setService(String service) {
-    this.service = service;
-  }
-
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return TopologyQuery
-   */
-  @JsonAnySetter
-  public TopologyQuery putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+    @Override
+    public void serialize(TopologyQuery value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
     }
-    this.additionalProperties.put(key, value);
-    return this;
   }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
+  public static class TopologyQueryDeserializer extends StdDeserializer<TopologyQuery> {
+    public TopologyQueryDeserializer() {
+      this(TopologyQuery.class);
+    }
+
+    public TopologyQueryDeserializer(Class<?> vc) {
+      super(vc);
+    }
+
+    @Override
+    public TopologyQuery deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize TopologyQueryDataStreamsOrServiceMap
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (TopologyQueryDataStreamsOrServiceMap.class.equals(Integer.class)
+            || TopologyQueryDataStreamsOrServiceMap.class.equals(Long.class)
+            || TopologyQueryDataStreamsOrServiceMap.class.equals(Float.class)
+            || TopologyQueryDataStreamsOrServiceMap.class.equals(Double.class)
+            || TopologyQueryDataStreamsOrServiceMap.class.equals(Boolean.class)
+            || TopologyQueryDataStreamsOrServiceMap.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((TopologyQueryDataStreamsOrServiceMap.class.equals(Integer.class)
+                        || TopologyQueryDataStreamsOrServiceMap.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((TopologyQueryDataStreamsOrServiceMap.class.equals(Float.class)
+                        || TopologyQueryDataStreamsOrServiceMap.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (TopologyQueryDataStreamsOrServiceMap.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (TopologyQueryDataStreamsOrServiceMap.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(TopologyQueryDataStreamsOrServiceMap.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((TopologyQueryDataStreamsOrServiceMap) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'TopologyQueryDataStreamsOrServiceMap'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'TopologyQueryDataStreamsOrServiceMap'",
+            e);
+      }
+
+      TopologyQuery ret = new TopologyQuery();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
+    }
+
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public TopologyQuery getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+      throw new JsonMappingException(ctxt.getParser(), "TopologyQuery cannot be null");
+    }
   }
 
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public TopologyQuery() {
+    super("oneOf", Boolean.FALSE);
   }
 
-  /** Return true if this TopologyQuery object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    TopologyQuery topologyQuery = (TopologyQuery) o;
-    return Objects.equals(this.dataSource, topologyQuery.dataSource)
-        && Objects.equals(this.filters, topologyQuery.filters)
-        && Objects.equals(this.service, topologyQuery.service)
-        && Objects.equals(this.additionalProperties, topologyQuery.additionalProperties);
+  public TopologyQuery(TopologyQueryDataStreamsOrServiceMap o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  static {
+    schemas.put(
+        "TopologyQueryDataStreamsOrServiceMap",
+        new GenericType<TopologyQueryDataStreamsOrServiceMap>() {});
+    JSON.registerDescendants(TopologyQuery.class, Collections.unmodifiableMap(schemas));
   }
 
   @Override
-  public int hashCode() {
-    return Objects.hash(dataSource, filters, service, additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class TopologyQuery {\n");
-    sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
-    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
-    sb.append("    service: ").append(toIndentedString(service)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
-    sb.append('}');
-    return sb.toString();
+  public Map<String, GenericType> getSchemas() {
+    return TopologyQuery.schemas;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: TopologyQueryDataStreamsOrServiceMap
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(
+        TopologyQueryDataStreamsOrServiceMap.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    return o.toString().replace("\n", "\n    ");
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be TopologyQueryDataStreamsOrServiceMap");
+  }
+
+  /**
+   * Get the actual instance, which can be the following: TopologyQueryDataStreamsOrServiceMap
+   *
+   * @return The actual instance (TopologyQueryDataStreamsOrServiceMap)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `TopologyQueryDataStreamsOrServiceMap`. If the actual instance is
+   * not `TopologyQueryDataStreamsOrServiceMap`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `TopologyQueryDataStreamsOrServiceMap`
+   * @throws ClassCastException if the instance is not `TopologyQueryDataStreamsOrServiceMap`
+   */
+  public TopologyQueryDataStreamsOrServiceMap getTopologyQueryDataStreamsOrServiceMap()
+      throws ClassCastException {
+    return (TopologyQueryDataStreamsOrServiceMap) super.getActualInstance();
   }
 }
