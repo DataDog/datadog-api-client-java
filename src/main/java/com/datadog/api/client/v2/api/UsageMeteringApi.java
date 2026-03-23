@@ -6,6 +6,7 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ActiveBillingDimensionsResponse;
 import com.datadog.api.client.v2.model.BillingDimensionsMappingResponse;
+import com.datadog.api.client.v2.model.CostAggregationType;
 import com.datadog.api.client.v2.model.CostByOrgResponse;
 import com.datadog.api.client.v2.model.HourlyUsageResponse;
 import com.datadog.api.client.v2.model.MonthlyCostAttributionResponse;
@@ -595,6 +596,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endMonth;
     private OffsetDateTime startDate;
     private OffsetDateTime endDate;
+    private CostAggregationType costAggregation;
     private Boolean includeConnectedAccounts;
 
     /**
@@ -659,6 +661,19 @@ public class UsageMeteringApi {
      */
     public GetEstimatedCostByOrgOptionalParameters endDate(OffsetDateTime endDate) {
       this.endDate = endDate;
+      return this;
+    }
+
+    /**
+     * Set costAggregation.
+     *
+     * @param costAggregation Controls how costs are aggregated when using <code>start_date</code>.
+     *     The <code>cumulative</code> option returns month-to-date running totals. (optional)
+     * @return GetEstimatedCostByOrgOptionalParameters
+     */
+    public GetEstimatedCostByOrgOptionalParameters costAggregation(
+        CostAggregationType costAggregation) {
+      this.costAggregation = costAggregation;
       return this;
     }
 
@@ -767,6 +782,7 @@ public class UsageMeteringApi {
     OffsetDateTime endMonth = parameters.endMonth;
     OffsetDateTime startDate = parameters.startDate;
     OffsetDateTime endDate = parameters.endDate;
+    CostAggregationType costAggregation = parameters.costAggregation;
     Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v2/usage/estimated_cost";
@@ -779,6 +795,7 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_date", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cost_aggregation", costAggregation));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
@@ -818,6 +835,7 @@ public class UsageMeteringApi {
     OffsetDateTime endMonth = parameters.endMonth;
     OffsetDateTime startDate = parameters.startDate;
     OffsetDateTime endDate = parameters.endDate;
+    CostAggregationType costAggregation = parameters.costAggregation;
     Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v2/usage/estimated_cost";
@@ -830,6 +848,7 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_date", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cost_aggregation", costAggregation));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
