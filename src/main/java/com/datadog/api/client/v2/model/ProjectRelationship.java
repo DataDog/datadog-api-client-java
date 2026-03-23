@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Relationship to project */
+/** Relationship to project. */
 @JsonPropertyOrder({ProjectRelationship.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class ProjectRelationship {
   }
 
   /**
-   * Relationship to project object
+   * Relationship to project object.
    *
    * @return data
    */

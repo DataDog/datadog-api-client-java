@@ -18,7 +18,9 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** */
+/**
+ * Attributes of a user assigned to a seat, including their email, name, and assignment timestamp.
+ */
 @JsonPropertyOrder({
   SeatUserDataAttributes.JSON_PROPERTY_ASSIGNED_AT,
   SeatUserDataAttributes.JSON_PROPERTY_EMAIL,

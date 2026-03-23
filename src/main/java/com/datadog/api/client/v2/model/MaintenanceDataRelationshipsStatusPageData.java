@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object identifying the status page associated with a maintenance. */
 @JsonPropertyOrder({
   MaintenanceDataRelationshipsStatusPageData.JSON_PROPERTY_ID,
   MaintenanceDataRelationshipsStatusPageData.JSON_PROPERTY_TYPE

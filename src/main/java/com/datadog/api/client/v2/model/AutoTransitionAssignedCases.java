@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Auto-transition assigned cases settings */
+/** Auto-transition assigned cases settings. */
 @JsonPropertyOrder({
   AutoTransitionAssignedCases.JSON_PROPERTY_AUTO_TRANSITION_ASSIGNED_CASES_ON_SELF_ASSIGNED
 })
@@ -35,7 +35,7 @@ public class AutoTransitionAssignedCases {
   }
 
   /**
-   * Whether to auto-transition cases when self-assigned
+   * Whether to auto-transition cases when self-assigned.
    *
    * @return autoTransitionAssignedCasesOnSelfAssigned
    */

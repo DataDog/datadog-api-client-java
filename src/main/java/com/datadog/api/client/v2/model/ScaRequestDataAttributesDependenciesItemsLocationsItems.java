@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The source code location where a dependency is declared, including block, name, namespace, and
+ * version positions within the file.
+ */
 @JsonPropertyOrder({
   ScaRequestDataAttributesDependenciesItemsLocationsItems.JSON_PROPERTY_BLOCK,
   ScaRequestDataAttributesDependenciesItemsLocationsItems.JSON_PROPERTY_NAME,
@@ -47,7 +50,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItems {
   }
 
   /**
-   * Getblock
+   * A range within a file defined by a start and end position, along with the file name.
    *
    * @return block
    */
@@ -70,7 +73,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItems {
   }
 
   /**
-   * Getname
+   * A range within a file defined by a start and end position, along with the file name.
    *
    * @return name
    */
@@ -93,7 +96,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItems {
   }
 
   /**
-   * Getnamespace
+   * A range within a file defined by a start and end position, along with the file name.
    *
    * @return namespace
    */
@@ -117,7 +120,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItems {
   }
 
   /**
-   * Getversion
+   * A range within a file defined by a start and end position, along with the file name.
    *
    * @return version
    */

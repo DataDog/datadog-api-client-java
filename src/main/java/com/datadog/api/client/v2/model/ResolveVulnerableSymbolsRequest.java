@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The top-level request object for resolving vulnerable symbols in a set of packages. */
 @JsonPropertyOrder({ResolveVulnerableSymbolsRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,8 @@ public class ResolveVulnerableSymbolsRequest {
   }
 
   /**
-   * Getdata
+   * The data object in a request to resolve vulnerable symbols, containing the package PURLs and
+   * request type.
    *
    * @return data
    */

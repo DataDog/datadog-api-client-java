@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object for updating a component. */
 @JsonPropertyOrder({
   PatchComponentRequestData.JSON_PROPERTY_ATTRIBUTES,
   PatchComponentRequestData.JSON_PROPERTY_ID,

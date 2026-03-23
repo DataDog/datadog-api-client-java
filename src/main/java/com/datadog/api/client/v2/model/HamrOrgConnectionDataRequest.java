@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for a HAMR organization connection request. */
 @JsonPropertyOrder({
   HamrOrgConnectionDataRequest.JSON_PROPERTY_ATTRIBUTES,
   HamrOrgConnectionDataRequest.JSON_PROPERTY_ID,
@@ -58,7 +58,7 @@ public class HamrOrgConnectionDataRequest {
   }
 
   /**
-   * Getattributes
+   * Attributes for a HAMR organization connection request.
    *
    * @return attributes
    */

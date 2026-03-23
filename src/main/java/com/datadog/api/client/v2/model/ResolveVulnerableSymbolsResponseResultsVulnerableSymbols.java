@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A collection of vulnerable symbols associated with a specific security advisory. */
 @JsonPropertyOrder({
   ResolveVulnerableSymbolsResponseResultsVulnerableSymbols.JSON_PROPERTY_ADVISORY_ID,
   ResolveVulnerableSymbolsResponseResultsVulnerableSymbols.JSON_PROPERTY_SYMBOLS
@@ -39,7 +39,7 @@ public class ResolveVulnerableSymbolsResponseResultsVulnerableSymbols {
   }
 
   /**
-   * GetadvisoryId
+   * The identifier of the security advisory that describes the vulnerability.
    *
    * @return advisoryId
    */
@@ -74,7 +74,7 @@ public class ResolveVulnerableSymbolsResponseResultsVulnerableSymbols {
   }
 
   /**
-   * Getsymbols
+   * The list of symbols that are vulnerable according to this advisory.
    *
    * @return symbols
    */

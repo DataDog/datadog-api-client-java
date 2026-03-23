@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of a HAMR organization connection response. */
 @JsonPropertyOrder({
   HamrOrgConnectionAttributesResponse.JSON_PROPERTY_HAMR_STATUS,
   HamrOrgConnectionAttributesResponse.JSON_PROPERTY_IS_PRIMARY,

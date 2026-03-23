@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Incident relationship data item containing the incident resource identifier and type. */
 @JsonPropertyOrder({
   EntityResponseDataRelationshipsIncidentsDataItems.JSON_PROPERTY_ID,
   EntityResponseDataRelationshipsIncidentsDataItems.JSON_PROPERTY_TYPE
@@ -51,7 +51,7 @@ public class EntityResponseDataRelationshipsIncidentsDataItems {
   }
 
   /**
-   * Getid
+   * Incident resource unique identifier.
    *
    * @return id
    */

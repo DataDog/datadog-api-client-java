@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Project update */
+/** Project update. */
 @JsonPropertyOrder({ProjectUpdate.JSON_PROPERTY_ATTRIBUTES, ProjectUpdate.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,7 +45,7 @@ public class ProjectUpdate {
   }
 
   /**
-   * Project update attributes
+   * Project update attributes.
    *
    * @return attributes
    */
@@ -67,7 +67,7 @@ public class ProjectUpdate {
   }
 
   /**
-   * Project resource type
+   * Project resource type.
    *
    * @return type
    */

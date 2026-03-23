@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Field-level synchronization properties for ServiceNow integration. */
 @JsonPropertyOrder({
   IntegrationServiceNowSyncConfig139772721534496.JSON_PROPERTY_COMMENTS,
   IntegrationServiceNowSyncConfig139772721534496.JSON_PROPERTY_PRIORITY,
@@ -42,7 +42,7 @@ public class IntegrationServiceNowSyncConfig139772721534496 {
   }
 
   /**
-   * Sync property configuration
+   * Sync property configuration.
    *
    * @return comments
    */
@@ -65,7 +65,7 @@ public class IntegrationServiceNowSyncConfig139772721534496 {
   }
 
   /**
-   * Getpriority
+   * Priority synchronization configuration for ServiceNow integration.
    *
    * @return priority
    */
@@ -87,7 +87,7 @@ public class IntegrationServiceNowSyncConfig139772721534496 {
   }
 
   /**
-   * Sync property with mapping configuration
+   * Sync property with mapping configuration.
    *
    * @return status
    */

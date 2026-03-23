@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response with projects */
+/** Response with projects. */
 @JsonPropertyOrder({ProjectsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,7 +45,7 @@ public class ProjectsResponse {
   }
 
   /**
-   * Projects response data
+   * Projects response data.
    *
    * @return data
    */

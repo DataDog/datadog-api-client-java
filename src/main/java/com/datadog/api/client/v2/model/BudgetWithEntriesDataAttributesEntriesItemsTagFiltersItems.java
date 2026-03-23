@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A tag filter used to scope a budget entry to specific resource tags. */
 @JsonPropertyOrder({
   BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems.JSON_PROPERTY_TAG_KEY,
   BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems.JSON_PROPERTY_TAG_VALUE
@@ -37,7 +37,7 @@ public class BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems {
   }
 
   /**
-   * GettagKey
+   * The tag key to filter on.
    *
    * @return tagKey
    */
@@ -58,7 +58,7 @@ public class BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems {
   }
 
   /**
-   * GettagValue
+   * The tag value to filter on.
    *
    * @return tagValue
    */

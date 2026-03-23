@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Response containing facet information for an attribute, including its distinct values and
+ * occurrence counts.
+ */
 @JsonPropertyOrder({FacetInfoResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +35,7 @@ public class FacetInfoResponse {
   }
 
   /**
-   * Getdata
+   * The data object containing the resource type and attributes for the facet info response.
    *
    * @return data
    */

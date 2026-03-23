@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** */
+/** The pagination type used for offset-based pagination. */
 @JsonSerialize(using = PaginationMetaPageType.PaginationMetaPageTypeSerializer.class)
 public class PaginationMetaPageType extends ModelEnum<String> {
 

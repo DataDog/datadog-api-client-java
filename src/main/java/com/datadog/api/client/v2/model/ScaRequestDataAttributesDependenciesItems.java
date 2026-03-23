@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * A dependency found in the repository, including its identity, location, and reachability
+ * metadata.
+ */
 @JsonPropertyOrder({
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_EXCLUSIONS,
   ScaRequestDataAttributesDependenciesItems.JSON_PROPERTY_GROUP,
@@ -85,7 +88,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * Getexclusions
+   * A list of patterns or identifiers that should be excluded from analysis for this dependency.
    *
    * @return exclusions
    */
@@ -106,7 +109,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * Getgroup
+   * The group or organization namespace of the dependency (e.g., Maven group ID).
    *
    * @return group
    */
@@ -127,7 +130,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * GetisDev
+   * Indicates whether this is a development-only dependency not used in production.
    *
    * @return isDev
    */
@@ -148,7 +151,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * GetisDirect
+   * Indicates whether this is a direct dependency (as opposed to a transitive one).
    *
    * @return isDirect
    */
@@ -169,7 +172,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * Getlanguage
+   * The programming language ecosystem of this dependency (e.g., java, python, javascript).
    *
    * @return language
    */
@@ -204,7 +207,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * Getlocations
+   * The list of source file locations where this dependency is declared.
    *
    * @return locations
    */
@@ -226,7 +229,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * Getname
+   * The name of the dependency package.
    *
    * @return name
    */
@@ -247,7 +250,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * GetpackageManager
+   * The package manager responsible for this dependency (e.g., maven, pip, npm).
    *
    * @return packageManager
    */
@@ -268,7 +271,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * Getpurl
+   * The Package URL (PURL) uniquely identifying this dependency.
    *
    * @return purl
    */
@@ -306,7 +309,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * GetreachableSymbolProperties
+   * Properties describing symbols from this dependency that are reachable in the application code.
    *
    * @return reachableSymbolProperties
    */
@@ -330,7 +333,7 @@ public class ScaRequestDataAttributesDependenciesItems {
   }
 
   /**
-   * Getversion
+   * The version of the dependency.
    *
    * @return version
    */

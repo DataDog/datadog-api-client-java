@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes of a heatmap snapshot, including view context, device information, and audit metadata.
+ */
 @JsonPropertyOrder({
   SnapshotDataAttributes.JSON_PROPERTY_APPLICATION_ID,
   SnapshotDataAttributes.JSON_PROPERTY_CREATED_AT,
@@ -91,7 +93,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetapplicationId
+   * Unique identifier of the RUM application.
    *
    * @return applicationId
    */
@@ -107,7 +109,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetcreatedAt
+   * Timestamp when the snapshot was created.
    *
    * @return createdAt
    */
@@ -119,7 +121,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetcreatedBy
+   * Display name of the user who created the snapshot.
    *
    * @return createdBy
    */
@@ -131,7 +133,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetcreatedByHandle
+   * Email handle of the user who created the snapshot.
    *
    * @return createdByHandle
    */
@@ -143,7 +145,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetcreatedByUserId
+   * Numeric identifier of the user who created the snapshot.
    *
    * @return createdByUserId
    */
@@ -160,7 +162,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetdeviceType
+   * Device type used when capturing the snapshot (e.g., desktop, mobile, tablet).
    *
    * @return deviceType
    */
@@ -181,7 +183,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GeteventId
+   * Unique identifier of the RUM event associated with the snapshot.
    *
    * @return eventId
    */
@@ -202,7 +204,8 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetisDeviceTypeSelectedByUser
+   * Indicates whether the device type was explicitly selected by the user rather than
+   * auto-detected.
    *
    * @return isDeviceTypeSelectedByUser
    */
@@ -218,7 +221,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetmodifiedAt
+   * Timestamp when the snapshot was last modified.
    *
    * @return modifiedAt
    */
@@ -230,7 +233,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetorgId
+   * Numeric identifier of the organization that owns the snapshot.
    *
    * @return orgId
    */
@@ -247,7 +250,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetsessionId
+   * Unique identifier of the RUM session associated with the snapshot.
    *
    * @return sessionId
    */
@@ -268,7 +271,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetsnapshotName
+   * Human-readable name for the snapshot.
    *
    * @return snapshotName
    */
@@ -289,7 +292,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * Getstart
+   * Offset in milliseconds from the start of the session at which the snapshot was captured.
    *
    * @return start
    */
@@ -310,7 +313,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetviewId
+   * Unique identifier of the RUM view associated with the snapshot.
    *
    * @return viewId
    */
@@ -331,7 +334,7 @@ public class SnapshotDataAttributes {
   }
 
   /**
-   * GetviewName
+   * URL path or name of the view where the snapshot was captured.
    *
    * @return viewName
    */

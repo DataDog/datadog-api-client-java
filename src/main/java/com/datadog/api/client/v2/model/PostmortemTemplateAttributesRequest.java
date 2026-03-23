@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes for creating or updating a postmortem template. */
 @JsonPropertyOrder({PostmortemTemplateAttributesRequest.JSON_PROPERTY_NAME})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

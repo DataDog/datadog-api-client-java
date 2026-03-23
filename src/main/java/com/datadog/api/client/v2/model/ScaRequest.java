@@ -16,7 +16,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The top-level request object for submitting a Software Composition Analysis (SCA) scan result.
+ */
 @JsonPropertyOrder({ScaRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +34,7 @@ public class ScaRequest {
   }
 
   /**
-   * Getdata
+   * The data object in an SCA request, containing the dependency graph attributes and request type.
    *
    * @return data
    */

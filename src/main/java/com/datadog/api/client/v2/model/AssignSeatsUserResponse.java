@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The response body returned after successfully assigning seats to users. */
 @JsonPropertyOrder({AssignSeatsUserResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class AssignSeatsUserResponse {
   }
 
   /**
-   * Getdata
+   * The response data object containing attributes of the seat assignment result.
    *
    * @return data
    */

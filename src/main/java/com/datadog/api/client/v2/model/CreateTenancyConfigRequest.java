@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Request body for creating a new OCI tenancy integration configuration. */
 @JsonPropertyOrder({CreateTenancyConfigRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,8 @@ public class CreateTenancyConfigRequest {
   }
 
   /**
-   * Getdata
+   * The data object for creating a new OCI tenancy integration configuration, including the tenancy
+   * ID, type, and configuration attributes.
    *
    * @return data
    */

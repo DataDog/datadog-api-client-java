@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * A single OCI tenancy product resource object containing the tenancy ID, type, and product
+ * attributes.
+ */
 @JsonPropertyOrder({
   TenancyProductsData.JSON_PROPERTY_ATTRIBUTES,
   TenancyProductsData.JSON_PROPERTY_ID,
@@ -52,7 +55,8 @@ public class TenancyProductsData {
   }
 
   /**
-   * Getattributes
+   * Attributes of an OCI tenancy product resource, containing the list of available products and
+   * their enablement status.
    *
    * @return attributes
    */
@@ -73,7 +77,7 @@ public class TenancyProductsData {
   }
 
   /**
-   * Getid
+   * The OCID of the OCI tenancy.
    *
    * @return id
    */

@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes of the assign seats response, including the list of users assigned and the product
+ * code.
+ */
 @JsonPropertyOrder({
   AssignSeatsUserResponseDataAttributes.JSON_PROPERTY_ASSIGNED_IDS,
   AssignSeatsUserResponseDataAttributes.JSON_PROPERTY_PRODUCT_CODE

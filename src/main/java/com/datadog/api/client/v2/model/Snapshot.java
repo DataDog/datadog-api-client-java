@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A single heatmap snapshot resource returned by create or update operations. */
 @JsonPropertyOrder({Snapshot.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class Snapshot {
   }
 
   /**
-   * Getdata
+   * Data object representing a heatmap snapshot, including its identifier, type, and attributes.
    *
    * @return data
    */

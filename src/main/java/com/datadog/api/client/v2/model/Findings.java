@@ -45,7 +45,7 @@ public class Findings {
   }
 
   /**
-   * Getdata
+   * Array of security finding data objects.
    *
    * @return data
    */

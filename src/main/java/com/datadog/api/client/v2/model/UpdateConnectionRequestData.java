@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The data object containing the resource identifier and attributes for updating an existing
+ * connection.
+ */
 @JsonPropertyOrder({
   UpdateConnectionRequestData.JSON_PROPERTY_ATTRIBUTES,
   UpdateConnectionRequestData.JSON_PROPERTY_ID,
@@ -55,7 +58,7 @@ public class UpdateConnectionRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes specifying the field modifications to apply to an existing connection.
    *
    * @return attributes
    */
@@ -76,7 +79,7 @@ public class UpdateConnectionRequestData {
   }
 
   /**
-   * Getid
+   * The unique identifier of the connection to update.
    *
    * @return id
    */

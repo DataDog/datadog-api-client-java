@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of a postmortem template returned in a response. */
 @JsonPropertyOrder({
   PostmortemTemplateAttributesResponse.JSON_PROPERTY_CREATED_AT,
   PostmortemTemplateAttributesResponse.JSON_PROPERTY_MODIFIED_AT,

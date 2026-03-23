@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Request body for creating a heatmap snapshot. */
 @JsonPropertyOrder({SnapshotCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,8 @@ public class SnapshotCreateRequest {
   }
 
   /**
-   * Getdata
+   * Data object for a heatmap snapshot creation request, containing the resource type and
+   * attributes.
    *
    * @return data
    */

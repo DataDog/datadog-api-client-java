@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The request payload for retrieving rules for multiple rulesets in a single batch call. */
 @JsonPropertyOrder({GetMultipleRulesetsRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,8 @@ public class GetMultipleRulesetsRequest {
   }
 
   /**
-   * Getdata
+   * The primary data object in the get-multiple-rulesets request, containing request attributes and
+   * resource type.
    *
    * @return data
    */

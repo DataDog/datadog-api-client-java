@@ -47,7 +47,7 @@ public class ProductAnalyticsInterval {
   }
 
   /**
-   * Getmilliseconds
+   * The duration of each time bucket in milliseconds.
    *
    * @return milliseconds
    */
@@ -68,7 +68,7 @@ public class ProductAnalyticsInterval {
   }
 
   /**
-   * GetstartTime
+   * The start of this interval as an epoch timestamp in milliseconds.
    *
    * @return startTime
    */
@@ -97,7 +97,7 @@ public class ProductAnalyticsInterval {
   }
 
   /**
-   * Gettimes
+   * Epoch timestamps (in milliseconds) for each bucket in this interval.
    *
    * @return times
    */
@@ -118,7 +118,7 @@ public class ProductAnalyticsInterval {
   }
 
   /**
-   * Gettype
+   * The interval type (e.g., fixed or auto-computed bucket size).
    *
    * @return type
    */

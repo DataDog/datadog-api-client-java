@@ -51,7 +51,7 @@ public class CreateCaseRequestArray {
   }
 
   /**
-   * Getdata
+   * Array of case creation request data objects.
    *
    * @return data
    */

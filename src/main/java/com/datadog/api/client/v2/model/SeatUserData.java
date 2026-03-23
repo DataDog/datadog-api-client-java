@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** */
+/** A seat user resource object containing its ID, type, and associated attributes. */
 @JsonPropertyOrder({
   SeatUserData.JSON_PROPERTY_ATTRIBUTES,
   SeatUserData.JSON_PROPERTY_ID,
@@ -43,7 +43,7 @@ public class SeatUserData {
   }
 
   /**
-   * Getattributes
+   * Attributes of a user assigned to a seat, including their email, name, and assignment timestamp.
    *
    * @return attributes
    */

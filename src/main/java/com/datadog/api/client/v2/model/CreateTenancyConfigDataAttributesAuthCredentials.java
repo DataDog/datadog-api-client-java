@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * OCI API signing key credentials used to authenticate the Datadog integration with the OCI
+ * tenancy.
+ */
 @JsonPropertyOrder({
   CreateTenancyConfigDataAttributesAuthCredentials.JSON_PROPERTY_FINGERPRINT,
   CreateTenancyConfigDataAttributesAuthCredentials.JSON_PROPERTY_PRIVATE_KEY
@@ -46,7 +49,7 @@ public class CreateTenancyConfigDataAttributesAuthCredentials {
   }
 
   /**
-   * Getfingerprint
+   * The fingerprint of the OCI API signing key used for authentication.
    *
    * @return fingerprint
    */
@@ -67,7 +70,7 @@ public class CreateTenancyConfigDataAttributesAuthCredentials {
   }
 
   /**
-   * GetprivateKey
+   * The PEM-encoded private key corresponding to the OCI API signing key fingerprint.
    *
    * @return privateKey
    */

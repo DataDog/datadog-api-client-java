@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Project columns configuration */
+/** Project columns configuration. */
 @JsonPropertyOrder({ProjectColumnsConfig.JSON_PROPERTY_COLUMNS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,7 +45,7 @@ public class ProjectColumnsConfig {
   }
 
   /**
-   * Getcolumns
+   * List of column configurations for the project board view.
    *
    * @return columns
    */

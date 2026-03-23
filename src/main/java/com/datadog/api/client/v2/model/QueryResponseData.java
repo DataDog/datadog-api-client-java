@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object containing the resource type and attributes of the query response. */
 @JsonPropertyOrder({
   QueryResponseData.JSON_PROPERTY_ATTRIBUTES,
   QueryResponseData.JSON_PROPERTY_ID,
@@ -52,7 +52,7 @@ public class QueryResponseData {
   }
 
   /**
-   * Getattributes
+   * Attributes of the query response, containing the matched records and total count.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class QueryResponseData {
   }
 
   /**
-   * Getid
+   * Unique identifier for the query response resource.
    *
    * @return id
    */

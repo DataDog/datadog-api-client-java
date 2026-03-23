@@ -58,7 +58,8 @@ public class RecommendationAttributes {
   }
 
   /**
-   * GetconfidenceLevel
+   * The confidence level of the recommendation, expressed as a value between 0.0 (low confidence)
+   * and 1.0 (high confidence).
    *
    * @return confidenceLevel
    */

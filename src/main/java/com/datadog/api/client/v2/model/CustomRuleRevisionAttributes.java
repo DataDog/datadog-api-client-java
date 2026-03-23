@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of a custom rule revision, including code, metadata, and test cases. */
 @JsonPropertyOrder({
   CustomRuleRevisionAttributes.JSON_PROPERTY_ARGUMENTS,
   CustomRuleRevisionAttributes.JSON_PROPERTY_CATEGORY,

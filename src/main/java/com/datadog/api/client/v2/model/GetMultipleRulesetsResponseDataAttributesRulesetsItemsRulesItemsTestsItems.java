@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * A test case associated with a static analysis rule, containing the source code and expected
+ * annotation count.
+ */
 @JsonPropertyOrder({
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems
       .JSON_PROPERTY_ANNOTATION_COUNT,
@@ -43,7 +46,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTes
   }
 
   /**
-   * GetannotationCount minimum: 0 maximum: 65535
+   * The expected number of annotations (findings) the rule should produce when run against the test
+   * code. minimum: 0 maximum: 65535
    *
    * @return annotationCount
    */
@@ -65,7 +69,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTes
   }
 
   /**
-   * Getcode
+   * The source code snippet used as input for the rule test.
    *
    * @return code
    */
@@ -87,7 +91,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTes
   }
 
   /**
-   * Getfilename
+   * The filename associated with the test code snippet.
    *
    * @return filename
    */

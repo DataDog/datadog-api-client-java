@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Input attributes for creating or updating a custom rule revision. */
 @JsonPropertyOrder({
   CustomRuleRevisionInputAttributes.JSON_PROPERTY_ARGUMENTS,
   CustomRuleRevisionInputAttributes.JSON_PROPERTY_CATEGORY,

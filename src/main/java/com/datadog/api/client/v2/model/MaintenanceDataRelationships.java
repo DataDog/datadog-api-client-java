@@ -43,7 +43,7 @@ public class MaintenanceDataRelationships {
   }
 
   /**
-   * GetcreatedByUser
+   * The Datadog user who created the maintenance.
    *
    * @return createdByUser
    */
@@ -66,7 +66,7 @@ public class MaintenanceDataRelationships {
   }
 
   /**
-   * GetlastModifiedByUser
+   * The Datadog user who last modified the maintenance.
    *
    * @return lastModifiedByUser
    */
@@ -90,7 +90,7 @@ public class MaintenanceDataRelationships {
   }
 
   /**
-   * GetstatusPage
+   * The status page the maintenance belongs to.
    *
    * @return statusPage
    */

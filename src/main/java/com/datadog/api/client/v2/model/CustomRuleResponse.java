@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response containing a single custom rule. */
 @JsonPropertyOrder({CustomRuleResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class CustomRuleResponse {
   }
 
   /**
-   * Getdata
+   * Data object returned in a custom rule response, including its ID, type, and attributes.
    *
    * @return data
    */

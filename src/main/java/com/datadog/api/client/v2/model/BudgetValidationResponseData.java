@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The data object for a budget validation response, containing the resource type, ID, and
+ * validation attributes.
+ */
 @JsonPropertyOrder({
   BudgetValidationResponseData.JSON_PROPERTY_ATTRIBUTES,
   BudgetValidationResponseData.JSON_PROPERTY_ID,
@@ -55,7 +58,8 @@ public class BudgetValidationResponseData {
   }
 
   /**
-   * Getattributes
+   * The attributes of a budget validation response, including any validation errors and the
+   * validity status.
    *
    * @return attributes
    */
@@ -76,7 +80,7 @@ public class BudgetValidationResponseData {
   }
 
   /**
-   * Getid
+   * The unique identifier of the budget being validated.
    *
    * @return id
    */

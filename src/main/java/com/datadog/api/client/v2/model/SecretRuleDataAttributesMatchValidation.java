@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Configuration for validating whether a detected secret is active by making an HTTP request and
+ * inspecting the response.
+ */
 @JsonPropertyOrder({
   SecretRuleDataAttributesMatchValidation.JSON_PROPERTY_ENDPOINT,
   SecretRuleDataAttributesMatchValidation.JSON_PROPERTY_HOSTS,
@@ -65,7 +68,7 @@ public class SecretRuleDataAttributesMatchValidation {
   }
 
   /**
-   * Getendpoint
+   * The URL endpoint to call when validating a detected secret.
    *
    * @return endpoint
    */
@@ -94,7 +97,7 @@ public class SecretRuleDataAttributesMatchValidation {
   }
 
   /**
-   * Gethosts
+   * The list of hostnames to include when performing secret match validation.
    *
    * @return hosts
    */
@@ -115,7 +118,7 @@ public class SecretRuleDataAttributesMatchValidation {
   }
 
   /**
-   * GethttpMethod
+   * The HTTP method (e.g., GET, POST) to use when making the validation request.
    *
    * @return httpMethod
    */
@@ -152,7 +155,7 @@ public class SecretRuleDataAttributesMatchValidation {
   }
 
   /**
-   * GetinvalidHttpStatusCode
+   * The HTTP status code ranges that indicate the detected secret is invalid or inactive.
    *
    * @return invalidHttpStatusCode
    */
@@ -186,7 +189,7 @@ public class SecretRuleDataAttributesMatchValidation {
   }
 
   /**
-   * GetrequestHeaders
+   * A map of HTTP header names to values to include in the validation request.
    *
    * @return requestHeaders
    */
@@ -207,7 +210,8 @@ public class SecretRuleDataAttributesMatchValidation {
   }
 
   /**
-   * GettimeoutSeconds minimum: 0 maximum: 1.8446744073709552e+19
+   * The maximum number of seconds to wait for a response during validation before timing out.
+   * minimum: 0 maximum: 1.8446744073709552e+19
    *
    * @return timeoutSeconds
    */
@@ -228,7 +232,7 @@ public class SecretRuleDataAttributesMatchValidation {
   }
 
   /**
-   * Gettype
+   * The type of match validation to perform (e.g., http).
    *
    * @return type
    */
@@ -264,7 +268,7 @@ public class SecretRuleDataAttributesMatchValidation {
   }
 
   /**
-   * GetvalidHttpStatusCode
+   * The HTTP status code ranges that indicate the detected secret is valid and active.
    *
    * @return validHttpStatusCode
    */

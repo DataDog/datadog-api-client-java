@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The data object for updating an existing OCI tenancy integration configuration, including the
+ * tenancy ID, type, and updated attributes.
+ */
 @JsonPropertyOrder({
   UpdateTenancyConfigData.JSON_PROPERTY_ATTRIBUTES,
   UpdateTenancyConfigData.JSON_PROPERTY_ID,
@@ -54,7 +57,8 @@ public class UpdateTenancyConfigData {
   }
 
   /**
-   * Getattributes
+   * Attributes for updating an existing OCI tenancy integration configuration, including optional
+   * credentials, region settings, and collection options.
    *
    * @return attributes
    */
@@ -75,7 +79,7 @@ public class UpdateTenancyConfigData {
   }
 
   /**
-   * Getid
+   * The OCID of the OCI tenancy to update.
    *
    * @return id
    */

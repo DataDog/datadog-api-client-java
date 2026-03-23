@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Schema relationship data containing the schema resource identifier and type. */
 @JsonPropertyOrder({
   EntityResponseDataRelationshipsSchemaData.JSON_PROPERTY_ID,
   EntityResponseDataRelationshipsSchemaData.JSON_PROPERTY_TYPE
@@ -51,7 +51,7 @@ public class EntityResponseDataRelationshipsSchemaData {
   }
 
   /**
-   * Getid
+   * Entity schema unique identifier.
    *
    * @return id
    */

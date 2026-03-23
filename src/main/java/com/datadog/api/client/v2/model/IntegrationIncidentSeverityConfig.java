@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Severity configuration for mapping incident priorities to case priorities. */
 @JsonPropertyOrder({IntegrationIncidentSeverityConfig.JSON_PROPERTY_PRIORITY_MAPPING})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -40,7 +40,7 @@ public class IntegrationIncidentSeverityConfig {
   }
 
   /**
-   * GetpriorityMapping
+   * Mapping of incident severity values to case priority values.
    *
    * @return priorityMapping
    */

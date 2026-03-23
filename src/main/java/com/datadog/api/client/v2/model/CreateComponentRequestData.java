@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object for creating a component. */
 @JsonPropertyOrder({
   CreateComponentRequestData.JSON_PROPERTY_ATTRIBUTES,
   CreateComponentRequestData.JSON_PROPERTY_RELATIONSHIPS,

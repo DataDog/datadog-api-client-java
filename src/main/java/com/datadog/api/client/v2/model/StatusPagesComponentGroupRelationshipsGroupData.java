@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object identifying the parent group of a component group. */
 @JsonPropertyOrder({
   StatusPagesComponentGroupRelationshipsGroupData.JSON_PROPERTY_ID,
   StatusPagesComponentGroupRelationshipsGroupData.JSON_PROPERTY_TYPE
@@ -51,7 +51,7 @@ public class StatusPagesComponentGroupRelationshipsGroupData {
   }
 
   /**
-   * Getid
+   * The ID of the parent group.
    *
    * @return id
    */

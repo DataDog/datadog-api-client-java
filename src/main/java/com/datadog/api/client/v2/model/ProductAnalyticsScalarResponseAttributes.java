@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of a scalar analytics response, containing the result columns. */
 @JsonPropertyOrder({ProductAnalyticsScalarResponseAttributes.JSON_PROPERTY_COLUMNS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class ProductAnalyticsScalarResponseAttributes {
   }
 
   /**
-   * Getcolumns
+   * The list of result columns, each containing values and metadata.
    *
    * @return columns
    */

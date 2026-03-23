@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Region configuration for an OCI tenancy, indicating which regions are available, enabled, or
+ * disabled for data collection.
+ */
 @JsonPropertyOrder({
   TenancyConfigDataAttributesRegionsConfig.JSON_PROPERTY_AVAILABLE,
   TenancyConfigDataAttributesRegionsConfig.JSON_PROPERTY_DISABLED,
@@ -51,7 +54,7 @@ public class TenancyConfigDataAttributesRegionsConfig {
   }
 
   /**
-   * Getavailable
+   * List of OCI regions available for data collection in the tenancy.
    *
    * @return available
    */
@@ -80,7 +83,7 @@ public class TenancyConfigDataAttributesRegionsConfig {
   }
 
   /**
-   * Getdisabled
+   * List of OCI regions explicitly disabled for data collection.
    *
    * @return disabled
    */
@@ -109,7 +112,7 @@ public class TenancyConfigDataAttributesRegionsConfig {
   }
 
   /**
-   * Getenabled
+   * List of OCI regions enabled for data collection.
    *
    * @return enabled
    */

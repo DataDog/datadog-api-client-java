@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Project notification settings */
+/** Project notification settings. */
 @JsonPropertyOrder({
   ProjectNotificationSettings.JSON_PROPERTY_DESTINATIONS,
   ProjectNotificationSettings.JSON_PROPERTY_ENABLED,
@@ -79,7 +79,7 @@ public class ProjectNotificationSettings {
   }
 
   /**
-   * Notification destinations (1=email, 2=slack, 3=in-app)
+   * Notification destinations (1=email, 2=slack, 3=in-app).
    *
    * @return destinations
    */
@@ -100,7 +100,7 @@ public class ProjectNotificationSettings {
   }
 
   /**
-   * Whether notifications are enabled
+   * Whether notifications are enabled.
    *
    * @return enabled
    */
@@ -121,7 +121,7 @@ public class ProjectNotificationSettings {
   }
 
   /**
-   * GetnotifyOnCaseAssignment
+   * Whether to send a notification when a case is assigned.
    *
    * @return notifyOnCaseAssignment
    */
@@ -142,7 +142,7 @@ public class ProjectNotificationSettings {
   }
 
   /**
-   * GetnotifyOnCaseClosed
+   * Whether to send a notification when a case is closed.
    *
    * @return notifyOnCaseClosed
    */
@@ -163,7 +163,7 @@ public class ProjectNotificationSettings {
   }
 
   /**
-   * GetnotifyOnCaseComment
+   * Whether to send a notification when a comment is added to a case.
    *
    * @return notifyOnCaseComment
    */
@@ -185,7 +185,7 @@ public class ProjectNotificationSettings {
   }
 
   /**
-   * GetnotifyOnCaseCommentMention
+   * Whether to send a notification when a user is mentioned in a case comment.
    *
    * @return notifyOnCaseCommentMention
    */
@@ -207,7 +207,7 @@ public class ProjectNotificationSettings {
   }
 
   /**
-   * GetnotifyOnCasePriorityChange
+   * Whether to send a notification when a case's priority changes.
    *
    * @return notifyOnCasePriorityChange
    */
@@ -228,7 +228,7 @@ public class ProjectNotificationSettings {
   }
 
   /**
-   * GetnotifyOnCaseStatusChange
+   * Whether to send a notification when a case's status changes.
    *
    * @return notifyOnCaseStatusChange
    */
@@ -249,7 +249,7 @@ public class ProjectNotificationSettings {
   }
 
   /**
-   * GetnotifyOnCaseUnassignment
+   * Whether to send a notification when a case is unassigned.
    *
    * @return notifyOnCaseUnassignment
    */

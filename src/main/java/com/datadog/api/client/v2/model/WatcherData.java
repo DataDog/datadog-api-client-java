@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object representing a session watcher, including their identifier, type, and attributes. */
 @JsonPropertyOrder({
   WatcherData.JSON_PROPERTY_ATTRIBUTES,
   WatcherData.JSON_PROPERTY_ID,
@@ -52,7 +52,8 @@ public class WatcherData {
   }
 
   /**
-   * Getattributes
+   * Attributes of a user who has watched a RUM replay session, including contact information and
+   * watch statistics.
    *
    * @return attributes
    */
@@ -73,7 +74,7 @@ public class WatcherData {
   }
 
   /**
-   * Getid
+   * Unique identifier of the watcher user.
    *
    * @return id
    */

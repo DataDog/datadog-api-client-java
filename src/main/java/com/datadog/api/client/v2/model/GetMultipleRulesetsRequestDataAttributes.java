@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The request attributes for fetching multiple rulesets, specifying which rulesets to retrieve and
+ * what data to include.
+ */
 @JsonPropertyOrder({
   GetMultipleRulesetsRequestDataAttributes.JSON_PROPERTY_INCLUDE_TESTING_RULES,
   GetMultipleRulesetsRequestDataAttributes.JSON_PROPERTY_INCLUDE_TESTS,
@@ -43,7 +46,7 @@ public class GetMultipleRulesetsRequestDataAttributes {
   }
 
   /**
-   * GetincludeTestingRules
+   * When true, rules that are available in testing mode are included in the response.
    *
    * @return includeTestingRules
    */
@@ -64,7 +67,7 @@ public class GetMultipleRulesetsRequestDataAttributes {
   }
 
   /**
-   * GetincludeTests
+   * When true, test cases associated with each rule are included in the response.
    *
    * @return includeTests
    */
@@ -93,7 +96,7 @@ public class GetMultipleRulesetsRequestDataAttributes {
   }
 
   /**
-   * Getrulesets
+   * The list of ruleset names to retrieve.
    *
    * @return rulesets
    */

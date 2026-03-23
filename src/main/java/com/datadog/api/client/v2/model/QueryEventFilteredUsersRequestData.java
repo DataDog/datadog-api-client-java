@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The data object containing the resource type and attributes for querying event-filtered users.
+ */
 @JsonPropertyOrder({
   QueryEventFilteredUsersRequestData.JSON_PROPERTY_ATTRIBUTES,
   QueryEventFilteredUsersRequestData.JSON_PROPERTY_ID,
@@ -55,7 +57,7 @@ public class QueryEventFilteredUsersRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes for filtering users by both user properties and event platform activity.
    *
    * @return attributes
    */
@@ -76,7 +78,7 @@ public class QueryEventFilteredUsersRequestData {
   }
 
   /**
-   * Getid
+   * Unique identifier for the query event filtered users request resource.
    *
    * @return id
    */

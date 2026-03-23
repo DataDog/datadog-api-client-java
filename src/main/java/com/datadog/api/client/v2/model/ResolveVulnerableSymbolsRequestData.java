@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The data object in a request to resolve vulnerable symbols, containing the package PURLs and
+ * request type.
+ */
 @JsonPropertyOrder({
   ResolveVulnerableSymbolsRequestData.JSON_PROPERTY_ATTRIBUTES,
   ResolveVulnerableSymbolsRequestData.JSON_PROPERTY_ID,
@@ -55,7 +58,8 @@ public class ResolveVulnerableSymbolsRequestData {
   }
 
   /**
-   * Getattributes
+   * The attributes of a request to resolve vulnerable symbols, containing the list of package PURLs
+   * to check.
    *
    * @return attributes
    */
@@ -76,7 +80,7 @@ public class ResolveVulnerableSymbolsRequestData {
   }
 
   /**
-   * Getid
+   * An optional identifier for this request data object.
    *
    * @return id
    */
@@ -98,7 +102,7 @@ public class ResolveVulnerableSymbolsRequestData {
   }
 
   /**
-   * Gettype
+   * The type identifier for requests to resolve vulnerable symbols.
    *
    * @return type
    */

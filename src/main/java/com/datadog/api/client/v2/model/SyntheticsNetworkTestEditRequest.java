@@ -42,7 +42,7 @@ public class SyntheticsNetworkTestEditRequest {
   }
 
   /**
-   * Getdata
+   * Data object for creating or editing a Network Path test.
    *
    * @return data
    */

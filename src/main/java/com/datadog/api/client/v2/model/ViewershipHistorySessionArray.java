@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A list of RUM replay sessions from a user's viewership history. */
 @JsonPropertyOrder({ViewershipHistorySessionArray.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -52,7 +52,7 @@ public class ViewershipHistorySessionArray {
   }
 
   /**
-   * Getdata
+   * Array of viewership history session data objects.
    *
    * @return data
    */

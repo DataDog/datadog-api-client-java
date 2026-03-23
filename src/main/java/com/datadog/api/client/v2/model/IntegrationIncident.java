@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Incident integration settings */
+/** Incident integration settings. */
 @JsonPropertyOrder({
   IntegrationIncident.JSON_PROPERTY_AUTO_ESCALATION_QUERY,
   IntegrationIncident.JSON_PROPERTY_DEFAULT_INCIDENT_COMMANDER,
@@ -56,7 +56,7 @@ public class IntegrationIncident {
   }
 
   /**
-   * Query for auto-escalation
+   * Query for auto-escalation.
    *
    * @return autoEscalationQuery
    */
@@ -77,7 +77,7 @@ public class IntegrationIncident {
   }
 
   /**
-   * Default incident commander
+   * Default incident commander.
    *
    * @return defaultIncidentCommander
    */
@@ -98,7 +98,7 @@ public class IntegrationIncident {
   }
 
   /**
-   * Whether incident integration is enabled
+   * Whether incident integration is enabled.
    *
    * @return enabled
    */
@@ -133,7 +133,7 @@ public class IntegrationIncident {
   }
 
   /**
-   * GetfieldMappings
+   * List of mappings between incident fields and case fields.
    *
    * @return fieldMappings
    */
@@ -154,7 +154,7 @@ public class IntegrationIncident {
   }
 
   /**
-   * Incident type
+   * Incident type.
    *
    * @return incidentType
    */
@@ -176,7 +176,7 @@ public class IntegrationIncident {
   }
 
   /**
-   * GetseverityConfig
+   * Severity configuration for mapping incident priorities to case priorities.
    *
    * @return severityConfig
    */

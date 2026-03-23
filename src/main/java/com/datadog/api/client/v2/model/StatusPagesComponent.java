@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response object for a single component. */
 @JsonPropertyOrder({
   StatusPagesComponent.JSON_PROPERTY_DATA,
   StatusPagesComponent.JSON_PROPERTY_INCLUDED
@@ -40,7 +40,7 @@ public class StatusPagesComponent {
   }
 
   /**
-   * Getdata
+   * The data object for a component.
    *
    * @return data
    */

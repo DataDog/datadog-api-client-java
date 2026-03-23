@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for a custom rule create or update request. */
 @JsonPropertyOrder({
   CustomRuleRequestData.JSON_PROPERTY_ATTRIBUTES,
   CustomRuleRequestData.JSON_PROPERTY_ID,
@@ -42,7 +42,7 @@ public class CustomRuleRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes for creating or updating a custom rule.
    *
    * @return attributes
    */

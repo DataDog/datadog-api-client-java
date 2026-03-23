@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Auto-close inactive cases settings */
+/** Auto-close inactive cases settings. */
 @JsonPropertyOrder({
   AutoCloseInactiveCases.JSON_PROPERTY_ENABLED,
   AutoCloseInactiveCases.JSON_PROPERTY_MAX_INACTIVE_TIME_IN_SECS
@@ -37,7 +37,7 @@ public class AutoCloseInactiveCases {
   }
 
   /**
-   * Whether auto-close is enabled
+   * Whether auto-close is enabled.
    *
    * @return enabled
    */
@@ -58,7 +58,7 @@ public class AutoCloseInactiveCases {
   }
 
   /**
-   * Maximum inactive time in seconds before auto-closing
+   * Maximum inactive time in seconds before auto-closing.
    *
    * @return maxInactiveTimeInSecs
    */

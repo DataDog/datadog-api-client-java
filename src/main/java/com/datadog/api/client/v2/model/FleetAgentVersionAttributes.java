@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of an available Datadog Agent version. */
 @JsonPropertyOrder({FleetAgentVersionAttributes.JSON_PROPERTY_VERSION})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

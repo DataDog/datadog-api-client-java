@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** */
+/** The type identifier for SCA dependency analysis requests. */
 @JsonSerialize(using = ScaRequestDataType.ScaRequestDataTypeSerializer.class)
 public class ScaRequestDataType extends ModelEnum<String> {
 

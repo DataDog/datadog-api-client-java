@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** On-Call integration settings */
+/** On-Call integration settings. */
 @JsonPropertyOrder({
   IntegrationOnCall.JSON_PROPERTY_AUTO_ASSIGN_ON_CALL,
   IntegrationOnCall.JSON_PROPERTY_ENABLED,
@@ -43,7 +43,7 @@ public class IntegrationOnCall {
   }
 
   /**
-   * Whether to auto-assign on-call
+   * Whether to auto-assign on-call.
    *
    * @return autoAssignOnCall
    */
@@ -64,7 +64,7 @@ public class IntegrationOnCall {
   }
 
   /**
-   * Whether On-Call integration is enabled
+   * Whether On-Call integration is enabled.
    *
    * @return enabled
    */
@@ -99,7 +99,7 @@ public class IntegrationOnCall {
   }
 
   /**
-   * GetescalationQueries
+   * List of escalation queries for routing cases to on-call responders.
    *
    * @return escalationQueries
    */

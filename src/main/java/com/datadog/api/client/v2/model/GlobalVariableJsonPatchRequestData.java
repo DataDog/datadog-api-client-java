@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for a JSON Patch request on a Synthetic global variable. */
 @JsonPropertyOrder({
   GlobalVariableJsonPatchRequestData.JSON_PROPERTY_ATTRIBUTES,
   GlobalVariableJsonPatchRequestData.JSON_PROPERTY_TYPE
@@ -39,7 +39,7 @@ public class GlobalVariableJsonPatchRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes for a JSON Patch request on a Synthetic global variable.
    *
    * @return attributes
    */

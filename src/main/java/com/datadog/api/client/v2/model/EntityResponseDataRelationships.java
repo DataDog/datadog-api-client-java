@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Entity relationships including incidents, oncalls, schemas, and related entities. */
 @JsonPropertyOrder({
   EntityResponseDataRelationships.JSON_PROPERTY_INCIDENTS,
   EntityResponseDataRelationships.JSON_PROPERTY_ONCALLS,
@@ -51,7 +51,7 @@ public class EntityResponseDataRelationships {
   }
 
   /**
-   * Getincidents
+   * Incidents relationship containing a list of incident resources associated with this entity.
    *
    * @return incidents
    */
@@ -73,7 +73,7 @@ public class EntityResponseDataRelationships {
   }
 
   /**
-   * Getoncalls
+   * Oncalls relationship containing a list of oncall resources associated with this entity.
    *
    * @return oncalls
    */
@@ -96,7 +96,7 @@ public class EntityResponseDataRelationships {
   }
 
   /**
-   * GetrawSchema
+   * Raw schema relationship linking an entity to its raw schema resource.
    *
    * @return rawSchema
    */
@@ -119,7 +119,7 @@ public class EntityResponseDataRelationships {
   }
 
   /**
-   * GetrelatedEntities
+   * Related entities relationship containing a list of entity references related to this entity.
    *
    * @return relatedEntities
    */
@@ -141,7 +141,7 @@ public class EntityResponseDataRelationships {
   }
 
   /**
-   * Getschema
+   * Schema relationship linking an entity to its associated schema resource.
    *
    * @return schema
    */

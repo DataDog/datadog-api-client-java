@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A test case associated with a custom rule revision, used to validate rule behavior. */
 @JsonPropertyOrder({
   CustomRuleRevisionTest.JSON_PROPERTY_ANNOTATION_COUNT,
   CustomRuleRevisionTest.JSON_PROPERTY_CODE,

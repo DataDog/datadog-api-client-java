@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Oncall relationship data item containing the oncall resource identifier and type. */
 @JsonPropertyOrder({
   EntityResponseDataRelationshipsOncallsDataItems.JSON_PROPERTY_ID,
   EntityResponseDataRelationshipsOncallsDataItems.JSON_PROPERTY_TYPE
@@ -51,7 +51,7 @@ public class EntityResponseDataRelationshipsOncallsDataItems {
   }
 
   /**
-   * Getid
+   * Oncall resource unique identifier.
    *
    * @return id
    */

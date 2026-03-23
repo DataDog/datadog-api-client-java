@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * A vulnerability entry from the Software Bill of Materials (SBOM), describing a known security
+ * issue and the components it affects.
+ */
 @JsonPropertyOrder({
   ScaRequestDataAttributesVulnerabilitiesItems.JSON_PROPERTY_AFFECTS,
   ScaRequestDataAttributesVulnerabilitiesItems.JSON_PROPERTY_BOM_REF,
@@ -57,7 +60,7 @@ public class ScaRequestDataAttributesVulnerabilitiesItems {
   }
 
   /**
-   * Getaffects
+   * The list of components affected by this vulnerability.
    *
    * @return affects
    */
@@ -78,7 +81,7 @@ public class ScaRequestDataAttributesVulnerabilitiesItems {
   }
 
   /**
-   * GetbomRef
+   * The unique BOM reference identifier for this vulnerability entry.
    *
    * @return bomRef
    */
@@ -99,7 +102,7 @@ public class ScaRequestDataAttributesVulnerabilitiesItems {
   }
 
   /**
-   * Getid
+   * The vulnerability identifier (e.g., CVE ID or similar).
    *
    * @return id
    */

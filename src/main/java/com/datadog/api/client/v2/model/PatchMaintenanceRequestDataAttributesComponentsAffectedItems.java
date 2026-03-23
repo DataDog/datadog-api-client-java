@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** A component affected by a maintenance. */
 @JsonPropertyOrder({
   PatchMaintenanceRequestDataAttributesComponentsAffectedItems.JSON_PROPERTY_ID,
   PatchMaintenanceRequestDataAttributesComponentsAffectedItems.JSON_PROPERTY_NAME,

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for a request to revert a custom rule to a previous revision. */
 @JsonPropertyOrder({
   RevertCustomRuleRevisionRequestData.JSON_PROPERTY_ATTRIBUTES,
   RevertCustomRuleRevisionRequestData.JSON_PROPERTY_ID,
@@ -43,7 +43,7 @@ public class RevertCustomRuleRevisionRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes specifying the current and target revision IDs for a revert operation.
    *
    * @return attributes
    */

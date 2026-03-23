@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of a custom ruleset, including its name, description, and rules. */
 @JsonPropertyOrder({
   CustomRulesetAttributes.JSON_PROPERTY_CREATED_AT,
   CustomRulesetAttributes.JSON_PROPERTY_CREATED_BY,

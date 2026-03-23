@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Log collection configuration for an OCI tenancy, controlling which compartments and services have
+ * log collection enabled.
+ */
 @JsonPropertyOrder({
   CreateTenancyConfigDataAttributesLogsConfig.JSON_PROPERTY_COMPARTMENT_TAG_FILTERS,
   CreateTenancyConfigDataAttributesLogsConfig.JSON_PROPERTY_ENABLED,
@@ -53,7 +56,7 @@ public class CreateTenancyConfigDataAttributesLogsConfig {
   }
 
   /**
-   * GetcompartmentTagFilters
+   * List of compartment tag filters to scope log collection to specific compartments.
    *
    * @return compartmentTagFilters
    */
@@ -74,7 +77,7 @@ public class CreateTenancyConfigDataAttributesLogsConfig {
   }
 
   /**
-   * Getenabled
+   * Whether log collection is enabled for the tenancy.
    *
    * @return enabled
    */
@@ -104,7 +107,7 @@ public class CreateTenancyConfigDataAttributesLogsConfig {
   }
 
   /**
-   * GetenabledServices
+   * List of OCI service names for which log collection is enabled.
    *
    * @return enabledServices
    */

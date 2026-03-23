@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes specifying the product and users from whom seats will be unassigned. */
 @JsonPropertyOrder({
   UnassignSeatsUserRequestDataAttributes.JSON_PROPERTY_PRODUCT_CODE,
   UnassignSeatsUserRequestDataAttributes.JSON_PROPERTY_USER_UUIDS

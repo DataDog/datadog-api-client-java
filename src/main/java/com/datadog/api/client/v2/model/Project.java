@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A Project */
+/** A Project. */
 @JsonPropertyOrder({
   Project.JSON_PROPERTY_ATTRIBUTES,
   Project.JSON_PROPERTY_ID,
@@ -61,7 +61,7 @@ public class Project {
   }
 
   /**
-   * Project attributes
+   * Project attributes.
    *
    * @return attributes
    */
@@ -81,7 +81,7 @@ public class Project {
   }
 
   /**
-   * The Project's identifier
+   * The Project's identifier.
    *
    * @return id
    */
@@ -102,7 +102,7 @@ public class Project {
   }
 
   /**
-   * Project relationships
+   * Project relationships.
    *
    * @return relationships
    */
@@ -124,7 +124,7 @@ public class Project {
   }
 
   /**
-   * Project resource type
+   * Project resource type.
    *
    * @return type
    */

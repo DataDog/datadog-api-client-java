@@ -19,7 +19,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Response containing a list of OCI tenancy product resources with their product enablement status.
+ */
 @JsonPropertyOrder({TenancyProductsList.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -51,7 +53,7 @@ public class TenancyProductsList {
   }
 
   /**
-   * Getdata
+   * List of OCI tenancy product resource objects.
    *
    * @return data
    */

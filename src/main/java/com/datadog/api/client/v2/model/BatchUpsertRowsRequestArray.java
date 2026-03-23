@@ -52,7 +52,7 @@ public class BatchUpsertRowsRequestArray {
   }
 
   /**
-   * Getdata
+   * List of row resources to create or update in the reference table.
    *
    * @return data
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object returned in a custom rule response, including its ID, type, and attributes. */
 @JsonPropertyOrder({
   CustomRuleResponseData.JSON_PROPERTY_ATTRIBUTES,
   CustomRuleResponseData.JSON_PROPERTY_ID,
@@ -57,7 +57,7 @@ public class CustomRuleResponseData {
   }
 
   /**
-   * Getattributes
+   * A custom static analysis rule within a ruleset.
    *
    * @return attributes
    */

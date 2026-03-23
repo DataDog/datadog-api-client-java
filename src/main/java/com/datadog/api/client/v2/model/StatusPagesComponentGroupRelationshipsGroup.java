@@ -48,7 +48,7 @@ public class StatusPagesComponentGroupRelationshipsGroup {
   }
 
   /**
-   * Getdata
+   * The data object identifying the parent group of a component group.
    *
    * @return data
    */

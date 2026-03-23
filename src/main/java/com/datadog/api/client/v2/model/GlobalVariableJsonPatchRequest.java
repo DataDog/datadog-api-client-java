@@ -43,7 +43,7 @@ public class GlobalVariableJsonPatchRequest {
   }
 
   /**
-   * Getdata
+   * Data object for a JSON Patch request on a Synthetic global variable.
    *
    * @return data
    */

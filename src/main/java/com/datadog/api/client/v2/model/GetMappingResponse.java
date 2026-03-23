@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Response containing the entity attribute mapping configuration including all available attributes
+ * and their properties.
+ */
 @JsonPropertyOrder({GetMappingResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +35,7 @@ public class GetMappingResponse {
   }
 
   /**
-   * Getdata
+   * The data object containing the resource type and attributes for the get mapping response.
    *
    * @return data
    */

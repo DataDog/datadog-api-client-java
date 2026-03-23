@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A paginated list of seat user resources with associated pagination metadata. */
 @JsonPropertyOrder({SeatUserDataArray.JSON_PROPERTY_DATA, SeatUserDataArray.JSON_PROPERTY_META})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -70,7 +70,7 @@ public class SeatUserDataArray {
   }
 
   /**
-   * Getmeta
+   * Pagination metadata for the seat users list response.
    *
    * @return meta
    */

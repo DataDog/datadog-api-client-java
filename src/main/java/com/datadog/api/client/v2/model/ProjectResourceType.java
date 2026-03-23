@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Project resource type */
+/** Project resource type. */
 @JsonSerialize(using = ProjectResourceType.ProjectResourceTypeSerializer.class)
 public class ProjectResourceType extends ModelEnum<String> {
 

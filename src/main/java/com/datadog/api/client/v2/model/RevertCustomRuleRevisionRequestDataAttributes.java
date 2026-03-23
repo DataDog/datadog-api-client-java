@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes specifying the current and target revision IDs for a revert operation. */
 @JsonPropertyOrder({
   RevertCustomRuleRevisionRequestDataAttributes.JSON_PROPERTY_CURRENT_REVISION,
   RevertCustomRuleRevisionRequestDataAttributes.JSON_PROPERTY_REVERT_TO_REVISION

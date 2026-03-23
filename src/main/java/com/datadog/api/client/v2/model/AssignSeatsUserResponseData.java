@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The response data object containing attributes of the seat assignment result. */
 @JsonPropertyOrder({
   AssignSeatsUserResponseData.JSON_PROPERTY_ATTRIBUTES,
   AssignSeatsUserResponseData.JSON_PROPERTY_ID,
@@ -42,7 +42,8 @@ public class AssignSeatsUserResponseData {
   }
 
   /**
-   * Getattributes
+   * Attributes of the assign seats response, including the list of users assigned and the product
+   * code.
    *
    * @return attributes
    */

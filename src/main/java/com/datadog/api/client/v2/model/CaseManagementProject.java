@@ -42,7 +42,7 @@ public class CaseManagementProject {
   }
 
   /**
-   * Getdata
+   * Data object representing a case management project.
    *
    * @return data
    */

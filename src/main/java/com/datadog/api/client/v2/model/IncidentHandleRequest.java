@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Request payload for creating or updating a global incident handle. */
 @JsonPropertyOrder({IncidentHandleRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class IncidentHandleRequest {
   }
 
   /**
-   * Getdata
+   * Data object representing an incident handle in a create or update request.
    *
    * @return data
    */

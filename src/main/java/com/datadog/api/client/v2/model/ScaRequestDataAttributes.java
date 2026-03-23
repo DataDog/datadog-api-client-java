@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The attributes of an SCA request, containing dependency graph data, vulnerability information,
+ * and repository context.
+ */
 @JsonPropertyOrder({
   ScaRequestDataAttributes.JSON_PROPERTY_COMMIT,
   ScaRequestDataAttributes.JSON_PROPERTY_DEPENDENCIES,
@@ -68,7 +71,8 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * Getcommit
+   * Metadata about the commit associated with the SCA scan, including author, committer, and branch
+   * information.
    *
    * @return commit
    */
@@ -103,7 +107,7 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * Getdependencies
+   * The list of dependencies discovered in the repository.
    *
    * @return dependencies
    */
@@ -124,7 +128,7 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * Getenv
+   * The environment context in which the SCA scan was performed (e.g., production, staging).
    *
    * @return env
    */
@@ -157,7 +161,7 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * Getfiles
+   * The list of dependency manifest files found in the repository.
    *
    * @return files
    */
@@ -192,7 +196,7 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * Getrelations
+   * The dependency relations describing the inter-component dependency graph.
    *
    * @return relations
    */
@@ -214,7 +218,7 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * Getrepository
+   * Information about the source code repository being analyzed.
    *
    * @return repository
    */
@@ -235,7 +239,7 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * Getservice
+   * The name of the service or application being analyzed.
    *
    * @return service
    */
@@ -264,7 +268,7 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * Gettags
+   * A map of key-value tags providing additional metadata for the SCA scan.
    *
    * @return tags
    */
@@ -299,7 +303,7 @@ public class ScaRequestDataAttributes {
   }
 
   /**
-   * Getvulnerabilities
+   * The list of vulnerabilities identified in the dependency graph.
    *
    * @return vulnerabilities
    */

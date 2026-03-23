@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** */
+/** The resource type identifier for a scalar analytics response. */
 @JsonSerialize(
     using = ProductAnalyticsScalarResponseType.ProductAnalyticsScalarResponseTypeSerializer.class)
 public class ProductAnalyticsScalarResponseType extends ModelEnum<String> {

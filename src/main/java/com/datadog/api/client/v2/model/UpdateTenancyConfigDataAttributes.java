@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes for updating an existing OCI tenancy integration configuration, including optional
+ * credentials, region settings, and collection options.
+ */
 @JsonPropertyOrder({
   UpdateTenancyConfigDataAttributes.JSON_PROPERTY_AUTH_CREDENTIALS,
   UpdateTenancyConfigDataAttributes.JSON_PROPERTY_COST_COLLECTION_ENABLED,
@@ -64,7 +67,8 @@ public class UpdateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetauthCredentials
+   * OCI API signing key credentials used to update the Datadog integration's authentication with
+   * the OCI tenancy.
    *
    * @return authCredentials
    */
@@ -85,7 +89,7 @@ public class UpdateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetcostCollectionEnabled
+   * Whether cost data collection from OCI is enabled for the tenancy.
    *
    * @return costCollectionEnabled
    */
@@ -106,7 +110,7 @@ public class UpdateTenancyConfigDataAttributes {
   }
 
   /**
-   * GethomeRegion
+   * The home region of the OCI tenancy (for example, us-ashburn-1).
    *
    * @return homeRegion
    */
@@ -129,7 +133,8 @@ public class UpdateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetlogsConfig
+   * Log collection configuration for updating an OCI tenancy, controlling which compartments and
+   * services have log collection enabled.
    *
    * @return logsConfig
    */
@@ -152,7 +157,8 @@ public class UpdateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetmetricsConfig
+   * Metrics collection configuration for updating an OCI tenancy, controlling which compartments
+   * and services are included or excluded.
    *
    * @return metricsConfig
    */
@@ -175,7 +181,8 @@ public class UpdateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetregionsConfig
+   * Region configuration for updating an OCI tenancy, specifying which regions are available,
+   * enabled, or disabled for data collection.
    *
    * @return regionsConfig
    */
@@ -197,7 +204,7 @@ public class UpdateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetresourceCollectionEnabled
+   * Whether resource collection from OCI is enabled for the tenancy.
    *
    * @return resourceCollectionEnabled
    */
@@ -218,7 +225,7 @@ public class UpdateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetuserOcid
+   * The OCID of the OCI user used by the Datadog integration for authentication.
    *
    * @return userOcid
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A symbol identified as vulnerable within a dependency, including its name, type, and value. */
 @JsonPropertyOrder({
   ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols.JSON_PROPERTY_NAME,
   ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols.JSON_PROPERTY_TYPE,
@@ -41,7 +41,7 @@ public class ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols {
   }
 
   /**
-   * Getname
+   * The name of the vulnerable symbol.
    *
    * @return name
    */
@@ -62,7 +62,7 @@ public class ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols {
   }
 
   /**
-   * Gettype
+   * The type classification of the vulnerable symbol (e.g., function, class, variable).
    *
    * @return type
    */
@@ -83,7 +83,7 @@ public class ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols {
   }
 
   /**
-   * Getvalue
+   * The value or identifier associated with the vulnerable symbol.
    *
    * @return value
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Configuration for a single column in a project board view. */
 @JsonPropertyOrder({
   ProjectColumnsConfigColumnsItems.JSON_PROPERTY_SORT,
   ProjectColumnsConfigColumnsItems.JSON_PROPERTY_SORT_FIELD,
@@ -42,7 +42,7 @@ public class ProjectColumnsConfigColumnsItems {
   }
 
   /**
-   * Getsort
+   * Sort configuration for a project board column.
    *
    * @return sort
    */
@@ -63,7 +63,7 @@ public class ProjectColumnsConfigColumnsItems {
   }
 
   /**
-   * GetsortField
+   * The field used to sort items in this column.
    *
    * @return sortField
    */
@@ -84,7 +84,7 @@ public class ProjectColumnsConfigColumnsItems {
   }
 
   /**
-   * Gettype
+   * The type of column.
    *
    * @return type
    */

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The attributes of a response containing resolved vulnerable symbols, organized by package. */
 @JsonPropertyOrder({ResolveVulnerableSymbolsResponseDataAttributes.JSON_PROPERTY_RESULTS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class ResolveVulnerableSymbolsResponseDataAttributes {
   }
 
   /**
-   * Getresults
+   * The list of resolved vulnerable symbol results, one entry per queried package.
    *
    * @return results
    */

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A custom static analysis rule within a ruleset. */
 @JsonPropertyOrder({
   CustomRule.JSON_PROPERTY_CREATED_AT,
   CustomRule.JSON_PROPERTY_CREATED_BY,
@@ -104,7 +104,7 @@ public class CustomRule {
   }
 
   /**
-   * GetlastRevision
+   * A specific revision of a custom static analysis rule.
    *
    * @return lastRevision
    */

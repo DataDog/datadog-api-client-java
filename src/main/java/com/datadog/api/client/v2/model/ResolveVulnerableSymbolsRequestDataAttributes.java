@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The attributes of a request to resolve vulnerable symbols, containing the list of package PURLs
+ * to check.
+ */
 @JsonPropertyOrder({ResolveVulnerableSymbolsRequestDataAttributes.JSON_PROPERTY_PURLS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -41,7 +44,7 @@ public class ResolveVulnerableSymbolsRequestDataAttributes {
   }
 
   /**
-   * Getpurls
+   * The list of Package URLs (PURLs) for which to resolve vulnerable symbols.
    *
    * @return purls
    */

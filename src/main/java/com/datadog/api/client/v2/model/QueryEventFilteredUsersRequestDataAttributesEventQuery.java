@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Event platform query used to filter users based on their event activity within a specified time
+ * window.
+ */
 @JsonPropertyOrder({
   QueryEventFilteredUsersRequestDataAttributesEventQuery.JSON_PROPERTY_QUERY,
   QueryEventFilteredUsersRequestDataAttributesEventQuery.JSON_PROPERTY_TIME_FRAME
@@ -37,7 +40,7 @@ public class QueryEventFilteredUsersRequestDataAttributesEventQuery {
   }
 
   /**
-   * Getquery
+   * The event platform query expression for filtering users by their event activity.
    *
    * @return query
    */
@@ -60,7 +63,7 @@ public class QueryEventFilteredUsersRequestDataAttributesEventQuery {
   }
 
   /**
-   * GettimeFrame
+   * The time window defining the start and end of the event query period as Unix timestamps.
    *
    * @return timeFrame
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for a bulk delete Synthetic tests request. */
 @JsonPropertyOrder({
   DeletedTestsRequestDelete.JSON_PROPERTY_ATTRIBUTES,
   DeletedTestsRequestDelete.JSON_PROPERTY_ID,
@@ -53,7 +53,7 @@ public class DeletedTestsRequestDelete {
   }
 
   /**
-   * Getattributes
+   * Attributes for a bulk delete Synthetic tests request.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class DeletedTestsRequestDelete {
   }
 
   /**
-   * Getid
+   * An optional identifier for the delete request.
    *
    * @return id
    */
@@ -95,7 +95,7 @@ public class DeletedTestsRequestDelete {
   }
 
   /**
-   * Gettype
+   * Type for the bulk delete Synthetic tests request, <code>delete_tests_request</code>.
    *
    * @return type
    */

@@ -48,7 +48,7 @@ public class ProductAnalyticsScalarColumn {
   }
 
   /**
-   * Getmeta
+   * Metadata associated with a scalar response column, including optional unit information.
    *
    * @return meta
    */

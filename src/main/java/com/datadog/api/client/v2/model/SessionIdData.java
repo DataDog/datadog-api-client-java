@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A session identifier data object used for bulk playlist operations. */
 @JsonPropertyOrder({SessionIdData.JSON_PROPERTY_ID, SessionIdData.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -46,7 +46,7 @@ public class SessionIdData {
   }
 
   /**
-   * Getid
+   * Unique identifier of the RUM replay session.
    *
    * @return id
    */

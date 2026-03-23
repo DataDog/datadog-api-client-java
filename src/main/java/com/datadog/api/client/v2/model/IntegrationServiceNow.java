@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** ServiceNow integration settings */
+/** ServiceNow integration settings. */
 @JsonPropertyOrder({
   IntegrationServiceNow.JSON_PROPERTY_ASSIGNMENT_GROUP,
   IntegrationServiceNow.JSON_PROPERTY_AUTO_CREATION,
@@ -49,7 +49,7 @@ public class IntegrationServiceNow {
   }
 
   /**
-   * Assignment group
+   * Assignment group.
    *
    * @return assignmentGroup
    */
@@ -71,7 +71,7 @@ public class IntegrationServiceNow {
   }
 
   /**
-   * GetautoCreation
+   * Auto-creation settings for ServiceNow incidents from cases.
    *
    * @return autoCreation
    */
@@ -92,7 +92,7 @@ public class IntegrationServiceNow {
   }
 
   /**
-   * Whether ServiceNow integration is enabled
+   * Whether ServiceNow integration is enabled.
    *
    * @return enabled
    */
@@ -113,7 +113,7 @@ public class IntegrationServiceNow {
   }
 
   /**
-   * ServiceNow instance name
+   * ServiceNow instance name.
    *
    * @return instanceName
    */
@@ -135,7 +135,7 @@ public class IntegrationServiceNow {
   }
 
   /**
-   * GetsyncConfig
+   * Synchronization configuration for ServiceNow integration.
    *
    * @return syncConfig
    */

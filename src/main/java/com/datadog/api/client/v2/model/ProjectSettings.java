@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Project settings */
+/** Project settings. */
 @JsonPropertyOrder({
   ProjectSettings.JSON_PROPERTY_AUTO_CLOSE_INACTIVE_CASES,
   ProjectSettings.JSON_PROPERTY_AUTO_TRANSITION_ASSIGNED_CASES,
@@ -63,7 +63,7 @@ public class ProjectSettings {
   }
 
   /**
-   * Auto-close inactive cases settings
+   * Auto-close inactive cases settings.
    *
    * @return autoCloseInactiveCases
    */
@@ -86,7 +86,7 @@ public class ProjectSettings {
   }
 
   /**
-   * Auto-transition assigned cases settings
+   * Auto-transition assigned cases settings.
    *
    * @return autoTransitionAssignedCases
    */
@@ -109,7 +109,7 @@ public class ProjectSettings {
   }
 
   /**
-   * Incident integration settings
+   * Incident integration settings.
    *
    * @return integrationIncident
    */
@@ -131,7 +131,7 @@ public class ProjectSettings {
   }
 
   /**
-   * Jira integration settings
+   * Jira integration settings.
    *
    * @return integrationJira
    */
@@ -153,7 +153,7 @@ public class ProjectSettings {
   }
 
   /**
-   * Monitor integration settings
+   * Monitor integration settings.
    *
    * @return integrationMonitor
    */
@@ -175,7 +175,7 @@ public class ProjectSettings {
   }
 
   /**
-   * On-Call integration settings
+   * On-Call integration settings.
    *
    * @return integrationOnCall
    */
@@ -197,7 +197,7 @@ public class ProjectSettings {
   }
 
   /**
-   * ServiceNow integration settings
+   * ServiceNow integration settings.
    *
    * @return integrationServiceNow
    */
@@ -219,7 +219,7 @@ public class ProjectSettings {
   }
 
   /**
-   * Project notification settings
+   * Project notification settings.
    *
    * @return notification
    */

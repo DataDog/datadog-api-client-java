@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** */
+/** The execution status of a Product Analytics query. */
 @JsonSerialize(
     using = ProductAnalyticsResponseMetaStatus.ProductAnalyticsResponseMetaStatusSerializer.class)
 public class ProductAnalyticsResponseMetaStatus extends ModelEnum<String> {

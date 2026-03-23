@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Project relationships */
+/** Project relationships. */
 @JsonPropertyOrder({
   ProjectRelationships.JSON_PROPERTY_MEMBER_TEAM,
   ProjectRelationships.JSON_PROPERTY_MEMBER_USER

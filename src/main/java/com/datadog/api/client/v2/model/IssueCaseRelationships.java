@@ -143,7 +143,7 @@ public class IssueCaseRelationships {
   }
 
   /**
-   * Relationship to project
+   * Relationship to project.
    *
    * @return project
    */

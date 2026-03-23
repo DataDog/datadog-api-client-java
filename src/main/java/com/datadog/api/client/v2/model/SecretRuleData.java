@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The data object representing a secret detection rule, including its attributes and resource type.
+ */
 @JsonPropertyOrder({
   SecretRuleData.JSON_PROPERTY_ATTRIBUTES,
   SecretRuleData.JSON_PROPERTY_ID,
@@ -52,7 +54,8 @@ public class SecretRuleData {
   }
 
   /**
-   * Getattributes
+   * The attributes of a secret detection rule, including its pattern, priority, and validation
+   * configuration.
    *
    * @return attributes
    */
@@ -73,7 +76,7 @@ public class SecretRuleData {
   }
 
   /**
-   * Getid
+   * The unique identifier of the secret rule resource.
    *
    * @return id
    */

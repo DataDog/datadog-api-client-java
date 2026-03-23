@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A file entry in the repository associated with a dependency manifest. */
 @JsonPropertyOrder({
   ScaRequestDataAttributesFilesItems.JSON_PROPERTY_NAME,
   ScaRequestDataAttributesFilesItems.JSON_PROPERTY_PURL
@@ -37,7 +37,7 @@ public class ScaRequestDataAttributesFilesItems {
   }
 
   /**
-   * Getname
+   * The name or path of the file within the repository.
    *
    * @return name
    */
@@ -58,7 +58,7 @@ public class ScaRequestDataAttributesFilesItems {
   }
 
   /**
-   * Getpurl
+   * The Package URL (PURL) associated with the dependency declared in this file.
    *
    * @return purl
    */

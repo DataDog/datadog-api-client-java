@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Data object for a heatmap snapshot creation request, containing the resource type and attributes.
+ */
 @JsonPropertyOrder({
   SnapshotCreateRequestData.JSON_PROPERTY_ATTRIBUTES,
   SnapshotCreateRequestData.JSON_PROPERTY_TYPE
@@ -49,7 +51,8 @@ public class SnapshotCreateRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes for creating a heatmap snapshot, including the view, session, event, and device
+   * context.
    *
    * @return attributes
    */

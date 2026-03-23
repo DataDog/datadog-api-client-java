@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object identifying the Datadog user who created the degradation. */
 @JsonPropertyOrder({
   DegradationDataRelationshipsCreatedByUserData.JSON_PROPERTY_ID,
   DegradationDataRelationshipsCreatedByUserData.JSON_PROPERTY_TYPE

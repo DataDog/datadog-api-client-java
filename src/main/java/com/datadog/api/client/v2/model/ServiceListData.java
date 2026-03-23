@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A single data item in the service list response. */
 @JsonPropertyOrder({
   ServiceListData.JSON_PROPERTY_ATTRIBUTES,
   ServiceListData.JSON_PROPERTY_ID,
@@ -52,7 +52,7 @@ public class ServiceListData {
   }
 
   /**
-   * Getattributes
+   * Attributes of a service list entry, containing metadata and a list of service names.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class ServiceListData {
   }
 
   /**
-   * Getid
+   * The unique identifier of the service.
    *
    * @return id
    */
