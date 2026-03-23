@@ -11,6 +11,10 @@ import com.datadog.api.client.v2.model.FlakyTestsSearchRequest;
 import com.datadog.api.client.v2.model.FlakyTestsSearchRequestAttributes;
 import com.datadog.api.client.v2.model.FlakyTestsSearchRequestData;
 import com.datadog.api.client.v2.model.FlakyTestsSearchResponse;
+import com.datadog.api.client.v2.model.TestOptimizationDeleteServiceSettingsRequest;
+import com.datadog.api.client.v2.model.TestOptimizationGetServiceSettingsRequest;
+import com.datadog.api.client.v2.model.TestOptimizationServiceSettingsResponse;
+import com.datadog.api.client.v2.model.TestOptimizationUpdateServiceSettingsRequest;
 import com.datadog.api.client.v2.model.UpdateFlakyTestsRequest;
 import com.datadog.api.client.v2.model.UpdateFlakyTestsResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -50,6 +54,322 @@ public class TestOptimizationApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Delete Test Optimization service settings.
+   *
+   * <p>See {@link #deleteTestOptimizationServiceSettingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteTestOptimizationServiceSettings(
+      TestOptimizationDeleteServiceSettingsRequest body) throws ApiException {
+    deleteTestOptimizationServiceSettingsWithHttpInfo(body);
+  }
+
+  /**
+   * Delete Test Optimization service settings.
+   *
+   * <p>See {@link #deleteTestOptimizationServiceSettingsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteTestOptimizationServiceSettingsAsync(
+      TestOptimizationDeleteServiceSettingsRequest body) {
+    return deleteTestOptimizationServiceSettingsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete Test Optimization settings for a specific service identified by repository, service
+   * name, and environment.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteTestOptimizationServiceSettingsWithHttpInfo(
+      TestOptimizationDeleteServiceSettingsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteTestOptimizationServiceSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " deleteTestOptimizationServiceSettings");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/ci/test-optimization/settings/service";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TestOptimizationApi.deleteTestOptimizationServiceSettings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete Test Optimization service settings.
+   *
+   * <p>See {@link #deleteTestOptimizationServiceSettingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteTestOptimizationServiceSettingsWithHttpInfoAsync(
+          TestOptimizationDeleteServiceSettingsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteTestOptimizationServiceSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " deleteTestOptimizationServiceSettings"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/ci/test-optimization/settings/service";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TestOptimizationApi.deleteTestOptimizationServiceSettings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Get Test Optimization service settings.
+   *
+   * <p>See {@link #getTestOptimizationServiceSettingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return TestOptimizationServiceSettingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TestOptimizationServiceSettingsResponse getTestOptimizationServiceSettings(
+      TestOptimizationGetServiceSettingsRequest body) throws ApiException {
+    return getTestOptimizationServiceSettingsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Get Test Optimization service settings.
+   *
+   * <p>See {@link #getTestOptimizationServiceSettingsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;TestOptimizationServiceSettingsResponse&gt;
+   */
+  public CompletableFuture<TestOptimizationServiceSettingsResponse>
+      getTestOptimizationServiceSettingsAsync(TestOptimizationGetServiceSettingsRequest body) {
+    return getTestOptimizationServiceSettingsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve Test Optimization settings for a specific service identified by repository, service
+   * name, and environment.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;TestOptimizationServiceSettingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TestOptimizationServiceSettingsResponse>
+      getTestOptimizationServiceSettingsWithHttpInfo(TestOptimizationGetServiceSettingsRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getTestOptimizationServiceSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling getTestOptimizationServiceSettings");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/ci/test-optimization/settings/service";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TestOptimizationApi.getTestOptimizationServiceSettings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TestOptimizationServiceSettingsResponse>() {});
+  }
+
+  /**
+   * Get Test Optimization service settings.
+   *
+   * <p>See {@link #getTestOptimizationServiceSettingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TestOptimizationServiceSettingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>>
+      getTestOptimizationServiceSettingsWithHttpInfoAsync(
+          TestOptimizationGetServiceSettingsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "getTestOptimizationServiceSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " getTestOptimizationServiceSettings"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/ci/test-optimization/settings/service";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TestOptimizationApi.getTestOptimizationServiceSettings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TestOptimizationServiceSettingsResponse>() {});
   }
 
   /** Manage optional parameters to searchFlakyTests. */
@@ -458,5 +778,168 @@ public class TestOptimizationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UpdateFlakyTestsResponse>() {});
+  }
+
+  /**
+   * Update Test Optimization service settings.
+   *
+   * <p>See {@link #updateTestOptimizationServiceSettingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return TestOptimizationServiceSettingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TestOptimizationServiceSettingsResponse updateTestOptimizationServiceSettings(
+      TestOptimizationUpdateServiceSettingsRequest body) throws ApiException {
+    return updateTestOptimizationServiceSettingsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Update Test Optimization service settings.
+   *
+   * <p>See {@link #updateTestOptimizationServiceSettingsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;TestOptimizationServiceSettingsResponse&gt;
+   */
+  public CompletableFuture<TestOptimizationServiceSettingsResponse>
+      updateTestOptimizationServiceSettingsAsync(
+          TestOptimizationUpdateServiceSettingsRequest body) {
+    return updateTestOptimizationServiceSettingsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Partially update Test Optimization settings for a specific service identified by repository,
+   * service name, and environment. Only provided fields are updated; null or omitted fields are
+   * left unchanged.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;TestOptimizationServiceSettingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TestOptimizationServiceSettingsResponse>
+      updateTestOptimizationServiceSettingsWithHttpInfo(
+          TestOptimizationUpdateServiceSettingsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateTestOptimizationServiceSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateTestOptimizationServiceSettings");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/ci/test-optimization/settings/service";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TestOptimizationApi.updateTestOptimizationServiceSettings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TestOptimizationServiceSettingsResponse>() {});
+  }
+
+  /**
+   * Update Test Optimization service settings.
+   *
+   * <p>See {@link #updateTestOptimizationServiceSettingsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TestOptimizationServiceSettingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>>
+      updateTestOptimizationServiceSettingsWithHttpInfoAsync(
+          TestOptimizationUpdateServiceSettingsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateTestOptimizationServiceSettings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateTestOptimizationServiceSettings"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/ci/test-optimization/settings/service";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TestOptimizationApi.updateTestOptimizationServiceSettings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TestOptimizationServiceSettingsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TestOptimizationServiceSettingsResponse>() {});
   }
 }
