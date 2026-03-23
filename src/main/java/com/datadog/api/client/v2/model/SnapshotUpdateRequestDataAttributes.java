@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes for updating a heatmap snapshot, including event, session, and view context. */
 @JsonPropertyOrder({
   SnapshotUpdateRequestDataAttributes.JSON_PROPERTY_EVENT_ID,
   SnapshotUpdateRequestDataAttributes.JSON_PROPERTY_IS_DEVICE_TYPE_SELECTED_BY_USER,
@@ -64,7 +64,7 @@ public class SnapshotUpdateRequestDataAttributes {
   }
 
   /**
-   * GeteventId
+   * Unique identifier of the RUM event associated with the snapshot.
    *
    * @return eventId
    */
@@ -85,7 +85,8 @@ public class SnapshotUpdateRequestDataAttributes {
   }
 
   /**
-   * GetisDeviceTypeSelectedByUser
+   * Indicates whether the device type was explicitly selected by the user rather than
+   * auto-detected.
    *
    * @return isDeviceTypeSelectedByUser
    */
@@ -105,7 +106,7 @@ public class SnapshotUpdateRequestDataAttributes {
   }
 
   /**
-   * GetsessionId
+   * Unique identifier of the RUM session associated with the snapshot.
    *
    * @return sessionId
    */
@@ -126,7 +127,7 @@ public class SnapshotUpdateRequestDataAttributes {
   }
 
   /**
-   * Getstart
+   * Offset in milliseconds from the start of the session at which the snapshot was captured.
    *
    * @return start
    */
@@ -146,7 +147,7 @@ public class SnapshotUpdateRequestDataAttributes {
   }
 
   /**
-   * GetviewId
+   * Unique identifier of the RUM view associated with the snapshot.
    *
    * @return viewId
    */

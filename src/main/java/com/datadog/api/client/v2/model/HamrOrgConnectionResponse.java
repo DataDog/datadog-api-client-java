@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response payload for a HAMR organization connection. */
 @JsonPropertyOrder({HamrOrgConnectionResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,7 +43,7 @@ public class HamrOrgConnectionResponse {
   }
 
   /**
-   * Getdata
+   * Data object for a HAMR organization connection response.
    *
    * @return data
    */

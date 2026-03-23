@@ -204,7 +204,7 @@ public class SyntheticsSuite {
   }
 
   /**
-   * Gettests
+   * Array of Synthetic tests included in the suite.
    *
    * @return tests
    */

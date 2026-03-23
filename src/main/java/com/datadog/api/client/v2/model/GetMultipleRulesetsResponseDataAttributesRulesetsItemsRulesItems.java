@@ -20,7 +20,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * A static analysis rule within a ruleset, including its definition, metadata, and associated test
+ * cases.
+ */
 @JsonPropertyOrder({
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_ARGUMENTS,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems.JSON_PROPERTY_CATEGORY,
@@ -162,7 +165,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getarguments
+   * The list of configurable arguments accepted by this rule.
    *
    * @return arguments
    */
@@ -187,7 +190,8 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getcategory
+   * The category classifying the type of issue this rule detects (e.g., security, style,
+   * performance).
    *
    * @return category
    */
@@ -209,7 +213,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getchecksum
+   * A checksum of the rule definition used to detect changes.
    *
    * @return checksum
    */
@@ -230,7 +234,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getcode
+   * The rule implementation code used by the static analysis engine.
    *
    * @return code
    */
@@ -252,7 +256,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * GetcreatedAt
+   * The date and time when the rule was created.
    *
    * @return createdAt
    */
@@ -274,7 +278,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * GetcreatedBy
+   * The identifier of the user or system that created the rule.
    *
    * @return createdBy
    */
@@ -295,7 +299,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getcve
+   * The CVE identifier associated with the vulnerability this rule detects, if applicable.
    *
    * @return cve
    */
@@ -316,7 +320,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getcwe
+   * The CWE identifier associated with the weakness category this rule detects, if applicable.
    *
    * @return cwe
    */
@@ -339,7 +343,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getdata
+   * The resource identifier and type for a static analysis rule.
    *
    * @return data
    */
@@ -360,7 +364,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getdescription
+   * A detailed explanation of what the rule detects and why it matters.
    *
    * @return description
    */
@@ -382,7 +386,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * GetdocumentationUrl
+   * A URL pointing to additional documentation for this rule.
    *
    * @return documentationUrl
    */
@@ -404,7 +408,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * GetentityChecked
+   * The code entity type (e.g., function, class, variable) that this rule inspects.
    *
    * @return entityChecked
    */
@@ -426,7 +430,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * GetisPublished
+   * Indicates whether the rule is publicly published and available to all users.
    *
    * @return isPublished
    */
@@ -448,7 +452,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * GetisTesting
+   * Indicates whether the rule is in testing mode and not yet promoted to production.
    *
    * @return isTesting
    */
@@ -470,7 +474,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getlanguage
+   * The programming language this rule applies to.
    *
    * @return language
    */
@@ -492,7 +496,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * GetlastUpdatedAt
+   * The date and time when the rule was last modified.
    *
    * @return lastUpdatedAt
    */
@@ -514,7 +518,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * GetlastUpdatedBy
+   * The identifier of the user or system that last updated the rule.
    *
    * @return lastUpdatedBy
    */
@@ -535,7 +539,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getname
+   * The unique name identifying this rule within its ruleset.
    *
    * @return name
    */
@@ -556,7 +560,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getregex
+   * A regular expression pattern used by the rule for pattern-based detection.
    *
    * @return regex
    */
@@ -578,7 +582,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Getseverity
+   * The severity level of findings produced by this rule (e.g., ERROR, WARNING, NOTICE).
    *
    * @return severity
    */
@@ -600,7 +604,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * GetshortDescription
+   * A brief summary of what the rule detects, suitable for display in listings.
    *
    * @return shortDescription
    */
@@ -622,7 +626,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * GetshouldUseAiFix
+   * Indicates whether an AI-generated fix suggestion should be offered for findings from this rule.
    *
    * @return shouldUseAiFix
    */
@@ -657,7 +661,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Gettests
+   * The list of test cases used to validate the rule's behavior.
    *
    * @return tests
    */
@@ -681,7 +685,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * GettreeSitterQuery
+   * The Tree-sitter query expression used by the rule to match code patterns in the AST.
    *
    * @return treeSitterQuery
    */
@@ -702,7 +706,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems {
   }
 
   /**
-   * Gettype
+   * The rule type indicating the detection mechanism used (e.g., tree_sitter, regex).
    *
    * @return type
    */

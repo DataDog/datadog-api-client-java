@@ -143,7 +143,7 @@ public class CaseRelationships {
   }
 
   /**
-   * Relationship to project
+   * Relationship to project.
    *
    * @return project
    */

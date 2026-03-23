@@ -37,7 +37,7 @@ public class ProductAnalyticsResponseMeta {
   }
 
   /**
-   * GetrequestId
+   * Unique identifier for the request, used for multi-step query continuation.
    *
    * @return requestId
    */
@@ -59,7 +59,7 @@ public class ProductAnalyticsResponseMeta {
   }
 
   /**
-   * Getstatus
+   * The execution status of a Product Analytics query.
    *
    * @return status
    */

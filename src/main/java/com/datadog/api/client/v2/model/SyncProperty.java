@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Sync property configuration */
+/** Sync property configuration. */
 @JsonPropertyOrder({SyncProperty.JSON_PROPERTY_SYNC_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,7 +31,7 @@ public class SyncProperty {
   }
 
   /**
-   * GetsyncType
+   * The direction and type of synchronization for this property.
    *
    * @return syncType
    */

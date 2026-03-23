@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes specifying the product and users to whom seats will be assigned. */
 @JsonPropertyOrder({
   AssignSeatsUserRequestDataAttributes.JSON_PROPERTY_PRODUCT_CODE,
   AssignSeatsUserRequestDataAttributes.JSON_PROPERTY_USER_UUIDS

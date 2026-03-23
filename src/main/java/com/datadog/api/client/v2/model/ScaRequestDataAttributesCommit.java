@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Metadata about the commit associated with the SCA scan, including author, committer, and branch
+ * information.
+ */
 @JsonPropertyOrder({
   ScaRequestDataAttributesCommit.JSON_PROPERTY_AUTHOR_DATE,
   ScaRequestDataAttributesCommit.JSON_PROPERTY_AUTHOR_EMAIL,
@@ -57,7 +60,7 @@ public class ScaRequestDataAttributesCommit {
   }
 
   /**
-   * GetauthorDate
+   * The date when the commit was authored.
    *
    * @return authorDate
    */
@@ -78,7 +81,7 @@ public class ScaRequestDataAttributesCommit {
   }
 
   /**
-   * GetauthorEmail
+   * The email address of the commit author.
    *
    * @return authorEmail
    */
@@ -99,7 +102,7 @@ public class ScaRequestDataAttributesCommit {
   }
 
   /**
-   * GetauthorName
+   * The full name of the commit author.
    *
    * @return authorName
    */
@@ -120,7 +123,7 @@ public class ScaRequestDataAttributesCommit {
   }
 
   /**
-   * Getbranch
+   * The branch name on which the commit was made.
    *
    * @return branch
    */
@@ -141,7 +144,7 @@ public class ScaRequestDataAttributesCommit {
   }
 
   /**
-   * GetcommitterEmail
+   * The email address of the person who committed the change.
    *
    * @return committerEmail
    */
@@ -162,7 +165,7 @@ public class ScaRequestDataAttributesCommit {
   }
 
   /**
-   * GetcommitterName
+   * The full name of the person who committed the change.
    *
    * @return committerName
    */
@@ -183,7 +186,7 @@ public class ScaRequestDataAttributesCommit {
   }
 
   /**
-   * Getsha
+   * The SHA hash uniquely identifying the commit.
    *
    * @return sha
    */

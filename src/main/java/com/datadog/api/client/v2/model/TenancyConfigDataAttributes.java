@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes of an OCI tenancy integration configuration, including authentication details, region
+ * settings, and collection options.
+ */
 @JsonPropertyOrder({
   TenancyConfigDataAttributes.JSON_PROPERTY_BILLING_PLAN_ID,
   TenancyConfigDataAttributes.JSON_PROPERTY_CONFIG_VERSION,
@@ -82,7 +85,7 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GetbillingPlanId maximum: 2147483647
+   * The identifier of the billing plan associated with the OCI tenancy. maximum: 2147483647
    *
    * @return billingPlanId
    */
@@ -103,7 +106,7 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GetconfigVersion
+   * Version number of the integration the tenancy is integrated with
    *
    * @return configVersion
    */
@@ -124,7 +127,7 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GetcostCollectionEnabled
+   * Whether cost data collection from OCI is enabled for the tenancy.
    *
    * @return costCollectionEnabled
    */
@@ -145,7 +148,7 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GetddCompartmentId
+   * The OCID of the OCI compartment used by the Datadog integration stack.
    *
    * @return ddCompartmentId
    */
@@ -166,7 +169,7 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GetddStackId
+   * The OCID of the OCI Resource Manager stack used by the Datadog integration.
    *
    * @return ddStackId
    */
@@ -187,7 +190,7 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GethomeRegion
+   * The home region of the OCI tenancy (for example, us-ashburn-1).
    *
    * @return homeRegion
    */
@@ -209,7 +212,8 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GetlogsConfig
+   * Log collection configuration for an OCI tenancy, indicating which compartments and services
+   * have log collection enabled.
    *
    * @return logsConfig
    */
@@ -232,7 +236,8 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GetmetricsConfig
+   * Metrics collection configuration for an OCI tenancy, indicating which compartments and services
+   * are included or excluded.
    *
    * @return metricsConfig
    */
@@ -253,7 +258,7 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GetparentTenancyName
+   * The name of the parent OCI tenancy, if applicable.
    *
    * @return parentTenancyName
    */
@@ -276,7 +281,8 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GetregionsConfig
+   * Region configuration for an OCI tenancy, indicating which regions are available, enabled, or
+   * disabled for data collection.
    *
    * @return regionsConfig
    */
@@ -297,7 +303,7 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GetresourceCollectionEnabled
+   * Whether resource collection from OCI is enabled for the tenancy.
    *
    * @return resourceCollectionEnabled
    */
@@ -318,7 +324,7 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GettenancyName
+   * The human-readable name of the OCI tenancy.
    *
    * @return tenancyName
    */
@@ -339,7 +345,7 @@ public class TenancyConfigDataAttributes {
   }
 
   /**
-   * GetuserOcid
+   * The OCID of the OCI user used by the Datadog integration for authentication.
    *
    * @return userOcid
    */

@@ -43,7 +43,7 @@ public class ProductAnalyticsScalarResponseData {
   }
 
   /**
-   * Getattributes
+   * Attributes of a scalar analytics response, containing the result columns.
    *
    * @return attributes
    */
@@ -64,7 +64,7 @@ public class ProductAnalyticsScalarResponseData {
   }
 
   /**
-   * Getid
+   * Unique identifier for this response data object.
    *
    * @return id
    */
@@ -86,7 +86,7 @@ public class ProductAnalyticsScalarResponseData {
   }
 
   /**
-   * Gettype
+   * The resource type identifier for a scalar analytics response.
    *
    * @return type
    */

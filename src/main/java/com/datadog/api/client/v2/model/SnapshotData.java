@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object representing a heatmap snapshot, including its identifier, type, and attributes. */
 @JsonPropertyOrder({
   SnapshotData.JSON_PROPERTY_ATTRIBUTES,
   SnapshotData.JSON_PROPERTY_ID,
@@ -53,7 +53,8 @@ public class SnapshotData {
   }
 
   /**
-   * Getattributes
+   * Attributes of a heatmap snapshot, including view context, device information, and audit
+   * metadata.
    *
    * @return attributes
    */
@@ -69,7 +70,7 @@ public class SnapshotData {
   }
 
   /**
-   * Getid
+   * Unique identifier of the heatmap snapshot.
    *
    * @return id
    */

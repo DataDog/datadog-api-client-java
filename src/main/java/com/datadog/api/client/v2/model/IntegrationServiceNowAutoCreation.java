@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Auto-creation settings for ServiceNow incidents from cases. */
 @JsonPropertyOrder({IntegrationServiceNowAutoCreation.JSON_PROPERTY_ENABLED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,7 +31,7 @@ public class IntegrationServiceNowAutoCreation {
   }
 
   /**
-   * Getenabled
+   * Whether automatic ServiceNow incident creation is enabled.
    *
    * @return enabled
    */

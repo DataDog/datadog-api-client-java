@@ -16,7 +16,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Query-based search configuration for filtering the audience context when retrieving facet values.
+ */
 @JsonPropertyOrder({FacetInfoRequestDataAttributesSearch.JSON_PROPERTY_QUERY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,7 +33,7 @@ public class FacetInfoRequestDataAttributesSearch {
   }
 
   /**
-   * Getquery
+   * The filter expression used to scope the audience from which facet values are retrieved.
    *
    * @return query
    */

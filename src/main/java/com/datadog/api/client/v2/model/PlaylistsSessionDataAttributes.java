@@ -16,7 +16,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes of a session within a playlist, including the session event data and its replay track.
+ */
 @JsonPropertyOrder({
   PlaylistsSessionDataAttributes.JSON_PROPERTY_SESSION_EVENT,
   PlaylistsSessionDataAttributes.JSON_PROPERTY_TRACK
@@ -45,7 +47,7 @@ public class PlaylistsSessionDataAttributes {
   }
 
   /**
-   * GetsessionEvent
+   * Raw event data associated with the replay session.
    *
    * @return sessionEvent
    */
@@ -66,7 +68,7 @@ public class PlaylistsSessionDataAttributes {
   }
 
   /**
-   * Gettrack
+   * Replay track identifier indicating which recording track the session belongs to.
    *
    * @return track
    */

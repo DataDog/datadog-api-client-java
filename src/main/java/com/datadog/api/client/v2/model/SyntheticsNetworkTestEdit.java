@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for creating or editing a Network Path test. */
 @JsonPropertyOrder({
   SyntheticsNetworkTestEdit.JSON_PROPERTY_ATTRIBUTES,
   SyntheticsNetworkTestEdit.JSON_PROPERTY_TYPE

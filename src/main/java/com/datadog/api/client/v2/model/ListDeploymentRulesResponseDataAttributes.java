@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of the response for listing deployment rules. */
 @JsonPropertyOrder({ListDeploymentRulesResponseDataAttributes.JSON_PROPERTY_RULES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class ListDeploymentRulesResponseDataAttributes {
   }
 
   /**
-   * Getrules
+   * The list of deployment rules.
    *
    * @return rules
    */

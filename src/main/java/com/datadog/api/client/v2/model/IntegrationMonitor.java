@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Monitor integration settings */
+/** Monitor integration settings. */
 @JsonPropertyOrder({
   IntegrationMonitor.JSON_PROPERTY_AUTO_RESOLVE_ENABLED,
   IntegrationMonitor.JSON_PROPERTY_CASE_TYPE_ID,
@@ -45,7 +45,7 @@ public class IntegrationMonitor {
   }
 
   /**
-   * Whether auto-resolve is enabled
+   * Whether auto-resolve is enabled.
    *
    * @return autoResolveEnabled
    */
@@ -66,7 +66,7 @@ public class IntegrationMonitor {
   }
 
   /**
-   * Case type ID for monitor integration
+   * Case type ID for monitor integration.
    *
    * @return caseTypeId
    */
@@ -87,7 +87,7 @@ public class IntegrationMonitor {
   }
 
   /**
-   * Whether monitor integration is enabled
+   * Whether monitor integration is enabled.
    *
    * @return enabled
    */
@@ -108,7 +108,7 @@ public class IntegrationMonitor {
   }
 
   /**
-   * Monitor handle
+   * Monitor handle.
    *
    * @return handle
    */

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A ruleset returned in the response, containing its metadata and associated rules. */
 @JsonPropertyOrder({
   GetMultipleRulesetsResponseDataAttributesRulesetsItems.JSON_PROPERTY_DATA,
   GetMultipleRulesetsResponseDataAttributesRulesetsItems.JSON_PROPERTY_DESCRIPTION,
@@ -64,7 +64,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
   }
 
   /**
-   * Getdata
+   * The resource identifier and type for a ruleset.
    *
    * @return data
    */
@@ -84,7 +84,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
   }
 
   /**
-   * Getdescription
+   * A detailed description of the ruleset's purpose and the types of issues it targets.
    *
    * @return description
    */
@@ -105,7 +105,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
   }
 
   /**
-   * Getname
+   * The unique name of the ruleset.
    *
    * @return name
    */
@@ -140,7 +140,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
   }
 
   /**
-   * Getrules
+   * The list of static analysis rules included in this ruleset.
    *
    * @return rules
    */
@@ -163,7 +163,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItems {
   }
 
   /**
-   * GetshortDescription
+   * A brief summary of the ruleset, suitable for display in listings.
    *
    * @return shortDescription
    */

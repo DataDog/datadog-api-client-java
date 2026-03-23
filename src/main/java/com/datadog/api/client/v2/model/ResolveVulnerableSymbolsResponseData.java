@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The data object in a response for resolving vulnerable symbols, containing the result attributes
+ * and response type.
+ */
 @JsonPropertyOrder({
   ResolveVulnerableSymbolsResponseData.JSON_PROPERTY_ATTRIBUTES,
   ResolveVulnerableSymbolsResponseData.JSON_PROPERTY_ID,
@@ -55,7 +58,7 @@ public class ResolveVulnerableSymbolsResponseData {
   }
 
   /**
-   * Getattributes
+   * The attributes of a response containing resolved vulnerable symbols, organized by package.
    *
    * @return attributes
    */
@@ -76,7 +79,7 @@ public class ResolveVulnerableSymbolsResponseData {
   }
 
   /**
-   * Getid
+   * The unique identifier for this response data object.
    *
    * @return id
    */
@@ -98,7 +101,7 @@ public class ResolveVulnerableSymbolsResponseData {
   }
 
   /**
-   * Gettype
+   * The type identifier for responses containing resolved vulnerable symbols.
    *
    * @return type
    */

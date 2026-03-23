@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Entity data returned in a preview response, including attributes, relationships, and type. */
 @JsonPropertyOrder({
   PreviewEntityResponseData.JSON_PROPERTY_ATTRIBUTES,
   PreviewEntityResponseData.JSON_PROPERTY_ID,
@@ -56,7 +56,7 @@ public class PreviewEntityResponseData {
   }
 
   /**
-   * Getattributes
+   * Entity response attributes containing core entity metadata fields.
    *
    * @return attributes
    */
@@ -77,7 +77,7 @@ public class PreviewEntityResponseData {
   }
 
   /**
-   * Getid
+   * Entity unique identifier.
    *
    * @return id
    */
@@ -99,7 +99,7 @@ public class PreviewEntityResponseData {
   }
 
   /**
-   * Getrelationships
+   * Entity relationships including incidents, oncalls, schemas, and related entities.
    *
    * @return relationships
    */

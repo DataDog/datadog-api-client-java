@@ -19,7 +19,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Response payload for a single incident handle, including the handle data and related resources.
+ */
 @JsonPropertyOrder({
   IncidentHandleResponse.JSON_PROPERTY_DATA,
   IncidentHandleResponse.JSON_PROPERTY_INCLUDED
@@ -50,7 +52,7 @@ public class IncidentHandleResponse {
   }
 
   /**
-   * Getdata
+   * Data object representing an incident handle in a response.
    *
    * @return data
    */

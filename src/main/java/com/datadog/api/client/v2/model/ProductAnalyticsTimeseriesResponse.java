@@ -38,7 +38,7 @@ public class ProductAnalyticsTimeseriesResponse {
   }
 
   /**
-   * Getdata
+   * Data object for a timeseries analytics response.
    *
    * @return data
    */

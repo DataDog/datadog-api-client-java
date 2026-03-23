@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Relationships to associate with an incident handle in a create or update request. */
 @JsonPropertyOrder({
   IncidentHandleRelationshipsRequest.JSON_PROPERTY_COMMANDER_USER,
   IncidentHandleRelationshipsRequest.JSON_PROPERTY_INCIDENT_TYPE
@@ -50,7 +50,7 @@ public class IncidentHandleRelationshipsRequest {
   }
 
   /**
-   * GetcommanderUser
+   * A single relationship object for an incident handle, wrapping the related resource data.
    *
    * @return commanderUser
    */
@@ -72,7 +72,7 @@ public class IncidentHandleRelationshipsRequest {
   }
 
   /**
-   * GetincidentType
+   * A single relationship object for an incident handle, wrapping the related resource data.
    *
    * @return incidentType
    */

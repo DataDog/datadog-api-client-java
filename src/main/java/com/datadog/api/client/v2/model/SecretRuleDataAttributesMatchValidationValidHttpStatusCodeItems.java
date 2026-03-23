@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** An HTTP status code range that indicates a valid (successful) secret match during validation. */
 @JsonPropertyOrder({
   SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems.JSON_PROPERTY_END,
   SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems.JSON_PROPERTY_START
@@ -37,7 +37,8 @@ public class SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems {
   }
 
   /**
-   * Getend minimum: 0 maximum: 1.8446744073709552e+19
+   * The inclusive upper bound of the HTTP status code range. minimum: 0 maximum:
+   * 1.8446744073709552e+19
    *
    * @return end
    */
@@ -58,7 +59,8 @@ public class SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems {
   }
 
   /**
-   * Getstart minimum: 0 maximum: 1.8446744073709552e+19
+   * The inclusive lower bound of the HTTP status code range. minimum: 0 maximum:
+   * 1.8446744073709552e+19
    *
    * @return start
    */

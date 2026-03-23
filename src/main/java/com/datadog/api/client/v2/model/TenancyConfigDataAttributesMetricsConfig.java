@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Metrics collection configuration for an OCI tenancy, indicating which compartments and services
+ * are included or excluded.
+ */
 @JsonPropertyOrder({
   TenancyConfigDataAttributesMetricsConfig.JSON_PROPERTY_COMPARTMENT_TAG_FILTERS,
   TenancyConfigDataAttributesMetricsConfig.JSON_PROPERTY_ENABLED,
@@ -53,7 +56,7 @@ public class TenancyConfigDataAttributesMetricsConfig {
   }
 
   /**
-   * GetcompartmentTagFilters
+   * List of compartment tag filters scoping metrics collection to specific compartments.
    *
    * @return compartmentTagFilters
    */
@@ -74,7 +77,7 @@ public class TenancyConfigDataAttributesMetricsConfig {
   }
 
   /**
-   * Getenabled
+   * Whether metrics collection is enabled for the tenancy.
    *
    * @return enabled
    */
@@ -104,7 +107,7 @@ public class TenancyConfigDataAttributesMetricsConfig {
   }
 
   /**
-   * GetexcludedServices
+   * List of OCI service names excluded from metrics collection.
    *
    * @return excludedServices
    */

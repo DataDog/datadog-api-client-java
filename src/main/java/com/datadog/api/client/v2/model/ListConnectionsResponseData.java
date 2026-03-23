@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The data object containing the resource type and attributes for the list connections response.
+ */
 @JsonPropertyOrder({
   ListConnectionsResponseData.JSON_PROPERTY_ATTRIBUTES,
   ListConnectionsResponseData.JSON_PROPERTY_ID,
@@ -54,7 +56,8 @@ public class ListConnectionsResponseData {
   }
 
   /**
-   * Getattributes
+   * Attributes of the list connections response, containing the collection of data source
+   * connections.
    *
    * @return attributes
    */
@@ -75,7 +78,7 @@ public class ListConnectionsResponseData {
   }
 
   /**
-   * Getid
+   * Unique identifier for the list connections response resource.
    *
    * @return id
    */

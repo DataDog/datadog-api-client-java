@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The resource identifier and type for a ruleset. */
 @JsonPropertyOrder({
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsData.JSON_PROPERTY_ID,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsData.JSON_PROPERTY_TYPE
@@ -49,7 +49,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData {
   }
 
   /**
-   * Getid
+   * The unique identifier of the ruleset resource.
    *
    * @return id
    */

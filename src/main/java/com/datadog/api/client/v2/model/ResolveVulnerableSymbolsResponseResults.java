@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The result of resolving vulnerable symbols for a specific package, identified by its PURL. */
 @JsonPropertyOrder({
   ResolveVulnerableSymbolsResponseResults.JSON_PROPERTY_PURL,
   ResolveVulnerableSymbolsResponseResults.JSON_PROPERTY_VULNERABLE_SYMBOLS
@@ -39,7 +39,8 @@ public class ResolveVulnerableSymbolsResponseResults {
   }
 
   /**
-   * Getpurl
+   * The Package URL (PURL) uniquely identifying the package for which vulnerable symbols are
+   * resolved.
    *
    * @return purl
    */
@@ -74,7 +75,7 @@ public class ResolveVulnerableSymbolsResponseResults {
   }
 
   /**
-   * GetvulnerableSymbols
+   * The list of vulnerable symbol groups found in this package, organized by advisory.
    *
    * @return vulnerableSymbols
    */

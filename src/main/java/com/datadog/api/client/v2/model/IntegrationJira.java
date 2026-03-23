@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Jira integration settings */
+/** Jira integration settings. */
 @JsonPropertyOrder({
   IntegrationJira.JSON_PROPERTY_AUTO_CREATION,
   IntegrationJira.JSON_PROPERTY_ENABLED,
@@ -46,7 +46,7 @@ public class IntegrationJira {
   }
 
   /**
-   * GetautoCreation
+   * Auto-creation settings for Jira issues from cases.
    *
    * @return autoCreation
    */
@@ -67,7 +67,7 @@ public class IntegrationJira {
   }
 
   /**
-   * Whether Jira integration is enabled
+   * Whether Jira integration is enabled.
    *
    * @return enabled
    */
@@ -89,7 +89,7 @@ public class IntegrationJira {
   }
 
   /**
-   * Getmetadata
+   * Metadata for connecting a case management project to a Jira project.
    *
    * @return metadata
    */
@@ -111,7 +111,7 @@ public class IntegrationJira {
   }
 
   /**
-   * Getsync
+   * Synchronization configuration for Jira integration.
    *
    * @return sync
    */

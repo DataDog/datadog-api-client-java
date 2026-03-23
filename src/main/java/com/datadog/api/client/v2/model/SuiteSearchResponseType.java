@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** */
+/** Type for the Synthetics suites search response, <code>suites_search</code>. */
 @JsonSerialize(using = SuiteSearchResponseType.SuiteSearchResponseTypeSerializer.class)
 public class SuiteSearchResponseType extends ModelEnum<String> {
 

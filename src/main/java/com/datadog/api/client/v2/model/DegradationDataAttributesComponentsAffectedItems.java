@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** A component affected by a degradation. */
 @JsonPropertyOrder({
   DegradationDataAttributesComponentsAffectedItems.JSON_PROPERTY_ID,
   DegradationDataAttributesComponentsAffectedItems.JSON_PROPERTY_NAME,

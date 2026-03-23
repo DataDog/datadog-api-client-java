@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** An argument parameter for a static analysis rule, with a name and description. */
 @JsonPropertyOrder({
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems
       .JSON_PROPERTY_DESCRIPTION,
@@ -39,7 +39,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArg
   }
 
   /**
-   * Getdescription
+   * A human-readable explanation of the argument's purpose and accepted values.
    *
    * @return description
    */
@@ -61,7 +61,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArg
   }
 
   /**
-   * Getname
+   * The name of the rule argument.
    *
    * @return name
    */

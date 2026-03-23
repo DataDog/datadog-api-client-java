@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes of a timeseries analytics response, containing series data, timestamps, and interval
+ * definitions.
+ */
 @JsonPropertyOrder({
   ProductAnalyticsTimeseriesResponseAttributes.JSON_PROPERTY_INTERVALS,
   ProductAnalyticsTimeseriesResponseAttributes.JSON_PROPERTY_SERIES,
@@ -61,7 +64,7 @@ public class ProductAnalyticsTimeseriesResponseAttributes {
   }
 
   /**
-   * Getintervals
+   * Interval definitions describing the time buckets used in the response.
    *
    * @return intervals
    */
@@ -95,7 +98,7 @@ public class ProductAnalyticsTimeseriesResponseAttributes {
   }
 
   /**
-   * Getseries
+   * The list of series, each corresponding to a query or group-by combination.
    *
    * @return series
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Request body for updating a heatmap snapshot. */
 @JsonPropertyOrder({SnapshotUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,8 @@ public class SnapshotUpdateRequest {
   }
 
   /**
-   * Getdata
+   * Data object for a heatmap snapshot update request, containing the resource identifier, type,
+   * and attributes.
    *
    * @return data
    */

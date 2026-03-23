@@ -1194,7 +1194,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createProjectWithHttpInfo}.
    *
-   * @param body Project payload (required)
+   * @param body Project payload. (required)
    * @return ProjectResponse
    * @throws ApiException if fails to make API call
    */
@@ -1207,7 +1207,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createProjectWithHttpInfoAsync}.
    *
-   * @param body Project payload (required)
+   * @param body Project payload. (required)
    * @return CompletableFuture&lt;ProjectResponse&gt;
    */
   public CompletableFuture<ProjectResponse> createProjectAsync(ProjectCreateRequest body) {
@@ -1221,7 +1221,7 @@ public class CaseManagementApi {
   /**
    * Create a project.
    *
-   * @param body Project payload (required)
+   * @param body Project payload. (required)
    * @return ApiResponse&lt;ProjectResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1275,7 +1275,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #createProjectWithHttpInfo}.
    *
-   * @param body Project payload (required)
+   * @param body Project payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ProjectResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ProjectResponse>> createProjectWithHttpInfoAsync(
@@ -1818,7 +1818,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteProjectWithHttpInfo}.
    *
-   * @param projectId Project UUID (required)
+   * @param projectId Project UUID. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteProject(String projectId) throws ApiException {
@@ -1830,7 +1830,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteProjectWithHttpInfoAsync}.
    *
-   * @param projectId Project UUID (required)
+   * @param projectId Project UUID. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteProjectAsync(String projectId) {
@@ -1844,7 +1844,7 @@ public class CaseManagementApi {
   /**
    * Remove a project using the project's <code>id</code>.
    *
-   * @param projectId Project UUID (required)
+   * @param projectId Project UUID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1897,7 +1897,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #deleteProjectWithHttpInfo}.
    *
-   * @param projectId Project UUID (required)
+   * @param projectId Project UUID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteProjectWithHttpInfoAsync(String projectId) {
@@ -2251,7 +2251,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #getProjectWithHttpInfo}.
    *
-   * @param projectId Project UUID (required)
+   * @param projectId Project UUID. (required)
    * @return ProjectResponse
    * @throws ApiException if fails to make API call
    */
@@ -2264,7 +2264,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #getProjectWithHttpInfoAsync}.
    *
-   * @param projectId Project UUID (required)
+   * @param projectId Project UUID. (required)
    * @return CompletableFuture&lt;ProjectResponse&gt;
    */
   public CompletableFuture<ProjectResponse> getProjectAsync(String projectId) {
@@ -2278,7 +2278,7 @@ public class CaseManagementApi {
   /**
    * Get the details of a project by <code>project_id</code>.
    *
-   * @param projectId Project UUID (required)
+   * @param projectId Project UUID. (required)
    * @return ApiResponse&lt;ProjectResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2333,7 +2333,7 @@ public class CaseManagementApi {
    *
    * <p>See {@link #getProjectWithHttpInfo}.
    *
-   * @param projectId Project UUID (required)
+   * @param projectId Project UUID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ProjectResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ProjectResponse>> getProjectWithHttpInfoAsync(
@@ -4738,8 +4738,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateProjectWithHttpInfo}.
    *
-   * @param projectId Project UUID (required)
-   * @param body Project payload (required)
+   * @param projectId Project UUID. (required)
+   * @param body Project payload. (required)
    * @return ProjectResponse
    * @throws ApiException if fails to make API call
    */
@@ -4753,8 +4753,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateProjectWithHttpInfoAsync}.
    *
-   * @param projectId Project UUID (required)
-   * @param body Project payload (required)
+   * @param projectId Project UUID. (required)
+   * @param body Project payload. (required)
    * @return CompletableFuture&lt;ProjectResponse&gt;
    */
   public CompletableFuture<ProjectResponse> updateProjectAsync(
@@ -4769,8 +4769,8 @@ public class CaseManagementApi {
   /**
    * Update a project.
    *
-   * @param projectId Project UUID (required)
-   * @param body Project payload (required)
+   * @param projectId Project UUID. (required)
+   * @param body Project payload. (required)
    * @return ApiResponse&lt;ProjectResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -4832,8 +4832,8 @@ public class CaseManagementApi {
    *
    * <p>See {@link #updateProjectWithHttpInfo}.
    *
-   * @param projectId Project UUID (required)
-   * @param body Project payload (required)
+   * @param projectId Project UUID. (required)
+   * @param body Project payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ProjectResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ProjectResponse>> updateProjectWithHttpInfoAsync(

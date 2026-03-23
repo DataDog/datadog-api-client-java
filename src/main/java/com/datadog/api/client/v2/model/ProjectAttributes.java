@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Project attributes */
+/** Project attributes. */
 @JsonPropertyOrder({
   ProjectAttributes.JSON_PROPERTY_COLUMNS_CONFIG,
   ProjectAttributes.JSON_PROPERTY_ENABLED_CUSTOM_CASE_TYPES,
@@ -56,7 +56,7 @@ public class ProjectAttributes {
   }
 
   /**
-   * Project columns configuration
+   * Project columns configuration.
    *
    * @return columnsConfig
    */
@@ -85,7 +85,7 @@ public class ProjectAttributes {
   }
 
   /**
-   * List of enabled custom case type IDs
+   * List of enabled custom case type IDs.
    *
    * @return enabledCustomCaseTypes
    */
@@ -106,7 +106,7 @@ public class ProjectAttributes {
   }
 
   /**
-   * The project's key
+   * The project's key.
    *
    * @return key
    */
@@ -127,7 +127,7 @@ public class ProjectAttributes {
   }
 
   /**
-   * Project's name
+   * Project's name.
    *
    * @return name
    */
@@ -148,7 +148,7 @@ public class ProjectAttributes {
   }
 
   /**
-   * Whether the project is restricted
+   * Whether the project is restricted.
    *
    * @return restricted
    */
@@ -170,7 +170,7 @@ public class ProjectAttributes {
   }
 
   /**
-   * Project settings
+   * Project settings.
    *
    * @return settings
    */

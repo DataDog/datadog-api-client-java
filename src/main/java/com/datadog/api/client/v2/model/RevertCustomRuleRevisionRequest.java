@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Request body for reverting a custom rule to a previous revision. */
 @JsonPropertyOrder({RevertCustomRuleRevisionRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class RevertCustomRuleRevisionRequest {
   }
 
   /**
-   * Getdata
+   * Data object for a request to revert a custom rule to a previous revision.
    *
    * @return data
    */

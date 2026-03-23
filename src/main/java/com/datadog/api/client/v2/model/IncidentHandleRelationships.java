@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Relationships associated with an incident handle response, including linked users and incident
+ * type.
+ */
 @JsonPropertyOrder({
   IncidentHandleRelationships.JSON_PROPERTY_COMMANDER_USER,
   IncidentHandleRelationships.JSON_PROPERTY_CREATED_BY_USER,
@@ -65,7 +68,7 @@ public class IncidentHandleRelationships {
   }
 
   /**
-   * GetcommanderUser
+   * A single relationship object for an incident handle, wrapping the related resource data.
    *
    * @return commanderUser
    */
@@ -87,7 +90,7 @@ public class IncidentHandleRelationships {
   }
 
   /**
-   * GetcreatedByUser
+   * A single relationship object for an incident handle, wrapping the related resource data.
    *
    * @return createdByUser
    */
@@ -108,7 +111,7 @@ public class IncidentHandleRelationships {
   }
 
   /**
-   * GetincidentType
+   * A single relationship object for an incident handle, wrapping the related resource data.
    *
    * @return incidentType
    */
@@ -130,7 +133,7 @@ public class IncidentHandleRelationships {
   }
 
   /**
-   * GetlastModifiedByUser
+   * A single relationship object for an incident handle, wrapping the related resource data.
    *
    * @return lastModifiedByUser
    */

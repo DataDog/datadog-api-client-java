@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** */
+/** Attributes for creating or updating a custom ruleset. */
 @JsonPropertyOrder({
   CustomRulesetRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
   CustomRulesetRequestDataAttributes.JSON_PROPERTY_NAME,

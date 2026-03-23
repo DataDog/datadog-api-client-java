@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The request data object containing attributes for unassigning seats from users. */
 @JsonPropertyOrder({
   UnassignSeatsUserRequestData.JSON_PROPERTY_ATTRIBUTES,
   UnassignSeatsUserRequestData.JSON_PROPERTY_ID,
@@ -57,7 +57,7 @@ public class UnassignSeatsUserRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes specifying the product and users from whom seats will be unassigned.
    *
    * @return attributes
    */

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Project update attributes */
+/** Project update attributes. */
 @JsonPropertyOrder({
   ProjectUpdateAttributes.JSON_PROPERTY_COLUMNS_CONFIG,
   ProjectUpdateAttributes.JSON_PROPERTY_ENABLED_CUSTOM_CASE_TYPES,
@@ -52,7 +52,7 @@ public class ProjectUpdateAttributes {
   }
 
   /**
-   * Project columns configuration
+   * Project columns configuration.
    *
    * @return columnsConfig
    */
@@ -81,7 +81,7 @@ public class ProjectUpdateAttributes {
   }
 
   /**
-   * List of enabled custom case type IDs
+   * List of enabled custom case type IDs.
    *
    * @return enabledCustomCaseTypes
    */
@@ -102,7 +102,7 @@ public class ProjectUpdateAttributes {
   }
 
   /**
-   * Project name
+   * Project name.
    *
    * @return name
    */
@@ -124,7 +124,7 @@ public class ProjectUpdateAttributes {
   }
 
   /**
-   * Project settings
+   * Project settings.
    *
    * @return settings
    */
@@ -145,7 +145,7 @@ public class ProjectUpdateAttributes {
   }
 
   /**
-   * Team UUID to associate with the project
+   * Team UUID to associate with the project.
    *
    * @return teamUuid
    */

@@ -45,7 +45,7 @@ public class ListNotificationChannelsResponse {
   }
 
   /**
-   * Getdata
+   * Array of notification channel data objects.
    *
    * @return data
    */

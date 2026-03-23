@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response containing a single OCI tenancy integration configuration. */
 @JsonPropertyOrder({TenancyConfig.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,8 @@ public class TenancyConfig {
   }
 
   /**
-   * Getdata
+   * A single OCI tenancy integration configuration resource object containing the tenancy ID, type,
+   * and configuration attributes.
    *
    * @return data
    */

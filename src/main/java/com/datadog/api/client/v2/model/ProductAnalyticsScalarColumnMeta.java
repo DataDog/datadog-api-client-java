@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** */
+/** Metadata associated with a scalar response column, including optional unit information. */
 @JsonPropertyOrder({ProductAnalyticsScalarColumnMeta.JSON_PROPERTY_UNIT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class ProductAnalyticsScalarColumnMeta {
   }
 
   /**
-   * Getunit
+   * Unit definitions for the column values, if applicable.
    *
    * @return unit
    */

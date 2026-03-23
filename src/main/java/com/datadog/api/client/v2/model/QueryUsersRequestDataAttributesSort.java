@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Sorting configuration specifying the field and direction for ordering user query results. */
 @JsonPropertyOrder({
   QueryUsersRequestDataAttributesSort.JSON_PROPERTY_FIELD,
   QueryUsersRequestDataAttributesSort.JSON_PROPERTY_ORDER
@@ -37,7 +37,7 @@ public class QueryUsersRequestDataAttributesSort {
   }
 
   /**
-   * Getfield
+   * The user attribute field name to sort results by.
    *
    * @return field
    */
@@ -58,7 +58,7 @@ public class QueryUsersRequestDataAttributesSort {
   }
 
   /**
-   * Getorder
+   * The sort direction, either ascending or descending.
    *
    * @return order
    */

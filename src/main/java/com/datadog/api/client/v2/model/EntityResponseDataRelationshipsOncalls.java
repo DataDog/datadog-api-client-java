@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Oncalls relationship containing a list of oncall resources associated with this entity. */
 @JsonPropertyOrder({EntityResponseDataRelationshipsOncalls.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class EntityResponseDataRelationshipsOncalls {
   }
 
   /**
-   * Getdata
+   * List of oncall relationship data items.
    *
    * @return data
    */

@@ -18,7 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Attributes of a user who has watched a RUM replay session, including contact information and
+ * watch statistics.
+ */
 @JsonPropertyOrder({
   WatcherDataAttributes.JSON_PROPERTY_HANDLE,
   WatcherDataAttributes.JSON_PROPERTY_ICON,
@@ -64,7 +67,7 @@ public class WatcherDataAttributes {
   }
 
   /**
-   * Gethandle
+   * Email handle of the user who watched the session.
    *
    * @return handle
    */
@@ -84,7 +87,7 @@ public class WatcherDataAttributes {
   }
 
   /**
-   * Geticon
+   * URL or identifier of the watcher's avatar icon.
    *
    * @return icon
    */
@@ -105,7 +108,7 @@ public class WatcherDataAttributes {
   }
 
   /**
-   * GetlastWatchedAt
+   * Timestamp when the watcher last viewed the session.
    *
    * @return lastWatchedAt
    */
@@ -125,7 +128,7 @@ public class WatcherDataAttributes {
   }
 
   /**
-   * Getname
+   * Display name of the user who watched the session.
    *
    * @return name
    */
@@ -146,7 +149,7 @@ public class WatcherDataAttributes {
   }
 
   /**
-   * GetwatchCount maximum: 2147483647
+   * Total number of times the user has watched the session. maximum: 2147483647
    *
    * @return watchCount
    */

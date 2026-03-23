@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of the fleet agents response containing the list of agents. */
 @JsonPropertyOrder({FleetAgentsResponseDataAttributes.JSON_PROPERTY_AGENTS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The attributes of a secret detection rule, including its pattern, priority, and validation
+ * configuration.
+ */
 @JsonPropertyOrder({
   SecretRuleDataAttributes.JSON_PROPERTY_DEFAULT_INCLUDED_KEYWORDS,
   SecretRuleDataAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -76,7 +79,7 @@ public class SecretRuleDataAttributes {
   }
 
   /**
-   * GetdefaultIncludedKeywords
+   * A list of keywords that are included by default when scanning for secrets matching this rule.
    *
    * @return defaultIncludedKeywords
    */
@@ -97,7 +100,7 @@ public class SecretRuleDataAttributes {
   }
 
   /**
-   * Getdescription
+   * A detailed explanation of what type of secret this rule detects.
    *
    * @return description
    */
@@ -118,7 +121,7 @@ public class SecretRuleDataAttributes {
   }
 
   /**
-   * Getlicense
+   * The license under which this secret rule is distributed.
    *
    * @return license
    */
@@ -141,7 +144,8 @@ public class SecretRuleDataAttributes {
   }
 
   /**
-   * GetmatchValidation
+   * Configuration for validating whether a detected secret is active by making an HTTP request and
+   * inspecting the response.
    *
    * @return matchValidation
    */
@@ -162,7 +166,7 @@ public class SecretRuleDataAttributes {
   }
 
   /**
-   * Getname
+   * The unique name of the secret detection rule.
    *
    * @return name
    */
@@ -183,7 +187,8 @@ public class SecretRuleDataAttributes {
   }
 
   /**
-   * Getpattern
+   * The regular expression pattern used to identify potential secrets in source code or
+   * configuration.
    *
    * @return pattern
    */
@@ -204,7 +209,7 @@ public class SecretRuleDataAttributes {
   }
 
   /**
-   * Getpriority
+   * The priority level of this rule, used to rank findings when multiple rules match.
    *
    * @return priority
    */
@@ -225,7 +230,7 @@ public class SecretRuleDataAttributes {
   }
 
   /**
-   * GetsdsId
+   * The identifier of the corresponding Sensitive Data Scanner rule, if one exists.
    *
    * @return sdsId
    */
@@ -254,7 +259,7 @@ public class SecretRuleDataAttributes {
   }
 
   /**
-   * Getvalidators
+   * A list of validator identifiers used to further confirm a detected secret is genuine.
    *
    * @return validators
    */

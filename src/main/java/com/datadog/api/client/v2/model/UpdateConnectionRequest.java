@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Request body for updating an existing data source connection by adding, modifying, or removing
+ * fields.
+ */
 @JsonPropertyOrder({UpdateConnectionRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +35,8 @@ public class UpdateConnectionRequest {
   }
 
   /**
-   * Getdata
+   * The data object containing the resource identifier and attributes for updating an existing
+   * connection.
    *
    * @return data
    */

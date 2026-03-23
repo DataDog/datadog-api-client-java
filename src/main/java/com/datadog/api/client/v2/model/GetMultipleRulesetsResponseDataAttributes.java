@@ -18,7 +18,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The attributes of the get-multiple-rulesets response, containing the list of requested rulesets.
+ */
 @JsonPropertyOrder({GetMultipleRulesetsResponseDataAttributes.JSON_PROPERTY_RULESETS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +49,7 @@ public class GetMultipleRulesetsResponseDataAttributes {
   }
 
   /**
-   * Getrulesets
+   * The list of rulesets returned in response to the batch request.
    *
    * @return rulesets
    */

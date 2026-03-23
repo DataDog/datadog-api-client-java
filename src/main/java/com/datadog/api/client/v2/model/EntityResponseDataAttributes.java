@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Entity response attributes containing core entity metadata fields. */
 @JsonPropertyOrder({
   EntityResponseDataAttributes.JSON_PROPERTY_API_VERSION,
   EntityResponseDataAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -67,7 +67,7 @@ public class EntityResponseDataAttributes {
   }
 
   /**
-   * GetapiVersion
+   * The API version of the entity schema.
    *
    * @return apiVersion
    */
@@ -88,7 +88,7 @@ public class EntityResponseDataAttributes {
   }
 
   /**
-   * Getdescription
+   * A short description of the entity.
    *
    * @return description
    */
@@ -109,7 +109,7 @@ public class EntityResponseDataAttributes {
   }
 
   /**
-   * GetdisplayName
+   * The user-friendly display name of the entity.
    *
    * @return displayName
    */
@@ -130,7 +130,7 @@ public class EntityResponseDataAttributes {
   }
 
   /**
-   * Getkind
+   * The kind of the entity (e.g. service, datastore, queue).
    *
    * @return kind
    */
@@ -151,7 +151,7 @@ public class EntityResponseDataAttributes {
   }
 
   /**
-   * Getname
+   * The unique name of the entity within its kind and namespace.
    *
    * @return name
    */
@@ -172,7 +172,7 @@ public class EntityResponseDataAttributes {
   }
 
   /**
-   * Getnamespace
+   * The namespace the entity belongs to.
    *
    * @return namespace
    */
@@ -193,7 +193,7 @@ public class EntityResponseDataAttributes {
   }
 
   /**
-   * Getowner
+   * The owner of the entity, usually a team.
    *
    * @return owner
    */
@@ -222,7 +222,7 @@ public class EntityResponseDataAttributes {
   }
 
   /**
-   * Getproperties
+   * Additional custom properties for the entity.
    *
    * @return properties
    */
@@ -251,7 +251,7 @@ public class EntityResponseDataAttributes {
   }
 
   /**
-   * Gettags
+   * A set of custom tags assigned to the entity.
    *
    * @return tags
    */

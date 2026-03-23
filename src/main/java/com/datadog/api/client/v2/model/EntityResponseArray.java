@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response object containing an array of entity data items. */
 @JsonPropertyOrder({EntityResponseArray.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -52,7 +52,7 @@ public class EntityResponseArray {
   }
 
   /**
-   * Getdata
+   * Array of entity response data items.
    *
    * @return data
    */

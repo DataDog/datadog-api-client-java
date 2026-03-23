@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A named argument for a custom static analysis rule. */
 @JsonPropertyOrder({Argument.JSON_PROPERTY_DESCRIPTION, Argument.JSON_PROPERTY_NAME})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

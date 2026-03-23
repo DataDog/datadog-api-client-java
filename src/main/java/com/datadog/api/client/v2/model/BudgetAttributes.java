@@ -150,7 +150,7 @@ public class BudgetAttributes {
   }
 
   /**
-   * Getentries
+   * The list of monthly budget entries.
    *
    * @return entries
    */

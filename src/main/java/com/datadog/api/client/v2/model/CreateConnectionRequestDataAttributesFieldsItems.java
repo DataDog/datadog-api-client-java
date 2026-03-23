@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Definition of a custom attribute field to import from a data source connection. */
 @JsonPropertyOrder({
   CreateConnectionRequestDataAttributesFieldsItems.JSON_PROPERTY_DESCRIPTION,
   CreateConnectionRequestDataAttributesFieldsItems.JSON_PROPERTY_DISPLAY_NAME,
@@ -68,7 +68,7 @@ public class CreateConnectionRequestDataAttributesFieldsItems {
   }
 
   /**
-   * Getdescription
+   * Human-readable explanation of what the field represents.
    *
    * @return description
    */
@@ -89,7 +89,7 @@ public class CreateConnectionRequestDataAttributesFieldsItems {
   }
 
   /**
-   * GetdisplayName
+   * The human-readable label for the field shown in the UI.
    *
    * @return displayName
    */
@@ -118,7 +118,7 @@ public class CreateConnectionRequestDataAttributesFieldsItems {
   }
 
   /**
-   * Getgroups
+   * List of group labels used to categorize the field.
    *
    * @return groups
    */
@@ -139,7 +139,7 @@ public class CreateConnectionRequestDataAttributesFieldsItems {
   }
 
   /**
-   * Getid
+   * The unique identifier for the field within the connection.
    *
    * @return id
    */
@@ -159,7 +159,7 @@ public class CreateConnectionRequestDataAttributesFieldsItems {
   }
 
   /**
-   * GetsourceName
+   * The name of the column or attribute in the source data system that maps to this field.
    *
    * @return sourceName
    */
@@ -179,7 +179,7 @@ public class CreateConnectionRequestDataAttributesFieldsItems {
   }
 
   /**
-   * Gettype
+   * The data type of the field (for example, string or number).
    *
    * @return type
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A custom static analysis ruleset containing a set of user-defined rules. */
 @JsonPropertyOrder({
   CustomRuleset.JSON_PROPERTY_ATTRIBUTES,
   CustomRuleset.JSON_PROPERTY_ID,
@@ -58,7 +58,7 @@ public class CustomRuleset {
   }
 
   /**
-   * Getattributes
+   * Attributes of a custom ruleset, including its name, description, and rules.
    *
    * @return attributes
    */

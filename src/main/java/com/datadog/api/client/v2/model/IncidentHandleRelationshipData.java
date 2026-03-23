@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Relationship data for an incident handle, containing the ID and type of the related resource. */
 @JsonPropertyOrder({
   IncidentHandleRelationshipData.JSON_PROPERTY_ID,
   IncidentHandleRelationshipData.JSON_PROPERTY_TYPE

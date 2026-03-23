@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The attributes of a budget validation response, including any validation errors and the validity
+ * status.
+ */
 @JsonPropertyOrder({
   BudgetValidationResponseDataAttributes.JSON_PROPERTY_ERRORS,
   BudgetValidationResponseDataAttributes.JSON_PROPERTY_VALID
@@ -47,7 +50,7 @@ public class BudgetValidationResponseDataAttributes {
   }
 
   /**
-   * Geterrors
+   * A list of validation error messages for the budget.
    *
    * @return errors
    */
@@ -68,7 +71,7 @@ public class BudgetValidationResponseDataAttributes {
   }
 
   /**
-   * Getvalid
+   * Whether the budget configuration is valid.
    *
    * @return valid
    */

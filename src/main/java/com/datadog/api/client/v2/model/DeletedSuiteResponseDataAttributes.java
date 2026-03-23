@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes of a deleted Synthetic test suite, including deletion timestamp and public ID. */
 @JsonPropertyOrder({
   DeletedSuiteResponseDataAttributes.JSON_PROPERTY_DELETED_AT,
   DeletedSuiteResponseDataAttributes.JSON_PROPERTY_PUBLIC_ID

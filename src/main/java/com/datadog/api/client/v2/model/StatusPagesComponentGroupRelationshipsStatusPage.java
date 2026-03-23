@@ -44,7 +44,7 @@ public class StatusPagesComponentGroupRelationshipsStatusPage {
   }
 
   /**
-   * Getdata
+   * The data object identifying the status page the component group belongs to.
    *
    * @return data
    */

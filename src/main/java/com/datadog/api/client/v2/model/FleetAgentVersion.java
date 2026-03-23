@@ -55,7 +55,7 @@ public class FleetAgentVersion {
   }
 
   /**
-   * Getattributes
+   * Attributes of an available Datadog Agent version.
    *
    * @return attributes
    */

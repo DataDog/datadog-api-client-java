@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The primary data object in the get-multiple-rulesets request, containing request attributes and
+ * resource type.
+ */
 @JsonPropertyOrder({
   GetMultipleRulesetsRequestData.JSON_PROPERTY_ATTRIBUTES,
   GetMultipleRulesetsRequestData.JSON_PROPERTY_ID,
@@ -55,7 +58,8 @@ public class GetMultipleRulesetsRequestData {
   }
 
   /**
-   * Getattributes
+   * The request attributes for fetching multiple rulesets, specifying which rulesets to retrieve
+   * and what data to include.
    *
    * @return attributes
    */
@@ -76,7 +80,7 @@ public class GetMultipleRulesetsRequestData {
   }
 
   /**
-   * Getid
+   * An optional identifier for the get-multiple-rulesets request resource.
    *
    * @return id
    */

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** */
+/** The type identifier for requests to resolve vulnerable symbols. */
 @JsonSerialize(
     using =
         ResolveVulnerableSymbolsRequestDataType.ResolveVulnerableSymbolsRequestDataTypeSerializer

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The request object for validating a budget configuration before creating or updating it. */
 @JsonPropertyOrder({BudgetValidationRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,8 @@ public class BudgetValidationRequest {
   }
 
   /**
-   * Getdata
+   * The data object for a budget validation request, containing the resource type, ID, and budget
+   * attributes to validate.
    *
    * @return data
    */

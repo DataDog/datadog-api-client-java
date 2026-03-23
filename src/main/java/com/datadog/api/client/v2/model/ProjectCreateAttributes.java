@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Project creation attributes */
+/** Project creation attributes. */
 @JsonPropertyOrder({
   ProjectCreateAttributes.JSON_PROPERTY_ENABLED_CUSTOM_CASE_TYPES,
   ProjectCreateAttributes.JSON_PROPERTY_KEY,
@@ -66,7 +66,7 @@ public class ProjectCreateAttributes {
   }
 
   /**
-   * List of enabled custom case type IDs
+   * List of enabled custom case type IDs.
    *
    * @return enabledCustomCaseTypes
    */
@@ -87,7 +87,7 @@ public class ProjectCreateAttributes {
   }
 
   /**
-   * Project's key. Cannot be "CASE"
+   * Project's key. Cannot be "CASE".
    *
    * @return key
    */
@@ -107,7 +107,7 @@ public class ProjectCreateAttributes {
   }
 
   /**
-   * Project name
+   * Project name.
    *
    * @return name
    */
@@ -127,7 +127,7 @@ public class ProjectCreateAttributes {
   }
 
   /**
-   * Team UUID to associate with the project
+   * Team UUID to associate with the project.
    *
    * @return teamUuid
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Schema relationship linking an entity to its associated schema resource. */
 @JsonPropertyOrder({EntityResponseDataRelationshipsSchema.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -44,7 +44,7 @@ public class EntityResponseDataRelationshipsSchema {
   }
 
   /**
-   * Getdata
+   * Schema relationship data containing the schema resource identifier and type.
    *
    * @return data
    */

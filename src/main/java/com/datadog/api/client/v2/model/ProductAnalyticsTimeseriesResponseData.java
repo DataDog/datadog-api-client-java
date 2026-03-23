@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for a timeseries analytics response. */
 @JsonPropertyOrder({
   ProductAnalyticsTimeseriesResponseData.JSON_PROPERTY_ATTRIBUTES,
   ProductAnalyticsTimeseriesResponseData.JSON_PROPERTY_ID,
@@ -43,7 +43,8 @@ public class ProductAnalyticsTimeseriesResponseData {
   }
 
   /**
-   * Getattributes
+   * Attributes of a timeseries analytics response, containing series data, timestamps, and interval
+   * definitions.
    *
    * @return attributes
    */
@@ -64,7 +65,7 @@ public class ProductAnalyticsTimeseriesResponseData {
   }
 
   /**
-   * Getid
+   * Unique identifier for this response data object.
    *
    * @return id
    */
@@ -86,7 +87,7 @@ public class ProductAnalyticsTimeseriesResponseData {
   }
 
   /**
-   * Gettype
+   * The resource type identifier for a timeseries analytics response.
    *
    * @return type
    */

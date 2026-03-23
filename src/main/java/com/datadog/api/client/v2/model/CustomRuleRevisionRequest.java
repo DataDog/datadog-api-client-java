@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Request body for creating a new custom rule revision. */
 @JsonPropertyOrder({CustomRuleRevisionRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class CustomRuleRevisionRequest {
   }
 
   /**
-   * Getdata
+   * Data object for a custom rule revision create request.
    *
    * @return data
    */

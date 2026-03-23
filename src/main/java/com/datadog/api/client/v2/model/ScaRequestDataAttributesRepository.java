@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Information about the source code repository being analyzed. */
 @JsonPropertyOrder({ScaRequestDataAttributesRepository.JSON_PROPERTY_URL})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,7 +31,7 @@ public class ScaRequestDataAttributesRepository {
   }
 
   /**
-   * Geturl
+   * The URL of the repository.
    *
    * @return url
    */

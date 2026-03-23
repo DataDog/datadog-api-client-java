@@ -51,7 +51,7 @@ public class ProductAnalyticsSerie {
   }
 
   /**
-   * GetgroupTags
+   * The group-by tag values that identify this series.
    *
    * @return groupTags
    */
@@ -72,7 +72,7 @@ public class ProductAnalyticsSerie {
   }
 
   /**
-   * GetqueryIndex
+   * The index of the query that produced this series.
    *
    * @return queryIndex
    */
@@ -105,7 +105,7 @@ public class ProductAnalyticsSerie {
   }
 
   /**
-   * Getunit
+   * Unit definitions for the series values.
    *
    * @return unit
    */

@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The response payload for the get-multiple-rulesets endpoint, containing the requested rulesets
+ * and their rules.
+ */
 @JsonPropertyOrder({GetMultipleRulesetsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +35,8 @@ public class GetMultipleRulesetsResponse {
   }
 
   /**
-   * Getdata
+   * The primary data object in the get-multiple-rulesets response, containing the response
+   * attributes and resource type.
    *
    * @return data
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Raw schema relationship linking an entity to its raw schema resource. */
 @JsonPropertyOrder({EntityResponseDataRelationshipsRawSchema.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -44,7 +44,7 @@ public class EntityResponseDataRelationshipsRawSchema {
   }
 
   /**
-   * Getdata
+   * Raw schema relationship data containing the raw schema resource identifier and type.
    *
    * @return data
    */

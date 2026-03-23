@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A collection of secret detection rules returned by the list endpoint. */
 @JsonPropertyOrder({SecretRuleArray.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -51,7 +51,7 @@ public class SecretRuleArray {
   }
 
   /**
-   * Getdata
+   * The list of secret detection rules.
    *
    * @return data
    */

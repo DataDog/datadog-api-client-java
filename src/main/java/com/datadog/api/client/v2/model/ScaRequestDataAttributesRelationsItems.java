@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A dependency relation describing which other components a given component depends on. */
 @JsonPropertyOrder({
   ScaRequestDataAttributesRelationsItems.JSON_PROPERTY_DEPENDS_ON,
   ScaRequestDataAttributesRelationsItems.JSON_PROPERTY_REF
@@ -47,7 +47,7 @@ public class ScaRequestDataAttributesRelationsItems {
   }
 
   /**
-   * GetdependsOn
+   * The list of BOM references that this component directly depends on.
    *
    * @return dependsOn
    */
@@ -68,7 +68,7 @@ public class ScaRequestDataAttributesRelationsItems {
   }
 
   /**
-   * Getref
+   * The BOM reference of the component that has dependencies.
    *
    * @return ref
    */

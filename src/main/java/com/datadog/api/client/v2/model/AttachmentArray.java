@@ -54,7 +54,7 @@ public class AttachmentArray {
   }
 
   /**
-   * Getdata
+   * An array of attachment data objects.
    *
    * @return data
    */
@@ -86,7 +86,7 @@ public class AttachmentArray {
   }
 
   /**
-   * Getincluded
+   * A list of related objects included in the response.
    *
    * @return included
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response containing the query results with matched records and total count. */
 @JsonPropertyOrder({QueryResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class QueryResponse {
   }
 
   /**
-   * Getdata
+   * The data object containing the resource type and attributes of the query response.
    *
    * @return data
    */

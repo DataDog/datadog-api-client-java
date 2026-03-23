@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The resource identifier and type for a static analysis rule. */
 @JsonPropertyOrder({
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData.JSON_PROPERTY_ID,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData.JSON_PROPERTY_TYPE
@@ -49,7 +49,7 @@ public class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDat
   }
 
   /**
-   * Getid
+   * The unique identifier of the rule resource.
    *
    * @return id
    */

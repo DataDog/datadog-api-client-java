@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response object for a list of degradations. */
 @JsonPropertyOrder({
   DegradationArray.JSON_PROPERTY_DATA,
   DegradationArray.JSON_PROPERTY_INCLUDED,
@@ -61,7 +61,7 @@ public class DegradationArray {
   }
 
   /**
-   * Getdata
+   * A list of degradation data objects.
    *
    * @return data
    */

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Related entities relationship containing a list of entity references related to this entity. */
 @JsonPropertyOrder({EntityResponseDataRelationshipsRelatedEntities.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class EntityResponseDataRelationshipsRelatedEntities {
   }
 
   /**
-   * Getdata
+   * List of related entity relationship data items.
    *
    * @return data
    */

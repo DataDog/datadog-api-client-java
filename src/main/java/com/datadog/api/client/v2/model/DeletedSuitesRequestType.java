@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** */
+/** Type for the bulk delete Synthetic suites request, <code>delete_suites_request</code>. */
 @JsonSerialize(using = DeletedSuitesRequestType.DeletedSuitesRequestTypeSerializer.class)
 public class DeletedSuitesRequestType extends ModelEnum<String> {
 

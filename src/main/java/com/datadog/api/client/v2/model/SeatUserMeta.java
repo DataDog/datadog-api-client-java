@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Pagination metadata for the seat users list response. */
 @JsonPropertyOrder({
   SeatUserMeta.JSON_PROPERTY_CURSOR,
   SeatUserMeta.JSON_PROPERTY_LIMIT,

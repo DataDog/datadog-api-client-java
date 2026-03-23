@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A specific position (line and column) within a source file. */
 @JsonPropertyOrder({
   ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition.JSON_PROPERTY_COL,
   ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition.JSON_PROPERTY_LINE
@@ -37,7 +37,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition {
   }
 
   /**
-   * Getcol maximum: 2147483647
+   * The column number of the position within the line. maximum: 2147483647
    *
    * @return col
    */
@@ -58,7 +58,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition {
   }
 
   /**
-   * Getline maximum: 2147483647
+   * The line number of the position within the file. maximum: 2147483647
    *
    * @return line
    */

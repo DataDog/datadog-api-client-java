@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** */
+/** The data object identifying the Datadog user who created the maintenance. */
 @JsonPropertyOrder({
   MaintenanceDataRelationshipsCreatedByUserData.JSON_PROPERTY_ID,
   MaintenanceDataRelationshipsCreatedByUserData.JSON_PROPERTY_TYPE

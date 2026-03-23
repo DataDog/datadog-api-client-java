@@ -18,7 +18,10 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** */
+/**
+ * Attributes for creating a new OCI tenancy integration configuration, including credentials,
+ * region settings, and collection options.
+ */
 @JsonPropertyOrder({
   CreateTenancyConfigDataAttributes.JSON_PROPERTY_AUTH_CREDENTIALS,
   CreateTenancyConfigDataAttributes.JSON_PROPERTY_CONFIG_VERSION,
@@ -92,7 +95,8 @@ public class CreateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetauthCredentials
+   * OCI API signing key credentials used to authenticate the Datadog integration with the OCI
+   * tenancy.
    *
    * @return authCredentials
    */
@@ -112,7 +116,7 @@ public class CreateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetconfigVersion
+   * Version number of the integration the tenancy is integrated with
    *
    * @return configVersion
    */
@@ -143,7 +147,7 @@ public class CreateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetcostCollectionEnabled
+   * Whether cost data collection from OCI is enabled for the tenancy.
    *
    * @return costCollectionEnabled
    */
@@ -164,7 +168,7 @@ public class CreateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetddCompartmentId
+   * The OCID of the OCI compartment used by the Datadog integration stack.
    *
    * @return ddCompartmentId
    */
@@ -185,7 +189,7 @@ public class CreateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetddStackId
+   * The OCID of the OCI Resource Manager stack used by the Datadog integration.
    *
    * @return ddStackId
    */
@@ -206,7 +210,7 @@ public class CreateTenancyConfigDataAttributes {
   }
 
   /**
-   * GethomeRegion
+   * The home region of the OCI tenancy (for example, us-ashburn-1).
    *
    * @return homeRegion
    */
@@ -228,7 +232,8 @@ public class CreateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetlogsConfig
+   * Log collection configuration for an OCI tenancy, controlling which compartments and services
+   * have log collection enabled.
    *
    * @return logsConfig
    */
@@ -251,7 +256,8 @@ public class CreateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetmetricsConfig
+   * Metrics collection configuration for an OCI tenancy, controlling which compartments and
+   * services are included or excluded.
    *
    * @return metricsConfig
    */
@@ -274,7 +280,8 @@ public class CreateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetregionsConfig
+   * Region configuration for an OCI tenancy, specifying which regions are available, enabled, or
+   * disabled for data collection.
    *
    * @return regionsConfig
    */
@@ -296,7 +303,7 @@ public class CreateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetresourceCollectionEnabled
+   * Whether resource collection from OCI is enabled for the tenancy.
    *
    * @return resourceCollectionEnabled
    */
@@ -317,7 +324,7 @@ public class CreateTenancyConfigDataAttributes {
   }
 
   /**
-   * GetuserOcid
+   * The OCID of the OCI user used by the Datadog integration for authentication.
    *
    * @return userOcid
    */

@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * The data object in an SCA request, containing the dependency graph attributes and request type.
+ */
 @JsonPropertyOrder({
   ScaRequestData.JSON_PROPERTY_ATTRIBUTES,
   ScaRequestData.JSON_PROPERTY_ID,
@@ -52,7 +54,8 @@ public class ScaRequestData {
   }
 
   /**
-   * Getattributes
+   * The attributes of an SCA request, containing dependency graph data, vulnerability information,
+   * and repository context.
    *
    * @return attributes
    */
@@ -73,7 +76,7 @@ public class ScaRequestData {
   }
 
   /**
-   * Getid
+   * An optional identifier for this SCA request data object.
    *
    * @return id
    */
@@ -95,7 +98,7 @@ public class ScaRequestData {
   }
 
   /**
-   * Gettype
+   * The type identifier for SCA dependency analysis requests.
    *
    * @return type
    */

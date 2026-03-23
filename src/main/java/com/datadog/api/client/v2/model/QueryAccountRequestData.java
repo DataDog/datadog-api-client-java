@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The data object containing the resource type and attributes for querying accounts. */
 @JsonPropertyOrder({
   QueryAccountRequestData.JSON_PROPERTY_ATTRIBUTES,
   QueryAccountRequestData.JSON_PROPERTY_ID,
@@ -52,7 +52,7 @@ public class QueryAccountRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes for filtering and shaping the account query results.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class QueryAccountRequestData {
   }
 
   /**
-   * Getid
+   * Unique identifier for the query account request resource.
    *
    * @return id
    */

@@ -156,7 +156,7 @@ public class FindingCaseResponseDataAttributes {
   }
 
   /**
-   * Getattributes
+   * Custom attributes associated with the case as key-value pairs where values are string arrays.
    *
    * @return attributes
    */

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** The attributes of a budget including all its monthly entries. */
 @JsonPropertyOrder({
   BudgetWithEntriesDataAttributes.JSON_PROPERTY_CREATED_AT,
   BudgetWithEntriesDataAttributes.JSON_PROPERTY_CREATED_BY,
@@ -75,7 +75,7 @@ public class BudgetWithEntriesDataAttributes {
   }
 
   /**
-   * GetcreatedAt
+   * The timestamp when the budget was created.
    *
    * @return createdAt
    */
@@ -96,7 +96,7 @@ public class BudgetWithEntriesDataAttributes {
   }
 
   /**
-   * GetcreatedBy
+   * The ID of the user that created the budget.
    *
    * @return createdBy
    */
@@ -117,7 +117,7 @@ public class BudgetWithEntriesDataAttributes {
   }
 
   /**
-   * GetendMonth
+   * The month when the budget ends, in YYYYMM format.
    *
    * @return endMonth
    */
@@ -152,7 +152,7 @@ public class BudgetWithEntriesDataAttributes {
   }
 
   /**
-   * Getentries
+   * The list of monthly budget entries.
    *
    * @return entries
    */
@@ -173,7 +173,7 @@ public class BudgetWithEntriesDataAttributes {
   }
 
   /**
-   * GetmetricsQuery
+   * The cost query used to track spending against the budget.
    *
    * @return metricsQuery
    */
@@ -194,7 +194,7 @@ public class BudgetWithEntriesDataAttributes {
   }
 
   /**
-   * Getname
+   * The name of the budget.
    *
    * @return name
    */
@@ -215,7 +215,7 @@ public class BudgetWithEntriesDataAttributes {
   }
 
   /**
-   * GetorgId
+   * The ID of the organization the budget belongs to.
    *
    * @return orgId
    */
@@ -236,7 +236,7 @@ public class BudgetWithEntriesDataAttributes {
   }
 
   /**
-   * GetstartMonth
+   * The month when the budget starts, in YYYYMM format.
    *
    * @return startMonth
    */
@@ -257,7 +257,7 @@ public class BudgetWithEntriesDataAttributes {
   }
 
   /**
-   * GettotalAmount
+   * The total budget amount across all entries.
    *
    * @return totalAmount
    */
@@ -278,7 +278,7 @@ public class BudgetWithEntriesDataAttributes {
   }
 
   /**
-   * GetupdatedAt
+   * The timestamp when the budget was last updated.
    *
    * @return updatedAt
    */
@@ -299,7 +299,7 @@ public class BudgetWithEntriesDataAttributes {
   }
 
   /**
-   * GetupdatedBy
+   * The ID of the user that last updated the budget.
    *
    * @return updatedBy
    */

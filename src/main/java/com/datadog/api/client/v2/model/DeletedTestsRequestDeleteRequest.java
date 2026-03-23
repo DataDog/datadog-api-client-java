@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Request body for bulk deleting Synthetic tests. */
 @JsonPropertyOrder({DeletedTestsRequestDeleteRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class DeletedTestsRequestDeleteRequest {
   }
 
   /**
-   * Getdata
+   * Data object for a bulk delete Synthetic tests request.
    *
    * @return data
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A reference to a component affected by a vulnerability. */
 @JsonPropertyOrder({ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems.JSON_PROPERTY_REF})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,7 +31,7 @@ public class ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems {
   }
 
   /**
-   * Getref
+   * The BOM reference identifying the affected component.
    *
    * @return ref
    */

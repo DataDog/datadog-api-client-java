@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * A single OCI tenancy integration configuration resource object containing the tenancy ID, type,
+ * and configuration attributes.
+ */
 @JsonPropertyOrder({
   TenancyConfigData.JSON_PROPERTY_ATTRIBUTES,
   TenancyConfigData.JSON_PROPERTY_ID,
@@ -52,7 +55,8 @@ public class TenancyConfigData {
   }
 
   /**
-   * Getattributes
+   * Attributes of an OCI tenancy integration configuration, including authentication details,
+   * region settings, and collection options.
    *
    * @return attributes
    */
@@ -73,7 +77,7 @@ public class TenancyConfigData {
   }
 
   /**
-   * Getid
+   * The OCID of the OCI tenancy.
    *
    * @return id
    */

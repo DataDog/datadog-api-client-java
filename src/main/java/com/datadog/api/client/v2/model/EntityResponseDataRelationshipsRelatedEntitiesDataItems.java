@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Related entity relationship data item containing the related entity resource identifier and type.
+ */
 @JsonPropertyOrder({
   EntityResponseDataRelationshipsRelatedEntitiesDataItems.JSON_PROPERTY_ID,
   EntityResponseDataRelationshipsRelatedEntitiesDataItems.JSON_PROPERTY_TYPE
@@ -51,7 +53,7 @@ public class EntityResponseDataRelationshipsRelatedEntitiesDataItems {
   }
 
   /**
-   * Getid
+   * Related entity unique identifier.
    *
    * @return id
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A key-value pair representing a tag associated with a Datadog Agent. */
 @JsonPropertyOrder({
   FleetAgentAttributesTagsItems.JSON_PROPERTY_KEY,
   FleetAgentAttributesTagsItems.JSON_PROPERTY_VALUE
@@ -37,7 +37,7 @@ public class FleetAgentAttributesTagsItems {
   }
 
   /**
-   * Getkey
+   * The tag key.
    *
    * @return key
    */
@@ -58,7 +58,7 @@ public class FleetAgentAttributesTagsItems {
   }
 
   /**
-   * Getvalue
+   * The tag value.
    *
    * @return value
    */

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** */
+/** The resource type identifier for a timeseries analytics response. */
 @JsonSerialize(
     using =
         ProductAnalyticsTimeseriesResponseType.ProductAnalyticsTimeseriesResponseTypeSerializer

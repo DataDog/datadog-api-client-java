@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for creating or editing a Synthetic test suite. */
 @JsonPropertyOrder({SuiteCreateEdit.JSON_PROPERTY_ATTRIBUTES, SuiteCreateEdit.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

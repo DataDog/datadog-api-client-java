@@ -53,7 +53,7 @@ public class ProductAnalyticsUnit {
   }
 
   /**
-   * Getfamily
+   * The unit family (e.g., time, bytes).
    *
    * @return family
    */
@@ -74,7 +74,7 @@ public class ProductAnalyticsUnit {
   }
 
   /**
-   * Getid
+   * Numeric identifier for the unit.
    *
    * @return id
    */
@@ -95,7 +95,7 @@ public class ProductAnalyticsUnit {
   }
 
   /**
-   * Getname
+   * The full name of the unit (e.g., nanosecond).
    *
    * @return name
    */
@@ -116,7 +116,7 @@ public class ProductAnalyticsUnit {
   }
 
   /**
-   * Getplural
+   * Plural form of the unit name (e.g., nanoseconds).
    *
    * @return plural
    */
@@ -137,7 +137,7 @@ public class ProductAnalyticsUnit {
   }
 
   /**
-   * GetscaleFactor
+   * Conversion factor relative to the base unit of the family.
    *
    * @return scaleFactor
    */
@@ -158,7 +158,7 @@ public class ProductAnalyticsUnit {
   }
 
   /**
-   * GetshortName
+   * Abbreviated unit name (e.g., ns).
    *
    * @return shortName
    */

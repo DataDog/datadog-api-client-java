@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** An individual Datadog product with its enablement status for a tenancy. */
 @JsonPropertyOrder({
   TenancyProductsDataAttributesProductsItems.JSON_PROPERTY_ENABLED,
   TenancyProductsDataAttributesProductsItems.JSON_PROPERTY_PRODUCT_KEY
@@ -37,7 +37,7 @@ public class TenancyProductsDataAttributesProductsItems {
   }
 
   /**
-   * Getenabled
+   * Indicates whether the product is enabled for the tenancy.
    *
    * @return enabled
    */
@@ -58,7 +58,8 @@ public class TenancyProductsDataAttributesProductsItems {
   }
 
   /**
-   * GetproductKey
+   * The unique key identifying the Datadog product (for example,
+   * CLOUD_SECURITY_POSTURE_MANAGEMENT).
    *
    * @return productKey
    */

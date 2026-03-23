@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A range within a file defined by a start and end position, along with the file name. */
 @JsonPropertyOrder({
   ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.JSON_PROPERTY_END,
   ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.JSON_PROPERTY_FILE_NAME,
@@ -43,7 +43,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
   }
 
   /**
-   * Getend
+   * A specific position (line and column) within a source file.
    *
    * @return end
    */
@@ -65,7 +65,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
   }
 
   /**
-   * GetfileName
+   * The name or path of the file containing this location.
    *
    * @return fileName
    */
@@ -88,7 +88,7 @@ public class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
   }
 
   /**
-   * Getstart
+   * A specific position (line and column) within a source file.
    *
    * @return start
    */

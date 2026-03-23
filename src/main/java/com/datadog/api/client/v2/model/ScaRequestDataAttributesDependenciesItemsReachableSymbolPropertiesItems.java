@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** A key-value property describing a reachable symbol within a dependency. */
 @JsonPropertyOrder({
   ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems.JSON_PROPERTY_NAME,
   ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems.JSON_PROPERTY_VALUE
@@ -37,7 +37,7 @@ public class ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesI
   }
 
   /**
-   * Getname
+   * The name of the reachable symbol property.
    *
    * @return name
    */
@@ -59,7 +59,7 @@ public class ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesI
   }
 
   /**
-   * Getvalue
+   * The value of the reachable symbol property.
    *
    * @return value
    */

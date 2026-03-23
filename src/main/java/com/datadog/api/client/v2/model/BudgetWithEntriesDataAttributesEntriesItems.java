@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * A single monthly budget entry defining the allocated amount and optional tag filters for a
+ * specific month.
+ */
 @JsonPropertyOrder({
   BudgetWithEntriesDataAttributesEntriesItems.JSON_PROPERTY_AMOUNT,
   BudgetWithEntriesDataAttributesEntriesItems.JSON_PROPERTY_MONTH,
@@ -43,7 +46,7 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
   }
 
   /**
-   * Getamount
+   * The budgeted amount for this entry.
    *
    * @return amount
    */
@@ -64,7 +67,7 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
   }
 
   /**
-   * Getmonth
+   * The month this budget entry applies to, in YYYYMM format.
    *
    * @return month
    */
@@ -99,7 +102,7 @@ public class BudgetWithEntriesDataAttributesEntriesItems {
   }
 
   /**
-   * GettagFilters
+   * The list of tag filters that scope this budget entry to specific resources.
    *
    * @return tagFilters
    */

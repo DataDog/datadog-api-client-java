@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/**
+ * Data object representing a session in the viewership history, including its identifier, type, and
+ * attributes.
+ */
 @JsonPropertyOrder({
   ViewershipHistorySessionData.JSON_PROPERTY_ATTRIBUTES,
   ViewershipHistorySessionData.JSON_PROPERTY_ID,
@@ -55,7 +58,8 @@ public class ViewershipHistorySessionData {
   }
 
   /**
-   * Getattributes
+   * Attributes of a viewership history session entry, capturing when it was last watched and the
+   * associated event data.
    *
    * @return attributes
    */
@@ -76,7 +80,7 @@ public class ViewershipHistorySessionData {
   }
 
   /**
-   * Getid
+   * Unique identifier of the RUM replay session.
    *
    * @return id
    */

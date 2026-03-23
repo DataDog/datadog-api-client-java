@@ -57,7 +57,7 @@ public class FleetAgentsResponseData {
   }
 
   /**
-   * Getattributes
+   * Attributes of the fleet agents response containing the list of agents.
    *
    * @return attributes
    */
