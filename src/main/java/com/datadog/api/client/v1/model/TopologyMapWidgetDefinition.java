@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   TopologyMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  TopologyMapWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   TopologyMapWidgetDefinition.JSON_PROPERTY_REQUESTS,
   TopologyMapWidgetDefinition.JSON_PROPERTY_TITLE,
   TopologyMapWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
@@ -37,6 +38,9 @@ public class TopologyMapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<TopologyRequest> requests = new ArrayList<>();
@@ -96,6 +100,27 @@ public class TopologyMapWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public TopologyMapWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public TopologyMapWidgetDefinition requests(List<TopologyRequest> requests) {
@@ -275,6 +300,7 @@ public class TopologyMapWidgetDefinition {
     }
     TopologyMapWidgetDefinition topologyMapWidgetDefinition = (TopologyMapWidgetDefinition) o;
     return Objects.equals(this.customLinks, topologyMapWidgetDefinition.customLinks)
+        && Objects.equals(this.description, topologyMapWidgetDefinition.description)
         && Objects.equals(this.requests, topologyMapWidgetDefinition.requests)
         && Objects.equals(this.title, topologyMapWidgetDefinition.title)
         && Objects.equals(this.titleAlign, topologyMapWidgetDefinition.titleAlign)
@@ -287,7 +313,14 @@ public class TopologyMapWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
-        customLinks, requests, title, titleAlign, titleSize, type, additionalProperties);
+        customLinks,
+        description,
+        requests,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -295,6 +328,7 @@ public class TopologyMapWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class TopologyMapWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");

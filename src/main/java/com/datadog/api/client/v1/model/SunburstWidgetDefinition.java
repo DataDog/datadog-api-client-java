@@ -22,6 +22,7 @@ import java.util.Objects;
 /** Sunbursts are spot on to highlight how groups contribute to the total of a query. */
 @JsonPropertyOrder({
   SunburstWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  SunburstWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   SunburstWidgetDefinition.JSON_PROPERTY_HIDE_TOTAL,
   SunburstWidgetDefinition.JSON_PROPERTY_LEGEND,
   SunburstWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -37,6 +38,9 @@ public class SunburstWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_HIDE_TOTAL = "hide_total";
   private Boolean hideTotal;
@@ -106,6 +110,27 @@ public class SunburstWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public SunburstWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public SunburstWidgetDefinition hideTotal(Boolean hideTotal) {
@@ -350,6 +375,7 @@ public class SunburstWidgetDefinition {
     }
     SunburstWidgetDefinition sunburstWidgetDefinition = (SunburstWidgetDefinition) o;
     return Objects.equals(this.customLinks, sunburstWidgetDefinition.customLinks)
+        && Objects.equals(this.description, sunburstWidgetDefinition.description)
         && Objects.equals(this.hideTotal, sunburstWidgetDefinition.hideTotal)
         && Objects.equals(this.legend, sunburstWidgetDefinition.legend)
         && Objects.equals(this.requests, sunburstWidgetDefinition.requests)
@@ -365,6 +391,7 @@ public class SunburstWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         customLinks,
+        description,
         hideTotal,
         legend,
         requests,
@@ -381,6 +408,7 @@ public class SunburstWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class SunburstWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hideTotal: ").append(toIndentedString(hideTotal)).append("\n");
     sb.append("    legend: ").append(toIndentedString(legend)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");

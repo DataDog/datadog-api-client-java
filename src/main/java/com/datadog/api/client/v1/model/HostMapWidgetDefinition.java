@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   HostMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  HostMapWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   HostMapWidgetDefinition.JSON_PROPERTY_GROUP,
   HostMapWidgetDefinition.JSON_PROPERTY_NO_GROUP_HOSTS,
   HostMapWidgetDefinition.JSON_PROPERTY_NO_METRIC_HOSTS,
@@ -44,6 +45,9 @@ public class HostMapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_GROUP = "group";
   private List<String> group = null;
@@ -125,6 +129,27 @@ public class HostMapWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public HostMapWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public HostMapWidgetDefinition group(List<String> group) {
@@ -464,6 +489,7 @@ public class HostMapWidgetDefinition {
     }
     HostMapWidgetDefinition hostMapWidgetDefinition = (HostMapWidgetDefinition) o;
     return Objects.equals(this.customLinks, hostMapWidgetDefinition.customLinks)
+        && Objects.equals(this.description, hostMapWidgetDefinition.description)
         && Objects.equals(this.group, hostMapWidgetDefinition.group)
         && Objects.equals(this.noGroupHosts, hostMapWidgetDefinition.noGroupHosts)
         && Objects.equals(this.noMetricHosts, hostMapWidgetDefinition.noMetricHosts)
@@ -483,6 +509,7 @@ public class HostMapWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         customLinks,
+        description,
         group,
         noGroupHosts,
         noMetricHosts,
@@ -503,6 +530,7 @@ public class HostMapWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class HostMapWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    noGroupHosts: ").append(toIndentedString(noGroupHosts)).append("\n");
     sb.append("    noMetricHosts: ").append(toIndentedString(noMetricHosts)).append("\n");

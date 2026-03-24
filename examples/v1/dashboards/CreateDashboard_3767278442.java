@@ -1,4 +1,4 @@
-// Create a new dashboard with query_value widget
+// Create a new dashboard with a query_value widget containing a description
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

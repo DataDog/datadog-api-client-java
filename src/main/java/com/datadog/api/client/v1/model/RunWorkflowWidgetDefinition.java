@@ -22,6 +22,7 @@ import java.util.Objects;
 /** Run workflow is widget that allows you to run a workflow from a dashboard. */
 @JsonPropertyOrder({
   RunWorkflowWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  RunWorkflowWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   RunWorkflowWidgetDefinition.JSON_PROPERTY_INPUTS,
   RunWorkflowWidgetDefinition.JSON_PROPERTY_TIME,
   RunWorkflowWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -36,6 +37,9 @@ public class RunWorkflowWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_INPUTS = "inputs";
   private List<RunWorkflowWidgetInput> inputs = null;
@@ -101,6 +105,27 @@ public class RunWorkflowWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public RunWorkflowWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public RunWorkflowWidgetDefinition inputs(List<RunWorkflowWidgetInput> inputs) {
@@ -326,6 +351,7 @@ public class RunWorkflowWidgetDefinition {
     }
     RunWorkflowWidgetDefinition runWorkflowWidgetDefinition = (RunWorkflowWidgetDefinition) o;
     return Objects.equals(this.customLinks, runWorkflowWidgetDefinition.customLinks)
+        && Objects.equals(this.description, runWorkflowWidgetDefinition.description)
         && Objects.equals(this.inputs, runWorkflowWidgetDefinition.inputs)
         && Objects.equals(this.time, runWorkflowWidgetDefinition.time)
         && Objects.equals(this.title, runWorkflowWidgetDefinition.title)
@@ -341,6 +367,7 @@ public class RunWorkflowWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         customLinks,
+        description,
         inputs,
         time,
         title,
@@ -356,6 +383,7 @@ public class RunWorkflowWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class RunWorkflowWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

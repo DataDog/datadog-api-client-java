@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   SLOWidgetDefinition.JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS,
+  SLOWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   SLOWidgetDefinition.JSON_PROPERTY_GLOBAL_TIME_TARGET,
   SLOWidgetDefinition.JSON_PROPERTY_SHOW_ERROR_BUDGET,
   SLOWidgetDefinition.JSON_PROPERTY_SLO_ID,
@@ -42,6 +43,9 @@ public class SLOWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS = "additional_query_filters";
   private String additionalQueryFilters;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_GLOBAL_TIME_TARGET = "global_time_target";
   private String globalTimeTarget;
@@ -103,6 +107,27 @@ public class SLOWidgetDefinition {
 
   public void setAdditionalQueryFilters(String additionalQueryFilters) {
     this.additionalQueryFilters = additionalQueryFilters;
+  }
+
+  public SLOWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public SLOWidgetDefinition globalTimeTarget(String globalTimeTarget) {
@@ -391,6 +416,7 @@ public class SLOWidgetDefinition {
     }
     SLOWidgetDefinition sloWidgetDefinition = (SLOWidgetDefinition) o;
     return Objects.equals(this.additionalQueryFilters, sloWidgetDefinition.additionalQueryFilters)
+        && Objects.equals(this.description, sloWidgetDefinition.description)
         && Objects.equals(this.globalTimeTarget, sloWidgetDefinition.globalTimeTarget)
         && Objects.equals(this.showErrorBudget, sloWidgetDefinition.showErrorBudget)
         && Objects.equals(this.sloId, sloWidgetDefinition.sloId)
@@ -408,6 +434,7 @@ public class SLOWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         additionalQueryFilters,
+        description,
         globalTimeTarget,
         showErrorBudget,
         sloId,
@@ -428,6 +455,7 @@ public class SLOWidgetDefinition {
     sb.append("    additionalQueryFilters: ")
         .append(toIndentedString(additionalQueryFilters))
         .append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    globalTimeTarget: ").append(toIndentedString(globalTimeTarget)).append("\n");
     sb.append("    showErrorBudget: ").append(toIndentedString(showErrorBudget)).append("\n");
     sb.append("    sloId: ").append(toIndentedString(sloId)).append("\n");

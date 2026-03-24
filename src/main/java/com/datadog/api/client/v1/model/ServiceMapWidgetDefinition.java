@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ServiceMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  ServiceMapWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   ServiceMapWidgetDefinition.JSON_PROPERTY_FILTERS,
   ServiceMapWidgetDefinition.JSON_PROPERTY_SERVICE,
   ServiceMapWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -38,6 +39,9 @@ public class ServiceMapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<String> filters = new ArrayList<>();
@@ -102,6 +106,27 @@ public class ServiceMapWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public ServiceMapWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ServiceMapWidgetDefinition filters(List<String> filters) {
@@ -297,6 +322,7 @@ public class ServiceMapWidgetDefinition {
     }
     ServiceMapWidgetDefinition serviceMapWidgetDefinition = (ServiceMapWidgetDefinition) o;
     return Objects.equals(this.customLinks, serviceMapWidgetDefinition.customLinks)
+        && Objects.equals(this.description, serviceMapWidgetDefinition.description)
         && Objects.equals(this.filters, serviceMapWidgetDefinition.filters)
         && Objects.equals(this.service, serviceMapWidgetDefinition.service)
         && Objects.equals(this.title, serviceMapWidgetDefinition.title)
@@ -310,7 +336,15 @@ public class ServiceMapWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
-        customLinks, filters, service, title, titleAlign, titleSize, type, additionalProperties);
+        customLinks,
+        description,
+        filters,
+        service,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -318,6 +352,7 @@ public class ServiceMapWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServiceMapWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

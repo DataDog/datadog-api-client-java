@@ -22,6 +22,7 @@ import java.util.Objects;
 /** The Change graph shows you the change in a value over the time period chosen. */
 @JsonPropertyOrder({
   ChangeWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  ChangeWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   ChangeWidgetDefinition.JSON_PROPERTY_REQUESTS,
   ChangeWidgetDefinition.JSON_PROPERTY_TIME,
   ChangeWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -35,6 +36,9 @@ public class ChangeWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<ChangeWidgetRequest> requests = new ArrayList<>();
@@ -97,6 +101,27 @@ public class ChangeWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public ChangeWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ChangeWidgetDefinition requests(List<ChangeWidgetRequest> requests) {
@@ -302,6 +327,7 @@ public class ChangeWidgetDefinition {
     }
     ChangeWidgetDefinition changeWidgetDefinition = (ChangeWidgetDefinition) o;
     return Objects.equals(this.customLinks, changeWidgetDefinition.customLinks)
+        && Objects.equals(this.description, changeWidgetDefinition.description)
         && Objects.equals(this.requests, changeWidgetDefinition.requests)
         && Objects.equals(this.time, changeWidgetDefinition.time)
         && Objects.equals(this.title, changeWidgetDefinition.title)
@@ -314,7 +340,15 @@ public class ChangeWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
-        customLinks, requests, time, title, titleAlign, titleSize, type, additionalProperties);
+        customLinks,
+        description,
+        requests,
+        time,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -322,6 +356,7 @@ public class ChangeWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChangeWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

@@ -24,6 +24,7 @@ import java.util.Objects;
   QueryValueWidgetDefinition.JSON_PROPERTY_AUTOSCALE,
   QueryValueWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   QueryValueWidgetDefinition.JSON_PROPERTY_CUSTOM_UNIT,
+  QueryValueWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   QueryValueWidgetDefinition.JSON_PROPERTY_PRECISION,
   QueryValueWidgetDefinition.JSON_PROPERTY_REQUESTS,
   QueryValueWidgetDefinition.JSON_PROPERTY_TEXT_ALIGN,
@@ -46,6 +47,9 @@ public class QueryValueWidgetDefinition {
 
   public static final String JSON_PROPERTY_CUSTOM_UNIT = "custom_unit";
   private String customUnit;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_PRECISION = "precision";
   private Long precision;
@@ -160,6 +164,27 @@ public class QueryValueWidgetDefinition {
 
   public void setCustomUnit(String customUnit) {
     this.customUnit = customUnit;
+  }
+
+  public QueryValueWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public QueryValueWidgetDefinition precision(Long precision) {
@@ -432,6 +457,7 @@ public class QueryValueWidgetDefinition {
     return Objects.equals(this.autoscale, queryValueWidgetDefinition.autoscale)
         && Objects.equals(this.customLinks, queryValueWidgetDefinition.customLinks)
         && Objects.equals(this.customUnit, queryValueWidgetDefinition.customUnit)
+        && Objects.equals(this.description, queryValueWidgetDefinition.description)
         && Objects.equals(this.precision, queryValueWidgetDefinition.precision)
         && Objects.equals(this.requests, queryValueWidgetDefinition.requests)
         && Objects.equals(this.textAlign, queryValueWidgetDefinition.textAlign)
@@ -452,6 +478,7 @@ public class QueryValueWidgetDefinition {
         autoscale,
         customLinks,
         customUnit,
+        description,
         precision,
         requests,
         textAlign,
@@ -471,6 +498,7 @@ public class QueryValueWidgetDefinition {
     sb.append("    autoscale: ").append(toIndentedString(autoscale)).append("\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    customUnit: ").append(toIndentedString(customUnit)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    precision: ").append(toIndentedString(precision)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    textAlign: ").append(toIndentedString(textAlign)).append("\n");

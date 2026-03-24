@@ -26,6 +26,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   DistributionWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  DistributionWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   DistributionWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   DistributionWidgetDefinition.JSON_PROPERTY_MARKERS,
   DistributionWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -44,6 +45,9 @@ public class DistributionWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private String legendSize;
@@ -122,6 +126,27 @@ public class DistributionWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public DistributionWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public DistributionWidgetDefinition legendSize(String legendSize) {
@@ -452,6 +477,7 @@ public class DistributionWidgetDefinition {
     }
     DistributionWidgetDefinition distributionWidgetDefinition = (DistributionWidgetDefinition) o;
     return Objects.equals(this.customLinks, distributionWidgetDefinition.customLinks)
+        && Objects.equals(this.description, distributionWidgetDefinition.description)
         && Objects.equals(this.legendSize, distributionWidgetDefinition.legendSize)
         && Objects.equals(this.markers, distributionWidgetDefinition.markers)
         && Objects.equals(this.requests, distributionWidgetDefinition.requests)
@@ -471,6 +497,7 @@ public class DistributionWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         customLinks,
+        description,
         legendSize,
         markers,
         requests,
@@ -490,6 +517,7 @@ public class DistributionWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class DistributionWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
     sb.append("    markers: ").append(toIndentedString(markers)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");

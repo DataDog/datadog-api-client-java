@@ -24,6 +24,7 @@ import java.util.Objects;
  * search criteria using user-defined columns.
  */
 @JsonPropertyOrder({
+  ListStreamWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   ListStreamWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   ListStreamWidgetDefinition.JSON_PROPERTY_REQUESTS,
   ListStreamWidgetDefinition.JSON_PROPERTY_SHOW_LEGEND,
@@ -37,6 +38,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private String legendSize;
 
@@ -72,6 +76,27 @@ public class ListStreamWidgetDefinition {
     this.requests = requests;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ListStreamWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ListStreamWidgetDefinition legendSize(String legendSize) {
@@ -314,7 +339,8 @@ public class ListStreamWidgetDefinition {
       return false;
     }
     ListStreamWidgetDefinition listStreamWidgetDefinition = (ListStreamWidgetDefinition) o;
-    return Objects.equals(this.legendSize, listStreamWidgetDefinition.legendSize)
+    return Objects.equals(this.description, listStreamWidgetDefinition.description)
+        && Objects.equals(this.legendSize, listStreamWidgetDefinition.legendSize)
         && Objects.equals(this.requests, listStreamWidgetDefinition.requests)
         && Objects.equals(this.showLegend, listStreamWidgetDefinition.showLegend)
         && Objects.equals(this.time, listStreamWidgetDefinition.time)
@@ -329,6 +355,7 @@ public class ListStreamWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
+        description,
         legendSize,
         requests,
         showLegend,
@@ -344,6 +371,7 @@ public class ListStreamWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListStreamWidgetDefinition {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    showLegend: ").append(toIndentedString(showLegend)).append("\n");

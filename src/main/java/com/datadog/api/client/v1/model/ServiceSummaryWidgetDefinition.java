@@ -22,6 +22,7 @@ import java.util.Objects;
  * on FREE layout dashboards.
  */
 @JsonPropertyOrder({
+  ServiceSummaryWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_DISPLAY_FORMAT,
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_ENV,
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_SERVICE,
@@ -43,6 +44,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceSummaryWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_DISPLAY_FORMAT = "display_format";
   private WidgetServiceSummaryDisplayFormat displayFormat;
 
@@ -106,6 +110,27 @@ public class ServiceSummaryWidgetDefinition {
     this.spanName = spanName;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public ServiceSummaryWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ServiceSummaryWidgetDefinition displayFormat(
@@ -515,7 +540,8 @@ public class ServiceSummaryWidgetDefinition {
     }
     ServiceSummaryWidgetDefinition serviceSummaryWidgetDefinition =
         (ServiceSummaryWidgetDefinition) o;
-    return Objects.equals(this.displayFormat, serviceSummaryWidgetDefinition.displayFormat)
+    return Objects.equals(this.description, serviceSummaryWidgetDefinition.description)
+        && Objects.equals(this.displayFormat, serviceSummaryWidgetDefinition.displayFormat)
         && Objects.equals(this.env, serviceSummaryWidgetDefinition.env)
         && Objects.equals(this.service, serviceSummaryWidgetDefinition.service)
         && Objects.equals(this.showBreakdown, serviceSummaryWidgetDefinition.showBreakdown)
@@ -538,6 +564,7 @@ public class ServiceSummaryWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
+        description,
         displayFormat,
         env,
         service,
@@ -561,6 +588,7 @@ public class ServiceSummaryWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServiceSummaryWidgetDefinition {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayFormat: ").append(toIndentedString(displayFormat)).append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");

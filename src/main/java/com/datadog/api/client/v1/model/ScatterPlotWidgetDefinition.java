@@ -26,6 +26,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ScatterPlotWidgetDefinition.JSON_PROPERTY_COLOR_BY_GROUPS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  ScatterPlotWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_REQUESTS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_TIME,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -44,6 +45,9 @@ public class ScatterPlotWidgetDefinition {
 
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private ScatterPlotWidgetDefinitionRequests requests;
@@ -143,6 +147,27 @@ public class ScatterPlotWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public ScatterPlotWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ScatterPlotWidgetDefinition requests(ScatterPlotWidgetDefinitionRequests requests) {
@@ -381,6 +406,7 @@ public class ScatterPlotWidgetDefinition {
     ScatterPlotWidgetDefinition scatterPlotWidgetDefinition = (ScatterPlotWidgetDefinition) o;
     return Objects.equals(this.colorByGroups, scatterPlotWidgetDefinition.colorByGroups)
         && Objects.equals(this.customLinks, scatterPlotWidgetDefinition.customLinks)
+        && Objects.equals(this.description, scatterPlotWidgetDefinition.description)
         && Objects.equals(this.requests, scatterPlotWidgetDefinition.requests)
         && Objects.equals(this.time, scatterPlotWidgetDefinition.time)
         && Objects.equals(this.title, scatterPlotWidgetDefinition.title)
@@ -398,6 +424,7 @@ public class ScatterPlotWidgetDefinition {
     return Objects.hash(
         colorByGroups,
         customLinks,
+        description,
         requests,
         time,
         title,
@@ -415,6 +442,7 @@ public class ScatterPlotWidgetDefinition {
     sb.append("class ScatterPlotWidgetDefinition {\n");
     sb.append("    colorByGroups: ").append(toIndentedString(colorByGroups)).append("\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
