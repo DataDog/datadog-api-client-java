@@ -22,6 +22,7 @@ import java.util.Objects;
  * Stream view. Only available on FREE layout dashboards.
  */
 @JsonPropertyOrder({
+  EventTimelineWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   EventTimelineWidgetDefinition.JSON_PROPERTY_QUERY,
   EventTimelineWidgetDefinition.JSON_PROPERTY_TAGS_EXECUTION,
   EventTimelineWidgetDefinition.JSON_PROPERTY_TIME,
@@ -34,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventTimelineWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -65,6 +69,27 @@ public class EventTimelineWidgetDefinition {
     this.query = query;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public EventTimelineWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public EventTimelineWidgetDefinition query(String query) {
@@ -277,7 +302,8 @@ public class EventTimelineWidgetDefinition {
       return false;
     }
     EventTimelineWidgetDefinition eventTimelineWidgetDefinition = (EventTimelineWidgetDefinition) o;
-    return Objects.equals(this.query, eventTimelineWidgetDefinition.query)
+    return Objects.equals(this.description, eventTimelineWidgetDefinition.description)
+        && Objects.equals(this.query, eventTimelineWidgetDefinition.query)
         && Objects.equals(this.tagsExecution, eventTimelineWidgetDefinition.tagsExecution)
         && Objects.equals(this.time, eventTimelineWidgetDefinition.time)
         && Objects.equals(this.title, eventTimelineWidgetDefinition.title)
@@ -291,13 +317,22 @@ public class EventTimelineWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
-        query, tagsExecution, time, title, titleAlign, titleSize, type, additionalProperties);
+        description,
+        query,
+        tagsExecution,
+        time,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventTimelineWidgetDefinition {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    tagsExecution: ").append(toIndentedString(tagsExecution)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");

@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Use the SLO List widget to track your SLOs (Service Level Objectives) on dashboards. */
 @JsonPropertyOrder({
+  SLOListWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   SLOListWidgetDefinition.JSON_PROPERTY_REQUESTS,
   SLOListWidgetDefinition.JSON_PROPERTY_TITLE,
   SLOListWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
@@ -31,6 +32,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOListWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<SLOListWidgetRequest> requests = new ArrayList<>();
 
@@ -56,6 +60,27 @@ public class SLOListWidgetDefinition {
     this.requests = requests;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public SLOListWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public SLOListWidgetDefinition requests(List<SLOListWidgetRequest> requests) {
@@ -234,7 +259,8 @@ public class SLOListWidgetDefinition {
       return false;
     }
     SLOListWidgetDefinition sloListWidgetDefinition = (SLOListWidgetDefinition) o;
-    return Objects.equals(this.requests, sloListWidgetDefinition.requests)
+    return Objects.equals(this.description, sloListWidgetDefinition.description)
+        && Objects.equals(this.requests, sloListWidgetDefinition.requests)
         && Objects.equals(this.title, sloListWidgetDefinition.title)
         && Objects.equals(this.titleAlign, sloListWidgetDefinition.titleAlign)
         && Objects.equals(this.titleSize, sloListWidgetDefinition.titleSize)
@@ -244,13 +270,15 @@ public class SLOListWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requests, title, titleAlign, titleSize, type, additionalProperties);
+    return Objects.hash(
+        description, requests, title, titleAlign, titleSize, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SLOListWidgetDefinition {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");

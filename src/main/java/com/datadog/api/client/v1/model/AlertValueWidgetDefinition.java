@@ -23,6 +23,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   AlertValueWidgetDefinition.JSON_PROPERTY_ALERT_ID,
+  AlertValueWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   AlertValueWidgetDefinition.JSON_PROPERTY_PRECISION,
   AlertValueWidgetDefinition.JSON_PROPERTY_TEXT_ALIGN,
   AlertValueWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -37,6 +38,9 @@ public class AlertValueWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
   private String alertId;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_PRECISION = "precision";
   private Long precision;
@@ -89,6 +93,27 @@ public class AlertValueWidgetDefinition {
 
   public void setAlertId(String alertId) {
     this.alertId = alertId;
+  }
+
+  public AlertValueWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public AlertValueWidgetDefinition precision(Long precision) {
@@ -306,6 +331,7 @@ public class AlertValueWidgetDefinition {
     }
     AlertValueWidgetDefinition alertValueWidgetDefinition = (AlertValueWidgetDefinition) o;
     return Objects.equals(this.alertId, alertValueWidgetDefinition.alertId)
+        && Objects.equals(this.description, alertValueWidgetDefinition.description)
         && Objects.equals(this.precision, alertValueWidgetDefinition.precision)
         && Objects.equals(this.textAlign, alertValueWidgetDefinition.textAlign)
         && Objects.equals(this.title, alertValueWidgetDefinition.title)
@@ -321,6 +347,7 @@ public class AlertValueWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         alertId,
+        description,
         precision,
         textAlign,
         title,
@@ -336,6 +363,7 @@ public class AlertValueWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class AlertValueWidgetDefinition {\n");
     sb.append("    alertId: ").append(toIndentedString(alertId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    precision: ").append(toIndentedString(precision)).append("\n");
     sb.append("    textAlign: ").append(toIndentedString(textAlign)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

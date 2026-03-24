@@ -22,6 +22,7 @@ import java.util.Objects;
 /** Check status shows the current status or number of results for any check performed. */
 @JsonPropertyOrder({
   CheckStatusWidgetDefinition.JSON_PROPERTY_CHECK,
+  CheckStatusWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   CheckStatusWidgetDefinition.JSON_PROPERTY_GROUP,
   CheckStatusWidgetDefinition.JSON_PROPERTY_GROUP_BY,
   CheckStatusWidgetDefinition.JSON_PROPERTY_GROUPING,
@@ -38,6 +39,9 @@ public class CheckStatusWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHECK = "check";
   private String check;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_GROUP = "group";
   private String group;
@@ -99,6 +103,27 @@ public class CheckStatusWidgetDefinition {
 
   public void setCheck(String check) {
     this.check = check;
+  }
+
+  public CheckStatusWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public CheckStatusWidgetDefinition group(String group) {
@@ -374,6 +399,7 @@ public class CheckStatusWidgetDefinition {
     }
     CheckStatusWidgetDefinition checkStatusWidgetDefinition = (CheckStatusWidgetDefinition) o;
     return Objects.equals(this.check, checkStatusWidgetDefinition.check)
+        && Objects.equals(this.description, checkStatusWidgetDefinition.description)
         && Objects.equals(this.group, checkStatusWidgetDefinition.group)
         && Objects.equals(this.groupBy, checkStatusWidgetDefinition.groupBy)
         && Objects.equals(this.grouping, checkStatusWidgetDefinition.grouping)
@@ -391,6 +417,7 @@ public class CheckStatusWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         check,
+        description,
         group,
         groupBy,
         grouping,
@@ -408,6 +435,7 @@ public class CheckStatusWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckStatusWidgetDefinition {\n");
     sb.append("    check: ").append(toIndentedString(check)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    grouping: ").append(toIndentedString(grouping)).append("\n");

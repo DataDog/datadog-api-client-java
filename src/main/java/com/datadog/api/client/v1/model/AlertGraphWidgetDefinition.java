@@ -23,6 +23,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   AlertGraphWidgetDefinition.JSON_PROPERTY_ALERT_ID,
+  AlertGraphWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   AlertGraphWidgetDefinition.JSON_PROPERTY_TIME,
   AlertGraphWidgetDefinition.JSON_PROPERTY_TITLE,
   AlertGraphWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
@@ -36,6 +37,9 @@ public class AlertGraphWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
   private String alertId;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_TIME = "time";
   private WidgetTime time;
@@ -88,6 +92,27 @@ public class AlertGraphWidgetDefinition {
 
   public void setAlertId(String alertId) {
     this.alertId = alertId;
+  }
+
+  public AlertGraphWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public AlertGraphWidgetDefinition time(WidgetTime time) {
@@ -284,6 +309,7 @@ public class AlertGraphWidgetDefinition {
     }
     AlertGraphWidgetDefinition alertGraphWidgetDefinition = (AlertGraphWidgetDefinition) o;
     return Objects.equals(this.alertId, alertGraphWidgetDefinition.alertId)
+        && Objects.equals(this.description, alertGraphWidgetDefinition.description)
         && Objects.equals(this.time, alertGraphWidgetDefinition.time)
         && Objects.equals(this.title, alertGraphWidgetDefinition.title)
         && Objects.equals(this.titleAlign, alertGraphWidgetDefinition.titleAlign)
@@ -297,7 +323,15 @@ public class AlertGraphWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
-        alertId, time, title, titleAlign, titleSize, type, vizType, additionalProperties);
+        alertId,
+        description,
+        time,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        vizType,
+        additionalProperties);
   }
 
   @Override
@@ -305,6 +339,7 @@ public class AlertGraphWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class AlertGraphWidgetDefinition {\n");
     sb.append("    alertId: ").append(toIndentedString(alertId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");

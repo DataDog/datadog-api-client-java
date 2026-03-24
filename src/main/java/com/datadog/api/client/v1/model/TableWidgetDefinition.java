@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   TableWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  TableWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   TableWidgetDefinition.JSON_PROPERTY_HAS_SEARCH_BAR,
   TableWidgetDefinition.JSON_PROPERTY_REQUESTS,
   TableWidgetDefinition.JSON_PROPERTY_TIME,
@@ -39,6 +40,9 @@ public class TableWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_HAS_SEARCH_BAR = "has_search_bar";
   private TableWidgetHasSearchBar hasSearchBar;
@@ -104,6 +108,27 @@ public class TableWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public TableWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public TableWidgetDefinition hasSearchBar(TableWidgetHasSearchBar hasSearchBar) {
@@ -330,6 +355,7 @@ public class TableWidgetDefinition {
     }
     TableWidgetDefinition tableWidgetDefinition = (TableWidgetDefinition) o;
     return Objects.equals(this.customLinks, tableWidgetDefinition.customLinks)
+        && Objects.equals(this.description, tableWidgetDefinition.description)
         && Objects.equals(this.hasSearchBar, tableWidgetDefinition.hasSearchBar)
         && Objects.equals(this.requests, tableWidgetDefinition.requests)
         && Objects.equals(this.time, tableWidgetDefinition.time)
@@ -344,6 +370,7 @@ public class TableWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         customLinks,
+        description,
         hasSearchBar,
         requests,
         time,
@@ -359,6 +386,7 @@ public class TableWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hasSearchBar: ").append(toIndentedString(hasSearchBar)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");

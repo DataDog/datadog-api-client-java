@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   TimeseriesWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   TimeseriesWidgetDefinition.JSON_PROPERTY_EVENTS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_COLUMNS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_LAYOUT,
@@ -46,6 +47,9 @@ public class TimeseriesWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<WidgetEvent> events = null;
@@ -133,6 +137,27 @@ public class TimeseriesWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public TimeseriesWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public TimeseriesWidgetDefinition events(List<WidgetEvent> events) {
@@ -546,6 +571,7 @@ public class TimeseriesWidgetDefinition {
     }
     TimeseriesWidgetDefinition timeseriesWidgetDefinition = (TimeseriesWidgetDefinition) o;
     return Objects.equals(this.customLinks, timeseriesWidgetDefinition.customLinks)
+        && Objects.equals(this.description, timeseriesWidgetDefinition.description)
         && Objects.equals(this.events, timeseriesWidgetDefinition.events)
         && Objects.equals(this.legendColumns, timeseriesWidgetDefinition.legendColumns)
         && Objects.equals(this.legendLayout, timeseriesWidgetDefinition.legendLayout)
@@ -568,6 +594,7 @@ public class TimeseriesWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         customLinks,
+        description,
         events,
         legendColumns,
         legendLayout,
@@ -590,6 +617,7 @@ public class TimeseriesWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimeseriesWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    legendColumns: ").append(toIndentedString(legendColumns)).append("\n");
     sb.append("    legendLayout: ").append(toIndentedString(legendLayout)).append("\n");

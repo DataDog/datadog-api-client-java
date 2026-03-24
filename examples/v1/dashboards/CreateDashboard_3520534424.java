@@ -47,6 +47,7 @@ public class Example {
                                     .title("")
                                     .titleSize("16")
                                     .titleAlign(WidgetTextAlign.LEFT)
+                                    .description("Example widget description")
                                     .showLegend(true)
                                     .legendLayout(TimeseriesWidgetLegendLayout.AUTO)
                                     .time(new WidgetTime(new WidgetLegacyLiveSpan()))

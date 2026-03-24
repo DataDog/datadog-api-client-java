@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   HeatMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  HeatMapWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   HeatMapWidgetDefinition.JSON_PROPERTY_EVENTS,
   HeatMapWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   HeatMapWidgetDefinition.JSON_PROPERTY_MARKERS,
@@ -44,6 +45,9 @@ public class HeatMapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<WidgetEvent> events = null;
@@ -124,6 +128,27 @@ public class HeatMapWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public HeatMapWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public HeatMapWidgetDefinition events(List<WidgetEvent> events) {
@@ -480,6 +505,7 @@ public class HeatMapWidgetDefinition {
     }
     HeatMapWidgetDefinition heatMapWidgetDefinition = (HeatMapWidgetDefinition) o;
     return Objects.equals(this.customLinks, heatMapWidgetDefinition.customLinks)
+        && Objects.equals(this.description, heatMapWidgetDefinition.description)
         && Objects.equals(this.events, heatMapWidgetDefinition.events)
         && Objects.equals(this.legendSize, heatMapWidgetDefinition.legendSize)
         && Objects.equals(this.markers, heatMapWidgetDefinition.markers)
@@ -499,6 +525,7 @@ public class HeatMapWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         customLinks,
+        description,
         events,
         legendSize,
         markers,
@@ -519,6 +546,7 @@ public class HeatMapWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeatMapWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
     sb.append("    markers: ").append(toIndentedString(markers)).append("\n");

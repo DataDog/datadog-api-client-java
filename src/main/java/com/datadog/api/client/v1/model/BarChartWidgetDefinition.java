@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   BarChartWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  BarChartWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   BarChartWidgetDefinition.JSON_PROPERTY_REQUESTS,
   BarChartWidgetDefinition.JSON_PROPERTY_STYLE,
   BarChartWidgetDefinition.JSON_PROPERTY_TIME,
@@ -39,6 +40,9 @@ public class BarChartWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<BarChartWidgetRequest> requests = new ArrayList<>();
@@ -105,6 +109,27 @@ public class BarChartWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public BarChartWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public BarChartWidgetDefinition requests(List<BarChartWidgetRequest> requests) {
@@ -328,6 +353,7 @@ public class BarChartWidgetDefinition {
     }
     BarChartWidgetDefinition barChartWidgetDefinition = (BarChartWidgetDefinition) o;
     return Objects.equals(this.customLinks, barChartWidgetDefinition.customLinks)
+        && Objects.equals(this.description, barChartWidgetDefinition.description)
         && Objects.equals(this.requests, barChartWidgetDefinition.requests)
         && Objects.equals(this.style, barChartWidgetDefinition.style)
         && Objects.equals(this.time, barChartWidgetDefinition.time)
@@ -342,6 +368,7 @@ public class BarChartWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         customLinks,
+        description,
         requests,
         style,
         time,
@@ -357,6 +384,7 @@ public class BarChartWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class BarChartWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");

@@ -22,6 +22,7 @@ import java.util.Objects;
  * available on FREE layout dashboards.
  */
 @JsonPropertyOrder({
+  EventStreamWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   EventStreamWidgetDefinition.JSON_PROPERTY_EVENT_SIZE,
   EventStreamWidgetDefinition.JSON_PROPERTY_QUERY,
   EventStreamWidgetDefinition.JSON_PROPERTY_TAGS_EXECUTION,
@@ -35,6 +36,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventStreamWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";
   private WidgetEventSize eventSize;
 
@@ -69,6 +73,27 @@ public class EventStreamWidgetDefinition {
     this.query = query;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public EventStreamWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public EventStreamWidgetDefinition eventSize(WidgetEventSize eventSize) {
@@ -306,7 +331,8 @@ public class EventStreamWidgetDefinition {
       return false;
     }
     EventStreamWidgetDefinition eventStreamWidgetDefinition = (EventStreamWidgetDefinition) o;
-    return Objects.equals(this.eventSize, eventStreamWidgetDefinition.eventSize)
+    return Objects.equals(this.description, eventStreamWidgetDefinition.description)
+        && Objects.equals(this.eventSize, eventStreamWidgetDefinition.eventSize)
         && Objects.equals(this.query, eventStreamWidgetDefinition.query)
         && Objects.equals(this.tagsExecution, eventStreamWidgetDefinition.tagsExecution)
         && Objects.equals(this.time, eventStreamWidgetDefinition.time)
@@ -321,6 +347,7 @@ public class EventStreamWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
+        description,
         eventSize,
         query,
         tagsExecution,
@@ -336,6 +363,7 @@ public class EventStreamWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventStreamWidgetDefinition {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eventSize: ").append(toIndentedString(eventSize)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    tagsExecution: ").append(toIndentedString(tagsExecution)).append("\n");

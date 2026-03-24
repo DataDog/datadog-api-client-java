@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   LogStreamWidgetDefinition.JSON_PROPERTY_COLUMNS,
+  LogStreamWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   LogStreamWidgetDefinition.JSON_PROPERTY_INDEXES,
   LogStreamWidgetDefinition.JSON_PROPERTY_LOGSET,
   LogStreamWidgetDefinition.JSON_PROPERTY_MESSAGE_DISPLAY,
@@ -44,6 +45,9 @@ public class LogStreamWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<String> columns = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
@@ -118,6 +122,27 @@ public class LogStreamWidgetDefinition {
 
   public void setColumns(List<String> columns) {
     this.columns = columns;
+  }
+
+  public LogStreamWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public LogStreamWidgetDefinition indexes(List<String> indexes) {
@@ -453,6 +478,7 @@ public class LogStreamWidgetDefinition {
     }
     LogStreamWidgetDefinition logStreamWidgetDefinition = (LogStreamWidgetDefinition) o;
     return Objects.equals(this.columns, logStreamWidgetDefinition.columns)
+        && Objects.equals(this.description, logStreamWidgetDefinition.description)
         && Objects.equals(this.indexes, logStreamWidgetDefinition.indexes)
         && Objects.equals(this.logset, logStreamWidgetDefinition.logset)
         && Objects.equals(this.messageDisplay, logStreamWidgetDefinition.messageDisplay)
@@ -473,6 +499,7 @@ public class LogStreamWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         columns,
+        description,
         indexes,
         logset,
         messageDisplay,
@@ -493,6 +520,7 @@ public class LogStreamWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogStreamWidgetDefinition {\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    logset: ").append(toIndentedString(logset)).append("\n");
     sb.append("    messageDisplay: ").append(toIndentedString(messageDisplay)).append("\n");

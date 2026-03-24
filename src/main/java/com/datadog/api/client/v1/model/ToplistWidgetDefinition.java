@@ -26,6 +26,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   ToplistWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  ToplistWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   ToplistWidgetDefinition.JSON_PROPERTY_REQUESTS,
   ToplistWidgetDefinition.JSON_PROPERTY_STYLE,
   ToplistWidgetDefinition.JSON_PROPERTY_TIME,
@@ -40,6 +41,9 @@ public class ToplistWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<ToplistWidgetRequest> requests = new ArrayList<>();
@@ -105,6 +109,27 @@ public class ToplistWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public ToplistWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ToplistWidgetDefinition requests(List<ToplistWidgetRequest> requests) {
@@ -328,6 +353,7 @@ public class ToplistWidgetDefinition {
     }
     ToplistWidgetDefinition toplistWidgetDefinition = (ToplistWidgetDefinition) o;
     return Objects.equals(this.customLinks, toplistWidgetDefinition.customLinks)
+        && Objects.equals(this.description, toplistWidgetDefinition.description)
         && Objects.equals(this.requests, toplistWidgetDefinition.requests)
         && Objects.equals(this.style, toplistWidgetDefinition.style)
         && Objects.equals(this.time, toplistWidgetDefinition.time)
@@ -342,6 +368,7 @@ public class ToplistWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         customLinks,
+        description,
         requests,
         style,
         time,
@@ -357,6 +384,7 @@ public class ToplistWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class ToplistWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");

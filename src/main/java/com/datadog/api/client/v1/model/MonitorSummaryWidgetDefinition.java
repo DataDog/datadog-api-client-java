@@ -24,6 +24,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_COLOR_PREFERENCE,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_COUNT,
+  MonitorSummaryWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_DISPLAY_FORMAT,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_HIDE_ZERO_COUNTS,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_QUERY,
@@ -46,6 +47,9 @@ public class MonitorSummaryWidgetDefinition {
 
   public static final String JSON_PROPERTY_COUNT = "count";
   private Long count;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_DISPLAY_FORMAT = "display_format";
   private WidgetMonitorSummaryDisplayFormat displayFormat;
@@ -143,6 +147,27 @@ public class MonitorSummaryWidgetDefinition {
   @Deprecated
   public void setCount(Long count) {
     this.count = count;
+  }
+
+  public MonitorSummaryWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public MonitorSummaryWidgetDefinition displayFormat(
@@ -478,6 +503,7 @@ public class MonitorSummaryWidgetDefinition {
         (MonitorSummaryWidgetDefinition) o;
     return Objects.equals(this.colorPreference, monitorSummaryWidgetDefinition.colorPreference)
         && Objects.equals(this.count, monitorSummaryWidgetDefinition.count)
+        && Objects.equals(this.description, monitorSummaryWidgetDefinition.description)
         && Objects.equals(this.displayFormat, monitorSummaryWidgetDefinition.displayFormat)
         && Objects.equals(this.hideZeroCounts, monitorSummaryWidgetDefinition.hideZeroCounts)
         && Objects.equals(this.query, monitorSummaryWidgetDefinition.query)
@@ -499,6 +525,7 @@ public class MonitorSummaryWidgetDefinition {
     return Objects.hash(
         colorPreference,
         count,
+        description,
         displayFormat,
         hideZeroCounts,
         query,
@@ -520,6 +547,7 @@ public class MonitorSummaryWidgetDefinition {
     sb.append("class MonitorSummaryWidgetDefinition {\n");
     sb.append("    colorPreference: ").append(toIndentedString(colorPreference)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayFormat: ").append(toIndentedString(displayFormat)).append("\n");
     sb.append("    hideZeroCounts: ").append(toIndentedString(hideZeroCounts)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");

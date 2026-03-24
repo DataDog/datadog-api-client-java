@@ -24,6 +24,7 @@ import java.util.Objects;
  * navigation and user interaction in your application.
  */
 @JsonPropertyOrder({
+  FunnelWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   FunnelWidgetDefinition.JSON_PROPERTY_REQUESTS,
   FunnelWidgetDefinition.JSON_PROPERTY_TIME,
   FunnelWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -35,6 +36,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FunnelWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<FunnelWidgetRequest> requests = new ArrayList<>();
 
@@ -63,6 +67,27 @@ public class FunnelWidgetDefinition {
     this.requests = requests;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public FunnelWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public FunnelWidgetDefinition requests(List<FunnelWidgetRequest> requests) {
@@ -263,7 +288,8 @@ public class FunnelWidgetDefinition {
       return false;
     }
     FunnelWidgetDefinition funnelWidgetDefinition = (FunnelWidgetDefinition) o;
-    return Objects.equals(this.requests, funnelWidgetDefinition.requests)
+    return Objects.equals(this.description, funnelWidgetDefinition.description)
+        && Objects.equals(this.requests, funnelWidgetDefinition.requests)
         && Objects.equals(this.time, funnelWidgetDefinition.time)
         && Objects.equals(this.title, funnelWidgetDefinition.title)
         && Objects.equals(this.titleAlign, funnelWidgetDefinition.titleAlign)
@@ -274,13 +300,15 @@ public class FunnelWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requests, time, title, titleAlign, titleSize, type, additionalProperties);
+    return Objects.hash(
+        description, requests, time, title, titleAlign, titleSize, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunnelWidgetDefinition {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

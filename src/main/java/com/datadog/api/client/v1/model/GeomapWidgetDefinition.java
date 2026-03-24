@@ -22,6 +22,7 @@ import java.util.Objects;
 /** This visualization displays a series of values by country on a world map. */
 @JsonPropertyOrder({
   GeomapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  GeomapWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   GeomapWidgetDefinition.JSON_PROPERTY_REQUESTS,
   GeomapWidgetDefinition.JSON_PROPERTY_STYLE,
   GeomapWidgetDefinition.JSON_PROPERTY_TIME,
@@ -37,6 +38,9 @@ public class GeomapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<GeomapWidgetRequest> requests = new ArrayList<>();
@@ -111,6 +115,27 @@ public class GeomapWidgetDefinition {
 
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+  }
+
+  public GeomapWidgetDefinition description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the widget.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public GeomapWidgetDefinition requests(List<GeomapWidgetRequest> requests) {
@@ -358,6 +383,7 @@ public class GeomapWidgetDefinition {
     }
     GeomapWidgetDefinition geomapWidgetDefinition = (GeomapWidgetDefinition) o;
     return Objects.equals(this.customLinks, geomapWidgetDefinition.customLinks)
+        && Objects.equals(this.description, geomapWidgetDefinition.description)
         && Objects.equals(this.requests, geomapWidgetDefinition.requests)
         && Objects.equals(this.style, geomapWidgetDefinition.style)
         && Objects.equals(this.time, geomapWidgetDefinition.time)
@@ -373,6 +399,7 @@ public class GeomapWidgetDefinition {
   public int hashCode() {
     return Objects.hash(
         customLinks,
+        description,
         requests,
         style,
         time,
@@ -389,6 +416,7 @@ public class GeomapWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class GeomapWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");

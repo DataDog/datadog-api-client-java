@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":\"\",\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"fixed\",\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_timeseries_widget_with_custom_unit-1739811056\",\"widgets\":[{\"definition\":{\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\",\"number_format\":{\"unit\":{\"type\":\"canonical_unit\",\"unit_name\":\"fraction\"},\"unit_scale\":{\"type\":\"canonical_unit\",\"unit_name\":\"apdex\"}}}],\"queries\":[{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\"}],\"show_legend\":true,\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"},\"layout\":{\"height\":5,\"width\":12,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":\"\",\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"fixed\",\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_timeseries_widget_with_custom_unit-1774292382\",\"widgets\":[{\"definition\":{\"description\":\"Example widget description\",\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\",\"number_format\":{\"unit\":{\"type\":\"canonical_unit\",\"unit_name\":\"fraction\"},\"unit_scale\":{\"type\":\"canonical_unit\",\"unit_name\":\"apdex\"}}}],\"queries\":[{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\"}],\"show_legend\":true,\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"},\"layout\":{\"height\":5,\"width\":12,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"a8v-698-pen\",\"title\":\"Test-Create_a_new_dashboard_with_timeseries_widget_with_custom_unit-1739811056\",\"description\":\"\",\"author_handle\":\"frog@datadoghq.com\",\"author_name\":\"frog\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/a8v-698-pen/test-createanewdashboardwithtimeserieswidgetwithcustomunit-1739811056\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\",\"number_format\":{\"unit\":{\"type\":\"canonical_unit\",\"unit_name\":\"fraction\"},\"unit_scale\":{\"type\":\"canonical_unit\",\"unit_name\":\"apdex\"}}}],\"queries\":[{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\"}],\"show_legend\":true,\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"},\"layout\":{\"height\":5,\"width\":12,\"x\":0,\"y\":0},\"id\":6721814968677378}],\"notify_list\":[],\"created_at\":\"2025-02-17T16:50:57.183740+00:00\",\"modified_at\":\"2025-02-17T16:50:57.183740+00:00\",\"reflow_type\":\"fixed\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"wuf-exp-9k5\",\"title\":\"Test-Create_a_new_dashboard_with_timeseries_widget_with_custom_unit-1774292382\",\"description\":\"\",\"author_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"author_name\":\"CI Account\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/wuf-exp-9k5/test-createanewdashboardwithtimeserieswidgetwithcustomunit-1774292382\",\"template_variables\":[],\"widgets\":[{\"definition\":{\"description\":\"Example widget description\",\"legend_layout\":\"auto\",\"requests\":[{\"display_type\":\"line\",\"formulas\":[{\"formula\":\"query1\",\"number_format\":{\"unit\":{\"type\":\"canonical_unit\",\"unit_name\":\"fraction\"},\"unit_scale\":{\"type\":\"canonical_unit\",\"unit_name\":\"apdex\"}}}],\"queries\":[{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\"}],\"show_legend\":true,\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"},\"layout\":{\"height\":5,\"width\":12,\"x\":0,\"y\":0},\"id\":8254572000035554}],\"notify_list\":[],\"created_at\":\"2026-03-23T18:59:42.872221+00:00\",\"modified_at\":\"2026-03-23T18:59:42.872221+00:00\",\"reflow_type\":\"fixed\",\"restricted_roles\":[]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "38821fca-edaf-f1a1-d6f2-dc3c1a613e9e"
+    "id": "46383d07-ea65-59e2-f5b6-f584d5cd04e9"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/a8v-698-pen",
+      "path": "/api/v1/dashboard/wuf-exp-9k5",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"a8v-698-pen\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"wuf-exp-9k5\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5ad97c5e-b82d-beca-915d-3aedcc9af901"
+    "id": "0d187f98-2a46-5c09-14db-c22f292a187d"
   }
 ]
