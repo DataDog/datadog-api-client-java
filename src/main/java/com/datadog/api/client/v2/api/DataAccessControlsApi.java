@@ -17,14 +17,14 @@ import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DatasetsApi {
+public class DataAccessControlsApi {
   private ApiClient apiClient;
 
-  public DatasetsApi() {
+  public DataAccessControlsApi() {
     this(ApiClient.getDefaultApiClient());
   }
 
-  public DatasetsApi(ApiClient apiClient) {
+  public DataAccessControlsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -47,7 +47,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Create a dataset.
+   * Create a Data Access Control dataset.
    *
    * <p>See {@link #createDatasetWithHttpInfo}.
    *
@@ -60,7 +60,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Create a dataset.
+   * Create a Data Access Control dataset.
    *
    * <p>See {@link #createDatasetWithHttpInfoAsync}.
    *
@@ -115,7 +115,7 @@ public class DatasetsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DatasetsApi.createDataset",
+            "v2.DataAccessControlsApi.createDataset",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -134,7 +134,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Create a dataset.
+   * Create a Data Access Control dataset.
    *
    * <p>See {@link #createDatasetWithHttpInfo}.
    *
@@ -172,7 +172,7 @@ public class DatasetsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DatasetsApi.createDataset",
+              "v2.DataAccessControlsApi.createDataset",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -196,7 +196,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Delete a dataset.
+   * Delete a Data Access Control dataset.
    *
    * <p>See {@link #deleteDatasetWithHttpInfo}.
    *
@@ -208,7 +208,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Delete a dataset.
+   * Delete a Data Access Control dataset.
    *
    * <p>See {@link #deleteDatasetWithHttpInfoAsync}.
    *
@@ -264,7 +264,7 @@ public class DatasetsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DatasetsApi.deleteDataset",
+            "v2.DataAccessControlsApi.deleteDataset",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -283,7 +283,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Delete a dataset.
+   * Delete a Data Access Control dataset.
    *
    * <p>See {@link #deleteDatasetWithHttpInfo}.
    *
@@ -322,7 +322,7 @@ public class DatasetsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DatasetsApi.deleteDataset",
+              "v2.DataAccessControlsApi.deleteDataset",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -346,7 +346,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Get all datasets.
+   * Get all Data Access Control datasets.
    *
    * <p>See {@link #getAllDatasetsWithHttpInfo}.
    *
@@ -358,7 +358,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Get all datasets.
+   * Get all Data Access Control datasets.
    *
    * <p>See {@link #getAllDatasetsWithHttpInfoAsync}.
    *
@@ -402,7 +402,7 @@ public class DatasetsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DatasetsApi.getAllDatasets",
+            "v2.DataAccessControlsApi.getAllDatasets",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -421,7 +421,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Get all datasets.
+   * Get all Data Access Control datasets.
    *
    * <p>See {@link #getAllDatasetsWithHttpInfo}.
    *
@@ -448,7 +448,7 @@ public class DatasetsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DatasetsApi.getAllDatasets",
+              "v2.DataAccessControlsApi.getAllDatasets",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -472,7 +472,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Get a single dataset by ID.
+   * Get a Data Access Control dataset by ID.
    *
    * <p>See {@link #getDatasetWithHttpInfo}.
    *
@@ -485,7 +485,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Get a single dataset by ID.
+   * Get a Data Access Control dataset by ID.
    *
    * <p>See {@link #getDatasetWithHttpInfoAsync}.
    *
@@ -542,7 +542,7 @@ public class DatasetsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DatasetsApi.getDataset",
+            "v2.DataAccessControlsApi.getDataset",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -561,7 +561,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Get a single dataset by ID.
+   * Get a Data Access Control dataset by ID.
    *
    * <p>See {@link #getDatasetWithHttpInfo}.
    *
@@ -601,7 +601,7 @@ public class DatasetsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DatasetsApi.getDataset",
+              "v2.DataAccessControlsApi.getDataset",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -625,7 +625,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Edit a dataset.
+   * Edit a Data Access Control dataset.
    *
    * <p>See {@link #updateDatasetWithHttpInfo}.
    *
@@ -640,7 +640,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Edit a dataset.
+   * Edit a Data Access Control dataset.
    *
    * <p>See {@link #updateDatasetWithHttpInfoAsync}.
    *
@@ -706,7 +706,7 @@ public class DatasetsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.DatasetsApi.updateDataset",
+            "v2.DataAccessControlsApi.updateDataset",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -725,7 +725,7 @@ public class DatasetsApi {
   }
 
   /**
-   * Edit a dataset.
+   * Edit a Data Access Control dataset.
    *
    * <p>See {@link #updateDatasetWithHttpInfo}.
    *
@@ -775,7 +775,7 @@ public class DatasetsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.DatasetsApi.updateDataset",
+              "v2.DataAccessControlsApi.updateDataset",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
