@@ -3945,7 +3945,9 @@ public class CaseManagementApi {
   }
 
   /**
-   * Update case attributes
+   * Update case attributes. This replaces all attributes with the provided payload. To update a
+   * single attribute (e.g., team), include all existing attributes in the request to avoid
+   * overwriting them.
    *
    * @param caseId Case's UUID or key (required)
    * @param body Case attributes update payload (required)
