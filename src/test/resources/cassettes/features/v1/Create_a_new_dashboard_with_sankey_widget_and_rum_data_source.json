@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_sankey_widget_and_rum_data_source-1767367579\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"rum\",\"mode\":\"source\",\"query_string\":\"@type:view\"},\"request_type\":\"sankey\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"sankey\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"pgj-vt6-zeg\",\"title\":\"Test-Create_a_new_dashboard_with_sankey_widget_and_rum_data_source-1767367579\",\"description\":\"\",\"author_handle\":\"sophie.cao@datadoghq.com\",\"author_name\":\"Sophie Cao\",\"layout_type\":\"free\",\"url\":\"/dashboard/pgj-vt6-zeg/test-createanewdashboardwithsankeywidgetandrumdatasource-1767367579\",\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"rum\",\"mode\":\"source\",\"query_string\":\"@type:view\"},\"request_type\":\"sankey\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"sankey\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":1607494419972582}],\"notify_list\":[],\"created_at\":\"2026-01-02T15:26:19.817734+00:00\",\"modified_at\":\"2026-01-02T15:26:19.817734+00:00\",\"restricted_roles\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e50096f8-701d-2695-ccb5-e4bb8dc80a98"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/pgj-vt6-zeg",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"pgj-vt6-zeg\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3597b2c2-f955-8709-af84-283c2af5a46b"
+  }
+]
