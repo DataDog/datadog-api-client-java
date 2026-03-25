@@ -1744,7 +1744,8 @@ public class StaticAnalysisApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

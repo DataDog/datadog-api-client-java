@@ -18,6 +18,7 @@ public class PaginationIterable<T> implements Iterable<T> {
   Boolean offsetPageIncrement;
   Object limit;
   LinkedHashMap<String, Object> args;
+  int pageStart;
 
   public PaginationIterable(
       Object requestClass,
@@ -28,7 +29,8 @@ public class PaginationIterable<T> implements Iterable<T> {
       Boolean valueSetterParamOptional,
       Boolean offsetPageIncrement,
       Object limit,
-      LinkedHashMap<String, Object> args) {
+      LinkedHashMap<String, Object> args,
+      int pageStart) {
 
     this.requestClass = requestClass;
     this.requestName = requestName;
@@ -45,6 +47,7 @@ public class PaginationIterable<T> implements Iterable<T> {
     this.offsetPageIncrement = offsetPageIncrement;
     this.limit = limit;
     this.args = args;
+    this.pageStart = pageStart;
   }
 
   @Override

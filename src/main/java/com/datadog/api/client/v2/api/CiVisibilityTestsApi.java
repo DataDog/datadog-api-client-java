@@ -371,7 +371,8 @@ public class CiVisibilityTestsApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }
@@ -628,7 +629,8 @@ public class CiVisibilityTestsApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

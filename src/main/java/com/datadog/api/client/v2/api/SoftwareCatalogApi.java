@@ -569,7 +569,8 @@ public class SoftwareCatalogApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }
@@ -872,7 +873,8 @@ public class SoftwareCatalogApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }
@@ -1181,7 +1183,8 @@ public class SoftwareCatalogApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

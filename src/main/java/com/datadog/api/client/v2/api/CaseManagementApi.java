@@ -3308,7 +3308,7 @@ public class CaseManagementApi {
     String valueGetterPath = "";
     String valueSetterPath = "pageNumber";
     Boolean valueSetterParamOptional = true;
-    parameters.pageNumber(0l);
+    parameters.pageNumber(1l);
     Long limit;
 
     if (parameters.pageSize == null) {
@@ -3331,7 +3331,8 @@ public class CaseManagementApi {
             valueSetterParamOptional,
             false,
             limit,
-            args);
+            args,
+            1);
 
     return iterator;
   }

@@ -739,7 +739,8 @@ public class ServiceScorecardsApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }
@@ -1133,7 +1134,8 @@ public class ServiceScorecardsApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

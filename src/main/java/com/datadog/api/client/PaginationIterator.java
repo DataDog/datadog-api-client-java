@@ -85,13 +85,13 @@ public class PaginationIterator<T> implements Iterator<T> {
         value = value.getClass().getMethod(path).invoke(value);
       }
     } else {
-      // fallback to pageOffset = totalCount;
+      // fallback to pageOffset = pageStart + totalCount;
       // We cast the type based on the setterMethod parameter type
       String pType = setterMethod.getParameterTypes()[0].getSimpleName();
       if ("Long".equals(pType)) {
-        value = (long) this.totalCount;
+        value = (long) (this.iterable.pageStart + this.totalCount);
       } else {
-        value = this.totalCount;
+        value = this.iterable.pageStart + this.totalCount;
       }
     }
 
