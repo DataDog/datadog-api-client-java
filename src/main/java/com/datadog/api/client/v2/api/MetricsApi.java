@@ -1671,8 +1671,9 @@ public class MetricsApi {
      * Set filterQueriedWindowSeconds.
      *
      * @param filterQueriedWindowSeconds Only return metrics that have been queried or not queried
-     *     in the specified window. Dependent on being sent with <code>filter[queried]</code>.
-     *     (optional, default to 2592000)
+     *     in the specified window. Dependent on being sent with <code>filter[queried]</code>. The
+     *     default value is 2,592,000 seconds (30 days), the maximum value is 15,552,000 seconds
+     *     (180 days), and the minimum value is 1 second. (optional, default to 2592000)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterQueriedWindowSeconds(
@@ -1710,7 +1711,8 @@ public class MetricsApi {
      * Set windowSeconds.
      *
      * @param windowSeconds Only return metrics that have been actively reporting in the specified
-     *     window. (optional, default to 3600)
+     *     window. The default value is 3600 seconds (1 hour), the maximum value is 2,592,000
+     *     seconds (30 days), and the minimum value is 1 second. (optional, default to 3600)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters windowSeconds(Long windowSeconds) {
@@ -1722,7 +1724,8 @@ public class MetricsApi {
      * Set pageSize.
      *
      * @param pageSize Maximum number of results per page. Use with <code>page[cursor]</code> for
-     *     pagination. (optional, default to 10000)
+     *     pagination. The default value is 10000, the maximum value is 10000, and the minimum value
+     *     is 1. (optional, default to 10000)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters pageSize(Integer pageSize) {
