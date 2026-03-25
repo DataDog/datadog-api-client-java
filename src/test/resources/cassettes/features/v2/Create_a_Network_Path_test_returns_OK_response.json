@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"network_test\",\"attributes\":{\"public_id\":\"iab-wcx-mhp\",\"name\":\"Example Network Path test\",\"locations\":[\"aws:us-east-1\",\"agent:my-agent-name\"],\"subtype\":\"tcp\",\"status\":\"live\",\"options\":{\"tick_every\":60},\"config\":{\"assertions\":[{\"operator\":\"lessThan\",\"property\":\"avg\",\"target\":500,\"type\":\"latency\"}],\"request\":{\"max_ttl\":30,\"tcp_method\":\"prefer_sack\",\"host\":\"example.com\",\"traceroute_queries\":3,\"e2e_queries\":50,\"port\":443}},\"type\":\"network\",\"tags\":[\"env:production\"],\"message\":\"Network Path test notification\"},\"id\":\"iab-wcx-mhp\"}}\n",
+      "body": "{\"data\":{\"type\":\"network_test\",\"attributes\":{\"config\":{\"request\":{\"max_ttl\":30,\"tcp_method\":\"prefer_sack\",\"host\":\"example.com\",\"e2e_queries\":50,\"traceroute_queries\":3,\"port\":443},\"assertions\":[{\"operator\":\"lessThan\",\"property\":\"avg\",\"target\":500,\"type\":\"latency\"}]},\"message\":\"Network Path test notification\",\"name\":\"Example Network Path test\",\"tags\":[\"env:production\"],\"options\":{\"tick_every\":60},\"type\":\"network\",\"public_id\":\"b2j-fw3-qr5\",\"subtype\":\"tcp\",\"locations\":[\"aws:us-east-1\",\"agent:my-agent-name\"],\"status\":\"live\"},\"id\":\"b2j-fw3-qr5\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3e9c7578-282c-3e74-af19-c5c1adf2db21"
+    "id": "3e9c7578-282c-3e74-af19-c5c1adf2db20"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"public_ids\":[\"iab-wcx-mhp\"]},\"type\":\"delete_tests_request\"}}"
+        "json": "{\"data\":{\"attributes\":{\"public_ids\":[\"b2j-fw3-qr5\"]},\"type\":\"delete_tests_request\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"type\":\"delete_tests\",\"attributes\":{\"deleted_at\":\"2026-02-02T10:35:25.382918+00:00\",\"public_id\":\"iab-wcx-mhp\"},\"id\":\"iab-wcx-mhp\"}]}\n",
+      "body": "{\"data\":[{\"type\":\"delete_tests\",\"attributes\":{\"deleted_at\":\"2026-02-18T16:57:04.752457+00:00\",\"public_id\":\"b2j-fw3-qr5\"},\"id\":\"b2j-fw3-qr5\"}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,6 +57,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6fa27e8b-cfa1-19a5-e9b9-633b289465bd"
+    "id": "55ca62e2-7197-1794-385f-f42131cef2d5"
   }
 ]
