@@ -13,6 +13,7 @@ import com.datadog.api.client.v2.model.GlobalVariableResponse;
 import com.datadog.api.client.v2.model.OnDemandConcurrencyCapAttributes;
 import com.datadog.api.client.v2.model.OnDemandConcurrencyCapResponse;
 import com.datadog.api.client.v2.model.SuiteCreateEditRequest;
+import com.datadog.api.client.v2.model.SyntheticsFastTestResult;
 import com.datadog.api.client.v2.model.SyntheticsNetworkTestEditRequest;
 import com.datadog.api.client.v2.model.SyntheticsNetworkTestResponse;
 import com.datadog.api.client.v2.model.SyntheticsSuiteResponse;
@@ -842,6 +843,139 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<OnDemandConcurrencyCapResponse>() {});
+  }
+
+  /**
+   * Get a fast test result.
+   *
+   * <p>See {@link #getSyntheticsFastTestResultWithHttpInfo}.
+   *
+   * @param id The UUID of the fast test to retrieve the result for. (required)
+   * @return SyntheticsFastTestResult
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsFastTestResult getSyntheticsFastTestResult(String id) throws ApiException {
+    return getSyntheticsFastTestResultWithHttpInfo(id).getData();
+  }
+
+  /**
+   * Get a fast test result.
+   *
+   * <p>See {@link #getSyntheticsFastTestResultWithHttpInfoAsync}.
+   *
+   * @param id The UUID of the fast test to retrieve the result for. (required)
+   * @return CompletableFuture&lt;SyntheticsFastTestResult&gt;
+   */
+  public CompletableFuture<SyntheticsFastTestResult> getSyntheticsFastTestResultAsync(String id) {
+    return getSyntheticsFastTestResultWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * @param id The UUID of the fast test to retrieve the result for. (required)
+   * @return ApiResponse&lt;SyntheticsFastTestResult&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsFastTestResult> getSyntheticsFastTestResultWithHttpInfo(String id)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling getSyntheticsFastTestResult");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/fast/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.getSyntheticsFastTestResult",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsFastTestResult>() {});
+  }
+
+  /**
+   * Get a fast test result.
+   *
+   * <p>See {@link #getSyntheticsFastTestResultWithHttpInfo}.
+   *
+   * @param id The UUID of the fast test to retrieve the result for. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsFastTestResult&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsFastTestResult>>
+      getSyntheticsFastTestResultWithHttpInfoAsync(String id) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<SyntheticsFastTestResult>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling getSyntheticsFastTestResult"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/fast/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.getSyntheticsFastTestResult",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsFastTestResult>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsFastTestResult>() {});
   }
 
   /**
