@@ -20,6 +20,7 @@ import java.util.Objects;
 /** Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle. */
 @JsonPropertyOrder({
   LogsExclusionFilter.JSON_PROPERTY_QUERY,
+  LogsExclusionFilter.JSON_PROPERTY_SAMPLE_ATTRIBUTE,
   LogsExclusionFilter.JSON_PROPERTY_SAMPLE_RATE
 })
 @jakarta.annotation.Generated(
@@ -28,6 +29,9 @@ public class LogsExclusionFilter {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_SAMPLE_ATTRIBUTE = "sample_attribute";
+  private String sampleAttribute;
 
   public static final String JSON_PROPERTY_SAMPLE_RATE = "sample_rate";
   private Double sampleRate;
@@ -60,6 +64,28 @@ public class LogsExclusionFilter {
 
   public void setQuery(String query) {
     this.query = query;
+  }
+
+  public LogsExclusionFilter sampleAttribute(String sampleAttribute) {
+    this.sampleAttribute = sampleAttribute;
+    return this;
+  }
+
+  /**
+   * Sample attribute to use for the sampling of logs going through this exclusion filter. When set,
+   * only the logs with the specified attribute are sampled.
+   *
+   * @return sampleAttribute
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SAMPLE_ATTRIBUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSampleAttribute() {
+    return sampleAttribute;
+  }
+
+  public void setSampleAttribute(String sampleAttribute) {
+    this.sampleAttribute = sampleAttribute;
   }
 
   public LogsExclusionFilter sampleRate(Double sampleRate) {
@@ -140,13 +166,14 @@ public class LogsExclusionFilter {
     }
     LogsExclusionFilter logsExclusionFilter = (LogsExclusionFilter) o;
     return Objects.equals(this.query, logsExclusionFilter.query)
+        && Objects.equals(this.sampleAttribute, logsExclusionFilter.sampleAttribute)
         && Objects.equals(this.sampleRate, logsExclusionFilter.sampleRate)
         && Objects.equals(this.additionalProperties, logsExclusionFilter.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(query, sampleRate, additionalProperties);
+    return Objects.hash(query, sampleAttribute, sampleRate, additionalProperties);
   }
 
   @Override
@@ -154,6 +181,7 @@ public class LogsExclusionFilter {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsExclusionFilter {\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    sampleAttribute: ").append(toIndentedString(sampleAttribute)).append("\n");
     sb.append("    sampleRate: ").append(toIndentedString(sampleRate)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

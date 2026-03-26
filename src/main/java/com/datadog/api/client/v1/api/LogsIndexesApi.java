@@ -698,7 +698,7 @@ public class LogsIndexesApi {
    * Update an index as identified by its name. Returns the Index object passed in the request body
    * when the request is successful.
    *
-   * <p>Using the <code>PUT</code> method updates your index’s configuration by
+   * <p>Using the <code>PUT</code> method updates your index's configuration by
    * <strong>replacing</strong> your current configuration with the new one sent to your Datadog
    * organization.
    *
