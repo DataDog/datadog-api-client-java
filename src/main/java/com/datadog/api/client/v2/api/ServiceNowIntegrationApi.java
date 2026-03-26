@@ -99,13 +99,6 @@ public class ServiceNowIntegrationApi {
    */
   public ApiResponse<ServiceNowTemplateResponse> createServiceNowTemplateWithHttpInfo(
       ServiceNowTemplateCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createServiceNowTemplate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -148,16 +141,6 @@ public class ServiceNowIntegrationApi {
    */
   public CompletableFuture<ApiResponse<ServiceNowTemplateResponse>>
       createServiceNowTemplateWithHttpInfoAsync(ServiceNowTemplateCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createServiceNowTemplate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ServiceNowTemplateResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -246,13 +229,6 @@ public class ServiceNowIntegrationApi {
    */
   public ApiResponse<Void> deleteServiceNowTemplateWithHttpInfo(UUID templateId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteServiceNowTemplate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'templateId' is set
@@ -298,16 +274,6 @@ public class ServiceNowIntegrationApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteServiceNowTemplateWithHttpInfoAsync(
       UUID templateId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteServiceNowTemplate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'templateId' is set
@@ -401,13 +367,6 @@ public class ServiceNowIntegrationApi {
    */
   public ApiResponse<ServiceNowTemplateResponse> getServiceNowTemplateWithHttpInfo(UUID templateId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getServiceNowTemplate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'templateId' is set
@@ -453,16 +412,6 @@ public class ServiceNowIntegrationApi {
    */
   public CompletableFuture<ApiResponse<ServiceNowTemplateResponse>>
       getServiceNowTemplateWithHttpInfoAsync(UUID templateId) {
-    // Check if unstable operation is enabled
-    String operationId = "getServiceNowTemplate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ServiceNowTemplateResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'templateId' is set
@@ -558,13 +507,6 @@ public class ServiceNowIntegrationApi {
    */
   public ApiResponse<ServiceNowAssignmentGroupsResponse> listServiceNowAssignmentGroupsWithHttpInfo(
       UUID instanceId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listServiceNowAssignmentGroups";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'instanceId' is set
@@ -612,17 +554,6 @@ public class ServiceNowIntegrationApi {
    */
   public CompletableFuture<ApiResponse<ServiceNowAssignmentGroupsResponse>>
       listServiceNowAssignmentGroupsWithHttpInfoAsync(UUID instanceId) {
-    // Check if unstable operation is enabled
-    String operationId = "listServiceNowAssignmentGroups";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ServiceNowAssignmentGroupsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'instanceId' is set
@@ -721,13 +652,6 @@ public class ServiceNowIntegrationApi {
    */
   public ApiResponse<ServiceNowBusinessServicesResponse> listServiceNowBusinessServicesWithHttpInfo(
       UUID instanceId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listServiceNowBusinessServices";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'instanceId' is set
@@ -775,17 +699,6 @@ public class ServiceNowIntegrationApi {
    */
   public CompletableFuture<ApiResponse<ServiceNowBusinessServicesResponse>>
       listServiceNowBusinessServicesWithHttpInfoAsync(UUID instanceId) {
-    // Check if unstable operation is enabled
-    String operationId = "listServiceNowBusinessServices";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ServiceNowBusinessServicesResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'instanceId' is set
@@ -878,13 +791,6 @@ public class ServiceNowIntegrationApi {
    */
   public ApiResponse<ServiceNowInstancesResponse> listServiceNowInstancesWithHttpInfo()
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listServiceNowInstances";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/servicenow/instances";
@@ -920,17 +826,6 @@ public class ServiceNowIntegrationApi {
    */
   public CompletableFuture<ApiResponse<ServiceNowInstancesResponse>>
       listServiceNowInstancesWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "listServiceNowInstances";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ServiceNowInstancesResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/servicenow/instances";
@@ -1007,13 +902,6 @@ public class ServiceNowIntegrationApi {
    */
   public ApiResponse<ServiceNowTemplatesResponse> listServiceNowTemplatesWithHttpInfo()
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listServiceNowTemplates";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/servicenow/handles";
@@ -1049,17 +937,6 @@ public class ServiceNowIntegrationApi {
    */
   public CompletableFuture<ApiResponse<ServiceNowTemplatesResponse>>
       listServiceNowTemplatesWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "listServiceNowTemplates";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ServiceNowTemplatesResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/integration/servicenow/handles";
@@ -1141,13 +1018,6 @@ public class ServiceNowIntegrationApi {
    */
   public ApiResponse<ServiceNowUsersResponse> listServiceNowUsersWithHttpInfo(UUID instanceId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listServiceNowUsers";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'instanceId' is set
@@ -1193,16 +1063,6 @@ public class ServiceNowIntegrationApi {
    */
   public CompletableFuture<ApiResponse<ServiceNowUsersResponse>>
       listServiceNowUsersWithHttpInfoAsync(UUID instanceId) {
-    // Check if unstable operation is enabled
-    String operationId = "listServiceNowUsers";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ServiceNowUsersResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'instanceId' is set
@@ -1300,13 +1160,6 @@ public class ServiceNowIntegrationApi {
    */
   public ApiResponse<ServiceNowTemplateResponse> updateServiceNowTemplateWithHttpInfo(
       UUID templateId, ServiceNowTemplateUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateServiceNowTemplate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'templateId' is set
@@ -1360,16 +1213,6 @@ public class ServiceNowIntegrationApi {
   public CompletableFuture<ApiResponse<ServiceNowTemplateResponse>>
       updateServiceNowTemplateWithHttpInfoAsync(
           UUID templateId, ServiceNowTemplateUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateServiceNowTemplate";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ServiceNowTemplateResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'templateId' is set
