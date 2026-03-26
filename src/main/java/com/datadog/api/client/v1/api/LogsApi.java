@@ -85,6 +85,9 @@ public class LogsApi {
    * href="https://docs.datadoghq.com/logs/archives">Datadog Logs Archive
    * documentation</a>.</strong>
    *
+   * <p><strong>Note</strong>: This endpoint is enabled by default for logs customers. To disable
+   * it, contact <a href="https://docs.datadoghq.com/help/">Datadog support</a>.
+   *
    * @param body Logs filter (required)
    * @return ApiResponse&lt;LogsListResponse&gt;
    * @throws ApiException if fails to make API call
