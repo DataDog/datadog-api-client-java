@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_apm_metrics_widget-1740045600\",\"widgets\":[{\"definition\":{\"requests\":[{\"queries\":[{\"data_source\":\"apm_metrics\",\"group_by\":[\"resource_name\"],\"name\":\"query1\",\"query_filter\":\"env:prod\",\"service\":\"web-store\",\"stat\":\"hits\"}],\"response_format\":\"scalar\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_table\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"apm-met-ric\",\"title\":\"Test-Create_a_new_dashboard_with_apm_metrics_widget-1740045600\",\"description\":null,\"author_handle\":\"test@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/apm-met-ric/testcreateanewdashboardwithapmmetricswidget1740045600\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"queries\":[{\"data_source\":\"apm_metrics\",\"group_by\":[\"resource_name\"],\"name\":\"query1\",\"query_filter\":\"env:prod\",\"service\":\"web-store\",\"stat\":\"hits\"}],\"response_format\":\"scalar\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_table\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0},\"id\":1234567890123456}],\"notify_list\":null,\"created_at\":\"2025-02-20T10:00:01.000000+00:00\",\"modified_at\":\"2025-02-20T10:00:01.000000+00:00\",\"restricted_roles\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1cfcf5cc-d2e7-dff3-d4f3-b05c53d79057"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/apm-met-ric",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"apm-met-ric\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "71162de5-2581-d0f3-91d9-49ff27e2aac0"
+  }
+]
