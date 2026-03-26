@@ -14,7 +14,6 @@ import java.util.UUID;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.updateServiceNowTemplate", true);
     ServiceNowIntegrationApi apiInstance = new ServiceNowIntegrationApi(defaultClient);
 
     ServiceNowTemplateUpdateRequest body =

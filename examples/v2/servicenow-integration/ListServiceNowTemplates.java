@@ -8,7 +8,6 @@ import com.datadog.api.client.v2.model.ServiceNowTemplatesResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.listServiceNowTemplates", true);
     ServiceNowIntegrationApi apiInstance = new ServiceNowIntegrationApi(defaultClient);
 
     try {
