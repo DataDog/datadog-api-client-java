@@ -233,7 +233,8 @@ public class AuditApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }
@@ -486,7 +487,8 @@ public class AuditApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

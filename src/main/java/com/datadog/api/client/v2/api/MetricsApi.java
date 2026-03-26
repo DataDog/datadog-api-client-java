@@ -1856,7 +1856,8 @@ public class MetricsApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

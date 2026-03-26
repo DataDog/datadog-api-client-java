@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.CaseManagementApi;
+import com.datadog.api.client.v2.api.CaseManagementApi.SearchCasesOptionalParameters;
 import com.datadog.api.client.v2.model.Case;
 
 public class Example {
@@ -11,7 +12,9 @@ public class Example {
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
     try {
-      PaginationIterable<Case> iterable = apiInstance.searchCasesWithPagination();
+      PaginationIterable<Case> iterable =
+          apiInstance.searchCasesWithPagination(
+              new SearchCasesOptionalParameters().pageSize(2L).filter("status:closed"));
 
       for (Case item : iterable) {
         System.out.println(item);

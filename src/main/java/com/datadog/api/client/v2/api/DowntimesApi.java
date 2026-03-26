@@ -680,7 +680,8 @@ public class DowntimesApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }
@@ -936,7 +937,8 @@ public class DowntimesApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

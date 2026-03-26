@@ -881,7 +881,8 @@ public class RumApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }
@@ -1073,7 +1074,8 @@ public class RumApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

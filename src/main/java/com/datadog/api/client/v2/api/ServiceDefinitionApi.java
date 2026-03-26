@@ -685,7 +685,8 @@ public class ServiceDefinitionApi {
             valueSetterParamOptional,
             false,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

@@ -148,7 +148,7 @@ public class {{ name }} {
   String valueGetterPath = "";
   String valueSetterPath = "{%- if getters|length > 1 %}{{ ".".join(getters[:getters|length-1]) }}.{%- endif %}{{ setters[getters|length-1] }}";
   Boolean valueSetterParamOptional = {{ optional|lower }};
-  parameters.{% if getters|length > 1 %}{{ ".".join(getters[:getters|length-1]) }}.{%- endif %}{{ setters[getters|length-1] }}({{ 0|format_value(schema=paramSchema['schema']) }});
+  parameters.{% if getters|length > 1 %}{{ ".".join(getters[:getters|length-1]) }}.{%- endif %}{{ setters[getters|length-1] }}({{ (pagination.pageStart | default(0))|format_value(schema=paramSchema['schema']) }});
   {%- endif %}
 
 {#- Limit param field #}
@@ -205,7 +205,7 @@ public class {{ name }} {
   args.put("optionalParams", parameters);
   {%- endif  %}
 
-  PaginationIterable iterator = new PaginationIterable(this, "{{ operationId }}", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, {% if pagination.pageParam %}false{% else %}true{% endif %}, limit, args);
+  PaginationIterable iterator = new PaginationIterable(this, "{{ operationId }}", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, {% if pagination.pageParam %}false{% else %}true{% endif %}, limit, args, {{ pagination.pageStart | default(0) }});
 
   return iterator;
 {%- endmacro %}

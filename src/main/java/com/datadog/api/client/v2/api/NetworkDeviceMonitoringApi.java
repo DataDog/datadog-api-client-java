@@ -536,7 +536,8 @@ public class NetworkDeviceMonitoringApi {
             valueSetterParamOptional,
             false,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

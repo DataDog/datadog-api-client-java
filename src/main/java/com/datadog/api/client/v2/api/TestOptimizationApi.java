@@ -509,7 +509,8 @@ public class TestOptimizationApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

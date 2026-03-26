@@ -691,7 +691,8 @@ public class NotebooksApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

@@ -521,7 +521,8 @@ public class CiVisibilityPipelinesApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }
@@ -781,7 +782,8 @@ public class CiVisibilityPipelinesApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

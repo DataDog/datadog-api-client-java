@@ -7020,7 +7020,8 @@ public class IncidentsApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }
@@ -7677,7 +7678,8 @@ public class IncidentsApi {
             valueSetterParamOptional,
             true,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }

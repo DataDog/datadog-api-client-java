@@ -3655,7 +3655,8 @@ public class SyntheticsApi {
             valueSetterParamOptional,
             false,
             limit,
-            args);
+            args,
+            0);
 
     return iterator;
   }
