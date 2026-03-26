@@ -1,0 +1,75 @@
+// Create a new dashboard with apm metrics widget
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.FormulaAndFunctionApmMetricStatName;
+import com.datadog.api.client.v1.model.FormulaAndFunctionApmMetricsDataSource;
+import com.datadog.api.client.v1.model.FormulaAndFunctionApmMetricsQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
+import com.datadog.api.client.v1.model.TableWidgetDefinition;
+import com.datadog.api.client.v1.model.TableWidgetDefinitionType;
+import com.datadog.api.client.v1.model.TableWidgetRequest;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetTextAlign;
+import java.util.Collections;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    DashboardsApi apiInstance = new DashboardsApi(defaultClient);
+
+    Dashboard body =
+        new Dashboard()
+            .title("Example-Dashboard")
+            .widgets(
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new TableWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .type(TableWidgetDefinitionType.QUERY_TABLE)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new TableWidgetRequest()
+                                                .responseFormat(
+                                                    FormulaAndFunctionResponseFormat.SCALAR)
+                                                .queries(
+                                                    Collections.singletonList(
+                                                        new FormulaAndFunctionQueryDefinition(
+                                                            new FormulaAndFunctionApmMetricsQueryDefinition()
+                                                                .stat(
+                                                                    FormulaAndFunctionApmMetricStatName
+                                                                        .HITS)
+                                                                .name("query1")
+                                                                .service("web-store")
+                                                                .dataSource(
+                                                                    FormulaAndFunctionApmMetricsDataSource
+                                                                        .APM_METRICS)
+                                                                .queryFilter("env:prod")
+                                                                .groupBy(
+                                                                    Collections.singletonList(
+                                                                        "resource_name")))))))))
+                        .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L))))
+            .layoutType(DashboardLayoutType.ORDERED);
+
+    try {
+      Dashboard result = apiInstance.createDashboard(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DashboardsApi#createDashboard");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
