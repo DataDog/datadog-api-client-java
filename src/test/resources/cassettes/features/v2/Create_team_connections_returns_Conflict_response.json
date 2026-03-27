@@ -1,0 +1,113 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-84ab6777f7201a32\",\"name\":\"test-name-84ab6777f7201a32\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"be93b665-0a69-4573-8ef4-56f6a741c1a1\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":10,\"created_at\":\"2026-03-27T09:28:24.862516+00:00\",\"description\":null,\"handle\":\"test-handle-84ab6777f7201a32\",\"hidden_modules\":null,\"is_managed\":false,\"link_count\":0,\"modified_at\":\"2026-03-27T09:28:24.862516+00:00\",\"name\":\"test-name-84ab6777f7201a32\",\"summary\":null,\"user_count\":0,\"visible_modules\":null},\"relationships\":{\"team_links\":{\"data\":[],\"links\":{\"related\":\"/api/v2/team/be93b665-0a69-4573-8ef4-56f6a741c1a1/links\"}},\"user_team_permissions\":{\"data\":null,\"links\":{\"related\":\"/api/v2/team/be93b665-0a69-4573-8ef4-56f6a741c1a1/permission-settings\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "41a6dab2-68b8-510b-2dc3-24d5fa75ae09"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"be93b665-0a69-4573-8ef4-56f6a741c1a1\",\"type\":\"team\"}}},\"type\":\"team_connection\"}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team/connections",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"4e4b0094-29bf-11f1-aeac-da7ad0900002\",\"type\":\"team_connection\",\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"be93b665-0a69-4573-8ef4-56f6a741c1a1\",\"type\":\"team\"}}}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1ac41fd9-f784-940b-1891-6a8a7ecd402e"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"be93b665-0a69-4573-8ef4-56f6a741c1a1\",\"type\":\"team\"}}},\"type\":\"team_connection\"}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team/connections",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"409\",\"title\":\"Conflict\",\"detail\":\"failed to add team connections: one or more team attributes already exist\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 409,
+      "reasonPhrase": "Conflict"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1ac41fd9-f784-940b-1891-6a8a7ecd402f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/be93b665-0a69-4573-8ef4-56f6a741c1a1",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fb8f40a0-fece-78aa-5141-a94e3de9fc5e"
+  }
+]

@@ -20,7 +20,6 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.createTeamConnections", true);
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
     // there is a valid "dd_team" in the system

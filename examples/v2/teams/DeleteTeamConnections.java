@@ -13,12 +13,15 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
+    // there is a valid "team_connection" in the system
+    String TEAM_CONNECTION_ID = System.getenv("TEAM_CONNECTION_ID");
+
     TeamConnectionDeleteRequest body =
         new TeamConnectionDeleteRequest()
             .data(
                 Collections.singletonList(
                     new TeamConnectionDeleteRequestDataItem()
-                        .id("12345678-1234-5678-9abc-123456789012")
+                        .id(TEAM_CONNECTION_ID)
                         .type(TeamConnectionType.TEAM_CONNECTION)));
 
     try {
