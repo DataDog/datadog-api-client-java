@@ -26,7 +26,11 @@ public class Example {
             .exclusionFilters(
                 Collections.singletonList(
                     new LogsExclusion()
-                        .filter(new LogsExclusionFilter().query("*").sampleRate(1.0))
+                        .filter(
+                            new LogsExclusionFilter()
+                                .query("*")
+                                .sampleAttribute("@ci.job_id")
+                                .sampleRate(1.0))
                         .name("payment")))
             .filter(new LogsFilter().query("source:python"))
             .numFlexLogsRetentionDays(360L)
