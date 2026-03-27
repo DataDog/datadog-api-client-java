@@ -12059,7 +12059,9 @@ public class SecurityMonitoringApi {
    *
    * @return ListVulnerabilitiesResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ListVulnerabilitiesResponse listVulnerabilities() throws ApiException {
     return listVulnerabilitiesWithHttpInfo(new ListVulnerabilitiesOptionalParameters()).getData();
   }
@@ -12070,7 +12072,9 @@ public class SecurityMonitoringApi {
    * <p>See {@link #listVulnerabilitiesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;ListVulnerabilitiesResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ListVulnerabilitiesResponse> listVulnerabilitiesAsync() {
     return listVulnerabilitiesWithHttpInfoAsync(new ListVulnerabilitiesOptionalParameters())
         .thenApply(
@@ -12087,7 +12091,9 @@ public class SecurityMonitoringApi {
    * @param parameters Optional parameters for the request.
    * @return ListVulnerabilitiesResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ListVulnerabilitiesResponse listVulnerabilities(
       ListVulnerabilitiesOptionalParameters parameters) throws ApiException {
     return listVulnerabilitiesWithHttpInfo(parameters).getData();
@@ -12100,7 +12106,9 @@ public class SecurityMonitoringApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ListVulnerabilitiesResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ListVulnerabilitiesResponse> listVulnerabilitiesAsync(
       ListVulnerabilitiesOptionalParameters parameters) {
     return listVulnerabilitiesWithHttpInfoAsync(parameters)
@@ -12237,7 +12245,10 @@ public class SecurityMonitoringApi {
    *       <tr><td> 404 </td><td> Not found: There is no request associated with the provided token. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ListVulnerabilitiesResponse> listVulnerabilitiesWithHttpInfo(
       ListVulnerabilitiesOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
@@ -12422,7 +12433,9 @@ public class SecurityMonitoringApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ListVulnerabilitiesResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ListVulnerabilitiesResponse>>
       listVulnerabilitiesWithHttpInfoAsync(ListVulnerabilitiesOptionalParameters parameters) {
     // Check if unstable operation is enabled
