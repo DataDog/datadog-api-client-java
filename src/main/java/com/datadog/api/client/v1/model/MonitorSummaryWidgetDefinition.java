@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /**
  * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset
- * based on a query. Only available on FREE layout dashboards.
+ * based on a query.
  */
 @JsonPropertyOrder({
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_COLOR_PREFERENCE,

@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /**
  * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on
- * screenboards and timeboards.
+ * dashboards.
  */
 @JsonPropertyOrder({
   SLOWidgetDefinition.JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS,

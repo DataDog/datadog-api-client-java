@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /**
  * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or
- * animated GIF. Only available on FREE layout dashboards.
+ * animated GIF.
  */
 @JsonPropertyOrder({
   ImageWidgetDefinition.JSON_PROPERTY_HAS_BACKGROUND,
