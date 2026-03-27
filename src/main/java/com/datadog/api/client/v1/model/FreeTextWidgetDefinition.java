@@ -18,10 +18,11 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Free text is a widget that allows you to add headings to your screenboard. Commonly used to state
- * the overall purpose of the dashboard. Only available on FREE layout dashboards.
+ * Free text is a widget that allows you to add headings to your dashboard. Commonly used to state
+ * the overall purpose of the dashboard.
  */
 @JsonPropertyOrder({
+  FreeTextWidgetDefinition.JSON_PROPERTY_BACKGROUND_COLOR,
   FreeTextWidgetDefinition.JSON_PROPERTY_COLOR,
   FreeTextWidgetDefinition.JSON_PROPERTY_FONT_SIZE,
   FreeTextWidgetDefinition.JSON_PROPERTY_TEXT,
@@ -32,6 +33,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FreeTextWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BACKGROUND_COLOR = "background_color";
+  private String backgroundColor;
+
   public static final String JSON_PROPERTY_COLOR = "color";
   private String color;
 
@@ -57,6 +61,31 @@ public class FreeTextWidgetDefinition {
     this.text = text;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public FreeTextWidgetDefinition backgroundColor(String backgroundColor) {
+    this.backgroundColor = backgroundColor;
+    return this;
+  }
+
+  /**
+   * Background color of the widget. Supported values are <code>white</code>, <code>blue</code>,
+   * <code>purple</code>, <code>pink</code>, <code>orange</code>, <code>yellow</code>, <code>green
+   * </code>, <code>gray</code>, <code>vivid_blue</code>, <code>vivid_purple</code>, <code>
+   * vivid_pink</code>, <code>vivid_orange</code>, <code>vivid_yellow</code>, <code>vivid_green
+   * </code>, and <code>transparent</code>.
+   *
+   * @return backgroundColor
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BACKGROUND_COLOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBackgroundColor() {
+    return backgroundColor;
+  }
+
+  public void setBackgroundColor(String backgroundColor) {
+    this.backgroundColor = backgroundColor;
   }
 
   public FreeTextWidgetDefinition color(String color) {
@@ -226,7 +255,8 @@ public class FreeTextWidgetDefinition {
       return false;
     }
     FreeTextWidgetDefinition freeTextWidgetDefinition = (FreeTextWidgetDefinition) o;
-    return Objects.equals(this.color, freeTextWidgetDefinition.color)
+    return Objects.equals(this.backgroundColor, freeTextWidgetDefinition.backgroundColor)
+        && Objects.equals(this.color, freeTextWidgetDefinition.color)
         && Objects.equals(this.fontSize, freeTextWidgetDefinition.fontSize)
         && Objects.equals(this.text, freeTextWidgetDefinition.text)
         && Objects.equals(this.textAlign, freeTextWidgetDefinition.textAlign)
@@ -236,13 +266,15 @@ public class FreeTextWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(color, fontSize, text, textAlign, type, additionalProperties);
+    return Objects.hash(
+        backgroundColor, color, fontSize, text, textAlign, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FreeTextWidgetDefinition {\n");
+    sb.append("    backgroundColor: ").append(toIndentedString(backgroundColor)).append("\n");
     sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    fontSize: ").append(toIndentedString(fontSize)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");

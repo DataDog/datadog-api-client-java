@@ -19,10 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The Log Stream displays a log flow matching the defined query. Only available on FREE layout
- * dashboards.
- */
+/** The Log Stream displays a log flow matching the defined query. */
 @JsonPropertyOrder({
   LogStreamWidgetDefinition.JSON_PROPERTY_COLUMNS,
   LogStreamWidgetDefinition.JSON_PROPERTY_DESCRIPTION,

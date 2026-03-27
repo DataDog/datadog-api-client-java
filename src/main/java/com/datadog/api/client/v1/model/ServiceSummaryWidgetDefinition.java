@@ -17,10 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The service summary displays the graphs of a chosen service in your screenboard. Only available
- * on FREE layout dashboards.
- */
+/** The service summary displays the graphs of a chosen service in your dashboard. */
 @JsonPropertyOrder({
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_DISPLAY_FORMAT,

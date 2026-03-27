@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a
+ * The group widget allows you to keep similar graphs together on your dashboard. Each group has a
  * custom header, can hold one to many graphs, and is collapsible.
  */
 @JsonPropertyOrder({
@@ -81,7 +81,11 @@ public class GroupWidgetDefinition {
   }
 
   /**
-   * Background color of the group title.
+   * Background color of the widget. Supported values are <code>white</code>, <code>blue</code>,
+   * <code>purple</code>, <code>pink</code>, <code>orange</code>, <code>yellow</code>, <code>green
+   * </code>, <code>gray</code>, <code>vivid_blue</code>, <code>vivid_purple</code>, <code>
+   * vivid_pink</code>, <code>vivid_orange</code>, <code>vivid_yellow</code>, <code>vivid_green
+   * </code>, and <code>transparent</code>.
    *
    * @return backgroundColor
    */

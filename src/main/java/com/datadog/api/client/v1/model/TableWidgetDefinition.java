@@ -20,8 +20,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The table visualization is available on timeboards and screenboards. It displays columns of
- * metrics grouped by tag key.
+ * The table visualization is available on dashboards. It displays columns of metrics grouped by tag
+ * key.
  */
 @JsonPropertyOrder({
   TableWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,

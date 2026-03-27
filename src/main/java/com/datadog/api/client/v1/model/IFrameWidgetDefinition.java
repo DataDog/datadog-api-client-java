@@ -17,10 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The iframe widget allows you to embed a portion of any other web page on your dashboard. Only
- * available on FREE layout dashboards.
- */
+/** The iframe widget allows you to embed a portion of any other web page on your dashboard. */
 @JsonPropertyOrder({
   IFrameWidgetDefinition.JSON_PROPERTY_TYPE,
   IFrameWidgetDefinition.JSON_PROPERTY_URL

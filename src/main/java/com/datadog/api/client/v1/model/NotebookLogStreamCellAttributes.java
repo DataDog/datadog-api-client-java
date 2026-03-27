@@ -54,8 +54,7 @@ public class NotebookLogStreamCellAttributes {
   }
 
   /**
-   * The Log Stream displays a log flow matching the defined query. Only available on FREE layout
-   * dashboards.
+   * The Log Stream displays a log flow matching the defined query.
    *
    * @return definition
    */
