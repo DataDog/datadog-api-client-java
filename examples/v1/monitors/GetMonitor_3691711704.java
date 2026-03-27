@@ -1,9 +1,16 @@
 // Get a synthetics monitor's details
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.MonitorsApi;
 import com.datadog.api.client.v1.model.Monitor;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,8 +18,7 @@ public class Example {
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
     // there is a valid "synthetics_api_test" in the system
-    Long SYNTHETICS_API_TEST_MONITOR_ID =
-        Long.parseLong(System.getenv("SYNTHETICS_API_TEST_MONITOR_ID"));
+    Long SYNTHETICS_API_TEST_MONITOR_ID = Long.parseLong(System.getenv("SYNTHETICS_API_TEST_MONITOR_ID"));
 
     try {
       Monitor result = apiInstance.getMonitor(SYNTHETICS_API_TEST_MONITOR_ID);

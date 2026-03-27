@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,14 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The supported attributes for creating a maintenance. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The supported attributes for creating a maintenance.</p>
+ */
 @JsonPropertyOrder({
   CreateMaintenanceRequestDataAttributes.JSON_PROPERTY_COMPLETED_DATE,
   CreateMaintenanceRequestDataAttributes.JSON_PROPERTY_COMPLETED_DESCRIPTION,
@@ -30,10 +43,10 @@ import java.util.Objects;
   CreateMaintenanceRequestDataAttributes.JSON_PROPERTY_START_DATE,
   CreateMaintenanceRequestDataAttributes.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateMaintenanceRequestDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPLETED_DATE = "completed_date";
   private OffsetDateTime completedDate;
 
@@ -41,8 +54,7 @@ public class CreateMaintenanceRequestDataAttributes {
   private String completedDescription;
 
   public static final String JSON_PROPERTY_COMPONENTS_AFFECTED = "components_affected";
-  private List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected =
-      new ArrayList<>();
+  private List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected = new ArrayList<>();
 
   public static final String JSON_PROPERTY_IN_PROGRESS_DESCRIPTION = "in_progress_description";
   private String inProgressDescription;
@@ -60,181 +72,161 @@ public class CreateMaintenanceRequestDataAttributes {
 
   @JsonCreator
   public CreateMaintenanceRequestDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMPONENTS_AFFECTED)
-          List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
-    this.componentsAffected = componentsAffected;
-    this.title = title;
+            @JsonProperty(required=true, value=JSON_PROPERTY_COMPONENTS_AFFECTED)List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TITLE)String title) {
+        this.componentsAffected = componentsAffected;
+        this.title = title;
   }
-
   public CreateMaintenanceRequestDataAttributes completedDate(OffsetDateTime completedDate) {
     this.completedDate = completedDate;
     return this;
   }
 
   /**
-   * Timestamp of when the maintenance was completed.
-   *
+   * <p>Timestamp of when the maintenance was completed.</p>
    * @return completedDate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPLETED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCompletedDate() {
-    return completedDate;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPLETED_DATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCompletedDate() {
+        return completedDate;
+      }
   public void setCompletedDate(OffsetDateTime completedDate) {
     this.completedDate = completedDate;
   }
-
   public CreateMaintenanceRequestDataAttributes completedDescription(String completedDescription) {
     this.completedDescription = completedDescription;
     return this;
   }
 
   /**
-   * The description shown when the maintenance is completed.
-   *
+   * <p>The description shown when the maintenance is completed.</p>
    * @return completedDescription
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPLETED_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCompletedDescription() {
-    return completedDescription;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPLETED_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCompletedDescription() {
+        return completedDescription;
+      }
   public void setCompletedDescription(String completedDescription) {
     this.completedDescription = completedDescription;
   }
-
-  public CreateMaintenanceRequestDataAttributes componentsAffected(
-      List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
+  public CreateMaintenanceRequestDataAttributes componentsAffected(List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
     for (CreateMaintenanceRequestDataAttributesComponentsAffectedItems item : componentsAffected) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public CreateMaintenanceRequestDataAttributes addComponentsAffectedItem(
-      CreateMaintenanceRequestDataAttributesComponentsAffectedItems componentsAffectedItem) {
+  public CreateMaintenanceRequestDataAttributes addComponentsAffectedItem(CreateMaintenanceRequestDataAttributesComponentsAffectedItems componentsAffectedItem) {
     this.componentsAffected.add(componentsAffectedItem);
     this.unparsed |= componentsAffectedItem.unparsed;
     return this;
   }
 
   /**
-   * The components affected by the maintenance.
-   *
+   * <p>The components affected by the maintenance.</p>
    * @return componentsAffected
-   */
-  @JsonProperty(JSON_PROPERTY_COMPONENTS_AFFECTED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems>
-      getComponentsAffected() {
-    return componentsAffected;
-  }
-
-  public void setComponentsAffected(
-      List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
+  **/
+      @JsonProperty(JSON_PROPERTY_COMPONENTS_AFFECTED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> getComponentsAffected() {
+        return componentsAffected;
+      }
+  public void setComponentsAffected(List<CreateMaintenanceRequestDataAttributesComponentsAffectedItems> componentsAffected) {
     this.componentsAffected = componentsAffected;
   }
-
-  public CreateMaintenanceRequestDataAttributes inProgressDescription(
-      String inProgressDescription) {
+  public CreateMaintenanceRequestDataAttributes inProgressDescription(String inProgressDescription) {
     this.inProgressDescription = inProgressDescription;
     return this;
   }
 
   /**
-   * The description shown while the maintenance is in progress.
-   *
+   * <p>The description shown while the maintenance is in progress.</p>
    * @return inProgressDescription
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IN_PROGRESS_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getInProgressDescription() {
-    return inProgressDescription;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IN_PROGRESS_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getInProgressDescription() {
+        return inProgressDescription;
+      }
   public void setInProgressDescription(String inProgressDescription) {
     this.inProgressDescription = inProgressDescription;
   }
-
   public CreateMaintenanceRequestDataAttributes scheduledDescription(String scheduledDescription) {
     this.scheduledDescription = scheduledDescription;
     return this;
   }
 
   /**
-   * The description shown when the maintenance is scheduled.
-   *
+   * <p>The description shown when the maintenance is scheduled.</p>
    * @return scheduledDescription
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCHEDULED_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getScheduledDescription() {
-    return scheduledDescription;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SCHEDULED_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getScheduledDescription() {
+        return scheduledDescription;
+      }
   public void setScheduledDescription(String scheduledDescription) {
     this.scheduledDescription = scheduledDescription;
   }
-
   public CreateMaintenanceRequestDataAttributes startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
   }
 
   /**
-   * Timestamp of when the maintenance is scheduled to start.
-   *
+   * <p>Timestamp of when the maintenance is scheduled to start.</p>
    * @return startDate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getStartDate() {
-    return startDate;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_START_DATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getStartDate() {
+        return startDate;
+      }
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
-
   public CreateMaintenanceRequestDataAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * The title of the maintenance.
-   *
+   * <p>The title of the maintenance.</p>
    * @return title
-   */
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -243,7 +235,7 @@ public class CreateMaintenanceRequestDataAttributes {
   @JsonAnySetter
   public CreateMaintenanceRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -267,12 +259,14 @@ public class CreateMaintenanceRequestDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CreateMaintenanceRequestDataAttributes object is equal to o. */
+  /**
+   * Return true if this CreateMaintenanceRequestDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -281,35 +275,14 @@ public class CreateMaintenanceRequestDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateMaintenanceRequestDataAttributes createMaintenanceRequestDataAttributes =
-        (CreateMaintenanceRequestDataAttributes) o;
-    return Objects.equals(this.completedDate, createMaintenanceRequestDataAttributes.completedDate)
-        && Objects.equals(
-            this.completedDescription, createMaintenanceRequestDataAttributes.completedDescription)
-        && Objects.equals(
-            this.componentsAffected, createMaintenanceRequestDataAttributes.componentsAffected)
-        && Objects.equals(
-            this.inProgressDescription,
-            createMaintenanceRequestDataAttributes.inProgressDescription)
-        && Objects.equals(
-            this.scheduledDescription, createMaintenanceRequestDataAttributes.scheduledDescription)
-        && Objects.equals(this.startDate, createMaintenanceRequestDataAttributes.startDate)
-        && Objects.equals(this.title, createMaintenanceRequestDataAttributes.title)
-        && Objects.equals(
-            this.additionalProperties, createMaintenanceRequestDataAttributes.additionalProperties);
+    CreateMaintenanceRequestDataAttributes createMaintenanceRequestDataAttributes = (CreateMaintenanceRequestDataAttributes) o;
+    return Objects.equals(this.completedDate, createMaintenanceRequestDataAttributes.completedDate) && Objects.equals(this.completedDescription, createMaintenanceRequestDataAttributes.completedDescription) && Objects.equals(this.componentsAffected, createMaintenanceRequestDataAttributes.componentsAffected) && Objects.equals(this.inProgressDescription, createMaintenanceRequestDataAttributes.inProgressDescription) && Objects.equals(this.scheduledDescription, createMaintenanceRequestDataAttributes.scheduledDescription) && Objects.equals(this.startDate, createMaintenanceRequestDataAttributes.startDate) && Objects.equals(this.title, createMaintenanceRequestDataAttributes.title) && Objects.equals(this.additionalProperties, createMaintenanceRequestDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        completedDate,
-        completedDescription,
-        componentsAffected,
-        inProgressDescription,
-        scheduledDescription,
-        startDate,
-        title,
-        additionalProperties);
+    return Objects.hash(completedDate,completedDescription,componentsAffected,inProgressDescription,scheduledDescription,startDate,title, additionalProperties);
   }
 
   @Override
@@ -317,16 +290,10 @@ public class CreateMaintenanceRequestDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateMaintenanceRequestDataAttributes {\n");
     sb.append("    completedDate: ").append(toIndentedString(completedDate)).append("\n");
-    sb.append("    completedDescription: ")
-        .append(toIndentedString(completedDescription))
-        .append("\n");
+    sb.append("    completedDescription: ").append(toIndentedString(completedDescription)).append("\n");
     sb.append("    componentsAffected: ").append(toIndentedString(componentsAffected)).append("\n");
-    sb.append("    inProgressDescription: ")
-        .append(toIndentedString(inProgressDescription))
-        .append("\n");
-    sb.append("    scheduledDescription: ")
-        .append(toIndentedString(scheduledDescription))
-        .append("\n");
+    sb.append("    inProgressDescription: ").append(toIndentedString(inProgressDescription)).append("\n");
+    sb.append("    scheduledDescription: ").append(toIndentedString(scheduledDescription)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    additionalProperties: ")
@@ -337,7 +304,8 @@ public class CreateMaintenanceRequestDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

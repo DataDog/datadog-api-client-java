@@ -1,13 +1,19 @@
 // Delete LLM Observability experiments returns "No Content" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.LlmObservabilityApi;
 import com.datadog.api.client.v2.model.LLMObsDeleteExperimentsDataAttributesRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteExperimentsDataRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteExperimentsRequest;
 import com.datadog.api.client.v2.model.LLMObsExperimentType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -15,15 +21,11 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.deleteLLMObsExperiments", true);
     LlmObservabilityApi apiInstance = new LlmObservabilityApi(defaultClient);
 
-    LLMObsDeleteExperimentsRequest body =
-        new LLMObsDeleteExperimentsRequest()
-            .data(
-                new LLMObsDeleteExperimentsDataRequest()
-                    .attributes(
-                        new LLMObsDeleteExperimentsDataAttributesRequest()
-                            .experimentIds(
-                                Collections.singletonList("3fd6b5e0-8910-4b1c-a7d0-5b84de329012")))
-                    .type(LLMObsExperimentType.EXPERIMENTS));
+    LLMObsDeleteExperimentsRequest body = new LLMObsDeleteExperimentsRequest()
+.data(new LLMObsDeleteExperimentsDataRequest()
+.attributes(new LLMObsDeleteExperimentsDataAttributesRequest()
+.experimentIds(Collections.singletonList("3fd6b5e0-8910-4b1c-a7d0-5b84de329012")))
+.type(LLMObsExperimentType.EXPERIMENTS));
 
     try {
       apiInstance.deleteLLMObsExperiments(body);

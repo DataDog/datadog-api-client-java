@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A Product Analytics server-side event. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A Product Analytics server-side event.</p>
+ */
 @JsonPropertyOrder({
   ProductAnalyticsServerSideEventItem.JSON_PROPERTY_ACCOUNT,
   ProductAnalyticsServerSideEventItem.JSON_PROPERTY_APPLICATION,
@@ -26,10 +42,10 @@ import java.util.Objects;
   ProductAnalyticsServerSideEventItem.JSON_PROPERTY_TYPE,
   ProductAnalyticsServerSideEventItem.JSON_PROPERTY_USR
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProductAnalyticsServerSideEventItem {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private ProductAnalyticsServerSideEventItemAccount account;
 
@@ -52,65 +68,55 @@ public class ProductAnalyticsServerSideEventItem {
 
   @JsonCreator
   public ProductAnalyticsServerSideEventItem(
-      @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION)
-          ProductAnalyticsServerSideEventItemApplication application,
-      @JsonProperty(required = true, value = JSON_PROPERTY_EVENT)
-          ProductAnalyticsServerSideEventItemEvent event,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ProductAnalyticsServerSideEventItemType type) {
-    this.application = application;
-    this.unparsed |= application.unparsed;
-    this.event = event;
-    this.unparsed |= event.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_APPLICATION)ProductAnalyticsServerSideEventItemApplication application,
+            @JsonProperty(required=true, value=JSON_PROPERTY_EVENT)ProductAnalyticsServerSideEventItemEvent event,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ProductAnalyticsServerSideEventItemType type) {
+        this.application = application;
+        this.unparsed |= application.unparsed;
+        this.event = event;
+        this.unparsed |= event.unparsed;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
-  public ProductAnalyticsServerSideEventItem account(
-      ProductAnalyticsServerSideEventItemAccount account) {
+  public ProductAnalyticsServerSideEventItem account(ProductAnalyticsServerSideEventItemAccount account) {
     this.account = account;
     this.unparsed |= account.unparsed;
     return this;
   }
 
   /**
-   * The account linked to your event.
-   *
+   * <p>The account linked to your event.</p>
    * @return account
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ProductAnalyticsServerSideEventItemAccount getAccount() {
-    return account;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ACCOUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ProductAnalyticsServerSideEventItemAccount getAccount() {
+        return account;
+      }
   public void setAccount(ProductAnalyticsServerSideEventItemAccount account) {
     this.account = account;
   }
-
-  public ProductAnalyticsServerSideEventItem application(
-      ProductAnalyticsServerSideEventItemApplication application) {
+  public ProductAnalyticsServerSideEventItem application(ProductAnalyticsServerSideEventItemApplication application) {
     this.application = application;
     this.unparsed |= application.unparsed;
     return this;
   }
 
   /**
-   * The application in which you want to send your events.
-   *
+   * <p>The application in which you want to send your events.</p>
    * @return application
-   */
-  @JsonProperty(JSON_PROPERTY_APPLICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ProductAnalyticsServerSideEventItemApplication getApplication() {
-    return application;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_APPLICATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ProductAnalyticsServerSideEventItemApplication getApplication() {
+        return application;
+      }
   public void setApplication(ProductAnalyticsServerSideEventItemApplication application) {
     this.application = application;
   }
-
   public ProductAnalyticsServerSideEventItem event(ProductAnalyticsServerSideEventItemEvent event) {
     this.event = event;
     this.unparsed |= event.unparsed;
@@ -118,43 +124,38 @@ public class ProductAnalyticsServerSideEventItem {
   }
 
   /**
-   * Fields used for the event.
-   *
+   * <p>Fields used for the event.</p>
    * @return event
-   */
-  @JsonProperty(JSON_PROPERTY_EVENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ProductAnalyticsServerSideEventItemEvent getEvent() {
-    return event;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_EVENT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ProductAnalyticsServerSideEventItemEvent getEvent() {
+        return event;
+      }
   public void setEvent(ProductAnalyticsServerSideEventItemEvent event) {
     this.event = event;
   }
-
-  public ProductAnalyticsServerSideEventItem session(
-      ProductAnalyticsServerSideEventItemSession session) {
+  public ProductAnalyticsServerSideEventItem session(ProductAnalyticsServerSideEventItemSession session) {
     this.session = session;
     this.unparsed |= session.unparsed;
     return this;
   }
 
   /**
-   * The session linked to your event.
-   *
+   * <p>The session linked to your event.</p>
    * @return session
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SESSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ProductAnalyticsServerSideEventItemSession getSession() {
-    return session;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SESSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ProductAnalyticsServerSideEventItemSession getSession() {
+        return session;
+      }
   public void setSession(ProductAnalyticsServerSideEventItemSession session) {
     this.session = session;
   }
-
   public ProductAnalyticsServerSideEventItem type(ProductAnalyticsServerSideEventItemType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -162,23 +163,21 @@ public class ProductAnalyticsServerSideEventItem {
   }
 
   /**
-   * The type of Product Analytics event. Must be <code>server</code> for server-side events.
-   *
+   * <p>The type of Product Analytics event. Must be <code>server</code> for server-side events.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ProductAnalyticsServerSideEventItemType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ProductAnalyticsServerSideEventItemType getType() {
+        return type;
+      }
   public void setType(ProductAnalyticsServerSideEventItemType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
-
   public ProductAnalyticsServerSideEventItem usr(ProductAnalyticsServerSideEventItemUsr usr) {
     this.usr = usr;
     this.unparsed |= usr.unparsed;
@@ -186,30 +185,30 @@ public class ProductAnalyticsServerSideEventItem {
   }
 
   /**
-   * The user linked to your event.
-   *
+   * <p>The user linked to your event.</p>
    * @return usr
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ProductAnalyticsServerSideEventItemUsr getUsr() {
-    return usr;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ProductAnalyticsServerSideEventItemUsr getUsr() {
+        return usr;
+      }
   public void setUsr(ProductAnalyticsServerSideEventItemUsr usr) {
     this.usr = usr;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -218,7 +217,7 @@ public class ProductAnalyticsServerSideEventItem {
   @JsonAnySetter
   public ProductAnalyticsServerSideEventItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -242,12 +241,14 @@ public class ProductAnalyticsServerSideEventItem {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ProductAnalyticsServerSideEventItem object is equal to o. */
+  /**
+   * Return true if this ProductAnalyticsServerSideEventItem object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -256,21 +257,14 @@ public class ProductAnalyticsServerSideEventItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductAnalyticsServerSideEventItem productAnalyticsServerSideEventItem =
-        (ProductAnalyticsServerSideEventItem) o;
-    return Objects.equals(this.account, productAnalyticsServerSideEventItem.account)
-        && Objects.equals(this.application, productAnalyticsServerSideEventItem.application)
-        && Objects.equals(this.event, productAnalyticsServerSideEventItem.event)
-        && Objects.equals(this.session, productAnalyticsServerSideEventItem.session)
-        && Objects.equals(this.type, productAnalyticsServerSideEventItem.type)
-        && Objects.equals(this.usr, productAnalyticsServerSideEventItem.usr)
-        && Objects.equals(
-            this.additionalProperties, productAnalyticsServerSideEventItem.additionalProperties);
+    ProductAnalyticsServerSideEventItem productAnalyticsServerSideEventItem = (ProductAnalyticsServerSideEventItem) o;
+    return Objects.equals(this.account, productAnalyticsServerSideEventItem.account) && Objects.equals(this.application, productAnalyticsServerSideEventItem.application) && Objects.equals(this.event, productAnalyticsServerSideEventItem.event) && Objects.equals(this.session, productAnalyticsServerSideEventItem.session) && Objects.equals(this.type, productAnalyticsServerSideEventItem.type) && Objects.equals(this.usr, productAnalyticsServerSideEventItem.usr) && Objects.equals(this.additionalProperties, productAnalyticsServerSideEventItem.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, application, event, session, type, usr, additionalProperties);
+    return Objects.hash(account,application,event,session,type,usr, additionalProperties);
   }
 
   @Override
@@ -291,7 +285,8 @@ public class ProductAnalyticsServerSideEventItem {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

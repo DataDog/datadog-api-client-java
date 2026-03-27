@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,18 +25,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Relationships for updating a change request decision. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Relationships for updating a change request decision.</p>
+ */
 @JsonPropertyOrder({
   ChangeRequestDecisionUpdateDataRelationships.JSON_PROPERTY_CHANGE_REQUEST_DECISIONS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ChangeRequestDecisionUpdateDataRelationships {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHANGE_REQUEST_DECISIONS = "change_request_decisions";
   private ChangeRequestDecisionsRelationship changeRequestDecisions;
 
@@ -32,53 +48,49 @@ public class ChangeRequestDecisionUpdateDataRelationships {
 
   @JsonCreator
   public ChangeRequestDecisionUpdateDataRelationships(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CHANGE_REQUEST_DECISIONS)
-          ChangeRequestDecisionsRelationship changeRequestDecisions) {
-    this.changeRequestDecisions = changeRequestDecisions;
-    this.unparsed |= changeRequestDecisions.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CHANGE_REQUEST_DECISIONS)ChangeRequestDecisionsRelationship changeRequestDecisions) {
+        this.changeRequestDecisions = changeRequestDecisions;
+        this.unparsed |= changeRequestDecisions.unparsed;
   }
-
-  public ChangeRequestDecisionUpdateDataRelationships changeRequestDecisions(
-      ChangeRequestDecisionsRelationship changeRequestDecisions) {
+  public ChangeRequestDecisionUpdateDataRelationships changeRequestDecisions(ChangeRequestDecisionsRelationship changeRequestDecisions) {
     this.changeRequestDecisions = changeRequestDecisions;
     this.unparsed |= changeRequestDecisions.unparsed;
     return this;
   }
 
   /**
-   * Relationship to change request decisions.
-   *
+   * <p>Relationship to change request decisions.</p>
    * @return changeRequestDecisions
-   */
-  @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_DECISIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ChangeRequestDecisionsRelationship getChangeRequestDecisions() {
-    return changeRequestDecisions;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CHANGE_REQUEST_DECISIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ChangeRequestDecisionsRelationship getChangeRequestDecisions() {
+        return changeRequestDecisions;
+      }
   public void setChangeRequestDecisions(ChangeRequestDecisionsRelationship changeRequestDecisions) {
     this.changeRequestDecisions = changeRequestDecisions;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ChangeRequestDecisionUpdateDataRelationships
    */
   @JsonAnySetter
-  public ChangeRequestDecisionUpdateDataRelationships putAdditionalProperty(
-      String key, Object value) {
+  public ChangeRequestDecisionUpdateDataRelationships putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -102,12 +114,14 @@ public class ChangeRequestDecisionUpdateDataRelationships {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ChangeRequestDecisionUpdateDataRelationships object is equal to o. */
+  /**
+   * Return true if this ChangeRequestDecisionUpdateDataRelationships object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -116,15 +130,10 @@ public class ChangeRequestDecisionUpdateDataRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChangeRequestDecisionUpdateDataRelationships changeRequestDecisionUpdateDataRelationships =
-        (ChangeRequestDecisionUpdateDataRelationships) o;
-    return Objects.equals(
-            this.changeRequestDecisions,
-            changeRequestDecisionUpdateDataRelationships.changeRequestDecisions)
-        && Objects.equals(
-            this.additionalProperties,
-            changeRequestDecisionUpdateDataRelationships.additionalProperties);
+    ChangeRequestDecisionUpdateDataRelationships changeRequestDecisionUpdateDataRelationships = (ChangeRequestDecisionUpdateDataRelationships) o;
+    return Objects.equals(this.changeRequestDecisions, changeRequestDecisionUpdateDataRelationships.changeRequestDecisions) && Objects.equals(this.additionalProperties, changeRequestDecisionUpdateDataRelationships.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
@@ -135,9 +144,7 @@ public class ChangeRequestDecisionUpdateDataRelationships {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChangeRequestDecisionUpdateDataRelationships {\n");
-    sb.append("    changeRequestDecisions: ")
-        .append(toIndentedString(changeRequestDecisions))
-        .append("\n");
+    sb.append("    changeRequestDecisions: ").append(toIndentedString(changeRequestDecisions)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -146,7 +153,8 @@ public class ChangeRequestDecisionUpdateDataRelationships {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

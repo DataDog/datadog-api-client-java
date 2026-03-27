@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Details about the On-Call Page you want to create. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Details about the On-Call Page you want to create.</p>
+ */
 @JsonPropertyOrder({
   CreatePageRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
   CreatePageRequestDataAttributes.JSON_PROPERTY_TAGS,
@@ -27,10 +41,10 @@ import java.util.Objects;
   CreatePageRequestDataAttributes.JSON_PROPERTY_TITLE,
   CreatePageRequestDataAttributes.JSON_PROPERTY_URGENCY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreatePageRequestDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -50,43 +64,38 @@ public class CreatePageRequestDataAttributes {
 
   @JsonCreator
   public CreatePageRequestDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET)
-          CreatePageRequestDataAttributesTarget target,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title,
-      @JsonProperty(required = true, value = JSON_PROPERTY_URGENCY) PageUrgency urgency) {
-    this.target = target;
-    this.unparsed |= target.unparsed;
-    this.title = title;
-    this.urgency = urgency;
-    this.unparsed |= !urgency.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TARGET)CreatePageRequestDataAttributesTarget target,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TITLE)String title,
+            @JsonProperty(required=true, value=JSON_PROPERTY_URGENCY)PageUrgency urgency) {
+        this.target = target;
+        this.unparsed |= target.unparsed;
+        this.title = title;
+        this.urgency = urgency;
+        this.unparsed |= !urgency.isValid();
   }
-
   public CreatePageRequestDataAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * A short summary of the issue or context.
-   *
+   * <p>A short summary of the issue or context.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public CreatePageRequestDataAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public CreatePageRequestDataAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -96,21 +105,19 @@ public class CreatePageRequestDataAttributes {
   }
 
   /**
-   * Tags to help categorize or filter the page.
-   *
+   * <p>Tags to help categorize or filter the page.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
   public CreatePageRequestDataAttributes target(CreatePageRequestDataAttributesTarget target) {
     this.target = target;
     this.unparsed |= target.unparsed;
@@ -118,40 +125,36 @@ public class CreatePageRequestDataAttributes {
   }
 
   /**
-   * Information about the target to notify (such as a team or user).
-   *
+   * <p>Information about the target to notify (such as a team or user).</p>
    * @return target
-   */
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CreatePageRequestDataAttributesTarget getTarget() {
-    return target;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TARGET)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CreatePageRequestDataAttributesTarget getTarget() {
+        return target;
+      }
   public void setTarget(CreatePageRequestDataAttributesTarget target) {
     this.target = target;
   }
-
   public CreatePageRequestDataAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * The title of the page.
-   *
+   * <p>The title of the page.</p>
    * @return title
-   */
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
-
   public CreatePageRequestDataAttributes urgency(PageUrgency urgency) {
     this.urgency = urgency;
     this.unparsed |= !urgency.isValid();
@@ -159,32 +162,32 @@ public class CreatePageRequestDataAttributes {
   }
 
   /**
-   * On-Call Page urgency level.
-   *
+   * <p>On-Call Page urgency level.</p>
    * @return urgency
-   */
-  @JsonProperty(JSON_PROPERTY_URGENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public PageUrgency getUrgency() {
-    return urgency;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_URGENCY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public PageUrgency getUrgency() {
+        return urgency;
+      }
   public void setUrgency(PageUrgency urgency) {
     if (!urgency.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.urgency = urgency;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -193,7 +196,7 @@ public class CreatePageRequestDataAttributes {
   @JsonAnySetter
   public CreatePageRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -217,12 +220,14 @@ public class CreatePageRequestDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CreatePageRequestDataAttributes object is equal to o. */
+  /**
+   * Return true if this CreatePageRequestDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -231,20 +236,14 @@ public class CreatePageRequestDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreatePageRequestDataAttributes createPageRequestDataAttributes =
-        (CreatePageRequestDataAttributes) o;
-    return Objects.equals(this.description, createPageRequestDataAttributes.description)
-        && Objects.equals(this.tags, createPageRequestDataAttributes.tags)
-        && Objects.equals(this.target, createPageRequestDataAttributes.target)
-        && Objects.equals(this.title, createPageRequestDataAttributes.title)
-        && Objects.equals(this.urgency, createPageRequestDataAttributes.urgency)
-        && Objects.equals(
-            this.additionalProperties, createPageRequestDataAttributes.additionalProperties);
+    CreatePageRequestDataAttributes createPageRequestDataAttributes = (CreatePageRequestDataAttributes) o;
+    return Objects.equals(this.description, createPageRequestDataAttributes.description) && Objects.equals(this.tags, createPageRequestDataAttributes.tags) && Objects.equals(this.target, createPageRequestDataAttributes.target) && Objects.equals(this.title, createPageRequestDataAttributes.title) && Objects.equals(this.urgency, createPageRequestDataAttributes.urgency) && Objects.equals(this.additionalProperties, createPageRequestDataAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, tags, target, title, urgency, additionalProperties);
+    return Objects.hash(description,tags,target,title,urgency, additionalProperties);
   }
 
   @Override
@@ -264,7 +263,8 @@ public class CreatePageRequestDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Metadata associated with your host. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Metadata associated with your host.</p>
+ */
 @JsonPropertyOrder({
   HostMeta.JSON_PROPERTY_AGENT_CHECKS,
   HostMeta.JSON_PROPERTY_AGENT_VERSION,
@@ -36,10 +51,10 @@ import java.util.Objects;
   HostMeta.JSON_PROPERTY_SOCKET_HOSTNAME,
   HostMeta.JSON_PROPERTY_WIN_V
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMeta {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENT_CHECKS = "agent_checks";
   private List<List<Object>> agentChecks = null;
 
@@ -89,7 +104,6 @@ public class HostMeta {
     this.agentChecks = agentChecks;
     return this;
   }
-
   public HostMeta addAgentChecksItem(List<Object> agentChecksItem) {
     if (this.agentChecks == null) {
       this.agentChecks = new ArrayList<>();
@@ -99,68 +113,61 @@ public class HostMeta {
   }
 
   /**
-   * A list of Agent checks running on the host.
-   *
+   * <p>A list of Agent checks running on the host.</p>
    * @return agentChecks
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AGENT_CHECKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<List<Object>> getAgentChecks() {
-    return agentChecks;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AGENT_CHECKS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<List<Object>> getAgentChecks() {
+        return agentChecks;
+      }
   public void setAgentChecks(List<List<Object>> agentChecks) {
     this.agentChecks = agentChecks;
   }
-
   public HostMeta agentVersion(String agentVersion) {
     this.agentVersion = agentVersion;
     return this;
   }
 
   /**
-   * The Datadog Agent version.
-   *
+   * <p>The Datadog Agent version.</p>
    * @return agentVersion
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AGENT_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAgentVersion() {
-    return agentVersion;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AGENT_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAgentVersion() {
+        return agentVersion;
+      }
   public void setAgentVersion(String agentVersion) {
     this.agentVersion = agentVersion;
   }
-
   public HostMeta cpuCores(Long cpuCores) {
     this.cpuCores = cpuCores;
     return this;
   }
 
   /**
-   * The number of cores.
-   *
+   * <p>The number of cores.</p>
    * @return cpuCores
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CPU_CORES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCpuCores() {
-    return cpuCores;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CPU_CORES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getCpuCores() {
+        return cpuCores;
+      }
   public void setCpuCores(Long cpuCores) {
     this.cpuCores = cpuCores;
   }
-
   public HostMeta fbsdV(List<Object> fbsdV) {
     this.fbsdV = fbsdV;
     return this;
   }
-
   public HostMeta addFbsdVItem(Object fbsdVItem) {
     if (this.fbsdV == null) {
       this.fbsdV = new ArrayList<>();
@@ -170,42 +177,38 @@ public class HostMeta {
   }
 
   /**
-   * An array of Mac versions.
-   *
+   * <p>An array of Mac versions.</p>
    * @return fbsdV
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FBSD_V)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getFbsdV() {
-    return fbsdV;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FBSD_V)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<Object> getFbsdV() {
+        return fbsdV;
+      }
   public void setFbsdV(List<Object> fbsdV) {
     this.fbsdV = fbsdV;
   }
-
   public HostMeta gohai(String gohai) {
     this.gohai = gohai;
     return this;
   }
 
   /**
-   * JSON string containing system information.
-   *
+   * <p>JSON string containing system information.</p>
    * @return gohai
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GOHAI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getGohai() {
-    return gohai;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GOHAI)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getGohai() {
+        return gohai;
+      }
   public void setGohai(String gohai) {
     this.gohai = gohai;
   }
-
   public HostMeta installMethod(HostMetaInstallMethod installMethod) {
     this.installMethod = installMethod;
     this.unparsed |= installMethod.unparsed;
@@ -213,26 +216,23 @@ public class HostMeta {
   }
 
   /**
-   * Agent install method.
-   *
+   * <p>Agent install method.</p>
    * @return installMethod
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INSTALL_METHOD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HostMetaInstallMethod getInstallMethod() {
-    return installMethod;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INSTALL_METHOD)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public HostMetaInstallMethod getInstallMethod() {
+        return installMethod;
+      }
   public void setInstallMethod(HostMetaInstallMethod installMethod) {
     this.installMethod = installMethod;
   }
-
   public HostMeta macV(List<Object> macV) {
     this.macV = macV;
     return this;
   }
-
   public HostMeta addMacVItem(Object macVItem) {
     if (this.macV == null) {
       this.macV = new ArrayList<>();
@@ -242,47 +242,42 @@ public class HostMeta {
   }
 
   /**
-   * An array of Mac versions.
-   *
+   * <p>An array of Mac versions.</p>
    * @return macV
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAC_V)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getMacV() {
-    return macV;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MAC_V)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<Object> getMacV() {
+        return macV;
+      }
   public void setMacV(List<Object> macV) {
     this.macV = macV;
   }
-
   public HostMeta machine(String machine) {
     this.machine = machine;
     return this;
   }
 
   /**
-   * The machine architecture.
-   *
+   * <p>The machine architecture.</p>
    * @return machine
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MACHINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMachine() {
-    return machine;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MACHINE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getMachine() {
+        return machine;
+      }
   public void setMachine(String machine) {
     this.machine = machine;
   }
-
   public HostMeta nixV(List<Object> nixV) {
     this.nixV = nixV;
     return this;
   }
-
   public HostMeta addNixVItem(Object nixVItem) {
     if (this.nixV == null) {
       this.nixV = new ArrayList<>();
@@ -292,131 +287,118 @@ public class HostMeta {
   }
 
   /**
-   * Array of Unix versions.
-   *
+   * <p>Array of Unix versions.</p>
    * @return nixV
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NIX_V)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getNixV() {
-    return nixV;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NIX_V)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<Object> getNixV() {
+        return nixV;
+      }
   public void setNixV(List<Object> nixV) {
     this.nixV = nixV;
   }
-
   public HostMeta platform(String platform) {
     this.platform = platform;
     return this;
   }
 
   /**
-   * The OS platform.
-   *
+   * <p>The OS platform.</p>
    * @return platform
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPlatform() {
-    return platform;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PLATFORM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPlatform() {
+        return platform;
+      }
   public void setPlatform(String platform) {
     this.platform = platform;
   }
-
   public HostMeta processor(String processor) {
     this.processor = processor;
     return this;
   }
 
   /**
-   * The processor.
-   *
+   * <p>The processor.</p>
    * @return processor
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROCESSOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProcessor() {
-    return processor;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROCESSOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getProcessor() {
+        return processor;
+      }
   public void setProcessor(String processor) {
     this.processor = processor;
   }
-
   public HostMeta pythonV(String pythonV) {
     this.pythonV = pythonV;
     return this;
   }
 
   /**
-   * The Python version.
-   *
+   * <p>The Python version.</p>
    * @return pythonV
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PYTHON_V)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPythonV() {
-    return pythonV;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PYTHON_V)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPythonV() {
+        return pythonV;
+      }
   public void setPythonV(String pythonV) {
     this.pythonV = pythonV;
   }
-
   public HostMeta socketFqdn(String socketFqdn) {
     this.socketFqdn = socketFqdn;
     return this;
   }
 
   /**
-   * The socket fqdn.
-   *
+   * <p>The socket fqdn.</p>
    * @return socketFqdn
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOCKET_FQDN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSocketFqdn() {
-    return socketFqdn;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SOCKET_FQDN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSocketFqdn() {
+        return socketFqdn;
+      }
   public void setSocketFqdn(String socketFqdn) {
     this.socketFqdn = socketFqdn;
   }
-
   public HostMeta socketHostname(String socketHostname) {
     this.socketHostname = socketHostname;
     return this;
   }
 
   /**
-   * The socket hostname.
-   *
+   * <p>The socket hostname.</p>
    * @return socketHostname
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOCKET_HOSTNAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSocketHostname() {
-    return socketHostname;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SOCKET_HOSTNAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSocketHostname() {
+        return socketHostname;
+      }
   public void setSocketHostname(String socketHostname) {
     this.socketHostname = socketHostname;
   }
-
   public HostMeta winV(List<Object> winV) {
     this.winV = winV;
     return this;
   }
-
   public HostMeta addWinVItem(Object winVItem) {
     if (this.winV == null) {
       this.winV = new ArrayList<>();
@@ -426,30 +408,30 @@ public class HostMeta {
   }
 
   /**
-   * An array of Windows versions.
-   *
+   * <p>An array of Windows versions.</p>
    * @return winV
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WIN_V)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getWinV() {
-    return winV;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WIN_V)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<Object> getWinV() {
+        return winV;
+      }
   public void setWinV(List<Object> winV) {
     this.winV = winV;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -458,7 +440,7 @@ public class HostMeta {
   @JsonAnySetter
   public HostMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -482,12 +464,14 @@ public class HostMeta {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this HostMeta object is equal to o. */
+  /**
+   * Return true if this HostMeta object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -497,43 +481,13 @@ public class HostMeta {
       return false;
     }
     HostMeta hostMeta = (HostMeta) o;
-    return Objects.equals(this.agentChecks, hostMeta.agentChecks)
-        && Objects.equals(this.agentVersion, hostMeta.agentVersion)
-        && Objects.equals(this.cpuCores, hostMeta.cpuCores)
-        && Objects.equals(this.fbsdV, hostMeta.fbsdV)
-        && Objects.equals(this.gohai, hostMeta.gohai)
-        && Objects.equals(this.installMethod, hostMeta.installMethod)
-        && Objects.equals(this.macV, hostMeta.macV)
-        && Objects.equals(this.machine, hostMeta.machine)
-        && Objects.equals(this.nixV, hostMeta.nixV)
-        && Objects.equals(this.platform, hostMeta.platform)
-        && Objects.equals(this.processor, hostMeta.processor)
-        && Objects.equals(this.pythonV, hostMeta.pythonV)
-        && Objects.equals(this.socketFqdn, hostMeta.socketFqdn)
-        && Objects.equals(this.socketHostname, hostMeta.socketHostname)
-        && Objects.equals(this.winV, hostMeta.winV)
-        && Objects.equals(this.additionalProperties, hostMeta.additionalProperties);
+    return Objects.equals(this.agentChecks, hostMeta.agentChecks) && Objects.equals(this.agentVersion, hostMeta.agentVersion) && Objects.equals(this.cpuCores, hostMeta.cpuCores) && Objects.equals(this.fbsdV, hostMeta.fbsdV) && Objects.equals(this.gohai, hostMeta.gohai) && Objects.equals(this.installMethod, hostMeta.installMethod) && Objects.equals(this.macV, hostMeta.macV) && Objects.equals(this.machine, hostMeta.machine) && Objects.equals(this.nixV, hostMeta.nixV) && Objects.equals(this.platform, hostMeta.platform) && Objects.equals(this.processor, hostMeta.processor) && Objects.equals(this.pythonV, hostMeta.pythonV) && Objects.equals(this.socketFqdn, hostMeta.socketFqdn) && Objects.equals(this.socketHostname, hostMeta.socketHostname) && Objects.equals(this.winV, hostMeta.winV) && Objects.equals(this.additionalProperties, hostMeta.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        agentChecks,
-        agentVersion,
-        cpuCores,
-        fbsdV,
-        gohai,
-        installMethod,
-        macV,
-        machine,
-        nixV,
-        platform,
-        processor,
-        pythonV,
-        socketFqdn,
-        socketHostname,
-        winV,
-        additionalProperties);
+    return Objects.hash(agentChecks,agentVersion,cpuCores,fbsdV,gohai,installMethod,macV,machine,nixV,platform,processor,pythonV,socketFqdn,socketHostname,winV, additionalProperties);
   }
 
   @Override
@@ -563,7 +517,8 @@ public class HostMeta {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

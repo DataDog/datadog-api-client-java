@@ -1,9 +1,18 @@
 // Get team hierarchy links returns "OK" response with pagination
 
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
-import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.TeamsApi;
+import com.datadog.api.client.v2.model.TeamHierarchyLinksResponse;
 import com.datadog.api.client.v2.model.TeamHierarchyLink;
+import com.datadog.api.client.PaginationIterable;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,11 +20,10 @@ public class Example {
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
     try {
-      PaginationIterable<TeamHierarchyLink> iterable =
-          apiInstance.listTeamHierarchyLinksWithPagination();
+      PaginationIterable<TeamHierarchyLink> iterable = apiInstance.listTeamHierarchyLinksWithPagination();
 
       for (TeamHierarchyLink item : iterable) {
-        System.out.println(item);
+       System.out.println(item);
       }
     } catch (RuntimeException e) {
       System.err.println("Exception when calling TeamsApi#listTeamHierarchyLinksWithPagination");

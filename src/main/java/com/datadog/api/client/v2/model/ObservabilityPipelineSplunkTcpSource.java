@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,15 +25,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * The <code>splunk_tcp</code> source receives logs from a Splunk Universal Forwarder over TCP. TLS
- * is supported for secure transmission.
- *
- * <p><strong>Supported pipeline types:</strong> logs
+   * <p>The <code>splunk_tcp</code> source receives logs from a Splunk Universal Forwarder over TCP.
+   * TLS is supported for secure transmission.</p>
+   * <p><strong>Supported pipeline types:</strong> logs</p>
  */
 @JsonPropertyOrder({
   ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_ADDRESS_KEY,
@@ -29,10 +42,10 @@ import java.util.Objects;
   ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_TLS,
   ObservabilityPipelineSplunkTcpSource.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineSplunkTcpSource {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
   private String addressKey;
 
@@ -43,64 +56,55 @@ public class ObservabilityPipelineSplunkTcpSource {
   private ObservabilityPipelineTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineSplunkTcpSourceType type =
-      ObservabilityPipelineSplunkTcpSourceType.SPLUNK_TCP;
+  private ObservabilityPipelineSplunkTcpSourceType type = ObservabilityPipelineSplunkTcpSourceType.SPLUNK_TCP;
 
   public ObservabilityPipelineSplunkTcpSource() {}
 
   @JsonCreator
   public ObservabilityPipelineSplunkTcpSource(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineSplunkTcpSourceType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ObservabilityPipelineSplunkTcpSourceType type) {
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public ObservabilityPipelineSplunkTcpSource addressKey(String addressKey) {
     this.addressKey = addressKey;
     return this;
   }
 
   /**
-   * Name of the environment variable or secret that holds the listen address for the Splunk TCP
-   * receiver.
-   *
+   * <p>Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.</p>
    * @return addressKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAddressKey() {
-    return addressKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAddressKey() {
+        return addressKey;
+      }
   public void setAddressKey(String addressKey) {
     this.addressKey = addressKey;
   }
-
   public ObservabilityPipelineSplunkTcpSource id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier for this component. Used in other parts of the pipeline to reference this
-   * component (for example, as the <code>input</code> to downstream components).
-   *
+   * <p>The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the <code>input</code> to downstream components).</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public ObservabilityPipelineSplunkTcpSource tls(ObservabilityPipelineTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
@@ -108,21 +112,19 @@ public class ObservabilityPipelineSplunkTcpSource {
   }
 
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
-   *
+   * <p>Configuration for enabling TLS encryption between the pipeline component and external services.</p>
    * @return tls
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TLS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineTls getTls() {
-    return tls;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TLS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineTls getTls() {
+        return tls;
+      }
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
   }
-
   public ObservabilityPipelineSplunkTcpSource type(ObservabilityPipelineSplunkTcpSourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -130,32 +132,32 @@ public class ObservabilityPipelineSplunkTcpSource {
   }
 
   /**
-   * The source type. Always <code>splunk_tcp</code>.
-   *
+   * <p>The source type. Always <code>splunk_tcp</code>.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineSplunkTcpSourceType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ObservabilityPipelineSplunkTcpSourceType getType() {
+        return type;
+      }
   public void setType(ObservabilityPipelineSplunkTcpSourceType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -164,7 +166,7 @@ public class ObservabilityPipelineSplunkTcpSource {
   @JsonAnySetter
   public ObservabilityPipelineSplunkTcpSource putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -188,12 +190,14 @@ public class ObservabilityPipelineSplunkTcpSource {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineSplunkTcpSource object is equal to o. */
+  /**
+   * Return true if this ObservabilityPipelineSplunkTcpSource object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -202,19 +206,14 @@ public class ObservabilityPipelineSplunkTcpSource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineSplunkTcpSource observabilityPipelineSplunkTcpSource =
-        (ObservabilityPipelineSplunkTcpSource) o;
-    return Objects.equals(this.addressKey, observabilityPipelineSplunkTcpSource.addressKey)
-        && Objects.equals(this.id, observabilityPipelineSplunkTcpSource.id)
-        && Objects.equals(this.tls, observabilityPipelineSplunkTcpSource.tls)
-        && Objects.equals(this.type, observabilityPipelineSplunkTcpSource.type)
-        && Objects.equals(
-            this.additionalProperties, observabilityPipelineSplunkTcpSource.additionalProperties);
+    ObservabilityPipelineSplunkTcpSource observabilityPipelineSplunkTcpSource = (ObservabilityPipelineSplunkTcpSource) o;
+    return Objects.equals(this.addressKey, observabilityPipelineSplunkTcpSource.addressKey) && Objects.equals(this.id, observabilityPipelineSplunkTcpSource.id) && Objects.equals(this.tls, observabilityPipelineSplunkTcpSource.tls) && Objects.equals(this.type, observabilityPipelineSplunkTcpSource.type) && Objects.equals(this.additionalProperties, observabilityPipelineSplunkTcpSource.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressKey, id, tls, type, additionalProperties);
+    return Objects.hash(addressKey,id,tls,type, additionalProperties);
   }
 
   @Override
@@ -233,7 +232,8 @@ public class ObservabilityPipelineSplunkTcpSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

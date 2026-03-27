@@ -1,8 +1,14 @@
 // Enable a feature flag in an environment returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.FeatureFlagsApi;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public class Example {
@@ -15,7 +21,7 @@ public class Example {
     try {
       FEATURE_FLAG_DATA_ID = UUID.fromString(System.getenv("FEATURE_FLAG_DATA_ID"));
     } catch (IllegalArgumentException e) {
-      System.err.println("Error parsing UUID: " + e.getMessage());
+        System.err.println("Error parsing UUID: " + e.getMessage());
     }
 
     // there is a valid "environment" in the system
@@ -23,7 +29,7 @@ public class Example {
     try {
       ENVIRONMENT_DATA_ID = UUID.fromString(System.getenv("ENVIRONMENT_DATA_ID"));
     } catch (IllegalArgumentException e) {
-      System.err.println("Error parsing UUID: " + e.getMessage());
+        System.err.println("Error parsing UUID: " + e.getMessage());
     }
 
     try {

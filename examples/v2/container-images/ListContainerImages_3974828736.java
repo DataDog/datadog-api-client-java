@@ -1,10 +1,17 @@
 // Get all Container Image groups returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.ContainerImagesApi;
 import com.datadog.api.client.v2.api.ContainerImagesApi.ListContainerImagesOptionalParameters;
 import com.datadog.api.client.v2.model.ContainerImagesResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -12,9 +19,7 @@ public class Example {
     ContainerImagesApi apiInstance = new ContainerImagesApi(defaultClient);
 
     try {
-      ContainerImagesResponse result =
-          apiInstance.listContainerImages(
-              new ListContainerImagesOptionalParameters().groupBy("short_image"));
+      ContainerImagesResponse result = apiInstance.listContainerImages(new ListContainerImagesOptionalParameters().groupBy("short_image"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ContainerImagesApi#listContainerImages");

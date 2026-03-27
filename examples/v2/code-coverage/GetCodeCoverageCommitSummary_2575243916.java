@@ -1,13 +1,20 @@
 // Get code coverage summary for an existing commit with valid repository
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.CodeCoverageApi;
+import com.datadog.api.client.v2.model.CoverageSummaryResponse;
 import com.datadog.api.client.v2.model.CommitCoverageSummaryRequest;
 import com.datadog.api.client.v2.model.CommitCoverageSummaryRequestAttributes;
 import com.datadog.api.client.v2.model.CommitCoverageSummaryRequestData;
 import com.datadog.api.client.v2.model.CommitCoverageSummaryRequestType;
-import com.datadog.api.client.v2.model.CoverageSummaryResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -15,15 +22,12 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.getCodeCoverageCommitSummary", true);
     CodeCoverageApi apiInstance = new CodeCoverageApi(defaultClient);
 
-    CommitCoverageSummaryRequest body =
-        new CommitCoverageSummaryRequest()
-            .data(
-                new CommitCoverageSummaryRequestData()
-                    .attributes(
-                        new CommitCoverageSummaryRequestAttributes()
-                            .repositoryId("github.com/datadog/shopist")
-                            .commitSha("c55b0ce584e139bde41a00002ab31bc7d75f791d"))
-                    .type(CommitCoverageSummaryRequestType.CI_APP_COVERAGE_COMMIT_SUMMARY_REQUEST));
+    CommitCoverageSummaryRequest body = new CommitCoverageSummaryRequest()
+.data(new CommitCoverageSummaryRequestData()
+.attributes(new CommitCoverageSummaryRequestAttributes()
+.repositoryId("github.com/datadog/shopist")
+.commitSha("c55b0ce584e139bde41a00002ab31bc7d75f791d"))
+.type(CommitCoverageSummaryRequestType.CI_APP_COVERAGE_COMMIT_SUMMARY_REQUEST));
 
     try {
       CoverageSummaryResponse result = apiInstance.getCodeCoverageCommitSummary(body);

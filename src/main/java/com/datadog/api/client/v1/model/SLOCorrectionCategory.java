@@ -6,52 +6,74 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Category the SLO correction belongs to. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Category the SLO correction belongs to.</p>
+ */
 @JsonSerialize(using = SLOCorrectionCategory.SLOCorrectionCategorySerializer.class)
 public class SLOCorrectionCategory extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("Scheduled Maintenance", "Outside Business Hours", "Deployment", "Other"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("Scheduled Maintenance", "Outside Business Hours", "Deployment", "Other"));
 
-  public static final SLOCorrectionCategory SCHEDULED_MAINTENANCE =
-      new SLOCorrectionCategory("Scheduled Maintenance");
-  public static final SLOCorrectionCategory OUTSIDE_BUSINESS_HOURS =
-      new SLOCorrectionCategory("Outside Business Hours");
+  public static final SLOCorrectionCategory SCHEDULED_MAINTENANCE = new SLOCorrectionCategory("Scheduled Maintenance");
+  public static final SLOCorrectionCategory OUTSIDE_BUSINESS_HOURS = new SLOCorrectionCategory("Outside Business Hours");
   public static final SLOCorrectionCategory DEPLOYMENT = new SLOCorrectionCategory("Deployment");
   public static final SLOCorrectionCategory OTHER = new SLOCorrectionCategory("Other");
+
 
   SLOCorrectionCategory(String value) {
     super(value, allowedValues);
   }
 
   public static class SLOCorrectionCategorySerializer extends StdSerializer<SLOCorrectionCategory> {
-    public SLOCorrectionCategorySerializer(Class<SLOCorrectionCategory> t) {
-      super(t);
-    }
+      public SLOCorrectionCategorySerializer(Class<SLOCorrectionCategory> t) {
+          super(t);
+      }
 
-    public SLOCorrectionCategorySerializer() {
-      this(null);
-    }
+      public SLOCorrectionCategorySerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SLOCorrectionCategory value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SLOCorrectionCategory value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

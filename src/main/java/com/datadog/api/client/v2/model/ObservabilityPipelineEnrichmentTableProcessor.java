@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,16 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * The <code>enrichment_table</code> processor enriches logs using a static CSV file, GeoIP
- * database, or reference table. Exactly one of <code>file</code>, <code>geoip</code>, or <code>
- * reference_table</code> must be configured.
- *
- * <p><strong>Supported pipeline types:</strong> logs
+   * <p>The <code>enrichment_table</code> processor enriches logs using a static CSV file, GeoIP database, or reference table. Exactly one of <code>file</code>, <code>geoip</code>, or <code>reference_table</code> must be configured.</p>
+   * <p><strong>Supported pipeline types:</strong> logs</p>
  */
 @JsonPropertyOrder({
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_DISPLAY_NAME,
@@ -35,10 +46,10 @@ import java.util.Objects;
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_TARGET,
   ObservabilityPipelineEnrichmentTableProcessor.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineEnrichmentTableProcessor {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
   private String displayName;
 
@@ -64,241 +75,217 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
   private String target;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineEnrichmentTableProcessorType type =
-      ObservabilityPipelineEnrichmentTableProcessorType.ENRICHMENT_TABLE;
+  private ObservabilityPipelineEnrichmentTableProcessorType type = ObservabilityPipelineEnrichmentTableProcessorType.ENRICHMENT_TABLE;
 
   public ObservabilityPipelineEnrichmentTableProcessor() {}
 
   @JsonCreator
   public ObservabilityPipelineEnrichmentTableProcessor(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_INCLUDE) String include,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) String target,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ObservabilityPipelineEnrichmentTableProcessorType type) {
-    this.enabled = enabled;
-    this.id = id;
-    this.include = include;
-    this.target = target;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ENABLED)Boolean enabled,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_INCLUDE)String include,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TARGET)String target,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ObservabilityPipelineEnrichmentTableProcessorType type) {
+        this.enabled = enabled;
+        this.id = id;
+        this.include = include;
+        this.target = target;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public ObservabilityPipelineEnrichmentTableProcessor displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
 
   /**
-   * The display name for a component.
-   *
+   * <p>The display name for a component.</p>
    * @return displayName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDisplayName() {
-    return displayName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDisplayName() {
+        return displayName;
+      }
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
-
   public ObservabilityPipelineEnrichmentTableProcessor enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * Indicates whether the processor is enabled.
-   *
+   * <p>Indicates whether the processor is enabled.</p>
    * @return enabled
-   */
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Boolean getEnabled() {
+        return enabled;
+      }
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
-
-  public ObservabilityPipelineEnrichmentTableProcessor file(
-      ObservabilityPipelineEnrichmentTableFile file) {
+  public ObservabilityPipelineEnrichmentTableProcessor file(ObservabilityPipelineEnrichmentTableFile file) {
     this.file = file;
     this.unparsed |= file.unparsed;
     return this;
   }
 
   /**
-   * Defines a static enrichment table loaded from a CSV file.
-   *
+   * <p>Defines a static enrichment table loaded from a CSV file.</p>
    * @return file
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineEnrichmentTableFile getFile() {
-    return file;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FILE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineEnrichmentTableFile getFile() {
+        return file;
+      }
   public void setFile(ObservabilityPipelineEnrichmentTableFile file) {
     this.file = file;
   }
-
-  public ObservabilityPipelineEnrichmentTableProcessor geoip(
-      ObservabilityPipelineEnrichmentTableGeoIp geoip) {
+  public ObservabilityPipelineEnrichmentTableProcessor geoip(ObservabilityPipelineEnrichmentTableGeoIp geoip) {
     this.geoip = geoip;
     this.unparsed |= geoip.unparsed;
     return this;
   }
 
   /**
-   * Uses a GeoIP database to enrich logs based on an IP field.
-   *
+   * <p>Uses a GeoIP database to enrich logs based on an IP field.</p>
    * @return geoip
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GEOIP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineEnrichmentTableGeoIp getGeoip() {
-    return geoip;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GEOIP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineEnrichmentTableGeoIp getGeoip() {
+        return geoip;
+      }
   public void setGeoip(ObservabilityPipelineEnrichmentTableGeoIp geoip) {
     this.geoip = geoip;
   }
-
   public ObservabilityPipelineEnrichmentTableProcessor id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The unique identifier for this processor.
-   *
+   * <p>The unique identifier for this processor.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public ObservabilityPipelineEnrichmentTableProcessor include(String include) {
     this.include = include;
     return this;
   }
 
   /**
-   * A Datadog search query used to determine which logs this processor targets.
-   *
+   * <p>A Datadog search query used to determine which logs this processor targets.</p>
    * @return include
-   */
-  @JsonProperty(JSON_PROPERTY_INCLUDE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getInclude() {
-    return include;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INCLUDE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getInclude() {
+        return include;
+      }
   public void setInclude(String include) {
     this.include = include;
   }
-
-  public ObservabilityPipelineEnrichmentTableProcessor referenceTable(
-      ObservabilityPipelineEnrichmentTableReferenceTable referenceTable) {
+  public ObservabilityPipelineEnrichmentTableProcessor referenceTable(ObservabilityPipelineEnrichmentTableReferenceTable referenceTable) {
     this.referenceTable = referenceTable;
     this.unparsed |= referenceTable.unparsed;
     return this;
   }
 
   /**
-   * Uses a Datadog reference table to enrich logs.
-   *
+   * <p>Uses a Datadog reference table to enrich logs.</p>
    * @return referenceTable
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REFERENCE_TABLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ObservabilityPipelineEnrichmentTableReferenceTable getReferenceTable() {
-    return referenceTable;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REFERENCE_TABLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ObservabilityPipelineEnrichmentTableReferenceTable getReferenceTable() {
+        return referenceTable;
+      }
   public void setReferenceTable(ObservabilityPipelineEnrichmentTableReferenceTable referenceTable) {
     this.referenceTable = referenceTable;
   }
-
   public ObservabilityPipelineEnrichmentTableProcessor target(String target) {
     this.target = target;
     return this;
   }
 
   /**
-   * Path where enrichment results should be stored in the log.
-   *
+   * <p>Path where enrichment results should be stored in the log.</p>
    * @return target
-   */
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTarget() {
-    return target;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TARGET)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTarget() {
+        return target;
+      }
   public void setTarget(String target) {
     this.target = target;
   }
-
-  public ObservabilityPipelineEnrichmentTableProcessor type(
-      ObservabilityPipelineEnrichmentTableProcessorType type) {
+  public ObservabilityPipelineEnrichmentTableProcessor type(ObservabilityPipelineEnrichmentTableProcessorType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The processor type. The value should always be <code>enrichment_table</code>.
-   *
+   * <p>The processor type. The value should always be <code>enrichment_table</code>.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineEnrichmentTableProcessorType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ObservabilityPipelineEnrichmentTableProcessorType getType() {
+        return type;
+      }
   public void setType(ObservabilityPipelineEnrichmentTableProcessorType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ObservabilityPipelineEnrichmentTableProcessor
    */
   @JsonAnySetter
-  public ObservabilityPipelineEnrichmentTableProcessor putAdditionalProperty(
-      String key, Object value) {
+  public ObservabilityPipelineEnrichmentTableProcessor putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -322,12 +309,14 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineEnrichmentTableProcessor object is equal to o. */
+  /**
+   * Return true if this ObservabilityPipelineEnrichmentTableProcessor object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -336,37 +325,14 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineEnrichmentTableProcessor observabilityPipelineEnrichmentTableProcessor =
-        (ObservabilityPipelineEnrichmentTableProcessor) o;
-    return Objects.equals(
-            this.displayName, observabilityPipelineEnrichmentTableProcessor.displayName)
-        && Objects.equals(this.enabled, observabilityPipelineEnrichmentTableProcessor.enabled)
-        && Objects.equals(this.file, observabilityPipelineEnrichmentTableProcessor.file)
-        && Objects.equals(this.geoip, observabilityPipelineEnrichmentTableProcessor.geoip)
-        && Objects.equals(this.id, observabilityPipelineEnrichmentTableProcessor.id)
-        && Objects.equals(this.include, observabilityPipelineEnrichmentTableProcessor.include)
-        && Objects.equals(
-            this.referenceTable, observabilityPipelineEnrichmentTableProcessor.referenceTable)
-        && Objects.equals(this.target, observabilityPipelineEnrichmentTableProcessor.target)
-        && Objects.equals(this.type, observabilityPipelineEnrichmentTableProcessor.type)
-        && Objects.equals(
-            this.additionalProperties,
-            observabilityPipelineEnrichmentTableProcessor.additionalProperties);
+    ObservabilityPipelineEnrichmentTableProcessor observabilityPipelineEnrichmentTableProcessor = (ObservabilityPipelineEnrichmentTableProcessor) o;
+    return Objects.equals(this.displayName, observabilityPipelineEnrichmentTableProcessor.displayName) && Objects.equals(this.enabled, observabilityPipelineEnrichmentTableProcessor.enabled) && Objects.equals(this.file, observabilityPipelineEnrichmentTableProcessor.file) && Objects.equals(this.geoip, observabilityPipelineEnrichmentTableProcessor.geoip) && Objects.equals(this.id, observabilityPipelineEnrichmentTableProcessor.id) && Objects.equals(this.include, observabilityPipelineEnrichmentTableProcessor.include) && Objects.equals(this.referenceTable, observabilityPipelineEnrichmentTableProcessor.referenceTable) && Objects.equals(this.target, observabilityPipelineEnrichmentTableProcessor.target) && Objects.equals(this.type, observabilityPipelineEnrichmentTableProcessor.type) && Objects.equals(this.additionalProperties, observabilityPipelineEnrichmentTableProcessor.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        displayName,
-        enabled,
-        file,
-        geoip,
-        id,
-        include,
-        referenceTable,
-        target,
-        type,
-        additionalProperties);
+    return Objects.hash(displayName,enabled,file,geoip,id,include,referenceTable,target,type, additionalProperties);
   }
 
   @Override
@@ -390,7 +356,8 @@ public class ObservabilityPipelineEnrichmentTableProcessor {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

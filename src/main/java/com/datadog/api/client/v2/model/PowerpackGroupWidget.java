@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,20 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Powerpack group widget definition object. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Powerpack group widget definition object.</p>
+ */
 @JsonPropertyOrder({
   PowerpackGroupWidget.JSON_PROPERTY_DEFINITION,
   PowerpackGroupWidget.JSON_PROPERTY_LAYOUT,
   PowerpackGroupWidget.JSON_PROPERTY_LIVE_SPAN
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PowerpackGroupWidget {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
   private PowerpackGroupWidgetDefinition definition;
 
@@ -40,12 +56,10 @@ public class PowerpackGroupWidget {
 
   @JsonCreator
   public PowerpackGroupWidget(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
-          PowerpackGroupWidgetDefinition definition) {
-    this.definition = definition;
-    this.unparsed |= definition.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DEFINITION)PowerpackGroupWidgetDefinition definition) {
+        this.definition = definition;
+        this.unparsed |= definition.unparsed;
   }
-
   public PowerpackGroupWidget definition(PowerpackGroupWidgetDefinition definition) {
     this.definition = definition;
     this.unparsed |= definition.unparsed;
@@ -53,20 +67,18 @@ public class PowerpackGroupWidget {
   }
 
   /**
-   * Powerpack group widget object.
-   *
+   * <p>Powerpack group widget object.</p>
    * @return definition
-   */
-  @JsonProperty(JSON_PROPERTY_DEFINITION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public PowerpackGroupWidgetDefinition getDefinition() {
-    return definition;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DEFINITION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public PowerpackGroupWidgetDefinition getDefinition() {
+        return definition;
+      }
   public void setDefinition(PowerpackGroupWidgetDefinition definition) {
     this.definition = definition;
   }
-
   public PowerpackGroupWidget layout(PowerpackGroupWidgetLayout layout) {
     this.layout = layout;
     this.unparsed |= layout.unparsed;
@@ -74,21 +86,19 @@ public class PowerpackGroupWidget {
   }
 
   /**
-   * Powerpack group widget layout.
-   *
+   * <p>Powerpack group widget layout.</p>
    * @return layout
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAYOUT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PowerpackGroupWidgetLayout getLayout() {
-    return layout;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAYOUT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public PowerpackGroupWidgetLayout getLayout() {
+        return layout;
+      }
   public void setLayout(PowerpackGroupWidgetLayout layout) {
     this.layout = layout;
   }
-
   public PowerpackGroupWidget liveSpan(WidgetLiveSpan liveSpan) {
     this.liveSpan = liveSpan;
     this.unparsed |= !liveSpan.isValid();
@@ -96,33 +106,33 @@ public class PowerpackGroupWidget {
   }
 
   /**
-   * The available timeframes depend on the widget you are using.
-   *
+   * <p>The available timeframes depend on the widget you are using.</p>
    * @return liveSpan
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIVE_SPAN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetLiveSpan getLiveSpan() {
-    return liveSpan;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIVE_SPAN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetLiveSpan getLiveSpan() {
+        return liveSpan;
+      }
   public void setLiveSpan(WidgetLiveSpan liveSpan) {
     if (!liveSpan.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.liveSpan = liveSpan;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -131,7 +141,7 @@ public class PowerpackGroupWidget {
   @JsonAnySetter
   public PowerpackGroupWidget putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -155,12 +165,14 @@ public class PowerpackGroupWidget {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this PowerpackGroupWidget object is equal to o. */
+  /**
+   * Return true if this PowerpackGroupWidget object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -170,15 +182,13 @@ public class PowerpackGroupWidget {
       return false;
     }
     PowerpackGroupWidget powerpackGroupWidget = (PowerpackGroupWidget) o;
-    return Objects.equals(this.definition, powerpackGroupWidget.definition)
-        && Objects.equals(this.layout, powerpackGroupWidget.layout)
-        && Objects.equals(this.liveSpan, powerpackGroupWidget.liveSpan)
-        && Objects.equals(this.additionalProperties, powerpackGroupWidget.additionalProperties);
+    return Objects.equals(this.definition, powerpackGroupWidget.definition) && Objects.equals(this.layout, powerpackGroupWidget.layout) && Objects.equals(this.liveSpan, powerpackGroupWidget.liveSpan) && Objects.equals(this.additionalProperties, powerpackGroupWidget.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(definition, layout, liveSpan, additionalProperties);
+    return Objects.hash(definition,layout,liveSpan, additionalProperties);
   }
 
   @Override
@@ -196,7 +206,8 @@ public class PowerpackGroupWidget {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

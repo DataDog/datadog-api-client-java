@@ -1,31 +1,35 @@
 // Create AWS scan options returns "Agentless scan options enabled successfully." response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.AgentlessScanningApi;
+import com.datadog.api.client.v2.model.AwsScanOptionsResponse;
 import com.datadog.api.client.v2.model.AwsScanOptionsCreateAttributes;
 import com.datadog.api.client.v2.model.AwsScanOptionsCreateData;
 import com.datadog.api.client.v2.model.AwsScanOptionsCreateRequest;
-import com.datadog.api.client.v2.model.AwsScanOptionsResponse;
 import com.datadog.api.client.v2.model.AwsScanOptionsType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AgentlessScanningApi apiInstance = new AgentlessScanningApi(defaultClient);
 
-    AwsScanOptionsCreateRequest body =
-        new AwsScanOptionsCreateRequest()
-            .data(
-                new AwsScanOptionsCreateData()
-                    .id("000000000003")
-                    .type(AwsScanOptionsType.AWS_SCAN_OPTIONS)
-                    .attributes(
-                        new AwsScanOptionsCreateAttributes()
-                            .lambda(true)
-                            .sensitiveData(false)
-                            .vulnContainersOs(true)
-                            .vulnHostOs(true)));
+    AwsScanOptionsCreateRequest body = new AwsScanOptionsCreateRequest()
+.data(new AwsScanOptionsCreateData()
+.id("000000000003")
+.type(AwsScanOptionsType.AWS_SCAN_OPTIONS)
+.attributes(new AwsScanOptionsCreateAttributes()
+.lambda(true)
+.sensitiveData(false)
+.vulnContainersOs(true)
+.vulnHostOs(true)));
 
     try {
       AwsScanOptionsResponse result = apiInstance.createAwsScanOptions(body);

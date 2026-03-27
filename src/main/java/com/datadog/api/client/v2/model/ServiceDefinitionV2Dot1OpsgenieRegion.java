@@ -6,54 +6,72 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Opsgenie instance region. */
-@JsonSerialize(
-    using =
-        ServiceDefinitionV2Dot1OpsgenieRegion.ServiceDefinitionV2Dot1OpsgenieRegionSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Opsgenie instance region.</p>
+ */
+@JsonSerialize(using = ServiceDefinitionV2Dot1OpsgenieRegion.ServiceDefinitionV2Dot1OpsgenieRegionSerializer.class)
 public class ServiceDefinitionV2Dot1OpsgenieRegion extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("US", "EU"));
 
-  public static final ServiceDefinitionV2Dot1OpsgenieRegion US =
-      new ServiceDefinitionV2Dot1OpsgenieRegion("US");
-  public static final ServiceDefinitionV2Dot1OpsgenieRegion EU =
-      new ServiceDefinitionV2Dot1OpsgenieRegion("EU");
+  public static final ServiceDefinitionV2Dot1OpsgenieRegion US = new ServiceDefinitionV2Dot1OpsgenieRegion("US");
+  public static final ServiceDefinitionV2Dot1OpsgenieRegion EU = new ServiceDefinitionV2Dot1OpsgenieRegion("EU");
+
 
   ServiceDefinitionV2Dot1OpsgenieRegion(String value) {
     super(value, allowedValues);
   }
 
-  public static class ServiceDefinitionV2Dot1OpsgenieRegionSerializer
-      extends StdSerializer<ServiceDefinitionV2Dot1OpsgenieRegion> {
-    public ServiceDefinitionV2Dot1OpsgenieRegionSerializer(
-        Class<ServiceDefinitionV2Dot1OpsgenieRegion> t) {
-      super(t);
-    }
+  public static class ServiceDefinitionV2Dot1OpsgenieRegionSerializer extends StdSerializer<ServiceDefinitionV2Dot1OpsgenieRegion> {
+      public ServiceDefinitionV2Dot1OpsgenieRegionSerializer(Class<ServiceDefinitionV2Dot1OpsgenieRegion> t) {
+          super(t);
+      }
 
-    public ServiceDefinitionV2Dot1OpsgenieRegionSerializer() {
-      this(null);
-    }
+      public ServiceDefinitionV2Dot1OpsgenieRegionSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ServiceDefinitionV2Dot1OpsgenieRegion value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ServiceDefinitionV2Dot1OpsgenieRegion value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

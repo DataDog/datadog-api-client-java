@@ -6,59 +6,75 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Byte frames according to the octet counting format as per RFC6587. */
-@JsonSerialize(
-    using =
-        ObservabilityPipelineSocketSourceFramingOctetCountingMethod
-            .ObservabilityPipelineSocketSourceFramingOctetCountingMethodSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Byte frames according to the octet counting format as per RFC6587.</p>
+ */
+@JsonSerialize(using = ObservabilityPipelineSocketSourceFramingOctetCountingMethod.ObservabilityPipelineSocketSourceFramingOctetCountingMethodSerializer.class)
 public class ObservabilityPipelineSocketSourceFramingOctetCountingMethod extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("octet_counting"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("octet_counting"));
 
-  public static final ObservabilityPipelineSocketSourceFramingOctetCountingMethod OCTET_COUNTING =
-      new ObservabilityPipelineSocketSourceFramingOctetCountingMethod("octet_counting");
+  public static final ObservabilityPipelineSocketSourceFramingOctetCountingMethod OCTET_COUNTING = new ObservabilityPipelineSocketSourceFramingOctetCountingMethod("octet_counting");
+
 
   ObservabilityPipelineSocketSourceFramingOctetCountingMethod(String value) {
     super(value, allowedValues);
   }
 
-  public static class ObservabilityPipelineSocketSourceFramingOctetCountingMethodSerializer
-      extends StdSerializer<ObservabilityPipelineSocketSourceFramingOctetCountingMethod> {
-    public ObservabilityPipelineSocketSourceFramingOctetCountingMethodSerializer(
-        Class<ObservabilityPipelineSocketSourceFramingOctetCountingMethod> t) {
-      super(t);
-    }
+  public static class ObservabilityPipelineSocketSourceFramingOctetCountingMethodSerializer extends StdSerializer<ObservabilityPipelineSocketSourceFramingOctetCountingMethod> {
+      public ObservabilityPipelineSocketSourceFramingOctetCountingMethodSerializer(Class<ObservabilityPipelineSocketSourceFramingOctetCountingMethod> t) {
+          super(t);
+      }
 
-    public ObservabilityPipelineSocketSourceFramingOctetCountingMethodSerializer() {
-      this(null);
-    }
+      public ObservabilityPipelineSocketSourceFramingOctetCountingMethodSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ObservabilityPipelineSocketSourceFramingOctetCountingMethod value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ObservabilityPipelineSocketSourceFramingOctetCountingMethod value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator
-  public static ObservabilityPipelineSocketSourceFramingOctetCountingMethod fromValue(
-      String value) {
+  public static ObservabilityPipelineSocketSourceFramingOctetCountingMethod fromValue(String value) {
     return new ObservabilityPipelineSocketSourceFramingOctetCountingMethod(value);
   }
 }

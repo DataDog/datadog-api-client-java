@@ -1,31 +1,36 @@
 // Create a team returns "CREATED" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.TeamsApi;
+import com.datadog.api.client.v2.model.TeamResponse;
 import com.datadog.api.client.v2.model.RelationshipToUsers;
 import com.datadog.api.client.v2.model.TeamCreate;
 import com.datadog.api.client.v2.model.TeamCreateAttributes;
 import com.datadog.api.client.v2.model.TeamCreateRelationships;
 import com.datadog.api.client.v2.model.TeamCreateRequest;
-import com.datadog.api.client.v2.model.TeamResponse;
 import com.datadog.api.client.v2.model.TeamType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
-    TeamCreateRequest body =
-        new TeamCreateRequest()
-            .data(
-                new TeamCreate()
-                    .attributes(
-                        new TeamCreateAttributes()
-                            .handle("test-handle-a0fc0297eb519635")
-                            .name("test-name-a0fc0297eb519635"))
-                    .relationships(new TeamCreateRelationships().users(new RelationshipToUsers()))
-                    .type(TeamType.TEAM));
+    TeamCreateRequest body = new TeamCreateRequest()
+.data(new TeamCreate()
+.attributes(new TeamCreateAttributes()
+.handle("test-handle-a0fc0297eb519635")
+.name("test-name-a0fc0297eb519635"))
+.relationships(new TeamCreateRelationships()
+.users(new RelationshipToUsers()))
+.type(TeamType.TEAM));
 
     try {
       TeamResponse result = apiInstance.createTeam(body);

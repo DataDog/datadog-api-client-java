@@ -7,8 +7,5 @@
 package com.datadog.api.client.auth;
 
 public enum OAuthFlow {
-  accessCode,
-  implicit,
-  password,
-  application
+    accessCode, implicit, password, application
 }

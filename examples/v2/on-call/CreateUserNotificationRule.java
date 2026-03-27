@@ -1,18 +1,25 @@
 // Create an On-Call notification rule for a user returns "Created" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.OnCallApi;
+import com.datadog.api.client.v2.model.OnCallNotificationRule;
 import com.datadog.api.client.v2.model.CreateOnCallNotificationRuleRequest;
 import com.datadog.api.client.v2.model.CreateOnCallNotificationRuleRequestData;
 import com.datadog.api.client.v2.model.NotificationChannelType;
-import com.datadog.api.client.v2.model.OnCallNotificationRule;
 import com.datadog.api.client.v2.model.OnCallNotificationRuleCategory;
 import com.datadog.api.client.v2.model.OnCallNotificationRuleChannelRelationship;
 import com.datadog.api.client.v2.model.OnCallNotificationRuleChannelRelationshipData;
 import com.datadog.api.client.v2.model.OnCallNotificationRuleRelationships;
 import com.datadog.api.client.v2.model.OnCallNotificationRuleRequestAttributes;
 import com.datadog.api.client.v2.model.OnCallNotificationRuleType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -23,26 +30,19 @@ public class Example {
     String USER_DATA_ID = System.getenv("USER_DATA_ID");
 
     // there is a valid "oncall_email_notification_channel" in the system
-    String ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID =
-        System.getenv("ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID");
+    String ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID = System.getenv("ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID");
 
-    CreateOnCallNotificationRuleRequest body =
-        new CreateOnCallNotificationRuleRequest()
-            .data(
-                new CreateOnCallNotificationRuleRequestData()
-                    .attributes(
-                        new OnCallNotificationRuleRequestAttributes()
-                            .category(OnCallNotificationRuleCategory.HIGH_URGENCY)
-                            .delayMinutes(0L))
-                    .relationships(
-                        new OnCallNotificationRuleRelationships()
-                            .channel(
-                                new OnCallNotificationRuleChannelRelationship()
-                                    .data(
-                                        new OnCallNotificationRuleChannelRelationshipData()
-                                            .id(ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID)
-                                            .type(NotificationChannelType.NOTIFICATION_CHANNELS))))
-                    .type(OnCallNotificationRuleType.NOTIFICATION_RULES));
+    CreateOnCallNotificationRuleRequest body = new CreateOnCallNotificationRuleRequest()
+.data(new CreateOnCallNotificationRuleRequestData()
+.attributes(new OnCallNotificationRuleRequestAttributes()
+.category(OnCallNotificationRuleCategory.HIGH_URGENCY)
+.delayMinutes(0L))
+.relationships(new OnCallNotificationRuleRelationships()
+.channel(new OnCallNotificationRuleChannelRelationship()
+.data(new OnCallNotificationRuleChannelRelationshipData()
+.id(ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID)
+.type(NotificationChannelType.NOTIFICATION_CHANNELS))))
+.type(OnCallNotificationRuleType.NOTIFICATION_RULES));
 
     try {
       OnCallNotificationRule result = apiInstance.createUserNotificationRule(USER_DATA_ID, body);

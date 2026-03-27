@@ -6,70 +6,84 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Options on impossible travel detection method. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Options on impossible travel detection method.</p>
+ */
 @JsonPropertyOrder({
   SecurityMonitoringRuleImpossibleTravelOptions.JSON_PROPERTY_BASELINE_USER_LOCATIONS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleImpossibleTravelOptions {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BASELINE_USER_LOCATIONS = "baselineUserLocations";
   private Boolean baselineUserLocations;
 
-  public SecurityMonitoringRuleImpossibleTravelOptions baselineUserLocations(
-      Boolean baselineUserLocations) {
+  public SecurityMonitoringRuleImpossibleTravelOptions baselineUserLocations(Boolean baselineUserLocations) {
     this.baselineUserLocations = baselineUserLocations;
     return this;
   }
 
   /**
-   * If true, signals are suppressed for the first 24 hours. In that time, Datadog learns the user's
-   * regular access locations. This can be helpful to reduce noise and infer VPN usage or
-   * credentialed API access.
-   *
+   * <p>If true, signals are suppressed for the first 24 hours. In that time, Datadog learns the user's regular
+   * access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.</p>
    * @return baselineUserLocations
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BASELINE_USER_LOCATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getBaselineUserLocations() {
-    return baselineUserLocations;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BASELINE_USER_LOCATIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getBaselineUserLocations() {
+        return baselineUserLocations;
+      }
   public void setBaselineUserLocations(Boolean baselineUserLocations) {
     this.baselineUserLocations = baselineUserLocations;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return SecurityMonitoringRuleImpossibleTravelOptions
    */
   @JsonAnySetter
-  public SecurityMonitoringRuleImpossibleTravelOptions putAdditionalProperty(
-      String key, Object value) {
+  public SecurityMonitoringRuleImpossibleTravelOptions putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -93,12 +107,14 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringRuleImpossibleTravelOptions object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringRuleImpossibleTravelOptions object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -107,15 +123,10 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleImpossibleTravelOptions securityMonitoringRuleImpossibleTravelOptions =
-        (SecurityMonitoringRuleImpossibleTravelOptions) o;
-    return Objects.equals(
-            this.baselineUserLocations,
-            securityMonitoringRuleImpossibleTravelOptions.baselineUserLocations)
-        && Objects.equals(
-            this.additionalProperties,
-            securityMonitoringRuleImpossibleTravelOptions.additionalProperties);
+    SecurityMonitoringRuleImpossibleTravelOptions securityMonitoringRuleImpossibleTravelOptions = (SecurityMonitoringRuleImpossibleTravelOptions) o;
+    return Objects.equals(this.baselineUserLocations, securityMonitoringRuleImpossibleTravelOptions.baselineUserLocations) && Objects.equals(this.additionalProperties, securityMonitoringRuleImpossibleTravelOptions.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
@@ -126,9 +137,7 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleImpossibleTravelOptions {\n");
-    sb.append("    baselineUserLocations: ")
-        .append(toIndentedString(baselineUserLocations))
-        .append("\n");
+    sb.append("    baselineUserLocations: ").append(toIndentedString(baselineUserLocations)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -137,7 +146,8 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

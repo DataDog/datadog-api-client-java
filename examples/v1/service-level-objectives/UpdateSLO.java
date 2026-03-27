@@ -1,15 +1,21 @@
 // Update an SLO returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi;
 import com.datadog.api.client.v1.model.SLOListResponse;
+import com.datadog.api.client.v1.model.ServiceLevelObjective;
+import com.datadog.api.client.v1.model.ServiceLevelObjectiveQuery;
 import com.datadog.api.client.v1.model.SLOThreshold;
 import com.datadog.api.client.v1.model.SLOTimeframe;
 import com.datadog.api.client.v1.model.SLOType;
-import com.datadog.api.client.v1.model.ServiceLevelObjective;
-import com.datadog.api.client.v1.model.ServiceLevelObjectiveQuery;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -20,23 +26,19 @@ public class Example {
     String SLO_DATA_0_ID = System.getenv("SLO_DATA_0_ID");
     String SLO_DATA_0_NAME = System.getenv("SLO_DATA_0_NAME");
 
-    ServiceLevelObjective body =
-        new ServiceLevelObjective()
-            .type(SLOType.METRIC)
-            .name(SLO_DATA_0_NAME)
-            .thresholds(
-                Collections.singletonList(
-                    new SLOThreshold()
-                        .target(97.0)
-                        .timeframe(SLOTimeframe.SEVEN_DAYS)
-                        .warning(98.0)))
-            .timeframe(SLOTimeframe.SEVEN_DAYS)
-            .targetThreshold(97.0)
-            .warningThreshold(98.0)
-            .query(
-                new ServiceLevelObjectiveQuery()
-                    .numerator("sum:httpservice.hits{code:2xx}.as_count()")
-                    .denominator("sum:httpservice.hits{!code:3xx}.as_count()"));
+    ServiceLevelObjective body = new ServiceLevelObjective()
+.type(SLOType.METRIC)
+.name(SLO_DATA_0_NAME)
+.thresholds(Collections.singletonList(new SLOThreshold()
+.target(97.0)
+.timeframe(SLOTimeframe.SEVEN_DAYS)
+.warning(98.0)))
+.timeframe(SLOTimeframe.SEVEN_DAYS)
+.targetThreshold(97.0)
+.warningThreshold(98.0)
+.query(new ServiceLevelObjectiveQuery()
+.numerator("sum:httpservice.hits{code:2xx}.as_count()")
+.denominator("sum:httpservice.hits{!code:3xx}.as_count()"));
 
     try {
       SLOListResponse result = apiInstance.updateSLO(SLO_DATA_0_ID, body);

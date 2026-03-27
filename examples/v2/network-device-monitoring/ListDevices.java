@@ -1,10 +1,17 @@
 // Get the list of devices returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.NetworkDeviceMonitoringApi;
 import com.datadog.api.client.v2.api.NetworkDeviceMonitoringApi.ListDevicesOptionalParameters;
 import com.datadog.api.client.v2.model.ListDevicesResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -12,12 +19,7 @@ public class Example {
     NetworkDeviceMonitoringApi apiInstance = new NetworkDeviceMonitoringApi(defaultClient);
 
     try {
-      ListDevicesResponse result =
-          apiInstance.listDevices(
-              new ListDevicesOptionalParameters()
-                  .pageSize(1L)
-                  .pageNumber(0L)
-                  .filterTag("device_namespace:default"));
+      ListDevicesResponse result = apiInstance.listDevices(new ListDevicesOptionalParameters().pageSize(1L).pageNumber(0L).filterTag("device_namespace:default"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NetworkDeviceMonitoringApi#listDevices");

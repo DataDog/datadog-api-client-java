@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Team link attributes */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Team link attributes</p>
+ */
 @JsonPropertyOrder({
   TeamLinkAttributes.JSON_PROPERTY_LABEL,
   TeamLinkAttributes.JSON_PROPERTY_POSITION,
   TeamLinkAttributes.JSON_PROPERTY_TEAM_ID,
   TeamLinkAttributes.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamLinkAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
 
@@ -44,94 +60,90 @@ public class TeamLinkAttributes {
 
   @JsonCreator
   public TeamLinkAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_LABEL) String label,
-      @JsonProperty(required = true, value = JSON_PROPERTY_URL) String url) {
-    this.label = label;
-    this.url = url;
+            @JsonProperty(required=true, value=JSON_PROPERTY_LABEL)String label,
+            @JsonProperty(required=true, value=JSON_PROPERTY_URL)String url) {
+        this.label = label;
+        this.url = url;
   }
-
   public TeamLinkAttributes label(String label) {
     this.label = label;
     return this;
   }
 
   /**
-   * The link's label
-   *
+   * <p>The link's label</p>
    * @return label
-   */
-  @JsonProperty(JSON_PROPERTY_LABEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getLabel() {
-    return label;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_LABEL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getLabel() {
+        return label;
+      }
   public void setLabel(String label) {
     this.label = label;
   }
-
   public TeamLinkAttributes position(Integer position) {
     this.position = position;
     return this;
   }
 
   /**
-   * The link's position, used to sort links for the team maximum: 2147483647
-   *
+   * <p>The link's position, used to sort links for the team</p>
+   * maximum: 2147483647
    * @return position
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POSITION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getPosition() {
-    return position;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_POSITION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Integer getPosition() {
+        return position;
+      }
   public void setPosition(Integer position) {
     this.position = position;
   }
 
   /**
-   * ID of the team the link is associated with
-   *
+   * <p>ID of the team the link is associated with</p>
    * @return teamId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTeamId() {
-    return teamId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TEAM_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTeamId() {
+        return teamId;
+      }
   public TeamLinkAttributes url(String url) {
     this.url = url;
     return this;
   }
 
   /**
-   * The URL for the link
-   *
+   * <p>The URL for the link</p>
    * @return url
-   */
-  @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUrl() {
-    return url;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getUrl() {
+        return url;
+      }
   public void setUrl(String url) {
     this.url = url;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -140,7 +152,7 @@ public class TeamLinkAttributes {
   @JsonAnySetter
   public TeamLinkAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -164,12 +176,14 @@ public class TeamLinkAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamLinkAttributes object is equal to o. */
+  /**
+   * Return true if this TeamLinkAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -179,16 +193,13 @@ public class TeamLinkAttributes {
       return false;
     }
     TeamLinkAttributes teamLinkAttributes = (TeamLinkAttributes) o;
-    return Objects.equals(this.label, teamLinkAttributes.label)
-        && Objects.equals(this.position, teamLinkAttributes.position)
-        && Objects.equals(this.teamId, teamLinkAttributes.teamId)
-        && Objects.equals(this.url, teamLinkAttributes.url)
-        && Objects.equals(this.additionalProperties, teamLinkAttributes.additionalProperties);
+    return Objects.equals(this.label, teamLinkAttributes.label) && Objects.equals(this.position, teamLinkAttributes.position) && Objects.equals(this.teamId, teamLinkAttributes.teamId) && Objects.equals(this.url, teamLinkAttributes.url) && Objects.equals(this.additionalProperties, teamLinkAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(label, position, teamId, url, additionalProperties);
+    return Objects.hash(label,position,teamId,url, additionalProperties);
   }
 
   @Override
@@ -207,7 +218,8 @@ public class TeamLinkAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

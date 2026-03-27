@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,19 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The definition of the <code>GitlabAPIKey</code> object. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The definition of the <code>GitlabAPIKey</code> object.</p>
+ */
 @JsonPropertyOrder({
   GitlabAPIKeyUpdate.JSON_PROPERTY_API_TOKEN,
   GitlabAPIKeyUpdate.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GitlabAPIKeyUpdate {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_TOKEN = "api_token";
   private String apiToken;
 
@@ -36,32 +52,29 @@ public class GitlabAPIKeyUpdate {
 
   @JsonCreator
   public GitlabAPIKeyUpdate(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GitlabAPIKeyType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)GitlabAPIKeyType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public GitlabAPIKeyUpdate apiToken(String apiToken) {
     this.apiToken = apiToken;
     return this;
   }
 
   /**
-   * The <code>GitlabAPIKeyUpdate</code> <code>api_token</code>.
-   *
+   * <p>The <code>GitlabAPIKeyUpdate</code> <code>api_token</code>.</p>
    * @return apiToken
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_API_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApiToken() {
-    return apiToken;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_API_TOKEN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getApiToken() {
+        return apiToken;
+      }
   public void setApiToken(String apiToken) {
     this.apiToken = apiToken;
   }
-
   public GitlabAPIKeyUpdate type(GitlabAPIKeyType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -69,32 +82,32 @@ public class GitlabAPIKeyUpdate {
   }
 
   /**
-   * The definition of the <code>GitlabAPIKey</code> object.
-   *
+   * <p>The definition of the <code>GitlabAPIKey</code> object.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GitlabAPIKeyType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public GitlabAPIKeyType getType() {
+        return type;
+      }
   public void setType(GitlabAPIKeyType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -103,7 +116,7 @@ public class GitlabAPIKeyUpdate {
   @JsonAnySetter
   public GitlabAPIKeyUpdate putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -127,12 +140,14 @@ public class GitlabAPIKeyUpdate {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GitlabAPIKeyUpdate object is equal to o. */
+  /**
+   * Return true if this GitlabAPIKeyUpdate object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,14 +157,13 @@ public class GitlabAPIKeyUpdate {
       return false;
     }
     GitlabAPIKeyUpdate gitlabApiKeyUpdate = (GitlabAPIKeyUpdate) o;
-    return Objects.equals(this.apiToken, gitlabApiKeyUpdate.apiToken)
-        && Objects.equals(this.type, gitlabApiKeyUpdate.type)
-        && Objects.equals(this.additionalProperties, gitlabApiKeyUpdate.additionalProperties);
+    return Objects.equals(this.apiToken, gitlabApiKeyUpdate.apiToken) && Objects.equals(this.type, gitlabApiKeyUpdate.type) && Objects.equals(this.additionalProperties, gitlabApiKeyUpdate.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiToken, type, additionalProperties);
+    return Objects.hash(apiToken,type, additionalProperties);
   }
 
   @Override
@@ -166,7 +180,8 @@ public class GitlabAPIKeyUpdate {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

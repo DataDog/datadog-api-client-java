@@ -1,13 +1,20 @@
 // Create an LLM Observability project returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.LlmObservabilityApi;
+import com.datadog.api.client.v2.model.LLMObsProjectResponse;
 import com.datadog.api.client.v2.model.LLMObsProjectDataAttributesRequest;
 import com.datadog.api.client.v2.model.LLMObsProjectDataRequest;
 import com.datadog.api.client.v2.model.LLMObsProjectRequest;
-import com.datadog.api.client.v2.model.LLMObsProjectResponse;
 import com.datadog.api.client.v2.model.LLMObsProjectType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -15,12 +22,11 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createLLMObsProject", true);
     LlmObservabilityApi apiInstance = new LlmObservabilityApi(defaultClient);
 
-    LLMObsProjectRequest body =
-        new LLMObsProjectRequest()
-            .data(
-                new LLMObsProjectDataRequest()
-                    .attributes(new LLMObsProjectDataAttributesRequest().name("My LLM Project"))
-                    .type(LLMObsProjectType.PROJECTS));
+    LLMObsProjectRequest body = new LLMObsProjectRequest()
+.data(new LLMObsProjectDataRequest()
+.attributes(new LLMObsProjectDataAttributesRequest()
+.name("My LLM Project"))
+.type(LLMObsProjectType.PROJECTS));
 
     try {
       LLMObsProjectResponse result = apiInstance.createLLMObsProject(body);

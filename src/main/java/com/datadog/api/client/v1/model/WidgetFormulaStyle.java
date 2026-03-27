@@ -6,25 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Styling options for widget formulas. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Styling options for widget formulas.</p>
+ */
 @JsonPropertyOrder({
   WidgetFormulaStyle.JSON_PROPERTY_PALETTE,
   WidgetFormulaStyle.JSON_PROPERTY_PALETTE_INDEX
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetFormulaStyle {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_PALETTE = "palette";
   private String palette;
 
@@ -37,52 +54,49 @@ public class WidgetFormulaStyle {
   }
 
   /**
-   * The color palette used to display the formula. A guide to the available color palettes can be
-   * found at https://docs.datadoghq.com/dashboards/guide/widget_colors
-   *
+   * <p>The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors</p>
    * @return palette
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PALETTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPalette() {
-    return palette;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PALETTE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPalette() {
+        return palette;
+      }
   public void setPalette(String palette) {
     this.palette = palette;
   }
-
   public WidgetFormulaStyle paletteIndex(Long paletteIndex) {
     this.paletteIndex = paletteIndex;
     return this;
   }
 
   /**
-   * Index specifying which color to use within the palette.
-   *
+   * <p>Index specifying which color to use within the palette.</p>
    * @return paletteIndex
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PALETTE_INDEX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getPaletteIndex() {
-    return paletteIndex;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PALETTE_INDEX)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getPaletteIndex() {
+        return paletteIndex;
+      }
   public void setPaletteIndex(Long paletteIndex) {
     this.paletteIndex = paletteIndex;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -91,7 +105,7 @@ public class WidgetFormulaStyle {
   @JsonAnySetter
   public WidgetFormulaStyle putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -115,12 +129,14 @@ public class WidgetFormulaStyle {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this WidgetFormulaStyle object is equal to o. */
+  /**
+   * Return true if this WidgetFormulaStyle object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,14 +146,13 @@ public class WidgetFormulaStyle {
       return false;
     }
     WidgetFormulaStyle widgetFormulaStyle = (WidgetFormulaStyle) o;
-    return Objects.equals(this.palette, widgetFormulaStyle.palette)
-        && Objects.equals(this.paletteIndex, widgetFormulaStyle.paletteIndex)
-        && Objects.equals(this.additionalProperties, widgetFormulaStyle.additionalProperties);
+    return Objects.equals(this.palette, widgetFormulaStyle.palette) && Objects.equals(this.paletteIndex, widgetFormulaStyle.paletteIndex) && Objects.equals(this.additionalProperties, widgetFormulaStyle.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(palette, paletteIndex, additionalProperties);
+    return Objects.hash(palette,paletteIndex, additionalProperties);
   }
 
   @Override
@@ -154,7 +169,8 @@ public class WidgetFormulaStyle {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

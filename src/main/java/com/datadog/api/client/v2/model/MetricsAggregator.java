@@ -6,26 +6,50 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The type of aggregation that can be performed on metrics-based queries. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The type of aggregation that can be performed on metrics-based queries.</p>
+ */
 @JsonSerialize(using = MetricsAggregator.MetricsAggregatorSerializer.class)
 public class MetricsAggregator extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "avg", "min", "max", "sum", "last", "percentile", "mean", "l2norm", "area"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("avg", "min", "max", "sum", "last", "percentile", "mean", "l2norm", "area"));
 
   public static final MetricsAggregator AVG = new MetricsAggregator("avg");
   public static final MetricsAggregator MIN = new MetricsAggregator("min");
@@ -37,24 +61,24 @@ public class MetricsAggregator extends ModelEnum<String> {
   public static final MetricsAggregator L2NORM = new MetricsAggregator("l2norm");
   public static final MetricsAggregator AREA = new MetricsAggregator("area");
 
+
   MetricsAggregator(String value) {
     super(value, allowedValues);
   }
 
   public static class MetricsAggregatorSerializer extends StdSerializer<MetricsAggregator> {
-    public MetricsAggregatorSerializer(Class<MetricsAggregator> t) {
-      super(t);
-    }
+      public MetricsAggregatorSerializer(Class<MetricsAggregator> t) {
+          super(t);
+      }
 
-    public MetricsAggregatorSerializer() {
-      this(null);
-    }
+      public MetricsAggregatorSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(MetricsAggregator value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(MetricsAggregator value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

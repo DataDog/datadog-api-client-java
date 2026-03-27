@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** An Opsgenie integration schema. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>An Opsgenie integration schema.</p>
+ */
 @JsonPropertyOrder({
   EntityV3DatadogIntegrationOpsgenie.JSON_PROPERTY_REGION,
   EntityV3DatadogIntegrationOpsgenie.JSON_PROPERTY_SERVICE_URL
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EntityV3DatadogIntegrationOpsgenie {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_REGION = "region";
   private String region;
 
@@ -32,52 +52,50 @@ public class EntityV3DatadogIntegrationOpsgenie {
 
   @JsonCreator
   public EntityV3DatadogIntegrationOpsgenie(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE_URL) String serviceUrl) {
-    this.serviceUrl = serviceUrl;
+            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE_URL)String serviceUrl) {
+        this.serviceUrl = serviceUrl;
   }
-
   public EntityV3DatadogIntegrationOpsgenie region(String region) {
     this.region = region;
     return this;
   }
 
   /**
-   * The region for the Opsgenie integration.
-   *
+   * <p>The region for the Opsgenie integration.</p>
    * @return region
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REGION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRegion() {
-    return region;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REGION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getRegion() {
+        return region;
+      }
   public void setRegion(String region) {
     this.region = region;
   }
-
   public EntityV3DatadogIntegrationOpsgenie serviceUrl(String serviceUrl) {
     this.serviceUrl = serviceUrl;
     return this;
   }
 
   /**
-   * The service URL for the Opsgenie integration.
-   *
+   * <p>The service URL for the Opsgenie integration.</p>
    * @return serviceUrl
-   */
-  @JsonProperty(JSON_PROPERTY_SERVICE_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getServiceUrl() {
-    return serviceUrl;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SERVICE_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getServiceUrl() {
+        return serviceUrl;
+      }
   public void setServiceUrl(String serviceUrl) {
     this.serviceUrl = serviceUrl;
   }
 
-  /** Return true if this EntityV3DatadogIntegrationOpsgenie object is equal to o. */
+  /**
+   * Return true if this EntityV3DatadogIntegrationOpsgenie object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -86,15 +104,14 @@ public class EntityV3DatadogIntegrationOpsgenie {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EntityV3DatadogIntegrationOpsgenie entityV3DatadogIntegrationOpsgenie =
-        (EntityV3DatadogIntegrationOpsgenie) o;
-    return Objects.equals(this.region, entityV3DatadogIntegrationOpsgenie.region)
-        && Objects.equals(this.serviceUrl, entityV3DatadogIntegrationOpsgenie.serviceUrl);
+    EntityV3DatadogIntegrationOpsgenie entityV3DatadogIntegrationOpsgenie = (EntityV3DatadogIntegrationOpsgenie) o;
+    return Objects.equals(this.region, entityV3DatadogIntegrationOpsgenie.region) && Objects.equals(this.serviceUrl, entityV3DatadogIntegrationOpsgenie.serviceUrl);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(region, serviceUrl);
+    return Objects.hash(region,serviceUrl);
   }
 
   @Override
@@ -108,7 +125,8 @@ public class EntityV3DatadogIntegrationOpsgenie {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

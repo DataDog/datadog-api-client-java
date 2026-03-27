@@ -6,58 +6,73 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The activation status of a content pack */
-@JsonSerialize(
-    using =
-        SecurityMonitoringContentPackActivation.SecurityMonitoringContentPackActivationSerializer
-            .class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The activation status of a content pack</p>
+ */
+@JsonSerialize(using = SecurityMonitoringContentPackActivation.SecurityMonitoringContentPackActivationSerializer.class)
 public class SecurityMonitoringContentPackActivation extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("never_activated", "activated", "deactivated"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("never_activated", "activated", "deactivated"));
 
-  public static final SecurityMonitoringContentPackActivation NEVER_ACTIVATED =
-      new SecurityMonitoringContentPackActivation("never_activated");
-  public static final SecurityMonitoringContentPackActivation ACTIVATED =
-      new SecurityMonitoringContentPackActivation("activated");
-  public static final SecurityMonitoringContentPackActivation DEACTIVATED =
-      new SecurityMonitoringContentPackActivation("deactivated");
+  public static final SecurityMonitoringContentPackActivation NEVER_ACTIVATED = new SecurityMonitoringContentPackActivation("never_activated");
+  public static final SecurityMonitoringContentPackActivation ACTIVATED = new SecurityMonitoringContentPackActivation("activated");
+  public static final SecurityMonitoringContentPackActivation DEACTIVATED = new SecurityMonitoringContentPackActivation("deactivated");
+
 
   SecurityMonitoringContentPackActivation(String value) {
     super(value, allowedValues);
   }
 
-  public static class SecurityMonitoringContentPackActivationSerializer
-      extends StdSerializer<SecurityMonitoringContentPackActivation> {
-    public SecurityMonitoringContentPackActivationSerializer(
-        Class<SecurityMonitoringContentPackActivation> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringContentPackActivationSerializer extends StdSerializer<SecurityMonitoringContentPackActivation> {
+      public SecurityMonitoringContentPackActivationSerializer(Class<SecurityMonitoringContentPackActivation> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringContentPackActivationSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringContentPackActivationSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringContentPackActivation value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringContentPackActivation value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

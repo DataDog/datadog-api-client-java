@@ -6,48 +6,72 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Sankey widget with RUM data source. */
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Sankey widget with RUM data source.</p>
+ */
 @JsonSerialize(using = SankeyRumDataSource.SankeyRumDataSourceSerializer.class)
 public class SankeyRumDataSource extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("rum", "product_analytics"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("rum", "product_analytics"));
 
   public static final SankeyRumDataSource RUM = new SankeyRumDataSource("rum");
-  public static final SankeyRumDataSource PRODUCT_ANALYTICS =
-      new SankeyRumDataSource("product_analytics");
+  public static final SankeyRumDataSource PRODUCT_ANALYTICS = new SankeyRumDataSource("product_analytics");
+
 
   SankeyRumDataSource(String value) {
     super(value, allowedValues);
   }
 
   public static class SankeyRumDataSourceSerializer extends StdSerializer<SankeyRumDataSource> {
-    public SankeyRumDataSourceSerializer(Class<SankeyRumDataSource> t) {
-      super(t);
-    }
+      public SankeyRumDataSourceSerializer(Class<SankeyRumDataSource> t) {
+          super(t);
+      }
 
-    public SankeyRumDataSourceSerializer() {
-      this(null);
-    }
+      public SankeyRumDataSourceSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SankeyRumDataSource value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SankeyRumDataSource value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

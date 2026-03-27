@@ -6,29 +6,44 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** List entity response. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>List entity response.</p>
+ */
 @JsonPropertyOrder({
   ListEntityCatalogResponse.JSON_PROPERTY_DATA,
   ListEntityCatalogResponse.JSON_PROPERTY_INCLUDED,
   ListEntityCatalogResponse.JSON_PROPERTY_LINKS,
   ListEntityCatalogResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListEntityCatalogResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<EntityData> data = null;
 
@@ -48,7 +63,6 @@ public class ListEntityCatalogResponse {
     }
     return this;
   }
-
   public ListEntityCatalogResponse addDataItem(EntityData dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
@@ -59,21 +73,19 @@ public class ListEntityCatalogResponse {
   }
 
   /**
-   * List of entity data.
-   *
+   * <p>List of entity data.</p>
    * @return data
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<EntityData> getData() {
-    return data;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<EntityData> getData() {
+        return data;
+      }
   public void setData(List<EntityData> data) {
     this.data = data;
   }
-
   public ListEntityCatalogResponse included(List<ListEntityCatalogResponseIncludedItem> included) {
     this.included = included;
     for (ListEntityCatalogResponseIncludedItem item : included) {
@@ -81,9 +93,7 @@ public class ListEntityCatalogResponse {
     }
     return this;
   }
-
-  public ListEntityCatalogResponse addIncludedItem(
-      ListEntityCatalogResponseIncludedItem includedItem) {
+  public ListEntityCatalogResponse addIncludedItem(ListEntityCatalogResponseIncludedItem includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
     }
@@ -93,21 +103,19 @@ public class ListEntityCatalogResponse {
   }
 
   /**
-   * List entity response included.
-   *
+   * <p>List entity response included.</p>
    * @return included
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ListEntityCatalogResponseIncludedItem> getIncluded() {
-    return included;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INCLUDED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ListEntityCatalogResponseIncludedItem> getIncluded() {
+        return included;
+      }
   public void setIncluded(List<ListEntityCatalogResponseIncludedItem> included) {
     this.included = included;
   }
-
   public ListEntityCatalogResponse links(ListEntityCatalogResponseLinks links) {
     this.links = links;
     this.unparsed |= links.unparsed;
@@ -115,21 +123,19 @@ public class ListEntityCatalogResponse {
   }
 
   /**
-   * List entity response links.
-   *
+   * <p>List entity response links.</p>
    * @return links
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ListEntityCatalogResponseLinks getLinks() {
-    return links;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LINKS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ListEntityCatalogResponseLinks getLinks() {
+        return links;
+      }
   public void setLinks(ListEntityCatalogResponseLinks links) {
     this.links = links;
   }
-
   public ListEntityCatalogResponse meta(EntityResponseMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -137,30 +143,30 @@ public class ListEntityCatalogResponse {
   }
 
   /**
-   * Entity metadata.
-   *
+   * <p>Entity metadata.</p>
    * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EntityResponseMeta getMeta() {
-    return meta;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_META)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public EntityResponseMeta getMeta() {
+        return meta;
+      }
   public void setMeta(EntityResponseMeta meta) {
     this.meta = meta;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -169,7 +175,7 @@ public class ListEntityCatalogResponse {
   @JsonAnySetter
   public ListEntityCatalogResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -193,12 +199,14 @@ public class ListEntityCatalogResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ListEntityCatalogResponse object is equal to o. */
+  /**
+   * Return true if this ListEntityCatalogResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -208,17 +216,13 @@ public class ListEntityCatalogResponse {
       return false;
     }
     ListEntityCatalogResponse listEntityCatalogResponse = (ListEntityCatalogResponse) o;
-    return Objects.equals(this.data, listEntityCatalogResponse.data)
-        && Objects.equals(this.included, listEntityCatalogResponse.included)
-        && Objects.equals(this.links, listEntityCatalogResponse.links)
-        && Objects.equals(this.meta, listEntityCatalogResponse.meta)
-        && Objects.equals(
-            this.additionalProperties, listEntityCatalogResponse.additionalProperties);
+    return Objects.equals(this.data, listEntityCatalogResponse.data) && Objects.equals(this.included, listEntityCatalogResponse.included) && Objects.equals(this.links, listEntityCatalogResponse.links) && Objects.equals(this.meta, listEntityCatalogResponse.meta) && Objects.equals(this.additionalProperties, listEntityCatalogResponse.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, links, meta, additionalProperties);
+    return Objects.hash(data,included,links,meta, additionalProperties);
   }
 
   @Override
@@ -237,7 +241,8 @@ public class ListEntityCatalogResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

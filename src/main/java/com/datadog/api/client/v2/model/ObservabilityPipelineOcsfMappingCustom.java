@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,22 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Custom OCSF mapping configuration for transforming logs. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Custom OCSF mapping configuration for transforming logs.</p>
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineOcsfMappingCustom.JSON_PROPERTY_MAPPING,
   ObservabilityPipelineOcsfMappingCustom.JSON_PROPERTY_METADATA,
   ObservabilityPipelineOcsfMappingCustom.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineOcsfMappingCustom {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_MAPPING = "mapping";
   private List<ObservabilityPipelineOcsfMappingCustomFieldMapping> mapping = new ArrayList<>();
 
@@ -42,99 +56,88 @@ public class ObservabilityPipelineOcsfMappingCustom {
 
   @JsonCreator
   public ObservabilityPipelineOcsfMappingCustom(
-      @JsonProperty(required = true, value = JSON_PROPERTY_MAPPING)
-          List<ObservabilityPipelineOcsfMappingCustomFieldMapping> mapping,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METADATA)
-          ObservabilityPipelineOcsfMappingCustomMetadata metadata,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) Long version) {
-    this.mapping = mapping;
-    this.metadata = metadata;
-    this.unparsed |= metadata.unparsed;
-    this.version = version;
+            @JsonProperty(required=true, value=JSON_PROPERTY_MAPPING)List<ObservabilityPipelineOcsfMappingCustomFieldMapping> mapping,
+            @JsonProperty(required=true, value=JSON_PROPERTY_METADATA)ObservabilityPipelineOcsfMappingCustomMetadata metadata,
+            @JsonProperty(required=true, value=JSON_PROPERTY_VERSION)Long version) {
+        this.mapping = mapping;
+        this.metadata = metadata;
+        this.unparsed |= metadata.unparsed;
+        this.version = version;
   }
-
-  public ObservabilityPipelineOcsfMappingCustom mapping(
-      List<ObservabilityPipelineOcsfMappingCustomFieldMapping> mapping) {
+  public ObservabilityPipelineOcsfMappingCustom mapping(List<ObservabilityPipelineOcsfMappingCustomFieldMapping> mapping) {
     this.mapping = mapping;
     for (ObservabilityPipelineOcsfMappingCustomFieldMapping item : mapping) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public ObservabilityPipelineOcsfMappingCustom addMappingItem(
-      ObservabilityPipelineOcsfMappingCustomFieldMapping mappingItem) {
+  public ObservabilityPipelineOcsfMappingCustom addMappingItem(ObservabilityPipelineOcsfMappingCustomFieldMapping mappingItem) {
     this.mapping.add(mappingItem);
     this.unparsed |= mappingItem.unparsed;
     return this;
   }
 
   /**
-   * A list of field mapping rules for transforming log fields to OCSF schema fields.
-   *
+   * <p>A list of field mapping rules for transforming log fields to OCSF schema fields.</p>
    * @return mapping
-   */
-  @JsonProperty(JSON_PROPERTY_MAPPING)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<ObservabilityPipelineOcsfMappingCustomFieldMapping> getMapping() {
-    return mapping;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MAPPING)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<ObservabilityPipelineOcsfMappingCustomFieldMapping> getMapping() {
+        return mapping;
+      }
   public void setMapping(List<ObservabilityPipelineOcsfMappingCustomFieldMapping> mapping) {
     this.mapping = mapping;
   }
-
-  public ObservabilityPipelineOcsfMappingCustom metadata(
-      ObservabilityPipelineOcsfMappingCustomMetadata metadata) {
+  public ObservabilityPipelineOcsfMappingCustom metadata(ObservabilityPipelineOcsfMappingCustomMetadata metadata) {
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
     return this;
   }
 
   /**
-   * Metadata for the custom OCSF mapping.
-   *
+   * <p>Metadata for the custom OCSF mapping.</p>
    * @return metadata
-   */
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineOcsfMappingCustomMetadata getMetadata() {
-    return metadata;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ObservabilityPipelineOcsfMappingCustomMetadata getMetadata() {
+        return metadata;
+      }
   public void setMetadata(ObservabilityPipelineOcsfMappingCustomMetadata metadata) {
     this.metadata = metadata;
   }
-
   public ObservabilityPipelineOcsfMappingCustom version(Long version) {
     this.version = version;
     return this;
   }
 
   /**
-   * The version of the custom mapping configuration.
-   *
+   * <p>The version of the custom mapping configuration.</p>
    * @return version
-   */
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getVersion() {
-    return version;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getVersion() {
+        return version;
+      }
   public void setVersion(Long version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -143,7 +146,7 @@ public class ObservabilityPipelineOcsfMappingCustom {
   @JsonAnySetter
   public ObservabilityPipelineOcsfMappingCustom putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -167,12 +170,14 @@ public class ObservabilityPipelineOcsfMappingCustom {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineOcsfMappingCustom object is equal to o. */
+  /**
+   * Return true if this ObservabilityPipelineOcsfMappingCustom object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -181,18 +186,14 @@ public class ObservabilityPipelineOcsfMappingCustom {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineOcsfMappingCustom observabilityPipelineOcsfMappingCustom =
-        (ObservabilityPipelineOcsfMappingCustom) o;
-    return Objects.equals(this.mapping, observabilityPipelineOcsfMappingCustom.mapping)
-        && Objects.equals(this.metadata, observabilityPipelineOcsfMappingCustom.metadata)
-        && Objects.equals(this.version, observabilityPipelineOcsfMappingCustom.version)
-        && Objects.equals(
-            this.additionalProperties, observabilityPipelineOcsfMappingCustom.additionalProperties);
+    ObservabilityPipelineOcsfMappingCustom observabilityPipelineOcsfMappingCustom = (ObservabilityPipelineOcsfMappingCustom) o;
+    return Objects.equals(this.mapping, observabilityPipelineOcsfMappingCustom.mapping) && Objects.equals(this.metadata, observabilityPipelineOcsfMappingCustom.metadata) && Objects.equals(this.version, observabilityPipelineOcsfMappingCustom.version) && Objects.equals(this.additionalProperties, observabilityPipelineOcsfMappingCustom.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(mapping, metadata, version, additionalProperties);
+    return Objects.hash(mapping,metadata,version, additionalProperties);
   }
 
   @Override
@@ -210,7 +211,8 @@ public class ObservabilityPipelineOcsfMappingCustom {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

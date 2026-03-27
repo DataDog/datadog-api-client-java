@@ -1,13 +1,20 @@
 // Create an LLM Observability dataset returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.LlmObservabilityApi;
+import com.datadog.api.client.v2.model.LLMObsDatasetResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetDataAttributesRequest;
 import com.datadog.api.client.v2.model.LLMObsDatasetDataRequest;
 import com.datadog.api.client.v2.model.LLMObsDatasetRequest;
-import com.datadog.api.client.v2.model.LLMObsDatasetResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -15,16 +22,14 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createLLMObsDataset", true);
     LlmObservabilityApi apiInstance = new LlmObservabilityApi(defaultClient);
 
-    LLMObsDatasetRequest body =
-        new LLMObsDatasetRequest()
-            .data(
-                new LLMObsDatasetDataRequest()
-                    .attributes(new LLMObsDatasetDataAttributesRequest().name("My LLM Dataset"))
-                    .type(LLMObsDatasetType.DATASETS));
+    LLMObsDatasetRequest body = new LLMObsDatasetRequest()
+.data(new LLMObsDatasetDataRequest()
+.attributes(new LLMObsDatasetDataAttributesRequest()
+.name("My LLM Dataset"))
+.type(LLMObsDatasetType.DATASETS));
 
     try {
-      LLMObsDatasetResponse result =
-          apiInstance.createLLMObsDataset("a33671aa-24fd-4dcd-9b33-a8ec7dde7751", body);
+      LLMObsDatasetResponse result = apiInstance.createLLMObsDataset("a33671aa-24fd-4dcd-9b33-a8ec7dde7751", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LlmObservabilityApi#createLLMObsDataset");

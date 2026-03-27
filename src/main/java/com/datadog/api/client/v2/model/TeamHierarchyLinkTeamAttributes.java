@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,14 +25,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
+import com.datadog.api.client.JsonTimeSerializer;
+
+
 /**
- * Team hierarchy links connect different teams. This represents attributes from teams that are
- * connected by the team hierarchy link.
+   * <p>Team hierarchy links connect different teams. This represents attributes from teams that are connected by the team hierarchy link.</p>
  */
 @JsonPropertyOrder({
   TeamHierarchyLinkTeamAttributes.JSON_PROPERTY_AVATAR,
@@ -33,10 +45,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   TeamHierarchyLinkTeamAttributes.JSON_PROPERTY_SUMMARY,
   TeamHierarchyLinkTeamAttributes.JSON_PROPERTY_USER_COUNT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamHierarchyLinkTeamAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVATAR = "avatar";
   private JsonNullable<String> avatar = JsonNullable.<String>undefined();
 
@@ -68,228 +80,205 @@ public class TeamHierarchyLinkTeamAttributes {
 
   @JsonCreator
   public TeamHierarchyLinkTeamAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_HANDLE) String handle,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.handle = handle;
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_HANDLE)String handle,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.handle = handle;
+        this.name = name;
   }
-
   public TeamHierarchyLinkTeamAttributes avatar(String avatar) {
     this.avatar = JsonNullable.<String>of(avatar);
     return this;
   }
 
   /**
-   * The team's avatar
-   *
+   * <p>The team's avatar</p>
    * @return avatar
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getAvatar() {
-    return avatar.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getAvatar() {
+        return avatar.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_AVATAR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getAvatar_JsonNullable() {
     return avatar;
   }
-
-  @JsonProperty(JSON_PROPERTY_AVATAR)
-  public void setAvatar_JsonNullable(JsonNullable<String> avatar) {
+  @JsonProperty(JSON_PROPERTY_AVATAR)public void setAvatar_JsonNullable(JsonNullable<String> avatar) {
     this.avatar = avatar;
   }
-
   public void setAvatar(String avatar) {
     this.avatar = JsonNullable.<String>of(avatar);
   }
-
   public TeamHierarchyLinkTeamAttributes banner(Long banner) {
     this.banner = banner;
     return this;
   }
 
   /**
-   * The team's banner
-   *
+   * <p>The team's banner</p>
    * @return banner
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BANNER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getBanner() {
-    return banner;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BANNER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getBanner() {
+        return banner;
+      }
   public void setBanner(Long banner) {
     this.banner = banner;
   }
-
   public TeamHierarchyLinkTeamAttributes handle(String handle) {
     this.handle = handle;
     return this;
   }
 
   /**
-   * The team's handle
-   *
+   * <p>The team's handle</p>
    * @return handle
-   */
-  @JsonProperty(JSON_PROPERTY_HANDLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getHandle() {
-    return handle;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_HANDLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getHandle() {
+        return handle;
+      }
   public void setHandle(String handle) {
     this.handle = handle;
   }
-
   public TeamHierarchyLinkTeamAttributes isManaged(Boolean isManaged) {
     this.isManaged = isManaged;
     return this;
   }
 
   /**
-   * Whether the team is managed
-   *
+   * <p>Whether the team is managed</p>
    * @return isManaged
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_MANAGED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsManaged() {
-    return isManaged;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_MANAGED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsManaged() {
+        return isManaged;
+      }
   public void setIsManaged(Boolean isManaged) {
     this.isManaged = isManaged;
   }
-
   public TeamHierarchyLinkTeamAttributes isOpenMembership(Boolean isOpenMembership) {
     this.isOpenMembership = isOpenMembership;
     return this;
   }
 
   /**
-   * Whether the team has open membership
-   *
+   * <p>Whether the team has open membership</p>
    * @return isOpenMembership
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_OPEN_MEMBERSHIP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsOpenMembership() {
-    return isOpenMembership;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_OPEN_MEMBERSHIP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsOpenMembership() {
+        return isOpenMembership;
+      }
   public void setIsOpenMembership(Boolean isOpenMembership) {
     this.isOpenMembership = isOpenMembership;
   }
-
   public TeamHierarchyLinkTeamAttributes linkCount(Long linkCount) {
     this.linkCount = linkCount;
     return this;
   }
 
   /**
-   * The number of links for the team
-   *
+   * <p>The number of links for the team</p>
    * @return linkCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINK_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLinkCount() {
-    return linkCount;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LINK_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLinkCount() {
+        return linkCount;
+      }
   public void setLinkCount(Long linkCount) {
     this.linkCount = linkCount;
   }
-
   public TeamHierarchyLinkTeamAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The team's name
-   *
+   * <p>The team's name</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public TeamHierarchyLinkTeamAttributes summary(String summary) {
     this.summary = JsonNullable.<String>of(summary);
     return this;
   }
 
   /**
-   * The team's summary
-   *
+   * <p>The team's summary</p>
    * @return summary
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getSummary() {
-    return summary.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getSummary() {
+        return summary.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_SUMMARY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getSummary_JsonNullable() {
     return summary;
   }
-
-  @JsonProperty(JSON_PROPERTY_SUMMARY)
-  public void setSummary_JsonNullable(JsonNullable<String> summary) {
+  @JsonProperty(JSON_PROPERTY_SUMMARY)public void setSummary_JsonNullable(JsonNullable<String> summary) {
     this.summary = summary;
   }
-
   public void setSummary(String summary) {
     this.summary = JsonNullable.<String>of(summary);
   }
-
   public TeamHierarchyLinkTeamAttributes userCount(Long userCount) {
     this.userCount = userCount;
     return this;
   }
 
   /**
-   * The number of users in the team
-   *
+   * <p>The number of users in the team</p>
    * @return userCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getUserCount() {
-    return userCount;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USER_COUNT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getUserCount() {
+        return userCount;
+      }
   public void setUserCount(Long userCount) {
     this.userCount = userCount;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -298,7 +287,7 @@ public class TeamHierarchyLinkTeamAttributes {
   @JsonAnySetter
   public TeamHierarchyLinkTeamAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -322,12 +311,14 @@ public class TeamHierarchyLinkTeamAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamHierarchyLinkTeamAttributes object is equal to o. */
+  /**
+   * Return true if this TeamHierarchyLinkTeamAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -336,34 +327,14 @@ public class TeamHierarchyLinkTeamAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamHierarchyLinkTeamAttributes teamHierarchyLinkTeamAttributes =
-        (TeamHierarchyLinkTeamAttributes) o;
-    return Objects.equals(this.avatar, teamHierarchyLinkTeamAttributes.avatar)
-        && Objects.equals(this.banner, teamHierarchyLinkTeamAttributes.banner)
-        && Objects.equals(this.handle, teamHierarchyLinkTeamAttributes.handle)
-        && Objects.equals(this.isManaged, teamHierarchyLinkTeamAttributes.isManaged)
-        && Objects.equals(this.isOpenMembership, teamHierarchyLinkTeamAttributes.isOpenMembership)
-        && Objects.equals(this.linkCount, teamHierarchyLinkTeamAttributes.linkCount)
-        && Objects.equals(this.name, teamHierarchyLinkTeamAttributes.name)
-        && Objects.equals(this.summary, teamHierarchyLinkTeamAttributes.summary)
-        && Objects.equals(this.userCount, teamHierarchyLinkTeamAttributes.userCount)
-        && Objects.equals(
-            this.additionalProperties, teamHierarchyLinkTeamAttributes.additionalProperties);
+    TeamHierarchyLinkTeamAttributes teamHierarchyLinkTeamAttributes = (TeamHierarchyLinkTeamAttributes) o;
+    return Objects.equals(this.avatar, teamHierarchyLinkTeamAttributes.avatar) && Objects.equals(this.banner, teamHierarchyLinkTeamAttributes.banner) && Objects.equals(this.handle, teamHierarchyLinkTeamAttributes.handle) && Objects.equals(this.isManaged, teamHierarchyLinkTeamAttributes.isManaged) && Objects.equals(this.isOpenMembership, teamHierarchyLinkTeamAttributes.isOpenMembership) && Objects.equals(this.linkCount, teamHierarchyLinkTeamAttributes.linkCount) && Objects.equals(this.name, teamHierarchyLinkTeamAttributes.name) && Objects.equals(this.summary, teamHierarchyLinkTeamAttributes.summary) && Objects.equals(this.userCount, teamHierarchyLinkTeamAttributes.userCount) && Objects.equals(this.additionalProperties, teamHierarchyLinkTeamAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        avatar,
-        banner,
-        handle,
-        isManaged,
-        isOpenMembership,
-        linkCount,
-        name,
-        summary,
-        userCount,
-        additionalProperties);
+    return Objects.hash(avatar,banner,handle,isManaged,isOpenMembership,linkCount,name,summary,userCount, additionalProperties);
   }
 
   @Override
@@ -387,7 +358,8 @@ public class TeamHierarchyLinkTeamAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

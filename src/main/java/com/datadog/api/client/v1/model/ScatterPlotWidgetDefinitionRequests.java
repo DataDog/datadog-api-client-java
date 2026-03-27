@@ -6,26 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Widget definition. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Widget definition.</p>
+ */
 @JsonPropertyOrder({
   ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_TABLE,
   ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_X,
   ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_Y
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScatterPlotWidgetDefinitionRequests {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_TABLE = "table";
   private ScatterplotTableRequest table;
 
@@ -42,21 +59,19 @@ public class ScatterPlotWidgetDefinitionRequests {
   }
 
   /**
-   * Scatterplot request containing formulas and functions.
-   *
+   * <p>Scatterplot request containing formulas and functions.</p>
    * @return table
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TABLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScatterplotTableRequest getTable() {
-    return table;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TABLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ScatterplotTableRequest getTable() {
+        return table;
+      }
   public void setTable(ScatterplotTableRequest table) {
     this.table = table;
   }
-
   public ScatterPlotWidgetDefinitionRequests x(ScatterPlotRequest x) {
     this.x = x;
     this.unparsed |= x.unparsed;
@@ -64,21 +79,19 @@ public class ScatterPlotWidgetDefinitionRequests {
   }
 
   /**
-   * Updated scatter plot.
-   *
+   * <p>Updated scatter plot.</p>
    * @return x
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_X)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScatterPlotRequest getX() {
-    return x;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_X)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ScatterPlotRequest getX() {
+        return x;
+      }
   public void setX(ScatterPlotRequest x) {
     this.x = x;
   }
-
   public ScatterPlotWidgetDefinitionRequests y(ScatterPlotRequest y) {
     this.y = y;
     this.unparsed |= y.unparsed;
@@ -86,30 +99,30 @@ public class ScatterPlotWidgetDefinitionRequests {
   }
 
   /**
-   * Updated scatter plot.
-   *
+   * <p>Updated scatter plot.</p>
    * @return y
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_Y)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScatterPlotRequest getY() {
-    return y;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_Y)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ScatterPlotRequest getY() {
+        return y;
+      }
   public void setY(ScatterPlotRequest y) {
     this.y = y;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -118,7 +131,7 @@ public class ScatterPlotWidgetDefinitionRequests {
   @JsonAnySetter
   public ScatterPlotWidgetDefinitionRequests putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -142,12 +155,14 @@ public class ScatterPlotWidgetDefinitionRequests {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScatterPlotWidgetDefinitionRequests object is equal to o. */
+  /**
+   * Return true if this ScatterPlotWidgetDefinitionRequests object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -156,18 +171,14 @@ public class ScatterPlotWidgetDefinitionRequests {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScatterPlotWidgetDefinitionRequests scatterPlotWidgetDefinitionRequests =
-        (ScatterPlotWidgetDefinitionRequests) o;
-    return Objects.equals(this.table, scatterPlotWidgetDefinitionRequests.table)
-        && Objects.equals(this.x, scatterPlotWidgetDefinitionRequests.x)
-        && Objects.equals(this.y, scatterPlotWidgetDefinitionRequests.y)
-        && Objects.equals(
-            this.additionalProperties, scatterPlotWidgetDefinitionRequests.additionalProperties);
+    ScatterPlotWidgetDefinitionRequests scatterPlotWidgetDefinitionRequests = (ScatterPlotWidgetDefinitionRequests) o;
+    return Objects.equals(this.table, scatterPlotWidgetDefinitionRequests.table) && Objects.equals(this.x, scatterPlotWidgetDefinitionRequests.x) && Objects.equals(this.y, scatterPlotWidgetDefinitionRequests.y) && Objects.equals(this.additionalProperties, scatterPlotWidgetDefinitionRequests.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(table, x, y, additionalProperties);
+    return Objects.hash(table,x,y, additionalProperties);
   }
 
   @Override
@@ -185,7 +196,8 @@ public class ScatterPlotWidgetDefinitionRequests {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

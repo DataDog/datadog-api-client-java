@@ -1,11 +1,18 @@
 // Create investigation notebook for case returns "No Content" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.CaseManagementApi;
 import com.datadog.api.client.v2.model.NotebookCreateData;
 import com.datadog.api.client.v2.model.NotebookCreateRequest;
 import com.datadog.api.client.v2.model.NotebookResourceType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -13,9 +20,9 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createCaseNotebook", true);
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
-    NotebookCreateRequest body =
-        new NotebookCreateRequest()
-            .data(new NotebookCreateData().type(NotebookResourceType.NOTEBOOK));
+    NotebookCreateRequest body = new NotebookCreateRequest()
+.data(new NotebookCreateData()
+.type(NotebookResourceType.NOTEBOOK));
 
     try {
       apiInstance.createCaseNotebook("f98a5a5b-e0ff-45d4-b2f5-afe6e74de504", body);

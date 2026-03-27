@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,23 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Represents the top-level data object for team routing rules, containing the ID, relationships,
- * and resource type.
+   * <p>Represents the top-level data object for team routing rules, containing the ID, relationships, and resource type.</p>
  */
 @JsonPropertyOrder({
   TeamRoutingRulesData.JSON_PROPERTY_ID,
   TeamRoutingRulesData.JSON_PROPERTY_RELATIONSHIPS,
   TeamRoutingRulesData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamRoutingRulesData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -43,32 +56,29 @@ public class TeamRoutingRulesData {
 
   @JsonCreator
   public TeamRoutingRulesData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TeamRoutingRulesDataType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)TeamRoutingRulesDataType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public TeamRoutingRulesData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Specifies the unique identifier of this team routing rules record.
-   *
+   * <p>Specifies the unique identifier of this team routing rules record.</p>
    * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public TeamRoutingRulesData relationships(TeamRoutingRulesDataRelationships relationships) {
     this.relationships = relationships;
     this.unparsed |= relationships.unparsed;
@@ -76,21 +86,19 @@ public class TeamRoutingRulesData {
   }
 
   /**
-   * Specifies relationships for team routing rules, including rule references.
-   *
+   * <p>Specifies relationships for team routing rules, including rule references.</p>
    * @return relationships
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamRoutingRulesDataRelationships getRelationships() {
-    return relationships;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TeamRoutingRulesDataRelationships getRelationships() {
+        return relationships;
+      }
   public void setRelationships(TeamRoutingRulesDataRelationships relationships) {
     this.relationships = relationships;
   }
-
   public TeamRoutingRulesData type(TeamRoutingRulesDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -98,32 +106,32 @@ public class TeamRoutingRulesData {
   }
 
   /**
-   * Team routing rules resource type.
-   *
+   * <p>Team routing rules resource type.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TeamRoutingRulesDataType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public TeamRoutingRulesDataType getType() {
+        return type;
+      }
   public void setType(TeamRoutingRulesDataType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -132,7 +140,7 @@ public class TeamRoutingRulesData {
   @JsonAnySetter
   public TeamRoutingRulesData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -156,12 +164,14 @@ public class TeamRoutingRulesData {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamRoutingRulesData object is equal to o. */
+  /**
+   * Return true if this TeamRoutingRulesData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -171,15 +181,13 @@ public class TeamRoutingRulesData {
       return false;
     }
     TeamRoutingRulesData teamRoutingRulesData = (TeamRoutingRulesData) o;
-    return Objects.equals(this.id, teamRoutingRulesData.id)
-        && Objects.equals(this.relationships, teamRoutingRulesData.relationships)
-        && Objects.equals(this.type, teamRoutingRulesData.type)
-        && Objects.equals(this.additionalProperties, teamRoutingRulesData.additionalProperties);
+    return Objects.equals(this.id, teamRoutingRulesData.id) && Objects.equals(this.relationships, teamRoutingRulesData.relationships) && Objects.equals(this.type, teamRoutingRulesData.type) && Objects.equals(this.additionalProperties, teamRoutingRulesData.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, relationships, type, additionalProperties);
+    return Objects.hash(id,relationships,type, additionalProperties);
   }
 
   @Override
@@ -197,7 +205,8 @@ public class TeamRoutingRulesData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -1,9 +1,15 @@
 // Get incident notification template returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.IncidentsApi;
 import com.datadog.api.client.v2.model.IncidentNotificationTemplate;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public class Example {
@@ -15,15 +21,13 @@ public class Example {
     // there is a valid "notification_template" in the system
     UUID NOTIFICATION_TEMPLATE_DATA_ID = null;
     try {
-      NOTIFICATION_TEMPLATE_DATA_ID =
-          UUID.fromString(System.getenv("NOTIFICATION_TEMPLATE_DATA_ID"));
+      NOTIFICATION_TEMPLATE_DATA_ID = UUID.fromString(System.getenv("NOTIFICATION_TEMPLATE_DATA_ID"));
     } catch (IllegalArgumentException e) {
-      System.err.println("Error parsing UUID: " + e.getMessage());
+        System.err.println("Error parsing UUID: " + e.getMessage());
     }
 
     try {
-      IncidentNotificationTemplate result =
-          apiInstance.getIncidentNotificationTemplate(NOTIFICATION_TEMPLATE_DATA_ID);
+      IncidentNotificationTemplate result = apiInstance.getIncidentNotificationTemplate(NOTIFICATION_TEMPLATE_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IncidentsApi#getIncidentNotificationTemplate");

@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Request data for creating an upload for a file to be ingested into a reference table. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Request data for creating an upload for a file to be ingested into a reference table.</p>
+ */
 @JsonPropertyOrder({
   CreateUploadRequestData.JSON_PROPERTY_ATTRIBUTES,
   CreateUploadRequestData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateUploadRequestData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateUploadRequestDataAttributes attributes;
 
@@ -32,11 +52,10 @@ public class CreateUploadRequestData {
 
   @JsonCreator
   public CreateUploadRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CreateUploadRequestDataType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)CreateUploadRequestDataType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public CreateUploadRequestData attributes(CreateUploadRequestDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -44,22 +63,19 @@ public class CreateUploadRequestData {
   }
 
   /**
-   * Upload configuration specifying how data is uploaded by the user, and properties of the table
-   * to associate the upload with.
-   *
+   * <p>Upload configuration specifying how data is uploaded by the user, and properties of the table to associate the upload with.</p>
    * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CreateUploadRequestDataAttributes getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public CreateUploadRequestDataAttributes getAttributes() {
+        return attributes;
+      }
   public void setAttributes(CreateUploadRequestDataAttributes attributes) {
     this.attributes = attributes;
   }
-
   public CreateUploadRequestData type(CreateUploadRequestDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -67,24 +83,25 @@ public class CreateUploadRequestData {
   }
 
   /**
-   * Upload resource type.
-   *
+   * <p>Upload resource type.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CreateUploadRequestDataType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CreateUploadRequestDataType getType() {
+        return type;
+      }
   public void setType(CreateUploadRequestDataType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this CreateUploadRequestData object is equal to o. */
+  /**
+   * Return true if this CreateUploadRequestData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,13 +111,13 @@ public class CreateUploadRequestData {
       return false;
     }
     CreateUploadRequestData createUploadRequestData = (CreateUploadRequestData) o;
-    return Objects.equals(this.attributes, createUploadRequestData.attributes)
-        && Objects.equals(this.type, createUploadRequestData.type);
+    return Objects.equals(this.attributes, createUploadRequestData.attributes) && Objects.equals(this.type, createUploadRequestData.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type);
+    return Objects.hash(attributes,type);
   }
 
   @Override
@@ -114,7 +131,8 @@ public class CreateUploadRequestData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

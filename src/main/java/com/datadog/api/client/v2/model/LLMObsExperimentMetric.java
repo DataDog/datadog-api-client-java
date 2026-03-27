@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A metric associated with an LLM Observability experiment span. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A metric associated with an LLM Observability experiment span.</p>
+ */
 @JsonPropertyOrder({
   LLMObsExperimentMetric.JSON_PROPERTY_ASSESSMENT,
   LLMObsExperimentMetric.JSON_PROPERTY_BOOLEAN_VALUE,
@@ -35,10 +49,10 @@ import java.util.Objects;
   LLMObsExperimentMetric.JSON_PROPERTY_TAGS,
   LLMObsExperimentMetric.JSON_PROPERTY_TIMESTAMP_MS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsExperimentMetric {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSESSMENT = "assessment";
   private LLMObsMetricAssessment assessment;
 
@@ -82,18 +96,16 @@ public class LLMObsExperimentMetric {
 
   @JsonCreator
   public LLMObsExperimentMetric(
-      @JsonProperty(required = true, value = JSON_PROPERTY_LABEL) String label,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC_TYPE)
-          LLMObsMetricScoreType metricType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SPAN_ID) String spanId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIMESTAMP_MS) Long timestampMs) {
-    this.label = label;
-    this.metricType = metricType;
-    this.unparsed |= !metricType.isValid();
-    this.spanId = spanId;
-    this.timestampMs = timestampMs;
+            @JsonProperty(required=true, value=JSON_PROPERTY_LABEL)String label,
+            @JsonProperty(required=true, value=JSON_PROPERTY_METRIC_TYPE)LLMObsMetricScoreType metricType,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SPAN_ID)String spanId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TIMESTAMP_MS)Long timestampMs) {
+        this.label = label;
+        this.metricType = metricType;
+        this.unparsed |= !metricType.isValid();
+        this.spanId = spanId;
+        this.timestampMs = timestampMs;
   }
-
   public LLMObsExperimentMetric assessment(LLMObsMetricAssessment assessment) {
     this.assessment = assessment;
     this.unparsed |= !assessment.isValid();
@@ -101,66 +113,60 @@ public class LLMObsExperimentMetric {
   }
 
   /**
-   * Assessment result for an LLM Observability experiment metric.
-   *
+   * <p>Assessment result for an LLM Observability experiment metric.</p>
    * @return assessment
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASSESSMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LLMObsMetricAssessment getAssessment() {
-    return assessment;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ASSESSMENT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LLMObsMetricAssessment getAssessment() {
+        return assessment;
+      }
   public void setAssessment(LLMObsMetricAssessment assessment) {
     if (!assessment.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.assessment = assessment;
   }
-
   public LLMObsExperimentMetric booleanValue(Boolean booleanValue) {
     this.booleanValue = booleanValue;
     return this;
   }
 
   /**
-   * Boolean value. Used when <code>metric_type</code> is <code>boolean</code>.
-   *
+   * <p>Boolean value. Used when <code>metric_type</code> is <code>boolean</code>.</p>
    * @return booleanValue
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BOOLEAN_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getBooleanValue() {
-    return booleanValue;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BOOLEAN_VALUE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getBooleanValue() {
+        return booleanValue;
+      }
   public void setBooleanValue(Boolean booleanValue) {
     this.booleanValue = booleanValue;
   }
-
   public LLMObsExperimentMetric categoricalValue(String categoricalValue) {
     this.categoricalValue = categoricalValue;
     return this;
   }
 
   /**
-   * Categorical value. Used when <code>metric_type</code> is <code>categorical</code>.
-   *
+   * <p>Categorical value. Used when <code>metric_type</code> is <code>categorical</code>.</p>
    * @return categoricalValue
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CATEGORICAL_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCategoricalValue() {
-    return categoricalValue;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CATEGORICAL_VALUE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCategoricalValue() {
+        return categoricalValue;
+      }
   public void setCategoricalValue(String categoricalValue) {
     this.categoricalValue = categoricalValue;
   }
-
   public LLMObsExperimentMetric error(LLMObsExperimentMetricError error) {
     this.error = error;
     this.unparsed |= error.unparsed;
@@ -168,26 +174,23 @@ public class LLMObsExperimentMetric {
   }
 
   /**
-   * Error details for an experiment metric evaluation.
-   *
+   * <p>Error details for an experiment metric evaluation.</p>
    * @return error
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LLMObsExperimentMetricError getError() {
-    return error;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ERROR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LLMObsExperimentMetricError getError() {
+        return error;
+      }
   public void setError(LLMObsExperimentMetricError error) {
     this.error = error;
   }
-
   public LLMObsExperimentMetric jsonValue(Map<String, Object> jsonValue) {
     this.jsonValue = jsonValue;
     return this;
   }
-
   public LLMObsExperimentMetric putJsonValueItem(String key, Object jsonValueItem) {
     if (this.jsonValue == null) {
       this.jsonValue = new HashMap<>();
@@ -197,46 +200,41 @@ public class LLMObsExperimentMetric {
   }
 
   /**
-   * JSON value. Used when <code>metric_type</code> is <code>json</code>.
-   *
+   * <p>JSON value. Used when <code>metric_type</code> is <code>json</code>.</p>
    * @return jsonValue
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_JSON_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getJsonValue() {
-    return jsonValue;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_JSON_VALUE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Object> getJsonValue() {
+        return jsonValue;
+      }
   public void setJsonValue(Map<String, Object> jsonValue) {
     this.jsonValue = jsonValue;
   }
-
   public LLMObsExperimentMetric label(String label) {
     this.label = label;
     return this;
   }
 
   /**
-   * Label or name for the metric.
-   *
+   * <p>Label or name for the metric.</p>
    * @return label
-   */
-  @JsonProperty(JSON_PROPERTY_LABEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getLabel() {
-    return label;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_LABEL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getLabel() {
+        return label;
+      }
   public void setLabel(String label) {
     this.label = label;
   }
-
   public LLMObsExperimentMetric metadata(Map<String, Object> metadata) {
     this.metadata = metadata;
     return this;
   }
-
   public LLMObsExperimentMetric putMetadataItem(String key, Object metadataItem) {
     if (this.metadata == null) {
       this.metadata = new HashMap<>();
@@ -246,21 +244,19 @@ public class LLMObsExperimentMetric {
   }
 
   /**
-   * Arbitrary metadata associated with the metric.
-   *
+   * <p>Arbitrary metadata associated with the metric.</p>
    * @return metadata
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getMetadata() {
-    return metadata;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Object> getMetadata() {
+        return metadata;
+      }
   public void setMetadata(Map<String, Object> metadata) {
     this.metadata = metadata;
   }
-
   public LLMObsExperimentMetric metricType(LLMObsMetricScoreType metricType) {
     this.metricType = metricType;
     this.unparsed |= !metricType.isValid();
@@ -268,90 +264,81 @@ public class LLMObsExperimentMetric {
   }
 
   /**
-   * Type of metric recorded for an LLM Observability experiment.
-   *
+   * <p>Type of metric recorded for an LLM Observability experiment.</p>
    * @return metricType
-   */
-  @JsonProperty(JSON_PROPERTY_METRIC_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsMetricScoreType getMetricType() {
-    return metricType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_METRIC_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public LLMObsMetricScoreType getMetricType() {
+        return metricType;
+      }
   public void setMetricType(LLMObsMetricScoreType metricType) {
     if (!metricType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.metricType = metricType;
   }
-
   public LLMObsExperimentMetric reasoning(String reasoning) {
     this.reasoning = reasoning;
     return this;
   }
 
   /**
-   * Human-readable reasoning for the metric value.
-   *
+   * <p>Human-readable reasoning for the metric value.</p>
    * @return reasoning
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REASONING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getReasoning() {
-    return reasoning;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REASONING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getReasoning() {
+        return reasoning;
+      }
   public void setReasoning(String reasoning) {
     this.reasoning = reasoning;
   }
-
   public LLMObsExperimentMetric scoreValue(Double scoreValue) {
     this.scoreValue = scoreValue;
     return this;
   }
 
   /**
-   * Numeric score value. Used when <code>metric_type</code> is <code>score</code>.
-   *
+   * <p>Numeric score value. Used when <code>metric_type</code> is <code>score</code>.</p>
    * @return scoreValue
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCORE_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getScoreValue() {
-    return scoreValue;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SCORE_VALUE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getScoreValue() {
+        return scoreValue;
+      }
   public void setScoreValue(Double scoreValue) {
     this.scoreValue = scoreValue;
   }
-
   public LLMObsExperimentMetric spanId(String spanId) {
     this.spanId = spanId;
     return this;
   }
 
   /**
-   * The ID of the span this metric measures.
-   *
+   * <p>The ID of the span this metric measures.</p>
    * @return spanId
-   */
-  @JsonProperty(JSON_PROPERTY_SPAN_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getSpanId() {
-    return spanId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SPAN_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getSpanId() {
+        return spanId;
+      }
   public void setSpanId(String spanId) {
     this.spanId = spanId;
   }
-
   public LLMObsExperimentMetric tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public LLMObsExperimentMetric addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -361,50 +348,48 @@ public class LLMObsExperimentMetric {
   }
 
   /**
-   * List of tags associated with the metric.
-   *
+   * <p>List of tags associated with the metric.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
   public LLMObsExperimentMetric timestampMs(Long timestampMs) {
     this.timestampMs = timestampMs;
     return this;
   }
 
   /**
-   * Timestamp when the metric was recorded, in milliseconds since Unix epoch.
-   *
+   * <p>Timestamp when the metric was recorded, in milliseconds since Unix epoch.</p>
    * @return timestampMs
-   */
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP_MS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getTimestampMs() {
-    return timestampMs;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TIMESTAMP_MS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getTimestampMs() {
+        return timestampMs;
+      }
   public void setTimestampMs(Long timestampMs) {
     this.timestampMs = timestampMs;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -413,7 +398,7 @@ public class LLMObsExperimentMetric {
   @JsonAnySetter
   public LLMObsExperimentMetric putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -437,12 +422,14 @@ public class LLMObsExperimentMetric {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsExperimentMetric object is equal to o. */
+  /**
+   * Return true if this LLMObsExperimentMetric object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -452,39 +439,13 @@ public class LLMObsExperimentMetric {
       return false;
     }
     LLMObsExperimentMetric llmObsExperimentMetric = (LLMObsExperimentMetric) o;
-    return Objects.equals(this.assessment, llmObsExperimentMetric.assessment)
-        && Objects.equals(this.booleanValue, llmObsExperimentMetric.booleanValue)
-        && Objects.equals(this.categoricalValue, llmObsExperimentMetric.categoricalValue)
-        && Objects.equals(this.error, llmObsExperimentMetric.error)
-        && Objects.equals(this.jsonValue, llmObsExperimentMetric.jsonValue)
-        && Objects.equals(this.label, llmObsExperimentMetric.label)
-        && Objects.equals(this.metadata, llmObsExperimentMetric.metadata)
-        && Objects.equals(this.metricType, llmObsExperimentMetric.metricType)
-        && Objects.equals(this.reasoning, llmObsExperimentMetric.reasoning)
-        && Objects.equals(this.scoreValue, llmObsExperimentMetric.scoreValue)
-        && Objects.equals(this.spanId, llmObsExperimentMetric.spanId)
-        && Objects.equals(this.tags, llmObsExperimentMetric.tags)
-        && Objects.equals(this.timestampMs, llmObsExperimentMetric.timestampMs)
-        && Objects.equals(this.additionalProperties, llmObsExperimentMetric.additionalProperties);
+    return Objects.equals(this.assessment, llmObsExperimentMetric.assessment) && Objects.equals(this.booleanValue, llmObsExperimentMetric.booleanValue) && Objects.equals(this.categoricalValue, llmObsExperimentMetric.categoricalValue) && Objects.equals(this.error, llmObsExperimentMetric.error) && Objects.equals(this.jsonValue, llmObsExperimentMetric.jsonValue) && Objects.equals(this.label, llmObsExperimentMetric.label) && Objects.equals(this.metadata, llmObsExperimentMetric.metadata) && Objects.equals(this.metricType, llmObsExperimentMetric.metricType) && Objects.equals(this.reasoning, llmObsExperimentMetric.reasoning) && Objects.equals(this.scoreValue, llmObsExperimentMetric.scoreValue) && Objects.equals(this.spanId, llmObsExperimentMetric.spanId) && Objects.equals(this.tags, llmObsExperimentMetric.tags) && Objects.equals(this.timestampMs, llmObsExperimentMetric.timestampMs) && Objects.equals(this.additionalProperties, llmObsExperimentMetric.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        assessment,
-        booleanValue,
-        categoricalValue,
-        error,
-        jsonValue,
-        label,
-        metadata,
-        metricType,
-        reasoning,
-        scoreValue,
-        spanId,
-        tags,
-        timestampMs,
-        additionalProperties);
+    return Objects.hash(assessment,booleanValue,categoricalValue,error,jsonValue,label,metadata,metricType,reasoning,scoreValue,spanId,tags,timestampMs, additionalProperties);
   }
 
   @Override
@@ -512,7 +473,8 @@ public class LLMObsExperimentMetric {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

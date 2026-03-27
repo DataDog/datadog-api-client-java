@@ -6,25 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object containing the definition of a metric's ingested and indexed volume. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object containing the definition of a metric's ingested and indexed volume.</p>
+ */
 @JsonPropertyOrder({
   MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INDEXED_VOLUME,
   MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INGESTED_VOLUME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricIngestedIndexedVolumeAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_INDEXED_VOLUME = "indexed_volume";
   private Long indexedVolume;
 
@@ -37,51 +54,49 @@ public class MetricIngestedIndexedVolumeAttributes {
   }
 
   /**
-   * Indexed volume for the given metric.
-   *
+   * <p>Indexed volume for the given metric.</p>
    * @return indexedVolume
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEXED_VOLUME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIndexedVolume() {
-    return indexedVolume;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INDEXED_VOLUME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIndexedVolume() {
+        return indexedVolume;
+      }
   public void setIndexedVolume(Long indexedVolume) {
     this.indexedVolume = indexedVolume;
   }
-
   public MetricIngestedIndexedVolumeAttributes ingestedVolume(Long ingestedVolume) {
     this.ingestedVolume = ingestedVolume;
     return this;
   }
 
   /**
-   * Ingested volume for the given metric.
-   *
+   * <p>Ingested volume for the given metric.</p>
    * @return ingestedVolume
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INGESTED_VOLUME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIngestedVolume() {
-    return ingestedVolume;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INGESTED_VOLUME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getIngestedVolume() {
+        return ingestedVolume;
+      }
   public void setIngestedVolume(Long ingestedVolume) {
     this.ingestedVolume = ingestedVolume;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -90,7 +105,7 @@ public class MetricIngestedIndexedVolumeAttributes {
   @JsonAnySetter
   public MetricIngestedIndexedVolumeAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -114,12 +129,14 @@ public class MetricIngestedIndexedVolumeAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MetricIngestedIndexedVolumeAttributes object is equal to o. */
+  /**
+   * Return true if this MetricIngestedIndexedVolumeAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,17 +145,14 @@ public class MetricIngestedIndexedVolumeAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricIngestedIndexedVolumeAttributes metricIngestedIndexedVolumeAttributes =
-        (MetricIngestedIndexedVolumeAttributes) o;
-    return Objects.equals(this.indexedVolume, metricIngestedIndexedVolumeAttributes.indexedVolume)
-        && Objects.equals(this.ingestedVolume, metricIngestedIndexedVolumeAttributes.ingestedVolume)
-        && Objects.equals(
-            this.additionalProperties, metricIngestedIndexedVolumeAttributes.additionalProperties);
+    MetricIngestedIndexedVolumeAttributes metricIngestedIndexedVolumeAttributes = (MetricIngestedIndexedVolumeAttributes) o;
+    return Objects.equals(this.indexedVolume, metricIngestedIndexedVolumeAttributes.indexedVolume) && Objects.equals(this.ingestedVolume, metricIngestedIndexedVolumeAttributes.ingestedVolume) && Objects.equals(this.additionalProperties, metricIngestedIndexedVolumeAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(indexedVolume, ingestedVolume, additionalProperties);
+    return Objects.hash(indexedVolume,ingestedVolume, additionalProperties);
   }
 
   @Override
@@ -155,7 +169,8 @@ public class MetricIngestedIndexedVolumeAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

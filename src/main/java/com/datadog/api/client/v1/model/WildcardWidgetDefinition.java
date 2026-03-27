@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,15 +25,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Custom visualization widget using Vega or Vega-Lite specifications. Combines standard Datadog
- * data requests with a Vega or Vega-Lite JSON specification for flexible, custom visualizations.
+   * <p>Custom visualization widget using Vega or Vega-Lite specifications. Combines standard Datadog data requests with a Vega or Vega-Lite JSON specification for flexible, custom visualizations.</p>
  */
 @JsonPropertyOrder({
   WildcardWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
@@ -33,10 +44,10 @@ import java.util.Objects;
   WildcardWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   WildcardWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WildcardWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -65,19 +76,15 @@ public class WildcardWidgetDefinition {
 
   @JsonCreator
   public WildcardWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          List<WildcardWidgetRequest> requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SPECIFICATION)
-          WildcardWidgetSpecification specification,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          WildcardWidgetDefinitionType type) {
-    this.requests = requests;
-    this.specification = specification;
-    this.unparsed |= specification.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS)List<WildcardWidgetRequest> requests,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SPECIFICATION)WildcardWidgetSpecification specification,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)WildcardWidgetDefinitionType type) {
+        this.requests = requests;
+        this.specification = specification;
+        this.unparsed |= specification.unparsed;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public WildcardWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
     for (WidgetCustomLink item : customLinks) {
@@ -85,7 +92,6 @@ public class WildcardWidgetDefinition {
     }
     return this;
   }
-
   public WildcardWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
     if (this.customLinks == null) {
       this.customLinks = new ArrayList<>();
@@ -96,21 +102,19 @@ public class WildcardWidgetDefinition {
   }
 
   /**
-   * List of custom links.
-   *
+   * <p>List of custom links.</p>
    * @return customLinks
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<WidgetCustomLink> getCustomLinks() {
-    return customLinks;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<WidgetCustomLink> getCustomLinks() {
+        return customLinks;
+      }
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
   }
-
   public WildcardWidgetDefinition requests(List<WildcardWidgetRequest> requests) {
     this.requests = requests;
     for (WildcardWidgetRequest item : requests) {
@@ -118,7 +122,6 @@ public class WildcardWidgetDefinition {
     }
     return this;
   }
-
   public WildcardWidgetDefinition addRequestsItem(WildcardWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
@@ -126,20 +129,18 @@ public class WildcardWidgetDefinition {
   }
 
   /**
-   * List of data requests for the wildcard widget.
-   *
+   * <p>List of data requests for the wildcard widget.</p>
    * @return requests
-   */
-  @JsonProperty(JSON_PROPERTY_REQUESTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<WildcardWidgetRequest> getRequests() {
-    return requests;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_REQUESTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<WildcardWidgetRequest> getRequests() {
+        return requests;
+      }
   public void setRequests(List<WildcardWidgetRequest> requests) {
     this.requests = requests;
   }
-
   public WildcardWidgetDefinition specification(WildcardWidgetSpecification specification) {
     this.specification = specification;
     this.unparsed |= specification.unparsed;
@@ -147,21 +148,18 @@ public class WildcardWidgetDefinition {
   }
 
   /**
-   * Vega or Vega-Lite specification for custom visualization rendering. See
-   * https://vega.github.io/vega-lite/ for the full grammar reference.
-   *
+   * <p>Vega or Vega-Lite specification for custom visualization rendering. See https://vega.github.io/vega-lite/ for the full grammar reference.</p>
    * @return specification
-   */
-  @JsonProperty(JSON_PROPERTY_SPECIFICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public WildcardWidgetSpecification getSpecification() {
-    return specification;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SPECIFICATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public WildcardWidgetSpecification getSpecification() {
+        return specification;
+      }
   public void setSpecification(WildcardWidgetSpecification specification) {
     this.specification = specification;
   }
-
   public WildcardWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -169,42 +167,38 @@ public class WildcardWidgetDefinition {
   }
 
   /**
-   * Time setting for the widget.
-   *
+   * <p>Time setting for the widget.</p>
    * @return time
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetTime getTime() {
-    return time;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetTime getTime() {
+        return time;
+      }
   public void setTime(WidgetTime time) {
     this.time = time;
   }
-
   public WildcardWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * Title of the widget.
-   *
+   * <p>Title of the widget.</p>
    * @return title
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
-
   public WildcardWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -212,45 +206,41 @@ public class WildcardWidgetDefinition {
   }
 
   /**
-   * How to align the text on the widget.
-   *
+   * <p>How to align the text on the widget.</p>
    * @return titleAlign
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetTextAlign getTitleAlign() {
-    return titleAlign;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetTextAlign getTitleAlign() {
+        return titleAlign;
+      }
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
-
   public WildcardWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * Size of the title.
-   *
+   * <p>Size of the title.</p>
    * @return titleSize
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitleSize() {
-    return titleSize;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitleSize() {
+        return titleSize;
+      }
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
-
   public WildcardWidgetDefinition type(WildcardWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -258,32 +248,32 @@ public class WildcardWidgetDefinition {
   }
 
   /**
-   * Type of the wildcard widget.
-   *
+   * <p>Type of the wildcard widget.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public WildcardWidgetDefinitionType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public WildcardWidgetDefinitionType getType() {
+        return type;
+      }
   public void setType(WildcardWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -292,7 +282,7 @@ public class WildcardWidgetDefinition {
   @JsonAnySetter
   public WildcardWidgetDefinition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -316,12 +306,14 @@ public class WildcardWidgetDefinition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this WildcardWidgetDefinition object is equal to o. */
+  /**
+   * Return true if this WildcardWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -331,29 +323,13 @@ public class WildcardWidgetDefinition {
       return false;
     }
     WildcardWidgetDefinition wildcardWidgetDefinition = (WildcardWidgetDefinition) o;
-    return Objects.equals(this.customLinks, wildcardWidgetDefinition.customLinks)
-        && Objects.equals(this.requests, wildcardWidgetDefinition.requests)
-        && Objects.equals(this.specification, wildcardWidgetDefinition.specification)
-        && Objects.equals(this.time, wildcardWidgetDefinition.time)
-        && Objects.equals(this.title, wildcardWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, wildcardWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, wildcardWidgetDefinition.titleSize)
-        && Objects.equals(this.type, wildcardWidgetDefinition.type)
-        && Objects.equals(this.additionalProperties, wildcardWidgetDefinition.additionalProperties);
+    return Objects.equals(this.customLinks, wildcardWidgetDefinition.customLinks) && Objects.equals(this.requests, wildcardWidgetDefinition.requests) && Objects.equals(this.specification, wildcardWidgetDefinition.specification) && Objects.equals(this.time, wildcardWidgetDefinition.time) && Objects.equals(this.title, wildcardWidgetDefinition.title) && Objects.equals(this.titleAlign, wildcardWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, wildcardWidgetDefinition.titleSize) && Objects.equals(this.type, wildcardWidgetDefinition.type) && Objects.equals(this.additionalProperties, wildcardWidgetDefinition.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        customLinks,
-        requests,
-        specification,
-        time,
-        title,
-        titleAlign,
-        titleSize,
-        type,
-        additionalProperties);
+    return Objects.hash(customLinks,requests,specification,time,title,titleAlign,titleSize,type, additionalProperties);
   }
 
   @Override
@@ -376,7 +352,8 @@ public class WildcardWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

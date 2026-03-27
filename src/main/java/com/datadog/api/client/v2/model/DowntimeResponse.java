@@ -6,28 +6,45 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Downtiming gives you greater control over monitor notifications by allowing you to globally
- * exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times,
- * prevent all alerting related to specified Datadog tags.
+   * <p>Downtiming gives you greater control over monitor notifications by
+   * allowing you to globally exclude scopes from alerting.
+   * Downtime settings, which can be scheduled with start and end times,
+   * prevent all alerting related to specified Datadog tags.</p>
  */
-@JsonPropertyOrder({DowntimeResponse.JSON_PROPERTY_DATA, DowntimeResponse.JSON_PROPERTY_INCLUDED})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@JsonPropertyOrder({
+  DowntimeResponse.JSON_PROPERTY_DATA,
+  DowntimeResponse.JSON_PROPERTY_INCLUDED
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DowntimeResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private DowntimeResponseData data;
 
@@ -41,21 +58,19 @@ public class DowntimeResponse {
   }
 
   /**
-   * Downtime data.
-   *
+   * <p>Downtime data.</p>
    * @return data
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DowntimeResponseData getData() {
-    return data;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public DowntimeResponseData getData() {
+        return data;
+      }
   public void setData(DowntimeResponseData data) {
     this.data = data;
   }
-
   public DowntimeResponse included(List<DowntimeResponseIncludedItem> included) {
     this.included = included;
     for (DowntimeResponseIncludedItem item : included) {
@@ -63,7 +78,6 @@ public class DowntimeResponse {
     }
     return this;
   }
-
   public DowntimeResponse addIncludedItem(DowntimeResponseIncludedItem includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
@@ -74,30 +88,30 @@ public class DowntimeResponse {
   }
 
   /**
-   * Array of objects related to the downtime that the user requested.
-   *
+   * <p>Array of objects related to the downtime that the user requested.</p>
    * @return included
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DowntimeResponseIncludedItem> getIncluded() {
-    return included;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INCLUDED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<DowntimeResponseIncludedItem> getIncluded() {
+        return included;
+      }
   public void setIncluded(List<DowntimeResponseIncludedItem> included) {
     this.included = included;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -106,7 +120,7 @@ public class DowntimeResponse {
   @JsonAnySetter
   public DowntimeResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -130,12 +144,14 @@ public class DowntimeResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DowntimeResponse object is equal to o. */
+  /**
+   * Return true if this DowntimeResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,14 +161,13 @@ public class DowntimeResponse {
       return false;
     }
     DowntimeResponse downtimeResponse = (DowntimeResponse) o;
-    return Objects.equals(this.data, downtimeResponse.data)
-        && Objects.equals(this.included, downtimeResponse.included)
-        && Objects.equals(this.additionalProperties, downtimeResponse.additionalProperties);
+    return Objects.equals(this.data, downtimeResponse.data) && Objects.equals(this.included, downtimeResponse.included) && Objects.equals(this.additionalProperties, downtimeResponse.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(data,included, additionalProperties);
   }
 
   @Override
@@ -169,7 +184,8 @@ public class DowntimeResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

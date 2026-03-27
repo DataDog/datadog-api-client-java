@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Compute aggregation for network queries. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Compute aggregation for network queries.</p>
+ */
 @JsonPropertyOrder({
   SankeyNetworkQueryCompute.JSON_PROPERTY_AGGREGATION,
   SankeyNetworkQueryCompute.JSON_PROPERTY_METRIC
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SankeyNetworkQueryCompute {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private EventsAggregation aggregation;
 
@@ -32,14 +52,12 @@ public class SankeyNetworkQueryCompute {
 
   @JsonCreator
   public SankeyNetworkQueryCompute(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
-          EventsAggregation aggregation,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC) String metric) {
-    this.aggregation = aggregation;
-    this.unparsed |= aggregation.unparsed;
-    this.metric = metric;
+            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)EventsAggregation aggregation,
+            @JsonProperty(required=true, value=JSON_PROPERTY_METRIC)String metric) {
+        this.aggregation = aggregation;
+        this.unparsed |= aggregation.unparsed;
+        this.metric = metric;
   }
-
   public SankeyNetworkQueryCompute aggregation(EventsAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= aggregation.unparsed;
@@ -47,41 +65,40 @@ public class SankeyNetworkQueryCompute {
   }
 
   /**
-   * The type of aggregation that can be performed on events-based queries.
-   *
+   * <p>The type of aggregation that can be performed on events-based queries.</p>
    * @return aggregation
-   */
-  @JsonProperty(JSON_PROPERTY_AGGREGATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public EventsAggregation getAggregation() {
-    return aggregation;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AGGREGATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public EventsAggregation getAggregation() {
+        return aggregation;
+      }
   public void setAggregation(EventsAggregation aggregation) {
     this.aggregation = aggregation;
   }
-
   public SankeyNetworkQueryCompute metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * Metric to aggregate.
-   *
+   * <p>Metric to aggregate.</p>
    * @return metric
-   */
-  @JsonProperty(JSON_PROPERTY_METRIC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMetric() {
-    return metric;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_METRIC)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getMetric() {
+        return metric;
+      }
   public void setMetric(String metric) {
     this.metric = metric;
   }
 
-  /** Return true if this SankeyNetworkQueryCompute object is equal to o. */
+  /**
+   * Return true if this SankeyNetworkQueryCompute object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,13 +108,13 @@ public class SankeyNetworkQueryCompute {
       return false;
     }
     SankeyNetworkQueryCompute sankeyNetworkQueryCompute = (SankeyNetworkQueryCompute) o;
-    return Objects.equals(this.aggregation, sankeyNetworkQueryCompute.aggregation)
-        && Objects.equals(this.metric, sankeyNetworkQueryCompute.metric);
+    return Objects.equals(this.aggregation, sankeyNetworkQueryCompute.aggregation) && Objects.equals(this.metric, sankeyNetworkQueryCompute.metric);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, metric);
+    return Objects.hash(aggregation,metric);
   }
 
   @Override
@@ -111,7 +128,8 @@ public class SankeyNetworkQueryCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

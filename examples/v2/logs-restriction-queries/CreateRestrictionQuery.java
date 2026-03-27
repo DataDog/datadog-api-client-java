@@ -1,13 +1,20 @@
 // Create a restriction query returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.LogsRestrictionQueriesApi;
+import com.datadog.api.client.v2.model.RestrictionQueryWithoutRelationshipsResponse;
 import com.datadog.api.client.v2.model.LogsRestrictionQueriesType;
 import com.datadog.api.client.v2.model.RestrictionQueryCreateAttributes;
 import com.datadog.api.client.v2.model.RestrictionQueryCreateData;
 import com.datadog.api.client.v2.model.RestrictionQueryCreatePayload;
-import com.datadog.api.client.v2.model.RestrictionQueryWithoutRelationshipsResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -15,17 +22,14 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createRestrictionQuery", true);
     LogsRestrictionQueriesApi apiInstance = new LogsRestrictionQueriesApi(defaultClient);
 
-    RestrictionQueryCreatePayload body =
-        new RestrictionQueryCreatePayload()
-            .data(
-                new RestrictionQueryCreateData()
-                    .attributes(
-                        new RestrictionQueryCreateAttributes().restrictionQuery("env:sandbox"))
-                    .type(LogsRestrictionQueriesType.LOGS_RESTRICTION_QUERIES));
+    RestrictionQueryCreatePayload body = new RestrictionQueryCreatePayload()
+.data(new RestrictionQueryCreateData()
+.attributes(new RestrictionQueryCreateAttributes()
+.restrictionQuery("env:sandbox"))
+.type(LogsRestrictionQueriesType.LOGS_RESTRICTION_QUERIES));
 
     try {
-      RestrictionQueryWithoutRelationshipsResponse result =
-          apiInstance.createRestrictionQuery(body);
+      RestrictionQueryWithoutRelationshipsResponse result = apiInstance.createRestrictionQuery(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LogsRestrictionQueriesApi#createRestrictionQuery");

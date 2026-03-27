@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,21 +25,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes for Azure config pair. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes for Azure config pair.</p>
+ */
 @JsonPropertyOrder({
   AzureUCConfigPairAttributes.JSON_PROPERTY_CONFIGS,
   AzureUCConfigPairAttributes.JSON_PROPERTY_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AzureUCConfigPairAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIGS = "configs";
   private List<AzureUCConfig> configs = new ArrayList<>();
 
@@ -38,10 +52,9 @@ public class AzureUCConfigPairAttributes {
 
   @JsonCreator
   public AzureUCConfigPairAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIGS) List<AzureUCConfig> configs) {
-    this.configs = configs;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CONFIGS)List<AzureUCConfig> configs) {
+        this.configs = configs;
   }
-
   public AzureUCConfigPairAttributes configs(List<AzureUCConfig> configs) {
     this.configs = configs;
     for (AzureUCConfig item : configs) {
@@ -49,7 +62,6 @@ public class AzureUCConfigPairAttributes {
     }
     return this;
   }
-
   public AzureUCConfigPairAttributes addConfigsItem(AzureUCConfig configsItem) {
     this.configs.add(configsItem);
     this.unparsed |= configsItem.unparsed;
@@ -57,50 +69,48 @@ public class AzureUCConfigPairAttributes {
   }
 
   /**
-   * An Azure config.
-   *
+   * <p>An Azure config.</p>
    * @return configs
-   */
-  @JsonProperty(JSON_PROPERTY_CONFIGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<AzureUCConfig> getConfigs() {
-    return configs;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CONFIGS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<AzureUCConfig> getConfigs() {
+        return configs;
+      }
   public void setConfigs(List<AzureUCConfig> configs) {
     this.configs = configs;
   }
-
   public AzureUCConfigPairAttributes id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the Azure config pair.
-   *
+   * <p>The ID of the Azure config pair.</p>
    * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -109,7 +119,7 @@ public class AzureUCConfigPairAttributes {
   @JsonAnySetter
   public AzureUCConfigPairAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -133,12 +143,14 @@ public class AzureUCConfigPairAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AzureUCConfigPairAttributes object is equal to o. */
+  /**
+   * Return true if this AzureUCConfigPairAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -148,15 +160,13 @@ public class AzureUCConfigPairAttributes {
       return false;
     }
     AzureUCConfigPairAttributes azureUcConfigPairAttributes = (AzureUCConfigPairAttributes) o;
-    return Objects.equals(this.configs, azureUcConfigPairAttributes.configs)
-        && Objects.equals(this.id, azureUcConfigPairAttributes.id)
-        && Objects.equals(
-            this.additionalProperties, azureUcConfigPairAttributes.additionalProperties);
+    return Objects.equals(this.configs, azureUcConfigPairAttributes.configs) && Objects.equals(this.id, azureUcConfigPairAttributes.id) && Objects.equals(this.additionalProperties, azureUcConfigPairAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(configs, id, additionalProperties);
+    return Objects.hash(configs,id, additionalProperties);
   }
 
   @Override
@@ -173,7 +183,8 @@ public class AzureUCConfigPairAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

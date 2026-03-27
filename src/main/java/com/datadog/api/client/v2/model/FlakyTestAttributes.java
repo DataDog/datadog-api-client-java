@@ -6,20 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of a flaky test. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of a flaky test.</p>
+ */
 @JsonPropertyOrder({
   FlakyTestAttributes.JSON_PROPERTY_ATTEMPT_TO_FIX_ID,
   FlakyTestAttributes.JSON_PROPERTY_CODEOWNERS,
@@ -41,10 +55,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FlakyTestAttributes.JSON_PROPERTY_TEST_RUN_METADATA,
   FlakyTestAttributes.JSON_PROPERTY_TEST_STATS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FlakyTestAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTEMPT_TO_FIX_ID = "attempt_to_fix_id";
   private String attemptToFixId;
 
@@ -108,32 +122,25 @@ public class FlakyTestAttributes {
   }
 
   /**
-   * Unique identifier for the attempt to fix this flaky test. Use this ID in the Git commit message
-   * in order to trigger the attempt to fix workflow.
-   *
-   * <p>When the workflow is triggered the test is automatically retried by the tracer a certain
-   * number of configurable times. When all retries pass, the test is automatically marked as fixed
-   * in Flaky Test Management. Test runs are tagged with @test.test_management.attempt_to_fix_passed
-   * and @test.test_management.is_attempt_to_fix when the attempt to fix workflow is triggered.
-   *
+   * <p>Unique identifier for the attempt to fix this flaky test. Use this ID in the Git commit message in order to trigger the attempt to fix workflow.</p>
+   * <p>When the workflow is triggered the test is automatically retried by the tracer a certain number of configurable times. When all retries pass, the test is automatically marked as fixed in Flaky Test Management.
+   * Test runs are tagged with @test.test_management.attempt_to_fix_passed and @test.test_management.is_attempt_to_fix when the attempt to fix workflow is triggered.</p>
    * @return attemptToFixId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTEMPT_TO_FIX_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAttemptToFixId() {
-    return attemptToFixId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ATTEMPT_TO_FIX_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAttemptToFixId() {
+        return attemptToFixId;
+      }
   public void setAttemptToFixId(String attemptToFixId) {
     this.attemptToFixId = attemptToFixId;
   }
-
   public FlakyTestAttributes codeowners(List<String> codeowners) {
     this.codeowners = codeowners;
     return this;
   }
-
   public FlakyTestAttributes addCodeownersItem(String codeownersItem) {
     if (this.codeowners == null) {
       this.codeowners = new ArrayList<>();
@@ -143,26 +150,23 @@ public class FlakyTestAttributes {
   }
 
   /**
-   * The name of the test's code owners as inferred from the repository configuration.
-   *
+   * <p>The name of the test's code owners as inferred from the repository configuration.</p>
    * @return codeowners
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CODEOWNERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getCodeowners() {
-    return codeowners;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CODEOWNERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getCodeowners() {
+        return codeowners;
+      }
   public void setCodeowners(List<String> codeowners) {
     this.codeowners = codeowners;
   }
-
   public FlakyTestAttributes envs(List<String> envs) {
     this.envs = envs;
     return this;
   }
-
   public FlakyTestAttributes addEnvsItem(String envsItem) {
     if (this.envs == null) {
       this.envs = new ArrayList<>();
@@ -172,115 +176,102 @@ public class FlakyTestAttributes {
   }
 
   /**
-   * List of environments where this test has been flaky.
-   *
+   * <p>List of environments where this test has been flaky.</p>
    * @return envs
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENVS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getEnvs() {
-    return envs;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENVS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getEnvs() {
+        return envs;
+      }
   public void setEnvs(List<String> envs) {
     this.envs = envs;
   }
-
   public FlakyTestAttributes firstFlakedBranch(String firstFlakedBranch) {
     this.firstFlakedBranch = firstFlakedBranch;
     return this;
   }
 
   /**
-   * The branch name where the test exhibited flakiness for the first time.
-   *
+   * <p>The branch name where the test exhibited flakiness for the first time.</p>
    * @return firstFlakedBranch
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIRST_FLAKED_BRANCH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getFirstFlakedBranch() {
-    return firstFlakedBranch;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FIRST_FLAKED_BRANCH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getFirstFlakedBranch() {
+        return firstFlakedBranch;
+      }
   public void setFirstFlakedBranch(String firstFlakedBranch) {
     this.firstFlakedBranch = firstFlakedBranch;
   }
-
   public FlakyTestAttributes firstFlakedSha(String firstFlakedSha) {
     this.firstFlakedSha = firstFlakedSha;
     return this;
   }
 
   /**
-   * The commit SHA where the test exhibited flakiness for the first time.
-   *
+   * <p>The commit SHA where the test exhibited flakiness for the first time.</p>
    * @return firstFlakedSha
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIRST_FLAKED_SHA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getFirstFlakedSha() {
-    return firstFlakedSha;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FIRST_FLAKED_SHA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getFirstFlakedSha() {
+        return firstFlakedSha;
+      }
   public void setFirstFlakedSha(String firstFlakedSha) {
     this.firstFlakedSha = firstFlakedSha;
   }
-
   public FlakyTestAttributes firstFlakedTs(Long firstFlakedTs) {
     this.firstFlakedTs = firstFlakedTs;
     return this;
   }
 
   /**
-   * Unix timestamp when the test exhibited flakiness for the first time.
-   *
+   * <p>Unix timestamp when the test exhibited flakiness for the first time.</p>
    * @return firstFlakedTs
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIRST_FLAKED_TS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getFirstFlakedTs() {
-    return firstFlakedTs;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FIRST_FLAKED_TS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getFirstFlakedTs() {
+        return firstFlakedTs;
+      }
   public void setFirstFlakedTs(Long firstFlakedTs) {
     this.firstFlakedTs = firstFlakedTs;
   }
-
   public FlakyTestAttributes flakyCategory(String flakyCategory) {
     this.flakyCategory = JsonNullable.<String>of(flakyCategory);
     return this;
   }
 
   /**
-   * The category of a flaky test.
-   *
+   * <p>The category of a flaky test.</p>
    * @return flakyCategory
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getFlakyCategory() {
-    return flakyCategory.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getFlakyCategory() {
+        return flakyCategory.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_FLAKY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getFlakyCategory_JsonNullable() {
     return flakyCategory;
   }
-
-  @JsonProperty(JSON_PROPERTY_FLAKY_CATEGORY)
-  public void setFlakyCategory_JsonNullable(JsonNullable<String> flakyCategory) {
+  @JsonProperty(JSON_PROPERTY_FLAKY_CATEGORY)public void setFlakyCategory_JsonNullable(JsonNullable<String> flakyCategory) {
     this.flakyCategory = flakyCategory;
   }
-
   public void setFlakyCategory(String flakyCategory) {
     this.flakyCategory = JsonNullable.<String>of(flakyCategory);
   }
-
   public FlakyTestAttributes flakyState(FlakyTestAttributesFlakyState flakyState) {
     this.flakyState = flakyState;
     this.unparsed |= !flakyState.isValid();
@@ -288,24 +279,22 @@ public class FlakyTestAttributes {
   }
 
   /**
-   * The current state of the flaky test.
-   *
+   * <p>The current state of the flaky test.</p>
    * @return flakyState
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLAKY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FlakyTestAttributesFlakyState getFlakyState() {
-    return flakyState;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FLAKY_STATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public FlakyTestAttributesFlakyState getFlakyState() {
+        return flakyState;
+      }
   public void setFlakyState(FlakyTestAttributesFlakyState flakyState) {
     if (!flakyState.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.flakyState = flakyState;
   }
-
   public FlakyTestAttributes history(List<FlakyTestHistory> history) {
     this.history = history;
     for (FlakyTestHistory item : history) {
@@ -313,7 +302,6 @@ public class FlakyTestAttributes {
     }
     return this;
   }
-
   public FlakyTestAttributes addHistoryItem(FlakyTestHistory historyItem) {
     if (this.history == null) {
       this.history = new ArrayList<>();
@@ -324,146 +312,128 @@ public class FlakyTestAttributes {
   }
 
   /**
-   * Chronological history of status changes for this flaky test, ordered from most recent to
-   * oldest. Includes state transitions like new -&gt; quarantined -&gt; fixed, along with the
-   * associated commit SHA when available.
-   *
+   * <p>Chronological history of status changes for this flaky test, ordered from most recent to oldest.
+   * Includes state transitions like new -&gt; quarantined -&gt; fixed, along with the associated commit SHA when available.</p>
    * @return history
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HISTORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<FlakyTestHistory> getHistory() {
-    return history;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HISTORY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<FlakyTestHistory> getHistory() {
+        return history;
+      }
   public void setHistory(List<FlakyTestHistory> history) {
     this.history = history;
   }
-
   public FlakyTestAttributes lastFlakedBranch(String lastFlakedBranch) {
     this.lastFlakedBranch = lastFlakedBranch;
     return this;
   }
 
   /**
-   * The branch name where the test exhibited flakiness for the last time.
-   *
+   * <p>The branch name where the test exhibited flakiness for the last time.</p>
    * @return lastFlakedBranch
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_FLAKED_BRANCH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getLastFlakedBranch() {
-    return lastFlakedBranch;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_FLAKED_BRANCH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getLastFlakedBranch() {
+        return lastFlakedBranch;
+      }
   public void setLastFlakedBranch(String lastFlakedBranch) {
     this.lastFlakedBranch = lastFlakedBranch;
   }
-
   public FlakyTestAttributes lastFlakedSha(String lastFlakedSha) {
     this.lastFlakedSha = lastFlakedSha;
     return this;
   }
 
   /**
-   * The commit SHA where the test exhibited flakiness for the last time.
-   *
+   * <p>The commit SHA where the test exhibited flakiness for the last time.</p>
    * @return lastFlakedSha
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_FLAKED_SHA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getLastFlakedSha() {
-    return lastFlakedSha;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_FLAKED_SHA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getLastFlakedSha() {
+        return lastFlakedSha;
+      }
   public void setLastFlakedSha(String lastFlakedSha) {
     this.lastFlakedSha = lastFlakedSha;
   }
-
   public FlakyTestAttributes lastFlakedTs(Long lastFlakedTs) {
     this.lastFlakedTs = lastFlakedTs;
     return this;
   }
 
   /**
-   * Unix timestamp when the test exhibited flakiness for the last time.
-   *
+   * <p>Unix timestamp when the test exhibited flakiness for the last time.</p>
    * @return lastFlakedTs
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_FLAKED_TS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLastFlakedTs() {
-    return lastFlakedTs;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_FLAKED_TS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLastFlakedTs() {
+        return lastFlakedTs;
+      }
   public void setLastFlakedTs(Long lastFlakedTs) {
     this.lastFlakedTs = lastFlakedTs;
   }
-
   public FlakyTestAttributes module(String module) {
     this.module = JsonNullable.<String>of(module);
     return this;
   }
 
   /**
-   * The name of the test module. The definition of module changes slightly per language: - In .NET,
-   * a test module groups every test that is run under the same unit test project. - In Swift, a
-   * test module groups every test that is run for a given bundle. - In JavaScript, the test modules
-   * map one-to-one to test sessions. - In Java, a test module groups every test that is run by the
-   * same Maven Surefire/Failsafe or Gradle Test task execution. - In Python, a test module groups
-   * every test that is run under the same <code>.py</code> file as part of a test suite, which is
-   * typically managed by a framework like <code>unittest</code> or <code>pytest</code>. - In Ruby,
-   * a test module groups every test that is run within the same test file, which is typically
-   * managed by a framework like <code>RSpec</code> or <code>Minitest</code>.
-   *
+   * <p>The name of the test module. The definition of module changes slightly per language:
+   * - In .NET, a test module groups every test that is run under the same unit test project.
+   * - In Swift, a test module groups every test that is run for a given bundle.
+   * - In JavaScript, the test modules map one-to-one to test sessions.
+   * - In Java, a test module groups every test that is run by the same Maven Surefire/Failsafe or Gradle Test task execution.
+   * - In Python, a test module groups every test that is run under the same <code>.py</code> file as part of a test suite, which is typically managed by a framework like <code>unittest</code> or <code>pytest</code>.
+   * - In Ruby, a test module groups every test that is run within the same test file, which is typically managed by a framework like <code>RSpec</code> or <code>Minitest</code>.</p>
    * @return module
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getModule() {
-    return module.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getModule() {
+        return module.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_MODULE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getModule_JsonNullable() {
     return module;
   }
-
-  @JsonProperty(JSON_PROPERTY_MODULE)
-  public void setModule_JsonNullable(JsonNullable<String> module) {
+  @JsonProperty(JSON_PROPERTY_MODULE)public void setModule_JsonNullable(JsonNullable<String> module) {
     this.module = module;
   }
-
   public void setModule(String module) {
     this.module = JsonNullable.<String>of(module);
   }
-
   public FlakyTestAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The test name. A concise name for a test case. Defined in the test itself.
-   *
+   * <p>The test name. A concise name for a test case. Defined in the test itself.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public FlakyTestAttributes pipelineStats(FlakyTestPipelineStats pipelineStats) {
     this.pipelineStats = pipelineStats;
     this.unparsed |= pipelineStats.unparsed;
@@ -471,27 +441,23 @@ public class FlakyTestAttributes {
   }
 
   /**
-   * CI pipeline related statistics for the flaky test. This information is only available if test
-   * runs are associated with CI pipeline events from CI Visibility.
-   *
+   * <p>CI pipeline related statistics for the flaky test. This information is only available if test runs are associated with CI pipeline events from CI Visibility.</p>
    * @return pipelineStats
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PIPELINE_STATS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FlakyTestPipelineStats getPipelineStats() {
-    return pipelineStats;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PIPELINE_STATS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public FlakyTestPipelineStats getPipelineStats() {
+        return pipelineStats;
+      }
   public void setPipelineStats(FlakyTestPipelineStats pipelineStats) {
     this.pipelineStats = pipelineStats;
   }
-
   public FlakyTestAttributes services(List<String> services) {
     this.services = services;
     return this;
   }
-
   public FlakyTestAttributes addServicesItem(String servicesItem) {
     if (this.services == null) {
       this.services = new ArrayList<>();
@@ -501,47 +467,39 @@ public class FlakyTestAttributes {
   }
 
   /**
-   * List of test service names where this test has been flaky.
-   *
-   * <p>A test service is a group of tests associated with a project or repository. It contains all
-   * the individual tests for your code, optionally organized into test suites, which are like
-   * folders for your tests.
-   *
+   * <p>List of test service names where this test has been flaky.</p>
+   * <p>A test service is a group of tests associated with a project or repository. It contains all the individual tests for your code, optionally organized into test suites, which are like folders for your tests.</p>
    * @return services
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getServices() {
-    return services;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVICES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getServices() {
+        return services;
+      }
   public void setServices(List<String> services) {
     this.services = services;
   }
-
   public FlakyTestAttributes suite(String suite) {
     this.suite = suite;
     return this;
   }
 
   /**
-   * The name of the test suite. A group of tests exercising the same unit of code depending on your
-   * language and testing framework.
-   *
+   * <p>The name of the test suite. A group of tests exercising the same unit of code depending on your language and testing framework.</p>
    * @return suite
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUITE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSuite() {
-    return suite;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SUITE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSuite() {
+        return suite;
+      }
   public void setSuite(String suite) {
     this.suite = suite;
   }
-
   public FlakyTestAttributes testRunMetadata(FlakyTestRunMetadata testRunMetadata) {
     this.testRunMetadata = testRunMetadata;
     this.unparsed |= testRunMetadata.unparsed;
@@ -549,21 +507,19 @@ public class FlakyTestAttributes {
   }
 
   /**
-   * Metadata about the latest failed test run of the flaky test.
-   *
+   * <p>Metadata about the latest failed test run of the flaky test.</p>
    * @return testRunMetadata
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_RUN_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FlakyTestRunMetadata getTestRunMetadata() {
-    return testRunMetadata;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TEST_RUN_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public FlakyTestRunMetadata getTestRunMetadata() {
+        return testRunMetadata;
+      }
   public void setTestRunMetadata(FlakyTestRunMetadata testRunMetadata) {
     this.testRunMetadata = testRunMetadata;
   }
-
   public FlakyTestAttributes testStats(FlakyTestStats testStats) {
     this.testStats = testStats;
     this.unparsed |= testStats.unparsed;
@@ -571,30 +527,30 @@ public class FlakyTestAttributes {
   }
 
   /**
-   * Test statistics for the flaky test.
-   *
+   * <p>Test statistics for the flaky test.</p>
    * @return testStats
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_STATS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FlakyTestStats getTestStats() {
-    return testStats;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TEST_STATS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public FlakyTestStats getTestStats() {
+        return testStats;
+      }
   public void setTestStats(FlakyTestStats testStats) {
     this.testStats = testStats;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -603,7 +559,7 @@ public class FlakyTestAttributes {
   @JsonAnySetter
   public FlakyTestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -627,12 +583,14 @@ public class FlakyTestAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FlakyTestAttributes object is equal to o. */
+  /**
+   * Return true if this FlakyTestAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -642,51 +600,13 @@ public class FlakyTestAttributes {
       return false;
     }
     FlakyTestAttributes flakyTestAttributes = (FlakyTestAttributes) o;
-    return Objects.equals(this.attemptToFixId, flakyTestAttributes.attemptToFixId)
-        && Objects.equals(this.codeowners, flakyTestAttributes.codeowners)
-        && Objects.equals(this.envs, flakyTestAttributes.envs)
-        && Objects.equals(this.firstFlakedBranch, flakyTestAttributes.firstFlakedBranch)
-        && Objects.equals(this.firstFlakedSha, flakyTestAttributes.firstFlakedSha)
-        && Objects.equals(this.firstFlakedTs, flakyTestAttributes.firstFlakedTs)
-        && Objects.equals(this.flakyCategory, flakyTestAttributes.flakyCategory)
-        && Objects.equals(this.flakyState, flakyTestAttributes.flakyState)
-        && Objects.equals(this.history, flakyTestAttributes.history)
-        && Objects.equals(this.lastFlakedBranch, flakyTestAttributes.lastFlakedBranch)
-        && Objects.equals(this.lastFlakedSha, flakyTestAttributes.lastFlakedSha)
-        && Objects.equals(this.lastFlakedTs, flakyTestAttributes.lastFlakedTs)
-        && Objects.equals(this.module, flakyTestAttributes.module)
-        && Objects.equals(this.name, flakyTestAttributes.name)
-        && Objects.equals(this.pipelineStats, flakyTestAttributes.pipelineStats)
-        && Objects.equals(this.services, flakyTestAttributes.services)
-        && Objects.equals(this.suite, flakyTestAttributes.suite)
-        && Objects.equals(this.testRunMetadata, flakyTestAttributes.testRunMetadata)
-        && Objects.equals(this.testStats, flakyTestAttributes.testStats)
-        && Objects.equals(this.additionalProperties, flakyTestAttributes.additionalProperties);
+    return Objects.equals(this.attemptToFixId, flakyTestAttributes.attemptToFixId) && Objects.equals(this.codeowners, flakyTestAttributes.codeowners) && Objects.equals(this.envs, flakyTestAttributes.envs) && Objects.equals(this.firstFlakedBranch, flakyTestAttributes.firstFlakedBranch) && Objects.equals(this.firstFlakedSha, flakyTestAttributes.firstFlakedSha) && Objects.equals(this.firstFlakedTs, flakyTestAttributes.firstFlakedTs) && Objects.equals(this.flakyCategory, flakyTestAttributes.flakyCategory) && Objects.equals(this.flakyState, flakyTestAttributes.flakyState) && Objects.equals(this.history, flakyTestAttributes.history) && Objects.equals(this.lastFlakedBranch, flakyTestAttributes.lastFlakedBranch) && Objects.equals(this.lastFlakedSha, flakyTestAttributes.lastFlakedSha) && Objects.equals(this.lastFlakedTs, flakyTestAttributes.lastFlakedTs) && Objects.equals(this.module, flakyTestAttributes.module) && Objects.equals(this.name, flakyTestAttributes.name) && Objects.equals(this.pipelineStats, flakyTestAttributes.pipelineStats) && Objects.equals(this.services, flakyTestAttributes.services) && Objects.equals(this.suite, flakyTestAttributes.suite) && Objects.equals(this.testRunMetadata, flakyTestAttributes.testRunMetadata) && Objects.equals(this.testStats, flakyTestAttributes.testStats) && Objects.equals(this.additionalProperties, flakyTestAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        attemptToFixId,
-        codeowners,
-        envs,
-        firstFlakedBranch,
-        firstFlakedSha,
-        firstFlakedTs,
-        flakyCategory,
-        flakyState,
-        history,
-        lastFlakedBranch,
-        lastFlakedSha,
-        lastFlakedTs,
-        module,
-        name,
-        pipelineStats,
-        services,
-        suite,
-        testRunMetadata,
-        testStats,
-        additionalProperties);
+    return Objects.hash(attemptToFixId,codeowners,envs,firstFlakedBranch,firstFlakedSha,firstFlakedTs,flakyCategory,flakyState,history,lastFlakedBranch,lastFlakedSha,lastFlakedTs,module,name,pipelineStats,services,suite,testRunMetadata,testStats, additionalProperties);
   }
 
   @Override
@@ -720,7 +640,8 @@ public class FlakyTestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

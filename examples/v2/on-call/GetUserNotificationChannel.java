@@ -1,9 +1,16 @@
 // Get an On-Call notification channel for a user returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.OnCallApi;
 import com.datadog.api.client.v2.model.NotificationChannel;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -14,13 +21,10 @@ public class Example {
     String USER_DATA_ID = System.getenv("USER_DATA_ID");
 
     // there is a valid "oncall_email_notification_channel" in the system
-    String ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID =
-        System.getenv("ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID");
+    String ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID = System.getenv("ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID");
 
     try {
-      NotificationChannel result =
-          apiInstance.getUserNotificationChannel(
-              USER_DATA_ID, ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID);
+      NotificationChannel result = apiInstance.getUserNotificationChannel(USER_DATA_ID, ONCALL_EMAIL_NOTIFICATION_CHANNEL_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OnCallApi#getUserNotificationChannel");

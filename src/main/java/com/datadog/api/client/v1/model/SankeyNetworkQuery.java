@@ -6,16 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Query configuration for Sankey network widget. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Query configuration for Sankey network widget.</p>
+ */
 @JsonPropertyOrder({
   SankeyNetworkQuery.JSON_PROPERTY_COMPUTE,
   SankeyNetworkQuery.JSON_PROPERTY_DATA_SOURCE,
@@ -26,10 +44,10 @@ import java.util.Objects;
   SankeyNetworkQuery.JSON_PROPERTY_SHOULD_EXCLUDE_MISSING,
   SankeyNetworkQuery.JSON_PROPERTY_SORT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SankeyNetworkQuery {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private SankeyNetworkQueryCompute compute;
 
@@ -58,18 +76,16 @@ public class SankeyNetworkQuery {
 
   @JsonCreator
   public SankeyNetworkQuery(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
-          SankeyNetworkDataSource dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_GROUP_BY) List<String> groupBy,
-      @JsonProperty(required = true, value = JSON_PROPERTY_LIMIT) Long limit,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY_STRING) String queryString) {
-    this.dataSource = dataSource;
-    this.unparsed |= !dataSource.isValid();
-    this.groupBy = groupBy;
-    this.limit = limit;
-    this.queryString = queryString;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)SankeyNetworkDataSource dataSource,
+            @JsonProperty(required=true, value=JSON_PROPERTY_GROUP_BY)List<String> groupBy,
+            @JsonProperty(required=true, value=JSON_PROPERTY_LIMIT)Long limit,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY_STRING)String queryString) {
+        this.dataSource = dataSource;
+        this.unparsed |= !dataSource.isValid();
+        this.groupBy = groupBy;
+        this.limit = limit;
+        this.queryString = queryString;
   }
-
   public SankeyNetworkQuery compute(SankeyNetworkQueryCompute compute) {
     this.compute = compute;
     this.unparsed |= compute.unparsed;
@@ -77,21 +93,19 @@ public class SankeyNetworkQuery {
   }
 
   /**
-   * Compute aggregation for network queries.
-   *
+   * <p>Compute aggregation for network queries.</p>
    * @return compute
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPUTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SankeyNetworkQueryCompute getCompute() {
-    return compute;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPUTE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SankeyNetworkQueryCompute getCompute() {
+        return compute;
+      }
   public void setCompute(SankeyNetworkQueryCompute compute) {
     this.compute = compute;
   }
-
   public SankeyNetworkQuery dataSource(SankeyNetworkDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -99,68 +113,61 @@ public class SankeyNetworkQuery {
   }
 
   /**
-   * Network data source type.
-   *
+   * <p>Network data source type.</p>
    * @return dataSource
-   */
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SankeyNetworkDataSource getDataSource() {
-    return dataSource;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SankeyNetworkDataSource getDataSource() {
+        return dataSource;
+      }
   public void setDataSource(SankeyNetworkDataSource dataSource) {
     if (!dataSource.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
-
   public SankeyNetworkQuery groupBy(List<String> groupBy) {
     this.groupBy = groupBy;
     return this;
   }
-
   public SankeyNetworkQuery addGroupByItem(String groupByItem) {
     this.groupBy.add(groupByItem);
     return this;
   }
 
   /**
-   * Fields to group by.
-   *
+   * <p>Fields to group by.</p>
    * @return groupBy
-   */
-  @JsonProperty(JSON_PROPERTY_GROUP_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getGroupBy() {
-    return groupBy;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_GROUP_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getGroupBy() {
+        return groupBy;
+      }
   public void setGroupBy(List<String> groupBy) {
     this.groupBy = groupBy;
   }
-
   public SankeyNetworkQuery limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * Maximum number of results.
-   *
+   * <p>Maximum number of results.</p>
    * @return limit
-   */
-  @JsonProperty(JSON_PROPERTY_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getLimit() {
-    return limit;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_LIMIT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getLimit() {
+        return limit;
+      }
   public void setLimit(Long limit) {
     this.limit = limit;
   }
-
   public SankeyNetworkQuery mode(SankeyNetworkQueryMode mode) {
     this.mode = mode;
     this.unparsed |= !mode.isValid();
@@ -168,65 +175,59 @@ public class SankeyNetworkQuery {
   }
 
   /**
-   * Sankey mode for network queries.
-   *
+   * <p>Sankey mode for network queries.</p>
    * @return mode
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SankeyNetworkQueryMode getMode() {
-    return mode;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SankeyNetworkQueryMode getMode() {
+        return mode;
+      }
   public void setMode(SankeyNetworkQueryMode mode) {
     if (!mode.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.mode = mode;
   }
-
   public SankeyNetworkQuery queryString(String queryString) {
     this.queryString = queryString;
     return this;
   }
 
   /**
-   * Query string for filtering network data.
-   *
+   * <p>Query string for filtering network data.</p>
    * @return queryString
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY_STRING)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQueryString() {
-    return queryString;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY_STRING)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getQueryString() {
+        return queryString;
+      }
   public void setQueryString(String queryString) {
     this.queryString = queryString;
   }
-
   public SankeyNetworkQuery shouldExcludeMissing(Boolean shouldExcludeMissing) {
     this.shouldExcludeMissing = shouldExcludeMissing;
     return this;
   }
 
   /**
-   * Whether to exclude missing values.
-   *
+   * <p>Whether to exclude missing values.</p>
    * @return shouldExcludeMissing
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOULD_EXCLUDE_MISSING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getShouldExcludeMissing() {
-    return shouldExcludeMissing;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SHOULD_EXCLUDE_MISSING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getShouldExcludeMissing() {
+        return shouldExcludeMissing;
+      }
   public void setShouldExcludeMissing(Boolean shouldExcludeMissing) {
     this.shouldExcludeMissing = shouldExcludeMissing;
   }
-
   public SankeyNetworkQuery sort(SankeyNetworkQuerySort sort) {
     this.sort = sort;
     this.unparsed |= sort.unparsed;
@@ -234,22 +235,23 @@ public class SankeyNetworkQuery {
   }
 
   /**
-   * Sort configuration for network queries.
-   *
+   * <p>Sort configuration for network queries.</p>
    * @return sort
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SankeyNetworkQuerySort getSort() {
-    return sort;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SORT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SankeyNetworkQuerySort getSort() {
+        return sort;
+      }
   public void setSort(SankeyNetworkQuerySort sort) {
     this.sort = sort;
   }
 
-  /** Return true if this SankeyNetworkQuery object is equal to o. */
+  /**
+   * Return true if this SankeyNetworkQuery object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -259,20 +261,13 @@ public class SankeyNetworkQuery {
       return false;
     }
     SankeyNetworkQuery sankeyNetworkQuery = (SankeyNetworkQuery) o;
-    return Objects.equals(this.compute, sankeyNetworkQuery.compute)
-        && Objects.equals(this.dataSource, sankeyNetworkQuery.dataSource)
-        && Objects.equals(this.groupBy, sankeyNetworkQuery.groupBy)
-        && Objects.equals(this.limit, sankeyNetworkQuery.limit)
-        && Objects.equals(this.mode, sankeyNetworkQuery.mode)
-        && Objects.equals(this.queryString, sankeyNetworkQuery.queryString)
-        && Objects.equals(this.shouldExcludeMissing, sankeyNetworkQuery.shouldExcludeMissing)
-        && Objects.equals(this.sort, sankeyNetworkQuery.sort);
+    return Objects.equals(this.compute, sankeyNetworkQuery.compute) && Objects.equals(this.dataSource, sankeyNetworkQuery.dataSource) && Objects.equals(this.groupBy, sankeyNetworkQuery.groupBy) && Objects.equals(this.limit, sankeyNetworkQuery.limit) && Objects.equals(this.mode, sankeyNetworkQuery.mode) && Objects.equals(this.queryString, sankeyNetworkQuery.queryString) && Objects.equals(this.shouldExcludeMissing, sankeyNetworkQuery.shouldExcludeMissing) && Objects.equals(this.sort, sankeyNetworkQuery.sort);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        compute, dataSource, groupBy, limit, mode, queryString, shouldExcludeMissing, sort);
+    return Objects.hash(compute,dataSource,groupBy,limit,mode,queryString,shouldExcludeMissing,sort);
   }
 
   @Override
@@ -285,16 +280,15 @@ public class SankeyNetworkQuery {
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
-    sb.append("    shouldExcludeMissing: ")
-        .append(toIndentedString(shouldExcludeMissing))
-        .append("\n");
+    sb.append("    shouldExcludeMissing: ").append(toIndentedString(shouldExcludeMissing)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append('}');
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,17 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * List of objects representing template variables on the monitor which can have selectable values.
+   * <p>List of objects representing template variables on the monitor which can have selectable values.</p>
  */
 @JsonPropertyOrder({
   MonitorUserTemplateTemplateVariablesItems.JSON_PROPERTY_AVAILABLE_VALUES,
@@ -24,10 +40,10 @@ import java.util.Objects;
   MonitorUserTemplateTemplateVariablesItems.JSON_PROPERTY_NAME,
   MonitorUserTemplateTemplateVariablesItems.JSON_PROPERTY_TAG_KEY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorUserTemplateTemplateVariablesItems {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVAILABLE_VALUES = "available_values";
   private List<String> availableValues = null;
 
@@ -44,17 +60,14 @@ public class MonitorUserTemplateTemplateVariablesItems {
 
   @JsonCreator
   public MonitorUserTemplateTemplateVariablesItems(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.name = name;
   }
-
   public MonitorUserTemplateTemplateVariablesItems availableValues(List<String> availableValues) {
     this.availableValues = availableValues;
     return this;
   }
-
-  public MonitorUserTemplateTemplateVariablesItems addAvailableValuesItem(
-      String availableValuesItem) {
+  public MonitorUserTemplateTemplateVariablesItems addAvailableValuesItem(String availableValuesItem) {
     if (this.availableValues == null) {
       this.availableValues = new ArrayList<>();
     }
@@ -63,26 +76,23 @@ public class MonitorUserTemplateTemplateVariablesItems {
   }
 
   /**
-   * Available values for the variable.
-   *
+   * <p>Available values for the variable.</p>
    * @return availableValues
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getAvailableValues() {
-    return availableValues;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getAvailableValues() {
+        return availableValues;
+      }
   public void setAvailableValues(List<String> availableValues) {
     this.availableValues = availableValues;
   }
-
   public MonitorUserTemplateTemplateVariablesItems defaults(List<String> defaults) {
     this.defaults = defaults;
     return this;
   }
-
   public MonitorUserTemplateTemplateVariablesItems addDefaultsItem(String defaultsItem) {
     if (this.defaults == null) {
       this.defaults = new ArrayList<>();
@@ -92,63 +102,60 @@ public class MonitorUserTemplateTemplateVariablesItems {
   }
 
   /**
-   * Default values of the template variable.
-   *
+   * <p>Default values of the template variable.</p>
    * @return defaults
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEFAULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getDefaults() {
-    return defaults;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DEFAULTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getDefaults() {
+        return defaults;
+      }
   public void setDefaults(List<String> defaults) {
     this.defaults = defaults;
   }
-
   public MonitorUserTemplateTemplateVariablesItems name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the template variable.
-   *
+   * <p>The name of the template variable.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public MonitorUserTemplateTemplateVariablesItems tagKey(String tagKey) {
     this.tagKey = tagKey;
     return this;
   }
 
   /**
-   * The tag key associated with the variable. This works the same as dashboard template variables.
-   *
+   * <p>The tag key associated with the variable. This works the same as dashboard template variables.</p>
    * @return tagKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAG_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTagKey() {
-    return tagKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAG_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTagKey() {
+        return tagKey;
+      }
   public void setTagKey(String tagKey) {
     this.tagKey = tagKey;
   }
 
-  /** Return true if this MonitorUserTemplateTemplateVariablesItems object is equal to o. */
+  /**
+   * Return true if this MonitorUserTemplateTemplateVariablesItems object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -157,18 +164,14 @@ public class MonitorUserTemplateTemplateVariablesItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorUserTemplateTemplateVariablesItems monitorUserTemplateTemplateVariablesItems =
-        (MonitorUserTemplateTemplateVariablesItems) o;
-    return Objects.equals(
-            this.availableValues, monitorUserTemplateTemplateVariablesItems.availableValues)
-        && Objects.equals(this.defaults, monitorUserTemplateTemplateVariablesItems.defaults)
-        && Objects.equals(this.name, monitorUserTemplateTemplateVariablesItems.name)
-        && Objects.equals(this.tagKey, monitorUserTemplateTemplateVariablesItems.tagKey);
+    MonitorUserTemplateTemplateVariablesItems monitorUserTemplateTemplateVariablesItems = (MonitorUserTemplateTemplateVariablesItems) o;
+    return Objects.equals(this.availableValues, monitorUserTemplateTemplateVariablesItems.availableValues) && Objects.equals(this.defaults, monitorUserTemplateTemplateVariablesItems.defaults) && Objects.equals(this.name, monitorUserTemplateTemplateVariablesItems.name) && Objects.equals(this.tagKey, monitorUserTemplateTemplateVariablesItems.tagKey);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableValues, defaults, name, tagKey);
+    return Objects.hash(availableValues,defaults,name,tagKey);
   }
 
   @Override
@@ -184,7 +187,8 @@ public class MonitorUserTemplateTemplateVariablesItems {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

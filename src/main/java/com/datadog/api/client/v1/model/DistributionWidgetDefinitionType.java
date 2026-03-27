@@ -6,49 +6,71 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** Type of the distribution widget. */
-@JsonSerialize(
-    using = DistributionWidgetDefinitionType.DistributionWidgetDefinitionTypeSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Type of the distribution widget.</p>
+ */
+@JsonSerialize(using = DistributionWidgetDefinitionType.DistributionWidgetDefinitionTypeSerializer.class)
 public class DistributionWidgetDefinitionType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("distribution"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("distribution"));
 
-  public static final DistributionWidgetDefinitionType DISTRIBUTION =
-      new DistributionWidgetDefinitionType("distribution");
+  public static final DistributionWidgetDefinitionType DISTRIBUTION = new DistributionWidgetDefinitionType("distribution");
+
 
   DistributionWidgetDefinitionType(String value) {
     super(value, allowedValues);
   }
 
-  public static class DistributionWidgetDefinitionTypeSerializer
-      extends StdSerializer<DistributionWidgetDefinitionType> {
-    public DistributionWidgetDefinitionTypeSerializer(Class<DistributionWidgetDefinitionType> t) {
-      super(t);
-    }
+  public static class DistributionWidgetDefinitionTypeSerializer extends StdSerializer<DistributionWidgetDefinitionType> {
+      public DistributionWidgetDefinitionTypeSerializer(Class<DistributionWidgetDefinitionType> t) {
+          super(t);
+      }
 
-    public DistributionWidgetDefinitionTypeSerializer() {
-      this(null);
-    }
+      public DistributionWidgetDefinitionTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        DistributionWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(DistributionWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator

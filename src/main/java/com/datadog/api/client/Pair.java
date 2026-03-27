@@ -6,8 +6,7 @@
 
 package com.datadog.api.client;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Pair {
   private String name = "";
   private String value = "";

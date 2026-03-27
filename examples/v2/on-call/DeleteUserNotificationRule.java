@@ -1,8 +1,15 @@
 // Delete an On-Call notification rule for a user returns "No Content" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.OnCallApi;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -13,8 +20,7 @@ public class Example {
     String USER_DATA_ID = System.getenv("USER_DATA_ID");
 
     // there is a valid "oncall_email_notification_rule" in the system
-    String ONCALL_EMAIL_NOTIFICATION_RULE_DATA_ID =
-        System.getenv("ONCALL_EMAIL_NOTIFICATION_RULE_DATA_ID");
+    String ONCALL_EMAIL_NOTIFICATION_RULE_DATA_ID = System.getenv("ONCALL_EMAIL_NOTIFICATION_RULE_DATA_ID");
 
     try {
       apiInstance.deleteUserNotificationRule(USER_DATA_ID, ONCALL_EMAIL_NOTIFICATION_RULE_DATA_ID);

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,11 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The definition of <code>RulesetRespDataAttributesRulesItemsQuery</code> object. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The definition of <code>RulesetRespDataAttributesRulesItemsQuery</code> object.</p>
+ */
 @JsonPropertyOrder({
   RulesetRespDataAttributesRulesItemsQuery.JSON_PROPERTY_ADDITION,
   RulesetRespDataAttributesRulesItemsQuery.JSON_PROPERTY_CASE_INSENSITIVITY,
@@ -25,10 +41,10 @@ import java.util.Objects;
   RulesetRespDataAttributesRulesItemsQuery.JSON_PROPERTY_IF_TAG_EXISTS,
   RulesetRespDataAttributesRulesItemsQuery.JSON_PROPERTY_QUERY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RulesetRespDataAttributesRulesItemsQuery {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ADDITION = "addition";
   private RulesetRespDataAttributesRulesItemsQueryAddition addition;
 
@@ -48,142 +64,129 @@ public class RulesetRespDataAttributesRulesItemsQuery {
 
   @JsonCreator
   public RulesetRespDataAttributesRulesItemsQuery(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ADDITION)
-          RulesetRespDataAttributesRulesItemsQueryAddition addition,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.addition = addition;
-    if (addition != null) {
-      this.unparsed |= addition.unparsed;
-    }
-    this.query = query;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ADDITION)RulesetRespDataAttributesRulesItemsQueryAddition addition,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query) {
+        this.addition = addition;
+        if (addition != null) {
+        this.unparsed |= addition.unparsed;
+        }
+        this.query = query;
   }
-
-  public RulesetRespDataAttributesRulesItemsQuery addition(
-      RulesetRespDataAttributesRulesItemsQueryAddition addition) {
+  public RulesetRespDataAttributesRulesItemsQuery addition(RulesetRespDataAttributesRulesItemsQueryAddition addition) {
     this.addition = addition;
-    if (addition != null) {
-      this.unparsed |= addition.unparsed;
+        if (addition != null) {
+    this.unparsed |= addition.unparsed;
     }
     return this;
   }
 
   /**
-   * The definition of <code>RulesetRespDataAttributesRulesItemsQueryAddition</code> object.
-   *
+   * <p>The definition of <code>RulesetRespDataAttributesRulesItemsQueryAddition</code> object.</p>
    * @return addition
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ADDITION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RulesetRespDataAttributesRulesItemsQueryAddition getAddition() {
-    return addition;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ADDITION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public RulesetRespDataAttributesRulesItemsQueryAddition getAddition() {
+        return addition;
+      }
   public void setAddition(RulesetRespDataAttributesRulesItemsQueryAddition addition) {
     this.addition = addition;
   }
-
   public RulesetRespDataAttributesRulesItemsQuery caseInsensitivity(Boolean caseInsensitivity) {
     this.caseInsensitivity = caseInsensitivity;
     return this;
   }
 
   /**
-   * The <code>query</code> <code>case_insensitivity</code>.
-   *
+   * <p>The <code>query</code> <code>case_insensitivity</code>.</p>
    * @return caseInsensitivity
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CASE_INSENSITIVITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getCaseInsensitivity() {
-    return caseInsensitivity;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CASE_INSENSITIVITY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getCaseInsensitivity() {
+        return caseInsensitivity;
+      }
   public void setCaseInsensitivity(Boolean caseInsensitivity) {
     this.caseInsensitivity = caseInsensitivity;
   }
-
   public RulesetRespDataAttributesRulesItemsQuery ifNotExists(Boolean ifNotExists) {
     this.ifNotExists = ifNotExists;
     return this;
   }
 
   /**
-   * Deprecated. Use <code>if_tag_exists</code> instead. The <code>query</code> <code>if_not_exists
-   * </code>.
-   *
+   * <p>Deprecated. Use <code>if_tag_exists</code> instead. The <code>query</code> <code>if_not_exists</code>.</p>
    * @return ifNotExists
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IF_NOT_EXISTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIfNotExists() {
-    return ifNotExists;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IF_NOT_EXISTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIfNotExists() {
+        return ifNotExists;
+      }
   @Deprecated
   public void setIfNotExists(Boolean ifNotExists) {
     this.ifNotExists = ifNotExists;
   }
-
-  public RulesetRespDataAttributesRulesItemsQuery ifTagExists(
-      DataAttributesRulesItemsIfTagExists ifTagExists) {
+  public RulesetRespDataAttributesRulesItemsQuery ifTagExists(DataAttributesRulesItemsIfTagExists ifTagExists) {
     this.ifTagExists = ifTagExists;
     this.unparsed |= !ifTagExists.isValid();
     return this;
   }
 
   /**
-   * The behavior when the tag already exists.
-   *
+   * <p>The behavior when the tag already exists.</p>
    * @return ifTagExists
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IF_TAG_EXISTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DataAttributesRulesItemsIfTagExists getIfTagExists() {
-    return ifTagExists;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IF_TAG_EXISTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public DataAttributesRulesItemsIfTagExists getIfTagExists() {
+        return ifTagExists;
+      }
   public void setIfTagExists(DataAttributesRulesItemsIfTagExists ifTagExists) {
     if (!ifTagExists.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.ifTagExists = ifTagExists;
   }
-
   public RulesetRespDataAttributesRulesItemsQuery query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * The <code>query</code> <code>query</code>.
-   *
+   * <p>The <code>query</code> <code>query</code>.</p>
    * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getQuery() {
+        return query;
+      }
   public void setQuery(String query) {
     this.query = query;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -192,7 +195,7 @@ public class RulesetRespDataAttributesRulesItemsQuery {
   @JsonAnySetter
   public RulesetRespDataAttributesRulesItemsQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -216,12 +219,14 @@ public class RulesetRespDataAttributesRulesItemsQuery {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RulesetRespDataAttributesRulesItemsQuery object is equal to o. */
+  /**
+   * Return true if this RulesetRespDataAttributesRulesItemsQuery object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -230,23 +235,14 @@ public class RulesetRespDataAttributesRulesItemsQuery {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RulesetRespDataAttributesRulesItemsQuery rulesetRespDataAttributesRulesItemsQuery =
-        (RulesetRespDataAttributesRulesItemsQuery) o;
-    return Objects.equals(this.addition, rulesetRespDataAttributesRulesItemsQuery.addition)
-        && Objects.equals(
-            this.caseInsensitivity, rulesetRespDataAttributesRulesItemsQuery.caseInsensitivity)
-        && Objects.equals(this.ifNotExists, rulesetRespDataAttributesRulesItemsQuery.ifNotExists)
-        && Objects.equals(this.ifTagExists, rulesetRespDataAttributesRulesItemsQuery.ifTagExists)
-        && Objects.equals(this.query, rulesetRespDataAttributesRulesItemsQuery.query)
-        && Objects.equals(
-            this.additionalProperties,
-            rulesetRespDataAttributesRulesItemsQuery.additionalProperties);
+    RulesetRespDataAttributesRulesItemsQuery rulesetRespDataAttributesRulesItemsQuery = (RulesetRespDataAttributesRulesItemsQuery) o;
+    return Objects.equals(this.addition, rulesetRespDataAttributesRulesItemsQuery.addition) && Objects.equals(this.caseInsensitivity, rulesetRespDataAttributesRulesItemsQuery.caseInsensitivity) && Objects.equals(this.ifNotExists, rulesetRespDataAttributesRulesItemsQuery.ifNotExists) && Objects.equals(this.ifTagExists, rulesetRespDataAttributesRulesItemsQuery.ifTagExists) && Objects.equals(this.query, rulesetRespDataAttributesRulesItemsQuery.query) && Objects.equals(this.additionalProperties, rulesetRespDataAttributesRulesItemsQuery.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        addition, caseInsensitivity, ifNotExists, ifTagExists, query, additionalProperties);
+    return Objects.hash(addition,caseInsensitivity,ifNotExists,ifTagExists,query, additionalProperties);
   }
 
   @Override
@@ -266,7 +262,8 @@ public class RulesetRespDataAttributesRulesItemsQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,28 +6,43 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Provides additional information about a BOM. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Provides additional information about a BOM.</p>
+ */
 @JsonPropertyOrder({
   SBOMMetadata.JSON_PROPERTY_AUTHORS,
   SBOMMetadata.JSON_PROPERTY_COMPONENT,
   SBOMMetadata.JSON_PROPERTY_TIMESTAMP
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SBOMMetadata {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHORS = "authors";
   private List<SBOMMetadataAuthor> authors = null;
 
@@ -44,7 +59,6 @@ public class SBOMMetadata {
     }
     return this;
   }
-
   public SBOMMetadata addAuthorsItem(SBOMMetadataAuthor authorsItem) {
     if (this.authors == null) {
       this.authors = new ArrayList<>();
@@ -55,21 +69,19 @@ public class SBOMMetadata {
   }
 
   /**
-   * List of authors of the SBOM.
-   *
+   * <p>List of authors of the SBOM.</p>
    * @return authors
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTHORS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SBOMMetadataAuthor> getAuthors() {
-    return authors;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUTHORS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SBOMMetadataAuthor> getAuthors() {
+        return authors;
+      }
   public void setAuthors(List<SBOMMetadataAuthor> authors) {
     this.authors = authors;
   }
-
   public SBOMMetadata component(SBOMMetadataComponent component) {
     this.component = component;
     this.unparsed |= component.unparsed;
@@ -77,51 +89,49 @@ public class SBOMMetadata {
   }
 
   /**
-   * The component that the BOM describes.
-   *
+   * <p>The component that the BOM describes.</p>
    * @return component
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPONENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SBOMMetadataComponent getComponent() {
-    return component;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COMPONENT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SBOMMetadataComponent getComponent() {
+        return component;
+      }
   public void setComponent(SBOMMetadataComponent component) {
     this.component = component;
   }
-
   public SBOMMetadata timestamp(String timestamp) {
     this.timestamp = timestamp;
     return this;
   }
 
   /**
-   * The timestamp of the SBOM creation.
-   *
+   * <p>The timestamp of the SBOM creation.</p>
    * @return timestamp
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTimestamp() {
-    return timestamp;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTimestamp() {
+        return timestamp;
+      }
   public void setTimestamp(String timestamp) {
     this.timestamp = timestamp;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -130,7 +140,7 @@ public class SBOMMetadata {
   @JsonAnySetter
   public SBOMMetadata putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -154,12 +164,14 @@ public class SBOMMetadata {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SBOMMetadata object is equal to o. */
+  /**
+   * Return true if this SBOMMetadata object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,15 +181,13 @@ public class SBOMMetadata {
       return false;
     }
     SBOMMetadata sbomMetadata = (SBOMMetadata) o;
-    return Objects.equals(this.authors, sbomMetadata.authors)
-        && Objects.equals(this.component, sbomMetadata.component)
-        && Objects.equals(this.timestamp, sbomMetadata.timestamp)
-        && Objects.equals(this.additionalProperties, sbomMetadata.additionalProperties);
+    return Objects.equals(this.authors, sbomMetadata.authors) && Objects.equals(this.component, sbomMetadata.component) && Objects.equals(this.timestamp, sbomMetadata.timestamp) && Objects.equals(this.additionalProperties, sbomMetadata.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(authors, component, timestamp, additionalProperties);
+    return Objects.hash(authors,component,timestamp, additionalProperties);
   }
 
   @Override
@@ -195,7 +205,8 @@ public class SBOMMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,14 +6,34 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Sankey widget with RUM data source query. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Sankey widget with RUM data source query.</p>
+ */
 @JsonPropertyOrder({
   SankeyRumQuery.JSON_PROPERTY_AUDIENCE_FILTERS,
   SankeyRumQuery.JSON_PROPERTY_DATA_SOURCE,
@@ -27,10 +47,10 @@ import java.util.Objects;
   SankeyRumQuery.JSON_PROPERTY_SUBQUERY_ID,
   SankeyRumQuery.JSON_PROPERTY_TARGET
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SankeyRumQuery {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUDIENCE_FILTERS = "audience_filters";
   private ProductAnalyticsAudienceFilters audienceFilters;
 
@@ -68,17 +88,15 @@ public class SankeyRumQuery {
 
   @JsonCreator
   public SankeyRumQuery(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
-          SankeyRumDataSource dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MODE) SankeyRumQueryMode mode,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY_STRING) String queryString) {
-    this.dataSource = dataSource;
-    this.unparsed |= !dataSource.isValid();
-    this.mode = mode;
-    this.unparsed |= !mode.isValid();
-    this.queryString = queryString;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)SankeyRumDataSource dataSource,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MODE)SankeyRumQueryMode mode,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY_STRING)String queryString) {
+        this.dataSource = dataSource;
+        this.unparsed |= !dataSource.isValid();
+        this.mode = mode;
+        this.unparsed |= !mode.isValid();
+        this.queryString = queryString;
   }
-
   public SankeyRumQuery audienceFilters(ProductAnalyticsAudienceFilters audienceFilters) {
     this.audienceFilters = audienceFilters;
     this.unparsed |= audienceFilters.unparsed;
@@ -86,21 +104,19 @@ public class SankeyRumQuery {
   }
 
   /**
-   * Product Analytics/RUM audience filters.
-   *
+   * <p>Product Analytics/RUM audience filters.</p>
    * @return audienceFilters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUDIENCE_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ProductAnalyticsAudienceFilters getAudienceFilters() {
-    return audienceFilters;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUDIENCE_FILTERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ProductAnalyticsAudienceFilters getAudienceFilters() {
+        return audienceFilters;
+      }
   public void setAudienceFilters(ProductAnalyticsAudienceFilters audienceFilters) {
     this.audienceFilters = audienceFilters;
   }
-
   public SankeyRumQuery dataSource(SankeyRumDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -108,44 +124,40 @@ public class SankeyRumQuery {
   }
 
   /**
-   * Sankey widget with RUM data source.
-   *
+   * <p>Sankey widget with RUM data source.</p>
    * @return dataSource
-   */
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SankeyRumDataSource getDataSource() {
-    return dataSource;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SankeyRumDataSource getDataSource() {
+        return dataSource;
+      }
   public void setDataSource(SankeyRumDataSource dataSource) {
     if (!dataSource.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
-
   public SankeyRumQuery entriesPerStep(Long entriesPerStep) {
     this.entriesPerStep = entriesPerStep;
     return this;
   }
 
   /**
-   * Entries per step.
-   *
+   * <p>Entries per step.</p>
    * @return entriesPerStep
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENTRIES_PER_STEP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEntriesPerStep() {
-    return entriesPerStep;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENTRIES_PER_STEP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEntriesPerStep() {
+        return entriesPerStep;
+      }
   public void setEntriesPerStep(Long entriesPerStep) {
     this.entriesPerStep = entriesPerStep;
   }
-
   public SankeyRumQuery joinKeys(SankeyJoinKeys joinKeys) {
     this.joinKeys = joinKeys;
     this.unparsed |= joinKeys.unparsed;
@@ -153,21 +165,19 @@ public class SankeyRumQuery {
   }
 
   /**
-   * Join keys.
-   *
+   * <p>Join keys.</p>
    * @return joinKeys
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_JOIN_KEYS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SankeyJoinKeys getJoinKeys() {
-    return joinKeys;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_JOIN_KEYS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SankeyJoinKeys getJoinKeys() {
+        return joinKeys;
+      }
   public void setJoinKeys(SankeyJoinKeys joinKeys) {
     this.joinKeys = joinKeys;
   }
-
   public SankeyRumQuery mode(SankeyRumQueryMode mode) {
     this.mode = mode;
     this.unparsed |= !mode.isValid();
@@ -175,44 +185,40 @@ public class SankeyRumQuery {
   }
 
   /**
-   * Sankey mode for RUM queries.
-   *
+   * <p>Sankey mode for RUM queries.</p>
    * @return mode
-   */
-  @JsonProperty(JSON_PROPERTY_MODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SankeyRumQueryMode getMode() {
-    return mode;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MODE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SankeyRumQueryMode getMode() {
+        return mode;
+      }
   public void setMode(SankeyRumQueryMode mode) {
     if (!mode.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.mode = mode;
   }
-
   public SankeyRumQuery numberOfSteps(Long numberOfSteps) {
     this.numberOfSteps = numberOfSteps;
     return this;
   }
 
   /**
-   * Number of steps.
-   *
+   * <p>Number of steps.</p>
    * @return numberOfSteps
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_STEPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNumberOfSteps() {
-    return numberOfSteps;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NUMBER_OF_STEPS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getNumberOfSteps() {
+        return numberOfSteps;
+      }
   public void setNumberOfSteps(Long numberOfSteps) {
     this.numberOfSteps = numberOfSteps;
   }
-
   public SankeyRumQuery occurrences(ProductAnalyticsAudienceOccurrenceFilter occurrences) {
     this.occurrences = occurrences;
     this.unparsed |= occurrences.unparsed;
@@ -220,105 +226,98 @@ public class SankeyRumQuery {
   }
 
   /**
-   * Getoccurrences
-   *
+   * <p>Getoccurrences</p>
    * @return occurrences
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OCCURRENCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ProductAnalyticsAudienceOccurrenceFilter getOccurrences() {
-    return occurrences;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OCCURRENCES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ProductAnalyticsAudienceOccurrenceFilter getOccurrences() {
+        return occurrences;
+      }
   public void setOccurrences(ProductAnalyticsAudienceOccurrenceFilter occurrences) {
     this.occurrences = occurrences;
   }
-
   public SankeyRumQuery queryString(String queryString) {
     this.queryString = queryString;
     return this;
   }
 
   /**
-   * Query string.
-   *
+   * <p>Query string.</p>
    * @return queryString
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY_STRING)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQueryString() {
-    return queryString;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY_STRING)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getQueryString() {
+        return queryString;
+      }
   public void setQueryString(String queryString) {
     this.queryString = queryString;
   }
-
   public SankeyRumQuery source(String source) {
     this.source = source;
     return this;
   }
 
   /**
-   * Source.
-   *
+   * <p>Source.</p>
    * @return source
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSource() {
-    return source;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSource() {
+        return source;
+      }
   public void setSource(String source) {
     this.source = source;
   }
-
   public SankeyRumQuery subqueryId(String subqueryId) {
     this.subqueryId = subqueryId;
     return this;
   }
 
   /**
-   * Subquery ID.
-   *
+   * <p>Subquery ID.</p>
    * @return subqueryId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBQUERY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSubqueryId() {
-    return subqueryId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SUBQUERY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSubqueryId() {
+        return subqueryId;
+      }
   public void setSubqueryId(String subqueryId) {
     this.subqueryId = subqueryId;
   }
-
   public SankeyRumQuery target(String target) {
     this.target = target;
     return this;
   }
 
   /**
-   * Target.
-   *
+   * <p>Target.</p>
    * @return target
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTarget() {
-    return target;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TARGET)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTarget() {
+        return target;
+      }
   public void setTarget(String target) {
     this.target = target;
   }
 
-  /** Return true if this SankeyRumQuery object is equal to o. */
+  /**
+   * Return true if this SankeyRumQuery object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -328,33 +327,13 @@ public class SankeyRumQuery {
       return false;
     }
     SankeyRumQuery sankeyRumQuery = (SankeyRumQuery) o;
-    return Objects.equals(this.audienceFilters, sankeyRumQuery.audienceFilters)
-        && Objects.equals(this.dataSource, sankeyRumQuery.dataSource)
-        && Objects.equals(this.entriesPerStep, sankeyRumQuery.entriesPerStep)
-        && Objects.equals(this.joinKeys, sankeyRumQuery.joinKeys)
-        && Objects.equals(this.mode, sankeyRumQuery.mode)
-        && Objects.equals(this.numberOfSteps, sankeyRumQuery.numberOfSteps)
-        && Objects.equals(this.occurrences, sankeyRumQuery.occurrences)
-        && Objects.equals(this.queryString, sankeyRumQuery.queryString)
-        && Objects.equals(this.source, sankeyRumQuery.source)
-        && Objects.equals(this.subqueryId, sankeyRumQuery.subqueryId)
-        && Objects.equals(this.target, sankeyRumQuery.target);
+    return Objects.equals(this.audienceFilters, sankeyRumQuery.audienceFilters) && Objects.equals(this.dataSource, sankeyRumQuery.dataSource) && Objects.equals(this.entriesPerStep, sankeyRumQuery.entriesPerStep) && Objects.equals(this.joinKeys, sankeyRumQuery.joinKeys) && Objects.equals(this.mode, sankeyRumQuery.mode) && Objects.equals(this.numberOfSteps, sankeyRumQuery.numberOfSteps) && Objects.equals(this.occurrences, sankeyRumQuery.occurrences) && Objects.equals(this.queryString, sankeyRumQuery.queryString) && Objects.equals(this.source, sankeyRumQuery.source) && Objects.equals(this.subqueryId, sankeyRumQuery.subqueryId) && Objects.equals(this.target, sankeyRumQuery.target);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        audienceFilters,
-        dataSource,
-        entriesPerStep,
-        joinKeys,
-        mode,
-        numberOfSteps,
-        occurrences,
-        queryString,
-        source,
-        subqueryId,
-        target);
+    return Objects.hash(audienceFilters,dataSource,entriesPerStep,joinKeys,mode,numberOfSteps,occurrences,queryString,source,subqueryId,target);
   }
 
   @Override
@@ -377,7 +356,8 @@ public class SankeyRumQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,27 +6,44 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The result of a single rule evaluation. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The result of a single rule evaluation.</p>
+ */
 @JsonPropertyOrder({
   DeploymentGatesRuleResponse.JSON_PROPERTY_DRY_RUN,
   DeploymentGatesRuleResponse.JSON_PROPERTY_NAME,
   DeploymentGatesRuleResponse.JSON_PROPERTY_REASON,
   DeploymentGatesRuleResponse.JSON_PROPERTY_STATUS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DeploymentGatesRuleResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DRY_RUN = "dry_run";
   private Boolean dryRun;
 
@@ -45,101 +62,94 @@ public class DeploymentGatesRuleResponse {
   }
 
   /**
-   * Whether this rule was evaluated in dry-run mode.
-   *
+   * <p>Whether this rule was evaluated in dry-run mode.</p>
    * @return dryRun
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DRY_RUN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getDryRun() {
-    return dryRun;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DRY_RUN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getDryRun() {
+        return dryRun;
+      }
   public void setDryRun(Boolean dryRun) {
     this.dryRun = dryRun;
   }
-
   public DeploymentGatesRuleResponse name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the rule.
-   *
+   * <p>The name of the rule.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public DeploymentGatesRuleResponse reason(String reason) {
     this.reason = reason;
     return this;
   }
 
   /**
-   * The reason for the rule result, if applicable.
-   *
+   * <p>The reason for the rule result, if applicable.</p>
    * @return reason
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REASON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getReason() {
-    return reason;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REASON)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getReason() {
+        return reason;
+      }
   public void setReason(String reason) {
     this.reason = reason;
   }
-
-  public DeploymentGatesRuleResponse status(
-      DeploymentGatesEvaluationResultResponseAttributesGateStatus status) {
+  public DeploymentGatesRuleResponse status(DeploymentGatesEvaluationResultResponseAttributesGateStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
     return this;
   }
 
   /**
-   * The overall status of the gate evaluation. - <code>in_progress</code>: The evaluation is still
-   * running. - <code>pass</code>: All rules passed successfully and the deployment is allowed to
-   * proceed. - <code>fail</code>: One or more rules did not pass; the deployment should not
-   * proceed.
-   *
+   * <p>The overall status of the gate evaluation.
+   * - <code>in_progress</code>: The evaluation is still running.
+   * - <code>pass</code>: All rules passed successfully and the deployment is allowed to proceed.
+   * - <code>fail</code>: One or more rules did not pass; the deployment should not proceed.</p>
    * @return status
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DeploymentGatesEvaluationResultResponseAttributesGateStatus getStatus() {
-    return status;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public DeploymentGatesEvaluationResultResponseAttributesGateStatus getStatus() {
+        return status;
+      }
   public void setStatus(DeploymentGatesEvaluationResultResponseAttributesGateStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -148,7 +158,7 @@ public class DeploymentGatesRuleResponse {
   @JsonAnySetter
   public DeploymentGatesRuleResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -172,12 +182,14 @@ public class DeploymentGatesRuleResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DeploymentGatesRuleResponse object is equal to o. */
+  /**
+   * Return true if this DeploymentGatesRuleResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -187,17 +199,13 @@ public class DeploymentGatesRuleResponse {
       return false;
     }
     DeploymentGatesRuleResponse deploymentGatesRuleResponse = (DeploymentGatesRuleResponse) o;
-    return Objects.equals(this.dryRun, deploymentGatesRuleResponse.dryRun)
-        && Objects.equals(this.name, deploymentGatesRuleResponse.name)
-        && Objects.equals(this.reason, deploymentGatesRuleResponse.reason)
-        && Objects.equals(this.status, deploymentGatesRuleResponse.status)
-        && Objects.equals(
-            this.additionalProperties, deploymentGatesRuleResponse.additionalProperties);
+    return Objects.equals(this.dryRun, deploymentGatesRuleResponse.dryRun) && Objects.equals(this.name, deploymentGatesRuleResponse.name) && Objects.equals(this.reason, deploymentGatesRuleResponse.reason) && Objects.equals(this.status, deploymentGatesRuleResponse.status) && Objects.equals(this.additionalProperties, deploymentGatesRuleResponse.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(dryRun, name, reason, status, additionalProperties);
+    return Objects.hash(dryRun,name,reason,status, additionalProperties);
   }
 
   @Override
@@ -216,7 +224,8 @@ public class DeploymentGatesRuleResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,18 +25,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * The remapper processor remaps any source attribute(s) or tag to another target attribute or tag.
- * Constraints on the tag/attribute name are explained in the <a
- * href="https://docs.datadoghq.com/logs/guide/log-parsing-best-practice">Tag Best Practice
- * documentation</a>. Some additional constraints are applied as <code>:</code> or <code>,</code>
- * are not allowed in the target tag/attribute name.
+   * <p>The remapper processor remaps any source attribute(s) or tag to another target attribute or tag.
+   * Constraints on the tag/attribute name are explained in the <a href="https://docs.datadoghq.com/logs/guide/log-parsing-best-practice">Tag Best Practice documentation</a>.
+   * Some additional constraints are applied as <code>:</code> or <code>,</code> are not allowed in the target tag/attribute name.</p>
  */
 @JsonPropertyOrder({
   LogsAttributeRemapper.JSON_PROPERTY_IS_ENABLED,
@@ -38,10 +48,10 @@ import java.util.Objects;
   LogsAttributeRemapper.JSON_PROPERTY_TARGET_TYPE,
   LogsAttributeRemapper.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAttributeRemapper {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
 
@@ -76,165 +86,149 @@ public class LogsAttributeRemapper {
 
   @JsonCreator
   public LogsAttributeRemapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES) List<String> sources,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) String target,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsAttributeRemapperType type) {
-    this.sources = sources;
-    this.target = target;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_SOURCES)List<String> sources,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TARGET)String target,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)LogsAttributeRemapperType type) {
+        this.sources = sources;
+        this.target = target;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public LogsAttributeRemapper isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
   /**
-   * Whether or not the processor is enabled.
-   *
+   * <p>Whether or not the processor is enabled.</p>
    * @return isEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsEnabled() {
+        return isEnabled;
+      }
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
-
   public LogsAttributeRemapper name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the processor.
-   *
+   * <p>Name of the processor.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public LogsAttributeRemapper overrideOnConflict(Boolean overrideOnConflict) {
     this.overrideOnConflict = overrideOnConflict;
     return this;
   }
 
   /**
-   * Override or not the target element if already set,
-   *
+   * <p>Override or not the target element if already set,</p>
    * @return overrideOnConflict
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OVERRIDE_ON_CONFLICT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getOverrideOnConflict() {
-    return overrideOnConflict;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OVERRIDE_ON_CONFLICT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getOverrideOnConflict() {
+        return overrideOnConflict;
+      }
   public void setOverrideOnConflict(Boolean overrideOnConflict) {
     this.overrideOnConflict = overrideOnConflict;
   }
-
   public LogsAttributeRemapper preserveSource(Boolean preserveSource) {
     this.preserveSource = preserveSource;
     return this;
   }
 
   /**
-   * Remove or preserve the remapped source element.
-   *
+   * <p>Remove or preserve the remapped source element.</p>
    * @return preserveSource
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRESERVE_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getPreserveSource() {
-    return preserveSource;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PRESERVE_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getPreserveSource() {
+        return preserveSource;
+      }
   public void setPreserveSource(Boolean preserveSource) {
     this.preserveSource = preserveSource;
   }
-
   public LogsAttributeRemapper sourceType(String sourceType) {
     this.sourceType = sourceType;
     return this;
   }
 
   /**
-   * Defines if the sources are from log <code>attribute</code> or <code>tag</code>.
-   *
+   * <p>Defines if the sources are from log <code>attribute</code> or <code>tag</code>.</p>
    * @return sourceType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOURCE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSourceType() {
-    return sourceType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SOURCE_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSourceType() {
+        return sourceType;
+      }
   public void setSourceType(String sourceType) {
     this.sourceType = sourceType;
   }
-
   public LogsAttributeRemapper sources(List<String> sources) {
     this.sources = sources;
     return this;
   }
-
   public LogsAttributeRemapper addSourcesItem(String sourcesItem) {
     this.sources.add(sourcesItem);
     return this;
   }
 
   /**
-   * Array of source attributes.
-   *
+   * <p>Array of source attributes.</p>
    * @return sources
-   */
-  @JsonProperty(JSON_PROPERTY_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getSources() {
-    return sources;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SOURCES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getSources() {
+        return sources;
+      }
   public void setSources(List<String> sources) {
     this.sources = sources;
   }
-
   public LogsAttributeRemapper target(String target) {
     this.target = target;
     return this;
   }
 
   /**
-   * Final attribute or tag name to remap the sources to.
-   *
+   * <p>Final attribute or tag name to remap the sources to.</p>
    * @return target
-   */
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTarget() {
-    return target;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TARGET)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTarget() {
+        return target;
+      }
   public void setTarget(String target) {
     this.target = target;
   }
-
   public LogsAttributeRemapper targetFormat(TargetFormatType targetFormat) {
     this.targetFormat = targetFormat;
     this.unparsed |= !targetFormat.isValid();
@@ -242,49 +236,43 @@ public class LogsAttributeRemapper {
   }
 
   /**
-   * If the <code>target_type</code> of the remapper is <code>attribute</code>, try to cast the
-   * value to a new specific type. If the cast is not possible, the original type is kept. <code>
-   * string</code>, <code>integer</code>, or <code>double</code> are the possible types. If the
-   * <code>target_type</code> is <code>tag</code>, this parameter may not be specified.
-   *
+   * <p>If the <code>target_type</code> of the remapper is <code>attribute</code>, try to cast the value to a new specific type.
+   * If the cast is not possible, the original type is kept. <code>string</code>, <code>integer</code>, or <code>double</code> are the possible types.
+   * If the <code>target_type</code> is <code>tag</code>, this parameter may not be specified.</p>
    * @return targetFormat
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TARGET_FORMAT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TargetFormatType getTargetFormat() {
-    return targetFormat;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TARGET_FORMAT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TargetFormatType getTargetFormat() {
+        return targetFormat;
+      }
   public void setTargetFormat(TargetFormatType targetFormat) {
     if (!targetFormat.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.targetFormat = targetFormat;
   }
-
   public LogsAttributeRemapper targetType(String targetType) {
     this.targetType = targetType;
     return this;
   }
 
   /**
-   * Defines if the final attribute or tag name is from log <code>attribute</code> or <code>tag
-   * </code>.
-   *
+   * <p>Defines if the final attribute or tag name is from log <code>attribute</code> or <code>tag</code>.</p>
    * @return targetType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TARGET_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTargetType() {
-    return targetType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TARGET_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTargetType() {
+        return targetType;
+      }
   public void setTargetType(String targetType) {
     this.targetType = targetType;
   }
-
   public LogsAttributeRemapper type(LogsAttributeRemapperType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -292,32 +280,32 @@ public class LogsAttributeRemapper {
   }
 
   /**
-   * Type of logs attribute remapper.
-   *
+   * <p>Type of logs attribute remapper.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LogsAttributeRemapperType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public LogsAttributeRemapperType getType() {
+        return type;
+      }
   public void setType(LogsAttributeRemapperType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -326,7 +314,7 @@ public class LogsAttributeRemapper {
   @JsonAnySetter
   public LogsAttributeRemapper putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -350,12 +338,14 @@ public class LogsAttributeRemapper {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LogsAttributeRemapper object is equal to o. */
+  /**
+   * Return true if this LogsAttributeRemapper object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -365,33 +355,13 @@ public class LogsAttributeRemapper {
       return false;
     }
     LogsAttributeRemapper logsAttributeRemapper = (LogsAttributeRemapper) o;
-    return Objects.equals(this.isEnabled, logsAttributeRemapper.isEnabled)
-        && Objects.equals(this.name, logsAttributeRemapper.name)
-        && Objects.equals(this.overrideOnConflict, logsAttributeRemapper.overrideOnConflict)
-        && Objects.equals(this.preserveSource, logsAttributeRemapper.preserveSource)
-        && Objects.equals(this.sourceType, logsAttributeRemapper.sourceType)
-        && Objects.equals(this.sources, logsAttributeRemapper.sources)
-        && Objects.equals(this.target, logsAttributeRemapper.target)
-        && Objects.equals(this.targetFormat, logsAttributeRemapper.targetFormat)
-        && Objects.equals(this.targetType, logsAttributeRemapper.targetType)
-        && Objects.equals(this.type, logsAttributeRemapper.type)
-        && Objects.equals(this.additionalProperties, logsAttributeRemapper.additionalProperties);
+    return Objects.equals(this.isEnabled, logsAttributeRemapper.isEnabled) && Objects.equals(this.name, logsAttributeRemapper.name) && Objects.equals(this.overrideOnConflict, logsAttributeRemapper.overrideOnConflict) && Objects.equals(this.preserveSource, logsAttributeRemapper.preserveSource) && Objects.equals(this.sourceType, logsAttributeRemapper.sourceType) && Objects.equals(this.sources, logsAttributeRemapper.sources) && Objects.equals(this.target, logsAttributeRemapper.target) && Objects.equals(this.targetFormat, logsAttributeRemapper.targetFormat) && Objects.equals(this.targetType, logsAttributeRemapper.targetType) && Objects.equals(this.type, logsAttributeRemapper.type) && Objects.equals(this.additionalProperties, logsAttributeRemapper.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        isEnabled,
-        name,
-        overrideOnConflict,
-        preserveSource,
-        sourceType,
-        sources,
-        target,
-        targetFormat,
-        targetType,
-        type,
-        additionalProperties);
+    return Objects.hash(isEnabled,name,overrideOnConflict,preserveSource,sourceType,sources,target,targetFormat,targetType,type, additionalProperties);
   }
 
   @Override
@@ -416,7 +386,8 @@ public class LogsAttributeRemapper {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -1,8 +1,9 @@
 // Create reference table with upload returns "Created" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.ReferenceTablesApi;
+import com.datadog.api.client.v2.model.TableResultV2;
 import com.datadog.api.client.v2.model.CreateTableRequest;
 import com.datadog.api.client.v2.model.CreateTableRequestData;
 import com.datadog.api.client.v2.model.CreateTableRequestDataAttributes;
@@ -13,45 +14,39 @@ import com.datadog.api.client.v2.model.CreateTableRequestDataAttributesSchemaFie
 import com.datadog.api.client.v2.model.CreateTableRequestDataType;
 import com.datadog.api.client.v2.model.ReferenceTableCreateSourceType;
 import com.datadog.api.client.v2.model.ReferenceTableSchemaFieldType;
-import com.datadog.api.client.v2.model.TableResultV2;
+import java.io.File;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ReferenceTablesApi apiInstance = new ReferenceTablesApi(defaultClient);
 
-    CreateTableRequest body =
-        new CreateTableRequest()
-            .data(
-                new CreateTableRequestData()
-                    .attributes(
-                        new CreateTableRequestDataAttributes()
-                            .description(
-                                "Test reference table created via BDD test Example-Reference-Table")
-                            .source(ReferenceTableCreateSourceType.LOCAL_FILE)
-                            .fileMetadata(
-                                new CreateTableRequestDataAttributesFileMetadata(
-                                    new CreateTableRequestDataAttributesFileMetadataLocalFile()
-                                        .uploadId("test-upload-id-Example-Reference-Table")))
-                            .schema(
-                                new CreateTableRequestDataAttributesSchema()
-                                    .fields(
-                                        Arrays.asList(
-                                            new CreateTableRequestDataAttributesSchemaFieldsItems()
-                                                .name("id")
-                                                .type(ReferenceTableSchemaFieldType.STRING),
-                                            new CreateTableRequestDataAttributesSchemaFieldsItems()
-                                                .name("name")
-                                                .type(ReferenceTableSchemaFieldType.STRING),
-                                            new CreateTableRequestDataAttributesSchemaFieldsItems()
-                                                .name("value")
-                                                .type(ReferenceTableSchemaFieldType.INT32)))
-                                    .primaryKeys(Collections.singletonList("id")))
-                            .tableName("test_reference_table_Example-Reference-Table")
-                            .tags(Collections.singletonList("test_tag")))
-                    .type(CreateTableRequestDataType.REFERENCE_TABLE));
+    CreateTableRequest body = new CreateTableRequest()
+.data(new CreateTableRequestData()
+.attributes(new CreateTableRequestDataAttributes()
+.description("Test reference table created via BDD test Example-Reference-Table")
+.source(ReferenceTableCreateSourceType.LOCAL_FILE)
+.fileMetadata(new CreateTableRequestDataAttributesFileMetadata(
+new CreateTableRequestDataAttributesFileMetadataLocalFile()
+.uploadId("test-upload-id-Example-Reference-Table")))
+.schema(new CreateTableRequestDataAttributesSchema()
+.fields(Arrays.asList(new CreateTableRequestDataAttributesSchemaFieldsItems()
+.name("id")
+.type(ReferenceTableSchemaFieldType.STRING), new CreateTableRequestDataAttributesSchemaFieldsItems()
+.name("name")
+.type(ReferenceTableSchemaFieldType.STRING), new CreateTableRequestDataAttributesSchemaFieldsItems()
+.name("value")
+.type(ReferenceTableSchemaFieldType.INT32)))
+.primaryKeys(Collections.singletonList("id")))
+.tableName("test_reference_table_Example-Reference-Table")
+.tags(Collections.singletonList("test_tag")))
+.type(CreateTableRequestDataType.REFERENCE_TABLE));
 
     try {
       TableResultV2 result = apiInstance.createReferenceTable(body);

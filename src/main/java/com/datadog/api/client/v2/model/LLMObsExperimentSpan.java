@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,13 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A span associated with an LLM Observability experiment. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A span associated with an LLM Observability experiment.</p>
+ */
 @JsonPropertyOrder({
   LLMObsExperimentSpan.JSON_PROPERTY_DATASET_ID,
   LLMObsExperimentSpan.JSON_PROPERTY_DURATION,
@@ -32,10 +46,10 @@ import java.util.Objects;
   LLMObsExperimentSpan.JSON_PROPERTY_TAGS,
   LLMObsExperimentSpan.JSON_PROPERTY_TRACE_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsExperimentSpan {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATASET_ID = "dataset_id";
   private String datasetId;
 
@@ -70,66 +84,60 @@ public class LLMObsExperimentSpan {
 
   @JsonCreator
   public LLMObsExperimentSpan(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATASET_ID) String datasetId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DURATION) Long duration,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) String projectId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SPAN_ID) String spanId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_START_NS) Long startNs,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
-          LLMObsExperimentSpanStatus status,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TRACE_ID) String traceId) {
-    this.datasetId = datasetId;
-    this.duration = duration;
-    this.name = name;
-    this.projectId = projectId;
-    this.spanId = spanId;
-    this.startNs = startNs;
-    this.status = status;
-    this.unparsed |= !status.isValid();
-    this.traceId = traceId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATASET_ID)String datasetId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DURATION)Long duration,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PROJECT_ID)String projectId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SPAN_ID)String spanId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_START_NS)Long startNs,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STATUS)LLMObsExperimentSpanStatus status,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TRACE_ID)String traceId) {
+        this.datasetId = datasetId;
+        this.duration = duration;
+        this.name = name;
+        this.projectId = projectId;
+        this.spanId = spanId;
+        this.startNs = startNs;
+        this.status = status;
+        this.unparsed |= !status.isValid();
+        this.traceId = traceId;
   }
-
   public LLMObsExperimentSpan datasetId(String datasetId) {
     this.datasetId = datasetId;
     return this;
   }
 
   /**
-   * Dataset ID associated with this span.
-   *
+   * <p>Dataset ID associated with this span.</p>
    * @return datasetId
-   */
-  @JsonProperty(JSON_PROPERTY_DATASET_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDatasetId() {
-    return datasetId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATASET_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDatasetId() {
+        return datasetId;
+      }
   public void setDatasetId(String datasetId) {
     this.datasetId = datasetId;
   }
-
   public LLMObsExperimentSpan duration(Long duration) {
     this.duration = duration;
     return this;
   }
 
   /**
-   * Duration of the span in nanoseconds.
-   *
+   * <p>Duration of the span in nanoseconds.</p>
    * @return duration
-   */
-  @JsonProperty(JSON_PROPERTY_DURATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getDuration() {
-    return duration;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DURATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getDuration() {
+        return duration;
+      }
   public void setDuration(Long duration) {
     this.duration = duration;
   }
-
   public LLMObsExperimentSpan meta(LLMObsExperimentSpanMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -137,101 +145,91 @@ public class LLMObsExperimentSpan {
   }
 
   /**
-   * Metadata associated with an experiment span.
-   *
+   * <p>Metadata associated with an experiment span.</p>
    * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LLMObsExperimentSpanMeta getMeta() {
-    return meta;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_META)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LLMObsExperimentSpanMeta getMeta() {
+        return meta;
+      }
   public void setMeta(LLMObsExperimentSpanMeta meta) {
     this.meta = meta;
   }
-
   public LLMObsExperimentSpan name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the span.
-   *
+   * <p>Name of the span.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public LLMObsExperimentSpan projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
 
   /**
-   * Project ID associated with this span.
-   *
+   * <p>Project ID associated with this span.</p>
    * @return projectId
-   */
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getProjectId() {
-    return projectId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getProjectId() {
+        return projectId;
+      }
   public void setProjectId(String projectId) {
     this.projectId = projectId;
   }
-
   public LLMObsExperimentSpan spanId(String spanId) {
     this.spanId = spanId;
     return this;
   }
 
   /**
-   * Unique identifier of the span.
-   *
+   * <p>Unique identifier of the span.</p>
    * @return spanId
-   */
-  @JsonProperty(JSON_PROPERTY_SPAN_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getSpanId() {
-    return spanId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SPAN_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getSpanId() {
+        return spanId;
+      }
   public void setSpanId(String spanId) {
     this.spanId = spanId;
   }
-
   public LLMObsExperimentSpan startNs(Long startNs) {
     this.startNs = startNs;
     return this;
   }
 
   /**
-   * Start time of the span in nanoseconds since Unix epoch.
-   *
+   * <p>Start time of the span in nanoseconds since Unix epoch.</p>
    * @return startNs
-   */
-  @JsonProperty(JSON_PROPERTY_START_NS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getStartNs() {
-    return startNs;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_START_NS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getStartNs() {
+        return startNs;
+      }
   public void setStartNs(Long startNs) {
     this.startNs = startNs;
   }
-
   public LLMObsExperimentSpan status(LLMObsExperimentSpanStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -239,28 +237,25 @@ public class LLMObsExperimentSpan {
   }
 
   /**
-   * Status of the span.
-   *
+   * <p>Status of the span.</p>
    * @return status
-   */
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LLMObsExperimentSpanStatus getStatus() {
-    return status;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public LLMObsExperimentSpanStatus getStatus() {
+        return status;
+      }
   public void setStatus(LLMObsExperimentSpanStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
-
   public LLMObsExperimentSpan tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public LLMObsExperimentSpan addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -270,50 +265,48 @@ public class LLMObsExperimentSpan {
   }
 
   /**
-   * List of tags associated with the span.
-   *
+   * <p>List of tags associated with the span.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
   public LLMObsExperimentSpan traceId(String traceId) {
     this.traceId = traceId;
     return this;
   }
 
   /**
-   * Trace ID for the span.
-   *
+   * <p>Trace ID for the span.</p>
    * @return traceId
-   */
-  @JsonProperty(JSON_PROPERTY_TRACE_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTraceId() {
-    return traceId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TRACE_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTraceId() {
+        return traceId;
+      }
   public void setTraceId(String traceId) {
     this.traceId = traceId;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -322,7 +315,7 @@ public class LLMObsExperimentSpan {
   @JsonAnySetter
   public LLMObsExperimentSpan putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -346,12 +339,14 @@ public class LLMObsExperimentSpan {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this LLMObsExperimentSpan object is equal to o. */
+  /**
+   * Return true if this LLMObsExperimentSpan object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -361,33 +356,13 @@ public class LLMObsExperimentSpan {
       return false;
     }
     LLMObsExperimentSpan llmObsExperimentSpan = (LLMObsExperimentSpan) o;
-    return Objects.equals(this.datasetId, llmObsExperimentSpan.datasetId)
-        && Objects.equals(this.duration, llmObsExperimentSpan.duration)
-        && Objects.equals(this.meta, llmObsExperimentSpan.meta)
-        && Objects.equals(this.name, llmObsExperimentSpan.name)
-        && Objects.equals(this.projectId, llmObsExperimentSpan.projectId)
-        && Objects.equals(this.spanId, llmObsExperimentSpan.spanId)
-        && Objects.equals(this.startNs, llmObsExperimentSpan.startNs)
-        && Objects.equals(this.status, llmObsExperimentSpan.status)
-        && Objects.equals(this.tags, llmObsExperimentSpan.tags)
-        && Objects.equals(this.traceId, llmObsExperimentSpan.traceId)
-        && Objects.equals(this.additionalProperties, llmObsExperimentSpan.additionalProperties);
+    return Objects.equals(this.datasetId, llmObsExperimentSpan.datasetId) && Objects.equals(this.duration, llmObsExperimentSpan.duration) && Objects.equals(this.meta, llmObsExperimentSpan.meta) && Objects.equals(this.name, llmObsExperimentSpan.name) && Objects.equals(this.projectId, llmObsExperimentSpan.projectId) && Objects.equals(this.spanId, llmObsExperimentSpan.spanId) && Objects.equals(this.startNs, llmObsExperimentSpan.startNs) && Objects.equals(this.status, llmObsExperimentSpan.status) && Objects.equals(this.tags, llmObsExperimentSpan.tags) && Objects.equals(this.traceId, llmObsExperimentSpan.traceId) && Objects.equals(this.additionalProperties, llmObsExperimentSpan.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        datasetId,
-        duration,
-        meta,
-        name,
-        projectId,
-        spanId,
-        startNs,
-        status,
-        tags,
-        traceId,
-        additionalProperties);
+    return Objects.hash(datasetId,duration,meta,name,projectId,spanId,startNs,status,tags,traceId, additionalProperties);
   }
 
   @Override
@@ -412,7 +387,8 @@ public class LLMObsExperimentSpan {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

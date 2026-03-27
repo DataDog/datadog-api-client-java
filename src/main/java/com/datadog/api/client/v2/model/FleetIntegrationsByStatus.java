@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Integrations organized by their status. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Integrations organized by their status.</p>
+ */
 @JsonPropertyOrder({
   FleetIntegrationsByStatus.JSON_PROPERTY_CONFIGURATION_FILES,
   FleetIntegrationsByStatus.JSON_PROPERTY_DATADOG_AGENT_KEY,
@@ -27,10 +42,10 @@ import java.util.Objects;
   FleetIntegrationsByStatus.JSON_PROPERTY_WARNING_INTEGRATIONS,
   FleetIntegrationsByStatus.JSON_PROPERTY_WORKING_INTEGRATIONS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FleetIntegrationsByStatus {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIGURATION_FILES = "configuration_files";
   private List<FleetConfigurationFile> configurationFiles = null;
 
@@ -49,17 +64,14 @@ public class FleetIntegrationsByStatus {
   public static final String JSON_PROPERTY_WORKING_INTEGRATIONS = "working_integrations";
   private List<FleetIntegrationDetails> workingIntegrations = null;
 
-  public FleetIntegrationsByStatus configurationFiles(
-      List<FleetConfigurationFile> configurationFiles) {
+  public FleetIntegrationsByStatus configurationFiles(List<FleetConfigurationFile> configurationFiles) {
     this.configurationFiles = configurationFiles;
     for (FleetConfigurationFile item : configurationFiles) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public FleetIntegrationsByStatus addConfigurationFilesItem(
-      FleetConfigurationFile configurationFilesItem) {
+  public FleetIntegrationsByStatus addConfigurationFilesItem(FleetConfigurationFile configurationFilesItem) {
     if (this.configurationFiles == null) {
       this.configurationFiles = new ArrayList<>();
     }
@@ -69,53 +81,46 @@ public class FleetIntegrationsByStatus {
   }
 
   /**
-   * Configuration files for integrations.
-   *
+   * <p>Configuration files for integrations.</p>
    * @return configurationFiles
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONFIGURATION_FILES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<FleetConfigurationFile> getConfigurationFiles() {
-    return configurationFiles;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CONFIGURATION_FILES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<FleetConfigurationFile> getConfigurationFiles() {
+        return configurationFiles;
+      }
   public void setConfigurationFiles(List<FleetConfigurationFile> configurationFiles) {
     this.configurationFiles = configurationFiles;
   }
-
   public FleetIntegrationsByStatus datadogAgentKey(String datadogAgentKey) {
     this.datadogAgentKey = datadogAgentKey;
     return this;
   }
 
   /**
-   * The unique agent key identifier.
-   *
+   * <p>The unique agent key identifier.</p>
    * @return datadogAgentKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATADOG_AGENT_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDatadogAgentKey() {
-    return datadogAgentKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATADOG_AGENT_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDatadogAgentKey() {
+        return datadogAgentKey;
+      }
   public void setDatadogAgentKey(String datadogAgentKey) {
     this.datadogAgentKey = datadogAgentKey;
   }
-
-  public FleetIntegrationsByStatus errorIntegrations(
-      List<FleetIntegrationDetails> errorIntegrations) {
+  public FleetIntegrationsByStatus errorIntegrations(List<FleetIntegrationDetails> errorIntegrations) {
     this.errorIntegrations = errorIntegrations;
     for (FleetIntegrationDetails item : errorIntegrations) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public FleetIntegrationsByStatus addErrorIntegrationsItem(
-      FleetIntegrationDetails errorIntegrationsItem) {
+  public FleetIntegrationsByStatus addErrorIntegrationsItem(FleetIntegrationDetails errorIntegrationsItem) {
     if (this.errorIntegrations == null) {
       this.errorIntegrations = new ArrayList<>();
     }
@@ -125,32 +130,27 @@ public class FleetIntegrationsByStatus {
   }
 
   /**
-   * Integrations with errors.
-   *
+   * <p>Integrations with errors.</p>
    * @return errorIntegrations
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR_INTEGRATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<FleetIntegrationDetails> getErrorIntegrations() {
-    return errorIntegrations;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ERROR_INTEGRATIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<FleetIntegrationDetails> getErrorIntegrations() {
+        return errorIntegrations;
+      }
   public void setErrorIntegrations(List<FleetIntegrationDetails> errorIntegrations) {
     this.errorIntegrations = errorIntegrations;
   }
-
-  public FleetIntegrationsByStatus missingIntegrations(
-      List<FleetDetectedIntegration> missingIntegrations) {
+  public FleetIntegrationsByStatus missingIntegrations(List<FleetDetectedIntegration> missingIntegrations) {
     this.missingIntegrations = missingIntegrations;
     for (FleetDetectedIntegration item : missingIntegrations) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public FleetIntegrationsByStatus addMissingIntegrationsItem(
-      FleetDetectedIntegration missingIntegrationsItem) {
+  public FleetIntegrationsByStatus addMissingIntegrationsItem(FleetDetectedIntegration missingIntegrationsItem) {
     if (this.missingIntegrations == null) {
       this.missingIntegrations = new ArrayList<>();
     }
@@ -160,32 +160,27 @@ public class FleetIntegrationsByStatus {
   }
 
   /**
-   * Detected but not configured integrations.
-   *
+   * <p>Detected but not configured integrations.</p>
    * @return missingIntegrations
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MISSING_INTEGRATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<FleetDetectedIntegration> getMissingIntegrations() {
-    return missingIntegrations;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MISSING_INTEGRATIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<FleetDetectedIntegration> getMissingIntegrations() {
+        return missingIntegrations;
+      }
   public void setMissingIntegrations(List<FleetDetectedIntegration> missingIntegrations) {
     this.missingIntegrations = missingIntegrations;
   }
-
-  public FleetIntegrationsByStatus warningIntegrations(
-      List<FleetIntegrationDetails> warningIntegrations) {
+  public FleetIntegrationsByStatus warningIntegrations(List<FleetIntegrationDetails> warningIntegrations) {
     this.warningIntegrations = warningIntegrations;
     for (FleetIntegrationDetails item : warningIntegrations) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public FleetIntegrationsByStatus addWarningIntegrationsItem(
-      FleetIntegrationDetails warningIntegrationsItem) {
+  public FleetIntegrationsByStatus addWarningIntegrationsItem(FleetIntegrationDetails warningIntegrationsItem) {
     if (this.warningIntegrations == null) {
       this.warningIntegrations = new ArrayList<>();
     }
@@ -195,32 +190,27 @@ public class FleetIntegrationsByStatus {
   }
 
   /**
-   * Integrations with warnings.
-   *
+   * <p>Integrations with warnings.</p>
    * @return warningIntegrations
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNING_INTEGRATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<FleetIntegrationDetails> getWarningIntegrations() {
-    return warningIntegrations;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WARNING_INTEGRATIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<FleetIntegrationDetails> getWarningIntegrations() {
+        return warningIntegrations;
+      }
   public void setWarningIntegrations(List<FleetIntegrationDetails> warningIntegrations) {
     this.warningIntegrations = warningIntegrations;
   }
-
-  public FleetIntegrationsByStatus workingIntegrations(
-      List<FleetIntegrationDetails> workingIntegrations) {
+  public FleetIntegrationsByStatus workingIntegrations(List<FleetIntegrationDetails> workingIntegrations) {
     this.workingIntegrations = workingIntegrations;
     for (FleetIntegrationDetails item : workingIntegrations) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public FleetIntegrationsByStatus addWorkingIntegrationsItem(
-      FleetIntegrationDetails workingIntegrationsItem) {
+  public FleetIntegrationsByStatus addWorkingIntegrationsItem(FleetIntegrationDetails workingIntegrationsItem) {
     if (this.workingIntegrations == null) {
       this.workingIntegrations = new ArrayList<>();
     }
@@ -230,30 +220,30 @@ public class FleetIntegrationsByStatus {
   }
 
   /**
-   * Integrations that are working correctly.
-   *
+   * <p>Integrations that are working correctly.</p>
    * @return workingIntegrations
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WORKING_INTEGRATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<FleetIntegrationDetails> getWorkingIntegrations() {
-    return workingIntegrations;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WORKING_INTEGRATIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<FleetIntegrationDetails> getWorkingIntegrations() {
+        return workingIntegrations;
+      }
   public void setWorkingIntegrations(List<FleetIntegrationDetails> workingIntegrations) {
     this.workingIntegrations = workingIntegrations;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -262,7 +252,7 @@ public class FleetIntegrationsByStatus {
   @JsonAnySetter
   public FleetIntegrationsByStatus putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -286,12 +276,14 @@ public class FleetIntegrationsByStatus {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this FleetIntegrationsByStatus object is equal to o. */
+  /**
+   * Return true if this FleetIntegrationsByStatus object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -301,26 +293,13 @@ public class FleetIntegrationsByStatus {
       return false;
     }
     FleetIntegrationsByStatus fleetIntegrationsByStatus = (FleetIntegrationsByStatus) o;
-    return Objects.equals(this.configurationFiles, fleetIntegrationsByStatus.configurationFiles)
-        && Objects.equals(this.datadogAgentKey, fleetIntegrationsByStatus.datadogAgentKey)
-        && Objects.equals(this.errorIntegrations, fleetIntegrationsByStatus.errorIntegrations)
-        && Objects.equals(this.missingIntegrations, fleetIntegrationsByStatus.missingIntegrations)
-        && Objects.equals(this.warningIntegrations, fleetIntegrationsByStatus.warningIntegrations)
-        && Objects.equals(this.workingIntegrations, fleetIntegrationsByStatus.workingIntegrations)
-        && Objects.equals(
-            this.additionalProperties, fleetIntegrationsByStatus.additionalProperties);
+    return Objects.equals(this.configurationFiles, fleetIntegrationsByStatus.configurationFiles) && Objects.equals(this.datadogAgentKey, fleetIntegrationsByStatus.datadogAgentKey) && Objects.equals(this.errorIntegrations, fleetIntegrationsByStatus.errorIntegrations) && Objects.equals(this.missingIntegrations, fleetIntegrationsByStatus.missingIntegrations) && Objects.equals(this.warningIntegrations, fleetIntegrationsByStatus.warningIntegrations) && Objects.equals(this.workingIntegrations, fleetIntegrationsByStatus.workingIntegrations) && Objects.equals(this.additionalProperties, fleetIntegrationsByStatus.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        configurationFiles,
-        datadogAgentKey,
-        errorIntegrations,
-        missingIntegrations,
-        warningIntegrations,
-        workingIntegrations,
-        additionalProperties);
+    return Objects.hash(configurationFiles,datadogAgentKey,errorIntegrations,missingIntegrations,warningIntegrations,workingIntegrations, additionalProperties);
   }
 
   @Override
@@ -330,15 +309,9 @@ public class FleetIntegrationsByStatus {
     sb.append("    configurationFiles: ").append(toIndentedString(configurationFiles)).append("\n");
     sb.append("    datadogAgentKey: ").append(toIndentedString(datadogAgentKey)).append("\n");
     sb.append("    errorIntegrations: ").append(toIndentedString(errorIntegrations)).append("\n");
-    sb.append("    missingIntegrations: ")
-        .append(toIndentedString(missingIntegrations))
-        .append("\n");
-    sb.append("    warningIntegrations: ")
-        .append(toIndentedString(warningIntegrations))
-        .append("\n");
-    sb.append("    workingIntegrations: ")
-        .append(toIndentedString(workingIntegrations))
-        .append("\n");
+    sb.append("    missingIntegrations: ").append(toIndentedString(missingIntegrations)).append("\n");
+    sb.append("    warningIntegrations: ").append(toIndentedString(warningIntegrations)).append("\n");
+    sb.append("    workingIntegrations: ").append(toIndentedString(workingIntegrations)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
@@ -347,7 +320,8 @@ public class FleetIntegrationsByStatus {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

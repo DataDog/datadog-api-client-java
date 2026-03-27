@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object describing the extra options for a Synthetic test. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object describing the extra options for a Synthetic test.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsTestOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_LOCATION_FAILED,
@@ -30,10 +45,10 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_SCHEDULING,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestOptions {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_MIN_FAILURE_DURATION = "min_failure_duration";
   private Long minFailureDuration;
 
@@ -67,64 +82,58 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Minimum amount of time in failure required to trigger an alert.
-   *
+   * <p>Minimum amount of time in failure required to trigger an alert.</p>
    * @return minFailureDuration
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMinFailureDuration() {
-    return minFailureDuration;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMinFailureDuration() {
+        return minFailureDuration;
+      }
   public void setMinFailureDuration(Long minFailureDuration) {
     this.minFailureDuration = minFailureDuration;
   }
-
   public SyntheticsTestOptions minLocationFailed(Long minLocationFailed) {
     this.minLocationFailed = minLocationFailed;
     return this;
   }
 
   /**
-   * Minimum number of locations in failure required to trigger an alert.
-   *
+   * <p>Minimum number of locations in failure required to trigger
+   * an alert.</p>
    * @return minLocationFailed
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMinLocationFailed() {
-    return minLocationFailed;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getMinLocationFailed() {
+        return minLocationFailed;
+      }
   public void setMinLocationFailed(Long minLocationFailed) {
     this.minLocationFailed = minLocationFailed;
   }
-
   public SyntheticsTestOptions monitorName(String monitorName) {
     this.monitorName = monitorName;
     return this;
   }
 
   /**
-   * The monitor name is used for the alert title as well as for all monitor dashboard widgets and
-   * SLOs.
-   *
+   * <p>The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.</p>
    * @return monitorName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMonitorName() {
-    return monitorName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getMonitorName() {
+        return monitorName;
+      }
   public void setMonitorName(String monitorName) {
     this.monitorName = monitorName;
   }
-
   public SyntheticsTestOptions monitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
     this.monitorOptions = monitorOptions;
     this.unparsed |= monitorOptions.unparsed;
@@ -132,47 +141,45 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Object containing the options for a Synthetic test as a monitor (for example, renotification).
-   *
+   * <p>Object containing the options for a Synthetic test as a monitor
+   * (for example, renotification).</p>
    * @return monitorOptions
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MONITOR_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestOptionsMonitorOptions getMonitorOptions() {
-    return monitorOptions;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MONITOR_OPTIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestOptionsMonitorOptions getMonitorOptions() {
+        return monitorOptions;
+      }
   public void setMonitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
     this.monitorOptions = monitorOptions;
   }
-
   public SyntheticsTestOptions monitorPriority(Integer monitorPriority) {
     this.monitorPriority = monitorPriority;
     return this;
   }
 
   /**
-   * Integer from 1 (high) to 5 (low) indicating alert severity. minimum: 1 maximum: 5
-   *
+   * <p>Integer from 1 (high) to 5 (low) indicating alert severity.</p>
+   * minimum: 1
+   * maximum: 5
    * @return monitorPriority
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MONITOR_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getMonitorPriority() {
-    return monitorPriority;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MONITOR_PRIORITY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Integer getMonitorPriority() {
+        return monitorPriority;
+      }
   public void setMonitorPriority(Integer monitorPriority) {
     this.monitorPriority = monitorPriority;
   }
-
   public SyntheticsTestOptions restrictedRoles(List<String> restrictedRoles) {
     this.restrictedRoles = restrictedRoles;
     return this;
   }
-
   public SyntheticsTestOptions addRestrictedRolesItem(String restrictedRolesItem) {
     if (this.restrictedRoles == null) {
       this.restrictedRoles = new ArrayList<>();
@@ -182,25 +189,22 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * A list of role identifiers that can be pulled from the Roles API, for restricting read and
-   * write access. This field is deprecated. Use the restriction policies API to manage permissions.
-   *
+   * <p>A list of role identifiers that can be pulled from the Roles API, for restricting read and write access. This field is deprecated. Use the restriction policies API to manage permissions.</p>
    * @return restrictedRoles
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getRestrictedRoles() {
-    return restrictedRoles;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getRestrictedRoles() {
+        return restrictedRoles;
+      }
   @Deprecated
   public void setRestrictedRoles(List<String> restrictedRoles) {
     this.restrictedRoles = restrictedRoles;
   }
-
   public SyntheticsTestOptions retry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
     this.unparsed |= retry.unparsed;
@@ -208,21 +212,19 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Object describing the retry strategy to apply to a Synthetic test.
-   *
+   * <p>Object describing the retry strategy to apply to a Synthetic test.</p>
    * @return retry
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RETRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestOptionsRetry getRetry() {
-    return retry;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RETRY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestOptionsRetry getRetry() {
+        return retry;
+      }
   public void setRetry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
   }
-
   public SyntheticsTestOptions scheduling(SyntheticsTestOptionsScheduling scheduling) {
     this.scheduling = scheduling;
     this.unparsed |= scheduling.unparsed;
@@ -230,51 +232,51 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Object containing timeframes and timezone used for advanced scheduling.
-   *
+   * <p>Object containing timeframes and timezone used for advanced scheduling.</p>
    * @return scheduling
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCHEDULING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestOptionsScheduling getScheduling() {
-    return scheduling;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SCHEDULING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestOptionsScheduling getScheduling() {
+        return scheduling;
+      }
   public void setScheduling(SyntheticsTestOptionsScheduling scheduling) {
     this.scheduling = scheduling;
   }
-
   public SyntheticsTestOptions tickEvery(Long tickEvery) {
     this.tickEvery = tickEvery;
     return this;
   }
 
   /**
-   * The frequency at which to run the Synthetic test (in seconds). minimum: 30 maximum: 604800
-   *
+   * <p>The frequency at which to run the Synthetic test (in seconds).</p>
+   * minimum: 30
+   * maximum: 604800
    * @return tickEvery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TICK_EVERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTickEvery() {
-    return tickEvery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TICK_EVERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getTickEvery() {
+        return tickEvery;
+      }
   public void setTickEvery(Long tickEvery) {
     this.tickEvery = tickEvery;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -283,7 +285,7 @@ public class SyntheticsTestOptions {
   @JsonAnySetter
   public SyntheticsTestOptions putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -307,12 +309,14 @@ public class SyntheticsTestOptions {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTestOptions object is equal to o. */
+  /**
+   * Return true if this SyntheticsTestOptions object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -322,31 +326,13 @@ public class SyntheticsTestOptions {
       return false;
     }
     SyntheticsTestOptions syntheticsTestOptions = (SyntheticsTestOptions) o;
-    return Objects.equals(this.minFailureDuration, syntheticsTestOptions.minFailureDuration)
-        && Objects.equals(this.minLocationFailed, syntheticsTestOptions.minLocationFailed)
-        && Objects.equals(this.monitorName, syntheticsTestOptions.monitorName)
-        && Objects.equals(this.monitorOptions, syntheticsTestOptions.monitorOptions)
-        && Objects.equals(this.monitorPriority, syntheticsTestOptions.monitorPriority)
-        && Objects.equals(this.restrictedRoles, syntheticsTestOptions.restrictedRoles)
-        && Objects.equals(this.retry, syntheticsTestOptions.retry)
-        && Objects.equals(this.scheduling, syntheticsTestOptions.scheduling)
-        && Objects.equals(this.tickEvery, syntheticsTestOptions.tickEvery)
-        && Objects.equals(this.additionalProperties, syntheticsTestOptions.additionalProperties);
+    return Objects.equals(this.minFailureDuration, syntheticsTestOptions.minFailureDuration) && Objects.equals(this.minLocationFailed, syntheticsTestOptions.minLocationFailed) && Objects.equals(this.monitorName, syntheticsTestOptions.monitorName) && Objects.equals(this.monitorOptions, syntheticsTestOptions.monitorOptions) && Objects.equals(this.monitorPriority, syntheticsTestOptions.monitorPriority) && Objects.equals(this.restrictedRoles, syntheticsTestOptions.restrictedRoles) && Objects.equals(this.retry, syntheticsTestOptions.retry) && Objects.equals(this.scheduling, syntheticsTestOptions.scheduling) && Objects.equals(this.tickEvery, syntheticsTestOptions.tickEvery) && Objects.equals(this.additionalProperties, syntheticsTestOptions.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        minFailureDuration,
-        minLocationFailed,
-        monitorName,
-        monitorOptions,
-        monitorPriority,
-        restrictedRoles,
-        retry,
-        scheduling,
-        tickEvery,
-        additionalProperties);
+    return Objects.hash(minFailureDuration,minLocationFailed,monitorName,monitorOptions,monitorPriority,restrictedRoles,retry,scheduling,tickEvery, additionalProperties);
   }
 
   @Override
@@ -370,7 +356,8 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -1,8 +1,9 @@
 // Create status page returns "Created" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.StatusPagesApi;
+import com.datadog.api.client.v2.model.StatusPage;
 import com.datadog.api.client.v2.model.CreateComponentRequestDataAttributesType;
 import com.datadog.api.client.v2.model.CreateStatusPageRequest;
 import com.datadog.api.client.v2.model.CreateStatusPageRequestData;
@@ -10,39 +11,36 @@ import com.datadog.api.client.v2.model.CreateStatusPageRequestDataAttributes;
 import com.datadog.api.client.v2.model.CreateStatusPageRequestDataAttributesComponentsItems;
 import com.datadog.api.client.v2.model.CreateStatusPageRequestDataAttributesType;
 import com.datadog.api.client.v2.model.CreateStatusPageRequestDataAttributesVisualizationType;
-import com.datadog.api.client.v2.model.StatusPage;
 import com.datadog.api.client.v2.model.StatusPageDataType;
+import java.io.File;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     StatusPagesApi apiInstance = new StatusPagesApi(defaultClient);
 
-    CreateStatusPageRequest body =
-        new CreateStatusPageRequest()
-            .data(
-                new CreateStatusPageRequestData()
-                    .attributes(
-                        new CreateStatusPageRequestDataAttributes()
-                            .name("A Status Page")
-                            .domainPrefix("5e2fd69be33e79aa")
-                            .components(
-                                Arrays.asList(
-                                    new CreateStatusPageRequestDataAttributesComponentsItems()
-                                        .name("Login")
-                                        .type(CreateComponentRequestDataAttributesType.COMPONENT)
-                                        .position(0L),
-                                    new CreateStatusPageRequestDataAttributesComponentsItems()
-                                        .name("Settings")
-                                        .type(CreateComponentRequestDataAttributesType.COMPONENT)
-                                        .position(1L)))
-                            .enabled(true)
-                            .type(CreateStatusPageRequestDataAttributesType.INTERNAL)
-                            .visualizationType(
-                                CreateStatusPageRequestDataAttributesVisualizationType
-                                    .BARS_AND_UPTIME_PERCENTAGE))
-                    .type(StatusPageDataType.STATUS_PAGES));
+    CreateStatusPageRequest body = new CreateStatusPageRequest()
+.data(new CreateStatusPageRequestData()
+.attributes(new CreateStatusPageRequestDataAttributes()
+.name("A Status Page")
+.domainPrefix("5e2fd69be33e79aa")
+.components(Arrays.asList(new CreateStatusPageRequestDataAttributesComponentsItems()
+.name("Login")
+.type(CreateComponentRequestDataAttributesType.COMPONENT)
+.position(0L), new CreateStatusPageRequestDataAttributesComponentsItems()
+.name("Settings")
+.type(CreateComponentRequestDataAttributesType.COMPONENT)
+.position(1L)))
+.enabled(true)
+.type(CreateStatusPageRequestDataAttributesType.INTERNAL)
+.visualizationType(CreateStatusPageRequestDataAttributesVisualizationType.BARS_AND_UPTIME_PERCENTAGE))
+.type(StatusPageDataType.STATUS_PAGES));
 
     try {
       StatusPage result = apiInstance.createStatusPage(body);

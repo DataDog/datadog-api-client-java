@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,15 +25,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object describing a monitor. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object describing a monitor.</p>
+ */
 @JsonPropertyOrder({
   Monitor.JSON_PROPERTY_ASSETS,
   Monitor.JSON_PROPERTY_CREATED,
@@ -43,10 +55,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Monitor.JSON_PROPERTY_TAGS,
   Monitor.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Monitor {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSETS = "assets";
   private List<MonitorAsset> assets = null;
 
@@ -108,13 +120,12 @@ public class Monitor {
 
   @JsonCreator
   public Monitor(
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) MonitorType type) {
-    this.query = query;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)MonitorType type) {
+        this.query = query;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public Monitor assets(List<MonitorAsset> assets) {
     this.assets = assets;
     for (MonitorAsset item : assets) {
@@ -122,7 +133,6 @@ public class Monitor {
     }
     return this;
   }
-
   public Monitor addAssetsItem(MonitorAsset assetsItem) {
     if (this.assets == null) {
       this.assets = new ArrayList<>();
@@ -133,72 +143,66 @@ public class Monitor {
   }
 
   /**
-   * The list of monitor assets tied to a monitor, which represents key links for users to take
-   * action on monitor alerts (for example, runbooks).
-   *
+   * <p>The list of monitor assets tied to a monitor, which represents key links for users to take action on monitor alerts (for example, runbooks).</p>
    * @return assets
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASSETS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<MonitorAsset> getAssets() {
-    return assets;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ASSETS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<MonitorAsset> getAssets() {
+        return assets;
+      }
   public void setAssets(List<MonitorAsset> assets) {
     this.assets = assets;
   }
 
   /**
-   * Timestamp of the monitor creation.
-   *
+   * <p>Timestamp of the monitor creation.</p>
    * @return created
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreated() {
-    return created;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreated() {
+        return created;
+      }
 
   /**
-   * Object describing the creator of the shared element.
-   *
+   * <p>Object describing the creator of the shared element.</p>
    * @return creator
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Creator getCreator() {
-    return creator;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Creator getCreator() {
+        return creator;
+      }
 
   /**
-   * Whether or not the monitor is deleted. (Always <code>null</code>)
-   *
+   * <p>Whether or not the monitor is deleted. (Always <code>null</code>)</p>
    * @return deleted
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public OffsetDateTime getDeleted() {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public OffsetDateTime getDeleted() {
 
-    if (deleted == null) {
-      deleted = JsonNullable.<OffsetDateTime>undefined();
-    }
-    return deleted.orElse(null);
-  }
-
+        if (deleted == null) {
+          deleted = JsonNullable.<OffsetDateTime>undefined();
+        }
+        return deleted.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_DELETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<OffsetDateTime> getDeleted_JsonNullable() {
     return deleted;
   }
-
-  @JsonProperty(JSON_PROPERTY_DELETED)
-  private void setDeleted_JsonNullable(JsonNullable<OffsetDateTime> deleted) {
+  @JsonProperty(JSON_PROPERTY_DELETED)private void setDeleted_JsonNullable(JsonNullable<OffsetDateTime> deleted) {
     this.deleted = deleted;
   }
-
   public Monitor draftStatus(MonitorDraftStatus draftStatus) {
     this.draftStatus = draftStatus;
     this.unparsed |= !draftStatus.isValid();
@@ -206,42 +210,37 @@ public class Monitor {
   }
 
   /**
-   * Indicates whether the monitor is in a draft or published state.
-   *
-   * <p><code>draft</code>: The monitor appears as Draft and does not send notifications. <code>
-   * published</code>: The monitor is active and evaluates conditions and notify as configured.
-   *
-   * <p>This field is in preview. The draft value is only available to customers with the feature
-   * enabled.
-   *
+   * <p>Indicates whether the monitor is in a draft or published state.</p>
+   * <p><code>draft</code>: The monitor appears as Draft and does not send notifications.
+   * <code>published</code>: The monitor is active and evaluates conditions and notify as configured.</p>
+   * <p>This field is in preview. The draft value is only available to customers with the feature enabled.</p>
    * @return draftStatus
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DRAFT_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorDraftStatus getDraftStatus() {
-    return draftStatus;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DRAFT_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public MonitorDraftStatus getDraftStatus() {
+        return draftStatus;
+      }
   public void setDraftStatus(MonitorDraftStatus draftStatus) {
     if (!draftStatus.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.draftStatus = draftStatus;
   }
 
   /**
-   * ID of this monitor.
-   *
+   * <p>ID of this monitor.</p>
    * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getId() {
-    return id;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getId() {
+        return id;
+      }
   public Monitor matchingDowntimes(List<MatchingDowntime> matchingDowntimes) {
     this.matchingDowntimes = matchingDowntimes;
     for (MatchingDowntime item : matchingDowntimes) {
@@ -249,7 +248,6 @@ public class Monitor {
     }
     return this;
   }
-
   public Monitor addMatchingDowntimesItem(MatchingDowntime matchingDowntimesItem) {
     if (this.matchingDowntimes == null) {
       this.matchingDowntimes = new ArrayList<>();
@@ -260,87 +258,81 @@ public class Monitor {
   }
 
   /**
-   * A list of active v1 downtimes that match this monitor.
-   *
+   * <p>A list of active v1 downtimes that match this monitor.</p>
    * @return matchingDowntimes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MATCHING_DOWNTIMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<MatchingDowntime> getMatchingDowntimes() {
-    return matchingDowntimes;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MATCHING_DOWNTIMES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<MatchingDowntime> getMatchingDowntimes() {
+        return matchingDowntimes;
+      }
   public void setMatchingDowntimes(List<MatchingDowntime> matchingDowntimes) {
     this.matchingDowntimes = matchingDowntimes;
   }
-
   public Monitor message(String message) {
     this.message = message;
     return this;
   }
 
   /**
-   * A message to include with notifications for this monitor.
-   *
+   * <p>A message to include with notifications for this monitor.</p>
    * @return message
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMessage() {
-    return message;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MESSAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getMessage() {
+        return message;
+      }
   public void setMessage(String message) {
     this.message = message;
   }
 
   /**
-   * Last timestamp when the monitor was edited.
-   *
+   * <p>Last timestamp when the monitor was edited.</p>
    * @return modified
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModified() {
-    return modified;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODIFIED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getModified() {
+        return modified;
+      }
 
   /**
-   * Whether or not the monitor is broken down on different groups.
-   *
+   * <p>Whether or not the monitor is broken down on different groups.</p>
    * @return multi
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MULTI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getMulti() {
-    return multi;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MULTI)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getMulti() {
+        return multi;
+      }
   public Monitor name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The monitor name.
-   *
+   * <p>The monitor name.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public Monitor options(MonitorOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
@@ -348,89 +340,79 @@ public class Monitor {
   }
 
   /**
-   * List of options associated with your monitor.
-   *
+   * <p>List of options associated with your monitor.</p>
    * @return options
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorOptions getOptions() {
-    return options;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OPTIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public MonitorOptions getOptions() {
+        return options;
+      }
   public void setOptions(MonitorOptions options) {
     this.options = options;
   }
 
   /**
-   * The different states your monitor can be in.
-   *
+   * <p>The different states your monitor can be in.</p>
    * @return overallState
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OVERALL_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorOverallStates getOverallState() {
-    return overallState;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OVERALL_STATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public MonitorOverallStates getOverallState() {
+        return overallState;
+      }
   public Monitor priority(Long priority) {
     this.priority = JsonNullable.<Long>of(priority);
     return this;
   }
 
   /**
-   * Integer from 1 (high) to 5 (low) indicating alert severity.
-   *
+   * <p>Integer from 1 (high) to 5 (low) indicating alert severity.</p>
    * @return priority
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getPriority() {
-    return priority.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getPriority() {
+        return priority.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getPriority_JsonNullable() {
     return priority;
   }
-
-  @JsonProperty(JSON_PROPERTY_PRIORITY)
-  public void setPriority_JsonNullable(JsonNullable<Long> priority) {
+  @JsonProperty(JSON_PROPERTY_PRIORITY)public void setPriority_JsonNullable(JsonNullable<Long> priority) {
     this.priority = priority;
   }
-
   public void setPriority(Long priority) {
     this.priority = JsonNullable.<Long>of(priority);
   }
-
   public Monitor query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * The monitor query.
-   *
+   * <p>The monitor query.</p>
    * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getQuery() {
+        return query;
+      }
   public void setQuery(String query) {
     this.query = query;
   }
-
   public Monitor restrictedRoles(List<String> restrictedRoles) {
     this.restrictedRoles = JsonNullable.<List<String>>of(restrictedRoles);
     return this;
   }
-
   public Monitor addRestrictedRolesItem(String restrictedRolesItem) {
     if (this.restrictedRoles == null || !this.restrictedRoles.isPresent()) {
       this.restrictedRoles = JsonNullable.<List<String>>of(new ArrayList<>());
@@ -444,55 +426,42 @@ public class Monitor {
   }
 
   /**
-   * A list of unique role identifiers to define which roles are allowed to edit the monitor. The
-   * unique identifiers for all roles can be pulled from the <a
-   * href="https://docs.datadoghq.com/api/latest/roles/#list-roles">Roles API</a> and are located in
-   * the <code>data.id</code> field. Editing a monitor includes any updates to the monitor
-   * configuration, monitor deletion, and muting of the monitor for any amount of time. You can use
-   * the <a href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policies
-   * API</a> to manage write authorization for individual monitors by teams and users, in addition
-   * to roles.
-   *
+   * <p>A list of unique role identifiers to define which roles are allowed to edit the monitor. The unique identifiers for all roles can be pulled from the <a href="https://docs.datadoghq.com/api/latest/roles/#list-roles">Roles API</a> and are located in the <code>data.id</code> field. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. You can use the <a href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policies API</a> to manage write authorization for individual monitors by teams and users, in addition to roles.</p>
    * @return restrictedRoles
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<String> getRestrictedRoles() {
-    return restrictedRoles.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<String> getRestrictedRoles() {
+        return restrictedRoles.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getRestrictedRoles_JsonNullable() {
     return restrictedRoles;
   }
-
-  @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
-  public void setRestrictedRoles_JsonNullable(JsonNullable<List<String>> restrictedRoles) {
+  @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)public void setRestrictedRoles_JsonNullable(JsonNullable<List<String>> restrictedRoles) {
     this.restrictedRoles = restrictedRoles;
   }
-
   public void setRestrictedRoles(List<String> restrictedRoles) {
     this.restrictedRoles = JsonNullable.<List<String>>of(restrictedRoles);
   }
 
   /**
-   * Wrapper object with the different monitor states.
-   *
+   * <p>Wrapper object with the different monitor states.</p>
    * @return state
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorState getState() {
-    return state;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public MonitorState getState() {
+        return state;
+      }
   public Monitor tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public Monitor addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -502,21 +471,19 @@ public class Monitor {
   }
 
   /**
-   * Tags associated to your monitor.
-   *
+   * <p>Tags associated to your monitor.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
   public Monitor type(MonitorType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -524,33 +491,32 @@ public class Monitor {
   }
 
   /**
-   * The type of the monitor. For more information about <code>type</code>, see the <a
-   * href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.
-   *
+   * <p>The type of the monitor. For more information about <code>type</code>, see the <a href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MonitorType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public MonitorType getType() {
+        return type;
+      }
   public void setType(MonitorType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -559,7 +525,7 @@ public class Monitor {
   @JsonAnySetter
   public Monitor putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -583,12 +549,14 @@ public class Monitor {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this Monitor object is equal to o. */
+  /**
+   * Return true if this Monitor object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -598,51 +566,13 @@ public class Monitor {
       return false;
     }
     Monitor monitor = (Monitor) o;
-    return Objects.equals(this.assets, monitor.assets)
-        && Objects.equals(this.created, monitor.created)
-        && Objects.equals(this.creator, monitor.creator)
-        && Objects.equals(this.deleted, monitor.deleted)
-        && Objects.equals(this.draftStatus, monitor.draftStatus)
-        && Objects.equals(this.id, monitor.id)
-        && Objects.equals(this.matchingDowntimes, monitor.matchingDowntimes)
-        && Objects.equals(this.message, monitor.message)
-        && Objects.equals(this.modified, monitor.modified)
-        && Objects.equals(this.multi, monitor.multi)
-        && Objects.equals(this.name, monitor.name)
-        && Objects.equals(this.options, monitor.options)
-        && Objects.equals(this.overallState, monitor.overallState)
-        && Objects.equals(this.priority, monitor.priority)
-        && Objects.equals(this.query, monitor.query)
-        && Objects.equals(this.restrictedRoles, monitor.restrictedRoles)
-        && Objects.equals(this.state, monitor.state)
-        && Objects.equals(this.tags, monitor.tags)
-        && Objects.equals(this.type, monitor.type)
-        && Objects.equals(this.additionalProperties, monitor.additionalProperties);
+    return Objects.equals(this.assets, monitor.assets) && Objects.equals(this.created, monitor.created) && Objects.equals(this.creator, monitor.creator) && Objects.equals(this.deleted, monitor.deleted) && Objects.equals(this.draftStatus, monitor.draftStatus) && Objects.equals(this.id, monitor.id) && Objects.equals(this.matchingDowntimes, monitor.matchingDowntimes) && Objects.equals(this.message, monitor.message) && Objects.equals(this.modified, monitor.modified) && Objects.equals(this.multi, monitor.multi) && Objects.equals(this.name, monitor.name) && Objects.equals(this.options, monitor.options) && Objects.equals(this.overallState, monitor.overallState) && Objects.equals(this.priority, monitor.priority) && Objects.equals(this.query, monitor.query) && Objects.equals(this.restrictedRoles, monitor.restrictedRoles) && Objects.equals(this.state, monitor.state) && Objects.equals(this.tags, monitor.tags) && Objects.equals(this.type, monitor.type) && Objects.equals(this.additionalProperties, monitor.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        assets,
-        created,
-        creator,
-        deleted,
-        draftStatus,
-        id,
-        matchingDowntimes,
-        message,
-        modified,
-        multi,
-        name,
-        options,
-        overallState,
-        priority,
-        query,
-        restrictedRoles,
-        state,
-        tags,
-        type,
-        additionalProperties);
+    return Objects.hash(assets,created,creator,deleted,draftStatus,id,matchingDowntimes,message,modified,multi,name,options,overallState,priority,query,restrictedRoles,state,tags,type, additionalProperties);
   }
 
   @Override
@@ -676,7 +606,8 @@ public class Monitor {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

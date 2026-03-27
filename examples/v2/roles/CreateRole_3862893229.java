@@ -1,18 +1,24 @@
 // Create role with a permission returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.RolesApi;
+import com.datadog.api.client.v2.model.RoleCreateResponse;
 import com.datadog.api.client.v2.model.PermissionsType;
 import com.datadog.api.client.v2.model.RelationshipToPermissionData;
 import com.datadog.api.client.v2.model.RelationshipToPermissions;
 import com.datadog.api.client.v2.model.RoleCreateAttributes;
 import com.datadog.api.client.v2.model.RoleCreateData;
 import com.datadog.api.client.v2.model.RoleCreateRequest;
-import com.datadog.api.client.v2.model.RoleCreateResponse;
 import com.datadog.api.client.v2.model.RoleRelationships;
 import com.datadog.api.client.v2.model.RolesType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -22,21 +28,16 @@ public class Example {
     // there is a valid "permission" in the system
     String PERMISSION_ID = System.getenv("PERMISSION_ID");
 
-    RoleCreateRequest body =
-        new RoleCreateRequest()
-            .data(
-                new RoleCreateData()
-                    .type(RolesType.ROLES)
-                    .attributes(new RoleCreateAttributes().name("Example-Role"))
-                    .relationships(
-                        new RoleRelationships()
-                            .permissions(
-                                new RelationshipToPermissions()
-                                    .data(
-                                        Collections.singletonList(
-                                            new RelationshipToPermissionData()
-                                                .id(PERMISSION_ID)
-                                                .type(PermissionsType.PERMISSIONS))))));
+    RoleCreateRequest body = new RoleCreateRequest()
+.data(new RoleCreateData()
+.type(RolesType.ROLES)
+.attributes(new RoleCreateAttributes()
+.name("Example-Role"))
+.relationships(new RoleRelationships()
+.permissions(new RelationshipToPermissions()
+.data(Collections.singletonList(new RelationshipToPermissionData()
+.id(PERMISSION_ID)
+.type(PermissionsType.PERMISSIONS))))));
 
     try {
       RoleCreateResponse result = apiInstance.createRole(body);

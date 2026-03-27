@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The data object containing the table definition. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The data object containing the table definition.</p>
+ */
 @JsonPropertyOrder({
   CreateTableRequestData.JSON_PROPERTY_ATTRIBUTES,
   CreateTableRequestData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateTableRequestData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateTableRequestDataAttributes attributes;
 
@@ -32,11 +52,10 @@ public class CreateTableRequestData {
 
   @JsonCreator
   public CreateTableRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CreateTableRequestDataType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)CreateTableRequestDataType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public CreateTableRequestData attributes(CreateTableRequestDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -44,21 +63,19 @@ public class CreateTableRequestData {
   }
 
   /**
-   * Attributes that define the reference table's configuration and properties.
-   *
+   * <p>Attributes that define the reference table's configuration and properties.</p>
    * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CreateTableRequestDataAttributes getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public CreateTableRequestDataAttributes getAttributes() {
+        return attributes;
+      }
   public void setAttributes(CreateTableRequestDataAttributes attributes) {
     this.attributes = attributes;
   }
-
   public CreateTableRequestData type(CreateTableRequestDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -66,24 +83,25 @@ public class CreateTableRequestData {
   }
 
   /**
-   * Reference table resource type.
-   *
+   * <p>Reference table resource type.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CreateTableRequestDataType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CreateTableRequestDataType getType() {
+        return type;
+      }
   public void setType(CreateTableRequestDataType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this CreateTableRequestData object is equal to o. */
+  /**
+   * Return true if this CreateTableRequestData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -93,13 +111,13 @@ public class CreateTableRequestData {
       return false;
     }
     CreateTableRequestData createTableRequestData = (CreateTableRequestData) o;
-    return Objects.equals(this.attributes, createTableRequestData.attributes)
-        && Objects.equals(this.type, createTableRequestData.type);
+    return Objects.equals(this.attributes, createTableRequestData.attributes) && Objects.equals(this.type, createTableRequestData.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type);
+    return Objects.hash(attributes,type);
   }
 
   @Override
@@ -113,7 +131,8 @@ public class CreateTableRequestData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

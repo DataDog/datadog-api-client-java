@@ -6,19 +6,34 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes describing a WAF exclusion filter. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes describing a WAF exclusion filter.</p>
+ */
 @JsonPropertyOrder({
   ApplicationSecurityWafExclusionFilterAttributes.JSON_PROPERTY_DESCRIPTION,
   ApplicationSecurityWafExclusionFilterAttributes.JSON_PROPERTY_ENABLED,
@@ -32,10 +47,10 @@ import java.util.Objects;
   ApplicationSecurityWafExclusionFilterAttributes.JSON_PROPERTY_SCOPE,
   ApplicationSecurityWafExclusionFilterAttributes.JSON_PROPERTY_SEARCH_QUERY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationSecurityWafExclusionFilterAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -75,68 +90,61 @@ public class ApplicationSecurityWafExclusionFilterAttributes {
   }
 
   /**
-   * A description for the exclusion filter.
-   *
+   * <p>A description for the exclusion filter.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public ApplicationSecurityWafExclusionFilterAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * Indicates whether the exclusion filter is enabled.
-   *
+   * <p>Indicates whether the exclusion filter is enabled.</p>
    * @return enabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getEnabled() {
+        return enabled;
+      }
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
-
   public ApplicationSecurityWafExclusionFilterAttributes eventQuery(String eventQuery) {
     this.eventQuery = eventQuery;
     return this;
   }
 
   /**
-   * The event query matched by the legacy exclusion filter. Cannot be created nor updated.
-   *
+   * <p>The event query matched by the legacy exclusion filter. Cannot be created nor updated.</p>
    * @return eventQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEventQuery() {
-    return eventQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEventQuery() {
+        return eventQuery;
+      }
   public void setEventQuery(String eventQuery) {
     this.eventQuery = eventQuery;
   }
-
   public ApplicationSecurityWafExclusionFilterAttributes ipList(List<String> ipList) {
     this.ipList = ipList;
     return this;
   }
-
   public ApplicationSecurityWafExclusionFilterAttributes addIpListItem(String ipListItem) {
     if (this.ipList == null) {
       this.ipList = new ArrayList<>();
@@ -146,66 +154,58 @@ public class ApplicationSecurityWafExclusionFilterAttributes {
   }
 
   /**
-   * The client IP addresses matched by the exclusion filter (CIDR notation is supported).
-   *
+   * <p>The client IP addresses matched by the exclusion filter (CIDR notation is supported).</p>
    * @return ipList
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IP_LIST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getIpList() {
-    return ipList;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IP_LIST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getIpList() {
+        return ipList;
+      }
   public void setIpList(List<String> ipList) {
     this.ipList = ipList;
   }
 
   /**
-   * Extra information about the exclusion filter.
-   *
+   * <p>Extra information about the exclusion filter.</p>
    * @return metadata
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ApplicationSecurityWafExclusionFilterMetadata getMetadata() {
-    return metadata;
-  }
-
-  public ApplicationSecurityWafExclusionFilterAttributes onMatch(
-      ApplicationSecurityWafExclusionFilterOnMatch onMatch) {
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ApplicationSecurityWafExclusionFilterMetadata getMetadata() {
+        return metadata;
+      }
+  public ApplicationSecurityWafExclusionFilterAttributes onMatch(ApplicationSecurityWafExclusionFilterOnMatch onMatch) {
     this.onMatch = onMatch;
     this.unparsed |= !onMatch.isValid();
     return this;
   }
 
   /**
-   * The action taken when the exclusion filter matches. When set to <code>monitor</code>, security
-   * traces are emitted but the requests are not blocked. By default, security traces are not
-   * emitted and the requests are not blocked.
-   *
+   * <p>The action taken when the exclusion filter matches. When set to <code>monitor</code>, security traces are emitted but the requests are not blocked. By default, security traces are not emitted and the requests are not blocked.</p>
    * @return onMatch
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ON_MATCH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ApplicationSecurityWafExclusionFilterOnMatch getOnMatch() {
-    return onMatch;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ON_MATCH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ApplicationSecurityWafExclusionFilterOnMatch getOnMatch() {
+        return onMatch;
+      }
   public void setOnMatch(ApplicationSecurityWafExclusionFilterOnMatch onMatch) {
     if (!onMatch.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.onMatch = onMatch;
   }
-
   public ApplicationSecurityWafExclusionFilterAttributes parameters(List<String> parameters) {
     this.parameters = parameters;
     return this;
   }
-
   public ApplicationSecurityWafExclusionFilterAttributes addParametersItem(String parametersItem) {
     if (this.parameters == null) {
       this.parameters = new ArrayList<>();
@@ -215,54 +215,46 @@ public class ApplicationSecurityWafExclusionFilterAttributes {
   }
 
   /**
-   * A list of parameters matched by the exclusion filter in the HTTP query string and HTTP request
-   * body. Nested parameters can be matched by joining fields with a dot character.
-   *
+   * <p>A list of parameters matched by the exclusion filter in the HTTP query string and HTTP request body. Nested parameters can be matched by joining fields with a dot character.</p>
    * @return parameters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getParameters() {
-    return parameters;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PARAMETERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getParameters() {
+        return parameters;
+      }
   public void setParameters(List<String> parameters) {
     this.parameters = parameters;
   }
-
   public ApplicationSecurityWafExclusionFilterAttributes pathGlob(String pathGlob) {
     this.pathGlob = pathGlob;
     return this;
   }
 
   /**
-   * The HTTP path glob expression matched by the exclusion filter.
-   *
+   * <p>The HTTP path glob expression matched by the exclusion filter.</p>
    * @return pathGlob
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PATH_GLOB)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPathGlob() {
-    return pathGlob;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PATH_GLOB)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPathGlob() {
+        return pathGlob;
+      }
   public void setPathGlob(String pathGlob) {
     this.pathGlob = pathGlob;
   }
-
-  public ApplicationSecurityWafExclusionFilterAttributes rulesTarget(
-      List<ApplicationSecurityWafExclusionFilterRulesTarget> rulesTarget) {
+  public ApplicationSecurityWafExclusionFilterAttributes rulesTarget(List<ApplicationSecurityWafExclusionFilterRulesTarget> rulesTarget) {
     this.rulesTarget = rulesTarget;
     for (ApplicationSecurityWafExclusionFilterRulesTarget item : rulesTarget) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public ApplicationSecurityWafExclusionFilterAttributes addRulesTargetItem(
-      ApplicationSecurityWafExclusionFilterRulesTarget rulesTargetItem) {
+  public ApplicationSecurityWafExclusionFilterAttributes addRulesTargetItem(ApplicationSecurityWafExclusionFilterRulesTarget rulesTargetItem) {
     if (this.rulesTarget == null) {
       this.rulesTarget = new ArrayList<>();
     }
@@ -272,32 +264,27 @@ public class ApplicationSecurityWafExclusionFilterAttributes {
   }
 
   /**
-   * The WAF rules targeted by the exclusion filter.
-   *
+   * <p>The WAF rules targeted by the exclusion filter.</p>
    * @return rulesTarget
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RULES_TARGET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ApplicationSecurityWafExclusionFilterRulesTarget> getRulesTarget() {
-    return rulesTarget;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RULES_TARGET)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ApplicationSecurityWafExclusionFilterRulesTarget> getRulesTarget() {
+        return rulesTarget;
+      }
   public void setRulesTarget(List<ApplicationSecurityWafExclusionFilterRulesTarget> rulesTarget) {
     this.rulesTarget = rulesTarget;
   }
-
-  public ApplicationSecurityWafExclusionFilterAttributes scope(
-      List<ApplicationSecurityWafExclusionFilterScope> scope) {
+  public ApplicationSecurityWafExclusionFilterAttributes scope(List<ApplicationSecurityWafExclusionFilterScope> scope) {
     this.scope = scope;
     for (ApplicationSecurityWafExclusionFilterScope item : scope) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public ApplicationSecurityWafExclusionFilterAttributes addScopeItem(
-      ApplicationSecurityWafExclusionFilterScope scopeItem) {
+  public ApplicationSecurityWafExclusionFilterAttributes addScopeItem(ApplicationSecurityWafExclusionFilterScope scopeItem) {
     if (this.scope == null) {
       this.scope = new ArrayList<>();
     }
@@ -307,52 +294,51 @@ public class ApplicationSecurityWafExclusionFilterAttributes {
   }
 
   /**
-   * The services where the exclusion filter is deployed.
-   *
+   * <p>The services where the exclusion filter is deployed.</p>
    * @return scope
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ApplicationSecurityWafExclusionFilterScope> getScope() {
-    return scope;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SCOPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ApplicationSecurityWafExclusionFilterScope> getScope() {
+        return scope;
+      }
   public void setScope(List<ApplicationSecurityWafExclusionFilterScope> scope) {
     this.scope = scope;
   }
 
   /**
-   * Generated event search query for traces matching the exclusion filter.
-   *
+   * <p>Generated event search query for traces matching the exclusion filter.</p>
    * @return searchQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SEARCH_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSearchQuery() {
-    return searchQuery;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SEARCH_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSearchQuery() {
+        return searchQuery;
+      }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ApplicationSecurityWafExclusionFilterAttributes
    */
   @JsonAnySetter
-  public ApplicationSecurityWafExclusionFilterAttributes putAdditionalProperty(
-      String key, Object value) {
+  public ApplicationSecurityWafExclusionFilterAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -376,12 +362,14 @@ public class ApplicationSecurityWafExclusionFilterAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ApplicationSecurityWafExclusionFilterAttributes object is equal to o. */
+  /**
+   * Return true if this ApplicationSecurityWafExclusionFilterAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -390,45 +378,14 @@ public class ApplicationSecurityWafExclusionFilterAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationSecurityWafExclusionFilterAttributes
-        applicationSecurityWafExclusionFilterAttributes =
-            (ApplicationSecurityWafExclusionFilterAttributes) o;
-    return Objects.equals(
-            this.description, applicationSecurityWafExclusionFilterAttributes.description)
-        && Objects.equals(this.enabled, applicationSecurityWafExclusionFilterAttributes.enabled)
-        && Objects.equals(
-            this.eventQuery, applicationSecurityWafExclusionFilterAttributes.eventQuery)
-        && Objects.equals(this.ipList, applicationSecurityWafExclusionFilterAttributes.ipList)
-        && Objects.equals(this.metadata, applicationSecurityWafExclusionFilterAttributes.metadata)
-        && Objects.equals(this.onMatch, applicationSecurityWafExclusionFilterAttributes.onMatch)
-        && Objects.equals(
-            this.parameters, applicationSecurityWafExclusionFilterAttributes.parameters)
-        && Objects.equals(this.pathGlob, applicationSecurityWafExclusionFilterAttributes.pathGlob)
-        && Objects.equals(
-            this.rulesTarget, applicationSecurityWafExclusionFilterAttributes.rulesTarget)
-        && Objects.equals(this.scope, applicationSecurityWafExclusionFilterAttributes.scope)
-        && Objects.equals(
-            this.searchQuery, applicationSecurityWafExclusionFilterAttributes.searchQuery)
-        && Objects.equals(
-            this.additionalProperties,
-            applicationSecurityWafExclusionFilterAttributes.additionalProperties);
+    ApplicationSecurityWafExclusionFilterAttributes applicationSecurityWafExclusionFilterAttributes = (ApplicationSecurityWafExclusionFilterAttributes) o;
+    return Objects.equals(this.description, applicationSecurityWafExclusionFilterAttributes.description) && Objects.equals(this.enabled, applicationSecurityWafExclusionFilterAttributes.enabled) && Objects.equals(this.eventQuery, applicationSecurityWafExclusionFilterAttributes.eventQuery) && Objects.equals(this.ipList, applicationSecurityWafExclusionFilterAttributes.ipList) && Objects.equals(this.metadata, applicationSecurityWafExclusionFilterAttributes.metadata) && Objects.equals(this.onMatch, applicationSecurityWafExclusionFilterAttributes.onMatch) && Objects.equals(this.parameters, applicationSecurityWafExclusionFilterAttributes.parameters) && Objects.equals(this.pathGlob, applicationSecurityWafExclusionFilterAttributes.pathGlob) && Objects.equals(this.rulesTarget, applicationSecurityWafExclusionFilterAttributes.rulesTarget) && Objects.equals(this.scope, applicationSecurityWafExclusionFilterAttributes.scope) && Objects.equals(this.searchQuery, applicationSecurityWafExclusionFilterAttributes.searchQuery) && Objects.equals(this.additionalProperties, applicationSecurityWafExclusionFilterAttributes.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        description,
-        enabled,
-        eventQuery,
-        ipList,
-        metadata,
-        onMatch,
-        parameters,
-        pathGlob,
-        rulesTarget,
-        scope,
-        searchQuery,
-        additionalProperties);
+    return Objects.hash(description,enabled,eventQuery,ipList,metadata,onMatch,parameters,pathGlob,rulesTarget,scope,searchQuery, additionalProperties);
   }
 
   @Override
@@ -454,7 +411,8 @@ public class ApplicationSecurityWafExclusionFilterAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

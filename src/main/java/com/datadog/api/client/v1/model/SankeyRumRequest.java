@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Sankey widget with RUM data source. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Sankey widget with RUM data source.</p>
+ */
 @JsonPropertyOrder({
   SankeyRumRequest.JSON_PROPERTY_QUERY,
   SankeyRumRequest.JSON_PROPERTY_REQUEST_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SankeyRumRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private SankeyRumQuery query;
 
@@ -32,15 +52,13 @@ public class SankeyRumRequest {
 
   @JsonCreator
   public SankeyRumRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) SankeyRumQuery query,
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST_TYPE)
-          SankeyWidgetDefinitionType requestType) {
-    this.query = query;
-    this.unparsed |= query.unparsed;
-    this.requestType = requestType;
-    this.unparsed |= !requestType.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)SankeyRumQuery query,
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUEST_TYPE)SankeyWidgetDefinitionType requestType) {
+        this.query = query;
+        this.unparsed |= query.unparsed;
+        this.requestType = requestType;
+        this.unparsed |= !requestType.isValid();
   }
-
   public SankeyRumRequest query(SankeyRumQuery query) {
     this.query = query;
     this.unparsed |= query.unparsed;
@@ -48,20 +66,18 @@ public class SankeyRumRequest {
   }
 
   /**
-   * Sankey widget with RUM data source query.
-   *
+   * <p>Sankey widget with RUM data source query.</p>
    * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SankeyRumQuery getQuery() {
-    return query;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SankeyRumQuery getQuery() {
+        return query;
+      }
   public void setQuery(SankeyRumQuery query) {
     this.query = query;
   }
-
   public SankeyRumRequest requestType(SankeyWidgetDefinitionType requestType) {
     this.requestType = requestType;
     this.unparsed |= !requestType.isValid();
@@ -69,24 +85,25 @@ public class SankeyRumRequest {
   }
 
   /**
-   * Type of the Sankey widget.
-   *
+   * <p>Type of the Sankey widget.</p>
    * @return requestType
-   */
-  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SankeyWidgetDefinitionType getRequestType() {
-    return requestType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SankeyWidgetDefinitionType getRequestType() {
+        return requestType;
+      }
   public void setRequestType(SankeyWidgetDefinitionType requestType) {
     if (!requestType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.requestType = requestType;
   }
 
-  /** Return true if this SankeyRumRequest object is equal to o. */
+  /**
+   * Return true if this SankeyRumRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,13 +113,13 @@ public class SankeyRumRequest {
       return false;
     }
     SankeyRumRequest sankeyRumRequest = (SankeyRumRequest) o;
-    return Objects.equals(this.query, sankeyRumRequest.query)
-        && Objects.equals(this.requestType, sankeyRumRequest.requestType);
+    return Objects.equals(this.query, sankeyRumRequest.query) && Objects.equals(this.requestType, sankeyRumRequest.requestType);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(query, requestType);
+    return Objects.hash(query,requestType);
   }
 
   @Override
@@ -116,7 +133,8 @@ public class SankeyRumRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

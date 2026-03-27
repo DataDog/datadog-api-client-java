@@ -6,6 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,20 +25,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** AWS CCM Config response data. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>AWS CCM Config response data.</p>
+ */
 @JsonPropertyOrder({
   AWSCcmConfigResponseData.JSON_PROPERTY_ATTRIBUTES,
   AWSCcmConfigResponseData.JSON_PROPERTY_ID,
   AWSCcmConfigResponseData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSCcmConfigResponseData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private AWSCcmConfigResponseAttributes attributes;
 
@@ -40,11 +56,10 @@ public class AWSCcmConfigResponseData {
 
   @JsonCreator
   public AWSCcmConfigResponseData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AWSCcmConfigType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)AWSCcmConfigType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public AWSCcmConfigResponseData attributes(AWSCcmConfigResponseAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -52,45 +67,41 @@ public class AWSCcmConfigResponseData {
   }
 
   /**
-   * AWS CCM Config response attributes.
-   *
+   * <p>AWS CCM Config response attributes.</p>
    * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AWSCcmConfigResponseAttributes getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public AWSCcmConfigResponseAttributes getAttributes() {
+        return attributes;
+      }
   public void setAttributes(AWSCcmConfigResponseAttributes attributes) {
     this.attributes = attributes;
   }
-
   public AWSCcmConfigResponseData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account,
-   * use the <a
-   * href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
-   * all AWS integrations</a> endpoint and query by AWS Account ID.
-   *
+   * <p>Unique Datadog ID of the AWS Account Integration Config.
+   * To get the config ID for an account, use the
+   * <a href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List all AWS integrations</a>
+   * endpoint and query by AWS Account ID.</p>
    * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public AWSCcmConfigResponseData type(AWSCcmConfigType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -98,32 +109,32 @@ public class AWSCcmConfigResponseData {
   }
 
   /**
-   * AWS CCM Config resource type.
-   *
+   * <p>AWS CCM Config resource type.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AWSCcmConfigType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public AWSCcmConfigType getType() {
+        return type;
+      }
   public void setType(AWSCcmConfigType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -132,7 +143,7 @@ public class AWSCcmConfigResponseData {
   @JsonAnySetter
   public AWSCcmConfigResponseData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+        this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -156,12 +167,14 @@ public class AWSCcmConfigResponseData {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-      return null;
+        return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AWSCcmConfigResponseData object is equal to o. */
+  /**
+   * Return true if this AWSCcmConfigResponseData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -171,15 +184,13 @@ public class AWSCcmConfigResponseData {
       return false;
     }
     AWSCcmConfigResponseData awsCcmConfigResponseData = (AWSCcmConfigResponseData) o;
-    return Objects.equals(this.attributes, awsCcmConfigResponseData.attributes)
-        && Objects.equals(this.id, awsCcmConfigResponseData.id)
-        && Objects.equals(this.type, awsCcmConfigResponseData.type)
-        && Objects.equals(this.additionalProperties, awsCcmConfigResponseData.additionalProperties);
+    return Objects.equals(this.attributes, awsCcmConfigResponseData.attributes) && Objects.equals(this.id, awsCcmConfigResponseData.id) && Objects.equals(this.type, awsCcmConfigResponseData.type) && Objects.equals(this.additionalProperties, awsCcmConfigResponseData.additionalProperties);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes,id,type, additionalProperties);
   }
 
   @Override
@@ -197,7 +208,8 @@ public class AWSCcmConfigResponseData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

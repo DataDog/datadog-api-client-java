@@ -1,9 +1,15 @@
 // Get an incident notification rule returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.IncidentsApi;
 import com.datadog.api.client.v2.model.IncidentNotificationRule;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public class Example {
@@ -13,9 +19,7 @@ public class Example {
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
     try {
-      IncidentNotificationRule result =
-          apiInstance.getIncidentNotificationRule(
-              UUID.fromString("00000000-0000-0000-0000-000000000001"));
+      IncidentNotificationRule result = apiInstance.getIncidentNotificationRule(UUID.fromString("00000000-0000-0000-0000-000000000001"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IncidentsApi#getIncidentNotificationRule");

@@ -6,60 +6,74 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-/** The SentinelOne region to send logs to. */
-@JsonSerialize(
-    using =
-        ObservabilityPipelineSentinelOneDestinationRegion
-            .ObservabilityPipelineSentinelOneDestinationRegionSerializer.class)
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The SentinelOne region to send logs to.</p>
+ */
+@JsonSerialize(using = ObservabilityPipelineSentinelOneDestinationRegion.ObservabilityPipelineSentinelOneDestinationRegionSerializer.class)
 public class ObservabilityPipelineSentinelOneDestinationRegion extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("us", "eu", "ca", "data_set_us"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("us", "eu", "ca", "data_set_us"));
 
-  public static final ObservabilityPipelineSentinelOneDestinationRegion US =
-      new ObservabilityPipelineSentinelOneDestinationRegion("us");
-  public static final ObservabilityPipelineSentinelOneDestinationRegion EU =
-      new ObservabilityPipelineSentinelOneDestinationRegion("eu");
-  public static final ObservabilityPipelineSentinelOneDestinationRegion CA =
-      new ObservabilityPipelineSentinelOneDestinationRegion("ca");
-  public static final ObservabilityPipelineSentinelOneDestinationRegion DATA_SET_US =
-      new ObservabilityPipelineSentinelOneDestinationRegion("data_set_us");
+  public static final ObservabilityPipelineSentinelOneDestinationRegion US = new ObservabilityPipelineSentinelOneDestinationRegion("us");
+  public static final ObservabilityPipelineSentinelOneDestinationRegion EU = new ObservabilityPipelineSentinelOneDestinationRegion("eu");
+  public static final ObservabilityPipelineSentinelOneDestinationRegion CA = new ObservabilityPipelineSentinelOneDestinationRegion("ca");
+  public static final ObservabilityPipelineSentinelOneDestinationRegion DATA_SET_US = new ObservabilityPipelineSentinelOneDestinationRegion("data_set_us");
+
 
   ObservabilityPipelineSentinelOneDestinationRegion(String value) {
     super(value, allowedValues);
   }
 
-  public static class ObservabilityPipelineSentinelOneDestinationRegionSerializer
-      extends StdSerializer<ObservabilityPipelineSentinelOneDestinationRegion> {
-    public ObservabilityPipelineSentinelOneDestinationRegionSerializer(
-        Class<ObservabilityPipelineSentinelOneDestinationRegion> t) {
-      super(t);
-    }
+  public static class ObservabilityPipelineSentinelOneDestinationRegionSerializer extends StdSerializer<ObservabilityPipelineSentinelOneDestinationRegion> {
+      public ObservabilityPipelineSentinelOneDestinationRegionSerializer(Class<ObservabilityPipelineSentinelOneDestinationRegion> t) {
+          super(t);
+      }
 
-    public ObservabilityPipelineSentinelOneDestinationRegionSerializer() {
-      this(null);
-    }
+      public ObservabilityPipelineSentinelOneDestinationRegionSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ObservabilityPipelineSentinelOneDestinationRegion value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ObservabilityPipelineSentinelOneDestinationRegion value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonCreator
