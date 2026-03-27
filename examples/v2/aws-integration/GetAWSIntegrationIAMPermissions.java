@@ -1,16 +1,9 @@
 // Get AWS integration IAM permissions returns "AWS IAM Permissions object" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.AwsIntegrationApi;
 import com.datadog.api.client.v2.model.AWSIntegrationIamPermissionsResponse;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,7 +14,8 @@ public class Example {
       AWSIntegrationIamPermissionsResponse result = apiInstance.getAWSIntegrationIAMPermissions();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AwsIntegrationApi#getAWSIntegrationIAMPermissions");
+      System.err.println(
+          "Exception when calling AwsIntegrationApi#getAWSIntegrationIAMPermissions");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

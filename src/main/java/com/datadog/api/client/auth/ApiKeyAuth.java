@@ -6,19 +6,21 @@
 
 package com.datadog.api.client.auth;
 
-import com.datadog.api.client.Pair;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.Pair;
 import java.net.URI;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;
 
   private String apiKey;
   private String apiKeyPrefix;
+
   public ApiKeyAuth(String location, String paramName) {
     this.location = location;
     this.paramName = paramName;
@@ -49,7 +51,14 @@ public class ApiKeyAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException {
+  public void applyToParams(
+      List<Pair> queryParams,
+      Map<String, String> headerParams,
+      Map<String, String> cookieParams,
+      String payload,
+      String method,
+      URI uri)
+      throws ApiException {
     if (apiKey == null) {
       return;
     }

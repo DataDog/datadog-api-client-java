@@ -1,19 +1,13 @@
 // Delete custom timeboard dashboard from an existing dashboard list returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.DashboardListsApi;
-import com.datadog.api.client.v2.model.DashboardListDeleteItemsResponse;
 import com.datadog.api.client.v2.model.DashboardListDeleteItemsRequest;
+import com.datadog.api.client.v2.model.DashboardListDeleteItemsResponse;
 import com.datadog.api.client.v2.model.DashboardListItemRequest;
 import com.datadog.api.client.v2.model.DashboardType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -26,13 +20,17 @@ public class Example {
     // there is a valid "dashboard" in the system
     String DASHBOARD_ID = System.getenv("DASHBOARD_ID");
 
-    DashboardListDeleteItemsRequest body = new DashboardListDeleteItemsRequest()
-.dashboards(Collections.singletonList(new DashboardListItemRequest()
-.id(DASHBOARD_ID)
-.type(DashboardType.CUSTOM_TIMEBOARD)));
+    DashboardListDeleteItemsRequest body =
+        new DashboardListDeleteItemsRequest()
+            .dashboards(
+                Collections.singletonList(
+                    new DashboardListItemRequest()
+                        .id(DASHBOARD_ID)
+                        .type(DashboardType.CUSTOM_TIMEBOARD)));
 
     try {
-      DashboardListDeleteItemsResponse result = apiInstance.deleteDashboardListItems(DASHBOARD_LIST_ID, body);
+      DashboardListDeleteItemsResponse result =
+          apiInstance.deleteDashboardListItems(DASHBOARD_LIST_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DashboardListsApi#deleteDashboardListItems");

@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The metadata associated with a request</p>
- */
+/** The metadata associated with a request */
 @JsonPropertyOrder({
   LogsResponseMetadata.JSON_PROPERTY_ELAPSED,
   LogsResponseMetadata.JSON_PROPERTY_PAGE,
@@ -41,10 +26,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   LogsResponseMetadata.JSON_PROPERTY_STATUS,
   LogsResponseMetadata.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsResponseMetadata {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ELAPSED = "elapsed";
   private Long elapsed;
 
@@ -66,19 +51,21 @@ public class LogsResponseMetadata {
   }
 
   /**
-   * <p>The time elapsed in milliseconds</p>
+   * The time elapsed in milliseconds
+   *
    * @return elapsed
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ELAPSED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getElapsed() {
-        return elapsed;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ELAPSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getElapsed() {
+    return elapsed;
+  }
+
   public void setElapsed(Long elapsed) {
     this.elapsed = elapsed;
   }
+
   public LogsResponseMetadata page(LogsResponseMetadataPage page) {
     this.page = page;
     this.unparsed |= page.unparsed;
@@ -86,38 +73,42 @@ public class LogsResponseMetadata {
   }
 
   /**
-   * <p>Paging attributes.</p>
+   * Paging attributes.
+   *
    * @return page
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogsResponseMetadataPage getPage() {
-        return page;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsResponseMetadataPage getPage() {
+    return page;
+  }
+
   public void setPage(LogsResponseMetadataPage page) {
     this.page = page;
   }
+
   public LogsResponseMetadata requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
 
   /**
-   * <p>The identifier of the request</p>
+   * The identifier of the request
+   *
    * @return requestId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REQUEST_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRequestId() {
-        return requestId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRequestId() {
+    return requestId;
+  }
+
   public void setRequestId(String requestId) {
     this.requestId = requestId;
   }
+
   public LogsResponseMetadata status(LogsAggregateResponseStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -125,22 +116,24 @@ public class LogsResponseMetadata {
   }
 
   /**
-   * <p>The status of the response</p>
+   * The status of the response
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogsAggregateResponseStatus getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsAggregateResponseStatus getStatus() {
+    return status;
+  }
+
   public void setStatus(LogsAggregateResponseStatus status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
+
   public LogsResponseMetadata warnings(List<LogsWarning> warnings) {
     this.warnings = warnings;
     for (LogsWarning item : warnings) {
@@ -148,6 +141,7 @@ public class LogsResponseMetadata {
     }
     return this;
   }
+
   public LogsResponseMetadata addWarningsItem(LogsWarning warningsItem) {
     if (this.warnings == null) {
       this.warnings = new ArrayList<>();
@@ -158,31 +152,31 @@ public class LogsResponseMetadata {
   }
 
   /**
-   * <p>A list of warnings (non fatal errors) encountered, partial results might be returned if
-   * warnings are present in the response.</p>
+   * A list of warnings (non fatal errors) encountered, partial results might be returned if
+   * warnings are present in the response.
+   *
    * @return warnings
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_WARNINGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<LogsWarning> getWarnings() {
-        return warnings;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LogsWarning> getWarnings() {
+    return warnings;
+  }
+
   public void setWarnings(List<LogsWarning> warnings) {
     this.warnings = warnings;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -191,7 +185,7 @@ public class LogsResponseMetadata {
   @JsonAnySetter
   public LogsResponseMetadata putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -215,14 +209,12 @@ public class LogsResponseMetadata {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LogsResponseMetadata object is equal to o.
-   */
+  /** Return true if this LogsResponseMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -232,13 +224,17 @@ public class LogsResponseMetadata {
       return false;
     }
     LogsResponseMetadata logsResponseMetadata = (LogsResponseMetadata) o;
-    return Objects.equals(this.elapsed, logsResponseMetadata.elapsed) && Objects.equals(this.page, logsResponseMetadata.page) && Objects.equals(this.requestId, logsResponseMetadata.requestId) && Objects.equals(this.status, logsResponseMetadata.status) && Objects.equals(this.warnings, logsResponseMetadata.warnings) && Objects.equals(this.additionalProperties, logsResponseMetadata.additionalProperties);
+    return Objects.equals(this.elapsed, logsResponseMetadata.elapsed)
+        && Objects.equals(this.page, logsResponseMetadata.page)
+        && Objects.equals(this.requestId, logsResponseMetadata.requestId)
+        && Objects.equals(this.status, logsResponseMetadata.status)
+        && Objects.equals(this.warnings, logsResponseMetadata.warnings)
+        && Objects.equals(this.additionalProperties, logsResponseMetadata.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(elapsed,page,requestId,status,warnings, additionalProperties);
+    return Objects.hash(elapsed, page, requestId, status, warnings, additionalProperties);
   }
 
   @Override
@@ -258,8 +254,7 @@ public class LogsResponseMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

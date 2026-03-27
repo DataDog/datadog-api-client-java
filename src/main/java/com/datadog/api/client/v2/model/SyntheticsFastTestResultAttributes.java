@@ -6,34 +6,17 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of the fast test result.</p>
- */
+/** Attributes of the fast test result. */
 @JsonPropertyOrder({
   SyntheticsFastTestResultAttributes.JSON_PROPERTY_DEVICE,
   SyntheticsFastTestResultAttributes.JSON_PROPERTY_LOCATION,
@@ -42,10 +25,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsFastTestResultAttributes.JSON_PROPERTY_TEST_TYPE,
   SyntheticsFastTestResultAttributes.JSON_PROPERTY_TEST_VERSION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsFastTestResultAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEVICE = "device";
   private SyntheticsFastTestResultDevice device;
 
@@ -71,19 +54,21 @@ public class SyntheticsFastTestResultAttributes {
   }
 
   /**
-   * <p>Device information for browser-based fast tests.</p>
+   * Device information for browser-based fast tests.
+   *
    * @return device
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DEVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsFastTestResultDevice getDevice() {
-        return device;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsFastTestResultDevice getDevice() {
+    return device;
+  }
+
   public void setDevice(SyntheticsFastTestResultDevice device) {
     this.device = device;
   }
+
   public SyntheticsFastTestResultAttributes location(SyntheticsFastTestResultLocation location) {
     this.location = location;
     this.unparsed |= location.unparsed;
@@ -91,19 +76,21 @@ public class SyntheticsFastTestResultAttributes {
   }
 
   /**
-   * <p>Location from which the fast test was executed.</p>
+   * Location from which the fast test was executed.
+   *
    * @return location
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOCATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsFastTestResultLocation getLocation() {
-        return location;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOCATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsFastTestResultLocation getLocation() {
+    return location;
+  }
+
   public void setLocation(SyntheticsFastTestResultLocation location) {
     this.location = location;
   }
+
   public SyntheticsFastTestResultAttributes result(SyntheticsFastTestResultDetail result) {
     this.result = result;
     this.unparsed |= result.unparsed;
@@ -111,20 +98,22 @@ public class SyntheticsFastTestResultAttributes {
   }
 
   /**
-   * <p>Detailed result data for the fast test run. The exact shape of nested fields
-   * (<code>request</code>, <code>response</code>, <code>assertions</code>, etc.) depends on the test subtype.</p>
+   * Detailed result data for the fast test run. The exact shape of nested fields (<code>request
+   * </code>, <code>response</code>, <code>assertions</code>, etc.) depends on the test subtype.
+   *
    * @return result
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESULT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsFastTestResultDetail getResult() {
-        return result;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsFastTestResultDetail getResult() {
+    return result;
+  }
+
   public void setResult(SyntheticsFastTestResultDetail result) {
     this.result = result;
   }
+
   public SyntheticsFastTestResultAttributes testSubType(SyntheticsFastTestSubType testSubType) {
     this.testSubType = testSubType;
     this.unparsed |= !testSubType.isValid();
@@ -132,71 +121,76 @@ public class SyntheticsFastTestResultAttributes {
   }
 
   /**
-   * <p>Subtype of the Synthetic test that produced this result.</p>
+   * Subtype of the Synthetic test that produced this result.
+   *
    * @return testSubType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEST_SUB_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsFastTestSubType getTestSubType() {
-        return testSubType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEST_SUB_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsFastTestSubType getTestSubType() {
+    return testSubType;
+  }
+
   public void setTestSubType(SyntheticsFastTestSubType testSubType) {
     if (!testSubType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.testSubType = testSubType;
   }
+
   public SyntheticsFastTestResultAttributes testType(String testType) {
     this.testType = testType;
     return this;
   }
 
   /**
-   * <p>The type of the Synthetic test that produced this result (for example, <code>api</code> or <code>browser</code>).</p>
+   * The type of the Synthetic test that produced this result (for example, <code>api</code> or
+   * <code>browser</code>).
+   *
    * @return testType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEST_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTestType() {
-        return testType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTestType() {
+    return testType;
+  }
+
   public void setTestType(String testType) {
     this.testType = testType;
   }
+
   public SyntheticsFastTestResultAttributes testVersion(Long testVersion) {
     this.testVersion = testVersion;
     return this;
   }
 
   /**
-   * <p>Version of the test at the time the fast test was triggered.</p>
+   * Version of the test at the time the fast test was triggered.
+   *
    * @return testVersion
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEST_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTestVersion() {
-        return testVersion;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEST_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTestVersion() {
+    return testVersion;
+  }
+
   public void setTestVersion(Long testVersion) {
     this.testVersion = testVersion;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -205,7 +199,7 @@ public class SyntheticsFastTestResultAttributes {
   @JsonAnySetter
   public SyntheticsFastTestResultAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -229,14 +223,12 @@ public class SyntheticsFastTestResultAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsFastTestResultAttributes object is equal to o.
-   */
+  /** Return true if this SyntheticsFastTestResultAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -245,14 +237,22 @@ public class SyntheticsFastTestResultAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsFastTestResultAttributes syntheticsFastTestResultAttributes = (SyntheticsFastTestResultAttributes) o;
-    return Objects.equals(this.device, syntheticsFastTestResultAttributes.device) && Objects.equals(this.location, syntheticsFastTestResultAttributes.location) && Objects.equals(this.result, syntheticsFastTestResultAttributes.result) && Objects.equals(this.testSubType, syntheticsFastTestResultAttributes.testSubType) && Objects.equals(this.testType, syntheticsFastTestResultAttributes.testType) && Objects.equals(this.testVersion, syntheticsFastTestResultAttributes.testVersion) && Objects.equals(this.additionalProperties, syntheticsFastTestResultAttributes.additionalProperties);
+    SyntheticsFastTestResultAttributes syntheticsFastTestResultAttributes =
+        (SyntheticsFastTestResultAttributes) o;
+    return Objects.equals(this.device, syntheticsFastTestResultAttributes.device)
+        && Objects.equals(this.location, syntheticsFastTestResultAttributes.location)
+        && Objects.equals(this.result, syntheticsFastTestResultAttributes.result)
+        && Objects.equals(this.testSubType, syntheticsFastTestResultAttributes.testSubType)
+        && Objects.equals(this.testType, syntheticsFastTestResultAttributes.testType)
+        && Objects.equals(this.testVersion, syntheticsFastTestResultAttributes.testVersion)
+        && Objects.equals(
+            this.additionalProperties, syntheticsFastTestResultAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(device,location,result,testSubType,testType,testVersion, additionalProperties);
+    return Objects.hash(
+        device, location, result, testSubType, testType, testVersion, additionalProperties);
   }
 
   @Override
@@ -273,8 +273,7 @@ public class SyntheticsFastTestResultAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

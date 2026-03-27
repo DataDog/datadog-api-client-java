@@ -6,33 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
-   * <p>A formula and functions aggregate filtered query. Used to filter base query results using data from another source.</p>
+ * A formula and functions aggregate filtered query. Used to filter base query results using data
+ * from another source.
  */
 @JsonPropertyOrder({
   MonitorFormulaAndFunctionAggregateFilteredQueryDefinition.JSON_PROPERTY_BASE_QUERY,
@@ -43,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   MonitorFormulaAndFunctionAggregateFilteredQueryDefinition.JSON_PROPERTY_GROUP_BY,
   MonitorFormulaAndFunctionAggregateFilteredQueryDefinition.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BASE_QUERY = "base_query";
   private MonitorFormulaAndFunctionAggregateBaseQuery baseQuery;
 
@@ -72,45 +57,56 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
 
   @JsonCreator
   public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_BASE_QUERY)MonitorFormulaAndFunctionAggregateBaseQuery baseQuery,
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)MonitorFormulaAndFunctionAggregateFilteredDataSource dataSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_FILTER_QUERY)MonitorFormulaAndFunctionAggregateFilterQuery filterQuery,
-            @JsonProperty(required=true, value=JSON_PROPERTY_FILTERS)List<MonitorFormulaAndFunctionAggregateQueryFilter> filters) {
-        this.baseQuery = baseQuery;
-        this.unparsed |= baseQuery.unparsed;
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.filterQuery = filterQuery;
-        this.unparsed |= filterQuery.unparsed;
-        this.filters = filters;
+      @JsonProperty(required = true, value = JSON_PROPERTY_BASE_QUERY)
+          MonitorFormulaAndFunctionAggregateBaseQuery baseQuery,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          MonitorFormulaAndFunctionAggregateFilteredDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_FILTER_QUERY)
+          MonitorFormulaAndFunctionAggregateFilterQuery filterQuery,
+      @JsonProperty(required = true, value = JSON_PROPERTY_FILTERS)
+          List<MonitorFormulaAndFunctionAggregateQueryFilter> filters) {
+    this.baseQuery = baseQuery;
+    this.unparsed |= baseQuery.unparsed;
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.filterQuery = filterQuery;
+    this.unparsed |= filterQuery.unparsed;
+    this.filters = filters;
   }
-  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition baseQuery(MonitorFormulaAndFunctionAggregateBaseQuery baseQuery) {
+
+  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition baseQuery(
+      MonitorFormulaAndFunctionAggregateBaseQuery baseQuery) {
     this.baseQuery = baseQuery;
     this.unparsed |= baseQuery.unparsed;
     return this;
   }
 
   /**
-   * <p>Base query for aggregate queries. Can be an events query or a metrics query.</p>
+   * Base query for aggregate queries. Can be an events query or a metrics query.
+   *
    * @return baseQuery
-  **/
-      @JsonProperty(JSON_PROPERTY_BASE_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public MonitorFormulaAndFunctionAggregateBaseQuery getBaseQuery() {
-        return baseQuery;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_BASE_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MonitorFormulaAndFunctionAggregateBaseQuery getBaseQuery() {
+    return baseQuery;
+  }
+
   public void setBaseQuery(MonitorFormulaAndFunctionAggregateBaseQuery baseQuery) {
     this.baseQuery = baseQuery;
   }
-  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition compute(List<MonitorFormulaAndFunctionEventQueryDefinitionCompute> compute) {
+
+  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition compute(
+      List<MonitorFormulaAndFunctionEventQueryDefinitionCompute> compute) {
     this.compute = compute;
     for (MonitorFormulaAndFunctionEventQueryDefinitionCompute item : compute) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition addComputeItem(MonitorFormulaAndFunctionEventQueryDefinitionCompute computeItem) {
+
+  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition addComputeItem(
+      MonitorFormulaAndFunctionEventQueryDefinitionCompute computeItem) {
     if (this.compute == null) {
       this.compute = new ArrayList<>();
     }
@@ -120,94 +116,110 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
   }
 
   /**
-   * <p>Compute options for the query.</p>
+   * Compute options for the query.
+   *
    * @return compute
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPUTE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<MonitorFormulaAndFunctionEventQueryDefinitionCompute> getCompute() {
-        return compute;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorFormulaAndFunctionEventQueryDefinitionCompute> getCompute() {
+    return compute;
+  }
+
   public void setCompute(List<MonitorFormulaAndFunctionEventQueryDefinitionCompute> compute) {
     this.compute = compute;
   }
-  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition dataSource(MonitorFormulaAndFunctionAggregateFilteredDataSource dataSource) {
+
+  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition dataSource(
+      MonitorFormulaAndFunctionAggregateFilteredDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     return this;
   }
 
   /**
-   * <p>Data source for aggregate filtered queries.</p>
+   * Data source for aggregate filtered queries.
+   *
    * @return dataSource
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public MonitorFormulaAndFunctionAggregateFilteredDataSource getDataSource() {
-        return dataSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MonitorFormulaAndFunctionAggregateFilteredDataSource getDataSource() {
+    return dataSource;
+  }
+
   public void setDataSource(MonitorFormulaAndFunctionAggregateFilteredDataSource dataSource) {
     if (!dataSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
-  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition filterQuery(MonitorFormulaAndFunctionAggregateFilterQuery filterQuery) {
+
+  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition filterQuery(
+      MonitorFormulaAndFunctionAggregateFilterQuery filterQuery) {
     this.filterQuery = filterQuery;
     this.unparsed |= filterQuery.unparsed;
     return this;
   }
 
   /**
-   * <p>Filter query for aggregate filtered queries. Can be an events query or a reference table query.</p>
+   * Filter query for aggregate filtered queries. Can be an events query or a reference table query.
+   *
    * @return filterQuery
-  **/
-      @JsonProperty(JSON_PROPERTY_FILTER_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public MonitorFormulaAndFunctionAggregateFilterQuery getFilterQuery() {
-        return filterQuery;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FILTER_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MonitorFormulaAndFunctionAggregateFilterQuery getFilterQuery() {
+    return filterQuery;
+  }
+
   public void setFilterQuery(MonitorFormulaAndFunctionAggregateFilterQuery filterQuery) {
     this.filterQuery = filterQuery;
   }
-  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition filters(List<MonitorFormulaAndFunctionAggregateQueryFilter> filters) {
+
+  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition filters(
+      List<MonitorFormulaAndFunctionAggregateQueryFilter> filters) {
     this.filters = filters;
     for (MonitorFormulaAndFunctionAggregateQueryFilter item : filters) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition addFiltersItem(MonitorFormulaAndFunctionAggregateQueryFilter filtersItem) {
+
+  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition addFiltersItem(
+      MonitorFormulaAndFunctionAggregateQueryFilter filtersItem) {
     this.filters.add(filtersItem);
     this.unparsed |= filtersItem.unparsed;
     return this;
   }
 
   /**
-   * <p>Filter conditions for the query.</p>
+   * Filter conditions for the query.
+   *
    * @return filters
-  **/
-      @JsonProperty(JSON_PROPERTY_FILTERS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<MonitorFormulaAndFunctionAggregateQueryFilter> getFilters() {
-        return filters;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<MonitorFormulaAndFunctionAggregateQueryFilter> getFilters() {
+    return filters;
+  }
+
   public void setFilters(List<MonitorFormulaAndFunctionAggregateQueryFilter> filters) {
     this.filters = filters;
   }
-  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition groupBy(List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
+
+  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition groupBy(
+      List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
     for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition addGroupByItem(MonitorFormulaAndFunctionEventQueryGroupBy groupByItem) {
+
+  public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition addGroupByItem(
+      MonitorFormulaAndFunctionEventQueryGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
     }
@@ -217,41 +229,45 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
   }
 
   /**
-   * <p>Group by options for the query.</p>
+   * Group by options for the query.
+   *
    * @return groupBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<MonitorFormulaAndFunctionEventQueryGroupBy> getGroupBy() {
-        return groupBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorFormulaAndFunctionEventQueryGroupBy> getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
+
   public MonitorFormulaAndFunctionAggregateFilteredQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the query for use in formulas.</p>
+   * Name of the query for use in formulas.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
 
   /**
-   * Return true if this MonitorFormulaAndFunctionAggregateFilteredQueryDefinition object is equal to o.
+   * Return true if this MonitorFormulaAndFunctionAggregateFilteredQueryDefinition object is equal
+   * to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -261,14 +277,28 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorFormulaAndFunctionAggregateFilteredQueryDefinition monitorFormulaAndFunctionAggregateFilteredQueryDefinition = (MonitorFormulaAndFunctionAggregateFilteredQueryDefinition) o;
-    return Objects.equals(this.baseQuery, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.baseQuery) && Objects.equals(this.compute, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.compute) && Objects.equals(this.dataSource, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.dataSource) && Objects.equals(this.filterQuery, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.filterQuery) && Objects.equals(this.filters, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.filters) && Objects.equals(this.groupBy, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.groupBy) && Objects.equals(this.name, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.name);
+    MonitorFormulaAndFunctionAggregateFilteredQueryDefinition
+        monitorFormulaAndFunctionAggregateFilteredQueryDefinition =
+            (MonitorFormulaAndFunctionAggregateFilteredQueryDefinition) o;
+    return Objects.equals(
+            this.baseQuery, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.baseQuery)
+        && Objects.equals(
+            this.compute, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.compute)
+        && Objects.equals(
+            this.dataSource, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.dataSource)
+        && Objects.equals(
+            this.filterQuery, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.filterQuery)
+        && Objects.equals(
+            this.filters, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.filters)
+        && Objects.equals(
+            this.groupBy, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.groupBy)
+        && Objects.equals(
+            this.name, monitorFormulaAndFunctionAggregateFilteredQueryDefinition.name);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseQuery,compute,dataSource,filterQuery,filters,groupBy,name);
+    return Objects.hash(baseQuery, compute, dataSource, filterQuery, filters, groupBy, name);
   }
 
   @Override
@@ -287,8 +317,7 @@ public class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

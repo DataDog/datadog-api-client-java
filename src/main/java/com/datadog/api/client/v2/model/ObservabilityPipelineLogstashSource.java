@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>The <code>logstash</code> source ingests logs from a Logstash forwarder.</p>
-   * <p><strong>Supported pipeline types:</strong> logs</p>
+ * The <code>logstash</code> source ingests logs from a Logstash forwarder.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineLogstashSource.JSON_PROPERTY_ADDRESS_KEY,
@@ -41,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ObservabilityPipelineLogstashSource.JSON_PROPERTY_TLS,
   ObservabilityPipelineLogstashSource.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineLogstashSource {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ADDRESS_KEY = "address_key";
   private String addressKey;
 
@@ -55,55 +42,64 @@ public class ObservabilityPipelineLogstashSource {
   private ObservabilityPipelineTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineLogstashSourceType type = ObservabilityPipelineLogstashSourceType.LOGSTASH;
+  private ObservabilityPipelineLogstashSourceType type =
+      ObservabilityPipelineLogstashSourceType.LOGSTASH;
 
   public ObservabilityPipelineLogstashSource() {}
 
   @JsonCreator
   public ObservabilityPipelineLogstashSource(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ObservabilityPipelineLogstashSourceType type) {
-        this.id = id;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ObservabilityPipelineLogstashSourceType type) {
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public ObservabilityPipelineLogstashSource addressKey(String addressKey) {
     this.addressKey = addressKey;
     return this;
   }
 
   /**
-   * <p>Name of the environment variable or secret that holds the listen address for the Logstash receiver.</p>
+   * Name of the environment variable or secret that holds the listen address for the Logstash
+   * receiver.
+   *
    * @return addressKey
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getAddressKey() {
-        return addressKey;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAddressKey() {
+    return addressKey;
+  }
+
   public void setAddressKey(String addressKey) {
     this.addressKey = addressKey;
   }
+
   public ObservabilityPipelineLogstashSource id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the <code>input</code> to downstream components).</p>
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public ObservabilityPipelineLogstashSource tls(ObservabilityPipelineTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
@@ -111,19 +107,21 @@ public class ObservabilityPipelineLogstashSource {
   }
 
   /**
-   * <p>Configuration for enabling TLS encryption between the pipeline component and external services.</p>
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   *
    * @return tls
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TLS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ObservabilityPipelineTls getTls() {
-        return tls;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineTls getTls() {
+    return tls;
+  }
+
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
   }
+
   public ObservabilityPipelineLogstashSource type(ObservabilityPipelineLogstashSourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -131,32 +129,32 @@ public class ObservabilityPipelineLogstashSource {
   }
 
   /**
-   * <p>The source type. The value should always be <code>logstash</code>.</p>
+   * The source type. The value should always be <code>logstash</code>.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ObservabilityPipelineLogstashSourceType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineLogstashSourceType getType() {
+    return type;
+  }
+
   public void setType(ObservabilityPipelineLogstashSourceType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -165,7 +163,7 @@ public class ObservabilityPipelineLogstashSource {
   @JsonAnySetter
   public ObservabilityPipelineLogstashSource putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -189,14 +187,12 @@ public class ObservabilityPipelineLogstashSource {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ObservabilityPipelineLogstashSource object is equal to o.
-   */
+  /** Return true if this ObservabilityPipelineLogstashSource object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -205,14 +201,19 @@ public class ObservabilityPipelineLogstashSource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineLogstashSource observabilityPipelineLogstashSource = (ObservabilityPipelineLogstashSource) o;
-    return Objects.equals(this.addressKey, observabilityPipelineLogstashSource.addressKey) && Objects.equals(this.id, observabilityPipelineLogstashSource.id) && Objects.equals(this.tls, observabilityPipelineLogstashSource.tls) && Objects.equals(this.type, observabilityPipelineLogstashSource.type) && Objects.equals(this.additionalProperties, observabilityPipelineLogstashSource.additionalProperties);
+    ObservabilityPipelineLogstashSource observabilityPipelineLogstashSource =
+        (ObservabilityPipelineLogstashSource) o;
+    return Objects.equals(this.addressKey, observabilityPipelineLogstashSource.addressKey)
+        && Objects.equals(this.id, observabilityPipelineLogstashSource.id)
+        && Objects.equals(this.tls, observabilityPipelineLogstashSource.tls)
+        && Objects.equals(this.type, observabilityPipelineLogstashSource.type)
+        && Objects.equals(
+            this.additionalProperties, observabilityPipelineLogstashSource.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressKey,id,tls,type, additionalProperties);
+    return Objects.hash(addressKey, id, tls, type, additionalProperties);
   }
 
   @Override
@@ -231,8 +232,7 @@ public class ObservabilityPipelineLogstashSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

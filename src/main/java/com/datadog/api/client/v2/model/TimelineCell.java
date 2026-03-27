@@ -6,34 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>timeline cell</p>
- */
+/** timeline cell */
 @JsonPropertyOrder({
   TimelineCell.JSON_PROPERTY_AUTHOR,
   TimelineCell.JSON_PROPERTY_CELL_CONTENT,
@@ -42,10 +26,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   TimelineCell.JSON_PROPERTY_MODIFIED_AT,
   TimelineCell.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TimelineCell {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private TimelineCellAuthor author;
 
@@ -71,19 +55,21 @@ public class TimelineCell {
   }
 
   /**
-   * <p>author of the timeline cell</p>
+   * author of the timeline cell
+   *
    * @return author
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AUTHOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TimelineCellAuthor getAuthor() {
-        return author;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTHOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TimelineCellAuthor getAuthor() {
+    return author;
+  }
+
   public void setAuthor(TimelineCellAuthor author) {
     this.author = author;
   }
+
   public TimelineCell cellContent(TimelineCellContent cellContent) {
     this.cellContent = cellContent;
     this.unparsed |= cellContent.unparsed;
@@ -91,55 +77,57 @@ public class TimelineCell {
   }
 
   /**
-   * <p>timeline cell content</p>
+   * timeline cell content
+   *
    * @return cellContent
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CELL_CONTENT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TimelineCellContent getCellContent() {
-        return cellContent;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CELL_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TimelineCellContent getCellContent() {
+    return cellContent;
+  }
+
   public void setCellContent(TimelineCellContent cellContent) {
     this.cellContent = cellContent;
   }
 
   /**
-   * <p>Timestamp of when the cell was created</p>
+   * Timestamp of when the cell was created
+   *
    * @return createdAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
 
   /**
-   * <p>Timestamp of when the cell was deleted</p>
+   * Timestamp of when the cell was deleted
+   *
    * @return deletedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DELETED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getDeletedAt() {
-        return deletedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DELETED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getDeletedAt() {
+    return deletedAt;
+  }
 
   /**
-   * <p>Timestamp of when the cell was last modified</p>
+   * Timestamp of when the cell was last modified
+   *
    * @return modifiedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getModifiedAt() {
-        return modifiedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
+
   public TimelineCell type(TimelineCellType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -147,33 +135,33 @@ public class TimelineCell {
   }
 
   /**
-   * <p>Timeline cell content type</p>
+   * Timeline cell content type
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TimelineCellType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TimelineCellType getType() {
+    return type;
+  }
+
   public void setType(TimelineCellType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -182,7 +170,7 @@ public class TimelineCell {
   @JsonAnySetter
   public TimelineCell putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -206,14 +194,12 @@ public class TimelineCell {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TimelineCell object is equal to o.
-   */
+  /** Return true if this TimelineCell object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -223,13 +209,19 @@ public class TimelineCell {
       return false;
     }
     TimelineCell timelineCell = (TimelineCell) o;
-    return Objects.equals(this.author, timelineCell.author) && Objects.equals(this.cellContent, timelineCell.cellContent) && Objects.equals(this.createdAt, timelineCell.createdAt) && Objects.equals(this.deletedAt, timelineCell.deletedAt) && Objects.equals(this.modifiedAt, timelineCell.modifiedAt) && Objects.equals(this.type, timelineCell.type) && Objects.equals(this.additionalProperties, timelineCell.additionalProperties);
+    return Objects.equals(this.author, timelineCell.author)
+        && Objects.equals(this.cellContent, timelineCell.cellContent)
+        && Objects.equals(this.createdAt, timelineCell.createdAt)
+        && Objects.equals(this.deletedAt, timelineCell.deletedAt)
+        && Objects.equals(this.modifiedAt, timelineCell.modifiedAt)
+        && Objects.equals(this.type, timelineCell.type)
+        && Objects.equals(this.additionalProperties, timelineCell.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(author,cellContent,createdAt,deletedAt,modifiedAt,type, additionalProperties);
+    return Objects.hash(
+        author, cellContent, createdAt, deletedAt, modifiedAt, type, additionalProperties);
   }
 
   @Override
@@ -250,8 +242,7 @@ public class TimelineCell {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

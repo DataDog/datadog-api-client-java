@@ -1,19 +1,13 @@
 // Delete LLM Observability projects returns "No Content" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.LlmObservabilityApi;
 import com.datadog.api.client.v2.model.LLMObsDeleteProjectsDataAttributesRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteProjectsDataRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteProjectsRequest;
 import com.datadog.api.client.v2.model.LLMObsProjectType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,11 +15,15 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.deleteLLMObsProjects", true);
     LlmObservabilityApi apiInstance = new LlmObservabilityApi(defaultClient);
 
-    LLMObsDeleteProjectsRequest body = new LLMObsDeleteProjectsRequest()
-.data(new LLMObsDeleteProjectsDataRequest()
-.attributes(new LLMObsDeleteProjectsDataAttributesRequest()
-.projectIds(Collections.singletonList("a33671aa-24fd-4dcd-9b33-a8ec7dde7751")))
-.type(LLMObsProjectType.PROJECTS));
+    LLMObsDeleteProjectsRequest body =
+        new LLMObsDeleteProjectsRequest()
+            .data(
+                new LLMObsDeleteProjectsDataRequest()
+                    .attributes(
+                        new LLMObsDeleteProjectsDataAttributesRequest()
+                            .projectIds(
+                                Collections.singletonList("a33671aa-24fd-4dcd-9b33-a8ec7dde7751")))
+                    .type(LLMObsProjectType.PROJECTS));
 
     try {
       apiInstance.deleteLLMObsProjects(body);

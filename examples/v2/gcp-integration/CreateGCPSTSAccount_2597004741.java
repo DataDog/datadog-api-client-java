@@ -1,33 +1,31 @@
-// Create a new entry for your service account with security command center enabled returns "OK" response
+// Create a new entry for your service account with security command center enabled returns "OK"
+// response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.GcpIntegrationApi;
-import com.datadog.api.client.v2.model.GCPSTSServiceAccountResponse;
-import com.datadog.api.client.v2.model.GCPServiceAccountType;
 import com.datadog.api.client.v2.model.GCPSTSServiceAccountAttributes;
 import com.datadog.api.client.v2.model.GCPSTSServiceAccountCreateRequest;
 import com.datadog.api.client.v2.model.GCPSTSServiceAccountData;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import com.datadog.api.client.v2.model.GCPSTSServiceAccountResponse;
+import com.datadog.api.client.v2.model.GCPServiceAccountType;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
 
-    GCPSTSServiceAccountCreateRequest body = new GCPSTSServiceAccountCreateRequest()
-.data(new GCPSTSServiceAccountData()
-.attributes(new GCPSTSServiceAccountAttributes()
-.isSecurityCommandCenterEnabled(true)
-.isResourceChangeCollectionEnabled(true)
-.clientEmail("Test-252bf553ef04b351@test-project.iam.gserviceaccount.com"))
-.type(GCPServiceAccountType.GCP_SERVICE_ACCOUNT));
+    GCPSTSServiceAccountCreateRequest body =
+        new GCPSTSServiceAccountCreateRequest()
+            .data(
+                new GCPSTSServiceAccountData()
+                    .attributes(
+                        new GCPSTSServiceAccountAttributes()
+                            .isSecurityCommandCenterEnabled(true)
+                            .isResourceChangeCollectionEnabled(true)
+                            .clientEmail(
+                                "Test-252bf553ef04b351@test-project.iam.gserviceaccount.com"))
+                    .type(GCPServiceAccountType.GCP_SERVICE_ACCOUNT));
 
     try {
       GCPSTSServiceAccountResponse result = apiInstance.createGCPSTSAccount(body);

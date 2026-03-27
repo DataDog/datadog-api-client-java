@@ -6,79 +6,60 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>Link type.</p>
- */
+/** Link type. */
 @JsonSerialize(using = ServiceDefinitionV2LinkType.ServiceDefinitionV2LinkTypeSerializer.class)
 public class ServiceDefinitionV2LinkType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("doc", "wiki", "runbook", "url", "repo", "dashboard", "oncall", "code", "link"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "doc", "wiki", "runbook", "url", "repo", "dashboard", "oncall", "code", "link"));
 
   public static final ServiceDefinitionV2LinkType DOC = new ServiceDefinitionV2LinkType("doc");
   public static final ServiceDefinitionV2LinkType WIKI = new ServiceDefinitionV2LinkType("wiki");
-  public static final ServiceDefinitionV2LinkType RUNBOOK = new ServiceDefinitionV2LinkType("runbook");
+  public static final ServiceDefinitionV2LinkType RUNBOOK =
+      new ServiceDefinitionV2LinkType("runbook");
   public static final ServiceDefinitionV2LinkType URL = new ServiceDefinitionV2LinkType("url");
   public static final ServiceDefinitionV2LinkType REPO = new ServiceDefinitionV2LinkType("repo");
-  public static final ServiceDefinitionV2LinkType DASHBOARD = new ServiceDefinitionV2LinkType("dashboard");
-  public static final ServiceDefinitionV2LinkType ONCALL = new ServiceDefinitionV2LinkType("oncall");
+  public static final ServiceDefinitionV2LinkType DASHBOARD =
+      new ServiceDefinitionV2LinkType("dashboard");
+  public static final ServiceDefinitionV2LinkType ONCALL =
+      new ServiceDefinitionV2LinkType("oncall");
   public static final ServiceDefinitionV2LinkType CODE = new ServiceDefinitionV2LinkType("code");
   public static final ServiceDefinitionV2LinkType LINK = new ServiceDefinitionV2LinkType("link");
-
 
   ServiceDefinitionV2LinkType(String value) {
     super(value, allowedValues);
   }
 
-  public static class ServiceDefinitionV2LinkTypeSerializer extends StdSerializer<ServiceDefinitionV2LinkType> {
-      public ServiceDefinitionV2LinkTypeSerializer(Class<ServiceDefinitionV2LinkType> t) {
-          super(t);
-      }
+  public static class ServiceDefinitionV2LinkTypeSerializer
+      extends StdSerializer<ServiceDefinitionV2LinkType> {
+    public ServiceDefinitionV2LinkTypeSerializer(Class<ServiceDefinitionV2LinkType> t) {
+      super(t);
+    }
 
-      public ServiceDefinitionV2LinkTypeSerializer() {
-          this(null);
-      }
+    public ServiceDefinitionV2LinkTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ServiceDefinitionV2LinkType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        ServiceDefinitionV2LinkType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

@@ -6,71 +6,48 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>Timeline cell JSON:API resource type</p>
- */
+/** Timeline cell JSON:API resource type */
 @JsonSerialize(using = TimelineCellResourceType.TimelineCellResourceTypeSerializer.class)
 public class TimelineCellResourceType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("timeline_cell"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("timeline_cell"));
 
-  public static final TimelineCellResourceType TIMELINE_CELL = new TimelineCellResourceType("timeline_cell");
-
+  public static final TimelineCellResourceType TIMELINE_CELL =
+      new TimelineCellResourceType("timeline_cell");
 
   TimelineCellResourceType(String value) {
     super(value, allowedValues);
   }
 
-  public static class TimelineCellResourceTypeSerializer extends StdSerializer<TimelineCellResourceType> {
-      public TimelineCellResourceTypeSerializer(Class<TimelineCellResourceType> t) {
-          super(t);
-      }
+  public static class TimelineCellResourceTypeSerializer
+      extends StdSerializer<TimelineCellResourceType> {
+    public TimelineCellResourceTypeSerializer(Class<TimelineCellResourceType> t) {
+      super(t);
+    }
 
-      public TimelineCellResourceTypeSerializer() {
-          this(null);
-      }
+    public TimelineCellResourceTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(TimelineCellResourceType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        TimelineCellResourceType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

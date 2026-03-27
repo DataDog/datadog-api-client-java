@@ -6,34 +6,17 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object containing results for your Synthetic API test.</p>
- */
+/** Object containing results for your Synthetic API test. */
 @JsonPropertyOrder({
   SyntheticsAPITestResultData.JSON_PROPERTY_CERT,
   SyntheticsAPITestResultData.JSON_PROPERTY_EVENT_TYPE,
@@ -45,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsAPITestResultData.JSON_PROPERTY_RESPONSE_SIZE,
   SyntheticsAPITestResultData.JSON_PROPERTY_TIMINGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITestResultData {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CERT = "cert";
   private SyntheticsSSLCertificate cert;
 
@@ -83,19 +66,21 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * <p>Object describing the SSL certificate used for a Synthetic test.</p>
+   * Object describing the SSL certificate used for a Synthetic test.
+   *
    * @return cert
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CERT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsSSLCertificate getCert() {
-        return cert;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsSSLCertificate getCert() {
+    return cert;
+  }
+
   public void setCert(SyntheticsSSLCertificate cert) {
     this.cert = cert;
   }
+
   public SyntheticsAPITestResultData eventType(SyntheticsTestProcessStatus eventType) {
     this.eventType = eventType;
     this.unparsed |= !eventType.isValid();
@@ -103,22 +88,24 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * <p>Status of a Synthetic test.</p>
+   * Status of a Synthetic test.
+   *
    * @return eventType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestProcessStatus getEventType() {
-        return eventType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestProcessStatus getEventType() {
+    return eventType;
+  }
+
   public void setEventType(SyntheticsTestProcessStatus eventType) {
     if (!eventType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.eventType = eventType;
   }
+
   public SyntheticsAPITestResultData failure(SyntheticsApiTestResultFailure failure) {
     this.failure = failure;
     this.unparsed |= failure.unparsed;
@@ -126,42 +113,47 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * <p>The API test failure details.</p>
+   * The API test failure details.
+   *
    * @return failure
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FAILURE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsApiTestResultFailure getFailure() {
-        return failure;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsApiTestResultFailure getFailure() {
+    return failure;
+  }
+
   public void setFailure(SyntheticsApiTestResultFailure failure) {
     this.failure = failure;
   }
+
   public SyntheticsAPITestResultData httpStatusCode(Long httpStatusCode) {
     this.httpStatusCode = httpStatusCode;
     return this;
   }
 
   /**
-   * <p>The API test HTTP status code.</p>
+   * The API test HTTP status code.
+   *
    * @return httpStatusCode
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HTTP_STATUS_CODE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getHttpStatusCode() {
-        return httpStatusCode;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HTTP_STATUS_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getHttpStatusCode() {
+    return httpStatusCode;
+  }
+
   public void setHttpStatusCode(Long httpStatusCode) {
     this.httpStatusCode = httpStatusCode;
   }
+
   public SyntheticsAPITestResultData requestHeaders(Map<String, Object> requestHeaders) {
     this.requestHeaders = requestHeaders;
     return this;
   }
+
   public SyntheticsAPITestResultData putRequestHeadersItem(String key, Object requestHeadersItem) {
     if (this.requestHeaders == null) {
       this.requestHeaders = new HashMap<>();
@@ -171,43 +163,49 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * <p>Request header object used for the API test.</p>
+   * Request header object used for the API test.
+   *
    * @return requestHeaders
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REQUEST_HEADERS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getRequestHeaders() {
-        return requestHeaders;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_HEADERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getRequestHeaders() {
+    return requestHeaders;
+  }
+
   public void setRequestHeaders(Map<String, Object> requestHeaders) {
     this.requestHeaders = requestHeaders;
   }
+
   public SyntheticsAPITestResultData responseBody(String responseBody) {
     this.responseBody = responseBody;
     return this;
   }
 
   /**
-   * <p>Response body returned for the API test.</p>
+   * Response body returned for the API test.
+   *
    * @return responseBody
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getResponseBody() {
-        return responseBody;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getResponseBody() {
+    return responseBody;
+  }
+
   public void setResponseBody(String responseBody) {
     this.responseBody = responseBody;
   }
+
   public SyntheticsAPITestResultData responseHeaders(Map<String, Object> responseHeaders) {
     this.responseHeaders = responseHeaders;
     return this;
   }
-  public SyntheticsAPITestResultData putResponseHeadersItem(String key, Object responseHeadersItem) {
+
+  public SyntheticsAPITestResultData putResponseHeadersItem(
+      String key, Object responseHeadersItem) {
     if (this.responseHeaders == null) {
       this.responseHeaders = new HashMap<>();
     }
@@ -216,38 +214,42 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * <p>Response headers returned for the API test.</p>
+   * Response headers returned for the API test.
+   *
    * @return responseHeaders
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESPONSE_HEADERS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getResponseHeaders() {
-        return responseHeaders;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONSE_HEADERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getResponseHeaders() {
+    return responseHeaders;
+  }
+
   public void setResponseHeaders(Map<String, Object> responseHeaders) {
     this.responseHeaders = responseHeaders;
   }
+
   public SyntheticsAPITestResultData responseSize(Long responseSize) {
     this.responseSize = responseSize;
     return this;
   }
 
   /**
-   * <p>Global size in byte of the API test response.</p>
+   * Global size in byte of the API test response.
+   *
    * @return responseSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESPONSE_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getResponseSize() {
-        return responseSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONSE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getResponseSize() {
+    return responseSize;
+  }
+
   public void setResponseSize(Long responseSize) {
     this.responseSize = responseSize;
   }
+
   public SyntheticsAPITestResultData timings(SyntheticsTiming timings) {
     this.timings = timings;
     this.unparsed |= timings.unparsed;
@@ -255,31 +257,32 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * <p>Object containing all metrics and their values collected for a Synthetic API test.
-   * See the <a href="https://docs.datadoghq.com/synthetics/metrics/">Synthetic Monitoring Metrics documentation</a>.</p>
+   * Object containing all metrics and their values collected for a Synthetic API test. See the <a
+   * href="https://docs.datadoghq.com/synthetics/metrics/">Synthetic Monitoring Metrics
+   * documentation</a>.
+   *
    * @return timings
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMINGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTiming getTimings() {
-        return timings;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTiming getTimings() {
+    return timings;
+  }
+
   public void setTimings(SyntheticsTiming timings) {
     this.timings = timings;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -288,7 +291,7 @@ public class SyntheticsAPITestResultData {
   @JsonAnySetter
   public SyntheticsAPITestResultData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -312,14 +315,12 @@ public class SyntheticsAPITestResultData {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsAPITestResultData object is equal to o.
-   */
+  /** Return true if this SyntheticsAPITestResultData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -329,13 +330,32 @@ public class SyntheticsAPITestResultData {
       return false;
     }
     SyntheticsAPITestResultData syntheticsApiTestResultData = (SyntheticsAPITestResultData) o;
-    return Objects.equals(this.cert, syntheticsApiTestResultData.cert) && Objects.equals(this.eventType, syntheticsApiTestResultData.eventType) && Objects.equals(this.failure, syntheticsApiTestResultData.failure) && Objects.equals(this.httpStatusCode, syntheticsApiTestResultData.httpStatusCode) && Objects.equals(this.requestHeaders, syntheticsApiTestResultData.requestHeaders) && Objects.equals(this.responseBody, syntheticsApiTestResultData.responseBody) && Objects.equals(this.responseHeaders, syntheticsApiTestResultData.responseHeaders) && Objects.equals(this.responseSize, syntheticsApiTestResultData.responseSize) && Objects.equals(this.timings, syntheticsApiTestResultData.timings) && Objects.equals(this.additionalProperties, syntheticsApiTestResultData.additionalProperties);
+    return Objects.equals(this.cert, syntheticsApiTestResultData.cert)
+        && Objects.equals(this.eventType, syntheticsApiTestResultData.eventType)
+        && Objects.equals(this.failure, syntheticsApiTestResultData.failure)
+        && Objects.equals(this.httpStatusCode, syntheticsApiTestResultData.httpStatusCode)
+        && Objects.equals(this.requestHeaders, syntheticsApiTestResultData.requestHeaders)
+        && Objects.equals(this.responseBody, syntheticsApiTestResultData.responseBody)
+        && Objects.equals(this.responseHeaders, syntheticsApiTestResultData.responseHeaders)
+        && Objects.equals(this.responseSize, syntheticsApiTestResultData.responseSize)
+        && Objects.equals(this.timings, syntheticsApiTestResultData.timings)
+        && Objects.equals(
+            this.additionalProperties, syntheticsApiTestResultData.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(cert,eventType,failure,httpStatusCode,requestHeaders,responseBody,responseHeaders,responseSize,timings, additionalProperties);
+    return Objects.hash(
+        cert,
+        eventType,
+        failure,
+        httpStatusCode,
+        requestHeaders,
+        responseBody,
+        responseHeaders,
+        responseSize,
+        timings,
+        additionalProperties);
   }
 
   @Override
@@ -359,8 +379,7 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

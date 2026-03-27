@@ -6,44 +6,27 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Container group object.</p>
- */
+/** Container group object. */
 @JsonPropertyOrder({
   ContainerGroup.JSON_PROPERTY_ATTRIBUTES,
   ContainerGroup.JSON_PROPERTY_ID,
   ContainerGroup.JSON_PROPERTY_RELATIONSHIPS,
   ContainerGroup.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ContainerGroup {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private ContainerGroupAttributes attributes;
 
@@ -63,38 +46,42 @@ public class ContainerGroup {
   }
 
   /**
-   * <p>Attributes for a container group.</p>
+   * Attributes for a container group.
+   *
    * @return attributes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ContainerGroupAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ContainerGroupAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(ContainerGroupAttributes attributes) {
     this.attributes = attributes;
   }
+
   public ContainerGroup id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>Container Group ID.</p>
+   * Container Group ID.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public ContainerGroup relationships(ContainerGroupRelationships relationships) {
     this.relationships = relationships;
     this.unparsed |= relationships.unparsed;
@@ -102,19 +89,21 @@ public class ContainerGroup {
   }
 
   /**
-   * <p>Relationships to containers inside a container group.</p>
+   * Relationships to containers inside a container group.
+   *
    * @return relationships
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ContainerGroupRelationships getRelationships() {
-        return relationships;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ContainerGroupRelationships getRelationships() {
+    return relationships;
+  }
+
   public void setRelationships(ContainerGroupRelationships relationships) {
     this.relationships = relationships;
   }
+
   public ContainerGroup type(ContainerGroupType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -122,33 +111,33 @@ public class ContainerGroup {
   }
 
   /**
-   * <p>Type of container group.</p>
+   * Type of container group.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ContainerGroupType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ContainerGroupType getType() {
+    return type;
+  }
+
   public void setType(ContainerGroupType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -157,7 +146,7 @@ public class ContainerGroup {
   @JsonAnySetter
   public ContainerGroup putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -181,14 +170,12 @@ public class ContainerGroup {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ContainerGroup object is equal to o.
-   */
+  /** Return true if this ContainerGroup object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -198,13 +185,16 @@ public class ContainerGroup {
       return false;
     }
     ContainerGroup containerGroup = (ContainerGroup) o;
-    return Objects.equals(this.attributes, containerGroup.attributes) && Objects.equals(this.id, containerGroup.id) && Objects.equals(this.relationships, containerGroup.relationships) && Objects.equals(this.type, containerGroup.type) && Objects.equals(this.additionalProperties, containerGroup.additionalProperties);
+    return Objects.equals(this.attributes, containerGroup.attributes)
+        && Objects.equals(this.id, containerGroup.id)
+        && Objects.equals(this.relationships, containerGroup.relationships)
+        && Objects.equals(this.type, containerGroup.type)
+        && Objects.equals(this.additionalProperties, containerGroup.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,id,relationships,type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -223,8 +213,7 @@ public class ContainerGroup {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

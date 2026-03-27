@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The device attributes</p>
- */
+/** The device attributes */
 @JsonPropertyOrder({
   GetDeviceAttributes.JSON_PROPERTY_DESCRIPTION,
   GetDeviceAttributes.JSON_PROPERTY_DEVICE_TYPE,
@@ -55,10 +40,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   GetDeviceAttributes.JSON_PROPERTY_VENDOR,
   GetDeviceAttributes.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GetDeviceAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -122,308 +107,341 @@ public class GetDeviceAttributes {
   }
 
   /**
-   * <p>A description of the device.</p>
+   * A description of the device.
+   *
    * @return description
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDescription() {
-        return description;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
   public void setDescription(String description) {
     this.description = description;
   }
+
   public GetDeviceAttributes deviceType(String deviceType) {
     this.deviceType = deviceType;
     return this;
   }
 
   /**
-   * <p>The type of the device.</p>
+   * The type of the device.
+   *
    * @return deviceType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DEVICE_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDeviceType() {
-        return deviceType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEVICE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDeviceType() {
+    return deviceType;
+  }
+
   public void setDeviceType(String deviceType) {
     this.deviceType = deviceType;
   }
+
   public GetDeviceAttributes integration(String integration) {
     this.integration = integration;
     return this;
   }
 
   /**
-   * <p>The integration of the device.</p>
+   * The integration of the device.
+   *
    * @return integration
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INTEGRATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getIntegration() {
-        return integration;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTEGRATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIntegration() {
+    return integration;
+  }
+
   public void setIntegration(String integration) {
     this.integration = integration;
   }
+
   public GetDeviceAttributes ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
   }
 
   /**
-   * <p>The IP address of the device.</p>
+   * The IP address of the device.
+   *
    * @return ipAddress
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getIpAddress() {
-        return ipAddress;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIpAddress() {
+    return ipAddress;
+  }
+
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
   }
+
   public GetDeviceAttributes location(String location) {
     this.location = location;
     return this;
   }
 
   /**
-   * <p>The location of the device.</p>
+   * The location of the device.
+   *
    * @return location
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOCATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getLocation() {
-        return location;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOCATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLocation() {
+    return location;
+  }
+
   public void setLocation(String location) {
     this.location = location;
   }
+
   public GetDeviceAttributes model(String model) {
     this.model = model;
     return this;
   }
 
   /**
-   * <p>The model of the device.</p>
+   * The model of the device.
+   *
    * @return model
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MODEL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getModel() {
-        return model;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getModel() {
+    return model;
+  }
+
   public void setModel(String model) {
     this.model = model;
   }
+
   public GetDeviceAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the device.</p>
+   * The name of the device.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public GetDeviceAttributes osHostname(String osHostname) {
     this.osHostname = osHostname;
     return this;
   }
 
   /**
-   * <p>The operating system hostname of the device.</p>
+   * The operating system hostname of the device.
+   *
    * @return osHostname
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OS_HOSTNAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOsHostname() {
-        return osHostname;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OS_HOSTNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOsHostname() {
+    return osHostname;
+  }
+
   public void setOsHostname(String osHostname) {
     this.osHostname = osHostname;
   }
+
   public GetDeviceAttributes osName(String osName) {
     this.osName = osName;
     return this;
   }
 
   /**
-   * <p>The operating system name of the device.</p>
+   * The operating system name of the device.
+   *
    * @return osName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OS_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOsName() {
-        return osName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OS_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOsName() {
+    return osName;
+  }
+
   public void setOsName(String osName) {
     this.osName = osName;
   }
+
   public GetDeviceAttributes osVersion(String osVersion) {
     this.osVersion = osVersion;
     return this;
   }
 
   /**
-   * <p>The operating system version of the device.</p>
+   * The operating system version of the device.
+   *
    * @return osVersion
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OS_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOsVersion() {
-        return osVersion;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OS_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOsVersion() {
+    return osVersion;
+  }
+
   public void setOsVersion(String osVersion) {
     this.osVersion = osVersion;
   }
+
   public GetDeviceAttributes pingStatus(String pingStatus) {
     this.pingStatus = pingStatus;
     return this;
   }
 
   /**
-   * <p>The ping status of the device.</p>
+   * The ping status of the device.
+   *
    * @return pingStatus
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PING_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPingStatus() {
-        return pingStatus;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PING_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPingStatus() {
+    return pingStatus;
+  }
+
   public void setPingStatus(String pingStatus) {
     this.pingStatus = pingStatus;
   }
+
   public GetDeviceAttributes productName(String productName) {
     this.productName = productName;
     return this;
   }
 
   /**
-   * <p>The product name of the device.</p>
+   * The product name of the device.
+   *
    * @return productName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getProductName() {
-        return productName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProductName() {
+    return productName;
+  }
+
   public void setProductName(String productName) {
     this.productName = productName;
   }
+
   public GetDeviceAttributes serialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
     return this;
   }
 
   /**
-   * <p>The serial number of the device.</p>
+   * The serial number of the device.
+   *
    * @return serialNumber
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSerialNumber() {
-        return serialNumber;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSerialNumber() {
+    return serialNumber;
+  }
+
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
+
   public GetDeviceAttributes status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * <p>The status of the device.</p>
+   * The status of the device.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatus() {
+    return status;
+  }
+
   public void setStatus(String status) {
     this.status = status;
   }
+
   public GetDeviceAttributes subnet(String subnet) {
     this.subnet = subnet;
     return this;
   }
 
   /**
-   * <p>The subnet of the device.</p>
+   * The subnet of the device.
+   *
    * @return subnet
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SUBNET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSubnet() {
-        return subnet;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUBNET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubnet() {
+    return subnet;
+  }
+
   public void setSubnet(String subnet) {
     this.subnet = subnet;
   }
+
   public GetDeviceAttributes sysObjectId(String sysObjectId) {
     this.sysObjectId = sysObjectId;
     return this;
   }
 
   /**
-   * <p>The device <code>sys_object_id</code>.</p>
+   * The device <code>sys_object_id</code>.
+   *
    * @return sysObjectId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SYS_OBJECT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSysObjectId() {
-        return sysObjectId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYS_OBJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSysObjectId() {
+    return sysObjectId;
+  }
+
   public void setSysObjectId(String sysObjectId) {
     this.sysObjectId = sysObjectId;
   }
+
   public GetDeviceAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public GetDeviceAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -433,68 +451,72 @@ public class GetDeviceAttributes {
   }
 
   /**
-   * <p>A list of tags associated with the device.</p>
+   * A list of tags associated with the device.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public GetDeviceAttributes vendor(String vendor) {
     this.vendor = vendor;
     return this;
   }
 
   /**
-   * <p>The vendor of the device.</p>
+   * The vendor of the device.
+   *
    * @return vendor
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VENDOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getVendor() {
-        return vendor;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VENDOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVendor() {
+    return vendor;
+  }
+
   public void setVendor(String vendor) {
     this.vendor = vendor;
   }
+
   public GetDeviceAttributes version(String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * <p>The version of the device.</p>
+   * The version of the device.
+   *
    * @return version
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getVersion() {
-        return version;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVersion() {
+    return version;
+  }
+
   public void setVersion(String version) {
     this.version = version;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -503,7 +525,7 @@ public class GetDeviceAttributes {
   @JsonAnySetter
   public GetDeviceAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -527,14 +549,12 @@ public class GetDeviceAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this GetDeviceAttributes object is equal to o.
-   */
+  /** Return true if this GetDeviceAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -544,13 +564,51 @@ public class GetDeviceAttributes {
       return false;
     }
     GetDeviceAttributes getDeviceAttributes = (GetDeviceAttributes) o;
-    return Objects.equals(this.description, getDeviceAttributes.description) && Objects.equals(this.deviceType, getDeviceAttributes.deviceType) && Objects.equals(this.integration, getDeviceAttributes.integration) && Objects.equals(this.ipAddress, getDeviceAttributes.ipAddress) && Objects.equals(this.location, getDeviceAttributes.location) && Objects.equals(this.model, getDeviceAttributes.model) && Objects.equals(this.name, getDeviceAttributes.name) && Objects.equals(this.osHostname, getDeviceAttributes.osHostname) && Objects.equals(this.osName, getDeviceAttributes.osName) && Objects.equals(this.osVersion, getDeviceAttributes.osVersion) && Objects.equals(this.pingStatus, getDeviceAttributes.pingStatus) && Objects.equals(this.productName, getDeviceAttributes.productName) && Objects.equals(this.serialNumber, getDeviceAttributes.serialNumber) && Objects.equals(this.status, getDeviceAttributes.status) && Objects.equals(this.subnet, getDeviceAttributes.subnet) && Objects.equals(this.sysObjectId, getDeviceAttributes.sysObjectId) && Objects.equals(this.tags, getDeviceAttributes.tags) && Objects.equals(this.vendor, getDeviceAttributes.vendor) && Objects.equals(this.version, getDeviceAttributes.version) && Objects.equals(this.additionalProperties, getDeviceAttributes.additionalProperties);
+    return Objects.equals(this.description, getDeviceAttributes.description)
+        && Objects.equals(this.deviceType, getDeviceAttributes.deviceType)
+        && Objects.equals(this.integration, getDeviceAttributes.integration)
+        && Objects.equals(this.ipAddress, getDeviceAttributes.ipAddress)
+        && Objects.equals(this.location, getDeviceAttributes.location)
+        && Objects.equals(this.model, getDeviceAttributes.model)
+        && Objects.equals(this.name, getDeviceAttributes.name)
+        && Objects.equals(this.osHostname, getDeviceAttributes.osHostname)
+        && Objects.equals(this.osName, getDeviceAttributes.osName)
+        && Objects.equals(this.osVersion, getDeviceAttributes.osVersion)
+        && Objects.equals(this.pingStatus, getDeviceAttributes.pingStatus)
+        && Objects.equals(this.productName, getDeviceAttributes.productName)
+        && Objects.equals(this.serialNumber, getDeviceAttributes.serialNumber)
+        && Objects.equals(this.status, getDeviceAttributes.status)
+        && Objects.equals(this.subnet, getDeviceAttributes.subnet)
+        && Objects.equals(this.sysObjectId, getDeviceAttributes.sysObjectId)
+        && Objects.equals(this.tags, getDeviceAttributes.tags)
+        && Objects.equals(this.vendor, getDeviceAttributes.vendor)
+        && Objects.equals(this.version, getDeviceAttributes.version)
+        && Objects.equals(this.additionalProperties, getDeviceAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(description,deviceType,integration,ipAddress,location,model,name,osHostname,osName,osVersion,pingStatus,productName,serialNumber,status,subnet,sysObjectId,tags,vendor,version, additionalProperties);
+    return Objects.hash(
+        description,
+        deviceType,
+        integration,
+        ipAddress,
+        location,
+        model,
+        name,
+        osHostname,
+        osName,
+        osVersion,
+        pingStatus,
+        productName,
+        serialNumber,
+        status,
+        subnet,
+        sysObjectId,
+        tags,
+        vendor,
+        version,
+        additionalProperties);
   }
 
   @Override
@@ -584,8 +642,7 @@ public class GetDeviceAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

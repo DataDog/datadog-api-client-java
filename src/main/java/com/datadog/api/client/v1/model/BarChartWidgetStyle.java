@@ -6,43 +6,26 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Style customization for a bar chart widget.</p>
- */
+/** Style customization for a bar chart widget. */
 @JsonPropertyOrder({
   BarChartWidgetStyle.JSON_PROPERTY_DISPLAY,
   BarChartWidgetStyle.JSON_PROPERTY_PALETTE,
   BarChartWidgetStyle.JSON_PROPERTY_SCALING
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class BarChartWidgetStyle {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY = "display";
   private BarChartWidgetDisplay display;
 
@@ -59,38 +42,42 @@ public class BarChartWidgetStyle {
   }
 
   /**
-   * <p>Bar chart widget display options.</p>
+   * Bar chart widget display options.
+   *
    * @return display
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DISPLAY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public BarChartWidgetDisplay getDisplay() {
-        return display;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BarChartWidgetDisplay getDisplay() {
+    return display;
+  }
+
   public void setDisplay(BarChartWidgetDisplay display) {
     this.display = display;
   }
+
   public BarChartWidgetStyle palette(String palette) {
     this.palette = palette;
     return this;
   }
 
   /**
-   * <p>Color palette to apply to the widget.</p>
+   * Color palette to apply to the widget.
+   *
    * @return palette
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PALETTE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPalette() {
-        return palette;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PALETTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPalette() {
+    return palette;
+  }
+
   public void setPalette(String palette) {
     this.palette = palette;
   }
+
   public BarChartWidgetStyle scaling(BarChartWidgetScaling scaling) {
     this.scaling = scaling;
     this.unparsed |= !scaling.isValid();
@@ -98,33 +85,33 @@ public class BarChartWidgetStyle {
   }
 
   /**
-   * <p>Bar chart widget scaling definition.</p>
+   * Bar chart widget scaling definition.
+   *
    * @return scaling
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SCALING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public BarChartWidgetScaling getScaling() {
-        return scaling;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCALING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BarChartWidgetScaling getScaling() {
+    return scaling;
+  }
+
   public void setScaling(BarChartWidgetScaling scaling) {
     if (!scaling.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.scaling = scaling;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -133,7 +120,7 @@ public class BarChartWidgetStyle {
   @JsonAnySetter
   public BarChartWidgetStyle putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -157,14 +144,12 @@ public class BarChartWidgetStyle {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this BarChartWidgetStyle object is equal to o.
-   */
+  /** Return true if this BarChartWidgetStyle object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,13 +159,15 @@ public class BarChartWidgetStyle {
       return false;
     }
     BarChartWidgetStyle barChartWidgetStyle = (BarChartWidgetStyle) o;
-    return Objects.equals(this.display, barChartWidgetStyle.display) && Objects.equals(this.palette, barChartWidgetStyle.palette) && Objects.equals(this.scaling, barChartWidgetStyle.scaling) && Objects.equals(this.additionalProperties, barChartWidgetStyle.additionalProperties);
+    return Objects.equals(this.display, barChartWidgetStyle.display)
+        && Objects.equals(this.palette, barChartWidgetStyle.palette)
+        && Objects.equals(this.scaling, barChartWidgetStyle.scaling)
+        && Objects.equals(this.additionalProperties, barChartWidgetStyle.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(display,palette,scaling, additionalProperties);
+    return Objects.hash(display, palette, scaling, additionalProperties);
   }
 
   @Override
@@ -198,8 +185,7 @@ public class BarChartWidgetStyle {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

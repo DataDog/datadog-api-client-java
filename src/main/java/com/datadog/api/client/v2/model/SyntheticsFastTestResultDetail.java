@@ -6,34 +6,21 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>Detailed result data for the fast test run. The exact shape of nested fields
-   * (<code>request</code>, <code>response</code>, <code>assertions</code>, etc.) depends on the test subtype.</p>
+ * Detailed result data for the fast test run. The exact shape of nested fields (<code>request
+ * </code>, <code>response</code>, <code>assertions</code>, etc.) depends on the test subtype.
  */
 @JsonPropertyOrder({
   SyntheticsFastTestResultDetail.JSON_PROPERTY_ASSERTIONS,
@@ -56,10 +43,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsFastTestResultDetail.JSON_PROPERTY_TRIGGERED_AT,
   SyntheticsFastTestResultDetail.JSON_PROPERTY_TUNNEL
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsFastTestResultDetail {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<Map<String, Object>> assertions = null;
 
@@ -121,6 +108,7 @@ public class SyntheticsFastTestResultDetail {
     this.assertions = assertions;
     return this;
   }
+
   public SyntheticsFastTestResultDetail addAssertionsItem(Map<String, Object> assertionsItem) {
     if (this.assertions == null) {
       this.assertions = new ArrayList<>();
@@ -130,42 +118,48 @@ public class SyntheticsFastTestResultDetail {
   }
 
   /**
-   * <p>Results of each assertion evaluated during the test.</p>
+   * Results of each assertion evaluated during the test.
+   *
    * @return assertions
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ASSERTIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<Map<String, Object>> getAssertions() {
-        return assertions;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSERTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Map<String, Object>> getAssertions() {
+    return assertions;
+  }
+
   public void setAssertions(List<Map<String, Object>> assertions) {
     this.assertions = assertions;
   }
+
   public SyntheticsFastTestResultDetail callType(String callType) {
     this.callType = callType;
     return this;
   }
 
   /**
-   * <p>gRPC call type (for example, <code>unary</code>, <code>healthCheck</code>, or <code>reflection</code>).</p>
+   * gRPC call type (for example, <code>unary</code>, <code>healthCheck</code>, or <code>reflection
+   * </code>).
+   *
    * @return callType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CALL_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getCallType() {
-        return callType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CALL_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCallType() {
+    return callType;
+  }
+
   public void setCallType(String callType) {
     this.callType = callType;
   }
+
   public SyntheticsFastTestResultDetail cert(Map<String, Object> cert) {
     this.cert = cert;
     return this;
   }
+
   public SyntheticsFastTestResultDetail putCertItem(String key, Object certItem) {
     if (this.cert == null) {
       this.cert = new HashMap<>();
@@ -175,38 +169,42 @@ public class SyntheticsFastTestResultDetail {
   }
 
   /**
-   * <p>TLS certificate details, present for SSL tests.</p>
+   * TLS certificate details, present for SSL tests.
+   *
    * @return cert
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CERT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getCert() {
-        return cert;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getCert() {
+    return cert;
+  }
+
   public void setCert(Map<String, Object> cert) {
     this.cert = cert;
   }
+
   public SyntheticsFastTestResultDetail duration(Double duration) {
     this.duration = duration;
     return this;
   }
 
   /**
-   * <p>Total duration of the test in milliseconds.</p>
+   * Total duration of the test in milliseconds.
+   *
    * @return duration
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DURATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getDuration() {
-        return duration;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDuration() {
+    return duration;
+  }
+
   public void setDuration(Double duration) {
     this.duration = duration;
   }
+
   public SyntheticsFastTestResultDetail failure(SyntheticsFastTestResultFailure failure) {
     this.failure = failure;
     this.unparsed |= failure.unparsed;
@@ -214,80 +212,89 @@ public class SyntheticsFastTestResultDetail {
   }
 
   /**
-   * <p>Failure details if the fast test did not pass.</p>
+   * Failure details if the fast test did not pass.
+   *
    * @return failure
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FAILURE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsFastTestResultFailure getFailure() {
-        return failure;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsFastTestResultFailure getFailure() {
+    return failure;
+  }
+
   public void setFailure(SyntheticsFastTestResultFailure failure) {
     this.failure = failure;
   }
+
   public SyntheticsFastTestResultDetail finishedAt(Long finishedAt) {
     this.finishedAt = finishedAt;
     return this;
   }
 
   /**
-   * <p>Unix timestamp (ms) of when the test finished.</p>
+   * Unix timestamp (ms) of when the test finished.
+   *
    * @return finishedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FINISHED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getFinishedAt() {
-        return finishedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FINISHED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFinishedAt() {
+    return finishedAt;
+  }
+
   public void setFinishedAt(Long finishedAt) {
     this.finishedAt = finishedAt;
   }
+
   public SyntheticsFastTestResultDetail id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The result ID. Set to the fast test UUID because no persistent result ID exists for fast tests.</p>
+   * The result ID. Set to the fast test UUID because no persistent result ID exists for fast tests.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public SyntheticsFastTestResultDetail isFastRetry(Boolean isFastRetry) {
     this.isFastRetry = isFastRetry;
     return this;
   }
 
   /**
-   * <p>Whether this result is from an automatic fast retry.</p>
+   * Whether this result is from an automatic fast retry.
+   *
    * @return isFastRetry
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IS_FAST_RETRY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getIsFastRetry() {
-        return isFastRetry;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_FAST_RETRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsFastRetry() {
+    return isFastRetry;
+  }
+
   public void setIsFastRetry(Boolean isFastRetry) {
     this.isFastRetry = isFastRetry;
   }
+
   public SyntheticsFastTestResultDetail request(Map<String, Object> request) {
     this.request = request;
     return this;
   }
+
   public SyntheticsFastTestResultDetail putRequestItem(String key, Object requestItem) {
     if (this.request == null) {
       this.request = new HashMap<>();
@@ -297,42 +304,47 @@ public class SyntheticsFastTestResultDetail {
   }
 
   /**
-   * <p>Details of the outgoing request made during the test.</p>
+   * Details of the outgoing request made during the test.
+   *
    * @return request
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REQUEST)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getRequest() {
-        return request;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getRequest() {
+    return request;
+  }
+
   public void setRequest(Map<String, Object> request) {
     this.request = request;
   }
+
   public SyntheticsFastTestResultDetail resolvedIp(String resolvedIp) {
     this.resolvedIp = resolvedIp;
     return this;
   }
 
   /**
-   * <p>IP address resolved for the target host.</p>
+   * IP address resolved for the target host.
+   *
    * @return resolvedIp
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESOLVED_IP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getResolvedIp() {
-        return resolvedIp;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOLVED_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getResolvedIp() {
+    return resolvedIp;
+  }
+
   public void setResolvedIp(String resolvedIp) {
     this.resolvedIp = resolvedIp;
   }
+
   public SyntheticsFastTestResultDetail response(Map<String, Object> response) {
     this.response = response;
     return this;
   }
+
   public SyntheticsFastTestResultDetail putResponseItem(String key, Object responseItem) {
     if (this.response == null) {
       this.response = new HashMap<>();
@@ -342,80 +354,89 @@ public class SyntheticsFastTestResultDetail {
   }
 
   /**
-   * <p>Details of the response received during the test.</p>
+   * Details of the response received during the test.
+   *
    * @return response
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESPONSE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getResponse() {
-        return response;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getResponse() {
+    return response;
+  }
+
   public void setResponse(Map<String, Object> response) {
     this.response = response;
   }
+
   public SyntheticsFastTestResultDetail runType(String runType) {
     this.runType = runType;
     return this;
   }
 
   /**
-   * <p>Run type indicating how this test was triggered (for example, <code>fast</code>).</p>
+   * Run type indicating how this test was triggered (for example, <code>fast</code>).
+   *
    * @return runType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RUN_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRunType() {
-        return runType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUN_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRunType() {
+    return runType;
+  }
+
   public void setRunType(String runType) {
     this.runType = runType;
   }
+
   public SyntheticsFastTestResultDetail startedAt(Long startedAt) {
     this.startedAt = startedAt;
     return this;
   }
 
   /**
-   * <p>Unix timestamp (ms) of when the test started.</p>
+   * Unix timestamp (ms) of when the test started.
+   *
    * @return startedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STARTED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getStartedAt() {
-        return startedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STARTED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getStartedAt() {
+    return startedAt;
+  }
+
   public void setStartedAt(Long startedAt) {
     this.startedAt = startedAt;
   }
+
   public SyntheticsFastTestResultDetail status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * <p>Status of the test result (<code>passed</code> or <code>failed</code>).</p>
+   * Status of the test result (<code>passed</code> or <code>failed</code>).
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatus() {
+    return status;
+  }
+
   public void setStatus(String status) {
     this.status = status;
   }
+
   public SyntheticsFastTestResultDetail steps(List<Map<String, Object>> steps) {
     this.steps = steps;
     return this;
   }
+
   public SyntheticsFastTestResultDetail addStepsItem(Map<String, Object> stepsItem) {
     if (this.steps == null) {
       this.steps = new ArrayList<>();
@@ -425,23 +446,26 @@ public class SyntheticsFastTestResultDetail {
   }
 
   /**
-   * <p>Step results for multistep API tests.</p>
+   * Step results for multistep API tests.
+   *
    * @return steps
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STEPS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<Map<String, Object>> getSteps() {
-        return steps;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STEPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Map<String, Object>> getSteps() {
+    return steps;
+  }
+
   public void setSteps(List<Map<String, Object>> steps) {
     this.steps = steps;
   }
+
   public SyntheticsFastTestResultDetail timings(Map<String, Object> timings) {
     this.timings = timings;
     return this;
   }
+
   public SyntheticsFastTestResultDetail putTimingsItem(String key, Object timingsItem) {
     if (this.timings == null) {
       this.timings = new HashMap<>();
@@ -451,23 +475,26 @@ public class SyntheticsFastTestResultDetail {
   }
 
   /**
-   * <p>Timing breakdown of the test request phases (for example, DNS, TCP, TLS, first byte).</p>
+   * Timing breakdown of the test request phases (for example, DNS, TCP, TLS, first byte).
+   *
    * @return timings
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMINGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getTimings() {
-        return timings;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getTimings() {
+    return timings;
+  }
+
   public void setTimings(Map<String, Object> timings) {
     this.timings = timings;
   }
+
   public SyntheticsFastTestResultDetail traceroute(List<Map<String, Object>> traceroute) {
     this.traceroute = traceroute;
     return this;
   }
+
   public SyntheticsFastTestResultDetail addTracerouteItem(Map<String, Object> tracerouteItem) {
     if (this.traceroute == null) {
       this.traceroute = new ArrayList<>();
@@ -477,68 +504,72 @@ public class SyntheticsFastTestResultDetail {
   }
 
   /**
-   * <p>Traceroute hop results, present for ICMP and TCP tests.</p>
+   * Traceroute hop results, present for ICMP and TCP tests.
+   *
    * @return traceroute
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TRACEROUTE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<Map<String, Object>> getTraceroute() {
-        return traceroute;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRACEROUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Map<String, Object>> getTraceroute() {
+    return traceroute;
+  }
+
   public void setTraceroute(List<Map<String, Object>> traceroute) {
     this.traceroute = traceroute;
   }
+
   public SyntheticsFastTestResultDetail triggeredAt(Long triggeredAt) {
     this.triggeredAt = triggeredAt;
     return this;
   }
 
   /**
-   * <p>Unix timestamp (ms) of when the test was triggered.</p>
+   * Unix timestamp (ms) of when the test was triggered.
+   *
    * @return triggeredAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TRIGGERED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTriggeredAt() {
-        return triggeredAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRIGGERED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTriggeredAt() {
+    return triggeredAt;
+  }
+
   public void setTriggeredAt(Long triggeredAt) {
     this.triggeredAt = triggeredAt;
   }
+
   public SyntheticsFastTestResultDetail tunnel(Boolean tunnel) {
     this.tunnel = tunnel;
     return this;
   }
 
   /**
-   * <p>Whether the test was run through a Synthetics tunnel.</p>
+   * Whether the test was run through a Synthetics tunnel.
+   *
    * @return tunnel
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TUNNEL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getTunnel() {
-        return tunnel;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TUNNEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getTunnel() {
+    return tunnel;
+  }
+
   public void setTunnel(Boolean tunnel) {
     this.tunnel = tunnel;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -547,7 +578,7 @@ public class SyntheticsFastTestResultDetail {
   @JsonAnySetter
   public SyntheticsFastTestResultDetail putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -571,14 +602,12 @@ public class SyntheticsFastTestResultDetail {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsFastTestResultDetail object is equal to o.
-   */
+  /** Return true if this SyntheticsFastTestResultDetail object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -587,14 +616,54 @@ public class SyntheticsFastTestResultDetail {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsFastTestResultDetail syntheticsFastTestResultDetail = (SyntheticsFastTestResultDetail) o;
-    return Objects.equals(this.assertions, syntheticsFastTestResultDetail.assertions) && Objects.equals(this.callType, syntheticsFastTestResultDetail.callType) && Objects.equals(this.cert, syntheticsFastTestResultDetail.cert) && Objects.equals(this.duration, syntheticsFastTestResultDetail.duration) && Objects.equals(this.failure, syntheticsFastTestResultDetail.failure) && Objects.equals(this.finishedAt, syntheticsFastTestResultDetail.finishedAt) && Objects.equals(this.id, syntheticsFastTestResultDetail.id) && Objects.equals(this.isFastRetry, syntheticsFastTestResultDetail.isFastRetry) && Objects.equals(this.request, syntheticsFastTestResultDetail.request) && Objects.equals(this.resolvedIp, syntheticsFastTestResultDetail.resolvedIp) && Objects.equals(this.response, syntheticsFastTestResultDetail.response) && Objects.equals(this.runType, syntheticsFastTestResultDetail.runType) && Objects.equals(this.startedAt, syntheticsFastTestResultDetail.startedAt) && Objects.equals(this.status, syntheticsFastTestResultDetail.status) && Objects.equals(this.steps, syntheticsFastTestResultDetail.steps) && Objects.equals(this.timings, syntheticsFastTestResultDetail.timings) && Objects.equals(this.traceroute, syntheticsFastTestResultDetail.traceroute) && Objects.equals(this.triggeredAt, syntheticsFastTestResultDetail.triggeredAt) && Objects.equals(this.tunnel, syntheticsFastTestResultDetail.tunnel) && Objects.equals(this.additionalProperties, syntheticsFastTestResultDetail.additionalProperties);
+    SyntheticsFastTestResultDetail syntheticsFastTestResultDetail =
+        (SyntheticsFastTestResultDetail) o;
+    return Objects.equals(this.assertions, syntheticsFastTestResultDetail.assertions)
+        && Objects.equals(this.callType, syntheticsFastTestResultDetail.callType)
+        && Objects.equals(this.cert, syntheticsFastTestResultDetail.cert)
+        && Objects.equals(this.duration, syntheticsFastTestResultDetail.duration)
+        && Objects.equals(this.failure, syntheticsFastTestResultDetail.failure)
+        && Objects.equals(this.finishedAt, syntheticsFastTestResultDetail.finishedAt)
+        && Objects.equals(this.id, syntheticsFastTestResultDetail.id)
+        && Objects.equals(this.isFastRetry, syntheticsFastTestResultDetail.isFastRetry)
+        && Objects.equals(this.request, syntheticsFastTestResultDetail.request)
+        && Objects.equals(this.resolvedIp, syntheticsFastTestResultDetail.resolvedIp)
+        && Objects.equals(this.response, syntheticsFastTestResultDetail.response)
+        && Objects.equals(this.runType, syntheticsFastTestResultDetail.runType)
+        && Objects.equals(this.startedAt, syntheticsFastTestResultDetail.startedAt)
+        && Objects.equals(this.status, syntheticsFastTestResultDetail.status)
+        && Objects.equals(this.steps, syntheticsFastTestResultDetail.steps)
+        && Objects.equals(this.timings, syntheticsFastTestResultDetail.timings)
+        && Objects.equals(this.traceroute, syntheticsFastTestResultDetail.traceroute)
+        && Objects.equals(this.triggeredAt, syntheticsFastTestResultDetail.triggeredAt)
+        && Objects.equals(this.tunnel, syntheticsFastTestResultDetail.tunnel)
+        && Objects.equals(
+            this.additionalProperties, syntheticsFastTestResultDetail.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(assertions,callType,cert,duration,failure,finishedAt,id,isFastRetry,request,resolvedIp,response,runType,startedAt,status,steps,timings,traceroute,triggeredAt,tunnel, additionalProperties);
+    return Objects.hash(
+        assertions,
+        callType,
+        cert,
+        duration,
+        failure,
+        finishedAt,
+        id,
+        isFastRetry,
+        request,
+        resolvedIp,
+        response,
+        runType,
+        startedAt,
+        status,
+        steps,
+        timings,
+        traceroute,
+        triggeredAt,
+        tunnel,
+        additionalProperties);
   }
 
   @Override
@@ -628,8 +697,7 @@ public class SyntheticsFastTestResultDetail {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

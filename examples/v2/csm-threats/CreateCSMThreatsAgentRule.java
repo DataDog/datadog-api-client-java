@@ -1,20 +1,13 @@
 // Create a Workload Protection agent rule returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CsmThreatsApi;
-import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateAttributes;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateData;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateRequest;
+import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,18 +17,21 @@ public class Example {
     // there is a valid "policy_rc" in the system
     String POLICY_DATA_ID = System.getenv("POLICY_DATA_ID");
 
-    CloudWorkloadSecurityAgentRuleCreateRequest body = new CloudWorkloadSecurityAgentRuleCreateRequest()
-.data(new CloudWorkloadSecurityAgentRuleCreateData()
-.attributes(new CloudWorkloadSecurityAgentRuleCreateAttributes()
-.description("My Agent rule")
-.enabled(true)
-.expression("""
+    CloudWorkloadSecurityAgentRuleCreateRequest body =
+        new CloudWorkloadSecurityAgentRuleCreateRequest()
+            .data(
+                new CloudWorkloadSecurityAgentRuleCreateData()
+                    .attributes(
+                        new CloudWorkloadSecurityAgentRuleCreateAttributes()
+                            .description("My Agent rule")
+                            .enabled(true)
+                            .expression("""
 exec.file.name == "sh"
 """)
-.agentVersion("> 7.60")
-.name("examplecsmthreat")
-.policyId(POLICY_DATA_ID))
-.type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
+                            .agentVersion("> 7.60")
+                            .name("examplecsmthreat")
+                            .policyId(POLICY_DATA_ID))
+                    .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
 
     try {
       CloudWorkloadSecurityAgentRuleResponse result = apiInstance.createCSMThreatsAgentRule(body);

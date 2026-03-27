@@ -6,42 +6,21 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Metadata for pagination.</p>
- */
+/** Metadata for pagination. */
 @JsonPropertyOrder({
   ListFindingsMeta.JSON_PROPERTY_PAGE,
   ListFindingsMeta.JSON_PROPERTY_SNAPSHOT_TIMESTAMP
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListFindingsMeta {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PAGE = "page";
   private ListFindingsPage page;
 
@@ -55,43 +34,43 @@ public class ListFindingsMeta {
   }
 
   /**
-   * <p>Pagination and findings count information.</p>
+   * Pagination and findings count information.
+   *
    * @return page
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ListFindingsPage getPage() {
-        return page;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ListFindingsPage getPage() {
+    return page;
+  }
+
   public void setPage(ListFindingsPage page) {
     this.page = page;
   }
+
   public ListFindingsMeta snapshotTimestamp(Long snapshotTimestamp) {
     this.snapshotTimestamp = snapshotTimestamp;
     return this;
   }
 
   /**
-   * <p>The point in time corresponding to the listed findings.</p>
-   * minimum: 1
+   * The point in time corresponding to the listed findings. minimum: 1
+   *
    * @return snapshotTimestamp
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SNAPSHOT_TIMESTAMP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getSnapshotTimestamp() {
-        return snapshotTimestamp;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SNAPSHOT_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSnapshotTimestamp() {
+    return snapshotTimestamp;
+  }
+
   public void setSnapshotTimestamp(Long snapshotTimestamp) {
     this.snapshotTimestamp = snapshotTimestamp;
   }
 
-  /**
-   * Return true if this ListFindingsMeta object is equal to o.
-   */
+  /** Return true if this ListFindingsMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,13 +80,13 @@ public class ListFindingsMeta {
       return false;
     }
     ListFindingsMeta listFindingsMeta = (ListFindingsMeta) o;
-    return Objects.equals(this.page, listFindingsMeta.page) && Objects.equals(this.snapshotTimestamp, listFindingsMeta.snapshotTimestamp);
+    return Objects.equals(this.page, listFindingsMeta.page)
+        && Objects.equals(this.snapshotTimestamp, listFindingsMeta.snapshotTimestamp);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(page,snapshotTimestamp);
+    return Objects.hash(page, snapshotTimestamp);
   }
 
   @Override
@@ -121,8 +100,7 @@ public class ListFindingsMeta {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

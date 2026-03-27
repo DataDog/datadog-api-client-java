@@ -6,78 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
-   * <p>The source type for reference table data. Includes all possible source types that can appear in responses.</p>
+ * The source type for reference table data. Includes all possible source types that can appear in
+ * responses.
  */
 @JsonSerialize(using = ReferenceTableSourceType.ReferenceTableSourceTypeSerializer.class)
 public class ReferenceTableSourceType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("LOCAL_FILE", "S3", "GCS", "AZURE", "SERVICENOW", "SALESFORCE", "DATABRICKS", "SNOWFLAKE"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "LOCAL_FILE",
+              "S3",
+              "GCS",
+              "AZURE",
+              "SERVICENOW",
+              "SALESFORCE",
+              "DATABRICKS",
+              "SNOWFLAKE"));
 
-  public static final ReferenceTableSourceType LOCAL_FILE = new ReferenceTableSourceType("LOCAL_FILE");
+  public static final ReferenceTableSourceType LOCAL_FILE =
+      new ReferenceTableSourceType("LOCAL_FILE");
   public static final ReferenceTableSourceType S3 = new ReferenceTableSourceType("S3");
   public static final ReferenceTableSourceType GCS = new ReferenceTableSourceType("GCS");
   public static final ReferenceTableSourceType AZURE = new ReferenceTableSourceType("AZURE");
-  public static final ReferenceTableSourceType SERVICENOW = new ReferenceTableSourceType("SERVICENOW");
-  public static final ReferenceTableSourceType SALESFORCE = new ReferenceTableSourceType("SALESFORCE");
-  public static final ReferenceTableSourceType DATABRICKS = new ReferenceTableSourceType("DATABRICKS");
-  public static final ReferenceTableSourceType SNOWFLAKE = new ReferenceTableSourceType("SNOWFLAKE");
-
+  public static final ReferenceTableSourceType SERVICENOW =
+      new ReferenceTableSourceType("SERVICENOW");
+  public static final ReferenceTableSourceType SALESFORCE =
+      new ReferenceTableSourceType("SALESFORCE");
+  public static final ReferenceTableSourceType DATABRICKS =
+      new ReferenceTableSourceType("DATABRICKS");
+  public static final ReferenceTableSourceType SNOWFLAKE =
+      new ReferenceTableSourceType("SNOWFLAKE");
 
   ReferenceTableSourceType(String value) {
     super(value, allowedValues);
   }
 
-  public static class ReferenceTableSourceTypeSerializer extends StdSerializer<ReferenceTableSourceType> {
-      public ReferenceTableSourceTypeSerializer(Class<ReferenceTableSourceType> t) {
-          super(t);
-      }
+  public static class ReferenceTableSourceTypeSerializer
+      extends StdSerializer<ReferenceTableSourceType> {
+    public ReferenceTableSourceTypeSerializer(Class<ReferenceTableSourceType> t) {
+      super(t);
+    }
 
-      public ReferenceTableSourceTypeSerializer() {
-          this(null);
-      }
+    public ReferenceTableSourceTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ReferenceTableSourceType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        ReferenceTableSourceType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

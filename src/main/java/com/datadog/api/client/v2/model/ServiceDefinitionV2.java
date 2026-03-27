@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Service definition V2 for providing service metadata and integrations.</p>
- */
+/** Service definition V2 for providing service metadata and integrations. */
 @JsonPropertyOrder({
   ServiceDefinitionV2.JSON_PROPERTY_CONTACTS,
   ServiceDefinitionV2.JSON_PROPERTY_DD_SERVICE,
@@ -47,10 +33,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ServiceDefinitionV2.JSON_PROPERTY_TAGS,
   ServiceDefinitionV2.JSON_PROPERTY_TEAM
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceDefinitionV2 {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONTACTS = "contacts";
   private List<ServiceDefinitionV2Contact> contacts = null;
 
@@ -88,12 +74,14 @@ public class ServiceDefinitionV2 {
 
   @JsonCreator
   public ServiceDefinitionV2(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DD_SERVICE)String ddService,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SCHEMA_VERSION)ServiceDefinitionV2Version schemaVersion) {
-        this.ddService = ddService;
-        this.schemaVersion = schemaVersion;
-        this.unparsed |= !schemaVersion.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_DD_SERVICE) String ddService,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SCHEMA_VERSION)
+          ServiceDefinitionV2Version schemaVersion) {
+    this.ddService = ddService;
+    this.schemaVersion = schemaVersion;
+    this.unparsed |= !schemaVersion.isValid();
   }
+
   public ServiceDefinitionV2 contacts(List<ServiceDefinitionV2Contact> contacts) {
     this.contacts = contacts;
     for (ServiceDefinitionV2Contact item : contacts) {
@@ -101,6 +89,7 @@ public class ServiceDefinitionV2 {
     }
     return this;
   }
+
   public ServiceDefinitionV2 addContactsItem(ServiceDefinitionV2Contact contactsItem) {
     if (this.contacts == null) {
       this.contacts = new ArrayList<>();
@@ -111,56 +100,63 @@ public class ServiceDefinitionV2 {
   }
 
   /**
-   * <p>A list of contacts related to the services.</p>
+   * A list of contacts related to the services.
+   *
    * @return contacts
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CONTACTS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ServiceDefinitionV2Contact> getContacts() {
-        return contacts;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTACTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ServiceDefinitionV2Contact> getContacts() {
+    return contacts;
+  }
+
   public void setContacts(List<ServiceDefinitionV2Contact> contacts) {
     this.contacts = contacts;
   }
+
   public ServiceDefinitionV2 ddService(String ddService) {
     this.ddService = ddService;
     return this;
   }
 
   /**
-   * <p>Unique identifier of the service. Must be unique across all services and is used to match with a service in Datadog.</p>
+   * Unique identifier of the service. Must be unique across all services and is used to match with
+   * a service in Datadog.
+   *
    * @return ddService
-  **/
-      @JsonProperty(JSON_PROPERTY_DD_SERVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getDdService() {
-        return ddService;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DD_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getDdService() {
+    return ddService;
+  }
+
   public void setDdService(String ddService) {
     this.ddService = ddService;
   }
+
   public ServiceDefinitionV2 ddTeam(String ddTeam) {
     this.ddTeam = ddTeam;
     return this;
   }
 
   /**
-   * <p>Experimental feature. A Team handle that matches a Team in the Datadog Teams product.</p>
+   * Experimental feature. A Team handle that matches a Team in the Datadog Teams product.
+   *
    * @return ddTeam
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DD_TEAM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDdTeam() {
-        return ddTeam;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DD_TEAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDdTeam() {
+    return ddTeam;
+  }
+
   public void setDdTeam(String ddTeam) {
     this.ddTeam = ddTeam;
   }
+
   public ServiceDefinitionV2 docs(List<ServiceDefinitionV2Doc> docs) {
     this.docs = docs;
     for (ServiceDefinitionV2Doc item : docs) {
@@ -168,6 +164,7 @@ public class ServiceDefinitionV2 {
     }
     return this;
   }
+
   public ServiceDefinitionV2 addDocsItem(ServiceDefinitionV2Doc docsItem) {
     if (this.docs == null) {
       this.docs = new ArrayList<>();
@@ -178,23 +175,26 @@ public class ServiceDefinitionV2 {
   }
 
   /**
-   * <p>A list of documentation related to the services.</p>
+   * A list of documentation related to the services.
+   *
    * @return docs
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DOCS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ServiceDefinitionV2Doc> getDocs() {
-        return docs;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DOCS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ServiceDefinitionV2Doc> getDocs() {
+    return docs;
+  }
+
   public void setDocs(List<ServiceDefinitionV2Doc> docs) {
     this.docs = docs;
   }
+
   public ServiceDefinitionV2 extensions(Map<String, Object> extensions) {
     this.extensions = extensions;
     return this;
   }
+
   public ServiceDefinitionV2 putExtensionsItem(String key, Object extensionsItem) {
     if (this.extensions == null) {
       this.extensions = new HashMap<>();
@@ -204,19 +204,21 @@ public class ServiceDefinitionV2 {
   }
 
   /**
-   * <p>Extensions to V2 schema.</p>
+   * Extensions to V2 schema.
+   *
    * @return extensions
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EXTENSIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getExtensions() {
-        return extensions;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTENSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getExtensions() {
+    return extensions;
+  }
+
   public void setExtensions(Map<String, Object> extensions) {
     this.extensions = extensions;
   }
+
   public ServiceDefinitionV2 integrations(ServiceDefinitionV2Integrations integrations) {
     this.integrations = integrations;
     this.unparsed |= integrations.unparsed;
@@ -224,19 +226,21 @@ public class ServiceDefinitionV2 {
   }
 
   /**
-   * <p>Third party integrations that Datadog supports.</p>
+   * Third party integrations that Datadog supports.
+   *
    * @return integrations
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ServiceDefinitionV2Integrations getIntegrations() {
-        return integrations;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ServiceDefinitionV2Integrations getIntegrations() {
+    return integrations;
+  }
+
   public void setIntegrations(ServiceDefinitionV2Integrations integrations) {
     this.integrations = integrations;
   }
+
   public ServiceDefinitionV2 links(List<ServiceDefinitionV2Link> links) {
     this.links = links;
     for (ServiceDefinitionV2Link item : links) {
@@ -244,6 +248,7 @@ public class ServiceDefinitionV2 {
     }
     return this;
   }
+
   public ServiceDefinitionV2 addLinksItem(ServiceDefinitionV2Link linksItem) {
     if (this.links == null) {
       this.links = new ArrayList<>();
@@ -254,19 +259,21 @@ public class ServiceDefinitionV2 {
   }
 
   /**
-   * <p>A list of links related to the services.</p>
+   * A list of links related to the services.
+   *
    * @return links
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LINKS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ServiceDefinitionV2Link> getLinks() {
-        return links;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ServiceDefinitionV2Link> getLinks() {
+    return links;
+  }
+
   public void setLinks(List<ServiceDefinitionV2Link> links) {
     this.links = links;
   }
+
   public ServiceDefinitionV2 repos(List<ServiceDefinitionV2Repo> repos) {
     this.repos = repos;
     for (ServiceDefinitionV2Repo item : repos) {
@@ -274,6 +281,7 @@ public class ServiceDefinitionV2 {
     }
     return this;
   }
+
   public ServiceDefinitionV2 addReposItem(ServiceDefinitionV2Repo reposItem) {
     if (this.repos == null) {
       this.repos = new ArrayList<>();
@@ -284,19 +292,21 @@ public class ServiceDefinitionV2 {
   }
 
   /**
-   * <p>A list of code repositories related to the services.</p>
+   * A list of code repositories related to the services.
+   *
    * @return repos
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REPOS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ServiceDefinitionV2Repo> getRepos() {
-        return repos;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REPOS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ServiceDefinitionV2Repo> getRepos() {
+    return repos;
+  }
+
   public void setRepos(List<ServiceDefinitionV2Repo> repos) {
     this.repos = repos;
   }
+
   public ServiceDefinitionV2 schemaVersion(ServiceDefinitionV2Version schemaVersion) {
     this.schemaVersion = schemaVersion;
     this.unparsed |= !schemaVersion.isValid();
@@ -304,25 +314,28 @@ public class ServiceDefinitionV2 {
   }
 
   /**
-   * <p>Schema version being used.</p>
+   * Schema version being used.
+   *
    * @return schemaVersion
-  **/
-      @JsonProperty(JSON_PROPERTY_SCHEMA_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ServiceDefinitionV2Version getSchemaVersion() {
-        return schemaVersion;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SCHEMA_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ServiceDefinitionV2Version getSchemaVersion() {
+    return schemaVersion;
+  }
+
   public void setSchemaVersion(ServiceDefinitionV2Version schemaVersion) {
     if (!schemaVersion.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.schemaVersion = schemaVersion;
   }
+
   public ServiceDefinitionV2 tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public ServiceDefinitionV2 addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -332,49 +345,51 @@ public class ServiceDefinitionV2 {
   }
 
   /**
-   * <p>A set of custom tags.</p>
+   * A set of custom tags.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public ServiceDefinitionV2 team(String team) {
     this.team = team;
     return this;
   }
 
   /**
-   * <p>Team that owns the service.</p>
+   * Team that owns the service.
+   *
    * @return team
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEAM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTeam() {
-        return team;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTeam() {
+    return team;
+  }
+
   public void setTeam(String team) {
     this.team = team;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -383,7 +398,7 @@ public class ServiceDefinitionV2 {
   @JsonAnySetter
   public ServiceDefinitionV2 putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -407,14 +422,12 @@ public class ServiceDefinitionV2 {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ServiceDefinitionV2 object is equal to o.
-   */
+  /** Return true if this ServiceDefinitionV2 object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -424,13 +437,35 @@ public class ServiceDefinitionV2 {
       return false;
     }
     ServiceDefinitionV2 serviceDefinitionV2 = (ServiceDefinitionV2) o;
-    return Objects.equals(this.contacts, serviceDefinitionV2.contacts) && Objects.equals(this.ddService, serviceDefinitionV2.ddService) && Objects.equals(this.ddTeam, serviceDefinitionV2.ddTeam) && Objects.equals(this.docs, serviceDefinitionV2.docs) && Objects.equals(this.extensions, serviceDefinitionV2.extensions) && Objects.equals(this.integrations, serviceDefinitionV2.integrations) && Objects.equals(this.links, serviceDefinitionV2.links) && Objects.equals(this.repos, serviceDefinitionV2.repos) && Objects.equals(this.schemaVersion, serviceDefinitionV2.schemaVersion) && Objects.equals(this.tags, serviceDefinitionV2.tags) && Objects.equals(this.team, serviceDefinitionV2.team) && Objects.equals(this.additionalProperties, serviceDefinitionV2.additionalProperties);
+    return Objects.equals(this.contacts, serviceDefinitionV2.contacts)
+        && Objects.equals(this.ddService, serviceDefinitionV2.ddService)
+        && Objects.equals(this.ddTeam, serviceDefinitionV2.ddTeam)
+        && Objects.equals(this.docs, serviceDefinitionV2.docs)
+        && Objects.equals(this.extensions, serviceDefinitionV2.extensions)
+        && Objects.equals(this.integrations, serviceDefinitionV2.integrations)
+        && Objects.equals(this.links, serviceDefinitionV2.links)
+        && Objects.equals(this.repos, serviceDefinitionV2.repos)
+        && Objects.equals(this.schemaVersion, serviceDefinitionV2.schemaVersion)
+        && Objects.equals(this.tags, serviceDefinitionV2.tags)
+        && Objects.equals(this.team, serviceDefinitionV2.team)
+        && Objects.equals(this.additionalProperties, serviceDefinitionV2.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(contacts,ddService,ddTeam,docs,extensions,integrations,links,repos,schemaVersion,tags,team, additionalProperties);
+    return Objects.hash(
+        contacts,
+        ddService,
+        ddTeam,
+        docs,
+        extensions,
+        integrations,
+        links,
+        repos,
+        schemaVersion,
+        tags,
+        team,
+        additionalProperties);
   }
 
   @Override
@@ -456,8 +491,7 @@ public class ServiceDefinitionV2 {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

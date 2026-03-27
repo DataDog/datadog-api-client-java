@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.UUID;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for a deployment gate evaluation result response.</p>
- */
+/** Attributes for a deployment gate evaluation result response. */
 @JsonPropertyOrder({
   DeploymentGatesEvaluationResultResponseAttributes.JSON_PROPERTY_DRY_RUN,
   DeploymentGatesEvaluationResultResponseAttributes.JSON_PROPERTY_EVALUATION_ID,
@@ -42,10 +29,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   DeploymentGatesEvaluationResultResponseAttributes.JSON_PROPERTY_GATE_STATUS,
   DeploymentGatesEvaluationResultResponseAttributes.JSON_PROPERTY_RULES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DeploymentGatesEvaluationResultResponseAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DRY_RUN = "dry_run";
   private Boolean dryRun;
 
@@ -68,163 +55,182 @@ public class DeploymentGatesEvaluationResultResponseAttributes {
 
   @JsonCreator
   public DeploymentGatesEvaluationResultResponseAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DRY_RUN)Boolean dryRun,
-            @JsonProperty(required=true, value=JSON_PROPERTY_EVALUATION_ID)String evaluationId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_EVALUATION_URL)String evaluationUrl,
-            @JsonProperty(required=true, value=JSON_PROPERTY_GATE_ID)UUID gateId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_GATE_STATUS)DeploymentGatesEvaluationResultResponseAttributesGateStatus gateStatus,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RULES)List<DeploymentGatesRuleResponse> rules) {
-        this.dryRun = dryRun;
-        this.evaluationId = evaluationId;
-        this.evaluationUrl = evaluationUrl;
-        this.gateId = gateId;
-        this.gateStatus = gateStatus;
-        this.unparsed |= !gateStatus.isValid();
-        this.rules = rules;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DRY_RUN) Boolean dryRun,
+      @JsonProperty(required = true, value = JSON_PROPERTY_EVALUATION_ID) String evaluationId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_EVALUATION_URL) String evaluationUrl,
+      @JsonProperty(required = true, value = JSON_PROPERTY_GATE_ID) UUID gateId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_GATE_STATUS)
+          DeploymentGatesEvaluationResultResponseAttributesGateStatus gateStatus,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULES)
+          List<DeploymentGatesRuleResponse> rules) {
+    this.dryRun = dryRun;
+    this.evaluationId = evaluationId;
+    this.evaluationUrl = evaluationUrl;
+    this.gateId = gateId;
+    this.gateStatus = gateStatus;
+    this.unparsed |= !gateStatus.isValid();
+    this.rules = rules;
   }
+
   public DeploymentGatesEvaluationResultResponseAttributes dryRun(Boolean dryRun) {
     this.dryRun = dryRun;
     return this;
   }
 
   /**
-   * <p>Whether the gate was evaluated in dry-run mode.</p>
+   * Whether the gate was evaluated in dry-run mode.
+   *
    * @return dryRun
-  **/
-      @JsonProperty(JSON_PROPERTY_DRY_RUN)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Boolean getDryRun() {
-        return dryRun;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DRY_RUN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getDryRun() {
+    return dryRun;
+  }
+
   public void setDryRun(Boolean dryRun) {
     this.dryRun = dryRun;
   }
+
   public DeploymentGatesEvaluationResultResponseAttributes evaluationId(String evaluationId) {
     this.evaluationId = evaluationId;
     return this;
   }
 
   /**
-   * <p>The unique identifier of the gate evaluation.</p>
+   * The unique identifier of the gate evaluation.
+   *
    * @return evaluationId
-  **/
-      @JsonProperty(JSON_PROPERTY_EVALUATION_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getEvaluationId() {
-        return evaluationId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_EVALUATION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getEvaluationId() {
+    return evaluationId;
+  }
+
   public void setEvaluationId(String evaluationId) {
     this.evaluationId = evaluationId;
   }
+
   public DeploymentGatesEvaluationResultResponseAttributes evaluationUrl(String evaluationUrl) {
     this.evaluationUrl = evaluationUrl;
     return this;
   }
 
   /**
-   * <p>A URL to view the evaluation details in the Datadog UI.</p>
+   * A URL to view the evaluation details in the Datadog UI.
+   *
    * @return evaluationUrl
-  **/
-      @JsonProperty(JSON_PROPERTY_EVALUATION_URL)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getEvaluationUrl() {
-        return evaluationUrl;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_EVALUATION_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getEvaluationUrl() {
+    return evaluationUrl;
+  }
+
   public void setEvaluationUrl(String evaluationUrl) {
     this.evaluationUrl = evaluationUrl;
   }
+
   public DeploymentGatesEvaluationResultResponseAttributes gateId(UUID gateId) {
     this.gateId = gateId;
     return this;
   }
 
   /**
-   * <p>The unique identifier of the deployment gate.</p>
+   * The unique identifier of the deployment gate.
+   *
    * @return gateId
-  **/
-      @JsonProperty(JSON_PROPERTY_GATE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public UUID getGateId() {
-        return gateId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_GATE_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UUID getGateId() {
+    return gateId;
+  }
+
   public void setGateId(UUID gateId) {
     this.gateId = gateId;
   }
-  public DeploymentGatesEvaluationResultResponseAttributes gateStatus(DeploymentGatesEvaluationResultResponseAttributesGateStatus gateStatus) {
+
+  public DeploymentGatesEvaluationResultResponseAttributes gateStatus(
+      DeploymentGatesEvaluationResultResponseAttributesGateStatus gateStatus) {
     this.gateStatus = gateStatus;
     this.unparsed |= !gateStatus.isValid();
     return this;
   }
 
   /**
-   * <p>The overall status of the gate evaluation.
-   * - <code>in_progress</code>: The evaluation is still running.
-   * - <code>pass</code>: All rules passed successfully and the deployment is allowed to proceed.
-   * - <code>fail</code>: One or more rules did not pass; the deployment should not proceed.</p>
+   * The overall status of the gate evaluation. - <code>in_progress</code>: The evaluation is still
+   * running. - <code>pass</code>: All rules passed successfully and the deployment is allowed to
+   * proceed. - <code>fail</code>: One or more rules did not pass; the deployment should not
+   * proceed.
+   *
    * @return gateStatus
-  **/
-      @JsonProperty(JSON_PROPERTY_GATE_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public DeploymentGatesEvaluationResultResponseAttributesGateStatus getGateStatus() {
-        return gateStatus;
-      }
-  public void setGateStatus(DeploymentGatesEvaluationResultResponseAttributesGateStatus gateStatus) {
+   */
+  @JsonProperty(JSON_PROPERTY_GATE_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public DeploymentGatesEvaluationResultResponseAttributesGateStatus getGateStatus() {
+    return gateStatus;
+  }
+
+  public void setGateStatus(
+      DeploymentGatesEvaluationResultResponseAttributesGateStatus gateStatus) {
     if (!gateStatus.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.gateStatus = gateStatus;
   }
-  public DeploymentGatesEvaluationResultResponseAttributes rules(List<DeploymentGatesRuleResponse> rules) {
+
+  public DeploymentGatesEvaluationResultResponseAttributes rules(
+      List<DeploymentGatesRuleResponse> rules) {
     this.rules = rules;
     for (DeploymentGatesRuleResponse item : rules) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public DeploymentGatesEvaluationResultResponseAttributes addRulesItem(DeploymentGatesRuleResponse rulesItem) {
+
+  public DeploymentGatesEvaluationResultResponseAttributes addRulesItem(
+      DeploymentGatesRuleResponse rulesItem) {
     this.rules.add(rulesItem);
     this.unparsed |= rulesItem.unparsed;
     return this;
   }
 
   /**
-   * <p>The results of individual rule evaluations.</p>
+   * The results of individual rule evaluations.
+   *
    * @return rules
-  **/
-      @JsonProperty(JSON_PROPERTY_RULES)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<DeploymentGatesRuleResponse> getRules() {
-        return rules;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RULES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<DeploymentGatesRuleResponse> getRules() {
+    return rules;
+  }
+
   public void setRules(List<DeploymentGatesRuleResponse> rules) {
     this.rules = rules;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return DeploymentGatesEvaluationResultResponseAttributes
    */
   @JsonAnySetter
-  public DeploymentGatesEvaluationResultResponseAttributes putAdditionalProperty(String key, Object value) {
+  public DeploymentGatesEvaluationResultResponseAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -248,14 +254,12 @@ public class DeploymentGatesEvaluationResultResponseAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this DeploymentGatesEvaluationResultResponseAttributes object is equal to o.
-   */
+  /** Return true if this DeploymentGatesEvaluationResultResponseAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -264,14 +268,27 @@ public class DeploymentGatesEvaluationResultResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeploymentGatesEvaluationResultResponseAttributes deploymentGatesEvaluationResultResponseAttributes = (DeploymentGatesEvaluationResultResponseAttributes) o;
-    return Objects.equals(this.dryRun, deploymentGatesEvaluationResultResponseAttributes.dryRun) && Objects.equals(this.evaluationId, deploymentGatesEvaluationResultResponseAttributes.evaluationId) && Objects.equals(this.evaluationUrl, deploymentGatesEvaluationResultResponseAttributes.evaluationUrl) && Objects.equals(this.gateId, deploymentGatesEvaluationResultResponseAttributes.gateId) && Objects.equals(this.gateStatus, deploymentGatesEvaluationResultResponseAttributes.gateStatus) && Objects.equals(this.rules, deploymentGatesEvaluationResultResponseAttributes.rules) && Objects.equals(this.additionalProperties, deploymentGatesEvaluationResultResponseAttributes.additionalProperties);
+    DeploymentGatesEvaluationResultResponseAttributes
+        deploymentGatesEvaluationResultResponseAttributes =
+            (DeploymentGatesEvaluationResultResponseAttributes) o;
+    return Objects.equals(this.dryRun, deploymentGatesEvaluationResultResponseAttributes.dryRun)
+        && Objects.equals(
+            this.evaluationId, deploymentGatesEvaluationResultResponseAttributes.evaluationId)
+        && Objects.equals(
+            this.evaluationUrl, deploymentGatesEvaluationResultResponseAttributes.evaluationUrl)
+        && Objects.equals(this.gateId, deploymentGatesEvaluationResultResponseAttributes.gateId)
+        && Objects.equals(
+            this.gateStatus, deploymentGatesEvaluationResultResponseAttributes.gateStatus)
+        && Objects.equals(this.rules, deploymentGatesEvaluationResultResponseAttributes.rules)
+        && Objects.equals(
+            this.additionalProperties,
+            deploymentGatesEvaluationResultResponseAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(dryRun,evaluationId,evaluationUrl,gateId,gateStatus,rules, additionalProperties);
+    return Objects.hash(
+        dryRun, evaluationId, evaluationUrl, gateId, gateStatus, rules, additionalProperties);
   }
 
   @Override
@@ -292,8 +309,7 @@ public class DeploymentGatesEvaluationResultResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

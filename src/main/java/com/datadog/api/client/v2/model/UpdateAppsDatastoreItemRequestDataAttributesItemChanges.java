@@ -6,49 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Changes to apply to a datastore item using set operations.</p>
- */
-@JsonPropertyOrder({
-  UpdateAppsDatastoreItemRequestDataAttributesItemChanges.JSON_PROPERTY_OPS_SET
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Changes to apply to a datastore item using set operations. */
+@JsonPropertyOrder({UpdateAppsDatastoreItemRequestDataAttributesItemChanges.JSON_PROPERTY_OPS_SET})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UpdateAppsDatastoreItemRequestDataAttributesItemChanges {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_OPS_SET = "ops_set";
   private Map<String, Object> opsSet = null;
 
-  public UpdateAppsDatastoreItemRequestDataAttributesItemChanges opsSet(Map<String, Object> opsSet) {
+  public UpdateAppsDatastoreItemRequestDataAttributesItemChanges opsSet(
+      Map<String, Object> opsSet) {
     this.opsSet = opsSet;
     return this;
   }
-  public UpdateAppsDatastoreItemRequestDataAttributesItemChanges putOpsSetItem(String key, Object opsSetItem) {
+
+  public UpdateAppsDatastoreItemRequestDataAttributesItemChanges putOpsSetItem(
+      String key, Object opsSetItem) {
     if (this.opsSet == null) {
       this.opsSet = new HashMap<>();
     }
@@ -57,39 +41,40 @@ public class UpdateAppsDatastoreItemRequestDataAttributesItemChanges {
   }
 
   /**
-   * <p>Set operation that contains key-value pairs to set on the datastore item.</p>
+   * Set operation that contains key-value pairs to set on the datastore item.
+   *
    * @return opsSet
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPS_SET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, Object> getOpsSet() {
-        return opsSet;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPS_SET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getOpsSet() {
+    return opsSet;
+  }
+
   public void setOpsSet(Map<String, Object> opsSet) {
     this.opsSet = opsSet;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return UpdateAppsDatastoreItemRequestDataAttributesItemChanges
    */
   @JsonAnySetter
-  public UpdateAppsDatastoreItemRequestDataAttributesItemChanges putAdditionalProperty(String key, Object value) {
+  public UpdateAppsDatastoreItemRequestDataAttributesItemChanges putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -113,13 +98,14 @@ public class UpdateAppsDatastoreItemRequestDataAttributesItemChanges {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
   /**
-   * Return true if this UpdateAppsDatastoreItemRequestDataAttributesItemChanges object is equal to o.
+   * Return true if this UpdateAppsDatastoreItemRequestDataAttributesItemChanges object is equal to
+   * o.
    */
   @Override
   public boolean equals(Object o) {
@@ -129,10 +115,15 @@ public class UpdateAppsDatastoreItemRequestDataAttributesItemChanges {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateAppsDatastoreItemRequestDataAttributesItemChanges updateAppsDatastoreItemRequestDataAttributesItemChanges = (UpdateAppsDatastoreItemRequestDataAttributesItemChanges) o;
-    return Objects.equals(this.opsSet, updateAppsDatastoreItemRequestDataAttributesItemChanges.opsSet) && Objects.equals(this.additionalProperties, updateAppsDatastoreItemRequestDataAttributesItemChanges.additionalProperties);
+    UpdateAppsDatastoreItemRequestDataAttributesItemChanges
+        updateAppsDatastoreItemRequestDataAttributesItemChanges =
+            (UpdateAppsDatastoreItemRequestDataAttributesItemChanges) o;
+    return Objects.equals(
+            this.opsSet, updateAppsDatastoreItemRequestDataAttributesItemChanges.opsSet)
+        && Objects.equals(
+            this.additionalProperties,
+            updateAppsDatastoreItemRequestDataAttributesItemChanges.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
@@ -152,8 +143,7 @@ public class UpdateAppsDatastoreItemRequestDataAttributesItemChanges {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

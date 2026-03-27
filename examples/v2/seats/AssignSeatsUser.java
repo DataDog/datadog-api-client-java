@@ -1,20 +1,14 @@
 // Assign seats to users returns "Created" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SeatsApi;
-import com.datadog.api.client.v2.model.AssignSeatsUserResponse;
 import com.datadog.api.client.v2.model.AssignSeatsUserRequest;
 import com.datadog.api.client.v2.model.AssignSeatsUserRequestData;
 import com.datadog.api.client.v2.model.AssignSeatsUserRequestDataAttributes;
+import com.datadog.api.client.v2.model.AssignSeatsUserResponse;
 import com.datadog.api.client.v2.model.SeatAssignmentsDataType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,12 +18,15 @@ public class Example {
     // there is a valid "user" in the system
     String USER_DATA_ID = System.getenv("USER_DATA_ID");
 
-    AssignSeatsUserRequest body = new AssignSeatsUserRequest()
-.data(new AssignSeatsUserRequestData()
-.type(SeatAssignmentsDataType.SEAT_ASSIGNMENTS)
-.attributes(new AssignSeatsUserRequestDataAttributes()
-.productCode("incident_response")
-.userUuids(Collections.singletonList(USER_DATA_ID))));
+    AssignSeatsUserRequest body =
+        new AssignSeatsUserRequest()
+            .data(
+                new AssignSeatsUserRequestData()
+                    .type(SeatAssignmentsDataType.SEAT_ASSIGNMENTS)
+                    .attributes(
+                        new AssignSeatsUserRequestDataAttributes()
+                            .productCode("incident_response")
+                            .userUuids(Collections.singletonList(USER_DATA_ID))));
 
     try {
       AssignSeatsUserResponse result = apiInstance.assignSeatsUser(body);

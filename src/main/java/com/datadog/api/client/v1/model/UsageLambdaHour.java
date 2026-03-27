@@ -6,34 +6,21 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
 /**
-   * <p>Number of Lambda functions and sum of the invocations of all Lambda functions
-   * for each hour for a given organization.</p>
+ * Number of Lambda functions and sum of the invocations of all Lambda functions for each hour for a
+ * given organization.
  */
 @JsonPropertyOrder({
   UsageLambdaHour.JSON_PROPERTY_FUNC_COUNT,
@@ -42,10 +29,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   UsageLambdaHour.JSON_PROPERTY_ORG_NAME,
   UsageLambdaHour.JSON_PROPERTY_PUBLIC_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageLambdaHour {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FUNC_COUNT = "func_count";
   private JsonNullable<Long> funcCount = JsonNullable.<Long>undefined();
 
@@ -67,120 +54,134 @@ public class UsageLambdaHour {
   }
 
   /**
-   * <p>Contains the number of different functions for each region and AWS account.</p>
+   * Contains the number of different functions for each region and AWS account.
+   *
    * @return funcCount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getFuncCount() {
-        return funcCount.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getFuncCount() {
+    return funcCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_FUNC_COUNT)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getFuncCount_JsonNullable() {
     return funcCount;
   }
-  @JsonProperty(JSON_PROPERTY_FUNC_COUNT)public void setFuncCount_JsonNullable(JsonNullable<Long> funcCount) {
+
+  @JsonProperty(JSON_PROPERTY_FUNC_COUNT)
+  public void setFuncCount_JsonNullable(JsonNullable<Long> funcCount) {
     this.funcCount = funcCount;
   }
+
   public void setFuncCount(Long funcCount) {
     this.funcCount = JsonNullable.<Long>of(funcCount);
   }
+
   public UsageLambdaHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
   /**
-   * <p>The hour for the usage.</p>
+   * The hour for the usage.
+   *
    * @return hour
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOUR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getHour() {
-        return hour;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getHour() {
+    return hour;
+  }
+
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
+
   public UsageLambdaHour invocationsSum(Long invocationsSum) {
     this.invocationsSum = JsonNullable.<Long>of(invocationsSum);
     return this;
   }
 
   /**
-   * <p>Contains the sum of invocations of all functions.</p>
+   * Contains the sum of invocations of all functions.
+   *
    * @return invocationsSum
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getInvocationsSum() {
-        return invocationsSum.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getInvocationsSum() {
+    return invocationsSum.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_INVOCATIONS_SUM)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getInvocationsSum_JsonNullable() {
     return invocationsSum;
   }
-  @JsonProperty(JSON_PROPERTY_INVOCATIONS_SUM)public void setInvocationsSum_JsonNullable(JsonNullable<Long> invocationsSum) {
+
+  @JsonProperty(JSON_PROPERTY_INVOCATIONS_SUM)
+  public void setInvocationsSum_JsonNullable(JsonNullable<Long> invocationsSum) {
     this.invocationsSum = invocationsSum;
   }
+
   public void setInvocationsSum(Long invocationsSum) {
     this.invocationsSum = JsonNullable.<Long>of(invocationsSum);
   }
+
   public UsageLambdaHour orgName(String orgName) {
     this.orgName = orgName;
     return this;
   }
 
   /**
-   * <p>The organization name.</p>
+   * The organization name.
+   *
    * @return orgName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORG_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOrgName() {
-        return orgName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
+
   public UsageLambdaHour publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * <p>The organization public ID.</p>
+   * The organization public ID.
+   *
    * @return publicId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublicId() {
-        return publicId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -189,7 +190,7 @@ public class UsageLambdaHour {
   @JsonAnySetter
   public UsageLambdaHour putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -213,14 +214,12 @@ public class UsageLambdaHour {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this UsageLambdaHour object is equal to o.
-   */
+  /** Return true if this UsageLambdaHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -230,13 +229,17 @@ public class UsageLambdaHour {
       return false;
     }
     UsageLambdaHour usageLambdaHour = (UsageLambdaHour) o;
-    return Objects.equals(this.funcCount, usageLambdaHour.funcCount) && Objects.equals(this.hour, usageLambdaHour.hour) && Objects.equals(this.invocationsSum, usageLambdaHour.invocationsSum) && Objects.equals(this.orgName, usageLambdaHour.orgName) && Objects.equals(this.publicId, usageLambdaHour.publicId) && Objects.equals(this.additionalProperties, usageLambdaHour.additionalProperties);
+    return Objects.equals(this.funcCount, usageLambdaHour.funcCount)
+        && Objects.equals(this.hour, usageLambdaHour.hour)
+        && Objects.equals(this.invocationsSum, usageLambdaHour.invocationsSum)
+        && Objects.equals(this.orgName, usageLambdaHour.orgName)
+        && Objects.equals(this.publicId, usageLambdaHour.publicId)
+        && Objects.equals(this.additionalProperties, usageLambdaHour.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(funcCount,hour,invocationsSum,orgName,publicId, additionalProperties);
+    return Objects.hash(funcCount, hour, invocationsSum, orgName, publicId, additionalProperties);
   }
 
   @Override
@@ -256,8 +259,7 @@ public class UsageLambdaHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

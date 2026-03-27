@@ -1,17 +1,9 @@
 // Get an SLO's history returns "OK" response
-import java.time.OffsetDateTime;
-
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi;
 import com.datadog.api.client.v1.model.SLOHistoryResponse;
-import java.io.File;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -22,7 +14,11 @@ public class Example {
     String SLO_DATA_0_ID = System.getenv("SLO_DATA_0_ID");
 
     try {
-      SLOHistoryResponse result = apiInstance.getSLOHistory(SLO_DATA_0_ID, OffsetDateTime.now().plusDays(-1).toInstant().getEpochSecond(), OffsetDateTime.now().toInstant().getEpochSecond());
+      SLOHistoryResponse result =
+          apiInstance.getSLOHistory(
+              SLO_DATA_0_ID,
+              OffsetDateTime.now().plusDays(-1).toInstant().getEpochSecond(),
+              OffsetDateTime.now().toInstant().getEpochSecond());
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceLevelObjectivesApi#getSLOHistory");

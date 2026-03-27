@@ -6,77 +6,60 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The reason why this finding is muted or unmuted.</p>
- */
+/** The reason why this finding is muted or unmuted. */
 @JsonSerialize(using = FindingMuteReason.FindingMuteReasonSerializer.class)
 public class FindingMuteReason extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("PENDING_FIX", "FALSE_POSITIVE", "ACCEPTED_RISK", "NO_PENDING_FIX", "HUMAN_ERROR", "NO_LONGER_ACCEPTED_RISK", "OTHER"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "PENDING_FIX",
+              "FALSE_POSITIVE",
+              "ACCEPTED_RISK",
+              "NO_PENDING_FIX",
+              "HUMAN_ERROR",
+              "NO_LONGER_ACCEPTED_RISK",
+              "OTHER"));
 
   public static final FindingMuteReason PENDING_FIX = new FindingMuteReason("PENDING_FIX");
   public static final FindingMuteReason FALSE_POSITIVE = new FindingMuteReason("FALSE_POSITIVE");
   public static final FindingMuteReason ACCEPTED_RISK = new FindingMuteReason("ACCEPTED_RISK");
   public static final FindingMuteReason NO_PENDING_FIX = new FindingMuteReason("NO_PENDING_FIX");
   public static final FindingMuteReason HUMAN_ERROR = new FindingMuteReason("HUMAN_ERROR");
-  public static final FindingMuteReason NO_LONGER_ACCEPTED_RISK = new FindingMuteReason("NO_LONGER_ACCEPTED_RISK");
+  public static final FindingMuteReason NO_LONGER_ACCEPTED_RISK =
+      new FindingMuteReason("NO_LONGER_ACCEPTED_RISK");
   public static final FindingMuteReason OTHER = new FindingMuteReason("OTHER");
-
 
   FindingMuteReason(String value) {
     super(value, allowedValues);
   }
 
   public static class FindingMuteReasonSerializer extends StdSerializer<FindingMuteReason> {
-      public FindingMuteReasonSerializer(Class<FindingMuteReason> t) {
-          super(t);
-      }
+    public FindingMuteReasonSerializer(Class<FindingMuteReason> t) {
+      super(t);
+    }
 
-      public FindingMuteReasonSerializer() {
-          this(null);
-      }
+    public FindingMuteReasonSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(FindingMuteReason value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(FindingMuteReason value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

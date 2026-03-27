@@ -6,71 +6,47 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The definition of the <code>CloudflareIntegrationType</code> object.</p>
- */
+/** The definition of the <code>CloudflareIntegrationType</code> object. */
 @JsonSerialize(using = CloudflareIntegrationType.CloudflareIntegrationTypeSerializer.class)
 public class CloudflareIntegrationType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("Cloudflare"));
 
-  public static final CloudflareIntegrationType CLOUDFLARE = new CloudflareIntegrationType("Cloudflare");
-
+  public static final CloudflareIntegrationType CLOUDFLARE =
+      new CloudflareIntegrationType("Cloudflare");
 
   CloudflareIntegrationType(String value) {
     super(value, allowedValues);
   }
 
-  public static class CloudflareIntegrationTypeSerializer extends StdSerializer<CloudflareIntegrationType> {
-      public CloudflareIntegrationTypeSerializer(Class<CloudflareIntegrationType> t) {
-          super(t);
-      }
+  public static class CloudflareIntegrationTypeSerializer
+      extends StdSerializer<CloudflareIntegrationType> {
+    public CloudflareIntegrationTypeSerializer(Class<CloudflareIntegrationType> t) {
+      super(t);
+    }
 
-      public CloudflareIntegrationTypeSerializer() {
-          this(null);
-      }
+    public CloudflareIntegrationTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(CloudflareIntegrationType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        CloudflareIntegrationType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

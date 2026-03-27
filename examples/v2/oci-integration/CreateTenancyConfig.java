@@ -1,9 +1,8 @@
 // Create tenancy config returns "Created" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OciIntegrationApi;
-import com.datadog.api.client.v2.model.TenancyConfig;
 import com.datadog.api.client.v2.model.CreateTenancyConfigData;
 import com.datadog.api.client.v2.model.CreateTenancyConfigDataAttributes;
 import com.datadog.api.client.v2.model.CreateTenancyConfigDataAttributesAuthCredentials;
@@ -11,14 +10,10 @@ import com.datadog.api.client.v2.model.CreateTenancyConfigDataAttributesLogsConf
 import com.datadog.api.client.v2.model.CreateTenancyConfigDataAttributesMetricsConfig;
 import com.datadog.api.client.v2.model.CreateTenancyConfigDataAttributesRegionsConfig;
 import com.datadog.api.client.v2.model.CreateTenancyConfigRequest;
+import com.datadog.api.client.v2.model.TenancyConfig;
 import com.datadog.api.client.v2.model.UpdateTenancyConfigDataType;
-import java.io.File;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -26,12 +21,17 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createTenancyConfig", true);
     OciIntegrationApi apiInstance = new OciIntegrationApi(defaultClient);
 
-    CreateTenancyConfigRequest body = new CreateTenancyConfigRequest()
-.data(new CreateTenancyConfigData()
-.attributes(new CreateTenancyConfigDataAttributes()
-.authCredentials(new CreateTenancyConfigDataAttributesAuthCredentials()
-.fingerprint("")
-.privateKey("""
+    CreateTenancyConfigRequest body =
+        new CreateTenancyConfigRequest()
+            .data(
+                new CreateTenancyConfigData()
+                    .attributes(
+                        new CreateTenancyConfigDataAttributes()
+                            .authCredentials(
+                                new CreateTenancyConfigDataAttributesAuthCredentials()
+                                    .fingerprint("")
+                                    .privateKey(
+                                        """
 ----BEGIN PRIVATE KEY-----
 MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCdvSMmlfLyeD4M
 QsA3WlrWBqKdWa5eVV3/uODyqT3wWMEMIJHcG3/quNs8nh9xrK1/JkQT2qoKEHqR
@@ -52,27 +52,32 @@ DBCsOXoYHjv2eayGUijNaoOv6xzcoxfvQ1WySdNIxTRq1ru20kYwgHKqGgmO9hrM
 mcwMY5r/WZ2qjFlPjeAqbL62aPDLidGjoaVo2iIoBPK/gjxQ/5f0MS4N/YQ0zWoYBueSQ0DGs
 -----END PRIVATE KEY-----
 """))
-.configVersion(null)
-.costCollectionEnabled(true)
-.ddCompartmentId("ocid.compartment.test")
-.ddStackId("ocid.stack.test")
-.homeRegion("us-ashburn-1")
-.logsConfig(new CreateTenancyConfigDataAttributesLogsConfig()
-.compartmentTagFilters(Arrays.asList("datadog:true", "env:prod"))
-.enabled(true)
-.enabledServices(Arrays.asList("service_1", "service_1")))
-.metricsConfig(new CreateTenancyConfigDataAttributesMetricsConfig()
-.compartmentTagFilters(Arrays.asList("datadog:true", "env:prod"))
-.enabled(true)
-.excludedServices(Arrays.asList("service_1", "service_1")))
-.regionsConfig(new CreateTenancyConfigDataAttributesRegionsConfig()
-.available(Arrays.asList("us-ashburn-1", "us-phoenix-1"))
-.disabled(Collections.singletonList("us-phoenix-1"))
-.enabled(Collections.singletonList("us-ashburn-1")))
-.resourceCollectionEnabled(true)
-.userOcid("ocid.user.test"))
-.id("ocid.tenancy.test")
-.type(UpdateTenancyConfigDataType.OCI_TENANCY));
+                            .configVersion(null)
+                            .costCollectionEnabled(true)
+                            .ddCompartmentId("ocid.compartment.test")
+                            .ddStackId("ocid.stack.test")
+                            .homeRegion("us-ashburn-1")
+                            .logsConfig(
+                                new CreateTenancyConfigDataAttributesLogsConfig()
+                                    .compartmentTagFilters(
+                                        Arrays.asList("datadog:true", "env:prod"))
+                                    .enabled(true)
+                                    .enabledServices(Arrays.asList("service_1", "service_1")))
+                            .metricsConfig(
+                                new CreateTenancyConfigDataAttributesMetricsConfig()
+                                    .compartmentTagFilters(
+                                        Arrays.asList("datadog:true", "env:prod"))
+                                    .enabled(true)
+                                    .excludedServices(Arrays.asList("service_1", "service_1")))
+                            .regionsConfig(
+                                new CreateTenancyConfigDataAttributesRegionsConfig()
+                                    .available(Arrays.asList("us-ashburn-1", "us-phoenix-1"))
+                                    .disabled(Collections.singletonList("us-phoenix-1"))
+                                    .enabled(Collections.singletonList("us-ashburn-1")))
+                            .resourceCollectionEnabled(true)
+                            .userOcid("ocid.user.test"))
+                    .id("ocid.tenancy.test")
+                    .type(UpdateTenancyConfigDataType.OCI_TENANCY));
 
     try {
       TenancyConfig result = apiInstance.createTenancyConfig(body);

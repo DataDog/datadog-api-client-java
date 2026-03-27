@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A WAF custom rule.</p>
- */
+/** A WAF custom rule. */
 @JsonPropertyOrder({
   ApplicationSecurityWafCustomRuleAttributes.JSON_PROPERTY_ACTION,
   ApplicationSecurityWafCustomRuleAttributes.JSON_PROPERTY_BLOCKING,
@@ -45,10 +31,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ApplicationSecurityWafCustomRuleAttributes.JSON_PROPERTY_SCOPE,
   ApplicationSecurityWafCustomRuleAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationSecurityWafCustomRuleAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTION = "action";
   private ApplicationSecurityWafCustomRuleAction action;
 
@@ -80,158 +66,180 @@ public class ApplicationSecurityWafCustomRuleAttributes {
 
   @JsonCreator
   public ApplicationSecurityWafCustomRuleAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_BLOCKING)Boolean blocking,
-            @JsonProperty(required=true, value=JSON_PROPERTY_CONDITIONS)List<ApplicationSecurityWafCustomRuleCondition> conditions,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ENABLED)Boolean enabled,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TAGS)ApplicationSecurityWafCustomRuleTags tags) {
-        this.blocking = blocking;
-        this.conditions = conditions;
-        this.enabled = enabled;
-        this.name = name;
-        this.tags = tags;
-        this.unparsed |= tags.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_BLOCKING) Boolean blocking,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONDITIONS)
+          List<ApplicationSecurityWafCustomRuleCondition> conditions,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS)
+          ApplicationSecurityWafCustomRuleTags tags) {
+    this.blocking = blocking;
+    this.conditions = conditions;
+    this.enabled = enabled;
+    this.name = name;
+    this.tags = tags;
+    this.unparsed |= tags.unparsed;
   }
-  public ApplicationSecurityWafCustomRuleAttributes action(ApplicationSecurityWafCustomRuleAction action) {
+
+  public ApplicationSecurityWafCustomRuleAttributes action(
+      ApplicationSecurityWafCustomRuleAction action) {
     this.action = action;
     this.unparsed |= action.unparsed;
     return this;
   }
 
   /**
-   * <p>The definition of <code>ApplicationSecurityWafCustomRuleAction</code> object.</p>
+   * The definition of <code>ApplicationSecurityWafCustomRuleAction</code> object.
+   *
    * @return action
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ACTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ApplicationSecurityWafCustomRuleAction getAction() {
-        return action;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ApplicationSecurityWafCustomRuleAction getAction() {
+    return action;
+  }
+
   public void setAction(ApplicationSecurityWafCustomRuleAction action) {
     this.action = action;
   }
+
   public ApplicationSecurityWafCustomRuleAttributes blocking(Boolean blocking) {
     this.blocking = blocking;
     return this;
   }
 
   /**
-   * <p>Indicates whether the WAF custom rule will block the request.</p>
+   * Indicates whether the WAF custom rule will block the request.
+   *
    * @return blocking
-  **/
-      @JsonProperty(JSON_PROPERTY_BLOCKING)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Boolean getBlocking() {
-        return blocking;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_BLOCKING)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getBlocking() {
+    return blocking;
+  }
+
   public void setBlocking(Boolean blocking) {
     this.blocking = blocking;
   }
-  public ApplicationSecurityWafCustomRuleAttributes conditions(List<ApplicationSecurityWafCustomRuleCondition> conditions) {
+
+  public ApplicationSecurityWafCustomRuleAttributes conditions(
+      List<ApplicationSecurityWafCustomRuleCondition> conditions) {
     this.conditions = conditions;
     for (ApplicationSecurityWafCustomRuleCondition item : conditions) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public ApplicationSecurityWafCustomRuleAttributes addConditionsItem(ApplicationSecurityWafCustomRuleCondition conditionsItem) {
+
+  public ApplicationSecurityWafCustomRuleAttributes addConditionsItem(
+      ApplicationSecurityWafCustomRuleCondition conditionsItem) {
     this.conditions.add(conditionsItem);
     this.unparsed |= conditionsItem.unparsed;
     return this;
   }
 
   /**
-   * <p>Conditions for which the WAF Custom Rule will triggers, all conditions needs to match in order for the WAF
-   * rule to trigger.</p>
+   * Conditions for which the WAF Custom Rule will triggers, all conditions needs to match in order
+   * for the WAF rule to trigger.
+   *
    * @return conditions
-  **/
-      @JsonProperty(JSON_PROPERTY_CONDITIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<ApplicationSecurityWafCustomRuleCondition> getConditions() {
-        return conditions;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CONDITIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<ApplicationSecurityWafCustomRuleCondition> getConditions() {
+    return conditions;
+  }
+
   public void setConditions(List<ApplicationSecurityWafCustomRuleCondition> conditions) {
     this.conditions = conditions;
   }
+
   public ApplicationSecurityWafCustomRuleAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * <p>Indicates whether the WAF custom rule is enabled.</p>
+   * Indicates whether the WAF custom rule is enabled.
+   *
    * @return enabled
-  **/
-      @JsonProperty(JSON_PROPERTY_ENABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Boolean getEnabled() {
-        return enabled;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
   /**
-   * <p>Metadata associated with the WAF Custom Rule.</p>
+   * Metadata associated with the WAF Custom Rule.
+   *
    * @return metadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ApplicationSecurityWafCustomRuleMetadata getMetadata() {
-        return metadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ApplicationSecurityWafCustomRuleMetadata getMetadata() {
+    return metadata;
+  }
+
   public ApplicationSecurityWafCustomRuleAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The Name of the WAF custom rule.</p>
+   * The Name of the WAF custom rule.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public ApplicationSecurityWafCustomRuleAttributes pathGlob(String pathGlob) {
     this.pathGlob = pathGlob;
     return this;
   }
 
   /**
-   * <p>The path glob for the WAF custom rule.</p>
+   * The path glob for the WAF custom rule.
+   *
    * @return pathGlob
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PATH_GLOB)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPathGlob() {
-        return pathGlob;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PATH_GLOB)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPathGlob() {
+    return pathGlob;
+  }
+
   public void setPathGlob(String pathGlob) {
     this.pathGlob = pathGlob;
   }
-  public ApplicationSecurityWafCustomRuleAttributes scope(List<ApplicationSecurityWafCustomRuleScope> scope) {
+
+  public ApplicationSecurityWafCustomRuleAttributes scope(
+      List<ApplicationSecurityWafCustomRuleScope> scope) {
     this.scope = scope;
     for (ApplicationSecurityWafCustomRuleScope item : scope) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public ApplicationSecurityWafCustomRuleAttributes addScopeItem(ApplicationSecurityWafCustomRuleScope scopeItem) {
+
+  public ApplicationSecurityWafCustomRuleAttributes addScopeItem(
+      ApplicationSecurityWafCustomRuleScope scopeItem) {
     if (this.scope == null) {
       this.scope = new ArrayList<>();
     }
@@ -241,59 +249,63 @@ public class ApplicationSecurityWafCustomRuleAttributes {
   }
 
   /**
-   * <p>The scope of the WAF custom rule.</p>
+   * The scope of the WAF custom rule.
+   *
    * @return scope
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SCOPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ApplicationSecurityWafCustomRuleScope> getScope() {
-        return scope;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ApplicationSecurityWafCustomRuleScope> getScope() {
+    return scope;
+  }
+
   public void setScope(List<ApplicationSecurityWafCustomRuleScope> scope) {
     this.scope = scope;
   }
-  public ApplicationSecurityWafCustomRuleAttributes tags(ApplicationSecurityWafCustomRuleTags tags) {
+
+  public ApplicationSecurityWafCustomRuleAttributes tags(
+      ApplicationSecurityWafCustomRuleTags tags) {
     this.tags = tags;
     this.unparsed |= tags.unparsed;
     return this;
   }
 
   /**
-   * <p>Tags associated with the WAF Custom Rule. The concatenation of category and type will form the security
-   * activity field associated with the traces.</p>
+   * Tags associated with the WAF Custom Rule. The concatenation of category and type will form the
+   * security activity field associated with the traces.
+   *
    * @return tags
-  **/
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ApplicationSecurityWafCustomRuleTags getTags() {
-        return tags;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ApplicationSecurityWafCustomRuleTags getTags() {
+    return tags;
+  }
+
   public void setTags(ApplicationSecurityWafCustomRuleTags tags) {
     this.tags = tags;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return ApplicationSecurityWafCustomRuleAttributes
    */
   @JsonAnySetter
-  public ApplicationSecurityWafCustomRuleAttributes putAdditionalProperty(String key, Object value) {
+  public ApplicationSecurityWafCustomRuleAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -317,14 +329,12 @@ public class ApplicationSecurityWafCustomRuleAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ApplicationSecurityWafCustomRuleAttributes object is equal to o.
-   */
+  /** Return true if this ApplicationSecurityWafCustomRuleAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -333,14 +343,35 @@ public class ApplicationSecurityWafCustomRuleAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationSecurityWafCustomRuleAttributes applicationSecurityWafCustomRuleAttributes = (ApplicationSecurityWafCustomRuleAttributes) o;
-    return Objects.equals(this.action, applicationSecurityWafCustomRuleAttributes.action) && Objects.equals(this.blocking, applicationSecurityWafCustomRuleAttributes.blocking) && Objects.equals(this.conditions, applicationSecurityWafCustomRuleAttributes.conditions) && Objects.equals(this.enabled, applicationSecurityWafCustomRuleAttributes.enabled) && Objects.equals(this.metadata, applicationSecurityWafCustomRuleAttributes.metadata) && Objects.equals(this.name, applicationSecurityWafCustomRuleAttributes.name) && Objects.equals(this.pathGlob, applicationSecurityWafCustomRuleAttributes.pathGlob) && Objects.equals(this.scope, applicationSecurityWafCustomRuleAttributes.scope) && Objects.equals(this.tags, applicationSecurityWafCustomRuleAttributes.tags) && Objects.equals(this.additionalProperties, applicationSecurityWafCustomRuleAttributes.additionalProperties);
+    ApplicationSecurityWafCustomRuleAttributes applicationSecurityWafCustomRuleAttributes =
+        (ApplicationSecurityWafCustomRuleAttributes) o;
+    return Objects.equals(this.action, applicationSecurityWafCustomRuleAttributes.action)
+        && Objects.equals(this.blocking, applicationSecurityWafCustomRuleAttributes.blocking)
+        && Objects.equals(this.conditions, applicationSecurityWafCustomRuleAttributes.conditions)
+        && Objects.equals(this.enabled, applicationSecurityWafCustomRuleAttributes.enabled)
+        && Objects.equals(this.metadata, applicationSecurityWafCustomRuleAttributes.metadata)
+        && Objects.equals(this.name, applicationSecurityWafCustomRuleAttributes.name)
+        && Objects.equals(this.pathGlob, applicationSecurityWafCustomRuleAttributes.pathGlob)
+        && Objects.equals(this.scope, applicationSecurityWafCustomRuleAttributes.scope)
+        && Objects.equals(this.tags, applicationSecurityWafCustomRuleAttributes.tags)
+        && Objects.equals(
+            this.additionalProperties,
+            applicationSecurityWafCustomRuleAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(action,blocking,conditions,enabled,metadata,name,pathGlob,scope,tags, additionalProperties);
+    return Objects.hash(
+        action,
+        blocking,
+        conditions,
+        enabled,
+        metadata,
+        name,
+        pathGlob,
+        scope,
+        tags,
+        additionalProperties);
   }
 
   @Override
@@ -364,8 +395,7 @@ public class ApplicationSecurityWafCustomRuleAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

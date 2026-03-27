@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Group reorder request.</p>
- */
+/** Group reorder request. */
 @JsonPropertyOrder({
   SensitiveDataScannerConfigRequest.JSON_PROPERTY_DATA,
   SensitiveDataScannerConfigRequest.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SensitiveDataScannerConfigRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private SensitiveDataScannerReorderConfig data;
 
@@ -52,13 +36,16 @@ public class SensitiveDataScannerConfigRequest {
 
   @JsonCreator
   public SensitiveDataScannerConfigRequest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)SensitiveDataScannerReorderConfig data,
-            @JsonProperty(required=true, value=JSON_PROPERTY_META)SensitiveDataScannerMetaVersionOnly meta) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
-        this.meta = meta;
-        this.unparsed |= meta.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          SensitiveDataScannerReorderConfig data,
+      @JsonProperty(required = true, value = JSON_PROPERTY_META)
+          SensitiveDataScannerMetaVersionOnly meta) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
   }
+
   public SensitiveDataScannerConfigRequest data(SensitiveDataScannerReorderConfig data) {
     this.data = data;
     this.unparsed |= data.unparsed;
@@ -66,18 +53,20 @@ public class SensitiveDataScannerConfigRequest {
   }
 
   /**
-   * <p>Data related to the reordering of scanning groups.</p>
+   * Data related to the reordering of scanning groups.
+   *
    * @return data
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SensitiveDataScannerReorderConfig getData() {
-        return data;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SensitiveDataScannerReorderConfig getData() {
+    return data;
+  }
+
   public void setData(SensitiveDataScannerReorderConfig data) {
     this.data = data;
   }
+
   public SensitiveDataScannerConfigRequest meta(SensitiveDataScannerMetaVersionOnly meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -85,29 +74,29 @@ public class SensitiveDataScannerConfigRequest {
   }
 
   /**
-   * <p>Meta payload containing information about the API.</p>
+   * Meta payload containing information about the API.
+   *
    * @return meta
-  **/
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SensitiveDataScannerMetaVersionOnly getMeta() {
-        return meta;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SensitiveDataScannerMetaVersionOnly getMeta() {
+    return meta;
+  }
+
   public void setMeta(SensitiveDataScannerMetaVersionOnly meta) {
     this.meta = meta;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -116,7 +105,7 @@ public class SensitiveDataScannerConfigRequest {
   @JsonAnySetter
   public SensitiveDataScannerConfigRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -140,14 +129,12 @@ public class SensitiveDataScannerConfigRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SensitiveDataScannerConfigRequest object is equal to o.
-   */
+  /** Return true if this SensitiveDataScannerConfigRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -156,14 +143,17 @@ public class SensitiveDataScannerConfigRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SensitiveDataScannerConfigRequest sensitiveDataScannerConfigRequest = (SensitiveDataScannerConfigRequest) o;
-    return Objects.equals(this.data, sensitiveDataScannerConfigRequest.data) && Objects.equals(this.meta, sensitiveDataScannerConfigRequest.meta) && Objects.equals(this.additionalProperties, sensitiveDataScannerConfigRequest.additionalProperties);
+    SensitiveDataScannerConfigRequest sensitiveDataScannerConfigRequest =
+        (SensitiveDataScannerConfigRequest) o;
+    return Objects.equals(this.data, sensitiveDataScannerConfigRequest.data)
+        && Objects.equals(this.meta, sensitiveDataScannerConfigRequest.meta)
+        && Objects.equals(
+            this.additionalProperties, sensitiveDataScannerConfigRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,meta, additionalProperties);
+    return Objects.hash(data, meta, additionalProperties);
   }
 
   @Override
@@ -180,8 +170,7 @@ public class SensitiveDataScannerConfigRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

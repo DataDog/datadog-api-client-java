@@ -1,16 +1,9 @@
 // Get a Workload Protection policy returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CsmThreatsApi;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentPolicyResponse;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,7 +14,8 @@ public class Example {
     String POLICY_DATA_ID = System.getenv("POLICY_DATA_ID");
 
     try {
-      CloudWorkloadSecurityAgentPolicyResponse result = apiInstance.getCSMThreatsAgentPolicy(POLICY_DATA_ID);
+      CloudWorkloadSecurityAgentPolicyResponse result =
+          apiInstance.getCSMThreatsAgentPolicy(POLICY_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CsmThreatsApi#getCSMThreatsAgentPolicy");

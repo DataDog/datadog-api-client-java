@@ -1,32 +1,31 @@
 // Create an environment returns "Created" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.FeatureFlagsApi;
-import com.datadog.api.client.v2.model.EnvironmentResponse;
 import com.datadog.api.client.v2.model.CreateEnvironmentAttributes;
 import com.datadog.api.client.v2.model.CreateEnvironmentData;
 import com.datadog.api.client.v2.model.CreateEnvironmentDataType;
 import com.datadog.api.client.v2.model.CreateEnvironmentRequest;
-import java.io.File;
-import java.time.OffsetDateTime;
+import com.datadog.api.client.v2.model.EnvironmentResponse;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     FeatureFlagsApi apiInstance = new FeatureFlagsApi(defaultClient);
 
-    CreateEnvironmentRequest body = new CreateEnvironmentRequest()
-.data(new CreateEnvironmentData()
-.type(CreateEnvironmentDataType.ENVIRONMENTS)
-.attributes(new CreateEnvironmentAttributes()
-.name("Test Environment Example-Feature-Flag")
-.queries(Arrays.asList("test-Example-Feature-Flag", "env-Example-Feature-Flag"))));
+    CreateEnvironmentRequest body =
+        new CreateEnvironmentRequest()
+            .data(
+                new CreateEnvironmentData()
+                    .type(CreateEnvironmentDataType.ENVIRONMENTS)
+                    .attributes(
+                        new CreateEnvironmentAttributes()
+                            .name("Test Environment Example-Feature-Flag")
+                            .queries(
+                                Arrays.asList(
+                                    "test-Example-Feature-Flag", "env-Example-Feature-Flag"))));
 
     try {
       EnvironmentResponse result = apiInstance.createFeatureFlagsEnvironment(body);

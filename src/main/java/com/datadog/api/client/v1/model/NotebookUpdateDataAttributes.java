@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The data attributes of a notebook.</p>
- */
+/** The data attributes of a notebook. */
 @JsonPropertyOrder({
   NotebookUpdateDataAttributes.JSON_PROPERTY_CELLS,
   NotebookUpdateDataAttributes.JSON_PROPERTY_METADATA,
@@ -41,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   NotebookUpdateDataAttributes.JSON_PROPERTY_STATUS,
   NotebookUpdateDataAttributes.JSON_PROPERTY_TIME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookUpdateDataAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CELLS = "cells";
   private List<NotebookUpdateCell> cells = new ArrayList<>();
 
@@ -64,14 +50,15 @@ public class NotebookUpdateDataAttributes {
 
   @JsonCreator
   public NotebookUpdateDataAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CELLS)List<NotebookUpdateCell> cells,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TIME)NotebookGlobalTime time) {
-        this.cells = cells;
-        this.name = name;
-        this.time = time;
-        this.unparsed |= time.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CELLS) List<NotebookUpdateCell> cells,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIME) NotebookGlobalTime time) {
+    this.cells = cells;
+    this.name = name;
+    this.time = time;
+    this.unparsed |= time.unparsed;
   }
+
   public NotebookUpdateDataAttributes cells(List<NotebookUpdateCell> cells) {
     this.cells = cells;
     for (NotebookUpdateCell item : cells) {
@@ -79,6 +66,7 @@ public class NotebookUpdateDataAttributes {
     }
     return this;
   }
+
   public NotebookUpdateDataAttributes addCellsItem(NotebookUpdateCell cellsItem) {
     this.cells.add(cellsItem);
     this.unparsed |= cellsItem.unparsed;
@@ -86,18 +74,20 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * <p>List of cells to display in the notebook.</p>
+   * List of cells to display in the notebook.
+   *
    * @return cells
-  **/
-      @JsonProperty(JSON_PROPERTY_CELLS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<NotebookUpdateCell> getCells() {
-        return cells;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CELLS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<NotebookUpdateCell> getCells() {
+    return cells;
+  }
+
   public void setCells(List<NotebookUpdateCell> cells) {
     this.cells = cells;
   }
+
   public NotebookUpdateDataAttributes metadata(NotebookMetadata metadata) {
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
@@ -105,37 +95,41 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * <p>Metadata associated with the notebook.</p>
+   * Metadata associated with the notebook.
+   *
    * @return metadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public NotebookMetadata getMetadata() {
-        return metadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NotebookMetadata getMetadata() {
+    return metadata;
+  }
+
   public void setMetadata(NotebookMetadata metadata) {
     this.metadata = metadata;
   }
+
   public NotebookUpdateDataAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the notebook.</p>
+   * The name of the notebook.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public NotebookUpdateDataAttributes status(NotebookStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -143,22 +137,24 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * <p>Publication status of the notebook. For now, always "published".</p>
+   * Publication status of the notebook. For now, always "published".
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public NotebookStatus getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NotebookStatus getStatus() {
+    return status;
+  }
+
   public void setStatus(NotebookStatus status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
+
   public NotebookUpdateDataAttributes time(NotebookGlobalTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -166,29 +162,29 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * <p>Notebook global timeframe.</p>
+   * Notebook global timeframe.
+   *
    * @return time
-  **/
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public NotebookGlobalTime getTime() {
-        return time;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public NotebookGlobalTime getTime() {
+    return time;
+  }
+
   public void setTime(NotebookGlobalTime time) {
     this.time = time;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -197,7 +193,7 @@ public class NotebookUpdateDataAttributes {
   @JsonAnySetter
   public NotebookUpdateDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -221,14 +217,12 @@ public class NotebookUpdateDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this NotebookUpdateDataAttributes object is equal to o.
-   */
+  /** Return true if this NotebookUpdateDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -238,13 +232,18 @@ public class NotebookUpdateDataAttributes {
       return false;
     }
     NotebookUpdateDataAttributes notebookUpdateDataAttributes = (NotebookUpdateDataAttributes) o;
-    return Objects.equals(this.cells, notebookUpdateDataAttributes.cells) && Objects.equals(this.metadata, notebookUpdateDataAttributes.metadata) && Objects.equals(this.name, notebookUpdateDataAttributes.name) && Objects.equals(this.status, notebookUpdateDataAttributes.status) && Objects.equals(this.time, notebookUpdateDataAttributes.time) && Objects.equals(this.additionalProperties, notebookUpdateDataAttributes.additionalProperties);
+    return Objects.equals(this.cells, notebookUpdateDataAttributes.cells)
+        && Objects.equals(this.metadata, notebookUpdateDataAttributes.metadata)
+        && Objects.equals(this.name, notebookUpdateDataAttributes.name)
+        && Objects.equals(this.status, notebookUpdateDataAttributes.status)
+        && Objects.equals(this.time, notebookUpdateDataAttributes.time)
+        && Objects.equals(
+            this.additionalProperties, notebookUpdateDataAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(cells,metadata,name,status,time, additionalProperties);
+    return Objects.hash(cells, metadata, name, status, time, additionalProperties);
   }
 
   @Override
@@ -264,8 +263,7 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

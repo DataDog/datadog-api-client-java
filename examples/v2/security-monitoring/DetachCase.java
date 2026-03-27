@@ -1,7 +1,7 @@
 // Detach security findings from their case returns "No Content" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 import com.datadog.api.client.v2.model.CaseDataType;
 import com.datadog.api.client.v2.model.DetachCaseRequest;
@@ -10,27 +10,28 @@ import com.datadog.api.client.v2.model.DetachCaseRequestDataRelationships;
 import com.datadog.api.client.v2.model.FindingData;
 import com.datadog.api.client.v2.model.FindingDataType;
 import com.datadog.api.client.v2.model.Findings;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
-    DetachCaseRequest body = new DetachCaseRequest()
-.data(new DetachCaseRequestData()
-.relationships(new DetachCaseRequestDataRelationships()
-.findings(new Findings()
-.data(Collections.singletonList(new FindingData()
-.id("YzM2MTFjYzcyNmY0Zjg4MTAxZmRlNjQ1MWU1ZGQwYzR-YzI5NzE5Y2Y4MzU4ZjliNzhkNjYxNTY0ODIzZDQ2YTM=")
-.type(FindingDataType.FINDINGS)))))
-.type(CaseDataType.CASES));
+    DetachCaseRequest body =
+        new DetachCaseRequest()
+            .data(
+                new DetachCaseRequestData()
+                    .relationships(
+                        new DetachCaseRequestDataRelationships()
+                            .findings(
+                                new Findings()
+                                    .data(
+                                        Collections.singletonList(
+                                            new FindingData()
+                                                .id(
+                                                    "YzM2MTFjYzcyNmY0Zjg4MTAxZmRlNjQ1MWU1ZGQwYzR-YzI5NzE5Y2Y4MzU4ZjliNzhkNjYxNTY0ODIzZDQ2YTM=")
+                                                .type(FindingDataType.FINDINGS)))))
+                    .type(CaseDataType.CASES));
 
     try {
       apiInstance.detachCase(body);

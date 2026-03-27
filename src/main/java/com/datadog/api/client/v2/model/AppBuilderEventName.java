@@ -6,80 +6,68 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The triggering action for the event.</p>
- */
+/** The triggering action for the event. */
 @JsonSerialize(using = AppBuilderEventName.AppBuilderEventNameSerializer.class)
 public class AppBuilderEventName extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("pageChange", "tableRowClick", "_tableRowButtonClick", "change", "submit", "click", "toggleOpen", "close", "open", "executionFinished"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "pageChange",
+              "tableRowClick",
+              "_tableRowButtonClick",
+              "change",
+              "submit",
+              "click",
+              "toggleOpen",
+              "close",
+              "open",
+              "executionFinished"));
 
   public static final AppBuilderEventName PAGECHANGE = new AppBuilderEventName("pageChange");
   public static final AppBuilderEventName TABLEROWCLICK = new AppBuilderEventName("tableRowClick");
-  public static final AppBuilderEventName TABLEROWBUTTONCLICK = new AppBuilderEventName("_tableRowButtonClick");
+  public static final AppBuilderEventName TABLEROWBUTTONCLICK =
+      new AppBuilderEventName("_tableRowButtonClick");
   public static final AppBuilderEventName CHANGE = new AppBuilderEventName("change");
   public static final AppBuilderEventName SUBMIT = new AppBuilderEventName("submit");
   public static final AppBuilderEventName CLICK = new AppBuilderEventName("click");
   public static final AppBuilderEventName TOGGLEOPEN = new AppBuilderEventName("toggleOpen");
   public static final AppBuilderEventName CLOSE = new AppBuilderEventName("close");
   public static final AppBuilderEventName OPEN = new AppBuilderEventName("open");
-  public static final AppBuilderEventName EXECUTIONFINISHED = new AppBuilderEventName("executionFinished");
-
+  public static final AppBuilderEventName EXECUTIONFINISHED =
+      new AppBuilderEventName("executionFinished");
 
   AppBuilderEventName(String value) {
     super(value, allowedValues);
   }
 
   public static class AppBuilderEventNameSerializer extends StdSerializer<AppBuilderEventName> {
-      public AppBuilderEventNameSerializer(Class<AppBuilderEventName> t) {
-          super(t);
-      }
+    public AppBuilderEventNameSerializer(Class<AppBuilderEventName> t) {
+      super(t);
+    }
 
-      public AppBuilderEventNameSerializer() {
-          this(null);
-      }
+    public AppBuilderEventNameSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(AppBuilderEventName value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        AppBuilderEventName value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

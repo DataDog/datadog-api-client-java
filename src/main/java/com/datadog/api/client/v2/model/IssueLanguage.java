@@ -6,50 +6,52 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>Programming language associated with the issue.</p>
- */
+/** Programming language associated with the issue. */
 @JsonSerialize(using = IssueLanguage.IssueLanguageSerializer.class)
 public class IssueLanguage extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("BRIGHTSCRIPT", "C", "C_PLUS_PLUS", "C_SHARP", "CLOJURE", "DOT_NET", "ELIXIR", "ERLANG", "GO", "GROOVY", "HASKELL", "HCL", "JAVA", "JAVASCRIPT", "JVM", "KOTLIN", "OBJECTIVE_C", "PERL", "PHP", "PYTHON", "RUBY", "RUST", "SCALA", "SWIFT", "TERRAFORM", "TYPESCRIPT", "UNKNOWN"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "BRIGHTSCRIPT",
+              "C",
+              "C_PLUS_PLUS",
+              "C_SHARP",
+              "CLOJURE",
+              "DOT_NET",
+              "ELIXIR",
+              "ERLANG",
+              "GO",
+              "GROOVY",
+              "HASKELL",
+              "HCL",
+              "JAVA",
+              "JAVASCRIPT",
+              "JVM",
+              "KOTLIN",
+              "OBJECTIVE_C",
+              "PERL",
+              "PHP",
+              "PYTHON",
+              "RUBY",
+              "RUST",
+              "SCALA",
+              "SWIFT",
+              "TERRAFORM",
+              "TYPESCRIPT",
+              "UNKNOWN"));
 
   public static final IssueLanguage BRIGHTSCRIPT = new IssueLanguage("BRIGHTSCRIPT");
   public static final IssueLanguage C = new IssueLanguage("C");
@@ -79,24 +81,24 @@ public class IssueLanguage extends ModelEnum<String> {
   public static final IssueLanguage TYPESCRIPT = new IssueLanguage("TYPESCRIPT");
   public static final IssueLanguage UNKNOWN = new IssueLanguage("UNKNOWN");
 
-
   IssueLanguage(String value) {
     super(value, allowedValues);
   }
 
   public static class IssueLanguageSerializer extends StdSerializer<IssueLanguage> {
-      public IssueLanguageSerializer(Class<IssueLanguage> t) {
-          super(t);
-      }
+    public IssueLanguageSerializer(Class<IssueLanguage> t) {
+      super(t);
+    }
 
-      public IssueLanguageSerializer() {
-          this(null);
-      }
+    public IssueLanguageSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(IssueLanguage value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(IssueLanguage value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

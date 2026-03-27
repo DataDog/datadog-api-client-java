@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,20 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The definition of <code>CompletionCondition</code> object.</p>
- */
+/** The definition of <code>CompletionCondition</code> object. */
 @JsonPropertyOrder({
   CompletionCondition.JSON_PROPERTY_OPERAND1,
   CompletionCondition.JSON_PROPERTY_OPERAND2,
   CompletionCondition.JSON_PROPERTY_OPERATOR
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CompletionCondition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_OPERAND1 = "operand1";
   private Object operand1 = new Object();
 
@@ -56,49 +40,55 @@ public class CompletionCondition {
 
   @JsonCreator
   public CompletionCondition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_OPERAND1)Object operand1,
-            @JsonProperty(required=true, value=JSON_PROPERTY_OPERATOR)CompletionConditionOperator operator) {
-        this.operand1 = operand1;
-        this.operator = operator;
-        this.unparsed |= !operator.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPERAND1) Object operand1,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPERATOR)
+          CompletionConditionOperator operator) {
+    this.operand1 = operand1;
+    this.operator = operator;
+    this.unparsed |= !operator.isValid();
   }
+
   public CompletionCondition operand1(Object operand1) {
     this.operand1 = operand1;
     return this;
   }
 
   /**
-   * <p>The <code>CompletionCondition</code> <code>operand1</code>.</p>
+   * The <code>CompletionCondition</code> <code>operand1</code>.
+   *
    * @return operand1
-  **/
-      @JsonProperty(JSON_PROPERTY_OPERAND1)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Object getOperand1() {
-        return operand1;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_OPERAND1)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Object getOperand1() {
+    return operand1;
+  }
+
   public void setOperand1(Object operand1) {
     this.operand1 = operand1;
   }
+
   public CompletionCondition operand2(Object operand2) {
     this.operand2 = operand2;
     return this;
   }
 
   /**
-   * <p>The <code>CompletionCondition</code> <code>operand2</code>.</p>
+   * The <code>CompletionCondition</code> <code>operand2</code>.
+   *
    * @return operand2
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPERAND2)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getOperand2() {
-        return operand2;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPERAND2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getOperand2() {
+    return operand2;
+  }
+
   public void setOperand2(Object operand2) {
     this.operand2 = operand2;
   }
+
   public CompletionCondition operator(CompletionConditionOperator operator) {
     this.operator = operator;
     this.unparsed |= !operator.isValid();
@@ -106,32 +96,32 @@ public class CompletionCondition {
   }
 
   /**
-   * <p>The definition of <code>CompletionConditionOperator</code> object.</p>
+   * The definition of <code>CompletionConditionOperator</code> object.
+   *
    * @return operator
-  **/
-      @JsonProperty(JSON_PROPERTY_OPERATOR)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public CompletionConditionOperator getOperator() {
-        return operator;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_OPERATOR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CompletionConditionOperator getOperator() {
+    return operator;
+  }
+
   public void setOperator(CompletionConditionOperator operator) {
     if (!operator.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.operator = operator;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -140,7 +130,7 @@ public class CompletionCondition {
   @JsonAnySetter
   public CompletionCondition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -164,14 +154,12 @@ public class CompletionCondition {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this CompletionCondition object is equal to o.
-   */
+  /** Return true if this CompletionCondition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -181,13 +169,15 @@ public class CompletionCondition {
       return false;
     }
     CompletionCondition completionCondition = (CompletionCondition) o;
-    return Objects.equals(this.operand1, completionCondition.operand1) && Objects.equals(this.operand2, completionCondition.operand2) && Objects.equals(this.operator, completionCondition.operator) && Objects.equals(this.additionalProperties, completionCondition.additionalProperties);
+    return Objects.equals(this.operand1, completionCondition.operand1)
+        && Objects.equals(this.operand2, completionCondition.operand2)
+        && Objects.equals(this.operator, completionCondition.operator)
+        && Objects.equals(this.additionalProperties, completionCondition.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(operand1,operand2,operator, additionalProperties);
+    return Objects.hash(operand1, operand2, operator, additionalProperties);
   }
 
   @Override
@@ -205,8 +195,7 @@ public class CompletionCondition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

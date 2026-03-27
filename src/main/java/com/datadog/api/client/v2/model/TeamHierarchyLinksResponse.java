@@ -6,44 +6,29 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Team hierarchy links response</p>
- */
+/** Team hierarchy links response */
 @JsonPropertyOrder({
   TeamHierarchyLinksResponse.JSON_PROPERTY_DATA,
   TeamHierarchyLinksResponse.JSON_PROPERTY_INCLUDED,
   TeamHierarchyLinksResponse.JSON_PROPERTY_LINKS,
   TeamHierarchyLinksResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamHierarchyLinksResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<TeamHierarchyLink> data = null;
 
@@ -63,6 +48,7 @@ public class TeamHierarchyLinksResponse {
     }
     return this;
   }
+
   public TeamHierarchyLinksResponse addDataItem(TeamHierarchyLink dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
@@ -73,19 +59,21 @@ public class TeamHierarchyLinksResponse {
   }
 
   /**
-   * <p>Team hierarchy links response data</p>
+   * Team hierarchy links response data
+   *
    * @return data
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<TeamHierarchyLink> getData() {
-        return data;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TeamHierarchyLink> getData() {
+    return data;
+  }
+
   public void setData(List<TeamHierarchyLink> data) {
     this.data = data;
   }
+
   public TeamHierarchyLinksResponse included(List<TeamHierarchyLinkTeam> included) {
     this.included = included;
     for (TeamHierarchyLinkTeam item : included) {
@@ -93,6 +81,7 @@ public class TeamHierarchyLinksResponse {
     }
     return this;
   }
+
   public TeamHierarchyLinksResponse addIncludedItem(TeamHierarchyLinkTeam includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
@@ -103,19 +92,21 @@ public class TeamHierarchyLinksResponse {
   }
 
   /**
-   * <p>Included teams</p>
+   * Included teams
+   *
    * @return included
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCLUDED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<TeamHierarchyLinkTeam> getIncluded() {
-        return included;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TeamHierarchyLinkTeam> getIncluded() {
+    return included;
+  }
+
   public void setIncluded(List<TeamHierarchyLinkTeam> included) {
     this.included = included;
   }
+
   public TeamHierarchyLinksResponse links(TeamsHierarchyLinksResponseLinks links) {
     this.links = links;
     this.unparsed |= links.unparsed;
@@ -123,19 +114,22 @@ public class TeamHierarchyLinksResponse {
   }
 
   /**
-   * <p>When querying team hierarchy links, a set of links for navigation between different pages is included</p>
+   * When querying team hierarchy links, a set of links for navigation between different pages is
+   * included
+   *
    * @return links
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LINKS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TeamsHierarchyLinksResponseLinks getLinks() {
-        return links;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamsHierarchyLinksResponseLinks getLinks() {
+    return links;
+  }
+
   public void setLinks(TeamsHierarchyLinksResponseLinks links) {
     this.links = links;
   }
+
   public TeamHierarchyLinksResponse meta(TeamsHierarchyLinksResponseMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -143,30 +137,30 @@ public class TeamHierarchyLinksResponse {
   }
 
   /**
-   * <p>Metadata that is included in the response when querying the team hierarchy links</p>
+   * Metadata that is included in the response when querying the team hierarchy links
+   *
    * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TeamsHierarchyLinksResponseMeta getMeta() {
-        return meta;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamsHierarchyLinksResponseMeta getMeta() {
+    return meta;
+  }
+
   public void setMeta(TeamsHierarchyLinksResponseMeta meta) {
     this.meta = meta;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -175,7 +169,7 @@ public class TeamHierarchyLinksResponse {
   @JsonAnySetter
   public TeamHierarchyLinksResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -199,14 +193,12 @@ public class TeamHierarchyLinksResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TeamHierarchyLinksResponse object is equal to o.
-   */
+  /** Return true if this TeamHierarchyLinksResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -216,13 +208,17 @@ public class TeamHierarchyLinksResponse {
       return false;
     }
     TeamHierarchyLinksResponse teamHierarchyLinksResponse = (TeamHierarchyLinksResponse) o;
-    return Objects.equals(this.data, teamHierarchyLinksResponse.data) && Objects.equals(this.included, teamHierarchyLinksResponse.included) && Objects.equals(this.links, teamHierarchyLinksResponse.links) && Objects.equals(this.meta, teamHierarchyLinksResponse.meta) && Objects.equals(this.additionalProperties, teamHierarchyLinksResponse.additionalProperties);
+    return Objects.equals(this.data, teamHierarchyLinksResponse.data)
+        && Objects.equals(this.included, teamHierarchyLinksResponse.included)
+        && Objects.equals(this.links, teamHierarchyLinksResponse.links)
+        && Objects.equals(this.meta, teamHierarchyLinksResponse.meta)
+        && Objects.equals(
+            this.additionalProperties, teamHierarchyLinksResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,included,links,meta, additionalProperties);
+    return Objects.hash(data, included, links, meta, additionalProperties);
   }
 
   @Override
@@ -241,8 +237,7 @@ public class TeamHierarchyLinksResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

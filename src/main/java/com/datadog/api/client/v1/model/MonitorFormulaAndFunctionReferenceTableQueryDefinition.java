@@ -6,34 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A reference table query for use in aggregate queries.</p>
- */
+/** A reference table query for use in aggregate queries. */
 @JsonPropertyOrder({
   MonitorFormulaAndFunctionReferenceTableQueryDefinition.JSON_PROPERTY_COLUMNS,
   MonitorFormulaAndFunctionReferenceTableQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
@@ -41,10 +23,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   MonitorFormulaAndFunctionReferenceTableQueryDefinition.JSON_PROPERTY_QUERY_FILTER,
   MonitorFormulaAndFunctionReferenceTableQueryDefinition.JSON_PROPERTY_TABLE_NAME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionReferenceTableQueryDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<MonitorFormulaAndFunctionReferenceTableColumn> columns = null;
 
@@ -64,20 +46,25 @@ public class MonitorFormulaAndFunctionReferenceTableQueryDefinition {
 
   @JsonCreator
   public MonitorFormulaAndFunctionReferenceTableQueryDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)MonitorFormulaAndFunctionReferenceTableDataSource dataSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TABLE_NAME)String tableName) {
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.tableName = tableName;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          MonitorFormulaAndFunctionReferenceTableDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TABLE_NAME) String tableName) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.tableName = tableName;
   }
-  public MonitorFormulaAndFunctionReferenceTableQueryDefinition columns(List<MonitorFormulaAndFunctionReferenceTableColumn> columns) {
+
+  public MonitorFormulaAndFunctionReferenceTableQueryDefinition columns(
+      List<MonitorFormulaAndFunctionReferenceTableColumn> columns) {
     this.columns = columns;
     for (MonitorFormulaAndFunctionReferenceTableColumn item : columns) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public MonitorFormulaAndFunctionReferenceTableQueryDefinition addColumnsItem(MonitorFormulaAndFunctionReferenceTableColumn columnsItem) {
+
+  public MonitorFormulaAndFunctionReferenceTableQueryDefinition addColumnsItem(
+      MonitorFormulaAndFunctionReferenceTableColumn columnsItem) {
     if (this.columns == null) {
       this.columns = new ArrayList<>();
     }
@@ -87,100 +74,111 @@ public class MonitorFormulaAndFunctionReferenceTableQueryDefinition {
   }
 
   /**
-   * <p>List of columns to retrieve from the reference table.</p>
+   * List of columns to retrieve from the reference table.
+   *
    * @return columns
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COLUMNS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<MonitorFormulaAndFunctionReferenceTableColumn> getColumns() {
-        return columns;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COLUMNS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorFormulaAndFunctionReferenceTableColumn> getColumns() {
+    return columns;
+  }
+
   public void setColumns(List<MonitorFormulaAndFunctionReferenceTableColumn> columns) {
     this.columns = columns;
   }
-  public MonitorFormulaAndFunctionReferenceTableQueryDefinition dataSource(MonitorFormulaAndFunctionReferenceTableDataSource dataSource) {
+
+  public MonitorFormulaAndFunctionReferenceTableQueryDefinition dataSource(
+      MonitorFormulaAndFunctionReferenceTableDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     return this;
   }
 
   /**
-   * <p>Data source for reference table queries.</p>
+   * Data source for reference table queries.
+   *
    * @return dataSource
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public MonitorFormulaAndFunctionReferenceTableDataSource getDataSource() {
-        return dataSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MonitorFormulaAndFunctionReferenceTableDataSource getDataSource() {
+    return dataSource;
+  }
+
   public void setDataSource(MonitorFormulaAndFunctionReferenceTableDataSource dataSource) {
     if (!dataSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
+
   public MonitorFormulaAndFunctionReferenceTableQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the query.</p>
+   * Name of the query.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public MonitorFormulaAndFunctionReferenceTableQueryDefinition queryFilter(String queryFilter) {
     this.queryFilter = queryFilter;
     return this;
   }
 
   /**
-   * <p>Optional filter expression for the reference table query.</p>
+   * Optional filter expression for the reference table query.
+   *
    * @return queryFilter
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUERY_FILTER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getQueryFilter() {
-        return queryFilter;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQueryFilter() {
+    return queryFilter;
+  }
+
   public void setQueryFilter(String queryFilter) {
     this.queryFilter = queryFilter;
   }
+
   public MonitorFormulaAndFunctionReferenceTableQueryDefinition tableName(String tableName) {
     this.tableName = tableName;
     return this;
   }
 
   /**
-   * <p>Name of the reference table.</p>
+   * Name of the reference table.
+   *
    * @return tableName
-  **/
-      @JsonProperty(JSON_PROPERTY_TABLE_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getTableName() {
-        return tableName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TABLE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getTableName() {
+    return tableName;
+  }
+
   public void setTableName(String tableName) {
     this.tableName = tableName;
   }
 
   /**
-   * Return true if this MonitorFormulaAndFunctionReferenceTableQueryDefinition object is equal to o.
+   * Return true if this MonitorFormulaAndFunctionReferenceTableQueryDefinition object is equal to
+   * o.
    */
   @Override
   public boolean equals(Object o) {
@@ -190,14 +188,23 @@ public class MonitorFormulaAndFunctionReferenceTableQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorFormulaAndFunctionReferenceTableQueryDefinition monitorFormulaAndFunctionReferenceTableQueryDefinition = (MonitorFormulaAndFunctionReferenceTableQueryDefinition) o;
-    return Objects.equals(this.columns, monitorFormulaAndFunctionReferenceTableQueryDefinition.columns) && Objects.equals(this.dataSource, monitorFormulaAndFunctionReferenceTableQueryDefinition.dataSource) && Objects.equals(this.name, monitorFormulaAndFunctionReferenceTableQueryDefinition.name) && Objects.equals(this.queryFilter, monitorFormulaAndFunctionReferenceTableQueryDefinition.queryFilter) && Objects.equals(this.tableName, monitorFormulaAndFunctionReferenceTableQueryDefinition.tableName);
+    MonitorFormulaAndFunctionReferenceTableQueryDefinition
+        monitorFormulaAndFunctionReferenceTableQueryDefinition =
+            (MonitorFormulaAndFunctionReferenceTableQueryDefinition) o;
+    return Objects.equals(
+            this.columns, monitorFormulaAndFunctionReferenceTableQueryDefinition.columns)
+        && Objects.equals(
+            this.dataSource, monitorFormulaAndFunctionReferenceTableQueryDefinition.dataSource)
+        && Objects.equals(this.name, monitorFormulaAndFunctionReferenceTableQueryDefinition.name)
+        && Objects.equals(
+            this.queryFilter, monitorFormulaAndFunctionReferenceTableQueryDefinition.queryFilter)
+        && Objects.equals(
+            this.tableName, monitorFormulaAndFunctionReferenceTableQueryDefinition.tableName);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns,dataSource,name,queryFilter,tableName);
+    return Objects.hash(columns, dataSource, name, queryFilter, tableName);
   }
 
   @Override
@@ -214,8 +221,7 @@ public class MonitorFormulaAndFunctionReferenceTableQueryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

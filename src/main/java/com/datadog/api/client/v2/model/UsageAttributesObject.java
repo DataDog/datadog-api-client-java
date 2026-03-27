@@ -6,34 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Usage attributes data.</p>
- */
+/** Usage attributes data. */
 @JsonPropertyOrder({
   UsageAttributesObject.JSON_PROPERTY_ORG_NAME,
   UsageAttributesObject.JSON_PROPERTY_PRODUCT_FAMILY,
@@ -42,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   UsageAttributesObject.JSON_PROPERTY_TIMESERIES,
   UsageAttributesObject.JSON_PROPERTY_USAGE_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributesObject {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
 
@@ -70,76 +55,84 @@ public class UsageAttributesObject {
   }
 
   /**
-   * <p>The organization name.</p>
+   * The organization name.
+   *
    * @return orgName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORG_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOrgName() {
-        return orgName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
+
   public UsageAttributesObject productFamily(String productFamily) {
     this.productFamily = productFamily;
     return this;
   }
 
   /**
-   * <p>The product for which usage is being reported.</p>
+   * The product for which usage is being reported.
+   *
    * @return productFamily
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PRODUCT_FAMILY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getProductFamily() {
-        return productFamily;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProductFamily() {
+    return productFamily;
+  }
+
   public void setProductFamily(String productFamily) {
     this.productFamily = productFamily;
   }
+
   public UsageAttributesObject publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * <p>The organization public ID.</p>
+   * The organization public ID.
+   *
    * @return publicId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublicId() {
-        return publicId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
+
   public UsageAttributesObject region(String region) {
     this.region = region;
     return this;
   }
 
   /**
-   * <p>The region of the Datadog instance that the organization belongs to.</p>
+   * The region of the Datadog instance that the organization belongs to.
+   *
    * @return region
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REGION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRegion() {
-        return region;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRegion() {
+    return region;
+  }
+
   public void setRegion(String region) {
     this.region = region;
   }
+
   public UsageAttributesObject timeseries(List<UsageTimeSeriesObject> timeseries) {
     this.timeseries = timeseries;
     for (UsageTimeSeriesObject item : timeseries) {
@@ -147,6 +140,7 @@ public class UsageAttributesObject {
     }
     return this;
   }
+
   public UsageAttributesObject addTimeseriesItem(UsageTimeSeriesObject timeseriesItem) {
     if (this.timeseries == null) {
       this.timeseries = new ArrayList<>();
@@ -157,19 +151,21 @@ public class UsageAttributesObject {
   }
 
   /**
-   * <p>List of usage data reported for each requested hour.</p>
+   * List of usage data reported for each requested hour.
+   *
    * @return timeseries
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMESERIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<UsageTimeSeriesObject> getTimeseries() {
-        return timeseries;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMESERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<UsageTimeSeriesObject> getTimeseries() {
+    return timeseries;
+  }
+
   public void setTimeseries(List<UsageTimeSeriesObject> timeseries) {
     this.timeseries = timeseries;
   }
+
   public UsageAttributesObject usageType(HourlyUsageType usageType) {
     this.usageType = usageType;
     this.unparsed |= !usageType.isValid();
@@ -177,33 +173,33 @@ public class UsageAttributesObject {
   }
 
   /**
-   * <p>Usage type that is being measured.</p>
+   * Usage type that is being measured.
+   *
    * @return usageType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_USAGE_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public HourlyUsageType getUsageType() {
-        return usageType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USAGE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public HourlyUsageType getUsageType() {
+    return usageType;
+  }
+
   public void setUsageType(HourlyUsageType usageType) {
     if (!usageType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.usageType = usageType;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -212,7 +208,7 @@ public class UsageAttributesObject {
   @JsonAnySetter
   public UsageAttributesObject putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -236,14 +232,12 @@ public class UsageAttributesObject {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this UsageAttributesObject object is equal to o.
-   */
+  /** Return true if this UsageAttributesObject object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -253,13 +247,19 @@ public class UsageAttributesObject {
       return false;
     }
     UsageAttributesObject usageAttributesObject = (UsageAttributesObject) o;
-    return Objects.equals(this.orgName, usageAttributesObject.orgName) && Objects.equals(this.productFamily, usageAttributesObject.productFamily) && Objects.equals(this.publicId, usageAttributesObject.publicId) && Objects.equals(this.region, usageAttributesObject.region) && Objects.equals(this.timeseries, usageAttributesObject.timeseries) && Objects.equals(this.usageType, usageAttributesObject.usageType) && Objects.equals(this.additionalProperties, usageAttributesObject.additionalProperties);
+    return Objects.equals(this.orgName, usageAttributesObject.orgName)
+        && Objects.equals(this.productFamily, usageAttributesObject.productFamily)
+        && Objects.equals(this.publicId, usageAttributesObject.publicId)
+        && Objects.equals(this.region, usageAttributesObject.region)
+        && Objects.equals(this.timeseries, usageAttributesObject.timeseries)
+        && Objects.equals(this.usageType, usageAttributesObject.usageType)
+        && Objects.equals(this.additionalProperties, usageAttributesObject.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(orgName,productFamily,publicId,region,timeseries,usageType, additionalProperties);
+    return Objects.hash(
+        orgName, productFamily, publicId, region, timeseries, usageType, additionalProperties);
   }
 
   @Override
@@ -280,8 +280,7 @@ public class UsageAttributesObject {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

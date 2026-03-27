@@ -6,43 +6,28 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Response for a list of API keys.</p>
- */
+/** Response for a list of API keys. */
 @JsonPropertyOrder({
   APIKeysResponse.JSON_PROPERTY_DATA,
   APIKeysResponse.JSON_PROPERTY_INCLUDED,
   APIKeysResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class APIKeysResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<PartialAPIKey> data = null;
 
@@ -59,6 +44,7 @@ public class APIKeysResponse {
     }
     return this;
   }
+
   public APIKeysResponse addDataItem(PartialAPIKey dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
@@ -69,19 +55,21 @@ public class APIKeysResponse {
   }
 
   /**
-   * <p>Array of API keys.</p>
+   * Array of API keys.
+   *
    * @return data
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<PartialAPIKey> getData() {
-        return data;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<PartialAPIKey> getData() {
+    return data;
+  }
+
   public void setData(List<PartialAPIKey> data) {
     this.data = data;
   }
+
   public APIKeysResponse included(List<APIKeyResponseIncludedItem> included) {
     this.included = included;
     for (APIKeyResponseIncludedItem item : included) {
@@ -89,6 +77,7 @@ public class APIKeysResponse {
     }
     return this;
   }
+
   public APIKeysResponse addIncludedItem(APIKeyResponseIncludedItem includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
@@ -99,19 +88,21 @@ public class APIKeysResponse {
   }
 
   /**
-   * <p>Array of objects related to the API key.</p>
+   * Array of objects related to the API key.
+   *
    * @return included
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCLUDED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<APIKeyResponseIncludedItem> getIncluded() {
-        return included;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<APIKeyResponseIncludedItem> getIncluded() {
+    return included;
+  }
+
   public void setIncluded(List<APIKeyResponseIncludedItem> included) {
     this.included = included;
   }
+
   public APIKeysResponse meta(APIKeysResponseMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -119,30 +110,30 @@ public class APIKeysResponse {
   }
 
   /**
-   * <p>Additional information related to api keys response.</p>
+   * Additional information related to api keys response.
+   *
    * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public APIKeysResponseMeta getMeta() {
-        return meta;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public APIKeysResponseMeta getMeta() {
+    return meta;
+  }
+
   public void setMeta(APIKeysResponseMeta meta) {
     this.meta = meta;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -151,7 +142,7 @@ public class APIKeysResponse {
   @JsonAnySetter
   public APIKeysResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -175,14 +166,12 @@ public class APIKeysResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this APIKeysResponse object is equal to o.
-   */
+  /** Return true if this APIKeysResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -192,13 +181,15 @@ public class APIKeysResponse {
       return false;
     }
     APIKeysResponse apiKeysResponse = (APIKeysResponse) o;
-    return Objects.equals(this.data, apiKeysResponse.data) && Objects.equals(this.included, apiKeysResponse.included) && Objects.equals(this.meta, apiKeysResponse.meta) && Objects.equals(this.additionalProperties, apiKeysResponse.additionalProperties);
+    return Objects.equals(this.data, apiKeysResponse.data)
+        && Objects.equals(this.included, apiKeysResponse.included)
+        && Objects.equals(this.meta, apiKeysResponse.meta)
+        && Objects.equals(this.additionalProperties, apiKeysResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,included,meta, additionalProperties);
+    return Objects.hash(data, included, meta, additionalProperties);
   }
 
   @Override
@@ -216,8 +207,7 @@ public class APIKeysResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

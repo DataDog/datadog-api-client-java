@@ -1,36 +1,32 @@
 // Create rum replay playlist returns "Created" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RumReplayPlaylistsApi;
-import com.datadog.api.client.v2.model.Playlist;
 import com.datadog.api.client.v2.model.Playlist;
 import com.datadog.api.client.v2.model.PlaylistData;
 import com.datadog.api.client.v2.model.PlaylistDataAttributes;
 import com.datadog.api.client.v2.model.PlaylistDataAttributesCreatedBy;
 import com.datadog.api.client.v2.model.PlaylistDataType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RumReplayPlaylistsApi apiInstance = new RumReplayPlaylistsApi(defaultClient);
 
-    Playlist body = new Playlist()
-.data(new PlaylistData()
-.attributes(new PlaylistDataAttributes()
-.createdBy(new PlaylistDataAttributesCreatedBy()
-.handle("john.doe@example.com")
-.id("00000000-0000-0000-0000-000000000001")
-.uuid("00000000-0000-0000-0000-000000000001"))
-.name("My Playlist"))
-.type(PlaylistDataType.RUM_REPLAY_PLAYLIST));
+    Playlist body =
+        new Playlist()
+            .data(
+                new PlaylistData()
+                    .attributes(
+                        new PlaylistDataAttributes()
+                            .createdBy(
+                                new PlaylistDataAttributesCreatedBy()
+                                    .handle("john.doe@example.com")
+                                    .id("00000000-0000-0000-0000-000000000001")
+                                    .uuid("00000000-0000-0000-0000-000000000001"))
+                            .name("My Playlist"))
+                    .type(PlaylistDataType.RUM_REPLAY_PLAYLIST));
 
     try {
       Playlist result = apiInstance.createRumReplayPlaylist(body);

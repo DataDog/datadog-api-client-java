@@ -1,19 +1,12 @@
 // Create ServiceNow ticket for case returns "Accepted" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CaseManagementApi;
 import com.datadog.api.client.v2.model.ServiceNowTicketCreateAttributes;
 import com.datadog.api.client.v2.model.ServiceNowTicketCreateData;
 import com.datadog.api.client.v2.model.ServiceNowTicketCreateRequest;
 import com.datadog.api.client.v2.model.ServiceNowTicketResourceType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,12 +14,15 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createCaseServiceNowTicket", true);
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
-    ServiceNowTicketCreateRequest body = new ServiceNowTicketCreateRequest()
-.data(new ServiceNowTicketCreateData()
-.attributes(new ServiceNowTicketCreateAttributes()
-.assignmentGroup("IT Support")
-.instanceName("my-instance"))
-.type(ServiceNowTicketResourceType.TICKETS));
+    ServiceNowTicketCreateRequest body =
+        new ServiceNowTicketCreateRequest()
+            .data(
+                new ServiceNowTicketCreateData()
+                    .attributes(
+                        new ServiceNowTicketCreateAttributes()
+                            .assignmentGroup("IT Support")
+                            .instanceName("my-instance"))
+                    .type(ServiceNowTicketResourceType.TICKETS));
 
     try {
       apiInstance.createCaseServiceNowTicket("f98a5a5b-e0ff-45d4-b2f5-afe6e74de504", body);

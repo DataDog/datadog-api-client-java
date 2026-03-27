@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of a Jira issue template</p>
- */
+/** Attributes of a Jira issue template */
 @JsonPropertyOrder({
   JiraIssueTemplateDataAttributes.JSON_PROPERTY_FIELDS,
   JiraIssueTemplateDataAttributes.JSON_PROPERTY_ISSUE_TYPE_ID,
   JiraIssueTemplateDataAttributes.JSON_PROPERTY_NAME,
   JiraIssueTemplateDataAttributes.JSON_PROPERTY_PROJECT_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class JiraIssueTemplateDataAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private Map<String, Object> fields = new HashMap<String, Object>();
 
@@ -60,102 +44,110 @@ public class JiraIssueTemplateDataAttributes {
 
   @JsonCreator
   public JiraIssueTemplateDataAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FIELDS)Map<String, Object> fields,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ISSUE_TYPE_ID)String issueTypeId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_PROJECT_ID)String projectId) {
-        this.fields = fields;
-        this.issueTypeId = issueTypeId;
-        this.name = name;
-        this.projectId = projectId;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FIELDS) Map<String, Object> fields,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ISSUE_TYPE_ID) String issueTypeId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) String projectId) {
+    this.fields = fields;
+    this.issueTypeId = issueTypeId;
+    this.name = name;
+    this.projectId = projectId;
   }
+
   public JiraIssueTemplateDataAttributes fields(Map<String, Object> fields) {
     this.fields = fields;
     return this;
   }
+
   public JiraIssueTemplateDataAttributes putFieldsItem(String key, Object fieldsItem) {
     this.fields.put(key, fieldsItem);
     return this;
   }
 
   /**
-   * <p>Custom fields for the Jira issue template</p>
+   * Custom fields for the Jira issue template
+   *
    * @return fields
-  **/
-      @JsonProperty(JSON_PROPERTY_FIELDS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Map<String, Object> getFields() {
-        return fields;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Map<String, Object> getFields() {
+    return fields;
+  }
+
   public void setFields(Map<String, Object> fields) {
     this.fields = fields;
   }
+
   public JiraIssueTemplateDataAttributes issueTypeId(String issueTypeId) {
     this.issueTypeId = issueTypeId;
     return this;
   }
 
   /**
-   * <p>The ID of the Jira issue type</p>
+   * The ID of the Jira issue type
+   *
    * @return issueTypeId
-  **/
-      @JsonProperty(JSON_PROPERTY_ISSUE_TYPE_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getIssueTypeId() {
-        return issueTypeId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ISSUE_TYPE_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getIssueTypeId() {
+    return issueTypeId;
+  }
+
   public void setIssueTypeId(String issueTypeId) {
     this.issueTypeId = issueTypeId;
   }
+
   public JiraIssueTemplateDataAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the issue template</p>
+   * The name of the issue template
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public JiraIssueTemplateDataAttributes projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
 
   /**
-   * <p>The ID of the Jira project</p>
+   * The ID of the Jira project
+   *
    * @return projectId
-  **/
-      @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getProjectId() {
-        return projectId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getProjectId() {
+    return projectId;
+  }
+
   public void setProjectId(String projectId) {
     this.projectId = projectId;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -164,7 +156,7 @@ public class JiraIssueTemplateDataAttributes {
   @JsonAnySetter
   public JiraIssueTemplateDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -188,14 +180,12 @@ public class JiraIssueTemplateDataAttributes {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this JiraIssueTemplateDataAttributes object is equal to o.
-   */
+  /** Return true if this JiraIssueTemplateDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -204,14 +194,19 @@ public class JiraIssueTemplateDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    JiraIssueTemplateDataAttributes jiraIssueTemplateDataAttributes = (JiraIssueTemplateDataAttributes) o;
-    return Objects.equals(this.fields, jiraIssueTemplateDataAttributes.fields) && Objects.equals(this.issueTypeId, jiraIssueTemplateDataAttributes.issueTypeId) && Objects.equals(this.name, jiraIssueTemplateDataAttributes.name) && Objects.equals(this.projectId, jiraIssueTemplateDataAttributes.projectId) && Objects.equals(this.additionalProperties, jiraIssueTemplateDataAttributes.additionalProperties);
+    JiraIssueTemplateDataAttributes jiraIssueTemplateDataAttributes =
+        (JiraIssueTemplateDataAttributes) o;
+    return Objects.equals(this.fields, jiraIssueTemplateDataAttributes.fields)
+        && Objects.equals(this.issueTypeId, jiraIssueTemplateDataAttributes.issueTypeId)
+        && Objects.equals(this.name, jiraIssueTemplateDataAttributes.name)
+        && Objects.equals(this.projectId, jiraIssueTemplateDataAttributes.projectId)
+        && Objects.equals(
+            this.additionalProperties, jiraIssueTemplateDataAttributes.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields,issueTypeId,name,projectId, additionalProperties);
+    return Objects.hash(fields, issueTypeId, name, projectId, additionalProperties);
   }
 
   @Override
@@ -230,8 +225,7 @@ public class JiraIssueTemplateDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

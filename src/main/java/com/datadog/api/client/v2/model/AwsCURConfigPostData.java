@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,37 +13,35 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>AWS CUR config Post data.</p>
- */
+/** AWS CUR config Post data. */
 @JsonPropertyOrder({
   AwsCURConfigPostData.JSON_PROPERTY_ATTRIBUTES,
   AwsCURConfigPostData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AwsCURConfigPostData {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private AwsCURConfigPostRequestAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private AwsCURConfigPostRequestType type = AwsCURConfigPostRequestType.AWS_CUR_CONFIG_POST_REQUEST;
+  private AwsCURConfigPostRequestType type =
+      AwsCURConfigPostRequestType.AWS_CUR_CONFIG_POST_REQUEST;
 
   public AwsCURConfigPostData() {}
 
   @JsonCreator
   public AwsCURConfigPostData(
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)AwsCURConfigPostRequestType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AwsCURConfigPostRequestType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public AwsCURConfigPostData attributes(AwsCURConfigPostRequestAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -63,19 +49,21 @@ public class AwsCURConfigPostData {
   }
 
   /**
-   * <p>Attributes for AWS CUR config Post Request.</p>
+   * Attributes for AWS CUR config Post Request.
+   *
    * @return attributes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public AwsCURConfigPostRequestAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AwsCURConfigPostRequestAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(AwsCURConfigPostRequestAttributes attributes) {
     this.attributes = attributes;
   }
+
   public AwsCURConfigPostData type(AwsCURConfigPostRequestType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -83,32 +71,32 @@ public class AwsCURConfigPostData {
   }
 
   /**
-   * <p>Type of AWS CUR config Post Request.</p>
+   * Type of AWS CUR config Post Request.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public AwsCURConfigPostRequestType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AwsCURConfigPostRequestType getType() {
+    return type;
+  }
+
   public void setType(AwsCURConfigPostRequestType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -117,7 +105,7 @@ public class AwsCURConfigPostData {
   @JsonAnySetter
   public AwsCURConfigPostData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -141,14 +129,12 @@ public class AwsCURConfigPostData {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this AwsCURConfigPostData object is equal to o.
-   */
+  /** Return true if this AwsCURConfigPostData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,13 +144,14 @@ public class AwsCURConfigPostData {
       return false;
     }
     AwsCURConfigPostData awsCurConfigPostData = (AwsCURConfigPostData) o;
-    return Objects.equals(this.attributes, awsCurConfigPostData.attributes) && Objects.equals(this.type, awsCurConfigPostData.type) && Objects.equals(this.additionalProperties, awsCurConfigPostData.additionalProperties);
+    return Objects.equals(this.attributes, awsCurConfigPostData.attributes)
+        && Objects.equals(this.type, awsCurConfigPostData.type)
+        && Objects.equals(this.additionalProperties, awsCurConfigPostData.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,type, additionalProperties);
+    return Objects.hash(attributes, type, additionalProperties);
   }
 
   @Override
@@ -181,8 +168,7 @@ public class AwsCURConfigPostData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

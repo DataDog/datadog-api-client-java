@@ -6,42 +6,21 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Pagination and findings count information.</p>
- */
+/** Pagination and findings count information. */
 @JsonPropertyOrder({
   ListFindingsPage.JSON_PROPERTY_CURSOR,
   ListFindingsPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListFindingsPage {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CURSOR = "cursor";
   private String cursor;
 
@@ -54,42 +33,43 @@ public class ListFindingsPage {
   }
 
   /**
-   * <p>The cursor used to paginate requests.</p>
+   * The cursor used to paginate requests.
+   *
    * @return cursor
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CURSOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getCursor() {
-        return cursor;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CURSOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCursor() {
+    return cursor;
+  }
+
   public void setCursor(String cursor) {
     this.cursor = cursor;
   }
+
   public ListFindingsPage totalFilteredCount(Long totalFilteredCount) {
     this.totalFilteredCount = totalFilteredCount;
     return this;
   }
 
   /**
-   * <p>The total count of findings after the filter has been applied.</p>
+   * The total count of findings after the filter has been applied.
+   *
    * @return totalFilteredCount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTotalFilteredCount() {
-        return totalFilteredCount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotalFilteredCount() {
+    return totalFilteredCount;
+  }
+
   public void setTotalFilteredCount(Long totalFilteredCount) {
     this.totalFilteredCount = totalFilteredCount;
   }
 
-  /**
-   * Return true if this ListFindingsPage object is equal to o.
-   */
+  /** Return true if this ListFindingsPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,13 +79,13 @@ public class ListFindingsPage {
       return false;
     }
     ListFindingsPage listFindingsPage = (ListFindingsPage) o;
-    return Objects.equals(this.cursor, listFindingsPage.cursor) && Objects.equals(this.totalFilteredCount, listFindingsPage.totalFilteredCount);
+    return Objects.equals(this.cursor, listFindingsPage.cursor)
+        && Objects.equals(this.totalFilteredCount, listFindingsPage.totalFilteredCount);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(cursor,totalFilteredCount);
+    return Objects.hash(cursor, totalFilteredCount);
   }
 
   @Override
@@ -119,8 +99,7 @@ public class ListFindingsPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

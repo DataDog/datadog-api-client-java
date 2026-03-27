@@ -1,9 +1,8 @@
 // Create a new dashboard with a change widget using formulas and functions slo query
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.DashboardsApi;
-import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.ChangeWidgetDefinition;
 import com.datadog.api.client.v1.model.ChangeWidgetDefinitionType;
 import com.datadog.api.client.v1.model.ChangeWidgetRequest;
@@ -26,13 +25,8 @@ import com.datadog.api.client.v1.model.WidgetOrderBy;
 import com.datadog.api.client.v1.model.WidgetSort;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import com.datadog.api.client.v1.model.WidgetTime;
-import java.io.File;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -42,41 +36,55 @@ public class Example {
     // there is a valid "slo" in the system
     String SLO_DATA_0_ID = System.getenv("SLO_DATA_0_ID");
 
-    Dashboard body = new Dashboard()
-.title("Example-Dashboard")
-.widgets(Collections.singletonList(new Widget()
-.definition(new WidgetDefinition(
-new ChangeWidgetDefinition()
-.title("")
-.titleSize("16")
-.titleAlign(WidgetTextAlign.LEFT)
-.time(new WidgetTime(
-new WidgetLegacyLiveSpan()))
-.type(ChangeWidgetDefinitionType.CHANGE)
-.requests(Collections.singletonList(new ChangeWidgetRequest()
-.formulas(Arrays.asList(new WidgetFormula()
-.formula("hour_before(query1)"), new WidgetFormula()
-.formula("query1")))
-.queries(Collections.singletonList(new FormulaAndFunctionQueryDefinition(
-new FormulaAndFunctionSLOQueryDefinition()
-.name("query1")
-.dataSource(FormulaAndFunctionSLODataSource.SLO)
-.sloId(SLO_DATA_0_ID)
-.measure(FormulaAndFunctionSLOMeasure.SLO_STATUS)
-.groupMode(FormulaAndFunctionSLOGroupMode.OVERALL)
-.sloQueryType(FormulaAndFunctionSLOQueryType.METRIC)
-.additionalQueryFilters("*"))))
-.responseFormat(FormulaAndFunctionResponseFormat.SCALAR)
-.orderBy(WidgetOrderBy.CHANGE)
-.changeType(WidgetChangeType.ABSOLUTE)
-.increaseGood(true)
-.orderDir(WidgetSort.ASCENDING)))))
-.layout(new WidgetLayout()
-.x(0L)
-.y(0L)
-.width(4L)
-.height(2L))))
-.layoutType(DashboardLayoutType.ORDERED);
+    Dashboard body =
+        new Dashboard()
+            .title("Example-Dashboard")
+            .widgets(
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new ChangeWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .time(new WidgetTime(new WidgetLegacyLiveSpan()))
+                                    .type(ChangeWidgetDefinitionType.CHANGE)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new ChangeWidgetRequest()
+                                                .formulas(
+                                                    Arrays.asList(
+                                                        new WidgetFormula()
+                                                            .formula("hour_before(query1)"),
+                                                        new WidgetFormula().formula("query1")))
+                                                .queries(
+                                                    Collections.singletonList(
+                                                        new FormulaAndFunctionQueryDefinition(
+                                                            new FormulaAndFunctionSLOQueryDefinition()
+                                                                .name("query1")
+                                                                .dataSource(
+                                                                    FormulaAndFunctionSLODataSource
+                                                                        .SLO)
+                                                                .sloId(SLO_DATA_0_ID)
+                                                                .measure(
+                                                                    FormulaAndFunctionSLOMeasure
+                                                                        .SLO_STATUS)
+                                                                .groupMode(
+                                                                    FormulaAndFunctionSLOGroupMode
+                                                                        .OVERALL)
+                                                                .sloQueryType(
+                                                                    FormulaAndFunctionSLOQueryType
+                                                                        .METRIC)
+                                                                .additionalQueryFilters("*"))))
+                                                .responseFormat(
+                                                    FormulaAndFunctionResponseFormat.SCALAR)
+                                                .orderBy(WidgetOrderBy.CHANGE)
+                                                .changeType(WidgetChangeType.ABSOLUTE)
+                                                .increaseGood(true)
+                                                .orderDir(WidgetSort.ASCENDING)))))
+                        .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(2L))))
+            .layoutType(DashboardLayoutType.ORDERED);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

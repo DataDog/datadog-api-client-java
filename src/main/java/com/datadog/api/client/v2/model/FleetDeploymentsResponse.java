@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Response containing a paginated list of deployments.</p>
- */
+/** Response containing a paginated list of deployments. */
 @JsonPropertyOrder({
   FleetDeploymentsResponse.JSON_PROPERTY_DATA,
   FleetDeploymentsResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FleetDeploymentsResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<FleetDeployment> data = new ArrayList<>();
 
@@ -52,9 +38,10 @@ public class FleetDeploymentsResponse {
 
   @JsonCreator
   public FleetDeploymentsResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)List<FleetDeployment> data) {
-        this.data = data;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<FleetDeployment> data) {
+    this.data = data;
   }
+
   public FleetDeploymentsResponse data(List<FleetDeployment> data) {
     this.data = data;
     for (FleetDeployment item : data) {
@@ -62,6 +49,7 @@ public class FleetDeploymentsResponse {
     }
     return this;
   }
+
   public FleetDeploymentsResponse addDataItem(FleetDeployment dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
@@ -69,18 +57,20 @@ public class FleetDeploymentsResponse {
   }
 
   /**
-   * <p>Array of deployments matching the query criteria.</p>
+   * Array of deployments matching the query criteria.
+   *
    * @return data
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<FleetDeployment> getData() {
-        return data;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<FleetDeployment> getData() {
+    return data;
+  }
+
   public void setData(List<FleetDeployment> data) {
     this.data = data;
   }
+
   public FleetDeploymentsResponse meta(FleetDeploymentsResponseMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -88,30 +78,30 @@ public class FleetDeploymentsResponse {
   }
 
   /**
-   * <p>Metadata for the list of deployments, including pagination information.</p>
+   * Metadata for the list of deployments, including pagination information.
+   *
    * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FleetDeploymentsResponseMeta getMeta() {
-        return meta;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FleetDeploymentsResponseMeta getMeta() {
+    return meta;
+  }
+
   public void setMeta(FleetDeploymentsResponseMeta meta) {
     this.meta = meta;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -120,7 +110,7 @@ public class FleetDeploymentsResponse {
   @JsonAnySetter
   public FleetDeploymentsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -144,14 +134,12 @@ public class FleetDeploymentsResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this FleetDeploymentsResponse object is equal to o.
-   */
+  /** Return true if this FleetDeploymentsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -161,13 +149,14 @@ public class FleetDeploymentsResponse {
       return false;
     }
     FleetDeploymentsResponse fleetDeploymentsResponse = (FleetDeploymentsResponse) o;
-    return Objects.equals(this.data, fleetDeploymentsResponse.data) && Objects.equals(this.meta, fleetDeploymentsResponse.meta) && Objects.equals(this.additionalProperties, fleetDeploymentsResponse.additionalProperties);
+    return Objects.equals(this.data, fleetDeploymentsResponse.data)
+        && Objects.equals(this.meta, fleetDeploymentsResponse.meta)
+        && Objects.equals(this.additionalProperties, fleetDeploymentsResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,meta, additionalProperties);
+    return Objects.hash(data, meta, additionalProperties);
   }
 
   @Override
@@ -184,8 +173,7 @@ public class FleetDeploymentsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

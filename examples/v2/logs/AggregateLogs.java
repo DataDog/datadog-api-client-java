@@ -1,30 +1,26 @@
 // Aggregate events returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.LogsApi;
-import com.datadog.api.client.v2.model.LogsAggregateResponse;
 import com.datadog.api.client.v2.model.LogsAggregateRequest;
+import com.datadog.api.client.v2.model.LogsAggregateResponse;
 import com.datadog.api.client.v2.model.LogsQueryFilter;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
-    LogsAggregateRequest body = new LogsAggregateRequest()
-.filter(new LogsQueryFilter()
-.from("now-15m")
-.indexes(Collections.singletonList("main"))
-.query("*")
-.to("now"));
+    LogsAggregateRequest body =
+        new LogsAggregateRequest()
+            .filter(
+                new LogsQueryFilter()
+                    .from("now-15m")
+                    .indexes(Collections.singletonList("main"))
+                    .query("*")
+                    .to("now"));
 
     try {
       LogsAggregateResponse result = apiInstance.aggregateLogs(body);

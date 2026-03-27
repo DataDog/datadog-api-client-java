@@ -1,20 +1,13 @@
 // Update a downtime returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.DowntimesApi;
-import com.datadog.api.client.v2.model.DowntimeResponse;
 import com.datadog.api.client.v2.model.DowntimeResourceType;
+import com.datadog.api.client.v2.model.DowntimeResponse;
 import com.datadog.api.client.v2.model.DowntimeUpdateRequest;
 import com.datadog.api.client.v2.model.DowntimeUpdateRequestAttributes;
 import com.datadog.api.client.v2.model.DowntimeUpdateRequestData;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,12 +17,13 @@ public class Example {
     // there is a valid "downtime_v2" in the system
     String DOWNTIME_V2_DATA_ID = System.getenv("DOWNTIME_V2_DATA_ID");
 
-    DowntimeUpdateRequest body = new DowntimeUpdateRequest()
-.data(new DowntimeUpdateRequestData()
-.attributes(new DowntimeUpdateRequestAttributes()
-.message("light speed"))
-.id(DOWNTIME_V2_DATA_ID)
-.type(DowntimeResourceType.DOWNTIME));
+    DowntimeUpdateRequest body =
+        new DowntimeUpdateRequest()
+            .data(
+                new DowntimeUpdateRequestData()
+                    .attributes(new DowntimeUpdateRequestAttributes().message("light speed"))
+                    .id(DOWNTIME_V2_DATA_ID)
+                    .type(DowntimeResourceType.DOWNTIME));
 
     try {
       DowntimeResponse result = apiInstance.updateDowntime(DOWNTIME_V2_DATA_ID, body);

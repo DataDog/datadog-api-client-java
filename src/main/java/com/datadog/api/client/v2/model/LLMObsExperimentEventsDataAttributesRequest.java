@@ -6,42 +6,27 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for pushing experiment events including spans and metrics.</p>
- */
+/** Attributes for pushing experiment events including spans and metrics. */
 @JsonPropertyOrder({
   LLMObsExperimentEventsDataAttributesRequest.JSON_PROPERTY_METRICS,
   LLMObsExperimentEventsDataAttributesRequest.JSON_PROPERTY_SPANS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LLMObsExperimentEventsDataAttributesRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_METRICS = "metrics";
   private List<LLMObsExperimentMetric> metrics = null;
 
@@ -55,7 +40,9 @@ public class LLMObsExperimentEventsDataAttributesRequest {
     }
     return this;
   }
-  public LLMObsExperimentEventsDataAttributesRequest addMetricsItem(LLMObsExperimentMetric metricsItem) {
+
+  public LLMObsExperimentEventsDataAttributesRequest addMetricsItem(
+      LLMObsExperimentMetric metricsItem) {
     if (this.metrics == null) {
       this.metrics = new ArrayList<>();
     }
@@ -65,19 +52,21 @@ public class LLMObsExperimentEventsDataAttributesRequest {
   }
 
   /**
-   * <p>List of metrics to push for the experiment.</p>
+   * List of metrics to push for the experiment.
+   *
    * @return metrics
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METRICS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<LLMObsExperimentMetric> getMetrics() {
-        return metrics;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRICS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LLMObsExperimentMetric> getMetrics() {
+    return metrics;
+  }
+
   public void setMetrics(List<LLMObsExperimentMetric> metrics) {
     this.metrics = metrics;
   }
+
   public LLMObsExperimentEventsDataAttributesRequest spans(List<LLMObsExperimentSpan> spans) {
     this.spans = spans;
     for (LLMObsExperimentSpan item : spans) {
@@ -85,6 +74,7 @@ public class LLMObsExperimentEventsDataAttributesRequest {
     }
     return this;
   }
+
   public LLMObsExperimentEventsDataAttributesRequest addSpansItem(LLMObsExperimentSpan spansItem) {
     if (this.spans == null) {
       this.spans = new ArrayList<>();
@@ -95,39 +85,40 @@ public class LLMObsExperimentEventsDataAttributesRequest {
   }
 
   /**
-   * <p>List of spans to push for the experiment.</p>
+   * List of spans to push for the experiment.
+   *
    * @return spans
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SPANS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<LLMObsExperimentSpan> getSpans() {
-        return spans;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SPANS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LLMObsExperimentSpan> getSpans() {
+    return spans;
+  }
+
   public void setSpans(List<LLMObsExperimentSpan> spans) {
     this.spans = spans;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
    * @return LLMObsExperimentEventsDataAttributesRequest
    */
   @JsonAnySetter
-  public LLMObsExperimentEventsDataAttributesRequest putAdditionalProperty(String key, Object value) {
+  public LLMObsExperimentEventsDataAttributesRequest putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -151,14 +142,12 @@ public class LLMObsExperimentEventsDataAttributesRequest {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this LLMObsExperimentEventsDataAttributesRequest object is equal to o.
-   */
+  /** Return true if this LLMObsExperimentEventsDataAttributesRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -167,14 +156,18 @@ public class LLMObsExperimentEventsDataAttributesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LLMObsExperimentEventsDataAttributesRequest llmObsExperimentEventsDataAttributesRequest = (LLMObsExperimentEventsDataAttributesRequest) o;
-    return Objects.equals(this.metrics, llmObsExperimentEventsDataAttributesRequest.metrics) && Objects.equals(this.spans, llmObsExperimentEventsDataAttributesRequest.spans) && Objects.equals(this.additionalProperties, llmObsExperimentEventsDataAttributesRequest.additionalProperties);
+    LLMObsExperimentEventsDataAttributesRequest llmObsExperimentEventsDataAttributesRequest =
+        (LLMObsExperimentEventsDataAttributesRequest) o;
+    return Objects.equals(this.metrics, llmObsExperimentEventsDataAttributesRequest.metrics)
+        && Objects.equals(this.spans, llmObsExperimentEventsDataAttributesRequest.spans)
+        && Objects.equals(
+            this.additionalProperties,
+            llmObsExperimentEventsDataAttributesRequest.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(metrics,spans, additionalProperties);
+    return Objects.hash(metrics, spans, additionalProperties);
   }
 
   @Override
@@ -191,8 +184,7 @@ public class LLMObsExperimentEventsDataAttributesRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

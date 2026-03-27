@@ -6,71 +6,48 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>Google Cloud Usage Cost config resource type.</p>
- */
+/** Google Cloud Usage Cost config resource type. */
 @JsonSerialize(using = GcpUcConfigResponseDataType.GcpUcConfigResponseDataTypeSerializer.class)
 public class GcpUcConfigResponseDataType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("gcp_uc_config"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("gcp_uc_config"));
 
-  public static final GcpUcConfigResponseDataType GCP_UC_CONFIG = new GcpUcConfigResponseDataType("gcp_uc_config");
-
+  public static final GcpUcConfigResponseDataType GCP_UC_CONFIG =
+      new GcpUcConfigResponseDataType("gcp_uc_config");
 
   GcpUcConfigResponseDataType(String value) {
     super(value, allowedValues);
   }
 
-  public static class GcpUcConfigResponseDataTypeSerializer extends StdSerializer<GcpUcConfigResponseDataType> {
-      public GcpUcConfigResponseDataTypeSerializer(Class<GcpUcConfigResponseDataType> t) {
-          super(t);
-      }
+  public static class GcpUcConfigResponseDataTypeSerializer
+      extends StdSerializer<GcpUcConfigResponseDataType> {
+    public GcpUcConfigResponseDataTypeSerializer(Class<GcpUcConfigResponseDataType> t) {
+      super(t);
+    }
 
-      public GcpUcConfigResponseDataTypeSerializer() {
-          this(null);
-      }
+    public GcpUcConfigResponseDataTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(GcpUcConfigResponseDataType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        GcpUcConfigResponseDataType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

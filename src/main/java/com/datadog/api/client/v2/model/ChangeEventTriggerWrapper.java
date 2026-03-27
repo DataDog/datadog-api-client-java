@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Schema for a Change Event-based trigger.</p>
- */
+/** Schema for a Change Event-based trigger. */
 @JsonPropertyOrder({
   ChangeEventTriggerWrapper.JSON_PROPERTY_CHANGE_EVENT_TRIGGER,
   ChangeEventTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ChangeEventTriggerWrapper {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHANGE_EVENT_TRIGGER = "changeEventTrigger";
   private Object changeEventTrigger;
 
@@ -52,31 +38,36 @@ public class ChangeEventTriggerWrapper {
 
   @JsonCreator
   public ChangeEventTriggerWrapper(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CHANGE_EVENT_TRIGGER)Object changeEventTrigger) {
-        this.changeEventTrigger = changeEventTrigger;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CHANGE_EVENT_TRIGGER)
+          Object changeEventTrigger) {
+    this.changeEventTrigger = changeEventTrigger;
   }
+
   public ChangeEventTriggerWrapper changeEventTrigger(Object changeEventTrigger) {
     this.changeEventTrigger = changeEventTrigger;
     return this;
   }
 
   /**
-   * <p>Trigger a workflow from a Change Event.</p>
+   * Trigger a workflow from a Change Event.
+   *
    * @return changeEventTrigger
-  **/
-      @JsonProperty(JSON_PROPERTY_CHANGE_EVENT_TRIGGER)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Object getChangeEventTrigger() {
-        return changeEventTrigger;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CHANGE_EVENT_TRIGGER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Object getChangeEventTrigger() {
+    return changeEventTrigger;
+  }
+
   public void setChangeEventTrigger(Object changeEventTrigger) {
     this.changeEventTrigger = changeEventTrigger;
   }
+
   public ChangeEventTriggerWrapper startStepNames(List<String> startStepNames) {
     this.startStepNames = startStepNames;
     return this;
   }
+
   public ChangeEventTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
     if (this.startStepNames == null) {
       this.startStepNames = new ArrayList<>();
@@ -86,30 +77,30 @@ public class ChangeEventTriggerWrapper {
   }
 
   /**
-   * <p>A list of steps that run first after a trigger fires.</p>
+   * A list of steps that run first after a trigger fires.
+   *
    * @return startStepNames
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_START_STEP_NAMES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getStartStepNames() {
-        return startStepNames;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_START_STEP_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getStartStepNames() {
+    return startStepNames;
+  }
+
   public void setStartStepNames(List<String> startStepNames) {
     this.startStepNames = startStepNames;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -118,7 +109,7 @@ public class ChangeEventTriggerWrapper {
   @JsonAnySetter
   public ChangeEventTriggerWrapper putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -142,14 +133,12 @@ public class ChangeEventTriggerWrapper {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ChangeEventTriggerWrapper object is equal to o.
-   */
+  /** Return true if this ChangeEventTriggerWrapper object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -159,13 +148,15 @@ public class ChangeEventTriggerWrapper {
       return false;
     }
     ChangeEventTriggerWrapper changeEventTriggerWrapper = (ChangeEventTriggerWrapper) o;
-    return Objects.equals(this.changeEventTrigger, changeEventTriggerWrapper.changeEventTrigger) && Objects.equals(this.startStepNames, changeEventTriggerWrapper.startStepNames) && Objects.equals(this.additionalProperties, changeEventTriggerWrapper.additionalProperties);
+    return Objects.equals(this.changeEventTrigger, changeEventTriggerWrapper.changeEventTrigger)
+        && Objects.equals(this.startStepNames, changeEventTriggerWrapper.startStepNames)
+        && Objects.equals(
+            this.additionalProperties, changeEventTriggerWrapper.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(changeEventTrigger,startStepNames, additionalProperties);
+    return Objects.hash(changeEventTrigger, startStepNames, additionalProperties);
   }
 
   @Override
@@ -182,8 +173,7 @@ public class ChangeEventTriggerWrapper {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

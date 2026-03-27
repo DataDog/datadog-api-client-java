@@ -5,12 +5,12 @@
  */
 package com.datadog.api.client;
 
+import jakarta.annotation.Priority;
+import jakarta.ws.rs.Priorities;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
-import jakarta.annotation.Priority;
-import jakarta.ws.rs.Priorities;
 import org.glassfish.jersey.spi.ContentEncoder;
 
 /** Zstd encoding support */

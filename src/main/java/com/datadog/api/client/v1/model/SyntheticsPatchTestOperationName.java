@@ -6,76 +6,59 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The operation to perform</p>
- */
-@JsonSerialize(using = SyntheticsPatchTestOperationName.SyntheticsPatchTestOperationNameSerializer.class)
+/** The operation to perform */
+@JsonSerialize(
+    using = SyntheticsPatchTestOperationName.SyntheticsPatchTestOperationNameSerializer.class)
 public class SyntheticsPatchTestOperationName extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("add", "remove", "replace", "move", "copy", "test"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("add", "remove", "replace", "move", "copy", "test"));
 
-  public static final SyntheticsPatchTestOperationName ADD = new SyntheticsPatchTestOperationName("add");
-  public static final SyntheticsPatchTestOperationName REMOVE = new SyntheticsPatchTestOperationName("remove");
-  public static final SyntheticsPatchTestOperationName REPLACE = new SyntheticsPatchTestOperationName("replace");
-  public static final SyntheticsPatchTestOperationName MOVE = new SyntheticsPatchTestOperationName("move");
-  public static final SyntheticsPatchTestOperationName COPY = new SyntheticsPatchTestOperationName("copy");
-  public static final SyntheticsPatchTestOperationName TEST = new SyntheticsPatchTestOperationName("test");
-
+  public static final SyntheticsPatchTestOperationName ADD =
+      new SyntheticsPatchTestOperationName("add");
+  public static final SyntheticsPatchTestOperationName REMOVE =
+      new SyntheticsPatchTestOperationName("remove");
+  public static final SyntheticsPatchTestOperationName REPLACE =
+      new SyntheticsPatchTestOperationName("replace");
+  public static final SyntheticsPatchTestOperationName MOVE =
+      new SyntheticsPatchTestOperationName("move");
+  public static final SyntheticsPatchTestOperationName COPY =
+      new SyntheticsPatchTestOperationName("copy");
+  public static final SyntheticsPatchTestOperationName TEST =
+      new SyntheticsPatchTestOperationName("test");
 
   SyntheticsPatchTestOperationName(String value) {
     super(value, allowedValues);
   }
 
-  public static class SyntheticsPatchTestOperationNameSerializer extends StdSerializer<SyntheticsPatchTestOperationName> {
-      public SyntheticsPatchTestOperationNameSerializer(Class<SyntheticsPatchTestOperationName> t) {
-          super(t);
-      }
+  public static class SyntheticsPatchTestOperationNameSerializer
+      extends StdSerializer<SyntheticsPatchTestOperationName> {
+    public SyntheticsPatchTestOperationNameSerializer(Class<SyntheticsPatchTestOperationName> t) {
+      super(t);
+    }
 
-      public SyntheticsPatchTestOperationNameSerializer() {
-          this(null);
-      }
+    public SyntheticsPatchTestOperationNameSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(SyntheticsPatchTestOperationName value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        SyntheticsPatchTestOperationName value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

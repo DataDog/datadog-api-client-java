@@ -1,20 +1,15 @@
 // Creates a data deletion request returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.DataDeletionApi;
-import com.datadog.api.client.v2.model.CreateDataDeletionResponseBody;
 import com.datadog.api.client.v2.model.CreateDataDeletionRequestBody;
 import com.datadog.api.client.v2.model.CreateDataDeletionRequestBodyAttributes;
 import com.datadog.api.client.v2.model.CreateDataDeletionRequestBodyData;
 import com.datadog.api.client.v2.model.CreateDataDeletionRequestBodyDataType;
-import java.io.File;
-import java.time.OffsetDateTime;
+import com.datadog.api.client.v2.model.CreateDataDeletionResponseBody;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -22,14 +17,19 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createDataDeletionRequest", true);
     DataDeletionApi apiInstance = new DataDeletionApi(defaultClient);
 
-    CreateDataDeletionRequestBody body = new CreateDataDeletionRequestBody()
-.data(new CreateDataDeletionRequestBodyData()
-.attributes(new CreateDataDeletionRequestBodyAttributes()
-.from(1672527600000L)
-.indexes(Arrays.asList("test-index", "test-index-2"))
-.query(Map.ofEntries(Map.entry("host", "abc"),Map.entry("service", "xyz")))
-.to(1704063600000L))
-.type(CreateDataDeletionRequestBodyDataType.CREATE_DELETION_REQ));
+    CreateDataDeletionRequestBody body =
+        new CreateDataDeletionRequestBody()
+            .data(
+                new CreateDataDeletionRequestBodyData()
+                    .attributes(
+                        new CreateDataDeletionRequestBodyAttributes()
+                            .from(1672527600000L)
+                            .indexes(Arrays.asList("test-index", "test-index-2"))
+                            .query(
+                                Map.ofEntries(
+                                    Map.entry("host", "abc"), Map.entry("service", "xyz")))
+                            .to(1704063600000L))
+                    .type(CreateDataDeletionRequestBodyDataType.CREATE_DELETION_REQ));
 
     try {
       CreateDataDeletionResponseBody result = apiInstance.createDataDeletionRequest("logs", body);

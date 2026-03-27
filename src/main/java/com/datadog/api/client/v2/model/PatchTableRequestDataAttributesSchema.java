@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>Schema defining the updates to the structure and columns of the reference table. Schema fields cannot be deleted or renamed.</p>
+ * Schema defining the updates to the structure and columns of the reference table. Schema fields
+ * cannot be deleted or renamed.
  */
 @JsonPropertyOrder({
   PatchTableRequestDataAttributesSchema.JSON_PROPERTY_FIELDS,
   PatchTableRequestDataAttributesSchema.JSON_PROPERTY_PRIMARY_KEYS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PatchTableRequestDataAttributesSchema {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private List<PatchTableRequestDataAttributesSchemaFieldsItems> fields = new ArrayList<>();
 
@@ -52,70 +41,80 @@ public class PatchTableRequestDataAttributesSchema {
 
   @JsonCreator
   public PatchTableRequestDataAttributesSchema(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FIELDS)List<PatchTableRequestDataAttributesSchemaFieldsItems> fields,
-            @JsonProperty(required=true, value=JSON_PROPERTY_PRIMARY_KEYS)List<String> primaryKeys) {
-        this.fields = fields;
-        this.primaryKeys = primaryKeys;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FIELDS)
+          List<PatchTableRequestDataAttributesSchemaFieldsItems> fields,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PRIMARY_KEYS) List<String> primaryKeys) {
+    this.fields = fields;
+    this.primaryKeys = primaryKeys;
   }
-  public PatchTableRequestDataAttributesSchema fields(List<PatchTableRequestDataAttributesSchemaFieldsItems> fields) {
+
+  public PatchTableRequestDataAttributesSchema fields(
+      List<PatchTableRequestDataAttributesSchemaFieldsItems> fields) {
     this.fields = fields;
     for (PatchTableRequestDataAttributesSchemaFieldsItems item : fields) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public PatchTableRequestDataAttributesSchema addFieldsItem(PatchTableRequestDataAttributesSchemaFieldsItems fieldsItem) {
+
+  public PatchTableRequestDataAttributesSchema addFieldsItem(
+      PatchTableRequestDataAttributesSchemaFieldsItems fieldsItem) {
     this.fields.add(fieldsItem);
     this.unparsed |= fieldsItem.unparsed;
     return this;
   }
 
   /**
-   * <p>The schema fields.</p>
+   * The schema fields.
+   *
    * @return fields
-  **/
-      @JsonProperty(JSON_PROPERTY_FIELDS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<PatchTableRequestDataAttributesSchemaFieldsItems> getFields() {
-        return fields;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<PatchTableRequestDataAttributesSchemaFieldsItems> getFields() {
+    return fields;
+  }
+
   public void setFields(List<PatchTableRequestDataAttributesSchemaFieldsItems> fields) {
     this.fields = fields;
   }
+
   public PatchTableRequestDataAttributesSchema primaryKeys(List<String> primaryKeys) {
     this.primaryKeys = primaryKeys;
     return this;
   }
+
   public PatchTableRequestDataAttributesSchema addPrimaryKeysItem(String primaryKeysItem) {
     this.primaryKeys.add(primaryKeysItem);
     return this;
   }
 
   /**
-   * <p>List of field names that serve as primary keys for the table. Only one primary key is supported, and it is used as an ID to retrieve rows. Primary keys cannot be changed after table creation.</p>
+   * List of field names that serve as primary keys for the table. Only one primary key is
+   * supported, and it is used as an ID to retrieve rows. Primary keys cannot be changed after table
+   * creation.
+   *
    * @return primaryKeys
-  **/
-      @JsonProperty(JSON_PROPERTY_PRIMARY_KEYS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getPrimaryKeys() {
-        return primaryKeys;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_PRIMARY_KEYS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getPrimaryKeys() {
+    return primaryKeys;
+  }
+
   public void setPrimaryKeys(List<String> primaryKeys) {
     this.primaryKeys = primaryKeys;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -124,7 +123,7 @@ public class PatchTableRequestDataAttributesSchema {
   @JsonAnySetter
   public PatchTableRequestDataAttributesSchema putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -148,14 +147,12 @@ public class PatchTableRequestDataAttributesSchema {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this PatchTableRequestDataAttributesSchema object is equal to o.
-   */
+  /** Return true if this PatchTableRequestDataAttributesSchema object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -164,14 +161,17 @@ public class PatchTableRequestDataAttributesSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PatchTableRequestDataAttributesSchema patchTableRequestDataAttributesSchema = (PatchTableRequestDataAttributesSchema) o;
-    return Objects.equals(this.fields, patchTableRequestDataAttributesSchema.fields) && Objects.equals(this.primaryKeys, patchTableRequestDataAttributesSchema.primaryKeys) && Objects.equals(this.additionalProperties, patchTableRequestDataAttributesSchema.additionalProperties);
+    PatchTableRequestDataAttributesSchema patchTableRequestDataAttributesSchema =
+        (PatchTableRequestDataAttributesSchema) o;
+    return Objects.equals(this.fields, patchTableRequestDataAttributesSchema.fields)
+        && Objects.equals(this.primaryKeys, patchTableRequestDataAttributesSchema.primaryKeys)
+        && Objects.equals(
+            this.additionalProperties, patchTableRequestDataAttributesSchema.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields,primaryKeys, additionalProperties);
+    return Objects.hash(fields, primaryKeys, additionalProperties);
   }
 
   @Override
@@ -188,8 +188,7 @@ public class PatchTableRequestDataAttributesSchema {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

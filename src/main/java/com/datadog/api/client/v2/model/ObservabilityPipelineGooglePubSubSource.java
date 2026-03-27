@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,15 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
-   * <p>The <code>google_pubsub</code> source ingests logs from a Google Cloud Pub/Sub subscription.</p>
-   * <p><strong>Supported pipeline types:</strong> logs</p>
+ * The <code>google_pubsub</code> source ingests logs from a Google Cloud Pub/Sub subscription.
+ *
+ * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineGooglePubSubSource.JSON_PROPERTY_AUTH,
@@ -44,10 +31,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ObservabilityPipelineGooglePubSubSource.JSON_PROPERTY_TLS,
   ObservabilityPipelineGooglePubSubSource.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineGooglePubSubSource {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH = "auth";
   private ObservabilityPipelineGcpAuth auth;
 
@@ -67,25 +54,29 @@ public class ObservabilityPipelineGooglePubSubSource {
   private ObservabilityPipelineTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ObservabilityPipelineGooglePubSubSourceType type = ObservabilityPipelineGooglePubSubSourceType.GOOGLE_PUBSUB;
+  private ObservabilityPipelineGooglePubSubSourceType type =
+      ObservabilityPipelineGooglePubSubSourceType.GOOGLE_PUBSUB;
 
   public ObservabilityPipelineGooglePubSubSource() {}
 
   @JsonCreator
   public ObservabilityPipelineGooglePubSubSource(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DECODING)ObservabilityPipelineDecoding decoding,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_PROJECT)String project,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SUBSCRIPTION)String subscription,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ObservabilityPipelineGooglePubSubSourceType type) {
-        this.decoding = decoding;
-        this.unparsed |= !decoding.isValid();
-        this.id = id;
-        this.project = project;
-        this.subscription = subscription;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_DECODING)
+          ObservabilityPipelineDecoding decoding,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT) String project,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SUBSCRIPTION) String subscription,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ObservabilityPipelineGooglePubSubSourceType type) {
+    this.decoding = decoding;
+    this.unparsed |= !decoding.isValid();
+    this.id = id;
+    this.project = project;
+    this.subscription = subscription;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public ObservabilityPipelineGooglePubSubSource auth(ObservabilityPipelineGcpAuth auth) {
     this.auth = auth;
     this.unparsed |= auth.unparsed;
@@ -93,19 +84,21 @@ public class ObservabilityPipelineGooglePubSubSource {
   }
 
   /**
-   * <p>Google Cloud credentials used to authenticate with Google Cloud Storage.</p>
+   * Google Cloud credentials used to authenticate with Google Cloud Storage.
+   *
    * @return auth
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AUTH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ObservabilityPipelineGcpAuth getAuth() {
-        return auth;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineGcpAuth getAuth() {
+    return auth;
+  }
+
   public void setAuth(ObservabilityPipelineGcpAuth auth) {
     this.auth = auth;
   }
+
   public ObservabilityPipelineGooglePubSubSource decoding(ObservabilityPipelineDecoding decoding) {
     this.decoding = decoding;
     this.unparsed |= !decoding.isValid();
@@ -113,75 +106,84 @@ public class ObservabilityPipelineGooglePubSubSource {
   }
 
   /**
-   * <p>The decoding format used to interpret incoming logs.</p>
+   * The decoding format used to interpret incoming logs.
+   *
    * @return decoding
-  **/
-      @JsonProperty(JSON_PROPERTY_DECODING)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ObservabilityPipelineDecoding getDecoding() {
-        return decoding;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DECODING)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineDecoding getDecoding() {
+    return decoding;
+  }
+
   public void setDecoding(ObservabilityPipelineDecoding decoding) {
     if (!decoding.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.decoding = decoding;
   }
+
   public ObservabilityPipelineGooglePubSubSource id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the <code>input</code> to downstream components).</p>
+   * The unique identifier for this component. Used in other parts of the pipeline to reference this
+   * component (for example, as the <code>input</code> to downstream components).
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public ObservabilityPipelineGooglePubSubSource project(String project) {
     this.project = project;
     return this;
   }
 
   /**
-   * <p>The Google Cloud project ID that owns the Pub/Sub subscription.</p>
+   * The Google Cloud project ID that owns the Pub/Sub subscription.
+   *
    * @return project
-  **/
-      @JsonProperty(JSON_PROPERTY_PROJECT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getProject() {
-        return project;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_PROJECT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getProject() {
+    return project;
+  }
+
   public void setProject(String project) {
     this.project = project;
   }
+
   public ObservabilityPipelineGooglePubSubSource subscription(String subscription) {
     this.subscription = subscription;
     return this;
   }
 
   /**
-   * <p>The Pub/Sub subscription name from which messages are consumed.</p>
+   * The Pub/Sub subscription name from which messages are consumed.
+   *
    * @return subscription
-  **/
-      @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getSubscription() {
-        return subscription;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getSubscription() {
+    return subscription;
+  }
+
   public void setSubscription(String subscription) {
     this.subscription = subscription;
   }
+
   public ObservabilityPipelineGooglePubSubSource tls(ObservabilityPipelineTls tls) {
     this.tls = tls;
     this.unparsed |= tls.unparsed;
@@ -189,52 +191,55 @@ public class ObservabilityPipelineGooglePubSubSource {
   }
 
   /**
-   * <p>Configuration for enabling TLS encryption between the pipeline component and external services.</p>
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   *
    * @return tls
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TLS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ObservabilityPipelineTls getTls() {
-        return tls;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineTls getTls() {
+    return tls;
+  }
+
   public void setTls(ObservabilityPipelineTls tls) {
     this.tls = tls;
   }
-  public ObservabilityPipelineGooglePubSubSource type(ObservabilityPipelineGooglePubSubSourceType type) {
+
+  public ObservabilityPipelineGooglePubSubSource type(
+      ObservabilityPipelineGooglePubSubSourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * <p>The source type. The value should always be <code>google_pubsub</code>.</p>
+   * The source type. The value should always be <code>google_pubsub</code>.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public ObservabilityPipelineGooglePubSubSourceType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ObservabilityPipelineGooglePubSubSourceType getType() {
+    return type;
+  }
+
   public void setType(ObservabilityPipelineGooglePubSubSourceType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -243,7 +248,7 @@ public class ObservabilityPipelineGooglePubSubSource {
   @JsonAnySetter
   public ObservabilityPipelineGooglePubSubSource putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -267,14 +272,12 @@ public class ObservabilityPipelineGooglePubSubSource {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ObservabilityPipelineGooglePubSubSource object is equal to o.
-   */
+  /** Return true if this ObservabilityPipelineGooglePubSubSource object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -283,14 +286,23 @@ public class ObservabilityPipelineGooglePubSubSource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineGooglePubSubSource observabilityPipelineGooglePubSubSource = (ObservabilityPipelineGooglePubSubSource) o;
-    return Objects.equals(this.auth, observabilityPipelineGooglePubSubSource.auth) && Objects.equals(this.decoding, observabilityPipelineGooglePubSubSource.decoding) && Objects.equals(this.id, observabilityPipelineGooglePubSubSource.id) && Objects.equals(this.project, observabilityPipelineGooglePubSubSource.project) && Objects.equals(this.subscription, observabilityPipelineGooglePubSubSource.subscription) && Objects.equals(this.tls, observabilityPipelineGooglePubSubSource.tls) && Objects.equals(this.type, observabilityPipelineGooglePubSubSource.type) && Objects.equals(this.additionalProperties, observabilityPipelineGooglePubSubSource.additionalProperties);
+    ObservabilityPipelineGooglePubSubSource observabilityPipelineGooglePubSubSource =
+        (ObservabilityPipelineGooglePubSubSource) o;
+    return Objects.equals(this.auth, observabilityPipelineGooglePubSubSource.auth)
+        && Objects.equals(this.decoding, observabilityPipelineGooglePubSubSource.decoding)
+        && Objects.equals(this.id, observabilityPipelineGooglePubSubSource.id)
+        && Objects.equals(this.project, observabilityPipelineGooglePubSubSource.project)
+        && Objects.equals(this.subscription, observabilityPipelineGooglePubSubSource.subscription)
+        && Objects.equals(this.tls, observabilityPipelineGooglePubSubSource.tls)
+        && Objects.equals(this.type, observabilityPipelineGooglePubSubSource.type)
+        && Objects.equals(
+            this.additionalProperties,
+            observabilityPipelineGooglePubSubSource.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth,decoding,id,project,subscription,tls,type, additionalProperties);
+    return Objects.hash(auth, decoding, id, project, subscription, tls, type, additionalProperties);
   }
 
   @Override
@@ -312,8 +324,7 @@ public class ObservabilityPipelineGooglePubSubSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

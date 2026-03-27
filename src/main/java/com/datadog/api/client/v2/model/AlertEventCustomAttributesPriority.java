@@ -6,75 +6,58 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The priority of the alert.</p>
- */
-@JsonSerialize(using = AlertEventCustomAttributesPriority.AlertEventCustomAttributesPrioritySerializer.class)
+/** The priority of the alert. */
+@JsonSerialize(
+    using = AlertEventCustomAttributesPriority.AlertEventCustomAttributesPrioritySerializer.class)
 public class AlertEventCustomAttributesPriority extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("1", "2", "3", "4", "5"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("1", "2", "3", "4", "5"));
 
-  public static final AlertEventCustomAttributesPriority PRIORITY_ONE = new AlertEventCustomAttributesPriority("1");
-  public static final AlertEventCustomAttributesPriority PRIORITY_TWO = new AlertEventCustomAttributesPriority("2");
-  public static final AlertEventCustomAttributesPriority PRIORITY_THREE = new AlertEventCustomAttributesPriority("3");
-  public static final AlertEventCustomAttributesPriority PRIORITY_FOUR = new AlertEventCustomAttributesPriority("4");
-  public static final AlertEventCustomAttributesPriority PRIORITY_FIVE = new AlertEventCustomAttributesPriority("5");
-
+  public static final AlertEventCustomAttributesPriority PRIORITY_ONE =
+      new AlertEventCustomAttributesPriority("1");
+  public static final AlertEventCustomAttributesPriority PRIORITY_TWO =
+      new AlertEventCustomAttributesPriority("2");
+  public static final AlertEventCustomAttributesPriority PRIORITY_THREE =
+      new AlertEventCustomAttributesPriority("3");
+  public static final AlertEventCustomAttributesPriority PRIORITY_FOUR =
+      new AlertEventCustomAttributesPriority("4");
+  public static final AlertEventCustomAttributesPriority PRIORITY_FIVE =
+      new AlertEventCustomAttributesPriority("5");
 
   AlertEventCustomAttributesPriority(String value) {
     super(value, allowedValues);
   }
 
-  public static class AlertEventCustomAttributesPrioritySerializer extends StdSerializer<AlertEventCustomAttributesPriority> {
-      public AlertEventCustomAttributesPrioritySerializer(Class<AlertEventCustomAttributesPriority> t) {
-          super(t);
-      }
+  public static class AlertEventCustomAttributesPrioritySerializer
+      extends StdSerializer<AlertEventCustomAttributesPriority> {
+    public AlertEventCustomAttributesPrioritySerializer(
+        Class<AlertEventCustomAttributesPriority> t) {
+      super(t);
+    }
 
-      public AlertEventCustomAttributesPrioritySerializer() {
-          this(null);
-      }
+    public AlertEventCustomAttributesPrioritySerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(AlertEventCustomAttributesPriority value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        AlertEventCustomAttributesPriority value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

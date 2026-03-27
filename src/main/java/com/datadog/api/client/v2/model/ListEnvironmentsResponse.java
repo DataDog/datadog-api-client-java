@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,23 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Response containing a list of environments.</p>
- */
+/** Response containing a list of environments. */
 @JsonPropertyOrder({
   ListEnvironmentsResponse.JSON_PROPERTY_DATA,
   ListEnvironmentsResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListEnvironmentsResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<Environment> data = new ArrayList<>();
 
@@ -52,9 +38,10 @@ public class ListEnvironmentsResponse {
 
   @JsonCreator
   public ListEnvironmentsResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)List<Environment> data) {
-        this.data = data;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<Environment> data) {
+    this.data = data;
   }
+
   public ListEnvironmentsResponse data(List<Environment> data) {
     this.data = data;
     for (Environment item : data) {
@@ -62,6 +49,7 @@ public class ListEnvironmentsResponse {
     }
     return this;
   }
+
   public ListEnvironmentsResponse addDataItem(Environment dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
@@ -69,18 +57,20 @@ public class ListEnvironmentsResponse {
   }
 
   /**
-   * <p>List of environments.</p>
+   * List of environments.
+   *
    * @return data
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<Environment> getData() {
-        return data;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<Environment> getData() {
+    return data;
+  }
+
   public void setData(List<Environment> data) {
     this.data = data;
   }
+
   public ListEnvironmentsResponse meta(EnvironmentsPaginationMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -88,30 +78,30 @@ public class ListEnvironmentsResponse {
   }
 
   /**
-   * <p>Pagination metadata for environments.</p>
+   * Pagination metadata for environments.
+   *
    * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EnvironmentsPaginationMeta getMeta() {
-        return meta;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EnvironmentsPaginationMeta getMeta() {
+    return meta;
+  }
+
   public void setMeta(EnvironmentsPaginationMeta meta) {
     this.meta = meta;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -120,7 +110,7 @@ public class ListEnvironmentsResponse {
   @JsonAnySetter
   public ListEnvironmentsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -144,14 +134,12 @@ public class ListEnvironmentsResponse {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ListEnvironmentsResponse object is equal to o.
-   */
+  /** Return true if this ListEnvironmentsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -161,13 +149,14 @@ public class ListEnvironmentsResponse {
       return false;
     }
     ListEnvironmentsResponse listEnvironmentsResponse = (ListEnvironmentsResponse) o;
-    return Objects.equals(this.data, listEnvironmentsResponse.data) && Objects.equals(this.meta, listEnvironmentsResponse.meta) && Objects.equals(this.additionalProperties, listEnvironmentsResponse.additionalProperties);
+    return Objects.equals(this.data, listEnvironmentsResponse.data)
+        && Objects.equals(this.meta, listEnvironmentsResponse.meta)
+        && Objects.equals(this.additionalProperties, listEnvironmentsResponse.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,meta, additionalProperties);
+    return Objects.hash(data, meta, additionalProperties);
   }
 
   @Override
@@ -184,8 +173,7 @@ public class ListEnvironmentsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

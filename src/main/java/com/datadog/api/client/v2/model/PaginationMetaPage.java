@@ -6,34 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Offset-based pagination schema.</p>
- */
+/** Offset-based pagination schema. */
 @JsonPropertyOrder({
   PaginationMetaPage.JSON_PROPERTY_FIRST_OFFSET,
   PaginationMetaPage.JSON_PROPERTY_LAST_OFFSET,
@@ -44,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   PaginationMetaPage.JSON_PROPERTY_TOTAL,
   PaginationMetaPage.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PaginationMetaPage {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIRST_OFFSET = "first_offset";
   private Long firstOffset;
 
@@ -78,161 +62,188 @@ public class PaginationMetaPage {
   }
 
   /**
-   * <p>Integer representing the offset to fetch the first page of results.</p>
+   * Integer representing the offset to fetch the first page of results.
+   *
    * @return firstOffset
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FIRST_OFFSET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getFirstOffset() {
-        return firstOffset;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIRST_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFirstOffset() {
+    return firstOffset;
+  }
+
   public void setFirstOffset(Long firstOffset) {
     this.firstOffset = firstOffset;
   }
+
   public PaginationMetaPage lastOffset(Long lastOffset) {
     this.lastOffset = JsonNullable.<Long>of(lastOffset);
     return this;
   }
 
   /**
-   * <p>Integer representing the offset to fetch the last page of results.</p>
+   * Integer representing the offset to fetch the last page of results.
+   *
    * @return lastOffset
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getLastOffset() {
-        return lastOffset.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLastOffset() {
+    return lastOffset.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getLastOffset_JsonNullable() {
     return lastOffset;
   }
-  @JsonProperty(JSON_PROPERTY_LAST_OFFSET)public void setLastOffset_JsonNullable(JsonNullable<Long> lastOffset) {
+
+  @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
+  public void setLastOffset_JsonNullable(JsonNullable<Long> lastOffset) {
     this.lastOffset = lastOffset;
   }
+
   public void setLastOffset(Long lastOffset) {
     this.lastOffset = JsonNullable.<Long>of(lastOffset);
   }
+
   public PaginationMetaPage limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * <p>Integer representing the number of elements to be returned in the results.</p>
+   * Integer representing the number of elements to be returned in the results.
+   *
    * @return limit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LIMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getLimit() {
-        return limit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLimit() {
+    return limit;
+  }
+
   public void setLimit(Long limit) {
     this.limit = limit;
   }
+
   public PaginationMetaPage nextOffset(Long nextOffset) {
     this.nextOffset = JsonNullable.<Long>of(nextOffset);
     return this;
   }
 
   /**
-   * <p>Integer representing the index of the first element in the next page of results. Equal to page size added to the current offset.</p>
+   * Integer representing the index of the first element in the next page of results. Equal to page
+   * size added to the current offset.
+   *
    * @return nextOffset
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getNextOffset() {
-        return nextOffset.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getNextOffset() {
+    return nextOffset.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getNextOffset_JsonNullable() {
     return nextOffset;
   }
-  @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)public void setNextOffset_JsonNullable(JsonNullable<Long> nextOffset) {
+
+  @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
+  public void setNextOffset_JsonNullable(JsonNullable<Long> nextOffset) {
     this.nextOffset = nextOffset;
   }
+
   public void setNextOffset(Long nextOffset) {
     this.nextOffset = JsonNullable.<Long>of(nextOffset);
   }
+
   public PaginationMetaPage offset(Long offset) {
     this.offset = offset;
     return this;
   }
 
   /**
-   * <p>Integer representing the index of the first element in the results.</p>
+   * Integer representing the index of the first element in the results.
+   *
    * @return offset
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OFFSET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getOffset() {
-        return offset;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOffset() {
+    return offset;
+  }
+
   public void setOffset(Long offset) {
     this.offset = offset;
   }
+
   public PaginationMetaPage prevOffset(Long prevOffset) {
     this.prevOffset = JsonNullable.<Long>of(prevOffset);
     return this;
   }
 
   /**
-   * <p>Integer representing the index of the first element in the previous page of results.</p>
+   * Integer representing the index of the first element in the previous page of results.
+   *
    * @return prevOffset
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getPrevOffset() {
-        return prevOffset.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getPrevOffset() {
+    return prevOffset.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_PREV_OFFSET)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getPrevOffset_JsonNullable() {
     return prevOffset;
   }
-  @JsonProperty(JSON_PROPERTY_PREV_OFFSET)public void setPrevOffset_JsonNullable(JsonNullable<Long> prevOffset) {
+
+  @JsonProperty(JSON_PROPERTY_PREV_OFFSET)
+  public void setPrevOffset_JsonNullable(JsonNullable<Long> prevOffset) {
     this.prevOffset = prevOffset;
   }
+
   public void setPrevOffset(Long prevOffset) {
     this.prevOffset = JsonNullable.<Long>of(prevOffset);
   }
+
   public PaginationMetaPage total(Long total) {
     this.total = JsonNullable.<Long>of(total);
     return this;
   }
 
   /**
-   * <p>Integer representing the total number of elements available.</p>
+   * Integer representing the total number of elements available.
+   *
    * @return total
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getTotal() {
-        return total.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getTotal() {
+    return total.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getTotal_JsonNullable() {
     return total;
   }
-  @JsonProperty(JSON_PROPERTY_TOTAL)public void setTotal_JsonNullable(JsonNullable<Long> total) {
+
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  public void setTotal_JsonNullable(JsonNullable<Long> total) {
     this.total = total;
   }
+
   public void setTotal(Long total) {
     this.total = JsonNullable.<Long>of(total);
   }
+
   public PaginationMetaPage type(PaginationMetaPageType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -240,33 +251,33 @@ public class PaginationMetaPage {
   }
 
   /**
-   * <p>The pagination type used for offset-based pagination.</p>
+   * The pagination type used for offset-based pagination.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public PaginationMetaPageType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PaginationMetaPageType getType() {
+    return type;
+  }
+
   public void setType(PaginationMetaPageType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -275,7 +286,7 @@ public class PaginationMetaPage {
   @JsonAnySetter
   public PaginationMetaPage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -299,14 +310,12 @@ public class PaginationMetaPage {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this PaginationMetaPage object is equal to o.
-   */
+  /** Return true if this PaginationMetaPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -316,13 +325,29 @@ public class PaginationMetaPage {
       return false;
     }
     PaginationMetaPage paginationMetaPage = (PaginationMetaPage) o;
-    return Objects.equals(this.firstOffset, paginationMetaPage.firstOffset) && Objects.equals(this.lastOffset, paginationMetaPage.lastOffset) && Objects.equals(this.limit, paginationMetaPage.limit) && Objects.equals(this.nextOffset, paginationMetaPage.nextOffset) && Objects.equals(this.offset, paginationMetaPage.offset) && Objects.equals(this.prevOffset, paginationMetaPage.prevOffset) && Objects.equals(this.total, paginationMetaPage.total) && Objects.equals(this.type, paginationMetaPage.type) && Objects.equals(this.additionalProperties, paginationMetaPage.additionalProperties);
+    return Objects.equals(this.firstOffset, paginationMetaPage.firstOffset)
+        && Objects.equals(this.lastOffset, paginationMetaPage.lastOffset)
+        && Objects.equals(this.limit, paginationMetaPage.limit)
+        && Objects.equals(this.nextOffset, paginationMetaPage.nextOffset)
+        && Objects.equals(this.offset, paginationMetaPage.offset)
+        && Objects.equals(this.prevOffset, paginationMetaPage.prevOffset)
+        && Objects.equals(this.total, paginationMetaPage.total)
+        && Objects.equals(this.type, paginationMetaPage.type)
+        && Objects.equals(this.additionalProperties, paginationMetaPage.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstOffset,lastOffset,limit,nextOffset,offset,prevOffset,total,type, additionalProperties);
+    return Objects.hash(
+        firstOffset,
+        lastOffset,
+        limit,
+        nextOffset,
+        offset,
+        prevOffset,
+        total,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -345,8 +370,7 @@ public class PaginationMetaPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

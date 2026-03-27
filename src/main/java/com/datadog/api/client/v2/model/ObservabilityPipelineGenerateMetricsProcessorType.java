@@ -6,71 +6,54 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.datadog.api.client.ModelEnum;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
-/**
-   * <p>The processor type. Always <code>generate_datadog_metrics</code>.</p>
- */
-@JsonSerialize(using = ObservabilityPipelineGenerateMetricsProcessorType.ObservabilityPipelineGenerateMetricsProcessorTypeSerializer.class)
+/** The processor type. Always <code>generate_datadog_metrics</code>. */
+@JsonSerialize(
+    using =
+        ObservabilityPipelineGenerateMetricsProcessorType
+            .ObservabilityPipelineGenerateMetricsProcessorTypeSerializer.class)
 public class ObservabilityPipelineGenerateMetricsProcessorType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("generate_datadog_metrics"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("generate_datadog_metrics"));
 
-  public static final ObservabilityPipelineGenerateMetricsProcessorType GENERATE_DATADOG_METRICS = new ObservabilityPipelineGenerateMetricsProcessorType("generate_datadog_metrics");
-
+  public static final ObservabilityPipelineGenerateMetricsProcessorType GENERATE_DATADOG_METRICS =
+      new ObservabilityPipelineGenerateMetricsProcessorType("generate_datadog_metrics");
 
   ObservabilityPipelineGenerateMetricsProcessorType(String value) {
     super(value, allowedValues);
   }
 
-  public static class ObservabilityPipelineGenerateMetricsProcessorTypeSerializer extends StdSerializer<ObservabilityPipelineGenerateMetricsProcessorType> {
-      public ObservabilityPipelineGenerateMetricsProcessorTypeSerializer(Class<ObservabilityPipelineGenerateMetricsProcessorType> t) {
-          super(t);
-      }
+  public static class ObservabilityPipelineGenerateMetricsProcessorTypeSerializer
+      extends StdSerializer<ObservabilityPipelineGenerateMetricsProcessorType> {
+    public ObservabilityPipelineGenerateMetricsProcessorTypeSerializer(
+        Class<ObservabilityPipelineGenerateMetricsProcessorType> t) {
+      super(t);
+    }
 
-      public ObservabilityPipelineGenerateMetricsProcessorTypeSerializer() {
-          this(null);
-      }
+    public ObservabilityPipelineGenerateMetricsProcessorTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ObservabilityPipelineGenerateMetricsProcessorType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        ObservabilityPipelineGenerateMetricsProcessorType value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonCreator

@@ -6,18 +6,6 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,24 +13,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Updated SLO List widget.</p>
- */
+/** Updated SLO List widget. */
 @JsonPropertyOrder({
   SLOListWidgetQuery.JSON_PROPERTY_LIMIT,
   SLOListWidgetQuery.JSON_PROPERTY_QUERY_STRING,
   SLOListWidgetQuery.JSON_PROPERTY_SORT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOListWidgetQuery {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Long limit = 100l;
 
@@ -56,48 +42,51 @@ public class SLOListWidgetQuery {
 
   @JsonCreator
   public SLOListWidgetQuery(
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY_STRING)String queryString) {
-        this.queryString = queryString;
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY_STRING) String queryString) {
+    this.queryString = queryString;
   }
+
   public SLOListWidgetQuery limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * <p>Maximum number of results to display in the table.</p>
-   * minimum: 1
-   * maximum: 100
+   * Maximum number of results to display in the table. minimum: 1 maximum: 100
+   *
    * @return limit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LIMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getLimit() {
-        return limit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLimit() {
+    return limit;
+  }
+
   public void setLimit(Long limit) {
     this.limit = limit;
   }
+
   public SLOListWidgetQuery queryString(String queryString) {
     this.queryString = queryString;
     return this;
   }
 
   /**
-   * <p>Widget query.</p>
+   * Widget query.
+   *
    * @return queryString
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY_STRING)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getQueryString() {
-        return queryString;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY_STRING)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQueryString() {
+    return queryString;
+  }
+
   public void setQueryString(String queryString) {
     this.queryString = queryString;
   }
+
   public SLOListWidgetQuery sort(List<WidgetFieldSort> sort) {
     this.sort = sort;
     for (WidgetFieldSort item : sort) {
@@ -105,6 +94,7 @@ public class SLOListWidgetQuery {
     }
     return this;
   }
+
   public SLOListWidgetQuery addSortItem(WidgetFieldSort sortItem) {
     if (this.sort == null) {
       this.sort = new ArrayList<>();
@@ -115,30 +105,30 @@ public class SLOListWidgetQuery {
   }
 
   /**
-   * <p>Options for sorting results.</p>
+   * Options for sorting results.
+   *
    * @return sort
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<WidgetFieldSort> getSort() {
-        return sort;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetFieldSort> getSort() {
+    return sort;
+  }
+
   public void setSort(List<WidgetFieldSort> sort) {
     this.sort = sort;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -147,7 +137,7 @@ public class SLOListWidgetQuery {
   @JsonAnySetter
   public SLOListWidgetQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -171,14 +161,12 @@ public class SLOListWidgetQuery {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SLOListWidgetQuery object is equal to o.
-   */
+  /** Return true if this SLOListWidgetQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -188,13 +176,15 @@ public class SLOListWidgetQuery {
       return false;
     }
     SLOListWidgetQuery sloListWidgetQuery = (SLOListWidgetQuery) o;
-    return Objects.equals(this.limit, sloListWidgetQuery.limit) && Objects.equals(this.queryString, sloListWidgetQuery.queryString) && Objects.equals(this.sort, sloListWidgetQuery.sort) && Objects.equals(this.additionalProperties, sloListWidgetQuery.additionalProperties);
+    return Objects.equals(this.limit, sloListWidgetQuery.limit)
+        && Objects.equals(this.queryString, sloListWidgetQuery.queryString)
+        && Objects.equals(this.sort, sloListWidgetQuery.sort)
+        && Objects.equals(this.additionalProperties, sloListWidgetQuery.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit,queryString,sort, additionalProperties);
+    return Objects.hash(limit, queryString, sort, additionalProperties);
   }
 
   @Override
@@ -212,8 +202,7 @@ public class SLOListWidgetQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

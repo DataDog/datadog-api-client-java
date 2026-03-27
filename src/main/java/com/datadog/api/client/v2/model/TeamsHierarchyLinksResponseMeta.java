@@ -6,41 +6,22 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Metadata that is included in the response when querying the team hierarchy links</p>
- */
-@JsonPropertyOrder({
-  TeamsHierarchyLinksResponseMeta.JSON_PROPERTY_PAGE
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Metadata that is included in the response when querying the team hierarchy links */
+@JsonPropertyOrder({TeamsHierarchyLinksResponseMeta.JSON_PROPERTY_PAGE})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamsHierarchyLinksResponseMeta {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PAGE = "page";
   private TeamsHierarchyLinksResponseMetaPage page;
 
@@ -51,30 +32,31 @@ public class TeamsHierarchyLinksResponseMeta {
   }
 
   /**
-   * <p>Metadata related to paging information that is included in the response when querying the team hierarchy links</p>
+   * Metadata related to paging information that is included in the response when querying the team
+   * hierarchy links
+   *
    * @return page
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TeamsHierarchyLinksResponseMetaPage getPage() {
-        return page;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamsHierarchyLinksResponseMetaPage getPage() {
+    return page;
+  }
+
   public void setPage(TeamsHierarchyLinksResponseMetaPage page) {
     this.page = page;
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
   private Map<String, Object> additionalProperties;
 
   /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
    *
    * @param key The arbitrary key to set
    * @param value The associated value
@@ -83,7 +65,7 @@ public class TeamsHierarchyLinksResponseMeta {
   @JsonAnySetter
   public TeamsHierarchyLinksResponseMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -107,14 +89,12 @@ public class TeamsHierarchyLinksResponseMeta {
    */
   public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
-        return null;
+      return null;
     }
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TeamsHierarchyLinksResponseMeta object is equal to o.
-   */
+  /** Return true if this TeamsHierarchyLinksResponseMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -123,10 +103,12 @@ public class TeamsHierarchyLinksResponseMeta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamsHierarchyLinksResponseMeta teamsHierarchyLinksResponseMeta = (TeamsHierarchyLinksResponseMeta) o;
-    return Objects.equals(this.page, teamsHierarchyLinksResponseMeta.page) && Objects.equals(this.additionalProperties, teamsHierarchyLinksResponseMeta.additionalProperties);
+    TeamsHierarchyLinksResponseMeta teamsHierarchyLinksResponseMeta =
+        (TeamsHierarchyLinksResponseMeta) o;
+    return Objects.equals(this.page, teamsHierarchyLinksResponseMeta.page)
+        && Objects.equals(
+            this.additionalProperties, teamsHierarchyLinksResponseMeta.additionalProperties);
   }
-
 
   @Override
   public int hashCode() {
@@ -146,8 +128,7 @@ public class TeamsHierarchyLinksResponseMeta {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

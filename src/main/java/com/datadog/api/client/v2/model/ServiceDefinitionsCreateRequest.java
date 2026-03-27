@@ -6,361 +6,411 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
-import jakarta.ws.rs.core.GenericType;
-import jakarta.ws.rs.core.Response;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.client.JSON;
-import com.datadog.api.client.AbstractOpenApiSchema;
-import com.datadog.api.client.UnparsedObject;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-@JsonDeserialize(using = ServiceDefinitionsCreateRequest.ServiceDefinitionsCreateRequestDeserializer.class)
-@JsonSerialize(using = ServiceDefinitionsCreateRequest.ServiceDefinitionsCreateRequestSerializer.class)
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@JsonDeserialize(
+    using = ServiceDefinitionsCreateRequest.ServiceDefinitionsCreateRequestDeserializer.class)
+@JsonSerialize(
+    using = ServiceDefinitionsCreateRequest.ServiceDefinitionsCreateRequestSerializer.class)
 public class ServiceDefinitionsCreateRequest extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(ServiceDefinitionsCreateRequest.class.getName());
+  private static final Logger log =
+      Logger.getLogger(ServiceDefinitionsCreateRequest.class.getName());
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
 
-    public static class ServiceDefinitionsCreateRequestSerializer extends StdSerializer<ServiceDefinitionsCreateRequest> {
-        public ServiceDefinitionsCreateRequestSerializer(Class<ServiceDefinitionsCreateRequest> t) {
-            super(t);
-        }
-
-        public ServiceDefinitionsCreateRequestSerializer() {
-            this(null);
-        }
-
-        @Override
-        public void serialize(ServiceDefinitionsCreateRequest value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-            jgen.writeObject(value.getActualInstance());
-        }
+  public static class ServiceDefinitionsCreateRequestSerializer
+      extends StdSerializer<ServiceDefinitionsCreateRequest> {
+    public ServiceDefinitionsCreateRequestSerializer(Class<ServiceDefinitionsCreateRequest> t) {
+      super(t);
     }
 
-    public static class ServiceDefinitionsCreateRequestDeserializer extends StdDeserializer<ServiceDefinitionsCreateRequest> {
-        public ServiceDefinitionsCreateRequestDeserializer() {
-            this(ServiceDefinitionsCreateRequest.class);
-        }
-
-        public ServiceDefinitionsCreateRequestDeserializer(Class<?> vc) {
-            super(vc);
-        }
-
-        @Override
-        public ServiceDefinitionsCreateRequest deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-            JsonNode tree = jp.readValueAsTree();
-            Object deserialized = null;
-            Object tmp = null;
-            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
-            int match = 0;
-            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // deserialize ServiceDefinitionV2Dot2
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (ServiceDefinitionV2Dot2.class.equals(Integer.class) || ServiceDefinitionV2Dot2.class.equals(Long.class) || ServiceDefinitionV2Dot2.class.equals(Float.class) || ServiceDefinitionV2Dot2.class.equals(Double.class) || ServiceDefinitionV2Dot2.class.equals(Boolean.class) || ServiceDefinitionV2Dot2.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((ServiceDefinitionV2Dot2.class.equals(Integer.class) || ServiceDefinitionV2Dot2.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((ServiceDefinitionV2Dot2.class.equals(Float.class) || ServiceDefinitionV2Dot2.class.equals(Double.class)) && (token == JsonToken.VALUE_NUMBER_FLOAT || token == JsonToken.VALUE_NUMBER_INT));
-                        attemptParsing |= (ServiceDefinitionV2Dot2.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (ServiceDefinitionV2Dot2.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                if (attemptParsing) {
-                    tmp = tree.traverse(jp.getCodec()).readValueAs(ServiceDefinitionV2Dot2.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
-                    if (!((ServiceDefinitionV2Dot2)tmp).unparsed) {
-                        deserialized = tmp;
-                        match++;
-                    }
-                    log.log(Level.FINER, "Input data matches schema 'ServiceDefinitionV2Dot2'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'ServiceDefinitionV2Dot2'", e);
-            }
-            
-            // deserialize ServiceDefinitionV2Dot1
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (ServiceDefinitionV2Dot1.class.equals(Integer.class) || ServiceDefinitionV2Dot1.class.equals(Long.class) || ServiceDefinitionV2Dot1.class.equals(Float.class) || ServiceDefinitionV2Dot1.class.equals(Double.class) || ServiceDefinitionV2Dot1.class.equals(Boolean.class) || ServiceDefinitionV2Dot1.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((ServiceDefinitionV2Dot1.class.equals(Integer.class) || ServiceDefinitionV2Dot1.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((ServiceDefinitionV2Dot1.class.equals(Float.class) || ServiceDefinitionV2Dot1.class.equals(Double.class)) && (token == JsonToken.VALUE_NUMBER_FLOAT || token == JsonToken.VALUE_NUMBER_INT));
-                        attemptParsing |= (ServiceDefinitionV2Dot1.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (ServiceDefinitionV2Dot1.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                if (attemptParsing) {
-                    tmp = tree.traverse(jp.getCodec()).readValueAs(ServiceDefinitionV2Dot1.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
-                    if (!((ServiceDefinitionV2Dot1)tmp).unparsed) {
-                        deserialized = tmp;
-                        match++;
-                    }
-                    log.log(Level.FINER, "Input data matches schema 'ServiceDefinitionV2Dot1'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'ServiceDefinitionV2Dot1'", e);
-            }
-            
-            // deserialize ServiceDefinitionV2
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (ServiceDefinitionV2.class.equals(Integer.class) || ServiceDefinitionV2.class.equals(Long.class) || ServiceDefinitionV2.class.equals(Float.class) || ServiceDefinitionV2.class.equals(Double.class) || ServiceDefinitionV2.class.equals(Boolean.class) || ServiceDefinitionV2.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((ServiceDefinitionV2.class.equals(Integer.class) || ServiceDefinitionV2.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((ServiceDefinitionV2.class.equals(Float.class) || ServiceDefinitionV2.class.equals(Double.class)) && (token == JsonToken.VALUE_NUMBER_FLOAT || token == JsonToken.VALUE_NUMBER_INT));
-                        attemptParsing |= (ServiceDefinitionV2.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (ServiceDefinitionV2.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                if (attemptParsing) {
-                    tmp = tree.traverse(jp.getCodec()).readValueAs(ServiceDefinitionV2.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
-                    if (!((ServiceDefinitionV2)tmp).unparsed) {
-                        deserialized = tmp;
-                        match++;
-                    }
-                    log.log(Level.FINER, "Input data matches schema 'ServiceDefinitionV2'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'ServiceDefinitionV2'", e);
-            }
-            
-            // deserialize String
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (String.class.equals(Integer.class) || String.class.equals(Long.class) || String.class.equals(Float.class) || String.class.equals(Double.class) || String.class.equals(Boolean.class) || String.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((String.class.equals(Integer.class) || String.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((String.class.equals(Float.class) || String.class.equals(Double.class)) && (token == JsonToken.VALUE_NUMBER_FLOAT || token == JsonToken.VALUE_NUMBER_INT));
-                        attemptParsing |= (String.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (String.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                if (attemptParsing) {
-                    tmp = tree.traverse(jp.getCodec()).readValueAs(String.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
-                    deserialized = tmp;
-                    match++;
-                    
-                    log.log(Level.FINER, "Input data matches schema 'String'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'String'", e);
-            }
-            
-            ServiceDefinitionsCreateRequest ret = new ServiceDefinitionsCreateRequest();
-            if (match == 1) {
-                ret.setActualInstance(deserialized);
-            } else {
-                Map<String, Object> res = new ObjectMapper().readValue(tree.traverse(jp.getCodec()).readValueAsTree().toString(), new TypeReference<Map<String, Object>>() {});
-                ret.setActualInstance(new UnparsedObject(res));
-            }
-            return ret;
-        }
-
-        /**
-         * Handle deserialization of the 'null' value.
-         */
-        @Override
-        public ServiceDefinitionsCreateRequest getNullValue(DeserializationContext ctxt) throws JsonMappingException {
-            throw new JsonMappingException(ctxt.getParser(), "ServiceDefinitionsCreateRequest cannot be null");
-        }
-    }
-
-    // store a list of schema names defined in oneOf
-    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
-
-    public ServiceDefinitionsCreateRequest() {
-        super("oneOf", Boolean.FALSE);
-    }
-    public ServiceDefinitionsCreateRequest(ServiceDefinitionV2Dot2 o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-    public ServiceDefinitionsCreateRequest(ServiceDefinitionV2Dot1 o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-    public ServiceDefinitionsCreateRequest(ServiceDefinitionV2 o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-    public ServiceDefinitionsCreateRequest(String o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    static {
-        schemas.put("ServiceDefinitionV2Dot2", new GenericType<ServiceDefinitionV2Dot2>() {
-        });
-        schemas.put("ServiceDefinitionV2Dot1", new GenericType<ServiceDefinitionV2Dot1>() {
-        });
-        schemas.put("ServiceDefinitionV2", new GenericType<ServiceDefinitionV2>() {
-        });
-        schemas.put("String", new GenericType<String>() {
-        });
-        JSON.registerDescendants(ServiceDefinitionsCreateRequest.class, Collections.unmodifiableMap(schemas));
+    public ServiceDefinitionsCreateRequestSerializer() {
+      this(null);
     }
 
     @Override
-    public Map<String, GenericType> getSchemas() {
-        return ServiceDefinitionsCreateRequest.schemas;
+    public void serialize(
+        ServiceDefinitionsCreateRequest value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
+    }
+  }
+
+  public static class ServiceDefinitionsCreateRequestDeserializer
+      extends StdDeserializer<ServiceDefinitionsCreateRequest> {
+    public ServiceDefinitionsCreateRequestDeserializer() {
+      this(ServiceDefinitionsCreateRequest.class);
     }
 
-    /**
-     * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas:
-     * ServiceDefinitionV2Dot2, ServiceDefinitionV2Dot1, ServiceDefinitionV2, String
-     *
-     * It could be an instance of the 'oneOf' schemas.
-     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
-     */
+    public ServiceDefinitionsCreateRequestDeserializer(Class<?> vc) {
+      super(vc);
+    }
+
     @Override
-    public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(ServiceDefinitionV2Dot2.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
+    public ServiceDefinitionsCreateRequest deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize ServiceDefinitionV2Dot2
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ServiceDefinitionV2Dot2.class.equals(Integer.class)
+            || ServiceDefinitionV2Dot2.class.equals(Long.class)
+            || ServiceDefinitionV2Dot2.class.equals(Float.class)
+            || ServiceDefinitionV2Dot2.class.equals(Double.class)
+            || ServiceDefinitionV2Dot2.class.equals(Boolean.class)
+            || ServiceDefinitionV2Dot2.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ServiceDefinitionV2Dot2.class.equals(Integer.class)
+                        || ServiceDefinitionV2Dot2.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ServiceDefinitionV2Dot2.class.equals(Float.class)
+                        || ServiceDefinitionV2Dot2.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ServiceDefinitionV2Dot2.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ServiceDefinitionV2Dot2.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
         }
-        if (JSON.isInstanceOf(ServiceDefinitionV2Dot1.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ServiceDefinitionV2Dot2.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ServiceDefinitionV2Dot2) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ServiceDefinitionV2Dot2'");
         }
-        if (JSON.isInstanceOf(ServiceDefinitionV2.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-        if (JSON.isInstanceOf(String.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ServiceDefinitionV2Dot2'", e);
+      }
 
-        if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
+      // deserialize ServiceDefinitionV2Dot1
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ServiceDefinitionV2Dot1.class.equals(Integer.class)
+            || ServiceDefinitionV2Dot1.class.equals(Long.class)
+            || ServiceDefinitionV2Dot1.class.equals(Float.class)
+            || ServiceDefinitionV2Dot1.class.equals(Double.class)
+            || ServiceDefinitionV2Dot1.class.equals(Boolean.class)
+            || ServiceDefinitionV2Dot1.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ServiceDefinitionV2Dot1.class.equals(Integer.class)
+                        || ServiceDefinitionV2Dot1.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ServiceDefinitionV2Dot1.class.equals(Float.class)
+                        || ServiceDefinitionV2Dot1.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ServiceDefinitionV2Dot1.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ServiceDefinitionV2Dot1.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
         }
-        throw new RuntimeException("Invalid instance type. Must be ServiceDefinitionV2Dot2, ServiceDefinitionV2Dot1, ServiceDefinitionV2, String");
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ServiceDefinitionV2Dot1.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ServiceDefinitionV2Dot1) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ServiceDefinitionV2Dot1'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ServiceDefinitionV2Dot1'", e);
+      }
+
+      // deserialize ServiceDefinitionV2
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ServiceDefinitionV2.class.equals(Integer.class)
+            || ServiceDefinitionV2.class.equals(Long.class)
+            || ServiceDefinitionV2.class.equals(Float.class)
+            || ServiceDefinitionV2.class.equals(Double.class)
+            || ServiceDefinitionV2.class.equals(Boolean.class)
+            || ServiceDefinitionV2.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ServiceDefinitionV2.class.equals(Integer.class)
+                        || ServiceDefinitionV2.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ServiceDefinitionV2.class.equals(Float.class)
+                        || ServiceDefinitionV2.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ServiceDefinitionV2.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ServiceDefinitionV2.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ServiceDefinitionV2.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ServiceDefinitionV2) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ServiceDefinitionV2'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ServiceDefinitionV2'", e);
+      }
+
+      // deserialize String
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (String.class.equals(Integer.class)
+            || String.class.equals(Long.class)
+            || String.class.equals(Float.class)
+            || String.class.equals(Double.class)
+            || String.class.equals(Boolean.class)
+            || String.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((String.class.equals(Integer.class) || String.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((String.class.equals(Float.class) || String.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (String.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (String.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(String.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          deserialized = tmp;
+          match++;
+
+          log.log(Level.FINER, "Input data matches schema 'String'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'String'", e);
+      }
+
+      ServiceDefinitionsCreateRequest ret = new ServiceDefinitionsCreateRequest();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
     }
 
-    /**
-     * Get the actual instance, which can be the following:
-     * ServiceDefinitionV2Dot2, ServiceDefinitionV2Dot1, ServiceDefinitionV2, String
-     *
-     * @return The actual instance (ServiceDefinitionV2Dot2, ServiceDefinitionV2Dot1, ServiceDefinitionV2, String)
-     */
+    /** Handle deserialization of the 'null' value. */
     @Override
-    public Object getActualInstance() {
-        return super.getActualInstance();
+    public ServiceDefinitionsCreateRequest getNullValue(DeserializationContext ctxt)
+        throws JsonMappingException {
+      throw new JsonMappingException(
+          ctxt.getParser(), "ServiceDefinitionsCreateRequest cannot be null");
+    }
+  }
+
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public ServiceDefinitionsCreateRequest() {
+    super("oneOf", Boolean.FALSE);
+  }
+
+  public ServiceDefinitionsCreateRequest(ServiceDefinitionV2Dot2 o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ServiceDefinitionsCreateRequest(ServiceDefinitionV2Dot1 o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ServiceDefinitionsCreateRequest(ServiceDefinitionV2 o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ServiceDefinitionsCreateRequest(String o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  static {
+    schemas.put("ServiceDefinitionV2Dot2", new GenericType<ServiceDefinitionV2Dot2>() {});
+    schemas.put("ServiceDefinitionV2Dot1", new GenericType<ServiceDefinitionV2Dot1>() {});
+    schemas.put("ServiceDefinitionV2", new GenericType<ServiceDefinitionV2>() {});
+    schemas.put("String", new GenericType<String>() {});
+    JSON.registerDescendants(
+        ServiceDefinitionsCreateRequest.class, Collections.unmodifiableMap(schemas));
+  }
+
+  @Override
+  public Map<String, GenericType> getSchemas() {
+    return ServiceDefinitionsCreateRequest.schemas;
+  }
+
+  /**
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: ServiceDefinitionV2Dot2, ServiceDefinitionV2Dot1,
+   * ServiceDefinitionV2, String
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
+   */
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(ServiceDefinitionV2Dot2.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(ServiceDefinitionV2Dot1.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(ServiceDefinitionV2.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(String.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
 
-    /**
-     * Get the actual instance of `ServiceDefinitionV2Dot2`. If the actual instance is not `ServiceDefinitionV2Dot2`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `ServiceDefinitionV2Dot2`
-     * @throws ClassCastException if the instance is not `ServiceDefinitionV2Dot2`
-     */
-    public ServiceDefinitionV2Dot2 getServiceDefinitionV2Dot2() throws ClassCastException {
-        return (ServiceDefinitionV2Dot2)super.getActualInstance();
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
+    throw new RuntimeException(
+        "Invalid instance type. Must be ServiceDefinitionV2Dot2, ServiceDefinitionV2Dot1,"
+            + " ServiceDefinitionV2, String");
+  }
 
-    /**
-     * Get the actual instance of `ServiceDefinitionV2Dot1`. If the actual instance is not `ServiceDefinitionV2Dot1`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `ServiceDefinitionV2Dot1`
-     * @throws ClassCastException if the instance is not `ServiceDefinitionV2Dot1`
-     */
-    public ServiceDefinitionV2Dot1 getServiceDefinitionV2Dot1() throws ClassCastException {
-        return (ServiceDefinitionV2Dot1)super.getActualInstance();
-    }
+  /**
+   * Get the actual instance, which can be the following: ServiceDefinitionV2Dot2,
+   * ServiceDefinitionV2Dot1, ServiceDefinitionV2, String
+   *
+   * @return The actual instance (ServiceDefinitionV2Dot2, ServiceDefinitionV2Dot1,
+   *     ServiceDefinitionV2, String)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
 
-    /**
-     * Get the actual instance of `ServiceDefinitionV2`. If the actual instance is not `ServiceDefinitionV2`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `ServiceDefinitionV2`
-     * @throws ClassCastException if the instance is not `ServiceDefinitionV2`
-     */
-    public ServiceDefinitionV2 getServiceDefinitionV2() throws ClassCastException {
-        return (ServiceDefinitionV2)super.getActualInstance();
-    }
+  /**
+   * Get the actual instance of `ServiceDefinitionV2Dot2`. If the actual instance is not
+   * `ServiceDefinitionV2Dot2`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ServiceDefinitionV2Dot2`
+   * @throws ClassCastException if the instance is not `ServiceDefinitionV2Dot2`
+   */
+  public ServiceDefinitionV2Dot2 getServiceDefinitionV2Dot2() throws ClassCastException {
+    return (ServiceDefinitionV2Dot2) super.getActualInstance();
+  }
 
-    /**
-     * Get the actual instance of `String`. If the actual instance is not `String`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `String`
-     * @throws ClassCastException if the instance is not `String`
-     */
-    public String getString() throws ClassCastException {
-        return (String)super.getActualInstance();
-    }
+  /**
+   * Get the actual instance of `ServiceDefinitionV2Dot1`. If the actual instance is not
+   * `ServiceDefinitionV2Dot1`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ServiceDefinitionV2Dot1`
+   * @throws ClassCastException if the instance is not `ServiceDefinitionV2Dot1`
+   */
+  public ServiceDefinitionV2Dot1 getServiceDefinitionV2Dot1() throws ClassCastException {
+    return (ServiceDefinitionV2Dot1) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ServiceDefinitionV2`. If the actual instance is not
+   * `ServiceDefinitionV2`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ServiceDefinitionV2`
+   * @throws ClassCastException if the instance is not `ServiceDefinitionV2`
+   */
+  public ServiceDefinitionV2 getServiceDefinitionV2() throws ClassCastException {
+    return (ServiceDefinitionV2) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `String`. If the actual instance is not `String`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `String`
+   * @throws ClassCastException if the instance is not `String`
+   */
+  public String getString() throws ClassCastException {
+    return (String) super.getActualInstance();
+  }
 }

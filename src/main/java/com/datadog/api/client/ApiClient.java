@@ -6,6 +6,11 @@
 
 package com.datadog.api.client;
 
+import com.datadog.api.client.auth.ApiKeyAuth;
+import com.datadog.api.client.auth.Authentication;
+import com.datadog.api.client.auth.HttpBasicAuth;
+import com.datadog.api.client.auth.HttpBearerAuth;
+import com.datadog.api.client.auth.OAuth;
 import jakarta.ws.rs.client.AsyncInvoker;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
@@ -20,81 +25,53 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.core.Variant;
-
+import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+import java.text.DateFormat;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Future;
+import java.util.regex.Matcher;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
-import org.glassfish.jersey.client.filter.EncodingFilter;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+import org.glassfish.jersey.client.filter.EncodingFilter;
 import org.glassfish.jersey.jackson.JacksonFeature;
+import org.glassfish.jersey.logging.LoggingFeature;
 import org.glassfish.jersey.media.multipart.Boundary;
 import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.MultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
-import org.glassfish.jersey.message.GZipEncoder;
 import org.glassfish.jersey.message.DeflateEncoder;
+import org.glassfish.jersey.message.GZipEncoder;
 
-import java.io.IOException;
-import java.io.InputStream;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-import java.security.cert.X509Certificate;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import org.glassfish.jersey.logging.LoggingFeature;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.Date;
-import java.util.Properties;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Future;
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-
-import java.net.URLEncoder;
-
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-
-import java.text.DateFormat;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import com.datadog.api.client.ApiException;
-import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.JSON;
-import com.datadog.api.client.Pair;
-import com.datadog.api.client.RetryConfig;
-import com.datadog.api.client.RFC3339DateFormat;
-import com.datadog.api.client.ServerConfiguration;
-import com.datadog.api.client.ServerVariable;
-import com.datadog.api.client.StringUtil;
-
-import com.datadog.api.client.auth.ApiKeyAuth;
-import com.datadog.api.client.auth.Authentication;
-import com.datadog.api.client.auth.HttpBasicAuth;
-import com.datadog.api.client.auth.HttpBearerAuth;
-import com.datadog.api.client.auth.OAuth;
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
@@ -102,845 +79,660 @@ public class ApiClient {
   protected String userAgent;
   private DateTimeFormatter offsetDateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 
-  protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(
-        Arrays.asList(
-        new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "The regional site for Datadog customers.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                            Arrays.asList(
-                                "datadoghq.com",
-                                "us3.datadoghq.com",
-                                "us5.datadoghq.com",
-                                "ap1.datadoghq.com",
-                                "ap2.datadoghq.com",
-                                "datadoghq.eu",
-                                "ddog-gov.com"
-                            )
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "api",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-        new ServerConfiguration(
-        "{protocol}://{name}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "name",
-                    new ServerVariable(
-                        "Full site DNS name.",
-                        "api.datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "protocol",
-                    new ServerVariable(
-                        "The protocol for accessing the API.",
-                        "https",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-        new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "Any Datadog deployment.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "api",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    )
-        )
-  );
+  protected List<ServerConfiguration> servers =
+      new ArrayList<ServerConfiguration>(
+          Arrays.asList(
+              new ServerConfiguration(
+                  "https://{subdomain}.{site}",
+                  "No description provided",
+                  new HashMap<String, ServerVariable>() {
+                    {
+                      put(
+                          "site",
+                          new ServerVariable(
+                              "The regional site for Datadog customers.",
+                              "datadoghq.com",
+                              new HashSet<String>(
+                                  Arrays.asList(
+                                      "datadoghq.com",
+                                      "us3.datadoghq.com",
+                                      "us5.datadoghq.com",
+                                      "ap1.datadoghq.com",
+                                      "ap2.datadoghq.com",
+                                      "datadoghq.eu",
+                                      "ddog-gov.com"))));
+                      put(
+                          "subdomain",
+                          new ServerVariable(
+                              "The subdomain where the API is deployed.",
+                              "api",
+                              new HashSet<String>()));
+                    }
+                  }),
+              new ServerConfiguration(
+                  "{protocol}://{name}",
+                  "No description provided",
+                  new HashMap<String, ServerVariable>() {
+                    {
+                      put(
+                          "name",
+                          new ServerVariable(
+                              "Full site DNS name.", "api.datadoghq.com", new HashSet<String>()));
+                      put(
+                          "protocol",
+                          new ServerVariable(
+                              "The protocol for accessing the API.",
+                              "https",
+                              new HashSet<String>()));
+                    }
+                  }),
+              new ServerConfiguration(
+                  "https://{subdomain}.{site}",
+                  "No description provided",
+                  new HashMap<String, ServerVariable>() {
+                    {
+                      put(
+                          "site",
+                          new ServerVariable(
+                              "Any Datadog deployment.", "datadoghq.com", new HashSet<String>()));
+                      put(
+                          "subdomain",
+                          new ServerVariable(
+                              "The subdomain where the API is deployed.",
+                              "api",
+                              new HashSet<String>()));
+                    }
+                  })));
   protected Integer serverIndex = 0;
   protected Map<String, String> serverVariables = null;
-  protected Map<String, List<ServerConfiguration>> operationServers = new HashMap<String, List<ServerConfiguration>>() {{
-        put("v1.IpRangesApi.getIPRanges", new ArrayList<ServerConfiguration>(Arrays.asList(
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "The regional site for Datadog customers.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                            Arrays.asList(
-                                "datadoghq.com",
-                                "us3.datadoghq.com",
-                                "us5.datadoghq.com",
-                                "ap1.datadoghq.com",
-                                "ap2.datadoghq.com",
-                                "datadoghq.eu",
-                                "ddog-gov.com"
-                            )
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "ip-ranges",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
+  protected Map<String, List<ServerConfiguration>> operationServers =
+      new HashMap<String, List<ServerConfiguration>>() {
+        {
+          put(
+              "v1.IpRangesApi.getIPRanges",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The regional site for Datadog customers.",
+                                      "datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "datadoghq.com",
+                                              "us3.datadoghq.com",
+                                              "us5.datadoghq.com",
+                                              "ap1.datadoghq.com",
+                                              "ap2.datadoghq.com",
+                                              "datadoghq.eu",
+                                              "ddog-gov.com"))));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "ip-ranges",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "ip-ranges.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.datadoghq.com",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "ip-ranges",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
+              "v1.LogsApi.submitLog",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The regional site for Datadog customers.",
+                                      "datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "datadoghq.com",
+                                              "us3.datadoghq.com",
+                                              "us5.datadoghq.com",
+                                              "ap1.datadoghq.com",
+                                              "ap2.datadoghq.com",
+                                              "datadoghq.eu",
+                                              "ddog-gov.com"))));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "http-intake.logs",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "http-intake.logs.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "http-intake.logs",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
+              "v2.EventsApi.createEvent",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The regional site for customers.",
+                                      "datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "datadoghq.com",
+                                              "us3.datadoghq.com",
+                                              "us5.datadoghq.com",
+                                              "ap1.datadoghq.com",
+                                              "ap2.datadoghq.com",
+                                              "datadoghq.eu",
+                                              "ddog-gov.com"))));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "event-management-intake",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "event-management-intake.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "event-management-intake",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
+              "v2.LogsApi.submitLog",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The regional site for customers.",
+                                      "datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "datadoghq.com",
+                                              "us3.datadoghq.com",
+                                              "us5.datadoghq.com",
+                                              "ap1.datadoghq.com",
+                                              "ap2.datadoghq.com",
+                                              "datadoghq.eu",
+                                              "ddog-gov.com"))));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "http-intake.logs",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "http-intake.logs.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "http-intake.logs",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
+              "v2.OnCallPagingApi.createOnCallPage",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The globally available endpoint for On-Call.",
+                                      "navy.oncall.datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
+                                              "saffron.oncall.datadoghq.com",
+                                              "navy.oncall.datadoghq.com",
+                                              "coral.oncall.datadoghq.com",
+                                              "teal.oncall.datadoghq.com",
+                                              "beige.oncall.datadoghq.eu"))));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "api.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "api",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
+              "v2.OnCallPagingApi.acknowledgeOnCallPage",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The globally available endpoint for On-Call.",
+                                      "navy.oncall.datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
+                                              "saffron.oncall.datadoghq.com",
+                                              "navy.oncall.datadoghq.com",
+                                              "coral.oncall.datadoghq.com",
+                                              "teal.oncall.datadoghq.com",
+                                              "beige.oncall.datadoghq.eu"))));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "api.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "api",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
+              "v2.OnCallPagingApi.escalateOnCallPage",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The globally available endpoint for On-Call.",
+                                      "navy.oncall.datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
+                                              "saffron.oncall.datadoghq.com",
+                                              "navy.oncall.datadoghq.com",
+                                              "coral.oncall.datadoghq.com",
+                                              "teal.oncall.datadoghq.com",
+                                              "beige.oncall.datadoghq.eu"))));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "api.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "api",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
+              "v2.OnCallPagingApi.resolveOnCallPage",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The globally available endpoint for On-Call.",
+                                      "navy.oncall.datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "lava.oncall.datadoghq.com",
+                                              "saffron.oncall.datadoghq.com",
+                                              "navy.oncall.datadoghq.com",
+                                              "coral.oncall.datadoghq.com",
+                                              "teal.oncall.datadoghq.com",
+                                              "beige.oncall.datadoghq.eu"))));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "api.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "api",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
+              "v2.ProductAnalyticsApi.submitProductAnalyticsEvent",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The intake domain for the regional site.",
+                                      "browser-intake-datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "browser-intake-datadoghq.com",
+                                              "browser-intake-us3-datadoghq.com",
+                                              "browser-intake-us5-datadoghq.com",
+                                              "browser-intake-ap1-datadoghq.com",
+                                              "browser-intake-ap2-datadoghq.com",
+                                              "browser-intake-datadoghq.eu"))));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "browser-intake-datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "api",
+                                      new HashSet<String>()));
+                            }
+                          }))));
         }
-    ),
-            new ServerConfiguration(
-        "{protocol}://{name}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "name",
-                    new ServerVariable(
-                        "Full site DNS name.",
-                        "ip-ranges.datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "protocol",
-                    new ServerVariable(
-                        "The protocol for accessing the API.",
-                        "https",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "https://{subdomain}.datadoghq.com",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "ip-ranges",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    )
-        )));
-        put("v1.LogsApi.submitLog", new ArrayList<ServerConfiguration>(Arrays.asList(
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "The regional site for Datadog customers.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                            Arrays.asList(
-                                "datadoghq.com",
-                                "us3.datadoghq.com",
-                                "us5.datadoghq.com",
-                                "ap1.datadoghq.com",
-                                "ap2.datadoghq.com",
-                                "datadoghq.eu",
-                                "ddog-gov.com"
-                            )
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "http-intake.logs",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "{protocol}://{name}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "name",
-                    new ServerVariable(
-                        "Full site DNS name.",
-                        "http-intake.logs.datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "protocol",
-                    new ServerVariable(
-                        "The protocol for accessing the API.",
-                        "https",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "Any Datadog deployment.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "http-intake.logs",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    )
-        )));
-        put("v2.EventsApi.createEvent", new ArrayList<ServerConfiguration>(Arrays.asList(
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "The regional site for customers.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                            Arrays.asList(
-                                "datadoghq.com",
-                                "us3.datadoghq.com",
-                                "us5.datadoghq.com",
-                                "ap1.datadoghq.com",
-                                "ap2.datadoghq.com",
-                                "datadoghq.eu",
-                                "ddog-gov.com"
-                            )
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "event-management-intake",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "{protocol}://{name}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "name",
-                    new ServerVariable(
-                        "Full site DNS name.",
-                        "event-management-intake.datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "protocol",
-                    new ServerVariable(
-                        "The protocol for accessing the API.",
-                        "https",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "Any Datadog deployment.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "event-management-intake",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    )
-        )));
-        put("v2.LogsApi.submitLog", new ArrayList<ServerConfiguration>(Arrays.asList(
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "The regional site for customers.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                            Arrays.asList(
-                                "datadoghq.com",
-                                "us3.datadoghq.com",
-                                "us5.datadoghq.com",
-                                "ap1.datadoghq.com",
-                                "ap2.datadoghq.com",
-                                "datadoghq.eu",
-                                "ddog-gov.com"
-                            )
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "http-intake.logs",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "{protocol}://{name}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "name",
-                    new ServerVariable(
-                        "Full site DNS name.",
-                        "http-intake.logs.datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "protocol",
-                    new ServerVariable(
-                        "The protocol for accessing the API.",
-                        "https",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "Any Datadog deployment.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "http-intake.logs",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    )
-        )));
-        put("v2.OnCallPagingApi.createOnCallPage", new ArrayList<ServerConfiguration>(Arrays.asList(
-            new ServerConfiguration(
-        "https://{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "The globally available endpoint for On-Call.",
-                        "navy.oncall.datadoghq.com",
-                        new HashSet<String>(
-                            Arrays.asList(
-                                "lava.oncall.datadoghq.com",
-                                "saffron.oncall.datadoghq.com",
-                                "navy.oncall.datadoghq.com",
-                                "coral.oncall.datadoghq.com",
-                                "teal.oncall.datadoghq.com",
-                                "beige.oncall.datadoghq.eu"
-                            )
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "{protocol}://{name}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "name",
-                    new ServerVariable(
-                        "Full site DNS name.",
-                        "api.datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "protocol",
-                    new ServerVariable(
-                        "The protocol for accessing the API.",
-                        "https",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "Any Datadog deployment.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "api",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    )
-        )));
-        put("v2.OnCallPagingApi.acknowledgeOnCallPage", new ArrayList<ServerConfiguration>(Arrays.asList(
-            new ServerConfiguration(
-        "https://{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "The globally available endpoint for On-Call.",
-                        "navy.oncall.datadoghq.com",
-                        new HashSet<String>(
-                            Arrays.asList(
-                                "lava.oncall.datadoghq.com",
-                                "saffron.oncall.datadoghq.com",
-                                "navy.oncall.datadoghq.com",
-                                "coral.oncall.datadoghq.com",
-                                "teal.oncall.datadoghq.com",
-                                "beige.oncall.datadoghq.eu"
-                            )
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "{protocol}://{name}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "name",
-                    new ServerVariable(
-                        "Full site DNS name.",
-                        "api.datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "protocol",
-                    new ServerVariable(
-                        "The protocol for accessing the API.",
-                        "https",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "Any Datadog deployment.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "api",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    )
-        )));
-        put("v2.OnCallPagingApi.escalateOnCallPage", new ArrayList<ServerConfiguration>(Arrays.asList(
-            new ServerConfiguration(
-        "https://{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "The globally available endpoint for On-Call.",
-                        "navy.oncall.datadoghq.com",
-                        new HashSet<String>(
-                            Arrays.asList(
-                                "lava.oncall.datadoghq.com",
-                                "saffron.oncall.datadoghq.com",
-                                "navy.oncall.datadoghq.com",
-                                "coral.oncall.datadoghq.com",
-                                "teal.oncall.datadoghq.com",
-                                "beige.oncall.datadoghq.eu"
-                            )
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "{protocol}://{name}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "name",
-                    new ServerVariable(
-                        "Full site DNS name.",
-                        "api.datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "protocol",
-                    new ServerVariable(
-                        "The protocol for accessing the API.",
-                        "https",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "Any Datadog deployment.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "api",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    )
-        )));
-        put("v2.OnCallPagingApi.resolveOnCallPage", new ArrayList<ServerConfiguration>(Arrays.asList(
-            new ServerConfiguration(
-        "https://{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "The globally available endpoint for On-Call.",
-                        "navy.oncall.datadoghq.com",
-                        new HashSet<String>(
-                            Arrays.asList(
-                                "lava.oncall.datadoghq.com",
-                                "saffron.oncall.datadoghq.com",
-                                "navy.oncall.datadoghq.com",
-                                "coral.oncall.datadoghq.com",
-                                "teal.oncall.datadoghq.com",
-                                "beige.oncall.datadoghq.eu"
-                            )
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "{protocol}://{name}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "name",
-                    new ServerVariable(
-                        "Full site DNS name.",
-                        "api.datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "protocol",
-                    new ServerVariable(
-                        "The protocol for accessing the API.",
-                        "https",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "Any Datadog deployment.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "api",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    )
-        )));
-        put("v2.ProductAnalyticsApi.submitProductAnalyticsEvent", new ArrayList<ServerConfiguration>(Arrays.asList(
-            new ServerConfiguration(
-        "https://{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "The intake domain for the regional site.",
-                        "browser-intake-datadoghq.com",
-                        new HashSet<String>(
-                            Arrays.asList(
-                                "browser-intake-datadoghq.com",
-                                "browser-intake-us3-datadoghq.com",
-                                "browser-intake-us5-datadoghq.com",
-                                "browser-intake-ap1-datadoghq.com",
-                                "browser-intake-ap2-datadoghq.com",
-                                "browser-intake-datadoghq.eu"
-                            )
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "{protocol}://{name}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "name",
-                    new ServerVariable(
-                        "Full site DNS name.",
-                        "browser-intake-datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "protocol",
-                    new ServerVariable(
-                        "The protocol for accessing the API.",
-                        "https",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    ),
-            new ServerConfiguration(
-        "https://{subdomain}.{site}",
-        "No description provided",
-        new HashMap<String, ServerVariable>() {
-            {
-                put(
-                    "site",
-                    new ServerVariable(
-                        "Any Datadog deployment.",
-                        "datadoghq.com",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-                put(
-                    "subdomain",
-                    new ServerVariable(
-                        "The subdomain where the API is deployed.",
-                        "api",
-                        new HashSet<String>(
-                        )
-                    )
-                );
-            }
-        }
-    )
-        )));
-  }};
+      };
   protected Map<String, Integer> operationServerIndex = new HashMap<String, Integer>();
-  protected Map<String, Map<String, String>> operationServerVariables = new HashMap<String, Map<String, String>>();
+  protected Map<String, Map<String, String>> operationServerVariables =
+      new HashMap<String, Map<String, String>>();
   protected boolean debugging = false;
   protected RetryConfig retry = new RetryConfig(false, 2, 2, 3);
   protected boolean compress = true;
@@ -955,242 +747,246 @@ public class ApiClient {
   protected Map<String, Authentication> authentications;
 
   protected DateFormat dateFormat;
-  protected final Map<String, Boolean> unstableOperations = new HashMap<String, Boolean>() {{
-        put("v2.cancelFleetDeployment", false);
-        put("v2.createFleetDeploymentConfigure", false);
-        put("v2.createFleetDeploymentUpgrade", false);
-        put("v2.createFleetSchedule", false);
-        put("v2.deleteFleetSchedule", false);
-        put("v2.getFleetAgentInfo", false);
-        put("v2.getFleetDeployment", false);
-        put("v2.getFleetSchedule", false);
-        put("v2.listFleetAgents", false);
-        put("v2.listFleetAgentVersions", false);
-        put("v2.listFleetDeployments", false);
-        put("v2.listFleetSchedules", false);
-        put("v2.triggerFleetSchedule", false);
-        put("v2.updateFleetSchedule", false);
-        put("v2.createOpenAPI", false);
-        put("v2.deleteOpenAPI", false);
-        put("v2.getOpenAPI", false);
-        put("v2.listAPIs", false);
-        put("v2.updateOpenAPI", false);
-        put("v2.createCaseJiraIssue", false);
-        put("v2.createCaseNotebook", false);
-        put("v2.createCaseServiceNowTicket", false);
-        put("v2.linkIncident", false);
-        put("v2.linkJiraIssueToCase", false);
-        put("v2.moveCaseToProject", false);
-        put("v2.unlinkJiraIssue", false);
-        put("v2.createChangeRequest", false);
-        put("v2.createChangeRequestBranch", false);
-        put("v2.deleteChangeRequestDecision", false);
-        put("v2.getChangeRequest", false);
-        put("v2.updateChangeRequest", false);
-        put("v2.updateChangeRequestDecision", false);
-        put("v2.deleteTestOptimizationServiceSettings", false);
-        put("v2.getTestOptimizationServiceSettings", false);
-        put("v2.searchFlakyTests", false);
-        put("v2.updateFlakyTests", false);
-        put("v2.updateTestOptimizationServiceSettings", false);
-        put("v2.createAWSCloudAuthPersonaMapping", false);
-        put("v2.deleteAWSCloudAuthPersonaMapping", false);
-        put("v2.getAWSCloudAuthPersonaMapping", false);
-        put("v2.listAWSCloudAuthPersonaMappings", false);
-        put("v2.activateContentPack", false);
-        put("v2.cancelThreatHuntingJob", false);
-        put("v2.convertJobResultToSignal", false);
-        put("v2.deactivateContentPack", false);
-        put("v2.deleteThreatHuntingJob", false);
-        put("v2.getContentPacksStates", false);
-        put("v2.getFinding", false);
-        put("v2.getRuleVersionHistory", false);
-        put("v2.getSecretsRules", false);
-        put("v2.getSecurityMonitoringHistsignal", false);
-        put("v2.getSecurityMonitoringHistsignalsByJobId", false);
-        put("v2.getThreatHuntingJob", false);
-        put("v2.listFindings", false);
-        put("v2.listMultipleRulesets", false);
-        put("v2.listScannedAssetsMetadata", false);
-        put("v2.listSecurityMonitoringHistsignals", false);
-        put("v2.listThreatHuntingJobs", false);
-        put("v2.listVulnerabilities", false);
-        put("v2.listVulnerableAssets", false);
-        put("v2.muteFindings", false);
-        put("v2.runThreatHuntingJob", false);
-        put("v2.searchSecurityMonitoringHistsignals", false);
-        put("v2.getCodeCoverageBranchSummary", false);
-        put("v2.getCodeCoverageCommitSummary", false);
-        put("v2.createDataset", false);
-        put("v2.deleteDataset", false);
-        put("v2.getAllDatasets", false);
-        put("v2.getDataset", false);
-        put("v2.updateDataset", false);
-        put("v2.cancelDataDeletionRequest", false);
-        put("v2.createDataDeletionRequest", false);
-        put("v2.getDataDeletionRequests", false);
-        put("v2.createDeploymentGate", false);
-        put("v2.createDeploymentRule", false);
-        put("v2.deleteDeploymentGate", false);
-        put("v2.deleteDeploymentRule", false);
-        put("v2.getDeploymentGate", false);
-        put("v2.getDeploymentGateRules", false);
-        put("v2.getDeploymentGatesEvaluationResult", false);
-        put("v2.getDeploymentRule", false);
-        put("v2.listDeploymentGates", false);
-        put("v2.triggerDeploymentGatesEvaluation", false);
-        put("v2.updateDeploymentGate", false);
-        put("v2.updateDeploymentRule", false);
-        put("v2.createHamrOrgConnection", false);
-        put("v2.getHamrOrgConnection", false);
-        put("v2.createGlobalIncidentHandle", false);
-        put("v2.createIncident", false);
-        put("v2.createIncidentAttachment", false);
-        put("v2.createIncidentIntegration", false);
-        put("v2.createIncidentNotificationRule", false);
-        put("v2.createIncidentNotificationTemplate", false);
-        put("v2.createIncidentPostmortemAttachment", false);
-        put("v2.createIncidentPostmortemTemplate", false);
-        put("v2.createIncidentTodo", false);
-        put("v2.createIncidentType", false);
-        put("v2.deleteGlobalIncidentHandle", false);
-        put("v2.deleteIncident", false);
-        put("v2.deleteIncidentAttachment", false);
-        put("v2.deleteIncidentIntegration", false);
-        put("v2.deleteIncidentNotificationRule", false);
-        put("v2.deleteIncidentNotificationTemplate", false);
-        put("v2.deleteIncidentPostmortemTemplate", false);
-        put("v2.deleteIncidentTodo", false);
-        put("v2.deleteIncidentType", false);
-        put("v2.getGlobalIncidentSettings", false);
-        put("v2.getIncident", false);
-        put("v2.getIncidentIntegration", false);
-        put("v2.getIncidentNotificationRule", false);
-        put("v2.getIncidentNotificationTemplate", false);
-        put("v2.getIncidentPostmortemTemplate", false);
-        put("v2.getIncidentTodo", false);
-        put("v2.getIncidentType", false);
-        put("v2.importIncident", false);
-        put("v2.listGlobalIncidentHandles", false);
-        put("v2.listIncidentAttachments", false);
-        put("v2.listIncidentIntegrations", false);
-        put("v2.listIncidentNotificationRules", false);
-        put("v2.listIncidentNotificationTemplates", false);
-        put("v2.listIncidentPostmortemTemplates", false);
-        put("v2.listIncidents", false);
-        put("v2.listIncidentTodos", false);
-        put("v2.listIncidentTypes", false);
-        put("v2.searchIncidents", false);
-        put("v2.updateGlobalIncidentHandle", false);
-        put("v2.updateGlobalIncidentSettings", false);
-        put("v2.updateIncident", false);
-        put("v2.updateIncidentAttachment", false);
-        put("v2.updateIncidentIntegration", false);
-        put("v2.updateIncidentNotificationRule", false);
-        put("v2.updateIncidentNotificationTemplate", false);
-        put("v2.updateIncidentPostmortemTemplate", false);
-        put("v2.updateIncidentTodo", false);
-        put("v2.updateIncidentType", false);
-        put("v2.createAWSAccountCCMConfig", false);
-        put("v2.deleteAWSAccountCCMConfig", false);
-        put("v2.getAWSAccountCCMConfig", false);
-        put("v2.updateAWSAccountCCMConfig", false);
-        put("v2.createJiraIssueTemplate", false);
-        put("v2.deleteJiraAccount", false);
-        put("v2.deleteJiraIssueTemplate", false);
-        put("v2.getJiraIssueTemplate", false);
-        put("v2.listJiraAccounts", false);
-        put("v2.listJiraIssueTemplates", false);
-        put("v2.updateJiraIssueTemplate", false);
-        put("v2.createTenancyConfig", false);
-        put("v2.getTenancyConfigs", false);
-        put("v2.createLLMObsDataset", false);
-        put("v2.createLLMObsDatasetRecords", false);
-        put("v2.createLLMObsExperiment", false);
-        put("v2.createLLMObsExperimentEvents", false);
-        put("v2.createLLMObsProject", false);
-        put("v2.deleteLLMObsDatasetRecords", false);
-        put("v2.deleteLLMObsDatasets", false);
-        put("v2.deleteLLMObsExperiments", false);
-        put("v2.deleteLLMObsProjects", false);
-        put("v2.listLLMObsDatasetRecords", false);
-        put("v2.listLLMObsDatasets", false);
-        put("v2.listLLMObsExperiments", false);
-        put("v2.listLLMObsProjects", false);
-        put("v2.updateLLMObsDataset", false);
-        put("v2.updateLLMObsDatasetRecords", false);
-        put("v2.updateLLMObsExperiment", false);
-        put("v2.updateLLMObsProject", false);
-        put("v2.addRoleToRestrictionQuery", false);
-        put("v2.createRestrictionQuery", false);
-        put("v2.deleteRestrictionQuery", false);
-        put("v2.getRestrictionQuery", false);
-        put("v2.getRoleRestrictionQuery", false);
-        put("v2.listRestrictionQueries", false);
-        put("v2.listRestrictionQueryRoles", false);
-        put("v2.listUserRestrictionQueries", false);
-        put("v2.removeRoleFromRestrictionQuery", false);
-        put("v2.replaceRestrictionQuery", false);
-        put("v2.updateRestrictionQuery", false);
-        put("v2.createMonitorUserTemplate", false);
-        put("v2.deleteMonitorUserTemplate", false);
-        put("v2.getMonitorUserTemplate", false);
-        put("v2.listMonitorUserTemplates", false);
-        put("v2.updateMonitorUserTemplate", false);
-        put("v2.validateExistingMonitorUserTemplate", false);
-        put("v2.validateMonitorUserTemplate", false);
-        put("v2.listRoleTemplates", false);
-        put("v2.createConnection", false);
-        put("v2.deleteConnection", false);
-        put("v2.getAccountFacetInfo", false);
-        put("v2.getMapping", false);
-        put("v2.getUserFacetInfo", false);
-        put("v2.listConnections", false);
-        put("v2.queryAccounts", false);
-        put("v2.queryEventFilteredUsers", false);
-        put("v2.queryUsers", false);
-        put("v2.updateConnection", false);
-        put("v2.createScorecardOutcomesBatch", false);
-        put("v2.createScorecardRule", false);
-        put("v2.deleteScorecardRule", false);
-        put("v2.listScorecardOutcomes", false);
-        put("v2.listScorecardRules", false);
-        put("v2.updateScorecardOutcomesAsync", false);
-        put("v2.updateScorecardRule", false);
-        put("v2.listEntityRiskScores", false);
-        put("v2.createIncidentService", false);
-        put("v2.deleteIncidentService", false);
-        put("v2.getIncidentService", false);
-        put("v2.listIncidentServices", false);
-        put("v2.updateIncidentService", false);
-        put("v2.createSLOReportJob", false);
-        put("v2.getSLOReport", false);
-        put("v2.getSLOReportJobStatus", false);
-        put("v2.getSloStatus", false);
-        put("v2.getSPARecommendations", false);
-        put("v2.getSPARecommendationsWithShard", false);
-        put("v2.createCustomRule", false);
-        put("v2.createCustomRuleRevision", false);
-        put("v2.createSCAResolveVulnerableSymbols", false);
-        put("v2.createSCAResult", false);
-        put("v2.deleteCustomRule", false);
-        put("v2.deleteCustomRuleset", false);
-        put("v2.getCustomRule", false);
-        put("v2.getCustomRuleRevision", false);
-        put("v2.getCustomRuleset", false);
-        put("v2.listCustomRuleRevisions", false);
-        put("v2.revertCustomRuleRevision", false);
-        put("v2.updateCustomRuleset", false);
-        put("v2.addMemberTeam", false);
-        put("v2.listMemberTeams", false);
-        put("v2.removeMemberTeam", false);
-        put("v2.createIncidentTeam", false);
-        put("v2.deleteIncidentTeam", false);
-        put("v2.getIncidentTeam", false);
-        put("v2.listIncidentTeams", false);
-        put("v2.updateIncidentTeam", false);
-  }};
-  protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
+  protected final Map<String, Boolean> unstableOperations =
+      new HashMap<String, Boolean>() {
+        {
+          put("v2.cancelFleetDeployment", false);
+          put("v2.createFleetDeploymentConfigure", false);
+          put("v2.createFleetDeploymentUpgrade", false);
+          put("v2.createFleetSchedule", false);
+          put("v2.deleteFleetSchedule", false);
+          put("v2.getFleetAgentInfo", false);
+          put("v2.getFleetDeployment", false);
+          put("v2.getFleetSchedule", false);
+          put("v2.listFleetAgents", false);
+          put("v2.listFleetAgentVersions", false);
+          put("v2.listFleetDeployments", false);
+          put("v2.listFleetSchedules", false);
+          put("v2.triggerFleetSchedule", false);
+          put("v2.updateFleetSchedule", false);
+          put("v2.createOpenAPI", false);
+          put("v2.deleteOpenAPI", false);
+          put("v2.getOpenAPI", false);
+          put("v2.listAPIs", false);
+          put("v2.updateOpenAPI", false);
+          put("v2.createCaseJiraIssue", false);
+          put("v2.createCaseNotebook", false);
+          put("v2.createCaseServiceNowTicket", false);
+          put("v2.linkIncident", false);
+          put("v2.linkJiraIssueToCase", false);
+          put("v2.moveCaseToProject", false);
+          put("v2.unlinkJiraIssue", false);
+          put("v2.createChangeRequest", false);
+          put("v2.createChangeRequestBranch", false);
+          put("v2.deleteChangeRequestDecision", false);
+          put("v2.getChangeRequest", false);
+          put("v2.updateChangeRequest", false);
+          put("v2.updateChangeRequestDecision", false);
+          put("v2.deleteTestOptimizationServiceSettings", false);
+          put("v2.getTestOptimizationServiceSettings", false);
+          put("v2.searchFlakyTests", false);
+          put("v2.updateFlakyTests", false);
+          put("v2.updateTestOptimizationServiceSettings", false);
+          put("v2.createAWSCloudAuthPersonaMapping", false);
+          put("v2.deleteAWSCloudAuthPersonaMapping", false);
+          put("v2.getAWSCloudAuthPersonaMapping", false);
+          put("v2.listAWSCloudAuthPersonaMappings", false);
+          put("v2.activateContentPack", false);
+          put("v2.cancelThreatHuntingJob", false);
+          put("v2.convertJobResultToSignal", false);
+          put("v2.deactivateContentPack", false);
+          put("v2.deleteThreatHuntingJob", false);
+          put("v2.getContentPacksStates", false);
+          put("v2.getFinding", false);
+          put("v2.getRuleVersionHistory", false);
+          put("v2.getSecretsRules", false);
+          put("v2.getSecurityMonitoringHistsignal", false);
+          put("v2.getSecurityMonitoringHistsignalsByJobId", false);
+          put("v2.getThreatHuntingJob", false);
+          put("v2.listFindings", false);
+          put("v2.listMultipleRulesets", false);
+          put("v2.listScannedAssetsMetadata", false);
+          put("v2.listSecurityMonitoringHistsignals", false);
+          put("v2.listThreatHuntingJobs", false);
+          put("v2.listVulnerabilities", false);
+          put("v2.listVulnerableAssets", false);
+          put("v2.muteFindings", false);
+          put("v2.runThreatHuntingJob", false);
+          put("v2.searchSecurityMonitoringHistsignals", false);
+          put("v2.getCodeCoverageBranchSummary", false);
+          put("v2.getCodeCoverageCommitSummary", false);
+          put("v2.createDataset", false);
+          put("v2.deleteDataset", false);
+          put("v2.getAllDatasets", false);
+          put("v2.getDataset", false);
+          put("v2.updateDataset", false);
+          put("v2.cancelDataDeletionRequest", false);
+          put("v2.createDataDeletionRequest", false);
+          put("v2.getDataDeletionRequests", false);
+          put("v2.createDeploymentGate", false);
+          put("v2.createDeploymentRule", false);
+          put("v2.deleteDeploymentGate", false);
+          put("v2.deleteDeploymentRule", false);
+          put("v2.getDeploymentGate", false);
+          put("v2.getDeploymentGateRules", false);
+          put("v2.getDeploymentGatesEvaluationResult", false);
+          put("v2.getDeploymentRule", false);
+          put("v2.listDeploymentGates", false);
+          put("v2.triggerDeploymentGatesEvaluation", false);
+          put("v2.updateDeploymentGate", false);
+          put("v2.updateDeploymentRule", false);
+          put("v2.createHamrOrgConnection", false);
+          put("v2.getHamrOrgConnection", false);
+          put("v2.createGlobalIncidentHandle", false);
+          put("v2.createIncident", false);
+          put("v2.createIncidentAttachment", false);
+          put("v2.createIncidentIntegration", false);
+          put("v2.createIncidentNotificationRule", false);
+          put("v2.createIncidentNotificationTemplate", false);
+          put("v2.createIncidentPostmortemAttachment", false);
+          put("v2.createIncidentPostmortemTemplate", false);
+          put("v2.createIncidentTodo", false);
+          put("v2.createIncidentType", false);
+          put("v2.deleteGlobalIncidentHandle", false);
+          put("v2.deleteIncident", false);
+          put("v2.deleteIncidentAttachment", false);
+          put("v2.deleteIncidentIntegration", false);
+          put("v2.deleteIncidentNotificationRule", false);
+          put("v2.deleteIncidentNotificationTemplate", false);
+          put("v2.deleteIncidentPostmortemTemplate", false);
+          put("v2.deleteIncidentTodo", false);
+          put("v2.deleteIncidentType", false);
+          put("v2.getGlobalIncidentSettings", false);
+          put("v2.getIncident", false);
+          put("v2.getIncidentIntegration", false);
+          put("v2.getIncidentNotificationRule", false);
+          put("v2.getIncidentNotificationTemplate", false);
+          put("v2.getIncidentPostmortemTemplate", false);
+          put("v2.getIncidentTodo", false);
+          put("v2.getIncidentType", false);
+          put("v2.importIncident", false);
+          put("v2.listGlobalIncidentHandles", false);
+          put("v2.listIncidentAttachments", false);
+          put("v2.listIncidentIntegrations", false);
+          put("v2.listIncidentNotificationRules", false);
+          put("v2.listIncidentNotificationTemplates", false);
+          put("v2.listIncidentPostmortemTemplates", false);
+          put("v2.listIncidents", false);
+          put("v2.listIncidentTodos", false);
+          put("v2.listIncidentTypes", false);
+          put("v2.searchIncidents", false);
+          put("v2.updateGlobalIncidentHandle", false);
+          put("v2.updateGlobalIncidentSettings", false);
+          put("v2.updateIncident", false);
+          put("v2.updateIncidentAttachment", false);
+          put("v2.updateIncidentIntegration", false);
+          put("v2.updateIncidentNotificationRule", false);
+          put("v2.updateIncidentNotificationTemplate", false);
+          put("v2.updateIncidentPostmortemTemplate", false);
+          put("v2.updateIncidentTodo", false);
+          put("v2.updateIncidentType", false);
+          put("v2.createAWSAccountCCMConfig", false);
+          put("v2.deleteAWSAccountCCMConfig", false);
+          put("v2.getAWSAccountCCMConfig", false);
+          put("v2.updateAWSAccountCCMConfig", false);
+          put("v2.createJiraIssueTemplate", false);
+          put("v2.deleteJiraAccount", false);
+          put("v2.deleteJiraIssueTemplate", false);
+          put("v2.getJiraIssueTemplate", false);
+          put("v2.listJiraAccounts", false);
+          put("v2.listJiraIssueTemplates", false);
+          put("v2.updateJiraIssueTemplate", false);
+          put("v2.createTenancyConfig", false);
+          put("v2.getTenancyConfigs", false);
+          put("v2.createLLMObsDataset", false);
+          put("v2.createLLMObsDatasetRecords", false);
+          put("v2.createLLMObsExperiment", false);
+          put("v2.createLLMObsExperimentEvents", false);
+          put("v2.createLLMObsProject", false);
+          put("v2.deleteLLMObsDatasetRecords", false);
+          put("v2.deleteLLMObsDatasets", false);
+          put("v2.deleteLLMObsExperiments", false);
+          put("v2.deleteLLMObsProjects", false);
+          put("v2.listLLMObsDatasetRecords", false);
+          put("v2.listLLMObsDatasets", false);
+          put("v2.listLLMObsExperiments", false);
+          put("v2.listLLMObsProjects", false);
+          put("v2.updateLLMObsDataset", false);
+          put("v2.updateLLMObsDatasetRecords", false);
+          put("v2.updateLLMObsExperiment", false);
+          put("v2.updateLLMObsProject", false);
+          put("v2.addRoleToRestrictionQuery", false);
+          put("v2.createRestrictionQuery", false);
+          put("v2.deleteRestrictionQuery", false);
+          put("v2.getRestrictionQuery", false);
+          put("v2.getRoleRestrictionQuery", false);
+          put("v2.listRestrictionQueries", false);
+          put("v2.listRestrictionQueryRoles", false);
+          put("v2.listUserRestrictionQueries", false);
+          put("v2.removeRoleFromRestrictionQuery", false);
+          put("v2.replaceRestrictionQuery", false);
+          put("v2.updateRestrictionQuery", false);
+          put("v2.createMonitorUserTemplate", false);
+          put("v2.deleteMonitorUserTemplate", false);
+          put("v2.getMonitorUserTemplate", false);
+          put("v2.listMonitorUserTemplates", false);
+          put("v2.updateMonitorUserTemplate", false);
+          put("v2.validateExistingMonitorUserTemplate", false);
+          put("v2.validateMonitorUserTemplate", false);
+          put("v2.listRoleTemplates", false);
+          put("v2.createConnection", false);
+          put("v2.deleteConnection", false);
+          put("v2.getAccountFacetInfo", false);
+          put("v2.getMapping", false);
+          put("v2.getUserFacetInfo", false);
+          put("v2.listConnections", false);
+          put("v2.queryAccounts", false);
+          put("v2.queryEventFilteredUsers", false);
+          put("v2.queryUsers", false);
+          put("v2.updateConnection", false);
+          put("v2.createScorecardOutcomesBatch", false);
+          put("v2.createScorecardRule", false);
+          put("v2.deleteScorecardRule", false);
+          put("v2.listScorecardOutcomes", false);
+          put("v2.listScorecardRules", false);
+          put("v2.updateScorecardOutcomesAsync", false);
+          put("v2.updateScorecardRule", false);
+          put("v2.listEntityRiskScores", false);
+          put("v2.createIncidentService", false);
+          put("v2.deleteIncidentService", false);
+          put("v2.getIncidentService", false);
+          put("v2.listIncidentServices", false);
+          put("v2.updateIncidentService", false);
+          put("v2.createSLOReportJob", false);
+          put("v2.getSLOReport", false);
+          put("v2.getSLOReportJobStatus", false);
+          put("v2.getSloStatus", false);
+          put("v2.getSPARecommendations", false);
+          put("v2.getSPARecommendationsWithShard", false);
+          put("v2.createCustomRule", false);
+          put("v2.createCustomRuleRevision", false);
+          put("v2.createSCAResolveVulnerableSymbols", false);
+          put("v2.createSCAResult", false);
+          put("v2.deleteCustomRule", false);
+          put("v2.deleteCustomRuleset", false);
+          put("v2.getCustomRule", false);
+          put("v2.getCustomRuleRevision", false);
+          put("v2.getCustomRuleset", false);
+          put("v2.listCustomRuleRevisions", false);
+          put("v2.revertCustomRuleRevision", false);
+          put("v2.updateCustomRuleset", false);
+          put("v2.addMemberTeam", false);
+          put("v2.listMemberTeams", false);
+          put("v2.removeMemberTeam", false);
+          put("v2.createIncidentTeam", false);
+          put("v2.deleteIncidentTeam", false);
+          put("v2.getIncidentTeam", false);
+          put("v2.listIncidentTeams", false);
+          put("v2.updateIncidentTeam", false);
+        }
+      };
+  protected static final java.util.logging.Logger logger =
+      java.util.logging.Logger.getLogger(ApiClient.class.getName());
 
   private static ApiClient defaultApiClient;
 
@@ -1238,18 +1034,16 @@ public class ApiClient {
     defaultApiClient = apiClient;
   }
 
-  /**
-   * Constructs a new ApiClient with default parameters.
-   */
+  /** Constructs a new ApiClient with default parameters. */
   public ApiClient() {
     this(null);
   }
 
   /**
-  * Constructs a new ApiClient with the specified authentication parameters.
-  *
-  * @param authMap A hash map containing authentication parameters.
-  */
+   * Constructs a new ApiClient with the specified authentication parameters.
+   *
+   * @param authMap A hash map containing authentication parameters.
+   */
   public ApiClient(Map<String, Authentication> authMap) {
     json = new JSON();
     httpClient = buildHttpClient();
@@ -1299,16 +1093,18 @@ public class ApiClient {
     return offsetDateTimeFormatter;
   }
 
-  /** 
+  /**
    * Add custom retry object in the client
+   *
    * @param retry retry object
-   * */
+   */
   public void setRetry(RetryConfig retry) {
     this.retry = retry;
   }
 
   /**
-   * Return the retryConfig object 
+   * Return the retryConfig object
+   *
    * @return retryConfig
    */
   public RetryConfig getRetry() {
@@ -1316,10 +1112,11 @@ public class ApiClient {
   }
 
   /**
-  * Enable retry directly on the client instead of creating a new retry object
-  * @param enableRetry bool, enable retry or not
-  */
-  public void enableRetry(boolean enableRetry){
+   * Enable retry directly on the client instead of creating a new retry object
+   *
+   * @param enableRetry bool, enable retry or not
+   */
+  public void enableRetry(boolean enableRetry) {
     this.retry.setEnableRetry(enableRetry);
   }
 
@@ -1413,12 +1210,12 @@ public class ApiClient {
 
   private void updateBasePath() {
     if (serverIndex != null) {
-        setBasePath(servers.get(serverIndex).URL(serverVariables));
+      setBasePath(servers.get(serverIndex).URL(serverVariables));
     }
   }
 
   private void setOauthBasePath(String basePath) {
-    for(Authentication auth : authentications.values()) {
+    for (Authentication auth : authentications.values()) {
       if (auth instanceof OAuth) {
         ((OAuth) auth).setBasePath(basePath);
       }
@@ -1545,6 +1342,7 @@ public class ApiClient {
 
   /**
    * Helper method to set access token for the first OAuth2 authentication.
+   *
    * @param accessToken Access token
    * @return API client
    */
@@ -1626,6 +1424,7 @@ public class ApiClient {
 
   /**
    * Set the User-Agent header's value (by adding to the default header map).
+   *
    * @param userAgent Http user agent
    * @return API client
    */
@@ -1636,32 +1435,47 @@ public class ApiClient {
 
   /**
    * Get the User-Agent header's value.
+   *
    * @return User-Agent string
    */
-  public String getUserAgent(){
+  public String getUserAgent() {
     return userAgent;
   }
 
   /**
-   * Set the default User-Agent header's value with telemetry information (by adding to the default header map).
+   * Set the default User-Agent header's value with telemetry information (by adding to the default
+   * header map).
+   *
    * @return API client
    */
   public ApiClient setUserAgent() {
     final Properties properties = new Properties();
     try {
-      properties.load(getClass().getClassLoader().getResourceAsStream("com/datadog/api/project.properties"));
+      properties.load(
+          getClass().getClassLoader().getResourceAsStream("com/datadog/api/project.properties"));
     } catch (IOException e) {
       logger.severe("Could not load client version: " + e.toString());
     }
 
-    String userAgent = "datadog-api-client-java/" + properties.getProperty("version")
-        + " ("
-        + "java " + System.getProperty("java.version") + "; "
-        + "java_vendor " + System.getProperty("java.vendor") + "; "
-        + "os " + System.getProperty("os.name") + "; "
-        + "os_version " + System.getProperty("os.version") + "; "
-        + "arch " + System.getProperty("os.arch")
-        + ")";
+    String userAgent =
+        "datadog-api-client-java/"
+            + properties.getProperty("version")
+            + " ("
+            + "java "
+            + System.getProperty("java.version")
+            + "; "
+            + "java_vendor "
+            + System.getProperty("java.vendor")
+            + "; "
+            + "os "
+            + System.getProperty("os.name")
+            + "; "
+            + "os_version "
+            + System.getProperty("os.version")
+            + "; "
+            + "arch "
+            + System.getProperty("os.arch")
+            + ")";
     addDefaultHeader("User-Agent", userAgent);
     this.userAgent = userAgent;
     return this;
@@ -1693,6 +1507,7 @@ public class ApiClient {
 
   /**
    * Gets the client config.
+   *
    * @return Client config
    */
   public ClientConfig getClientConfig() {
@@ -1714,6 +1529,7 @@ public class ApiClient {
 
   /**
    * Check that whether debugging is enabled for this API client.
+   *
    * @return True if debugging is switched on
    */
   public boolean isDebugging() {
@@ -1755,11 +1571,9 @@ public class ApiClient {
     return this;
   }
 
-
   /**
-   * The path of temporary folder used to store downloaded files from endpoints
-   * with file response. The default value is <code>null</code>, i.e. using
-   * the system's default temporary folder.
+   * The path of temporary folder used to store downloaded files from endpoints with file response.
+   * The default value is <code>null</code>, i.e. using the system's default temporary folder.
    *
    * @return Temp folder path
    */
@@ -1769,6 +1583,7 @@ public class ApiClient {
 
   /**
    * Set temp folder path
+   *
    * @param tempFolderPath Temp folder path
    * @return API client
    */
@@ -1779,6 +1594,7 @@ public class ApiClient {
 
   /**
    * Connect timeout (in milliseconds).
+   *
    * @return Connection timeout
    */
   public int getConnectTimeout() {
@@ -1786,9 +1602,9 @@ public class ApiClient {
   }
 
   /**
-   * Set the connect timeout (in milliseconds).
-   * A value of 0 means no timeout, otherwise values must be between 1 and
-   * {@link Integer#MAX_VALUE}.
+   * Set the connect timeout (in milliseconds). A value of 0 means no timeout, otherwise values must
+   * be between 1 and {@link Integer#MAX_VALUE}.
+   *
    * @param connectionTimeout Connection timeout in milliseconds
    * @return API client
    */
@@ -1800,6 +1616,7 @@ public class ApiClient {
 
   /**
    * read timeout (in milliseconds).
+   *
    * @return Read timeout
    */
   public int getReadTimeout() {
@@ -1807,9 +1624,9 @@ public class ApiClient {
   }
 
   /**
-   * Set the read timeout (in milliseconds).
-   * A value of 0 means no timeout, otherwise values must be between 1 and
-   * {@link Integer#MAX_VALUE}.
+   * Set the read timeout (in milliseconds). A value of 0 means no timeout, otherwise values must be
+   * between 1 and {@link Integer#MAX_VALUE}.
+   *
    * @param readTimeout Read timeout in milliseconds
    * @return API client
    */
@@ -1821,6 +1638,7 @@ public class ApiClient {
 
   /**
    * Get the date format used to parse/format date parameters.
+   *
    * @return Date format
    */
   public DateFormat getDateFormat() {
@@ -1829,6 +1647,7 @@ public class ApiClient {
 
   /**
    * Set the date format used to parse/format date parameters.
+   *
    * @param dateFormat Date format
    * @return API client
    */
@@ -1841,6 +1660,7 @@ public class ApiClient {
 
   /**
    * Get list of all unstable operations
+   *
    * @return set of all unstable operations Ids
    */
   public Set<String> getUnstableOperations() {
@@ -1849,22 +1669,28 @@ public class ApiClient {
 
   /**
    * Mark an unstable operation as enabled/disabled.
-   * @param operation operation Id - this is the name of the method on the API class, e.g. "createFoo"
+   *
+   * @param operation operation Id - this is the name of the method on the API class, e.g.
+   *     "createFoo"
    * @param enabled whether to mark the operation as enabled (true) or disabled (false)
-   * @return true if the operation is marked as unstable and thus was enabled/disabled, false otherwise
+   * @return true if the operation is marked as unstable and thus was enabled/disabled, false
+   *     otherwise
    */
   public boolean setUnstableOperationEnabled(String operation, boolean enabled) {
     if (unstableOperations.containsKey(operation)) {
       unstableOperations.put(operation, enabled);
       return true;
     }
-    logger.warning(String.format("'%s' is not an unstable operation, can't enable/disable", operation));
+    logger.warning(
+        String.format("'%s' is not an unstable operation, can't enable/disable", operation));
     return false;
   }
 
   /**
    * Determine whether an operation is an unstable operation.
-   * @param operation operation Id - this is the name of the method on the API class, e.g. "createFoo"
+   *
+   * @param operation operation Id - this is the name of the method on the API class, e.g.
+   *     "createFoo"
    * @return true if the operation is an unstable operation, false otherwise
    */
   public boolean isUnstableOperation(String operation) {
@@ -1873,20 +1699,24 @@ public class ApiClient {
 
   /**
    * Determine whether an unstable operation is enabled.
-   * @param operation operation Id - this is the name of the method on the API class, e.g. "createFoo"
+   *
+   * @param operation operation Id - this is the name of the method on the API class, e.g.
+   *     "createFoo"
    * @return true if the operation is unstable and it is enabled, false otherwise
    */
   public boolean isUnstableOperationEnabled(String operation) {
     if (unstableOperations.containsKey(operation)) {
       return unstableOperations.get(operation);
     } else {
-      logger.warning(String.format("'%s' is not an unstable operation, is always enabled", operation));
+      logger.warning(
+          String.format("'%s' is not an unstable operation, is always enabled", operation));
       return true;
     }
   }
 
   /**
    * Get the ApiClient logger
+   *
    * @return ApiClient logger
    */
   public java.util.logging.Logger getLogger() {
@@ -1895,6 +1725,7 @@ public class ApiClient {
 
   /**
    * Format the given Date object into string.
+   *
    * @param date Date
    * @return Date in string format
    */
@@ -1904,6 +1735,7 @@ public class ApiClient {
 
   /**
    * Format the given parameter object into string.
+   *
    * @param param Object
    * @return Object in string format
    */
@@ -1916,8 +1748,8 @@ public class ApiClient {
       return formatOffsetDateTime((OffsetDateTime) param);
     } else if (param instanceof Collection) {
       StringBuilder b = new StringBuilder();
-      for(Object o : (Collection)param) {
-        if(b.length() > 0) {
+      for (Object o : (Collection) param) {
+        if (b.length() > 0) {
           b.append(',');
         }
         b.append(String.valueOf(o));
@@ -1935,11 +1767,13 @@ public class ApiClient {
    * @param value Value
    * @return List of pairs
    */
-  public List<Pair> parameterToPairs(String collectionFormat, String name, Object value){
+  public List<Pair> parameterToPairs(String collectionFormat, String name, Object value) {
     List<Pair> params = new ArrayList<Pair>();
 
     // preconditions
-    if (name == null || name.isEmpty() || value == null) { return params; }
+    if (name == null || name.isEmpty() || value == null) {
+      return params;
+    }
 
     Collection<?> valueCollection;
     if (value instanceof Collection) {
@@ -1949,12 +1783,13 @@ public class ApiClient {
       return params;
     }
 
-    if (valueCollection.isEmpty()){
+    if (valueCollection.isEmpty()) {
       return params;
     }
 
     // get the collection format (default: csv)
-    String format = (collectionFormat == null || collectionFormat.isEmpty() ? "csv" : collectionFormat);
+    String format =
+        (collectionFormat == null || collectionFormat.isEmpty() ? "csv" : collectionFormat);
 
     // create the params based on the collection format
     if ("multi".equals(format)) {
@@ -1977,7 +1812,7 @@ public class ApiClient {
       delimiter = "|";
     }
 
-    StringBuilder sb = new StringBuilder() ;
+    StringBuilder sb = new StringBuilder();
     for (Object item : valueCollection) {
       sb.append(delimiter);
       sb.append(parameterToString(item));
@@ -1989,13 +1824,9 @@ public class ApiClient {
   }
 
   /**
-   * Check if the given MIME is a JSON MIME.
-   * JSON MIME examples:
-   *   application/json
-   *   application/json; charset=UTF8
-   *   APPLICATION/JSON
-   *   application/vnd.company+json
-   * "* / *" is also default to JSON
+   * Check if the given MIME is a JSON MIME. JSON MIME examples: application/json application/json;
+   * charset=UTF8 APPLICATION/JSON application/vnd.company+json "* / *" is also default to JSON
+   *
    * @param mime MIME
    * @return True if the MIME type is JSON
    */
@@ -2005,13 +1836,12 @@ public class ApiClient {
   }
 
   /**
-   * Select the Accept header's value from the given accepts array:
-   *   if JSON exists in the given array, use it;
-   *   otherwise use all of them (joining into a string)
+   * Select the Accept header's value from the given accepts array: if JSON exists in the given
+   * array, use it; otherwise use all of them (joining into a string)
    *
    * @param accepts The accepts array to select from
-   * @return The Accept header to use. If the given array is empty,
-   *   null will be returned (not to set the Accept header explicitly).
+   * @return The Accept header to use. If the given array is empty, null will be returned (not to
+   *     set the Accept header explicitly).
    */
   public String selectHeaderAccept(String[] accepts) {
     if (accepts.length == 0) {
@@ -2026,13 +1856,11 @@ public class ApiClient {
   }
 
   /**
-   * Select the Content-Type header's value from the given array:
-   *   if JSON exists in the given array, use it;
-   *   otherwise use the first one of the array.
+   * Select the Content-Type header's value from the given array: if JSON exists in the given array,
+   * use it; otherwise use the first one of the array.
    *
    * @param contentTypes The Content-Type array to select from
-   * @return The Content-Type header to use. If the given array is empty,
-   *   JSON will be used.
+   * @return The Content-Type header to use. If the given array is empty, JSON will be used.
    */
   public String selectHeaderContentType(String[] contentTypes) {
     if (contentTypes.length == 0) {
@@ -2048,6 +1876,7 @@ public class ApiClient {
 
   /**
    * Escape the given string to be used as URL query value.
+   *
    * @param str String
    * @return Escaped string
    */
@@ -2060,8 +1889,9 @@ public class ApiClient {
   }
 
   /**
-   * Serialize the given Java object into string entity according the given
-   * Content-Type (only JSON is supported for now).
+   * Serialize the given Java object into string entity according the given Content-Type (only JSON
+   * is supported for now).
+   *
    * @param obj Object
    * @param formParams Form parameters
    * @param contentType Content type header
@@ -2069,20 +1899,31 @@ public class ApiClient {
    * @param isBodyNullable Whether the body can be null or not
    * @return Entity
    */
-  public Entity<?> serialize(Object obj, Map<String, Object> formParams, String contentType, String contentEncoding, boolean isBodyNullable) {
+  public Entity<?> serialize(
+      Object obj,
+      Map<String, Object> formParams,
+      String contentType,
+      String contentEncoding,
+      boolean isBodyNullable) {
     Entity<?> entity;
     Variant variant = new Variant(MediaType.valueOf(contentType), "", contentEncoding);
     if (contentType.startsWith("multipart/form-data")) {
       MultiPart multiPart = new MultiPart();
-      for (Entry<String, Object> param: formParams.entrySet()) {
+      for (Entry<String, Object> param : formParams.entrySet()) {
         if (param.getValue() instanceof File) {
           File file = (File) param.getValue();
-          FormDataContentDisposition contentDisp = FormDataContentDisposition.name(param.getKey())
-              .fileName(file.getName()).size(file.length()).build();
-          multiPart.bodyPart(new FormDataBodyPart(contentDisp, file, MediaType.APPLICATION_OCTET_STREAM_TYPE));
+          FormDataContentDisposition contentDisp =
+              FormDataContentDisposition.name(param.getKey())
+                  .fileName(file.getName())
+                  .size(file.length())
+                  .build();
+          multiPart.bodyPart(
+              new FormDataBodyPart(contentDisp, file, MediaType.APPLICATION_OCTET_STREAM_TYPE));
         } else {
-          FormDataContentDisposition contentDisp = FormDataContentDisposition.name(param.getKey()).build();
-          multiPart.bodyPart(new FormDataBodyPart(contentDisp, parameterToString(param.getValue())));
+          FormDataContentDisposition contentDisp =
+              FormDataContentDisposition.name(param.getKey()).build();
+          multiPart.bodyPart(
+              new FormDataBodyPart(contentDisp, parameterToString(param.getValue())));
         }
       }
       MediaType mediaDataType = MediaType.MULTIPART_FORM_DATA_TYPE;
@@ -2090,7 +1931,7 @@ public class ApiClient {
       entity = Entity.entity(multiPart, mediaDataType);
     } else if (contentType.startsWith("application/x-www-form-urlencoded")) {
       Form form = new Form();
-      for (Entry<String, Object> param: formParams.entrySet()) {
+      for (Entry<String, Object> param : formParams.entrySet()) {
         form.param(param.getKey(), parameterToString(param.getValue()));
       }
       entity = Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED_TYPE);
@@ -2098,13 +1939,27 @@ public class ApiClient {
       // We let jersey handle the serialization
       if (isBodyNullable) { // payload is nullable
         if (obj instanceof String) {
-          entity = Entity.entity(obj == null ? "null" : "\"" + ((String)obj).replaceAll("\"", Matcher.quoteReplacement("\\\"")) + "\"", variant);
+          entity =
+              Entity.entity(
+                  obj == null
+                      ? "null"
+                      : "\""
+                          + ((String) obj).replaceAll("\"", Matcher.quoteReplacement("\\\""))
+                          + "\"",
+                  variant);
         } else {
           entity = Entity.entity(obj == null ? "null" : obj, variant);
         }
       } else {
         if (obj instanceof String) {
-          entity = Entity.entity(obj == null ? "" : "\"" + ((String)obj).replaceAll("\"", Matcher.quoteReplacement("\\\"")) + "\"", variant);
+          entity =
+              Entity.entity(
+                  obj == null
+                      ? ""
+                      : "\""
+                          + ((String) obj).replaceAll("\"", Matcher.quoteReplacement("\\\""))
+                          + "\"",
+                  variant);
         } else {
           entity = Entity.entity(obj == null ? "" : obj, variant);
         }
@@ -2115,6 +1970,7 @@ public class ApiClient {
 
   /**
    * Deserialize response body to Java object according to the Content-Type.
+   *
    * @param <T> Type
    * @param response Response
    * @param returnType Return type
@@ -2220,8 +2076,7 @@ public class ApiClient {
     allHeaderParams.putAll(headerParams);
 
     // update different parameters (e.g. headers) for authentication
-    updateParamsForAuth(
-        authNames, queryParams, allHeaderParams, cookieParams, target.getUri());
+    updateParamsForAuth(authNames, queryParams, allHeaderParams, cookieParams, target.getUri());
 
     for (Entry<String, String> entry : allHeaderParams.entrySet()) {
       String value = entry.getValue();
@@ -2272,7 +2127,7 @@ public class ApiClient {
 
     try {
       int currentRetry = 0;
-      while (true){
+      while (true) {
         response = sendRequest(method, invocationBuilder, entity);
         int statusCode = response.getStatusInfo().getStatusCode();
         Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
@@ -2282,18 +2137,20 @@ public class ApiClient {
           if (returnType == null) {
             return new ApiResponse<T>(statusCode, responseHeaders);
           } else {
-            return new ApiResponse<T>(statusCode, responseHeaders, deserialize(response, returnType));
+            return new ApiResponse<T>(
+                statusCode, responseHeaders, deserialize(response, returnType));
           }
-        } else if (shouldRetry(currentRetry, statusCode, retry)){
-            // Close the response before retry to avoid leaks
-            try {
-              response.close();
-            } catch (Exception e) {
-              // it's not critical, since the response object is local in method invokeAPI; that's fine,
-              // just continue
-            }
-            retry.sleepInterval(calculateRetryInterval(responseHeaders, retry, currentRetry));
-            currentRetry++;
+        } else if (shouldRetry(currentRetry, statusCode, retry)) {
+          // Close the response before retry to avoid leaks
+          try {
+            response.close();
+          } catch (Exception e) {
+            // it's not critical, since the response object is local in method invokeAPI; that's
+            // fine,
+            // just continue
+          }
+          retry.sleepInterval(calculateRetryInterval(responseHeaders, retry, currentRetry));
+          currentRetry++;
         } else {
           String message = "error";
           String respBody = null;
@@ -2307,40 +2164,43 @@ public class ApiClient {
           }
           throw new ApiException(
               response.getStatus(), message, buildResponseHeaders(response), respBody);
-          }
-      } 
-    } finally {
-        try {
-          response.close();
-        } catch (Exception e) {
-          // it's not critical, since the response object is local in method invokeAPI; that's fine,
-          // just continue
         }
       }
+    } finally {
+      try {
+        response.close();
+      } catch (Exception e) {
+        // it's not critical, since the response object is local in method invokeAPI; that's fine,
+        // just continue
+      }
+    }
   }
 
-  private boolean shouldRetry(int retryCount, int statusCode, RetryConfig retryConfig){
+  private boolean shouldRetry(int retryCount, int statusCode, RetryConfig retryConfig) {
     boolean statusToRetry = false;
-    if (statusCode == 429 || statusCode >= 500){
+    if (statusCode == 429 || statusCode >= 500) {
       statusToRetry = true;
     }
-    return (retryConfig.maxRetries>retryCount && statusToRetry && retryConfig.isEnableRetry());
+    return (retryConfig.maxRetries > retryCount && statusToRetry && retryConfig.isEnableRetry());
   }
 
-  private int calculateRetryInterval(Map<String, List<String>> responseHeaders, RetryConfig retryConfig, int retryCount){
-    if ( responseHeaders.get("x-ratelimit-reset")!=null){
+  private int calculateRetryInterval(
+      Map<String, List<String>> responseHeaders, RetryConfig retryConfig, int retryCount) {
+    if (responseHeaders.get("x-ratelimit-reset") != null) {
       List<String> rateLimitHeader = responseHeaders.get("x-ratelimit-reset");
       return Integer.parseInt(rateLimitHeader.get(0));
     } else {
-      int retryInterval= (int) Math.pow (retry.backOffMultiplier, retryCount)*  retryConfig.backOffBase;
-      if (getConnectTimeout()>0){
+      int retryInterval =
+          (int) Math.pow(retry.backOffMultiplier, retryCount) * retryConfig.backOffBase;
+      if (getConnectTimeout() > 0) {
         retryInterval = Math.min(retryInterval, getConnectTimeout());
       }
       return retryInterval;
     }
   }
 
-  private Response sendRequest(String method, Invocation.Builder invocationBuilder, Entity<?> entity) {
+  private Response sendRequest(
+      String method, Invocation.Builder invocationBuilder, Entity<?> entity) {
     Response response;
     if ("POST".equals(method)) {
       response = invocationBuilder.post(entity);
@@ -2382,7 +2242,13 @@ public class ApiClient {
 
     String contentEncoding = headerParams.get(HttpHeaders.CONTENT_ENCODING);
 
-    Entity<?> entity = serialize(body, formParams, selectHeaderContentType(contentTypes), contentEncoding, isBodyNullable);
+    Entity<?> entity =
+        serialize(
+            body,
+            formParams,
+            selectHeaderContentType(contentTypes),
+            contentEncoding,
+            isBodyNullable);
 
     CompletableFuture<ApiResponse<T>> result = new CompletableFuture<>();
 
@@ -2453,12 +2319,13 @@ public class ApiClient {
 
   /**
    * Build the Client used to make HTTP requests.
+   *
    * @return Client
    */
   protected Client buildHttpClient() {
     // use the default client config if not yet initialized
     if (clientConfig == null) {
-        clientConfig = getDefaultClientConfig();
+      clientConfig = getDefaultClientConfig();
     }
 
     if (compress) {
@@ -2475,6 +2342,7 @@ public class ApiClient {
 
   /**
    * Get the default client config.
+   *
    * @return Client config
    */
   public ClientConfig getDefaultClientConfig() {
@@ -2486,13 +2354,21 @@ public class ApiClient {
     // turn off compliance validation to be able to send payloads with DELETE calls
     clientConfig.property(ClientProperties.SUPPRESS_HTTP_COMPLIANCE_VALIDATION, true);
     if (debugging) {
-      clientConfig.register(new LoggingFeature(java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME), java.util.logging.Level.INFO, LoggingFeature.Verbosity.PAYLOAD_ANY, 1024*50 /* Log payloads up to 50K */));
-      clientConfig.property(LoggingFeature.LOGGING_FEATURE_VERBOSITY, LoggingFeature.Verbosity.PAYLOAD_ANY);
+      clientConfig.register(
+          new LoggingFeature(
+              java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME),
+              java.util.logging.Level.INFO,
+              LoggingFeature.Verbosity.PAYLOAD_ANY,
+              1024 * 50 /* Log payloads up to 50K */));
+      clientConfig.property(
+          LoggingFeature.LOGGING_FEATURE_VERBOSITY, LoggingFeature.Verbosity.PAYLOAD_ANY);
       // Set logger to ALL
-      java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME).setLevel(java.util.logging.Level.ALL);
+      java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME)
+          .setLevel(java.util.logging.Level.ALL);
     } else {
       // suppress warnings for payloads with DELETE calls:
-      java.util.logging.Logger.getLogger("org.glassfish.jersey.client").setLevel(java.util.logging.Level.SEVERE);
+      java.util.logging.Logger.getLogger("org.glassfish.jersey.client")
+          .setLevel(java.util.logging.Level.SEVERE);
     }
 
     return clientConfig;
@@ -2501,16 +2377,15 @@ public class ApiClient {
   /**
    * Customize the client builder.
    *
-   * This method can be overridden to customize the API client. For example, this can be used to:
-   * 1. Set the hostname verifier to be used by the client to verify the endpoint's hostname
-   *    against its identification information.
-   * 2. Set the client-side key store.
-   * 3. Set the SSL context that will be used when creating secured transport connections to
-   *    server endpoints from web targets created by the client instance that is using this SSL context.
-   * 4. Set the client-side trust store.
+   * <p>This method can be overridden to customize the API client. For example, this can be used to:
+   * 1. Set the hostname verifier to be used by the client to verify the endpoint's hostname against
+   * its identification information. 2. Set the client-side key store. 3. Set the SSL context that
+   * will be used when creating secured transport connections to server endpoints from web targets
+   * created by the client instance that is using this SSL context. 4. Set the client-side trust
+   * store.
    *
-   * To completely disable certificate validation (at your own risk), you can
-   * override this method and invoke disableCertificateValidation(clientBuilder).
+   * <p>To completely disable certificate validation (at your own risk), you can override this
+   * method and invoke disableCertificateValidation(clientBuilder).
    *
    * @param clientBuilder: HTTP client builder
    */
@@ -2521,28 +2396,30 @@ public class ApiClient {
   /**
    * Disable X.509 certificate validation in TLS connections.
    *
-   * Please note that trusting all certificates is extremely risky.
-   * This may be useful in a development environment with self-signed certificates.
+   * <p>Please note that trusting all certificates is extremely risky. This may be useful in a
+   * development environment with self-signed certificates.
    *
    * @param clientBuilder: HTTP client builder
    * @throws KeyManagementException When the SSL context can't be initialized
    * @throws NoSuchAlgorithmException If the environment doesn't support the required algorithm
    */
-  protected void disableCertificateValidation(ClientBuilder clientBuilder) throws KeyManagementException, NoSuchAlgorithmException {
-    TrustManager[] trustAllCerts = new X509TrustManager[] {
-      new X509TrustManager() {
-        @Override
-        public X509Certificate[] getAcceptedIssuers() {
-          return null;
-        }
-        @Override
-        public void checkClientTrusted(X509Certificate[] certs, String authType) {
-        }
-        @Override
-        public void checkServerTrusted(X509Certificate[] certs, String authType) {
-        }
-      }
-    };
+  protected void disableCertificateValidation(ClientBuilder clientBuilder)
+      throws KeyManagementException, NoSuchAlgorithmException {
+    TrustManager[] trustAllCerts =
+        new X509TrustManager[] {
+          new X509TrustManager() {
+            @Override
+            public X509Certificate[] getAcceptedIssuers() {
+              return null;
+            }
+
+            @Override
+            public void checkClientTrusted(X509Certificate[] certs, String authType) {}
+
+            @Override
+            public void checkServerTrusted(X509Certificate[] certs, String authType) {}
+          }
+        };
     SSLContext sslContext = SSLContext.getInstance("TLS");
     sslContext.init(null, trustAllCerts, new SecureRandom());
     clientBuilder.sslContext(sslContext);
@@ -2550,7 +2427,7 @@ public class ApiClient {
 
   protected Map<String, List<String>> buildResponseHeaders(Response response) {
     Map<String, List<String>> responseHeaders = new HashMap<String, List<String>>();
-    for (Entry<String, List<Object>> entry: response.getHeaders().entrySet()) {
+    for (Entry<String, List<Object>> entry : response.getHeaders().entrySet()) {
       List<Object> values = entry.getValue();
       List<String> headers = new ArrayList<String>();
       for (Object o : values) {

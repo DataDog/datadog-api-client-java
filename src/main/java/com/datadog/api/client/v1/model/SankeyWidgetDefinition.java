@@ -6,34 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The Sankey diagram visualizes the flow of data between categories, stages or sets of values.</p>
- */
+/** The Sankey diagram visualizes the flow of data between categories, stages or sets of values. */
 @JsonPropertyOrder({
   SankeyWidgetDefinition.JSON_PROPERTY_REQUESTS,
   SankeyWidgetDefinition.JSON_PROPERTY_SHOW_OTHER_LINKS,
@@ -44,10 +26,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SankeyWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   SankeyWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SankeyWidgetDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<SankeyWidgetRequest> requests = new ArrayList<>();
 
@@ -76,12 +58,14 @@ public class SankeyWidgetDefinition {
 
   @JsonCreator
   public SankeyWidgetDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS)List<SankeyWidgetRequest> requests,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SankeyWidgetDefinitionType type) {
-        this.requests = requests;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<SankeyWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SankeyWidgetDefinitionType type) {
+    this.requests = requests;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public SankeyWidgetDefinition requests(List<SankeyWidgetRequest> requests) {
     this.requests = requests;
     for (SankeyWidgetRequest item : requests) {
@@ -89,6 +73,7 @@ public class SankeyWidgetDefinition {
     }
     return this;
   }
+
   public SankeyWidgetDefinition addRequestsItem(SankeyWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
@@ -96,56 +81,62 @@ public class SankeyWidgetDefinition {
   }
 
   /**
-   * <p>List of Sankey widget requests.</p>
+   * List of Sankey widget requests.
+   *
    * @return requests
-  **/
-      @JsonProperty(JSON_PROPERTY_REQUESTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<SankeyWidgetRequest> getRequests() {
-        return requests;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REQUESTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<SankeyWidgetRequest> getRequests() {
+    return requests;
+  }
+
   public void setRequests(List<SankeyWidgetRequest> requests) {
     this.requests = requests;
   }
+
   public SankeyWidgetDefinition showOtherLinks(Boolean showOtherLinks) {
     this.showOtherLinks = showOtherLinks;
     return this;
   }
 
   /**
-   * <p>Whether to show links for "other" category.</p>
+   * Whether to show links for "other" category.
+   *
    * @return showOtherLinks
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHOW_OTHER_LINKS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getShowOtherLinks() {
-        return showOtherLinks;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_OTHER_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowOtherLinks() {
+    return showOtherLinks;
+  }
+
   public void setShowOtherLinks(Boolean showOtherLinks) {
     this.showOtherLinks = showOtherLinks;
   }
+
   public SankeyWidgetDefinition sortNodes(Boolean sortNodes) {
     this.sortNodes = sortNodes;
     return this;
   }
 
   /**
-   * <p>Whether to sort nodes in the Sankey diagram.</p>
+   * Whether to sort nodes in the Sankey diagram.
+   *
    * @return sortNodes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SORT_NODES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getSortNodes() {
-        return sortNodes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT_NODES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSortNodes() {
+    return sortNodes;
+  }
+
   public void setSortNodes(Boolean sortNodes) {
     this.sortNodes = sortNodes;
   }
+
   public SankeyWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -153,38 +144,42 @@ public class SankeyWidgetDefinition {
   }
 
   /**
-   * <p>Time setting for the widget.</p>
+   * Time setting for the widget.
+   *
    * @return time
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTime getTime() {
-        return time;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
   public SankeyWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>Title of your widget.</p>
+   * Title of your widget.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
+
   public SankeyWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -192,41 +187,45 @@ public class SankeyWidgetDefinition {
   }
 
   /**
-   * <p>How to align the text on the widget.</p>
+   * How to align the text on the widget.
+   *
    * @return titleAlign
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTextAlign getTitleAlign() {
-        return titleAlign;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
   public SankeyWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * <p>Size of the title.</p>
+   * Size of the title.
+   *
    * @return titleSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitleSize() {
-        return titleSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitleSize() {
+    return titleSize;
+  }
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
   public SankeyWidgetDefinition type(SankeyWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -234,25 +233,24 @@ public class SankeyWidgetDefinition {
   }
 
   /**
-   * <p>Type of the Sankey widget.</p>
+   * Type of the Sankey widget.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SankeyWidgetDefinitionType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SankeyWidgetDefinitionType getType() {
+    return type;
+  }
+
   public void setType(SankeyWidgetDefinitionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this SankeyWidgetDefinition object is equal to o.
-   */
+  /** Return true if this SankeyWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -262,13 +260,20 @@ public class SankeyWidgetDefinition {
       return false;
     }
     SankeyWidgetDefinition sankeyWidgetDefinition = (SankeyWidgetDefinition) o;
-    return Objects.equals(this.requests, sankeyWidgetDefinition.requests) && Objects.equals(this.showOtherLinks, sankeyWidgetDefinition.showOtherLinks) && Objects.equals(this.sortNodes, sankeyWidgetDefinition.sortNodes) && Objects.equals(this.time, sankeyWidgetDefinition.time) && Objects.equals(this.title, sankeyWidgetDefinition.title) && Objects.equals(this.titleAlign, sankeyWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, sankeyWidgetDefinition.titleSize) && Objects.equals(this.type, sankeyWidgetDefinition.type);
+    return Objects.equals(this.requests, sankeyWidgetDefinition.requests)
+        && Objects.equals(this.showOtherLinks, sankeyWidgetDefinition.showOtherLinks)
+        && Objects.equals(this.sortNodes, sankeyWidgetDefinition.sortNodes)
+        && Objects.equals(this.time, sankeyWidgetDefinition.time)
+        && Objects.equals(this.title, sankeyWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, sankeyWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, sankeyWidgetDefinition.titleSize)
+        && Objects.equals(this.type, sankeyWidgetDefinition.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(requests,showOtherLinks,sortNodes,time,title,titleAlign,titleSize,type);
+    return Objects.hash(
+        requests, showOtherLinks, sortNodes, time, title, titleAlign, titleSize, type);
   }
 
   @Override
@@ -288,8 +293,7 @@ public class SankeyWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

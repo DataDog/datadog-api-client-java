@@ -1,19 +1,12 @@
 // Link existing Jira issue to case returns "No Content" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CaseManagementApi;
 import com.datadog.api.client.v2.model.JiraIssueLinkAttributes;
 import com.datadog.api.client.v2.model.JiraIssueLinkData;
 import com.datadog.api.client.v2.model.JiraIssueLinkRequest;
 import com.datadog.api.client.v2.model.JiraIssueResourceType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,11 +14,14 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.linkJiraIssueToCase", true);
     CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
-    JiraIssueLinkRequest body = new JiraIssueLinkRequest()
-.data(new JiraIssueLinkData()
-.attributes(new JiraIssueLinkAttributes()
-.jiraIssueUrl("https://jira.example.com/browse/PROJ-123"))
-.type(JiraIssueResourceType.ISSUES));
+    JiraIssueLinkRequest body =
+        new JiraIssueLinkRequest()
+            .data(
+                new JiraIssueLinkData()
+                    .attributes(
+                        new JiraIssueLinkAttributes()
+                            .jiraIssueUrl("https://jira.example.com/browse/PROJ-123"))
+                    .type(JiraIssueResourceType.ISSUES));
 
     try {
       apiInstance.linkJiraIssueToCase("f98a5a5b-e0ff-45d4-b2f5-afe6e74de504", body);

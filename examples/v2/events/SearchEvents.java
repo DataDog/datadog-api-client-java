@@ -1,38 +1,33 @@
 // Search events returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.EventsApi;
 import com.datadog.api.client.v2.api.EventsApi.SearchEventsOptionalParameters;
-import com.datadog.api.client.v2.model.EventsListResponse;
 import com.datadog.api.client.v2.model.EventsListRequest;
+import com.datadog.api.client.v2.model.EventsListResponse;
 import com.datadog.api.client.v2.model.EventsQueryFilter;
 import com.datadog.api.client.v2.model.EventsRequestPage;
 import com.datadog.api.client.v2.model.EventsSort;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     EventsApi apiInstance = new EventsApi(defaultClient);
 
-    EventsListRequest body = new EventsListRequest()
-.filter(new EventsQueryFilter()
-.query("datadog-agent")
-.from("2020-09-17T11:48:36+01:00")
-.to("2020-09-17T12:48:36+01:00"))
-.sort(EventsSort.TIMESTAMP_ASCENDING)
-.page(new EventsRequestPage()
-.limit(5));
+    EventsListRequest body =
+        new EventsListRequest()
+            .filter(
+                new EventsQueryFilter()
+                    .query("datadog-agent")
+                    .from("2020-09-17T11:48:36+01:00")
+                    .to("2020-09-17T12:48:36+01:00"))
+            .sort(EventsSort.TIMESTAMP_ASCENDING)
+            .page(new EventsRequestPage().limit(5));
 
     try {
-      EventsListResponse result = apiInstance.searchEvents(new SearchEventsOptionalParameters().body(body));
+      EventsListResponse result =
+          apiInstance.searchEvents(new SearchEventsOptionalParameters().body(body));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EventsApi#searchEvents");
