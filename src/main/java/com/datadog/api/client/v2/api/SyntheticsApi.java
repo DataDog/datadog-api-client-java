@@ -13,11 +13,17 @@ import com.datadog.api.client.v2.model.GlobalVariableResponse;
 import com.datadog.api.client.v2.model.OnDemandConcurrencyCapAttributes;
 import com.datadog.api.client.v2.model.OnDemandConcurrencyCapResponse;
 import com.datadog.api.client.v2.model.SuiteCreateEditRequest;
+import com.datadog.api.client.v2.model.SuiteJsonPatchRequest;
+import com.datadog.api.client.v2.model.SyntheticsApiMultistepParentTestsResponse;
+import com.datadog.api.client.v2.model.SyntheticsApiMultistepSubtestsResponse;
 import com.datadog.api.client.v2.model.SyntheticsFastTestResult;
 import com.datadog.api.client.v2.model.SyntheticsNetworkTestEditRequest;
 import com.datadog.api.client.v2.model.SyntheticsNetworkTestResponse;
 import com.datadog.api.client.v2.model.SyntheticsSuiteResponse;
 import com.datadog.api.client.v2.model.SyntheticsSuiteSearchResponse;
+import com.datadog.api.client.v2.model.SyntheticsTestParentSuitesResponse;
+import com.datadog.api.client.v2.model.SyntheticsTestVersionHistoryResponse;
+import com.datadog.api.client.v2.model.SyntheticsTestVersionResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -735,6 +741,287 @@ public class SyntheticsApi {
   }
 
   /**
+   * Get parent tests for a subtest.
+   *
+   * <p>See {@link #getApiMultistepSubtestParentsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the subtest. (required)
+   * @return SyntheticsApiMultistepParentTestsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsApiMultistepParentTestsResponse getApiMultistepSubtestParents(String publicId)
+      throws ApiException {
+    return getApiMultistepSubtestParentsWithHttpInfo(publicId).getData();
+  }
+
+  /**
+   * Get parent tests for a subtest.
+   *
+   * <p>See {@link #getApiMultistepSubtestParentsWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the subtest. (required)
+   * @return CompletableFuture&lt;SyntheticsApiMultistepParentTestsResponse&gt;
+   */
+  public CompletableFuture<SyntheticsApiMultistepParentTestsResponse>
+      getApiMultistepSubtestParentsAsync(String publicId) {
+    return getApiMultistepSubtestParentsWithHttpInfoAsync(publicId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of API multistep tests that include a given subtest, along with their monitor
+   * status.
+   *
+   * @param publicId The public ID of the subtest. (required)
+   * @return ApiResponse&lt;SyntheticsApiMultistepParentTestsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsApiMultistepParentTestsResponse>
+      getApiMultistepSubtestParentsWithHttpInfo(String publicId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'publicId' when calling getApiMultistepSubtestParents");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/api-multistep/subtests/{public_id}/parents"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.getApiMultistepSubtestParents",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsApiMultistepParentTestsResponse>() {});
+  }
+
+  /**
+   * Get parent tests for a subtest.
+   *
+   * <p>See {@link #getApiMultistepSubtestParentsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the subtest. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsApiMultistepParentTestsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsApiMultistepParentTestsResponse>>
+      getApiMultistepSubtestParentsWithHttpInfoAsync(String publicId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsApiMultistepParentTestsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling"
+                  + " getApiMultistepSubtestParents"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/api-multistep/subtests/{public_id}/parents"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.getApiMultistepSubtestParents",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsApiMultistepParentTestsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsApiMultistepParentTestsResponse>() {});
+  }
+
+  /**
+   * Get available subtests for a multistep test.
+   *
+   * <p>See {@link #getApiMultistepSubtestsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the API multistep test. (required)
+   * @return SyntheticsApiMultistepSubtestsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsApiMultistepSubtestsResponse getApiMultistepSubtests(String publicId)
+      throws ApiException {
+    return getApiMultistepSubtestsWithHttpInfo(publicId).getData();
+  }
+
+  /**
+   * Get available subtests for a multistep test.
+   *
+   * <p>See {@link #getApiMultistepSubtestsWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the API multistep test. (required)
+   * @return CompletableFuture&lt;SyntheticsApiMultistepSubtestsResponse&gt;
+   */
+  public CompletableFuture<SyntheticsApiMultistepSubtestsResponse> getApiMultistepSubtestsAsync(
+      String publicId) {
+    return getApiMultistepSubtestsWithHttpInfoAsync(publicId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of API tests that can be added as subtests to a given API multistep test. The
+   * current test is excluded from the list since a test cannot be a subtest of itself.
+   *
+   * @param publicId The public ID of the API multistep test. (required)
+   * @return ApiResponse&lt;SyntheticsApiMultistepSubtestsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsApiMultistepSubtestsResponse> getApiMultistepSubtestsWithHttpInfo(
+      String publicId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling getApiMultistepSubtests");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/api-multistep/subtests/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.getApiMultistepSubtests",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsApiMultistepSubtestsResponse>() {});
+  }
+
+  /**
+   * Get available subtests for a multistep test.
+   *
+   * <p>See {@link #getApiMultistepSubtestsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the API multistep test. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsApiMultistepSubtestsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsApiMultistepSubtestsResponse>>
+      getApiMultistepSubtestsWithHttpInfoAsync(String publicId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsApiMultistepSubtestsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling getApiMultistepSubtests"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/api-multistep/subtests/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.getApiMultistepSubtests",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsApiMultistepSubtestsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsApiMultistepSubtestsResponse>() {});
+  }
+
+  /**
    * Get the on-demand concurrency cap.
    *
    * <p>See {@link #getOnDemandConcurrencyCapWithHttpInfo}.
@@ -1248,6 +1535,628 @@ public class SyntheticsApi {
         new GenericType<SyntheticsSuiteResponse>() {});
   }
 
+  /** Manage optional parameters to getSyntheticsTestVersion. */
+  public static class GetSyntheticsTestVersionOptionalParameters {
+    private Boolean includeChangeMetadata;
+    private Boolean onlyCheckExistence;
+
+    /**
+     * Set includeChangeMetadata.
+     *
+     * @param includeChangeMetadata If <code>true</code>, include change metadata in the response.
+     *     (optional)
+     * @return GetSyntheticsTestVersionOptionalParameters
+     */
+    public GetSyntheticsTestVersionOptionalParameters includeChangeMetadata(
+        Boolean includeChangeMetadata) {
+      this.includeChangeMetadata = includeChangeMetadata;
+      return this;
+    }
+
+    /**
+     * Set onlyCheckExistence.
+     *
+     * @param onlyCheckExistence If <code>true</code>, only check whether the version exists without
+     *     returning its full payload. Returns an empty object if the version exists, or 404 if not.
+     *     (optional)
+     * @return GetSyntheticsTestVersionOptionalParameters
+     */
+    public GetSyntheticsTestVersionOptionalParameters onlyCheckExistence(
+        Boolean onlyCheckExistence) {
+      this.onlyCheckExistence = onlyCheckExistence;
+      return this;
+    }
+  }
+
+  /**
+   * Get a specific version of a test.
+   *
+   * <p>See {@link #getSyntheticsTestVersionWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param versionNumber The version number to retrieve. (required)
+   * @return SyntheticsTestVersionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestVersionResponse getSyntheticsTestVersion(String publicId, Long versionNumber)
+      throws ApiException {
+    return getSyntheticsTestVersionWithHttpInfo(
+            publicId, versionNumber, new GetSyntheticsTestVersionOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a specific version of a test.
+   *
+   * <p>See {@link #getSyntheticsTestVersionWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param versionNumber The version number to retrieve. (required)
+   * @return CompletableFuture&lt;SyntheticsTestVersionResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestVersionResponse> getSyntheticsTestVersionAsync(
+      String publicId, Long versionNumber) {
+    return getSyntheticsTestVersionWithHttpInfoAsync(
+            publicId, versionNumber, new GetSyntheticsTestVersionOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific version of a test.
+   *
+   * <p>See {@link #getSyntheticsTestVersionWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param versionNumber The version number to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SyntheticsTestVersionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestVersionResponse getSyntheticsTestVersion(
+      String publicId, Long versionNumber, GetSyntheticsTestVersionOptionalParameters parameters)
+      throws ApiException {
+    return getSyntheticsTestVersionWithHttpInfo(publicId, versionNumber, parameters).getData();
+  }
+
+  /**
+   * Get a specific version of a test.
+   *
+   * <p>See {@link #getSyntheticsTestVersionWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param versionNumber The version number to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SyntheticsTestVersionResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestVersionResponse> getSyntheticsTestVersionAsync(
+      String publicId, Long versionNumber, GetSyntheticsTestVersionOptionalParameters parameters) {
+    return getSyntheticsTestVersionWithHttpInfoAsync(publicId, versionNumber, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific version of a Synthetic test by its version number.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param versionNumber The version number to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SyntheticsTestVersionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsTestVersionResponse> getSyntheticsTestVersionWithHttpInfo(
+      String publicId, Long versionNumber, GetSyntheticsTestVersionOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling getSyntheticsTestVersion");
+    }
+
+    // verify the required parameter 'versionNumber' is set
+    if (versionNumber == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'versionNumber' when calling getSyntheticsTestVersion");
+    }
+    Boolean includeChangeMetadata = parameters.includeChangeMetadata;
+    Boolean onlyCheckExistence = parameters.onlyCheckExistence;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/version_history/{version_number}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()))
+            .replaceAll(
+                "\\{" + "version_number" + "\\}", apiClient.escapeString(versionNumber.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_change_metadata", includeChangeMetadata));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "only_check_existence", onlyCheckExistence));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.getSyntheticsTestVersion",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestVersionResponse>() {});
+  }
+
+  /**
+   * Get a specific version of a test.
+   *
+   * <p>See {@link #getSyntheticsTestVersionWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param versionNumber The version number to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsTestVersionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsTestVersionResponse>>
+      getSyntheticsTestVersionWithHttpInfoAsync(
+          String publicId,
+          Long versionNumber,
+          GetSyntheticsTestVersionOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling getSyntheticsTestVersion"));
+      return result;
+    }
+
+    // verify the required parameter 'versionNumber' is set
+    if (versionNumber == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'versionNumber' when calling"
+                  + " getSyntheticsTestVersion"));
+      return result;
+    }
+    Boolean includeChangeMetadata = parameters.includeChangeMetadata;
+    Boolean onlyCheckExistence = parameters.onlyCheckExistence;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/version_history/{version_number}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()))
+            .replaceAll(
+                "\\{" + "version_number" + "\\}", apiClient.escapeString(versionNumber.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_change_metadata", includeChangeMetadata));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "only_check_existence", onlyCheckExistence));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.getSyntheticsTestVersion",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsTestVersionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestVersionResponse>() {});
+  }
+
+  /**
+   * Get parent suites for a test.
+   *
+   * <p>See {@link #getTestParentSuitesWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @return SyntheticsTestParentSuitesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestParentSuitesResponse getTestParentSuites(String publicId)
+      throws ApiException {
+    return getTestParentSuitesWithHttpInfo(publicId).getData();
+  }
+
+  /**
+   * Get parent suites for a test.
+   *
+   * <p>See {@link #getTestParentSuitesWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @return CompletableFuture&lt;SyntheticsTestParentSuitesResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestParentSuitesResponse> getTestParentSuitesAsync(
+      String publicId) {
+    return getTestParentSuitesWithHttpInfoAsync(publicId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of parent suites and their status for a given Synthetic test.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @return ApiResponse&lt;SyntheticsTestParentSuitesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsTestParentSuitesResponse> getTestParentSuitesWithHttpInfo(
+      String publicId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling getTestParentSuites");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/parent-suites"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.getTestParentSuites",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestParentSuitesResponse>() {});
+  }
+
+  /**
+   * Get parent suites for a test.
+   *
+   * <p>See {@link #getTestParentSuitesWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsTestParentSuitesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsTestParentSuitesResponse>>
+      getTestParentSuitesWithHttpInfoAsync(String publicId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestParentSuitesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'publicId' when calling getTestParentSuites"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/parent-suites"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.getTestParentSuites",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsTestParentSuitesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestParentSuitesResponse>() {});
+  }
+
+  /** Manage optional parameters to listSyntheticsTestVersions. */
+  public static class ListSyntheticsTestVersionsOptionalParameters {
+    private Long lastVersionNumber;
+    private Long limit;
+
+    /**
+     * Set lastVersionNumber.
+     *
+     * @param lastVersionNumber The version number of the last item from the previous page. Omit to
+     *     get the first page. (optional)
+     * @return ListSyntheticsTestVersionsOptionalParameters
+     */
+    public ListSyntheticsTestVersionsOptionalParameters lastVersionNumber(Long lastVersionNumber) {
+      this.lastVersionNumber = lastVersionNumber;
+      return this;
+    }
+
+    /**
+     * Set limit.
+     *
+     * @param limit Maximum number of version records to return per page. (optional)
+     * @return ListSyntheticsTestVersionsOptionalParameters
+     */
+    public ListSyntheticsTestVersionsOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+  }
+
+  /**
+   * Get version history of a test.
+   *
+   * <p>See {@link #listSyntheticsTestVersionsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @return SyntheticsTestVersionHistoryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestVersionHistoryResponse listSyntheticsTestVersions(String publicId)
+      throws ApiException {
+    return listSyntheticsTestVersionsWithHttpInfo(
+            publicId, new ListSyntheticsTestVersionsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get version history of a test.
+   *
+   * <p>See {@link #listSyntheticsTestVersionsWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @return CompletableFuture&lt;SyntheticsTestVersionHistoryResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestVersionHistoryResponse> listSyntheticsTestVersionsAsync(
+      String publicId) {
+    return listSyntheticsTestVersionsWithHttpInfoAsync(
+            publicId, new ListSyntheticsTestVersionsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get version history of a test.
+   *
+   * <p>See {@link #listSyntheticsTestVersionsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SyntheticsTestVersionHistoryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestVersionHistoryResponse listSyntheticsTestVersions(
+      String publicId, ListSyntheticsTestVersionsOptionalParameters parameters)
+      throws ApiException {
+    return listSyntheticsTestVersionsWithHttpInfo(publicId, parameters).getData();
+  }
+
+  /**
+   * Get version history of a test.
+   *
+   * <p>See {@link #listSyntheticsTestVersionsWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SyntheticsTestVersionHistoryResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestVersionHistoryResponse> listSyntheticsTestVersionsAsync(
+      String publicId, ListSyntheticsTestVersionsOptionalParameters parameters) {
+    return listSyntheticsTestVersionsWithHttpInfoAsync(publicId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the paginated version history for a Synthetic test.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SyntheticsTestVersionHistoryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsTestVersionHistoryResponse> listSyntheticsTestVersionsWithHttpInfo(
+      String publicId, ListSyntheticsTestVersionsOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling listSyntheticsTestVersions");
+    }
+    Long lastVersionNumber = parameters.lastVersionNumber;
+    Long limit = parameters.limit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/version_history"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "last_version_number", lastVersionNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.listSyntheticsTestVersions",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestVersionHistoryResponse>() {});
+  }
+
+  /**
+   * Get version history of a test.
+   *
+   * <p>See {@link #listSyntheticsTestVersionsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsTestVersionHistoryResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsTestVersionHistoryResponse>>
+      listSyntheticsTestVersionsWithHttpInfoAsync(
+          String publicId, ListSyntheticsTestVersionsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestVersionHistoryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling listSyntheticsTestVersions"));
+      return result;
+    }
+    Long lastVersionNumber = parameters.lastVersionNumber;
+    Long limit = parameters.limit;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/version_history"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "last_version_number", lastVersionNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.listSyntheticsTestVersions",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsTestVersionHistoryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestVersionHistoryResponse>() {});
+  }
+
   /**
    * Patch a global variable.
    *
@@ -1411,6 +2320,167 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<GlobalVariableResponse>() {});
+  }
+
+  /**
+   * Patch a test suite.
+   *
+   * <p>See {@link #patchTestSuiteWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test suite to patch. (required)
+   * @param body JSON Patch document with operations to apply. (required)
+   * @return SyntheticsSuiteResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsSuiteResponse patchTestSuite(String publicId, SuiteJsonPatchRequest body)
+      throws ApiException {
+    return patchTestSuiteWithHttpInfo(publicId, body).getData();
+  }
+
+  /**
+   * Patch a test suite.
+   *
+   * <p>See {@link #patchTestSuiteWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test suite to patch. (required)
+   * @param body JSON Patch document with operations to apply. (required)
+   * @return CompletableFuture&lt;SyntheticsSuiteResponse&gt;
+   */
+  public CompletableFuture<SyntheticsSuiteResponse> patchTestSuiteAsync(
+      String publicId, SuiteJsonPatchRequest body) {
+    return patchTestSuiteWithHttpInfoAsync(publicId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Patch a Synthetic test suite using JSON Patch (RFC 6902). Use partial updates to modify only
+   * specific fields of a test suite.
+   *
+   * <p>Common operations include: - Replace field values: <code>
+   * {"op": "replace", "path": "/name", "value": "new_name"}</code> - Add/update tags: <code>
+   * {"op": "add", "path": "/tags/-", "value": "new_tag"}</code> - Remove fields: <code>
+   * {"op": "remove", "path": "/message"}</code>
+   *
+   * @param publicId The public ID of the Synthetic test suite to patch. (required)
+   * @param body JSON Patch document with operations to apply. (required)
+   * @return ApiResponse&lt;SyntheticsSuiteResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsSuiteResponse> patchTestSuiteWithHttpInfo(
+      String publicId, SuiteJsonPatchRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling patchTestSuite");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling patchTestSuite");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/suites/{public_id}/jsonpatch"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.patchTestSuite",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsSuiteResponse>() {});
+  }
+
+  /**
+   * Patch a test suite.
+   *
+   * <p>See {@link #patchTestSuiteWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test suite to patch. (required)
+   * @param body JSON Patch document with operations to apply. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsSuiteResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsSuiteResponse>> patchTestSuiteWithHttpInfoAsync(
+      String publicId, SuiteJsonPatchRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsSuiteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'publicId' when calling patchTestSuite"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SyntheticsSuiteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling patchTestSuite"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/suites/{public_id}/jsonpatch"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.patchTestSuite",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsSuiteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsSuiteResponse>() {});
   }
 
   /** Manage optional parameters to searchSuites. */
