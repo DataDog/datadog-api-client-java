@@ -1,0 +1,108 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-5e060b20bd1650cf\",\"name\":\"test-name-5e060b20bd1650cf\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"250b46bc-90c5-4464-8a8f-bf261f788495\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":1,\"created_at\":\"2026-03-27T09:21:20.252382+00:00\",\"description\":null,\"handle\":\"test-handle-5e060b20bd1650cf\",\"hidden_modules\":null,\"is_managed\":false,\"link_count\":0,\"modified_at\":\"2026-03-27T09:21:20.252382+00:00\",\"name\":\"test-name-5e060b20bd1650cf\",\"summary\":null,\"user_count\":0,\"visible_modules\":null},\"relationships\":{\"team_links\":{\"data\":[],\"links\":{\"related\":\"/api/v2/team/250b46bc-90c5-4464-8a8f-bf261f788495/links\"}},\"user_team_permissions\":{\"data\":null,\"links\":{\"related\":\"/api/v2/team/250b46bc-90c5-4464-8a8f-bf261f788495/permission-settings\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "eaf61c66-335b-8bb1-ee20-f41cc75976ec"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"250b46bc-90c5-4464-8a8f-bf261f788495\",\"type\":\"team\"}}},\"type\":\"team_connection\"}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team/connections",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"51323b02-29be-11f1-ad4d-da7ad0900002\",\"type\":\"team_connection\",\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"250b46bc-90c5-4464-8a8f-bf261f788495\",\"type\":\"team\"}}}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6ad04942-c102-ae9c-8a78-f6a5bf5d0640"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"id\":\"51323b02-29be-11f1-ad4d-da7ad0900002\",\"type\":\"team_connection\"}]}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/connections",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b11409d6-e742-a216-8db8-78bb47ce709d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/250b46bc-90c5-4464-8a8f-bf261f788495",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "044c1651-7ea8-ce16-0ec7-b6141a1b1789"
+  }
+]

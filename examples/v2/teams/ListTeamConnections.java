@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.TeamsApi;
+import com.datadog.api.client.v2.api.TeamsApi.ListTeamConnectionsOptionalParameters;
 import com.datadog.api.client.v2.model.TeamConnectionsResponse;
 
 public class Example {
@@ -11,7 +12,9 @@ public class Example {
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
     try {
-      TeamConnectionsResponse result = apiInstance.listTeamConnections();
+      TeamConnectionsResponse result =
+          apiInstance.listTeamConnections(
+              new ListTeamConnectionsOptionalParameters().pageSize(10L));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamsApi#listTeamConnections");

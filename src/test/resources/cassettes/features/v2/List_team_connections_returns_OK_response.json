@@ -1,0 +1,114 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-48ce99925c887f33\",\"name\":\"test-name-48ce99925c887f33\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"f520e86b-5137-461d-b054-5b454d7135c4\",\"type\":\"team\",\"attributes\":{\"avatar\":null,\"banner\":4,\"created_at\":\"2026-03-27T09:09:50.012362+00:00\",\"description\":null,\"handle\":\"test-handle-48ce99925c887f33\",\"hidden_modules\":null,\"is_managed\":false,\"link_count\":0,\"modified_at\":\"2026-03-27T09:09:50.012363+00:00\",\"name\":\"test-name-48ce99925c887f33\",\"summary\":null,\"user_count\":0,\"visible_modules\":null},\"relationships\":{\"team_links\":{\"data\":[],\"links\":{\"related\":\"/api/v2/team/f520e86b-5137-461d-b054-5b454d7135c4/links\"}},\"user_team_permissions\":{\"data\":null,\"links\":{\"related\":\"/api/v2/team/f520e86b-5137-461d-b054-5b454d7135c4/permission-settings\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3ef98988-938c-052d-7fb8-a4ece9f610ee"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"f520e86b-5137-461d-b054-5b454d7135c4\",\"type\":\"team\"}}},\"type\":\"team_connection\"}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team/connections",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"b5c56780-29bc-11f1-b3d1-da7ad0900002\",\"type\":\"team_connection\",\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"f520e86b-5137-461d-b054-5b454d7135c4\",\"type\":\"team\"}}}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5f55b057-37ac-9ef5-ef8b-f7cd1f4057ce"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/team/connections",
+      "queryStringParameters": {
+        "page[size]": [
+          "10"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"52a55816-291e-11f1-be93-da7ad0900002\",\"type\":\"team_connection\",\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"0a81a948-5ee2-4790-b855-8817a21ccf1e\",\"type\":\"team\"}}}},{\"id\":\"52df3810-291e-11f1-b8ea-da7ad0900002\",\"type\":\"team_connection\",\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"a9d786f4-447a-4a3b-9505-882df3f1d7e4\",\"type\":\"team\"}}}},{\"id\":\"53407c2e-291e-11f1-af9c-da7ad0900002\",\"type\":\"team_connection\",\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"48f1089c-a1ee-4039-8b9d-59a512010d89\",\"type\":\"team\"}}}},{\"id\":\"53722ae4-291e-11f1-be97-da7ad0900002\",\"type\":\"team_connection\",\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"27c3acd0-4eeb-459c-9dbf-2f61263c8387\",\"type\":\"team\"}}}},{\"id\":\"4f642338-28f8-11f1-8cc3-da7ad0900002\",\"type\":\"team_connection\",\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"52b98022-50b0-42b5-8d59-f8f8a809027e\",\"type\":\"team\"}}}},{\"id\":\"b5c56780-29bc-11f1-b3d1-da7ad0900002\",\"type\":\"team_connection\",\"attributes\":{\"managed_by\":\"datadog\",\"source\":\"github\"},\"relationships\":{\"connected_team\":{\"data\":{\"id\":\"@MyGitHubAccount/my-team-name\",\"type\":\"github_team\"}},\"team\":{\"data\":{\"id\":\"f520e86b-5137-461d-b054-5b454d7135c4\",\"type\":\"team\"}}}}],\"meta\":{\"page\":{\"type\":\"number_size\",\"number\":0,\"size\":10,\"total\":6,\"first_number\":0,\"prev_number\":null,\"next_number\":null,\"last_number\":0}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "28064af6-8bf3-e2d3-4fd8-c7a1226e6f25"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/f520e86b-5137-461d-b054-5b454d7135c4",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1441d0ed-a4a4-a8da-291d-7d68b2eb7c6f"
+  }
+]
