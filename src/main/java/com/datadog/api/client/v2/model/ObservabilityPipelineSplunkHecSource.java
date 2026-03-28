@@ -25,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_ADDRESS_KEY,
   ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_ID,
+  ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_STORE_HEC_TOKEN,
   ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_TLS,
   ObservabilityPipelineSplunkHecSource.JSON_PROPERTY_TYPE
 })
@@ -37,6 +38,9 @@ public class ObservabilityPipelineSplunkHecSource {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_STORE_HEC_TOKEN = "store_hec_token";
+  private Boolean storeHecToken = false;
 
   public static final String JSON_PROPERTY_TLS = "tls";
   private ObservabilityPipelineTls tls;
@@ -97,6 +101,29 @@ public class ObservabilityPipelineSplunkHecSource {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public ObservabilityPipelineSplunkHecSource storeHecToken(Boolean storeHecToken) {
+    this.storeHecToken = storeHecToken;
+    return this;
+  }
+
+  /**
+   * If <code>true</code>, the HEC token is stored in the event's metadata and made available to the
+   * Enrichment Table processor and the <code>splunk_hec</code> destination for routing or
+   * enrichment based on the token. Defaults to <code>false</code>.
+   *
+   * @return storeHecToken
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STORE_HEC_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getStoreHecToken() {
+    return storeHecToken;
+  }
+
+  public void setStoreHecToken(Boolean storeHecToken) {
+    this.storeHecToken = storeHecToken;
   }
 
   public ObservabilityPipelineSplunkHecSource tls(ObservabilityPipelineTls tls) {
@@ -204,6 +231,7 @@ public class ObservabilityPipelineSplunkHecSource {
         (ObservabilityPipelineSplunkHecSource) o;
     return Objects.equals(this.addressKey, observabilityPipelineSplunkHecSource.addressKey)
         && Objects.equals(this.id, observabilityPipelineSplunkHecSource.id)
+        && Objects.equals(this.storeHecToken, observabilityPipelineSplunkHecSource.storeHecToken)
         && Objects.equals(this.tls, observabilityPipelineSplunkHecSource.tls)
         && Objects.equals(this.type, observabilityPipelineSplunkHecSource.type)
         && Objects.equals(
@@ -212,7 +240,7 @@ public class ObservabilityPipelineSplunkHecSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressKey, id, tls, type, additionalProperties);
+    return Objects.hash(addressKey, id, storeHecToken, tls, type, additionalProperties);
   }
 
   @Override
@@ -221,6 +249,7 @@ public class ObservabilityPipelineSplunkHecSource {
     sb.append("class ObservabilityPipelineSplunkHecSource {\n");
     sb.append("    addressKey: ").append(toIndentedString(addressKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    storeHecToken: ").append(toIndentedString(storeHecToken)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
