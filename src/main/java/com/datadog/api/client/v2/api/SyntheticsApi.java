@@ -21,6 +21,12 @@ import com.datadog.api.client.v2.model.SyntheticsNetworkTestEditRequest;
 import com.datadog.api.client.v2.model.SyntheticsNetworkTestResponse;
 import com.datadog.api.client.v2.model.SyntheticsSuiteResponse;
 import com.datadog.api.client.v2.model.SyntheticsSuiteSearchResponse;
+import com.datadog.api.client.v2.model.SyntheticsTestFileAbortMultipartUploadRequest;
+import com.datadog.api.client.v2.model.SyntheticsTestFileCompleteMultipartUploadRequest;
+import com.datadog.api.client.v2.model.SyntheticsTestFileDownloadRequest;
+import com.datadog.api.client.v2.model.SyntheticsTestFileDownloadResponse;
+import com.datadog.api.client.v2.model.SyntheticsTestFileMultipartPresignedUrlsRequest;
+import com.datadog.api.client.v2.model.SyntheticsTestFileMultipartPresignedUrlsResponse;
 import com.datadog.api.client.v2.model.SyntheticsTestParentSuitesResponse;
 import com.datadog.api.client.v2.model.SyntheticsTestVersionHistoryResponse;
 import com.datadog.api.client.v2.model.SyntheticsTestVersionResponse;
@@ -61,6 +67,330 @@ public class SyntheticsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Abort a multipart upload of a test file.
+   *
+   * <p>See {@link #abortTestFileMultipartUploadWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void abortTestFileMultipartUpload(
+      String publicId, SyntheticsTestFileAbortMultipartUploadRequest body) throws ApiException {
+    abortTestFileMultipartUploadWithHttpInfo(publicId, body);
+  }
+
+  /**
+   * Abort a multipart upload of a test file.
+   *
+   * <p>See {@link #abortTestFileMultipartUploadWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> abortTestFileMultipartUploadAsync(
+      String publicId, SyntheticsTestFileAbortMultipartUploadRequest body) {
+    return abortTestFileMultipartUploadWithHttpInfoAsync(publicId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Abort an in-progress multipart file upload for a Synthetic test. This cancels the upload and
+   * releases any storage used by already-uploaded parts.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> abortTestFileMultipartUploadWithHttpInfo(
+      String publicId, SyntheticsTestFileAbortMultipartUploadRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'publicId' when calling abortTestFileMultipartUpload");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling abortTestFileMultipartUpload");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/files/multipart-upload-abort"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.abortTestFileMultipartUpload",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Abort a multipart upload of a test file.
+   *
+   * <p>See {@link #abortTestFileMultipartUploadWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> abortTestFileMultipartUploadWithHttpInfoAsync(
+      String publicId, SyntheticsTestFileAbortMultipartUploadRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling"
+                  + " abortTestFileMultipartUpload"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling abortTestFileMultipartUpload"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/files/multipart-upload-abort"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.abortTestFileMultipartUpload",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Complete a multipart upload of a test file.
+   *
+   * <p>See {@link #completeTestFileMultipartUploadWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void completeTestFileMultipartUpload(
+      String publicId, SyntheticsTestFileCompleteMultipartUploadRequest body) throws ApiException {
+    completeTestFileMultipartUploadWithHttpInfo(publicId, body);
+  }
+
+  /**
+   * Complete a multipart upload of a test file.
+   *
+   * <p>See {@link #completeTestFileMultipartUploadWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> completeTestFileMultipartUploadAsync(
+      String publicId, SyntheticsTestFileCompleteMultipartUploadRequest body) {
+    return completeTestFileMultipartUploadWithHttpInfoAsync(publicId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Complete a multipart file upload for a Synthetic test. Call this endpoint after all parts have
+   * been uploaded using the presigned URLs obtained from the multipart presigned URLs endpoint.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> completeTestFileMultipartUploadWithHttpInfo(
+      String publicId, SyntheticsTestFileCompleteMultipartUploadRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'publicId' when calling completeTestFileMultipartUpload");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling completeTestFileMultipartUpload");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/files/multipart-upload-complete"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.completeTestFileMultipartUpload",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Complete a multipart upload of a test file.
+   *
+   * <p>See {@link #completeTestFileMultipartUploadWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> completeTestFileMultipartUploadWithHttpInfoAsync(
+      String publicId, SyntheticsTestFileCompleteMultipartUploadRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling"
+                  + " completeTestFileMultipartUpload"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " completeTestFileMultipartUpload"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/files/multipart-upload-complete"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.completeTestFileMultipartUpload",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -1793,6 +2123,342 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SyntheticsTestVersionResponse>() {});
+  }
+
+  /**
+   * Get a presigned URL for downloading a test file.
+   *
+   * <p>See {@link #getTestFileDownloadUrlWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return SyntheticsTestFileDownloadResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestFileDownloadResponse getTestFileDownloadUrl(
+      String publicId, SyntheticsTestFileDownloadRequest body) throws ApiException {
+    return getTestFileDownloadUrlWithHttpInfo(publicId, body).getData();
+  }
+
+  /**
+   * Get a presigned URL for downloading a test file.
+   *
+   * <p>See {@link #getTestFileDownloadUrlWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SyntheticsTestFileDownloadResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestFileDownloadResponse> getTestFileDownloadUrlAsync(
+      String publicId, SyntheticsTestFileDownloadRequest body) {
+    return getTestFileDownloadUrlWithHttpInfoAsync(publicId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a presigned URL to download a file attached to a Synthetic test. The returned URL is
+   * temporary and expires after a short period.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;SyntheticsTestFileDownloadResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsTestFileDownloadResponse> getTestFileDownloadUrlWithHttpInfo(
+      String publicId, SyntheticsTestFileDownloadRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling getTestFileDownloadUrl");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling getTestFileDownloadUrl");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/files/download"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.getTestFileDownloadUrl",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestFileDownloadResponse>() {});
+  }
+
+  /**
+   * Get a presigned URL for downloading a test file.
+   *
+   * <p>See {@link #getTestFileDownloadUrlWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsTestFileDownloadResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsTestFileDownloadResponse>>
+      getTestFileDownloadUrlWithHttpInfoAsync(
+          String publicId, SyntheticsTestFileDownloadRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestFileDownloadResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling getTestFileDownloadUrl"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestFileDownloadResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling getTestFileDownloadUrl"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/files/download"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.getTestFileDownloadUrl",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsTestFileDownloadResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestFileDownloadResponse>() {});
+  }
+
+  /**
+   * Get presigned URLs for uploading a test file.
+   *
+   * <p>See {@link #getTestFileMultipartPresignedUrlsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return SyntheticsTestFileMultipartPresignedUrlsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestFileMultipartPresignedUrlsResponse getTestFileMultipartPresignedUrls(
+      String publicId, SyntheticsTestFileMultipartPresignedUrlsRequest body) throws ApiException {
+    return getTestFileMultipartPresignedUrlsWithHttpInfo(publicId, body).getData();
+  }
+
+  /**
+   * Get presigned URLs for uploading a test file.
+   *
+   * <p>See {@link #getTestFileMultipartPresignedUrlsWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SyntheticsTestFileMultipartPresignedUrlsResponse&gt;
+   */
+  public CompletableFuture<SyntheticsTestFileMultipartPresignedUrlsResponse>
+      getTestFileMultipartPresignedUrlsAsync(
+          String publicId, SyntheticsTestFileMultipartPresignedUrlsRequest body) {
+    return getTestFileMultipartPresignedUrlsWithHttpInfoAsync(publicId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get presigned URLs for uploading a file to a Synthetic test using multipart upload. Returns the
+   * presigned URLs for each part along with the bucket key that references the file.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;SyntheticsTestFileMultipartPresignedUrlsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsTestFileMultipartPresignedUrlsResponse>
+      getTestFileMultipartPresignedUrlsWithHttpInfo(
+          String publicId, SyntheticsTestFileMultipartPresignedUrlsRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'publicId' when calling"
+              + " getTestFileMultipartPresignedUrls");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling getTestFileMultipartPresignedUrls");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/files/multipart-presigned-urls"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SyntheticsApi.getTestFileMultipartPresignedUrls",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestFileMultipartPresignedUrlsResponse>() {});
+  }
+
+  /**
+   * Get presigned URLs for uploading a test file.
+   *
+   * <p>See {@link #getTestFileMultipartPresignedUrlsWithHttpInfo}.
+   *
+   * @param publicId The public ID of the Synthetic test. (required)
+   * @param body (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SyntheticsTestFileMultipartPresignedUrlsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsTestFileMultipartPresignedUrlsResponse>>
+      getTestFileMultipartPresignedUrlsWithHttpInfoAsync(
+          String publicId, SyntheticsTestFileMultipartPresignedUrlsRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestFileMultipartPresignedUrlsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'publicId' when calling"
+                  + " getTestFileMultipartPresignedUrls"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestFileMultipartPresignedUrlsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " getTestFileMultipartPresignedUrls"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/synthetics/tests/{public_id}/files/multipart-presigned-urls"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SyntheticsApi.getTestFileMultipartPresignedUrls",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsTestFileMultipartPresignedUrlsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestFileMultipartPresignedUrlsResponse>() {});
   }
 
   /**
