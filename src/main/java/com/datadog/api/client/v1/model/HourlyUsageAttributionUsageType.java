@@ -111,6 +111,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "sca_fargate_usage",
               "sds_scanned_bytes_usage",
               "serverless_apps_usage",
+              "serverless_apps_apm_usage",
               "siem_analyzed_logs_add_on_usage",
               "siem_ingested_bytes_usage",
               "snmp_usage",
@@ -277,6 +278,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("sds_scanned_bytes_usage");
   public static final HourlyUsageAttributionUsageType SERVERLESS_APPS_USAGE =
       new HourlyUsageAttributionUsageType("serverless_apps_usage");
+  public static final HourlyUsageAttributionUsageType SERVERLESS_APPS_APM_USAGE =
+      new HourlyUsageAttributionUsageType("serverless_apps_apm_usage");
   public static final HourlyUsageAttributionUsageType SIEM_ANALYZED_LOGS_ADD_ON_USAGE =
       new HourlyUsageAttributionUsageType("siem_analyzed_logs_add_on_usage");
   public static final HourlyUsageAttributionUsageType SIEM_INGESTED_BYTES_USAGE =
