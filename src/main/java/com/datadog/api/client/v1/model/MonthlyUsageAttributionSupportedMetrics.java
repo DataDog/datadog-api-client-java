@@ -102,6 +102,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "incident_management_monthly_active_users_percentage",
               "infra_host_usage",
               "infra_host_percentage",
+              "infra_host_basic_usage",
+              "infra_host_basic_percentage",
               "invocations_usage",
               "invocations_percentage",
               "lambda_traced_invocations_usage",
@@ -342,6 +344,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("infra_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics INFRA_HOST_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("infra_host_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics INFRA_HOST_BASIC_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("infra_host_basic_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics INFRA_HOST_BASIC_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("infra_host_basic_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics INVOCATIONS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("invocations_usage");
   public static final MonthlyUsageAttributionSupportedMetrics INVOCATIONS_PERCENTAGE =

@@ -88,10 +88,13 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_DBM_HOST_TOP99P_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_DBM_QUERIES_AVG_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_EPH_INFRA_BASIC_AGENT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_EPH_INFRA_BASIC_VSPHERE_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_EPH_INFRA_HOST_AWS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_EPH_INFRA_HOST_AZURE_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_EPH_INFRA_HOST_BASIC_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_EPH_INFRA_HOST_ENT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_EPH_INFRA_HOST_GCP_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_EPH_INFRA_HOST_HEROKU_SUM,
@@ -129,7 +132,10 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_INCIDENT_MANAGEMENT_SEATS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_BASIC_AGENT_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_BASIC_VSPHERE_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INFRA_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_AGG_SUM,
@@ -496,6 +502,13 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_DBM_QUERIES_AVG_SUM = "dbm_queries_avg_sum";
   private Long dbmQueriesAvgSum;
 
+  public static final String JSON_PROPERTY_EPH_INFRA_BASIC_AGENT_SUM = "eph_infra_basic_agent_sum";
+  private Long ephInfraBasicAgentSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_BASIC_VSPHERE_SUM =
+      "eph_infra_basic_vsphere_sum";
+  private Long ephInfraBasicVsphereSum;
+
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM = "eph_infra_host_agent_sum";
   private Long ephInfraHostAgentSum;
 
@@ -508,6 +521,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_AZURE_SUM = "eph_infra_host_azure_sum";
   private Long ephInfraHostAzureSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_BASIC_SUM = "eph_infra_host_basic_sum";
+  private Long ephInfraHostBasicSum;
 
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_ENT_SUM = "eph_infra_host_ent_sum";
   private Long ephInfraHostEntSum;
@@ -645,9 +661,20 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM = "indexed_events_count_sum";
   private Long indexedEventsCountSum;
 
+  public static final String JSON_PROPERTY_INFRA_BASIC_AGENT_HOST_TOP99P =
+      "infra_basic_agent_host_top99p";
+  private Long infraBasicAgentHostTop99p;
+
+  public static final String JSON_PROPERTY_INFRA_BASIC_VSPHERE_HOST_TOP99P =
+      "infra_basic_vsphere_host_top99p";
+  private Long infraBasicVsphereHostTop99p;
+
   public static final String JSON_PROPERTY_INFRA_EDGE_MONITORING_DEVICES_TOP99P =
       "infra_edge_monitoring_devices_top99p";
   private Long infraEdgeMonitoringDevicesTop99p;
+
+  public static final String JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P = "infra_host_basic_top99p";
+  private Long infraHostBasicTop99p;
 
   public static final String JSON_PROPERTY_INFRA_HOST_TOP99P = "infra_host_top99p";
   private Long infraHostTop99p;
@@ -2628,6 +2655,50 @@ public class UsageSummaryDateOrg {
     this.dbmQueriesAvgSum = dbmQueriesAvgSum;
   }
 
+  public UsageSummaryDateOrg ephInfraBasicAgentSum(Long ephInfraBasicAgentSum) {
+    this.ephInfraBasicAgentSum = ephInfraBasicAgentSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Basic with the Datadog Agent over all
+   * hours in the current date for the given org.
+   *
+   * @return ephInfraBasicAgentSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_BASIC_AGENT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraBasicAgentSum() {
+    return ephInfraBasicAgentSum;
+  }
+
+  public void setEphInfraBasicAgentSum(Long ephInfraBasicAgentSum) {
+    this.ephInfraBasicAgentSum = ephInfraBasicAgentSum;
+  }
+
+  public UsageSummaryDateOrg ephInfraBasicVsphereSum(Long ephInfraBasicVsphereSum) {
+    this.ephInfraBasicVsphereSum = ephInfraBasicVsphereSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Basic on vSphere over all hours in the
+   * current date for the given org.
+   *
+   * @return ephInfraBasicVsphereSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_BASIC_VSPHERE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraBasicVsphereSum() {
+    return ephInfraBasicVsphereSum;
+  }
+
+  public void setEphInfraBasicVsphereSum(Long ephInfraBasicVsphereSum) {
+    this.ephInfraBasicVsphereSum = ephInfraBasicVsphereSum;
+  }
+
   public UsageSummaryDateOrg ephInfraHostAgentSum(Long ephInfraHostAgentSum) {
     this.ephInfraHostAgentSum = ephInfraHostAgentSum;
     return this;
@@ -2714,6 +2785,28 @@ public class UsageSummaryDateOrg {
 
   public void setEphInfraHostAzureSum(Long ephInfraHostAzureSum) {
     this.ephInfraHostAzureSum = ephInfraHostAzureSum;
+  }
+
+  public UsageSummaryDateOrg ephInfraHostBasicSum(Long ephInfraHostBasicSum) {
+    this.ephInfraHostBasicSum = ephInfraHostBasicSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Basic over all hours in the current
+   * date for the given org.
+   *
+   * @return ephInfraHostBasicSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_BASIC_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostBasicSum() {
+    return ephInfraHostBasicSum;
+  }
+
+  public void setEphInfraHostBasicSum(Long ephInfraHostBasicSum) {
+    this.ephInfraHostBasicSum = ephInfraHostBasicSum;
   }
 
   public UsageSummaryDateOrg ephInfraHostEntSum(Long ephInfraHostEntSum) {
@@ -3549,6 +3642,50 @@ public class UsageSummaryDateOrg {
     this.indexedEventsCountSum = indexedEventsCountSum;
   }
 
+  public UsageSummaryDateOrg infraBasicAgentHostTop99p(Long infraBasicAgentHostTop99p) {
+    this.infraBasicAgentHostTop99p = infraBasicAgentHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all distinct infrastructure hosts for Basic with the Datadog Agent
+   * over all hours in the current date for the given org.
+   *
+   * @return infraBasicAgentHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_BASIC_AGENT_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraBasicAgentHostTop99p() {
+    return infraBasicAgentHostTop99p;
+  }
+
+  public void setInfraBasicAgentHostTop99p(Long infraBasicAgentHostTop99p) {
+    this.infraBasicAgentHostTop99p = infraBasicAgentHostTop99p;
+  }
+
+  public UsageSummaryDateOrg infraBasicVsphereHostTop99p(Long infraBasicVsphereHostTop99p) {
+    this.infraBasicVsphereHostTop99p = infraBasicVsphereHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all distinct infrastructure hosts for Basic on vSphere over all
+   * hours in the current date for the given org.
+   *
+   * @return infraBasicVsphereHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_BASIC_VSPHERE_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraBasicVsphereHostTop99p() {
+    return infraBasicVsphereHostTop99p;
+  }
+
+  public void setInfraBasicVsphereHostTop99p(Long infraBasicVsphereHostTop99p) {
+    this.infraBasicVsphereHostTop99p = infraBasicVsphereHostTop99p;
+  }
+
   public UsageSummaryDateOrg infraEdgeMonitoringDevicesTop99p(
       Long infraEdgeMonitoringDevicesTop99p) {
     this.infraEdgeMonitoringDevicesTop99p = infraEdgeMonitoringDevicesTop99p;
@@ -3570,6 +3707,28 @@ public class UsageSummaryDateOrg {
 
   public void setInfraEdgeMonitoringDevicesTop99p(Long infraEdgeMonitoringDevicesTop99p) {
     this.infraEdgeMonitoringDevicesTop99p = infraEdgeMonitoringDevicesTop99p;
+  }
+
+  public UsageSummaryDateOrg infraHostBasicTop99p(Long infraHostBasicTop99p) {
+    this.infraHostBasicTop99p = infraHostBasicTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all distinct infrastructure hosts for Basic over all hours in the
+   * current date for the given org.
+   *
+   * @return infraHostBasicTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_HOST_BASIC_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInfraHostBasicTop99p() {
+    return infraHostBasicTop99p;
+  }
+
+  public void setInfraHostBasicTop99p(Long infraHostBasicTop99p) {
+    this.infraHostBasicTop99p = infraHostBasicTop99p;
   }
 
   public UsageSummaryDateOrg infraHostTop99p(Long infraHostTop99p) {
@@ -6293,10 +6452,13 @@ public class UsageSummaryDateOrg {
             this.dataJobsMonitoringHostHrSum, usageSummaryDateOrg.dataJobsMonitoringHostHrSum)
         && Objects.equals(this.dbmHostTop99pSum, usageSummaryDateOrg.dbmHostTop99pSum)
         && Objects.equals(this.dbmQueriesAvgSum, usageSummaryDateOrg.dbmQueriesAvgSum)
+        && Objects.equals(this.ephInfraBasicAgentSum, usageSummaryDateOrg.ephInfraBasicAgentSum)
+        && Objects.equals(this.ephInfraBasicVsphereSum, usageSummaryDateOrg.ephInfraBasicVsphereSum)
         && Objects.equals(this.ephInfraHostAgentSum, usageSummaryDateOrg.ephInfraHostAgentSum)
         && Objects.equals(this.ephInfraHostAlibabaSum, usageSummaryDateOrg.ephInfraHostAlibabaSum)
         && Objects.equals(this.ephInfraHostAwsSum, usageSummaryDateOrg.ephInfraHostAwsSum)
         && Objects.equals(this.ephInfraHostAzureSum, usageSummaryDateOrg.ephInfraHostAzureSum)
+        && Objects.equals(this.ephInfraHostBasicSum, usageSummaryDateOrg.ephInfraHostBasicSum)
         && Objects.equals(this.ephInfraHostEntSum, usageSummaryDateOrg.ephInfraHostEntSum)
         && Objects.equals(this.ephInfraHostGcpSum, usageSummaryDateOrg.ephInfraHostGcpSum)
         && Objects.equals(this.ephInfraHostHerokuSum, usageSummaryDateOrg.ephInfraHostHerokuSum)
@@ -6361,8 +6523,13 @@ public class UsageSummaryDateOrg {
             this.incidentManagementSeatsHwm, usageSummaryDateOrg.incidentManagementSeatsHwm)
         && Objects.equals(this.indexedEventsCountSum, usageSummaryDateOrg.indexedEventsCountSum)
         && Objects.equals(
+            this.infraBasicAgentHostTop99p, usageSummaryDateOrg.infraBasicAgentHostTop99p)
+        && Objects.equals(
+            this.infraBasicVsphereHostTop99p, usageSummaryDateOrg.infraBasicVsphereHostTop99p)
+        && Objects.equals(
             this.infraEdgeMonitoringDevicesTop99p,
             usageSummaryDateOrg.infraEdgeMonitoringDevicesTop99p)
+        && Objects.equals(this.infraHostBasicTop99p, usageSummaryDateOrg.infraHostBasicTop99p)
         && Objects.equals(this.infraHostTop99p, usageSummaryDateOrg.infraHostTop99p)
         && Objects.equals(this.ingestedEventsBytesSum, usageSummaryDateOrg.ingestedEventsBytesSum)
         && Objects.equals(this.iotDeviceAggSum, usageSummaryDateOrg.iotDeviceAggSum)
@@ -6670,10 +6837,13 @@ public class UsageSummaryDateOrg {
         dataJobsMonitoringHostHrSum,
         dbmHostTop99pSum,
         dbmQueriesAvgSum,
+        ephInfraBasicAgentSum,
+        ephInfraBasicVsphereSum,
         ephInfraHostAgentSum,
         ephInfraHostAlibabaSum,
         ephInfraHostAwsSum,
         ephInfraHostAzureSum,
+        ephInfraHostBasicSum,
         ephInfraHostEntSum,
         ephInfraHostGcpSum,
         ephInfraHostHerokuSum,
@@ -6711,7 +6881,10 @@ public class UsageSummaryDateOrg {
         incidentManagementMonthlyActiveUsersHwm,
         incidentManagementSeatsHwm,
         indexedEventsCountSum,
+        infraBasicAgentHostTop99p,
+        infraBasicVsphereHostTop99p,
         infraEdgeMonitoringDevicesTop99p,
+        infraHostBasicTop99p,
         infraHostTop99p,
         ingestedEventsBytesSum,
         iotDeviceAggSum,
@@ -6991,6 +7164,12 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    dbmHostTop99pSum: ").append(toIndentedString(dbmHostTop99pSum)).append("\n");
     sb.append("    dbmQueriesAvgSum: ").append(toIndentedString(dbmQueriesAvgSum)).append("\n");
+    sb.append("    ephInfraBasicAgentSum: ")
+        .append(toIndentedString(ephInfraBasicAgentSum))
+        .append("\n");
+    sb.append("    ephInfraBasicVsphereSum: ")
+        .append(toIndentedString(ephInfraBasicVsphereSum))
+        .append("\n");
     sb.append("    ephInfraHostAgentSum: ")
         .append(toIndentedString(ephInfraHostAgentSum))
         .append("\n");
@@ -7000,6 +7179,9 @@ public class UsageSummaryDateOrg {
     sb.append("    ephInfraHostAwsSum: ").append(toIndentedString(ephInfraHostAwsSum)).append("\n");
     sb.append("    ephInfraHostAzureSum: ")
         .append(toIndentedString(ephInfraHostAzureSum))
+        .append("\n");
+    sb.append("    ephInfraHostBasicSum: ")
+        .append(toIndentedString(ephInfraHostBasicSum))
         .append("\n");
     sb.append("    ephInfraHostEntSum: ").append(toIndentedString(ephInfraHostEntSum)).append("\n");
     sb.append("    ephInfraHostGcpSum: ").append(toIndentedString(ephInfraHostGcpSum)).append("\n");
@@ -7096,8 +7278,17 @@ public class UsageSummaryDateOrg {
     sb.append("    indexedEventsCountSum: ")
         .append(toIndentedString(indexedEventsCountSum))
         .append("\n");
+    sb.append("    infraBasicAgentHostTop99p: ")
+        .append(toIndentedString(infraBasicAgentHostTop99p))
+        .append("\n");
+    sb.append("    infraBasicVsphereHostTop99p: ")
+        .append(toIndentedString(infraBasicVsphereHostTop99p))
+        .append("\n");
     sb.append("    infraEdgeMonitoringDevicesTop99p: ")
         .append(toIndentedString(infraEdgeMonitoringDevicesTop99p))
+        .append("\n");
+    sb.append("    infraHostBasicTop99p: ")
+        .append(toIndentedString(infraHostBasicTop99p))
         .append("\n");
     sb.append("    infraHostTop99p: ").append(toIndentedString(infraHostTop99p)).append("\n");
     sb.append("    ingestedEventsBytesSum: ")

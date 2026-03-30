@@ -92,6 +92,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INDEXED_SPANS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INDEXED_SPANS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_BASIC_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_BASIC_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INGESTED_LOGS_BYTES_PERCENTAGE,
@@ -435,6 +437,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_INDEXED_SPANS_USAGE = "indexed_spans_usage";
   private Double indexedSpansUsage;
+
+  public static final String JSON_PROPERTY_INFRA_HOST_BASIC_PERCENTAGE =
+      "infra_host_basic_percentage";
+  private Double infraHostBasicPercentage;
+
+  public static final String JSON_PROPERTY_INFRA_HOST_BASIC_USAGE = "infra_host_basic_usage";
+  private Double infraHostBasicUsage;
 
   public static final String JSON_PROPERTY_INFRA_HOST_PERCENTAGE = "infra_host_percentage";
   private Double infraHostPercentage;
@@ -2320,6 +2329,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setIndexedSpansUsage(Double indexedSpansUsage) {
     this.indexedSpansUsage = indexedSpansUsage;
+  }
+
+  public MonthlyUsageAttributionValues infraHostBasicPercentage(Double infraHostBasicPercentage) {
+    this.infraHostBasicPercentage = infraHostBasicPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of infrastructure host Basic usage by tag(s).
+   *
+   * @return infraHostBasicPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_HOST_BASIC_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getInfraHostBasicPercentage() {
+    return infraHostBasicPercentage;
+  }
+
+  public void setInfraHostBasicPercentage(Double infraHostBasicPercentage) {
+    this.infraHostBasicPercentage = infraHostBasicPercentage;
+  }
+
+  public MonthlyUsageAttributionValues infraHostBasicUsage(Double infraHostBasicUsage) {
+    this.infraHostBasicUsage = infraHostBasicUsage;
+    return this;
+  }
+
+  /**
+   * The infrastructure host Basic usage by tag(s).
+   *
+   * @return infraHostBasicUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFRA_HOST_BASIC_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getInfraHostBasicUsage() {
+    return infraHostBasicUsage;
+  }
+
+  public void setInfraHostBasicUsage(Double infraHostBasicUsage) {
+    this.infraHostBasicUsage = infraHostBasicUsage;
   }
 
   public MonthlyUsageAttributionValues infraHostPercentage(Double infraHostPercentage) {
@@ -4401,6 +4452,10 @@ public class MonthlyUsageAttributionValues {
             this.indexedSpansPercentage, monthlyUsageAttributionValues.indexedSpansPercentage)
         && Objects.equals(this.indexedSpansUsage, monthlyUsageAttributionValues.indexedSpansUsage)
         && Objects.equals(
+            this.infraHostBasicPercentage, monthlyUsageAttributionValues.infraHostBasicPercentage)
+        && Objects.equals(
+            this.infraHostBasicUsage, monthlyUsageAttributionValues.infraHostBasicUsage)
+        && Objects.equals(
             this.infraHostPercentage, monthlyUsageAttributionValues.infraHostPercentage)
         && Objects.equals(this.infraHostUsage, monthlyUsageAttributionValues.infraHostUsage)
         && Objects.equals(
@@ -4677,6 +4732,8 @@ public class MonthlyUsageAttributionValues {
         incidentManagementMonthlyActiveUsersUsage,
         indexedSpansPercentage,
         indexedSpansUsage,
+        infraHostBasicPercentage,
+        infraHostBasicUsage,
         infraHostPercentage,
         infraHostUsage,
         ingestedLogsBytesPercentage,
@@ -4940,6 +4997,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(indexedSpansPercentage))
         .append("\n");
     sb.append("    indexedSpansUsage: ").append(toIndentedString(indexedSpansUsage)).append("\n");
+    sb.append("    infraHostBasicPercentage: ")
+        .append(toIndentedString(infraHostBasicPercentage))
+        .append("\n");
+    sb.append("    infraHostBasicUsage: ")
+        .append(toIndentedString(infraHostBasicUsage))
+        .append("\n");
     sb.append("    infraHostPercentage: ")
         .append(toIndentedString(infraHostPercentage))
         .append("\n");
