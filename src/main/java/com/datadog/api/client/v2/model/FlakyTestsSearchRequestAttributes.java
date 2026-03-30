@@ -19,7 +19,6 @@ import java.util.Objects;
 /** Attributes for the flaky tests search request. */
 @JsonPropertyOrder({
   FlakyTestsSearchRequestAttributes.JSON_PROPERTY_FILTER,
-  FlakyTestsSearchRequestAttributes.JSON_PROPERTY_INCLUDE_HISTORY,
   FlakyTestsSearchRequestAttributes.JSON_PROPERTY_PAGE,
   FlakyTestsSearchRequestAttributes.JSON_PROPERTY_SORT
 })
@@ -29,9 +28,6 @@ public class FlakyTestsSearchRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
   private FlakyTestsSearchFilter filter;
-
-  public static final String JSON_PROPERTY_INCLUDE_HISTORY = "include_history";
-  private Boolean includeHistory = false;
 
   public static final String JSON_PROPERTY_PAGE = "page";
   private FlakyTestsSearchPageOptions page;
@@ -59,29 +55,6 @@ public class FlakyTestsSearchRequestAttributes {
 
   public void setFilter(FlakyTestsSearchFilter filter) {
     this.filter = filter;
-  }
-
-  public FlakyTestsSearchRequestAttributes includeHistory(Boolean includeHistory) {
-    this.includeHistory = includeHistory;
-    return this;
-  }
-
-  /**
-   * Whether to include the status change history for each flaky test in the response. When set to
-   * true, each test will include a <code>history</code> array with chronological status changes.
-   * Defaults to false.
-   *
-   * @return includeHistory
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDE_HISTORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIncludeHistory() {
-    return includeHistory;
-  }
-
-  public void setIncludeHistory(Boolean includeHistory) {
-    this.includeHistory = includeHistory;
   }
 
   public FlakyTestsSearchRequestAttributes page(FlakyTestsSearchPageOptions page) {
@@ -190,7 +163,6 @@ public class FlakyTestsSearchRequestAttributes {
     FlakyTestsSearchRequestAttributes flakyTestsSearchRequestAttributes =
         (FlakyTestsSearchRequestAttributes) o;
     return Objects.equals(this.filter, flakyTestsSearchRequestAttributes.filter)
-        && Objects.equals(this.includeHistory, flakyTestsSearchRequestAttributes.includeHistory)
         && Objects.equals(this.page, flakyTestsSearchRequestAttributes.page)
         && Objects.equals(this.sort, flakyTestsSearchRequestAttributes.sort)
         && Objects.equals(
@@ -199,7 +171,7 @@ public class FlakyTestsSearchRequestAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, includeHistory, page, sort, additionalProperties);
+    return Objects.hash(filter, page, sort, additionalProperties);
   }
 
   @Override
@@ -207,7 +179,6 @@ public class FlakyTestsSearchRequestAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class FlakyTestsSearchRequestAttributes {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
-    sb.append("    includeHistory: ").append(toIndentedString(includeHistory)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    additionalProperties: ")
