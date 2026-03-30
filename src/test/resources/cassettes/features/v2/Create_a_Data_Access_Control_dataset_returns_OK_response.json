@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Security Audit Dataset\",\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"],\"product_filters\":[{\"filters\":[\"@application.id:ABCD\"],\"product\":\"metrics\"}]},\"type\":\"dataset\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Security Audit DAC\",\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"],\"product_filters\":[{\"filters\":[\"@application.id:ABCD\"],\"product\":\"logs\"}]},\"type\":\"dataset\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"dataset\",\"id\":\"86f67664-8b7b-49ae-b671-919ebe11886c\",\"attributes\":{\"name\":\"Security Audit Dataset\",\"product_filters\":[{\"product\":\"metrics\",\"filters\":[\"@application.id:ABCD\"]}],\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"]}}}\n",
+      "body": "{\"data\":{\"type\":\"dataset\",\"id\":\"badc1f6e-ad2e-46f3-91bb-63af60d40b43\",\"attributes\":{\"name\":\"Security Audit DAC\",\"product_filters\":[{\"product\":\"logs\",\"filters\":[\"@application.id:ABCD\"]}],\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"]}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "32c558cf-4a2e-f914-f443-ab94000addce"
+    "id": "9afbe4de-1a01-2167-93a5-958a7f6a8091"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/datasets/86f67664-8b7b-49ae-b671-919ebe11886c",
+      "path": "/api/v2/datasets/badc1f6e-ad2e-46f3-91bb-63af60d40b43",
       "keepAlive": false,
       "secure": true
     },
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e15cf984-73c5-d05e-382b-a27da41631f3"
+    "id": "c29199a6-e3ef-4bc3-be2b-0dbc8b4ac123"
   }
 ]

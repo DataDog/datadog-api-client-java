@@ -815,11 +815,6 @@ public class ApiClient {
           put("v2.searchSecurityMonitoringHistsignals", false);
           put("v2.getCodeCoverageBranchSummary", false);
           put("v2.getCodeCoverageCommitSummary", false);
-          put("v2.createDataset", false);
-          put("v2.deleteDataset", false);
-          put("v2.getAllDatasets", false);
-          put("v2.getDataset", false);
-          put("v2.updateDataset", false);
           put("v2.cancelDataDeletionRequest", false);
           put("v2.createDataDeletionRequest", false);
           put("v2.getDataDeletionRequests", false);

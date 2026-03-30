@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Security Audit Dataset\",\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"],\"product_filters\":[{\"filters\":[\"@application.id:ABCD\"],\"product\":\"metrics\"}]},\"type\":\"dataset\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Security Audit DAC\",\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"],\"product_filters\":[{\"filters\":[\"@application.id:ABCD\"],\"product\":\"logs\"}]},\"type\":\"dataset\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"dataset\",\"id\":\"60ee6562-48f5-455f-bdb4-fd3f5f899978\",\"attributes\":{\"name\":\"Security Audit Dataset\",\"product_filters\":[{\"product\":\"metrics\",\"filters\":[\"@application.id:ABCD\"]}],\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"]}}}\n",
+      "body": "{\"data\":{\"type\":\"dataset\",\"id\":\"d7eacc0a-68a8-4511-8a9e-81c275a3cfc4\",\"attributes\":{\"name\":\"Security Audit DAC\",\"product_filters\":[{\"product\":\"logs\",\"filters\":[\"@application.id:ABCD\"]}],\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"]}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "32c558cf-4a2e-f914-f443-ab94000addcf"
+    "id": "9afbe4de-1a01-2167-93a5-958a7f6a8092"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/datasets/60ee6562-48f5-455f-bdb4-fd3f5f899978",
+      "path": "/api/v2/datasets/d7eacc0a-68a8-4511-8a9e-81c275a3cfc4",
       "keepAlive": false,
       "secure": true
     },
@@ -52,18 +52,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e6d82f13-5ad3-4466-edde-778425f3614b"
+    "id": "25f5bfcd-a85b-825f-1295-2b7da296afdb"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/datasets/60ee6562-48f5-455f-bdb4-fd3f5f899978",
+      "path": "/api/v2/datasets/d7eacc0a-68a8-4511-8a9e-81c275a3cfc4",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Invalid request: [DatasetNotFound] dataset \\\"60ee6562-48f5-455f-bdb4-fd3f5f899978\\\" not found\"]}\n",
+      "body": "{\"errors\":[\"Invalid request: [DatasetNotFound] dataset \\\"d7eacc0a-68a8-4511-8a9e-81c275a3cfc4\\\" not found\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e6d82f13-5ad3-4466-edde-778425f3614c"
+    "id": "25f5bfcd-a85b-825f-1295-2b7da296afdc"
   }
 ]

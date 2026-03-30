@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Security Audit Dataset\",\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"],\"product_filters\":[{\"filters\":[\"@application.id:ABCD\"],\"product\":\"metrics\"}]},\"type\":\"dataset\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Security Audit DAC\",\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"],\"product_filters\":[{\"filters\":[\"@application.id:ABCD\"],\"product\":\"logs\"}]},\"type\":\"dataset\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"dataset\",\"id\":\"9e576299-3cc1-4145-8aad-67a1ab914829\",\"attributes\":{\"name\":\"Security Audit Dataset\",\"product_filters\":[{\"product\":\"metrics\",\"filters\":[\"@application.id:ABCD\"]}],\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"]}}}\n",
+      "body": "{\"data\":{\"type\":\"dataset\",\"id\":\"ad02f467-8bdc-42d6-85b5-d538508741bc\",\"attributes\":{\"name\":\"Security Audit DAC\",\"product_filters\":[{\"product\":\"logs\",\"filters\":[\"@application.id:ABCD\"]}],\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"]}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "32c558cf-4a2e-f914-f443-ab94000addcd"
+    "id": "9afbe4de-1a01-2167-93a5-958a7f6a8090"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/datasets/9e576299-3cc1-4145-8aad-67a1ab914829",
+      "path": "/api/v2/datasets/ad02f467-8bdc-42d6-85b5-d538508741bc",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"dataset\",\"id\":\"9e576299-3cc1-4145-8aad-67a1ab914829\",\"attributes\":{\"name\":\"Security Audit Dataset\",\"product_filters\":[{\"product\":\"metrics\",\"filters\":[\"@application.id:ABCD\"]}],\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"]}}}\n",
+      "body": "{\"data\":{\"type\":\"dataset\",\"id\":\"ad02f467-8bdc-42d6-85b5-d538508741bc\",\"attributes\":{\"name\":\"Security Audit DAC\",\"product_filters\":[{\"product\":\"logs\",\"filters\":[\"@application.id:ABCD\"]}],\"principals\":[\"role:94172442-be03-11e9-a77a-3b7612558ac1\"]}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5f6432cf-6e61-c956-e2a5-7822c9c7a3ac"
+    "id": "fe1a484f-d6c5-d882-32b3-a96cdcf8c7d1"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/datasets/9e576299-3cc1-4145-8aad-67a1ab914829",
+      "path": "/api/v2/datasets/ad02f467-8bdc-42d6-85b5-d538508741bc",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "347efd06-18b8-98bd-c9c7-745a1d2f53cf"
+    "id": "ea381fb6-be6a-e0e2-1127-3919bcf9279c"
   }
 ]
