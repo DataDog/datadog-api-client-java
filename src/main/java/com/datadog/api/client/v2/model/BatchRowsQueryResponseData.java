@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for a batch rows query response. */
 @JsonPropertyOrder({
   BatchRowsQueryResponseData.JSON_PROPERTY_ID,
   BatchRowsQueryResponseData.JSON_PROPERTY_RELATIONSHIPS,
@@ -51,7 +51,7 @@ public class BatchRowsQueryResponseData {
   }
 
   /**
-   * Getid
+   * Unique identifier of the batch query.
    *
    * @return id
    */
@@ -74,7 +74,7 @@ public class BatchRowsQueryResponseData {
   }
 
   /**
-   * Getrelationships
+   * Relationships of the batch rows query response data.
    *
    * @return relationships
    */
