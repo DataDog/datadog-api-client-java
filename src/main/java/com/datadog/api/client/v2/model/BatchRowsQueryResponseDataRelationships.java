@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Relationships of the batch rows query response data. */
 @JsonPropertyOrder({BatchRowsQueryResponseDataRelationships.JSON_PROPERTY_ROWS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -33,7 +33,7 @@ public class BatchRowsQueryResponseDataRelationships {
   }
 
   /**
-   * Getrows
+   * Relationship data containing the list of matching rows.
    *
    * @return rows
    */

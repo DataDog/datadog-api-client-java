@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Data object for a batch rows query request. */
 @JsonPropertyOrder({
   BatchRowsQueryRequestData.JSON_PROPERTY_ATTRIBUTES,
   BatchRowsQueryRequestData.JSON_PROPERTY_TYPE
@@ -48,7 +48,7 @@ public class BatchRowsQueryRequestData {
   }
 
   /**
-   * Getattributes
+   * Attributes for a batch rows query request.
    *
    * @return attributes
    */

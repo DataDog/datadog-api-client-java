@@ -32,7 +32,7 @@ public class EnvironmentsPaginationMeta {
   }
 
   /**
-   * Getpage
+   * Pagination metadata for environments list responses.
    *
    * @return page
    */

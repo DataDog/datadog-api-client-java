@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Pagination metadata for environments list responses. */
 @JsonPropertyOrder({
   EnvironmentsPaginationMetaPage.JSON_PROPERTY_TOTAL_COUNT,
   EnvironmentsPaginationMetaPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT

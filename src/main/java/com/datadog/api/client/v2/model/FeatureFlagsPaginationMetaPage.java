@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Pagination metadata for feature flags list responses. */
 @JsonPropertyOrder({
   FeatureFlagsPaginationMetaPage.JSON_PROPERTY_TOTAL_COUNT,
   FeatureFlagsPaginationMetaPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT

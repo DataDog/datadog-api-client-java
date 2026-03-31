@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Request object for querying multiple rows from a reference table by their identifiers. */
 @JsonPropertyOrder({BatchRowsQueryRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class BatchRowsQueryRequest {
   }
 
   /**
-   * Getdata
+   * Data object for a batch rows query request.
    *
    * @return data
    */

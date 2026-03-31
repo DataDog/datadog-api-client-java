@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Attributes for a batch rows query request. */
 @JsonPropertyOrder({
   BatchRowsQueryRequestDataAttributes.JSON_PROPERTY_ROW_IDS,
   BatchRowsQueryRequestDataAttributes.JSON_PROPERTY_TABLE_ID
@@ -55,7 +55,7 @@ public class BatchRowsQueryRequestDataAttributes {
   }
 
   /**
-   * GetrowIds
+   * List of row identifiers to query from the reference table.
    *
    * @return rowIds
    */
@@ -75,7 +75,7 @@ public class BatchRowsQueryRequestDataAttributes {
   }
 
   /**
-   * GettableId
+   * Unique identifier of the reference table to query.
    *
    * @return tableId
    */

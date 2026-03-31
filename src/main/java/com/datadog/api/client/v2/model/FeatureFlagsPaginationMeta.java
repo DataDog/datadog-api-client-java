@@ -32,7 +32,7 @@ public class FeatureFlagsPaginationMeta {
   }
 
   /**
-   * Getpage
+   * Pagination metadata for feature flags list responses.
    *
    * @return page
    */

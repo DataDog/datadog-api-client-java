@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Response object for a batch rows query against a reference table. */
 @JsonPropertyOrder({BatchRowsQueryResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class BatchRowsQueryResponse {
   }
 
   /**
-   * Getdata
+   * Data object for a batch rows query response.
    *
    * @return data
    */
