@@ -136,6 +136,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "published_app_percentage",
               "serverless_apps_usage",
               "serverless_apps_percentage",
+              "serverless_apps_apm_usage",
+              "serverless_apps_apm_percentage",
               "snmp_usage",
               "snmp_percentage",
               "universal_service_monitoring_usage",
@@ -410,6 +412,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("serverless_apps_usage");
   public static final MonthlyUsageAttributionSupportedMetrics SERVERLESS_APPS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("serverless_apps_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics SERVERLESS_APPS_APM_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("serverless_apps_apm_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics SERVERLESS_APPS_APM_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("serverless_apps_apm_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics SNMP_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("snmp_usage");
   public static final MonthlyUsageAttributionSupportedMetrics SNMP_PERCENTAGE =
