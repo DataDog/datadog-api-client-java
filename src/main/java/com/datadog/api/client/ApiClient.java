@@ -847,6 +847,7 @@ public class ApiClient {
           put("v2.createIncidentPostmortemTemplate", false);
           put("v2.createIncidentTodo", false);
           put("v2.createIncidentType", false);
+          put("v2.createIncidentUserDefinedField", false);
           put("v2.deleteGlobalIncidentHandle", false);
           put("v2.deleteIncident", false);
           put("v2.deleteIncidentAttachment", false);
@@ -856,6 +857,7 @@ public class ApiClient {
           put("v2.deleteIncidentPostmortemTemplate", false);
           put("v2.deleteIncidentTodo", false);
           put("v2.deleteIncidentType", false);
+          put("v2.deleteIncidentUserDefinedField", false);
           put("v2.getGlobalIncidentSettings", false);
           put("v2.getIncident", false);
           put("v2.getIncidentIntegration", false);
@@ -864,6 +866,7 @@ public class ApiClient {
           put("v2.getIncidentPostmortemTemplate", false);
           put("v2.getIncidentTodo", false);
           put("v2.getIncidentType", false);
+          put("v2.getIncidentUserDefinedField", false);
           put("v2.importIncident", false);
           put("v2.listGlobalIncidentHandles", false);
           put("v2.listIncidentAttachments", false);
@@ -874,6 +877,7 @@ public class ApiClient {
           put("v2.listIncidents", false);
           put("v2.listIncidentTodos", false);
           put("v2.listIncidentTypes", false);
+          put("v2.listIncidentUserDefinedFields", false);
           put("v2.searchIncidents", false);
           put("v2.updateGlobalIncidentHandle", false);
           put("v2.updateGlobalIncidentSettings", false);
@@ -885,6 +889,7 @@ public class ApiClient {
           put("v2.updateIncidentPostmortemTemplate", false);
           put("v2.updateIncidentTodo", false);
           put("v2.updateIncidentType", false);
+          put("v2.updateIncidentUserDefinedField", false);
           put("v2.createAWSAccountCCMConfig", false);
           put("v2.deleteAWSAccountCCMConfig", false);
           put("v2.getAWSAccountCCMConfig", false);

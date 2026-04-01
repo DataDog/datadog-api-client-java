@@ -46,6 +46,10 @@ import com.datadog.api.client.v2.model.IncidentTypeListResponse;
 import com.datadog.api.client.v2.model.IncidentTypePatchRequest;
 import com.datadog.api.client.v2.model.IncidentTypeResponse;
 import com.datadog.api.client.v2.model.IncidentUpdateRequest;
+import com.datadog.api.client.v2.model.IncidentUserDefinedFieldCreateRequest;
+import com.datadog.api.client.v2.model.IncidentUserDefinedFieldListResponse;
+import com.datadog.api.client.v2.model.IncidentUserDefinedFieldResponse;
+import com.datadog.api.client.v2.model.IncidentUserDefinedFieldUpdateRequest;
 import com.datadog.api.client.v2.model.IncidentsResponse;
 import com.datadog.api.client.v2.model.PatchAttachmentRequest;
 import com.datadog.api.client.v2.model.PatchIncidentNotificationTemplateRequest;
@@ -2115,6 +2119,232 @@ public class IncidentsApi {
         new GenericType<IncidentTypeResponse>() {});
   }
 
+  /** Manage optional parameters to createIncidentUserDefinedField. */
+  public static class CreateIncidentUserDefinedFieldOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include. Supported values are
+     *     "last_modified_by_user", "created_by_user", and "incident_type". (optional)
+     * @return CreateIncidentUserDefinedFieldOptionalParameters
+     */
+    public CreateIncidentUserDefinedFieldOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Create an incident user-defined field.
+   *
+   * <p>See {@link #createIncidentUserDefinedFieldWithHttpInfo}.
+   *
+   * @param body Incident user-defined field payload. (required)
+   * @return IncidentUserDefinedFieldResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedFieldResponse createIncidentUserDefinedField(
+      IncidentUserDefinedFieldCreateRequest body) throws ApiException {
+    return createIncidentUserDefinedFieldWithHttpInfo(
+            body, new CreateIncidentUserDefinedFieldOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create an incident user-defined field.
+   *
+   * <p>See {@link #createIncidentUserDefinedFieldWithHttpInfoAsync}.
+   *
+   * @param body Incident user-defined field payload. (required)
+   * @return CompletableFuture&lt;IncidentUserDefinedFieldResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedFieldResponse> createIncidentUserDefinedFieldAsync(
+      IncidentUserDefinedFieldCreateRequest body) {
+    return createIncidentUserDefinedFieldWithHttpInfoAsync(
+            body, new CreateIncidentUserDefinedFieldOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an incident user-defined field.
+   *
+   * <p>See {@link #createIncidentUserDefinedFieldWithHttpInfo}.
+   *
+   * @param body Incident user-defined field payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentUserDefinedFieldResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedFieldResponse createIncidentUserDefinedField(
+      IncidentUserDefinedFieldCreateRequest body,
+      CreateIncidentUserDefinedFieldOptionalParameters parameters)
+      throws ApiException {
+    return createIncidentUserDefinedFieldWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Create an incident user-defined field.
+   *
+   * <p>See {@link #createIncidentUserDefinedFieldWithHttpInfoAsync}.
+   *
+   * @param body Incident user-defined field payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentUserDefinedFieldResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedFieldResponse> createIncidentUserDefinedFieldAsync(
+      IncidentUserDefinedFieldCreateRequest body,
+      CreateIncidentUserDefinedFieldOptionalParameters parameters) {
+    return createIncidentUserDefinedFieldWithHttpInfoAsync(body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an incident user-defined field.
+   *
+   * @param body Incident user-defined field payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentUserDefinedFieldResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentUserDefinedFieldResponse> createIncidentUserDefinedFieldWithHttpInfo(
+      IncidentUserDefinedFieldCreateRequest body,
+      CreateIncidentUserDefinedFieldOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentUserDefinedField";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createIncidentUserDefinedField");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/user-defined-fields";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.createIncidentUserDefinedField",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedFieldResponse>() {});
+  }
+
+  /**
+   * Create an incident user-defined field.
+   *
+   * <p>See {@link #createIncidentUserDefinedFieldWithHttpInfo}.
+   *
+   * @param body Incident user-defined field payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentUserDefinedFieldResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>>
+      createIncidentUserDefinedFieldWithHttpInfoAsync(
+          IncidentUserDefinedFieldCreateRequest body,
+          CreateIncidentUserDefinedFieldOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentUserDefinedField";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createIncidentUserDefinedField"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/user-defined-fields";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.createIncidentUserDefinedField",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedFieldResponse>() {});
+  }
+
   /**
    * Delete global incident handle.
    *
@@ -3849,6 +4079,162 @@ public class IncidentsApi {
   }
 
   /**
+   * Delete an incident user-defined field.
+   *
+   * <p>See {@link #deleteIncidentUserDefinedFieldWithHttpInfo}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteIncidentUserDefinedField(String fieldId) throws ApiException {
+    deleteIncidentUserDefinedFieldWithHttpInfo(fieldId);
+  }
+
+  /**
+   * Delete an incident user-defined field.
+   *
+   * <p>See {@link #deleteIncidentUserDefinedFieldWithHttpInfoAsync}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteIncidentUserDefinedFieldAsync(String fieldId) {
+    return deleteIncidentUserDefinedFieldWithHttpInfoAsync(fieldId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an incident user-defined field.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteIncidentUserDefinedFieldWithHttpInfo(String fieldId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentUserDefinedField";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'fieldId' is set
+    if (fieldId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'fieldId' when calling deleteIncidentUserDefinedField");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-fields/{field_id}"
+            .replaceAll("\\{" + "field_id" + "\\}", apiClient.escapeString(fieldId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.deleteIncidentUserDefinedField",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an incident user-defined field.
+   *
+   * <p>See {@link #deleteIncidentUserDefinedFieldWithHttpInfo}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteIncidentUserDefinedFieldWithHttpInfoAsync(
+      String fieldId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentUserDefinedField";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'fieldId' is set
+    if (fieldId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'fieldId' when calling"
+                  + " deleteIncidentUserDefinedField"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-fields/{field_id}"
+            .replaceAll("\\{" + "field_id" + "\\}", apiClient.escapeString(fieldId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.deleteIncidentUserDefinedField",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Get global incident settings.
    *
    * <p>See {@link #getGlobalIncidentSettingsWithHttpInfo}.
@@ -5323,6 +5709,231 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentTypeResponse>() {});
+  }
+
+  /** Manage optional parameters to getIncidentUserDefinedField. */
+  public static class GetIncidentUserDefinedFieldOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include. Supported values are
+     *     "last_modified_by_user", "created_by_user", and "incident_type". (optional)
+     * @return GetIncidentUserDefinedFieldOptionalParameters
+     */
+    public GetIncidentUserDefinedFieldOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get an incident user-defined field.
+   *
+   * <p>See {@link #getIncidentUserDefinedFieldWithHttpInfo}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @return IncidentUserDefinedFieldResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedFieldResponse getIncidentUserDefinedField(String fieldId)
+      throws ApiException {
+    return getIncidentUserDefinedFieldWithHttpInfo(
+            fieldId, new GetIncidentUserDefinedFieldOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get an incident user-defined field.
+   *
+   * <p>See {@link #getIncidentUserDefinedFieldWithHttpInfoAsync}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @return CompletableFuture&lt;IncidentUserDefinedFieldResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedFieldResponse> getIncidentUserDefinedFieldAsync(
+      String fieldId) {
+    return getIncidentUserDefinedFieldWithHttpInfoAsync(
+            fieldId, new GetIncidentUserDefinedFieldOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an incident user-defined field.
+   *
+   * <p>See {@link #getIncidentUserDefinedFieldWithHttpInfo}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentUserDefinedFieldResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedFieldResponse getIncidentUserDefinedField(
+      String fieldId, GetIncidentUserDefinedFieldOptionalParameters parameters)
+      throws ApiException {
+    return getIncidentUserDefinedFieldWithHttpInfo(fieldId, parameters).getData();
+  }
+
+  /**
+   * Get an incident user-defined field.
+   *
+   * <p>See {@link #getIncidentUserDefinedFieldWithHttpInfoAsync}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentUserDefinedFieldResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedFieldResponse> getIncidentUserDefinedFieldAsync(
+      String fieldId, GetIncidentUserDefinedFieldOptionalParameters parameters) {
+    return getIncidentUserDefinedFieldWithHttpInfoAsync(fieldId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get details of an incident user-defined field.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentUserDefinedFieldResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentUserDefinedFieldResponse> getIncidentUserDefinedFieldWithHttpInfo(
+      String fieldId, GetIncidentUserDefinedFieldOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentUserDefinedField";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'fieldId' is set
+    if (fieldId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'fieldId' when calling getIncidentUserDefinedField");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-fields/{field_id}"
+            .replaceAll("\\{" + "field_id" + "\\}", apiClient.escapeString(fieldId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.getIncidentUserDefinedField",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedFieldResponse>() {});
+  }
+
+  /**
+   * Get an incident user-defined field.
+   *
+   * <p>See {@link #getIncidentUserDefinedFieldWithHttpInfo}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentUserDefinedFieldResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>>
+      getIncidentUserDefinedFieldWithHttpInfoAsync(
+          String fieldId, GetIncidentUserDefinedFieldOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentUserDefinedField";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'fieldId' is set
+    if (fieldId == null) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'fieldId' when calling getIncidentUserDefinedField"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-fields/{field_id}"
+            .replaceAll("\\{" + "field_id" + "\\}", apiClient.escapeString(fieldId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.getIncidentUserDefinedField",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedFieldResponse>() {});
   }
 
   /** Manage optional parameters to importIncident. */
@@ -7490,6 +8101,272 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentTypeListResponse>() {});
+  }
+
+  /** Manage optional parameters to listIncidentUserDefinedFields. */
+  public static class ListIncidentUserDefinedFieldsOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private Boolean includeDeleted;
+    private String filterIncidentType;
+    private String include;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize The number of results to return per page. Must be between 0 and 1000.
+     *     (optional, default to 1000)
+     * @return ListIncidentUserDefinedFieldsOptionalParameters
+     */
+    public ListIncidentUserDefinedFieldsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber The page number to retrieve, starting at 0. (optional, default to 0)
+     * @return ListIncidentUserDefinedFieldsOptionalParameters
+     */
+    public ListIncidentUserDefinedFieldsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set includeDeleted.
+     *
+     * @param includeDeleted When true, include soft-deleted fields in the response. (optional,
+     *     default to false)
+     * @return ListIncidentUserDefinedFieldsOptionalParameters
+     */
+    public ListIncidentUserDefinedFieldsOptionalParameters includeDeleted(Boolean includeDeleted) {
+      this.includeDeleted = includeDeleted;
+      return this;
+    }
+
+    /**
+     * Set filterIncidentType.
+     *
+     * @param filterIncidentType Filter results to fields associated with the given incident type
+     *     UUID. (optional)
+     * @return ListIncidentUserDefinedFieldsOptionalParameters
+     */
+    public ListIncidentUserDefinedFieldsOptionalParameters filterIncidentType(
+        String filterIncidentType) {
+      this.filterIncidentType = filterIncidentType;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include. Supported values are
+     *     "last_modified_by_user", "created_by_user", and "incident_type". (optional)
+     * @return ListIncidentUserDefinedFieldsOptionalParameters
+     */
+    public ListIncidentUserDefinedFieldsOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get a list of incident user-defined fields.
+   *
+   * <p>See {@link #listIncidentUserDefinedFieldsWithHttpInfo}.
+   *
+   * @return IncidentUserDefinedFieldListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedFieldListResponse listIncidentUserDefinedFields() throws ApiException {
+    return listIncidentUserDefinedFieldsWithHttpInfo(
+            new ListIncidentUserDefinedFieldsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a list of incident user-defined fields.
+   *
+   * <p>See {@link #listIncidentUserDefinedFieldsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;IncidentUserDefinedFieldListResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedFieldListResponse>
+      listIncidentUserDefinedFieldsAsync() {
+    return listIncidentUserDefinedFieldsWithHttpInfoAsync(
+            new ListIncidentUserDefinedFieldsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of incident user-defined fields.
+   *
+   * <p>See {@link #listIncidentUserDefinedFieldsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return IncidentUserDefinedFieldListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedFieldListResponse listIncidentUserDefinedFields(
+      ListIncidentUserDefinedFieldsOptionalParameters parameters) throws ApiException {
+    return listIncidentUserDefinedFieldsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get a list of incident user-defined fields.
+   *
+   * <p>See {@link #listIncidentUserDefinedFieldsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentUserDefinedFieldListResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedFieldListResponse> listIncidentUserDefinedFieldsAsync(
+      ListIncidentUserDefinedFieldsOptionalParameters parameters) {
+    return listIncidentUserDefinedFieldsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of all incident user-defined fields.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentUserDefinedFieldListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentUserDefinedFieldListResponse>
+      listIncidentUserDefinedFieldsWithHttpInfo(
+          ListIncidentUserDefinedFieldsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentUserDefinedFields";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    Boolean includeDeleted = parameters.includeDeleted;
+    String filterIncidentType = parameters.filterIncidentType;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/user-defined-fields";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include-deleted", includeDeleted));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[incident-type]", filterIncidentType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.listIncidentUserDefinedFields",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedFieldListResponse>() {});
+  }
+
+  /**
+   * Get a list of incident user-defined fields.
+   *
+   * <p>See {@link #listIncidentUserDefinedFieldsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentUserDefinedFieldListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentUserDefinedFieldListResponse>>
+      listIncidentUserDefinedFieldsWithHttpInfoAsync(
+          ListIncidentUserDefinedFieldsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentUserDefinedFields";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    Boolean includeDeleted = parameters.includeDeleted;
+    String filterIncidentType = parameters.filterIncidentType;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/user-defined-fields";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include-deleted", includeDeleted));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[incident-type]", filterIncidentType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.listIncidentUserDefinedFields",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedFieldListResponse>() {});
   }
 
   /** Manage optional parameters to searchIncidents. */
@@ -10026,5 +10903,264 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentTypeResponse>() {});
+  }
+
+  /** Manage optional parameters to updateIncidentUserDefinedField. */
+  public static class UpdateIncidentUserDefinedFieldOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of related resources to include. Supported values are
+     *     "last_modified_by_user", "created_by_user", and "incident_type". (optional)
+     * @return UpdateIncidentUserDefinedFieldOptionalParameters
+     */
+    public UpdateIncidentUserDefinedFieldOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Update an incident user-defined field.
+   *
+   * <p>See {@link #updateIncidentUserDefinedFieldWithHttpInfo}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @param body Incident user-defined field update payload. (required)
+   * @return IncidentUserDefinedFieldResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedFieldResponse updateIncidentUserDefinedField(
+      String fieldId, IncidentUserDefinedFieldUpdateRequest body) throws ApiException {
+    return updateIncidentUserDefinedFieldWithHttpInfo(
+            fieldId, body, new UpdateIncidentUserDefinedFieldOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Update an incident user-defined field.
+   *
+   * <p>See {@link #updateIncidentUserDefinedFieldWithHttpInfoAsync}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @param body Incident user-defined field update payload. (required)
+   * @return CompletableFuture&lt;IncidentUserDefinedFieldResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedFieldResponse> updateIncidentUserDefinedFieldAsync(
+      String fieldId, IncidentUserDefinedFieldUpdateRequest body) {
+    return updateIncidentUserDefinedFieldWithHttpInfoAsync(
+            fieldId, body, new UpdateIncidentUserDefinedFieldOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an incident user-defined field.
+   *
+   * <p>See {@link #updateIncidentUserDefinedFieldWithHttpInfo}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @param body Incident user-defined field update payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentUserDefinedFieldResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentUserDefinedFieldResponse updateIncidentUserDefinedField(
+      String fieldId,
+      IncidentUserDefinedFieldUpdateRequest body,
+      UpdateIncidentUserDefinedFieldOptionalParameters parameters)
+      throws ApiException {
+    return updateIncidentUserDefinedFieldWithHttpInfo(fieldId, body, parameters).getData();
+  }
+
+  /**
+   * Update an incident user-defined field.
+   *
+   * <p>See {@link #updateIncidentUserDefinedFieldWithHttpInfoAsync}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @param body Incident user-defined field update payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentUserDefinedFieldResponse&gt;
+   */
+  public CompletableFuture<IncidentUserDefinedFieldResponse> updateIncidentUserDefinedFieldAsync(
+      String fieldId,
+      IncidentUserDefinedFieldUpdateRequest body,
+      UpdateIncidentUserDefinedFieldOptionalParameters parameters) {
+    return updateIncidentUserDefinedFieldWithHttpInfoAsync(fieldId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an incident user-defined field.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @param body Incident user-defined field update payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentUserDefinedFieldResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentUserDefinedFieldResponse> updateIncidentUserDefinedFieldWithHttpInfo(
+      String fieldId,
+      IncidentUserDefinedFieldUpdateRequest body,
+      UpdateIncidentUserDefinedFieldOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentUserDefinedField";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'fieldId' is set
+    if (fieldId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'fieldId' when calling updateIncidentUserDefinedField");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateIncidentUserDefinedField");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-fields/{field_id}"
+            .replaceAll("\\{" + "field_id" + "\\}", apiClient.escapeString(fieldId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.updateIncidentUserDefinedField",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedFieldResponse>() {});
+  }
+
+  /**
+   * Update an incident user-defined field.
+   *
+   * <p>See {@link #updateIncidentUserDefinedFieldWithHttpInfo}.
+   *
+   * @param fieldId The ID of the incident user-defined field. (required)
+   * @param body Incident user-defined field update payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentUserDefinedFieldResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>>
+      updateIncidentUserDefinedFieldWithHttpInfoAsync(
+          String fieldId,
+          IncidentUserDefinedFieldUpdateRequest body,
+          UpdateIncidentUserDefinedFieldOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentUserDefinedField";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'fieldId' is set
+    if (fieldId == null) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'fieldId' when calling"
+                  + " updateIncidentUserDefinedField"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateIncidentUserDefinedField"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/user-defined-fields/{field_id}"
+            .replaceAll("\\{" + "field_id" + "\\}", apiClient.escapeString(fieldId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.updateIncidentUserDefinedField",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentUserDefinedFieldResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentUserDefinedFieldResponse>() {});
   }
 }
