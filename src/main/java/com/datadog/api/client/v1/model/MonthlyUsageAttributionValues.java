@@ -166,6 +166,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_SCA_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_APM_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_APM_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE,
@@ -691,6 +693,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage";
   private Double sdsScannedBytesUsage;
+
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_PERCENTAGE =
+      "serverless_apps_apm_percentage";
+  private Double serverlessAppsApmPercentage;
+
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_APM_USAGE = "serverless_apps_apm_usage";
+  private Double serverlessAppsApmUsage;
 
   public static final String JSON_PROPERTY_SERVERLESS_APPS_PERCENTAGE =
       "serverless_apps_percentage";
@@ -3903,6 +3912,49 @@ public class MonthlyUsageAttributionValues {
     this.sdsScannedBytesUsage = sdsScannedBytesUsage;
   }
 
+  public MonthlyUsageAttributionValues serverlessAppsApmPercentage(
+      Double serverlessAppsApmPercentage) {
+    this.serverlessAppsApmPercentage = serverlessAppsApmPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Serverless Apps APM usage by tag(s).
+   *
+   * @return serverlessAppsApmPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getServerlessAppsApmPercentage() {
+    return serverlessAppsApmPercentage;
+  }
+
+  public void setServerlessAppsApmPercentage(Double serverlessAppsApmPercentage) {
+    this.serverlessAppsApmPercentage = serverlessAppsApmPercentage;
+  }
+
+  public MonthlyUsageAttributionValues serverlessAppsApmUsage(Double serverlessAppsApmUsage) {
+    this.serverlessAppsApmUsage = serverlessAppsApmUsage;
+    return this;
+  }
+
+  /**
+   * The total Serverless Apps APM usage by tag(s).
+   *
+   * @return serverlessAppsApmUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_APM_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getServerlessAppsApmUsage() {
+    return serverlessAppsApmUsage;
+  }
+
+  public void setServerlessAppsApmUsage(Double serverlessAppsApmUsage) {
+    this.serverlessAppsApmUsage = serverlessAppsApmUsage;
+  }
+
   public MonthlyUsageAttributionValues serverlessAppsPercentage(Double serverlessAppsPercentage) {
     this.serverlessAppsPercentage = serverlessAppsPercentage;
     return this;
@@ -4564,6 +4616,11 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.sdsScannedBytesUsage, monthlyUsageAttributionValues.sdsScannedBytesUsage)
         && Objects.equals(
+            this.serverlessAppsApmPercentage,
+            monthlyUsageAttributionValues.serverlessAppsApmPercentage)
+        && Objects.equals(
+            this.serverlessAppsApmUsage, monthlyUsageAttributionValues.serverlessAppsApmUsage)
+        && Objects.equals(
             this.serverlessAppsPercentage, monthlyUsageAttributionValues.serverlessAppsPercentage)
         && Objects.equals(
             this.serverlessAppsUsage, monthlyUsageAttributionValues.serverlessAppsUsage)
@@ -4751,6 +4808,8 @@ public class MonthlyUsageAttributionValues {
         scaFargateUsage,
         sdsScannedBytesPercentage,
         sdsScannedBytesUsage,
+        serverlessAppsApmPercentage,
+        serverlessAppsApmUsage,
         serverlessAppsPercentage,
         serverlessAppsUsage,
         siemAnalyzedLogsAddOnPercentage,
@@ -5137,6 +5196,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    sdsScannedBytesUsage: ")
         .append(toIndentedString(sdsScannedBytesUsage))
+        .append("\n");
+    sb.append("    serverlessAppsApmPercentage: ")
+        .append(toIndentedString(serverlessAppsApmPercentage))
+        .append("\n");
+    sb.append("    serverlessAppsApmUsage: ")
+        .append(toIndentedString(serverlessAppsApmUsage))
         .append("\n");
     sb.append("    serverlessAppsPercentage: ")
         .append(toIndentedString(serverlessAppsPercentage))
