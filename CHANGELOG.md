@@ -1,5 +1,59 @@
 # CHANGELOG
 
+## 2.53.0/2026-04-01
+
+### Added
+* Add Synthetics test file upload and download endpoints [#3675](https://github.com/DataDog/datadog-api-client-java/pull/3675)
+* document v2 stable mcnulty-web-py3 endpoints [#3673](https://github.com/DataDog/datadog-api-client-java/pull/3673)
+* document synthetics API to retrieve fast test result [#3669](https://github.com/DataDog/datadog-api-client-java/pull/3669)
+* Add description field to widget definition schemas [#3652](https://github.com/DataDog/datadog-api-client-java/pull/3652)
+* Add Widgets API v2 OpenAPI spec [#3651](https://github.com/DataDog/datadog-api-client-java/pull/3651)
+* Add bulk triage endpoints for security monitoring signals [#3650](https://github.com/DataDog/datadog-api-client-java/pull/3650)
+* Add cost_aggregation parameter to GetEstimatedCostByOrg [#3645](https://github.com/DataDog/datadog-api-client-java/pull/3645)
+* Add new endpoints for Test Optimization settings for service [#3640](https://github.com/DataDog/datadog-api-client-java/pull/3640)
+* dashboards - Add DashboardTab schema and tabs property to Dashboard spec [#3638](https://github.com/DataDog/datadog-api-client-java/pull/3638)
+* Add WildcardWidgetDefinition to Dashboard spec [#3635](https://github.com/DataDog/datadog-api-client-java/pull/3635)
+* Add feature flags public api endpoints to api spec [#3631](https://github.com/DataDog/datadog-api-client-java/pull/3631)
+* Use openapi-transformer split mechanism for full spec generation [#3630](https://github.com/DataDog/datadog-api-client-java/pull/3630)
+* Add v2 deployment gates evaluation endpoints [#3629](https://github.com/DataDog/datadog-api-client-java/pull/3629)
+* Make datadog agent source address configurable in Observability Pipelines [#3625](https://github.com/DataDog/datadog-api-client-java/pull/3625)
+* Add OpenAPI documentation for keep_unmatched field in ocsf mapper processor  [#3621](https://github.com/DataDog/datadog-api-client-java/pull/3621)
+* Add Batch Rows Query Endpoint to Reference Tables API spec [#3618](https://github.com/DataDog/datadog-api-client-java/pull/3618)
+* Add apm_metrics query support to dashboard OpenAPI spec [#3615](https://github.com/DataDog/datadog-api-client-java/pull/3615)
+* Add Observability Pipelines Amazon S3 Generic destination [#3609](https://github.com/DataDog/datadog-api-client-java/pull/3609)
+* [OPA-4681] Update Public API for Splunk HEC destination indexed_fields [#3605](https://github.com/DataDog/datadog-api-client-java/pull/3605)
+* RUM - simplify cross-product sampling descriptions on rum-retention-filters API docs [#3567](https://github.com/DataDog/datadog-api-client-java/pull/3567)
+* Add `name_aliases` field to `PermissionAttributes` for `ListPermissions` endpoint [#3566](https://github.com/DataDog/datadog-api-client-java/pull/3566)
+* Add audit track to list of available org connections [#3563](https://github.com/DataDog/datadog-api-client-java/pull/3563)
+* Add partial hierarchy selection to team sync endpoints [#3557](https://github.com/DataDog/datadog-api-client-java/pull/3557)
+* Add support for composite queries on monitor variables [#3554](https://github.com/DataDog/datadog-api-client-java/pull/3554)
+* Adds OpenTelemetry source support for metrics pipelines [#3551](https://github.com/DataDog/datadog-api-client-java/pull/3551)
+* Add Edge Devices Monitoring fields to usage summary API [#3547](https://github.com/DataDog/datadog-api-client-java/pull/3547)
+* Add Network Path fields to usage summary API [#3545](https://github.com/DataDog/datadog-api-client-java/pull/3545)
+* Add OCI support to Cloud Security Management Enterprise usage fields [#3532](https://github.com/DataDog/datadog-api-client-java/pull/3532)
+* Add bad events support in metric SLOs [#3530](https://github.com/DataDog/datadog-api-client-java/pull/3530)
+* dashboards - Add DashboardTab schema and tabs property to Dashboard spec [#3506](https://github.com/DataDog/datadog-api-client-java/pull/3506)
+* Timeseries Request Style supports value labels field [#3463](https://github.com/DataDog/datadog-api-client-java/pull/3463)
+* Add specs for new ccm_config endpoints [#3384](https://github.com/DataDog/datadog-api-client-java/pull/3384)
+* Add Sankey widget definition to Dashboards api specs [#3362](https://github.com/DataDog/datadog-api-client-java/pull/3362)
+
+### Fixed
+* Fix consistency issues in security monitoring signal triage routes [#3660](https://github.com/DataDog/datadog-api-client-java/pull/3660)
+* Add pageStart extension to case management pagination [#3656](https://github.com/DataDog/datadog-api-client-java/pull/3656)
+* Fix consistency issues in security monitoring signal triage routes [#3649](https://github.com/DataDog/datadog-api-client-java/pull/3649)
+
+### Deprecated
+* Deprecate ListVulnerabilities endpoint [#3647](https://github.com/DataDog/datadog-api-client-java/pull/3647)
+* Deprecate appsecspans datasource in SecurityMonitoringStandardDataSource [#3619](https://github.com/DataDog/datadog-api-client-java/pull/3619)
+
+### Changed
+* Add sample_attribute to log exclusion filter [#3644](https://github.com/DataDog/datadog-api-client-java/pull/3644)
+* Add tags and description fields to the logs nested pipeline type LogsPipelineProcessor [#3633](https://github.com/DataDog/datadog-api-client-java/pull/3633)
+* Update documentation for api/v2/metrics endpoint [#3624](https://github.com/DataDog/datadog-api-client-java/pull/3624)
+* Use repository_id in DORA deployment GET docs [#3565](https://github.com/DataDog/datadog-api-client-java/pull/3565)
+* Observability Pipelines - Updating descriptions and making the tags field optional not required [#3533](https://github.com/DataDog/datadog-api-client-java/pull/3533)
+* Fix Restriction Policies API documentation - add missing resource types [#3494](https://github.com/DataDog/datadog-api-client-java/pull/3494)
+
 ## 2.52.0/2026-03-06
 
 ### Added
