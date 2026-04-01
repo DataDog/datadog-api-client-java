@@ -6,9 +6,9 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.DashboardListAddItemsRequest;
 import com.datadog.api.client.v2.model.DashboardListAddItemsResponse;
-import com.datadog.api.client.v2.model.DashboardListDeleteItemsRequest;
 import com.datadog.api.client.v2.model.DashboardListDeleteItemsResponse;
 import com.datadog.api.client.v2.model.DashboardListItems;
+import com.datadog.api.client.v2.model.DashboardListRemoveItemsRequest;
 import com.datadog.api.client.v2.model.DashboardListUpdateItemsRequest;
 import com.datadog.api.client.v2.model.DashboardListUpdateItemsResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -228,7 +228,7 @@ public class DashboardListsApi {
    * @throws ApiException if fails to make API call
    */
   public DashboardListDeleteItemsResponse deleteDashboardListItems(
-      Long dashboardListId, DashboardListDeleteItemsRequest body) throws ApiException {
+      Long dashboardListId, DashboardListRemoveItemsRequest body) throws ApiException {
     return deleteDashboardListItemsWithHttpInfo(dashboardListId, body).getData();
   }
 
@@ -242,7 +242,7 @@ public class DashboardListsApi {
    * @return CompletableFuture&lt;DashboardListDeleteItemsResponse&gt;
    */
   public CompletableFuture<DashboardListDeleteItemsResponse> deleteDashboardListItemsAsync(
-      Long dashboardListId, DashboardListDeleteItemsRequest body) {
+      Long dashboardListId, DashboardListRemoveItemsRequest body) {
     return deleteDashboardListItemsWithHttpInfoAsync(dashboardListId, body)
         .thenApply(
             response -> {
@@ -269,7 +269,7 @@ public class DashboardListsApi {
    *     </table>
    */
   public ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWithHttpInfo(
-      Long dashboardListId, DashboardListDeleteItemsRequest body) throws ApiException {
+      Long dashboardListId, DashboardListRemoveItemsRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'dashboardListId' is set
@@ -324,7 +324,7 @@ public class DashboardListsApi {
    */
   public CompletableFuture<ApiResponse<DashboardListDeleteItemsResponse>>
       deleteDashboardListItemsWithHttpInfoAsync(
-          Long dashboardListId, DashboardListDeleteItemsRequest body) {
+          Long dashboardListId, DashboardListRemoveItemsRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'dashboardListId' is set

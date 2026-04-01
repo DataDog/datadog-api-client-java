@@ -3,9 +3,9 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.DashboardListsApi;
-import com.datadog.api.client.v2.model.DashboardListDeleteItemsRequest;
 import com.datadog.api.client.v2.model.DashboardListDeleteItemsResponse;
 import com.datadog.api.client.v2.model.DashboardListItemRequest;
+import com.datadog.api.client.v2.model.DashboardListRemoveItemsRequest;
 import com.datadog.api.client.v2.model.DashboardType;
 import java.util.Collections;
 
@@ -20,8 +20,8 @@ public class Example {
     // there is a valid "dashboard" in the system
     String DASHBOARD_ID = System.getenv("DASHBOARD_ID");
 
-    DashboardListDeleteItemsRequest body =
-        new DashboardListDeleteItemsRequest()
+    DashboardListRemoveItemsRequest body =
+        new DashboardListRemoveItemsRequest()
             .dashboards(
                 Collections.singletonList(
                     new DashboardListItemRequest()
