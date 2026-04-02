@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"components\":[{\"components\":[{\"name\":\"Login\",\"position\":0,\"type\":\"component\"},{\"name\":\"Settings\",\"position\":1,\"type\":\"component\"}],\"name\":\"Application\",\"type\":\"group\"}],\"domain_prefix\":\"8c26840eabe71dc3\",\"enabled\":true,\"name\":\"A Status Page\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"components\":[{\"name\":\"Login\",\"position\":0,\"type\":\"component\"},{\"name\":\"Settings\",\"position\":1,\"type\":\"component\"}],\"name\":\"Application\",\"type\":\"group\"}],\"domain_prefix\":\"2d861a54c51993ae\",\"enabled\":true,\"name\":\"A Status Page\",\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"type\":\"status_pages\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ad595545-a10f-4156-86c4-4b7e628a373f\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"bef1338e-b586-4b82-bf51-cd924583b1a4\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"892f0166-6f66-4113-a4ca-f38ad360853b\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"bc546936-c609-4dff-ac47-cfc73262b9ad\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-02-24T17:00:53.951086Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"8c26840eabe71dc3\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-02-24T17:00:53.951086Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/ad595545-a10f-4156-86c4-4b7e628a373f/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"3cd76198-ed6f-43d3-82da-97f5017f31c9\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"72f72b44-082b-4eee-a619-54f6ec6b27db\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"7126cd27-4c74-4196-8759-3f060b76034b\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"c91b0e4a-9cfd-47f9-a78f-41ecdc0b5dcf\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-03-31T18:44:00.265912Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"2d861a54c51993ae\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-03-31T18:44:00.265912Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/3cd76198-ed6f-43d3-82da-97f5017f31c9/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "75bace70-ee9d-ff9e-b223-ad8d6b5fd163"
+    "id": "8aefcdc6-af7d-272c-a7a8-b40632299297"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/statuspages/ad595545-a10f-4156-86c4-4b7e628a373f",
+      "path": "/api/v2/statuspages/3cd76198-ed6f-43d3-82da-97f5017f31c9",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ad595545-a10f-4156-86c4-4b7e628a373f\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"bef1338e-b586-4b82-bf51-cd924583b1a4\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"892f0166-6f66-4113-a4ca-f38ad360853b\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"bc546936-c609-4dff-ac47-cfc73262b9ad\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-02-24T17:00:53.951086Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"8c26840eabe71dc3\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-02-24T17:00:53.951086Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/ad595545-a10f-4156-86c4-4b7e628a373f/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"3cd76198-ed6f-43d3-82da-97f5017f31c9\",\"type\":\"status_pages\",\"attributes\":{\"company_logo\":null,\"components\":[{\"id\":\"72f72b44-082b-4eee-a619-54f6ec6b27db\",\"name\":\"Application\",\"type\":\"group\",\"position\":0,\"components\":[{\"id\":\"7126cd27-4c74-4196-8759-3f060b76034b\",\"name\":\"Login\",\"type\":\"component\",\"status\":\"operational\",\"position\":0},{\"id\":\"c91b0e4a-9cfd-47f9-a78f-41ecdc0b5dcf\",\"name\":\"Settings\",\"type\":\"component\",\"status\":\"operational\",\"position\":1}]}],\"created_at\":\"2026-03-31T18:44:00.265912Z\",\"custom_domain\":null,\"custom_domain_enabled\":false,\"domain_prefix\":\"2d861a54c51993ae\",\"email_header_image\":null,\"enabled\":true,\"favicon\":null,\"modified_at\":\"2026-03-31T18:44:00.265912Z\",\"name\":\"A Status Page\",\"page_url\":\"https://frog.datadoghq.com/status-pages/3cd76198-ed6f-43d3-82da-97f5017f31c9/view\",\"subscriptions_enabled\":false,\"type\":\"internal\",\"visualization_type\":\"bars_and_uptime_percentage\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"last_modified_by_user\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0bad3175-4870-b4a4-201f-68184c0bb2ae"
+    "id": "d10ab09c-8419-fea2-71e7-c3fc18796449"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/statuspages/ad595545-a10f-4156-86c4-4b7e628a373f",
+      "path": "/api/v2/statuspages/3cd76198-ed6f-43d3-82da-97f5017f31c9",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d46a57a9-bd28-56d7-113b-70b210f0e205"
+    "id": "ed7295bc-6335-75de-67b3-8d2698c0ff53"
   }
 ]
