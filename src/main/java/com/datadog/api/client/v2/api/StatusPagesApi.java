@@ -838,7 +838,9 @@ public class StatusPagesApi {
   }
 
   /**
-   * Creates a new status page.
+   * Creates a new status page. <strong>Note</strong>: Publishing a status page on creation via the
+   * <code>enabled</code> property will be deprecated. Use the dedicated <a
+   * href="#publish-status-page">publish</a> status page endpoint after creation instead.
    *
    * @param body (required)
    * @param parameters Optional parameters for the request.
@@ -3140,6 +3142,278 @@ public class StatusPagesApi {
         new GenericType<StatusPageArray>() {});
   }
 
+  /**
+   * Publish status page.
+   *
+   * <p>See {@link #publishStatusPageWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void publishStatusPage(UUID pageId) throws ApiException {
+    publishStatusPageWithHttpInfo(pageId);
+  }
+
+  /**
+   * Publish status page.
+   *
+   * <p>See {@link #publishStatusPageWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> publishStatusPageAsync(UUID pageId) {
+    return publishStatusPageWithHttpInfoAsync(pageId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Publishes a status page. For pages of type <code>public</code>, makes the status page available
+   * on the public internet and requires the <code>status_pages_public_page_publish</code>
+   * permission. For pages of type <code>internal</code>, makes the status page available under the
+   * <code>status-pages/$domain_prefix/view</code> route within the Datadog organization and
+   * requires the <code>status_pages_internal_page_publish</code> permission. The <code>
+   * status_pages_settings_write</code> permission is temporarily honored as we migrate publishing
+   * functionality from the update status page endpoint to the publish status page endpoint.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> publishStatusPageWithHttpInfo(UUID pageId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling publishStatusPage");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/publish"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.publishStatusPage",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Publish status page.
+   *
+   * <p>See {@link #publishStatusPageWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> publishStatusPageWithHttpInfoAsync(UUID pageId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling publishStatusPage"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/publish"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.publishStatusPage",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Unpublish status page.
+   *
+   * <p>See {@link #unpublishStatusPageWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void unpublishStatusPage(UUID pageId) throws ApiException {
+    unpublishStatusPageWithHttpInfo(pageId);
+  }
+
+  /**
+   * Unpublish status page.
+   *
+   * <p>See {@link #unpublishStatusPageWithHttpInfoAsync}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> unpublishStatusPageAsync(UUID pageId) {
+    return unpublishStatusPageWithHttpInfoAsync(pageId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Unpublishes a status page. For pages of type <code>public</code>, removes the status page from
+   * the public internet and requires the <code>status_pages_public_page_publish</code> permission.
+   * For pages of type <code>internal</code>, removes the <code>status-pages/$domain_prefix/view
+   * </code> route from the Datadog organization and requires the <code>
+   * status_pages_internal_page_publish</code> permission. The <code>status_pages_settings_write
+   * </code> permission is temporarily honored as we migrate unpublishing functionality from the
+   * update status page endpoint to the unpublish status page endpoint.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> unpublishStatusPageWithHttpInfo(UUID pageId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'pageId' when calling unpublishStatusPage");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/unpublish"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.StatusPagesApi.unpublishStatusPage",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Unpublish status page.
+   *
+   * <p>See {@link #unpublishStatusPageWithHttpInfo}.
+   *
+   * @param pageId The ID of the status page. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> unpublishStatusPageWithHttpInfoAsync(UUID pageId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pageId' is set
+    if (pageId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pageId' when calling unpublishStatusPage"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/statuspages/{page_id}/unpublish"
+            .replaceAll("\\{" + "page_id" + "\\}", apiClient.escapeString(pageId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.StatusPagesApi.unpublishStatusPage",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
   /** Manage optional parameters to updateComponent. */
   public static class UpdateComponentOptionalParameters {
     private String include;
@@ -4054,7 +4328,10 @@ public class StatusPagesApi {
   }
 
   /**
-   * Updates an existing status page's attributes.
+   * Updates an existing status page's attributes. <strong>Note</strong>: Publishing and
+   * unpublishing via the <code>enabled</code> property will be deprecated on this endpoint. Use the
+   * dedicated <a href="#publish-status-page">publish</a> and <a
+   * href="#unpublish-status-page">unpublish</a> status page endpoints instead.
    *
    * @param pageId The ID of the status page. (required)
    * @param body (required)
