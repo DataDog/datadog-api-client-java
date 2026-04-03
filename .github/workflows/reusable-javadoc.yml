@@ -13,11 +13,6 @@ on:
         required: false
         type: string
         default: '8'
-    secrets:
-      PIPELINE_GITHUB_APP_ID:
-        required: false
-      PIPELINE_GITHUB_APP_PRIVATE_KEY:
-        required: false
 
 jobs:
   javadoc:
