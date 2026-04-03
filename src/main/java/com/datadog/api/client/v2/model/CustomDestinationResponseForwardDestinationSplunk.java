@@ -16,10 +16,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The Splunk HTTP Event Collector (HEC) destination. */
 @JsonPropertyOrder({
   CustomDestinationResponseForwardDestinationSplunk.JSON_PROPERTY_ENDPOINT,
+  CustomDestinationResponseForwardDestinationSplunk.JSON_PROPERTY_SOURCETYPE,
   CustomDestinationResponseForwardDestinationSplunk.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -28,6 +30,9 @@ public class CustomDestinationResponseForwardDestinationSplunk {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENDPOINT = "endpoint";
   private String endpoint;
+
+  public static final String JSON_PROPERTY_SOURCETYPE = "sourcetype";
+  private JsonNullable<String> sourcetype = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private CustomDestinationResponseForwardDestinationSplunkType type =
@@ -64,6 +69,41 @@ public class CustomDestinationResponseForwardDestinationSplunk {
 
   public void setEndpoint(String endpoint) {
     this.endpoint = endpoint;
+  }
+
+  public CustomDestinationResponseForwardDestinationSplunk sourcetype(String sourcetype) {
+    this.sourcetype = JsonNullable.<String>of(sourcetype);
+    return this;
+  }
+
+  /**
+   * The Splunk sourcetype for the events sent to this Splunk destination.
+   *
+   * <p>If absent, the default sourcetype <code>_json</code> is used. If set to null, the <code>
+   * sourcetype</code> field is omitted from the Splunk HEC payload entirely. Otherwise, the
+   * provided string value is used as the sourcetype.
+   *
+   * @return sourcetype
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getSourcetype() {
+    return sourcetype.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SOURCETYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getSourcetype_JsonNullable() {
+    return sourcetype;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SOURCETYPE)
+  public void setSourcetype_JsonNullable(JsonNullable<String> sourcetype) {
+    this.sourcetype = sourcetype;
+  }
+
+  public void setSourcetype(String sourcetype) {
+    this.sourcetype = JsonNullable.<String>of(sourcetype);
   }
 
   public CustomDestinationResponseForwardDestinationSplunk type(
@@ -151,6 +191,8 @@ public class CustomDestinationResponseForwardDestinationSplunk {
         customDestinationResponseForwardDestinationSplunk =
             (CustomDestinationResponseForwardDestinationSplunk) o;
     return Objects.equals(this.endpoint, customDestinationResponseForwardDestinationSplunk.endpoint)
+        && Objects.equals(
+            this.sourcetype, customDestinationResponseForwardDestinationSplunk.sourcetype)
         && Objects.equals(this.type, customDestinationResponseForwardDestinationSplunk.type)
         && Objects.equals(
             this.additionalProperties,
@@ -159,7 +201,7 @@ public class CustomDestinationResponseForwardDestinationSplunk {
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpoint, type, additionalProperties);
+    return Objects.hash(endpoint, sourcetype, type, additionalProperties);
   }
 
   @Override
@@ -167,6 +209,7 @@ public class CustomDestinationResponseForwardDestinationSplunk {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomDestinationResponseForwardDestinationSplunk {\n");
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
+    sb.append("    sourcetype: ").append(toIndentedString(sourcetype)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"forward_tags\":false,\"forwarder_destination\":{\"access_token\":\"my-access-token\",\"endpoint\":\"https://example.com\",\"type\":\"splunk_hec\"},\"name\":\"Test-Update_a_Splunk_custom_destination_s_attributes_preserves_the_absent_sourcetype_returns_OK_response-1774455835\",\"query\":\"source:nginx\"},\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/custom-destinations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"9ac57fd5-857f-4082-badc-463ecd1e990d\",\"attributes\":{\"name\":\"Test-Update_a_Splunk_custom_destination_s_attributes_preserves_the_absent_sourcetype_returns_OK_response-1774455835\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"endpoint\":\"https://example.com\",\"type\":\"splunk_hec\"},\"forward_tags_restriction_list_type\":\"ALLOW_LIST\",\"forward_tags_restriction_list\":[],\"forward_tags\":false},\"type\":\"custom_destination\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5582114d-01bc-519a-080e-4ff4ad1ac1aa"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Nginx logs (Updated)\"},\"id\":\"9ac57fd5-857f-4082-badc-463ecd1e990d\",\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/logs/config/custom-destinations/9ac57fd5-857f-4082-badc-463ecd1e990d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"9ac57fd5-857f-4082-badc-463ecd1e990d\",\"attributes\":{\"name\":\"Nginx logs (Updated)\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"endpoint\":\"https://example.com\",\"type\":\"splunk_hec\"},\"forward_tags_restriction_list_type\":\"ALLOW_LIST\",\"forward_tags_restriction_list\":[],\"forward_tags\":false},\"type\":\"custom_destination\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2461a2cc-d618-f242-e374-2306f71c00ae"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/custom-destinations/9ac57fd5-857f-4082-badc-463ecd1e990d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "39d0bda9-8ebe-1408-ef7d-a64cb7fe9b22"
+  }
+]
