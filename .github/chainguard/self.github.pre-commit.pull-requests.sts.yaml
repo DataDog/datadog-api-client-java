@@ -6,10 +6,9 @@ subject: repo:DataDog/datadog-api-client-java:pull_request
 
 claim_pattern:
   event_name: pull_request
-  # Even when running pull_request, the workflow code comes from the base branch, hence refs/heads/master
-  job_workflow_ref: DataDog/datadog-api-client-java/\.github/workflows/reusable-pre-commit\.yml@refs/heads/master
+  job_workflow_ref: DataDog/datadog-api-client-java/\.github/workflows/reusable-pre-commit\.yml@refs/pull/[0-9]+/merge
+  ref: refs/pull/[0-9]+/merge
   repository: DataDog/datadog-api-client-java
-  ref: refs/heads/master
 
 permissions:
   contents: write # Required for pushing pre-commit fixes
