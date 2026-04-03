@@ -18,16 +18,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request containing a list of dashboards to delete. */
-@JsonPropertyOrder({DashboardListDeleteItemsRequest.JSON_PROPERTY_DASHBOARDS})
+/** Request containing a list of dashboards to remove. */
+@JsonPropertyOrder({DashboardListRemoveItemsRequest.JSON_PROPERTY_DASHBOARDS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DashboardListDeleteItemsRequest {
+public class DashboardListRemoveItemsRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DASHBOARDS = "dashboards";
   private List<DashboardListItemRequest> dashboards = null;
 
-  public DashboardListDeleteItemsRequest dashboards(List<DashboardListItemRequest> dashboards) {
+  public DashboardListRemoveItemsRequest dashboards(List<DashboardListItemRequest> dashboards) {
     this.dashboards = dashboards;
     for (DashboardListItemRequest item : dashboards) {
       this.unparsed |= item.unparsed;
@@ -35,7 +35,7 @@ public class DashboardListDeleteItemsRequest {
     return this;
   }
 
-  public DashboardListDeleteItemsRequest addDashboardsItem(
+  public DashboardListRemoveItemsRequest addDashboardsItem(
       DashboardListItemRequest dashboardsItem) {
     if (this.dashboards == null) {
       this.dashboards = new ArrayList<>();
@@ -73,10 +73,10 @@ public class DashboardListDeleteItemsRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DashboardListDeleteItemsRequest
+   * @return DashboardListRemoveItemsRequest
    */
   @JsonAnySetter
-  public DashboardListDeleteItemsRequest putAdditionalProperty(String key, Object value) {
+  public DashboardListRemoveItemsRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -107,7 +107,7 @@ public class DashboardListDeleteItemsRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DashboardListDeleteItemsRequest object is equal to o. */
+  /** Return true if this DashboardListRemoveItemsRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -116,11 +116,11 @@ public class DashboardListDeleteItemsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DashboardListDeleteItemsRequest dashboardListDeleteItemsRequest =
-        (DashboardListDeleteItemsRequest) o;
-    return Objects.equals(this.dashboards, dashboardListDeleteItemsRequest.dashboards)
+    DashboardListRemoveItemsRequest dashboardListRemoveItemsRequest =
+        (DashboardListRemoveItemsRequest) o;
+    return Objects.equals(this.dashboards, dashboardListRemoveItemsRequest.dashboards)
         && Objects.equals(
-            this.additionalProperties, dashboardListDeleteItemsRequest.additionalProperties);
+            this.additionalProperties, dashboardListRemoveItemsRequest.additionalProperties);
   }
 
   @Override
@@ -131,7 +131,7 @@ public class DashboardListDeleteItemsRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DashboardListDeleteItemsRequest {\n");
+    sb.append("class DashboardListRemoveItemsRequest {\n");
     sb.append("    dashboards: ").append(toIndentedString(dashboards)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
