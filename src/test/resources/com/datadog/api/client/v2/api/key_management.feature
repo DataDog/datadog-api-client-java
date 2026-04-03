@@ -13,6 +13,20 @@ Feature: Key Management
     And an instance of "KeyManagement" API
 
   @generated @skip @team:DataDog/credentials-management
+  Scenario: Create a personal access token returns "Bad Request" response
+    Given new "CreatePersonalAccessToken" request
+    And body with value {"data": {"attributes": {"expires_at": "2025-12-31T23:59:59+00:00", "name": "My Personal Access Token", "scopes": ["dashboards_read", "dashboards_write"]}, "type": "personal_access_tokens"}}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/credentials-management
+  Scenario: Create a personal access token returns "Created" response
+    Given new "CreatePersonalAccessToken" request
+    And body with value {"data": {"attributes": {"expires_at": "2025-12-31T23:59:59+00:00", "name": "My Personal Access Token", "scopes": ["dashboards_read", "dashboards_write"]}, "type": "personal_access_tokens"}}
+    When the request is sent
+    Then the response status is 201 Created
+
+  @generated @skip @team:DataDog/credentials-management
   Scenario: Create an API key returns "Bad Request" response
     Given new "CreateAPIKey" request
     And body with value {"data": {"attributes": {"name": "API Key for submitting metrics"}, "type": "api_keys"}}
@@ -201,6 +215,20 @@ Feature: Key Management
     And the response "data.attributes" has field "date_last_used"
 
   @generated @skip @team:DataDog/credentials-management
+  Scenario: Get a personal access token returns "Not Found" response
+    Given new "GetPersonalAccessToken" request
+    And request contains "pat_uuid" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @generated @skip @team:DataDog/credentials-management
+  Scenario: Get a personal access token returns "OK" response
+    Given new "GetPersonalAccessToken" request
+    And request contains "pat_uuid" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 200 OK
+
+  @generated @skip @team:DataDog/credentials-management
   Scenario: Get all API keys returns "Bad Request" response
     Given new "ListAPIKeys" request
     When the request is sent
@@ -258,6 +286,18 @@ Feature: Key Management
     And the response "data[0].attributes" has field "last_used_at"
 
   @generated @skip @team:DataDog/credentials-management
+  Scenario: Get all personal access tokens returns "Bad Request" response
+    Given new "ListPersonalAccessTokens" request
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/credentials-management
+  Scenario: Get all personal access tokens returns "OK" response
+    Given new "ListPersonalAccessTokens" request
+    When the request is sent
+    Then the response status is 200 OK
+
+  @generated @skip @team:DataDog/credentials-management
   Scenario: Get an application key returns "Bad Request" response
     Given new "GetApplicationKey" request
     And request contains "app_key_id" parameter from "REPLACE.ME"
@@ -301,3 +341,41 @@ Feature: Key Management
     And the response "data.attributes.name" is equal to "{{ application_key.data.attributes.name }}"
     And the response "data.attributes" has field "scopes"
     And the response "data.attributes" has field "last_used_at"
+
+  @generated @skip @team:DataDog/credentials-management
+  Scenario: Revoke a personal access token returns "No Content" response
+    Given new "RevokePersonalAccessToken" request
+    And request contains "pat_uuid" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 204 No Content
+
+  @generated @skip @team:DataDog/credentials-management
+  Scenario: Revoke a personal access token returns "Not Found" response
+    Given new "RevokePersonalAccessToken" request
+    And request contains "pat_uuid" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @generated @skip @team:DataDog/credentials-management
+  Scenario: Update a personal access token returns "Bad Request" response
+    Given new "UpdatePersonalAccessToken" request
+    And request contains "pat_uuid" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"name": "Updated Personal Access Token", "scopes": ["dashboards_read", "dashboards_write"]}, "id": "00112233-4455-6677-8899-aabbccddeeff", "type": "personal_access_tokens"}}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/credentials-management
+  Scenario: Update a personal access token returns "Not Found" response
+    Given new "UpdatePersonalAccessToken" request
+    And request contains "pat_uuid" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"name": "Updated Personal Access Token", "scopes": ["dashboards_read", "dashboards_write"]}, "id": "00112233-4455-6677-8899-aabbccddeeff", "type": "personal_access_tokens"}}
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @generated @skip @team:DataDog/credentials-management
+  Scenario: Update a personal access token returns "OK" response
+    Given new "UpdatePersonalAccessToken" request
+    And request contains "pat_uuid" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"name": "Updated Personal Access Token", "scopes": ["dashboards_read", "dashboards_write"]}, "id": "00112233-4455-6677-8899-aabbccddeeff", "type": "personal_access_tokens"}}
+    When the request is sent
+    Then the response status is 200 OK

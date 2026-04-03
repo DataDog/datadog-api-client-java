@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"expires_at\":\"2027-04-03T21:03:29.264Z\",\"name\":\"Test-Update_a_personal_access_token_returns_OK_response-1775250209\",\"scopes\":[\"dashboards_read\"]},\"type\":\"personal_access_tokens\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/personal_access_tokens",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"62ef326f-92d6-424b-a000-d7212e2568fd\",\"type\":\"personal_access_tokens\",\"attributes\":{\"alias\":\"30gYny15czuas9ipvuFUOD\",\"created_at\":\"2026-04-03T21:03:29.373074209Z\",\"expires_at\":\"2027-04-03T21:03:29.264Z\",\"key\":\"xxxxx_xxxxxxxxxxxxxxxxxxxxxx_xxxxxxXxxxxxxxxxxxxxxxxxxxXxxxxxxxxx\",\"name\":\"Test-Update_a_personal_access_token_returns_OK_response-1775250209\",\"public_portion\":\"30gYny15czuas9ipvuFUOD\",\"scopes\":[\"dashboards_read\"]},\"relationships\":{\"owned_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b8bf45c2-866f-520e-4cac-9b9a302b077a"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_a_personal_access_token_returns_OK_response-1775250209-updated\"},\"id\":\"62ef326f-92d6-424b-a000-d7212e2568fd\",\"type\":\"personal_access_tokens\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/personal_access_tokens/62ef326f-92d6-424b-a000-d7212e2568fd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"62ef326f-92d6-424b-a000-d7212e2568fd\",\"type\":\"personal_access_tokens\",\"attributes\":{\"alias\":\"30gYny15czuas9ipvuFUOD\",\"created_at\":\"2026-04-03T21:03:29.373074Z\",\"expires_at\":\"2027-04-03T21:03:29.264Z\",\"last_used_at\":null,\"modified_at\":\"2026-04-03T21:03:29.522659Z\",\"name\":\"Test-Update_a_personal_access_token_returns_OK_response-1775250209-updated\",\"public_portion\":\"30gYny15czuas9ipvuFUOD\",\"scopes\":[\"dashboards_read\"]},\"relationships\":{\"owned_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2f07c0e6-75da-0013-2c3e-1e5889e84fb0"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/personal_access_tokens/62ef326f-92d6-424b-a000-d7212e2568fd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4f9dba76-776a-f5c5-159c-96b5c47dc4cc"
+  }
+]
