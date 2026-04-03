@@ -4,12 +4,17 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.AllocationExposureScheduleResponse;
+import com.datadog.api.client.v2.model.AllocationResponse;
+import com.datadog.api.client.v2.model.CreateAllocationsRequest;
 import com.datadog.api.client.v2.model.CreateEnvironmentRequest;
 import com.datadog.api.client.v2.model.CreateFeatureFlagRequest;
 import com.datadog.api.client.v2.model.EnvironmentResponse;
 import com.datadog.api.client.v2.model.FeatureFlagResponse;
+import com.datadog.api.client.v2.model.ListAllocationsResponse;
 import com.datadog.api.client.v2.model.ListEnvironmentsResponse;
 import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
+import com.datadog.api.client.v2.model.OverwriteAllocationsRequest;
 import com.datadog.api.client.v2.model.UpdateEnvironmentRequest;
 import com.datadog.api.client.v2.model.UpdateFeatureFlagRequest;
 import jakarta.ws.rs.client.Invocation;
@@ -192,6 +197,207 @@ public class FeatureFlagsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FeatureFlagResponse>() {});
+  }
+
+  /**
+   * Create targeting rules for a flag env.
+   *
+   * <p>See {@link #createAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return AllocationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AllocationResponse createAllocationsForFeatureFlagInEnvironment(
+      UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) throws ApiException {
+    return createAllocationsForFeatureFlagInEnvironmentWithHttpInfo(
+            featureFlagId, environmentId, body)
+        .getData();
+  }
+
+  /**
+   * Create targeting rules for a flag env.
+   *
+   * <p>See {@link #createAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;AllocationResponse&gt;
+   */
+  public CompletableFuture<AllocationResponse> createAllocationsForFeatureFlagInEnvironmentAsync(
+      UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) {
+    return createAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(
+            featureFlagId, environmentId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates a new targeting rule (allocation) for a specific feature flag in a specific
+   * environment.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;AllocationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 202 </td><td> Accepted - Approval required for this change </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AllocationResponse> createAllocationsForFeatureFlagInEnvironmentWithHttpInfo(
+      UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " createAllocationsForFeatureFlagInEnvironment");
+    }
+
+    // verify the required parameter 'environmentId' is set
+    if (environmentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'environmentId' when calling"
+              + " createAllocationsForFeatureFlagInEnvironment");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createAllocationsForFeatureFlagInEnvironment");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.createAllocationsForFeatureFlagInEnvironment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationResponse>() {});
+  }
+
+  /**
+   * Create targeting rules for a flag env.
+   *
+   * <p>See {@link #createAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AllocationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AllocationResponse>>
+      createAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(
+          UUID featureFlagId, UUID environmentId, CreateAllocationsRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      CompletableFuture<ApiResponse<AllocationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " createAllocationsForFeatureFlagInEnvironment"));
+      return result;
+    }
+
+    // verify the required parameter 'environmentId' is set
+    if (environmentId == null) {
+      CompletableFuture<ApiResponse<AllocationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'environmentId' when calling"
+                  + " createAllocationsForFeatureFlagInEnvironment"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AllocationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createAllocationsForFeatureFlagInEnvironment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.createAllocationsForFeatureFlagInEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AllocationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationResponse>() {});
   }
 
   /**
@@ -1660,6 +1866,599 @@ public class FeatureFlagsApi {
   }
 
   /**
+   * Pause a progressive rollout.
+   *
+   * <p>See {@link #pauseExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return AllocationExposureScheduleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AllocationExposureScheduleResponse pauseExposureSchedule(UUID exposureScheduleId)
+      throws ApiException {
+    return pauseExposureScheduleWithHttpInfo(exposureScheduleId).getData();
+  }
+
+  /**
+   * Pause a progressive rollout.
+   *
+   * <p>See {@link #pauseExposureScheduleWithHttpInfoAsync}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
+   */
+  public CompletableFuture<AllocationExposureScheduleResponse> pauseExposureScheduleAsync(
+      UUID exposureScheduleId) {
+    return pauseExposureScheduleWithHttpInfoAsync(exposureScheduleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Pauses a progressive rollout while preserving rollout state.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return ApiResponse&lt;AllocationExposureScheduleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AllocationExposureScheduleResponse> pauseExposureScheduleWithHttpInfo(
+      UUID exposureScheduleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'exposureScheduleId' when calling pauseExposureSchedule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/pause"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.pauseExposureSchedule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
+
+  /**
+   * Pause a progressive rollout.
+   *
+   * <p>See {@link #pauseExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>>
+      pauseExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'exposureScheduleId' when calling"
+                  + " pauseExposureSchedule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/pause"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.pauseExposureSchedule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
+
+  /**
+   * Resume a progressive rollout.
+   *
+   * <p>See {@link #resumeExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return AllocationExposureScheduleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AllocationExposureScheduleResponse resumeExposureSchedule(UUID exposureScheduleId)
+      throws ApiException {
+    return resumeExposureScheduleWithHttpInfo(exposureScheduleId).getData();
+  }
+
+  /**
+   * Resume a progressive rollout.
+   *
+   * <p>See {@link #resumeExposureScheduleWithHttpInfoAsync}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
+   */
+  public CompletableFuture<AllocationExposureScheduleResponse> resumeExposureScheduleAsync(
+      UUID exposureScheduleId) {
+    return resumeExposureScheduleWithHttpInfoAsync(exposureScheduleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Resumes progression for a previously paused progressive rollout.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return ApiResponse&lt;AllocationExposureScheduleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AllocationExposureScheduleResponse> resumeExposureScheduleWithHttpInfo(
+      UUID exposureScheduleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'exposureScheduleId' when calling"
+              + " resumeExposureSchedule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/resume"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.resumeExposureSchedule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
+
+  /**
+   * Resume a progressive rollout.
+   *
+   * <p>See {@link #resumeExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>>
+      resumeExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'exposureScheduleId' when calling"
+                  + " resumeExposureSchedule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/resume"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.resumeExposureSchedule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
+
+  /**
+   * Start a progressive rollout.
+   *
+   * <p>See {@link #startExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return AllocationExposureScheduleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AllocationExposureScheduleResponse startExposureSchedule(UUID exposureScheduleId)
+      throws ApiException {
+    return startExposureScheduleWithHttpInfo(exposureScheduleId).getData();
+  }
+
+  /**
+   * Start a progressive rollout.
+   *
+   * <p>See {@link #startExposureScheduleWithHttpInfoAsync}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
+   */
+  public CompletableFuture<AllocationExposureScheduleResponse> startExposureScheduleAsync(
+      UUID exposureScheduleId) {
+    return startExposureScheduleWithHttpInfoAsync(exposureScheduleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Starts a progressive rollout and begins progression.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return ApiResponse&lt;AllocationExposureScheduleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AllocationExposureScheduleResponse> startExposureScheduleWithHttpInfo(
+      UUID exposureScheduleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'exposureScheduleId' when calling startExposureSchedule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/start"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.startExposureSchedule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
+
+  /**
+   * Start a progressive rollout.
+   *
+   * <p>See {@link #startExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>>
+      startExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'exposureScheduleId' when calling"
+                  + " startExposureSchedule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/start"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.startExposureSchedule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
+
+  /**
+   * Stop a progressive rollout.
+   *
+   * <p>See {@link #stopExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return AllocationExposureScheduleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AllocationExposureScheduleResponse stopExposureSchedule(UUID exposureScheduleId)
+      throws ApiException {
+    return stopExposureScheduleWithHttpInfo(exposureScheduleId).getData();
+  }
+
+  /**
+   * Stop a progressive rollout.
+   *
+   * <p>See {@link #stopExposureScheduleWithHttpInfoAsync}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;AllocationExposureScheduleResponse&gt;
+   */
+  public CompletableFuture<AllocationExposureScheduleResponse> stopExposureScheduleAsync(
+      UUID exposureScheduleId) {
+    return stopExposureScheduleWithHttpInfoAsync(exposureScheduleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Stops a progressive rollout and marks it as aborted.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return ApiResponse&lt;AllocationExposureScheduleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AllocationExposureScheduleResponse> stopExposureScheduleWithHttpInfo(
+      UUID exposureScheduleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'exposureScheduleId' when calling stopExposureSchedule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/stop"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.stopExposureSchedule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
+
+  /**
+   * Stop a progressive rollout.
+   *
+   * <p>See {@link #stopExposureScheduleWithHttpInfo}.
+   *
+   * @param exposureScheduleId The ID of the exposure schedule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AllocationExposureScheduleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>>
+      stopExposureScheduleWithHttpInfoAsync(UUID exposureScheduleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'exposureScheduleId' is set
+    if (exposureScheduleId == null) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'exposureScheduleId' when calling"
+                  + " stopExposureSchedule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/exposure-schedules/{exposure_schedule_id}/stop"
+            .replaceAll(
+                "\\{" + "exposure_schedule_id" + "\\}",
+                apiClient.escapeString(exposureScheduleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.stopExposureSchedule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AllocationExposureScheduleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AllocationExposureScheduleResponse>() {});
+  }
+
+  /**
    * Unarchive a feature flag.
    *
    * <p>See {@link #unarchiveFeatureFlagWithHttpInfo}.
@@ -1798,6 +2597,211 @@ public class FeatureFlagsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FeatureFlagResponse>() {});
+  }
+
+  /**
+   * Update targeting rules for a flag.
+   *
+   * <p>See {@link #updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return ListAllocationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListAllocationsResponse updateAllocationsForFeatureFlagInEnvironment(
+      UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body)
+      throws ApiException {
+    return updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo(
+            featureFlagId, environmentId, body)
+        .getData();
+  }
+
+  /**
+   * Update targeting rules for a flag.
+   *
+   * <p>See {@link #updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ListAllocationsResponse&gt;
+   */
+  public CompletableFuture<ListAllocationsResponse>
+      updateAllocationsForFeatureFlagInEnvironmentAsync(
+          UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body) {
+    return updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(
+            featureFlagId, environmentId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates targeting rules (allocations) for a specific feature flag in a specific environment.
+   * This operation replaces the existing allocation set with the request payload.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;ListAllocationsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 202 </td><td> Accepted - Approval required for this change </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListAllocationsResponse>
+      updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo(
+          UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'featureFlagId' when calling"
+              + " updateAllocationsForFeatureFlagInEnvironment");
+    }
+
+    // verify the required parameter 'environmentId' is set
+    if (environmentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'environmentId' when calling"
+              + " updateAllocationsForFeatureFlagInEnvironment");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " updateAllocationsForFeatureFlagInEnvironment");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.updateAllocationsForFeatureFlagInEnvironment",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListAllocationsResponse>() {});
+  }
+
+  /**
+   * Update targeting rules for a flag.
+   *
+   * <p>See {@link #updateAllocationsForFeatureFlagInEnvironmentWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param environmentId The ID of the environment. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ListAllocationsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListAllocationsResponse>>
+      updateAllocationsForFeatureFlagInEnvironmentWithHttpInfoAsync(
+          UUID featureFlagId, UUID environmentId, OverwriteAllocationsRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      CompletableFuture<ApiResponse<ListAllocationsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling"
+                  + " updateAllocationsForFeatureFlagInEnvironment"));
+      return result;
+    }
+
+    // verify the required parameter 'environmentId' is set
+    if (environmentId == null) {
+      CompletableFuture<ApiResponse<ListAllocationsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'environmentId' when calling"
+                  + " updateAllocationsForFeatureFlagInEnvironment"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ListAllocationsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateAllocationsForFeatureFlagInEnvironment"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/environments/{environment_id}/allocations"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}", apiClient.escapeString(featureFlagId.toString()))
+            .replaceAll(
+                "\\{" + "environment_id" + "\\}", apiClient.escapeString(environmentId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.updateAllocationsForFeatureFlagInEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListAllocationsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListAllocationsResponse>() {});
   }
 
   /**
