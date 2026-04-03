@@ -24,10 +24,6 @@ on:
         type: string
         default: './run-tests.sh'
     secrets:
-      PIPELINE_GITHUB_APP_ID:
-        required: false
-      PIPELINE_GITHUB_APP_PRIVATE_KEY:
-        required: false
       DD_API_KEY:
         required: false
 

@@ -1,8 +1,5 @@
 name: Reusable Integration Test Workflow
 
-permissions:
-  contents: read
-
 on:
   pull_request:
     types:
@@ -44,10 +41,6 @@ on:
         type: boolean
         default: false
     secrets:
-      PIPELINE_GITHUB_APP_ID:
-        required: false
-      PIPELINE_GITHUB_APP_PRIVATE_KEY:
-        required: false
       DD_API_KEY:
         required: true
       DD_CLIENT_API_KEY:
@@ -63,6 +56,9 @@ concurrency:
 
 jobs:
   test_integration:
+    permissions:
+      contents: read
+      id-token: write  # Required for dd-octo-sts OIDC token
     runs-on: ubuntu-latest
     if: >
       (github.event_name == 'pull_request' &&
@@ -82,14 +78,13 @@ jobs:
           DD_HOSTNAME: "none"
           DD_INSIDE_CI: "true"
     steps:
-      - name: Get GitHub App token
+      - name: Get GitHub token via dd-octo-sts
         if: github.event_name == 'pull_request'
         id: get_token
-        uses: actions/create-github-app-token@v1
+        uses: DataDog/dd-octo-sts-action@acaa02eee7e3bb0839e4272dacb37b8f3b58ba80  # v1.0.3
         with:
-          app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
-          private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
-          repositories: ${{ inputs.target-repo || 'datadog-api-spec' }}
+          scope: DataDog/${{ inputs.target-repo || 'datadog-api-spec' }}
+          policy: datadog-api-client-java.reusable-integration-test.post-status
       - name: Checkout code
         uses: actions/checkout@v3
         with:

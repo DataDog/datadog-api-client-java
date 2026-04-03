@@ -13,11 +13,6 @@ on:
         required: false
         type: boolean
         default: true
-    secrets:
-      PIPELINE_GITHUB_APP_ID:
-        required: false
-      PIPELINE_GITHUB_APP_PRIVATE_KEY:
-        required: false
 
 env:
   GIT_AUTHOR_EMAIL: "packages@datadoghq.com"
@@ -26,14 +21,16 @@ env:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # Required for dd-octo-sts OIDC token
     steps:
-      - name: Get GitHub App token
+      - name: Get GitHub token via dd-octo-sts
         id: get_token
         if: inputs.enable-commit-changes
-        uses: actions/create-github-app-token@v1
+        uses: DataDog/dd-octo-sts-action@acaa02eee7e3bb0839e4272dacb37b8f3b58ba80  # v1.0.3
         with:
-          app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
-          private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
+          scope: DataDog/datadog-api-client-java
+          policy: self.github.pre-commit.pull-requests
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
