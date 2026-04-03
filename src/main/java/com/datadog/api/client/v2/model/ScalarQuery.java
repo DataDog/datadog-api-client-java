@@ -165,6 +165,271 @@ public class ScalarQuery extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'EventsScalarQuery'", e);
       }
 
+      // deserialize ApmResourceStatsQuery
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ApmResourceStatsQuery.class.equals(Integer.class)
+            || ApmResourceStatsQuery.class.equals(Long.class)
+            || ApmResourceStatsQuery.class.equals(Float.class)
+            || ApmResourceStatsQuery.class.equals(Double.class)
+            || ApmResourceStatsQuery.class.equals(Boolean.class)
+            || ApmResourceStatsQuery.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ApmResourceStatsQuery.class.equals(Integer.class)
+                        || ApmResourceStatsQuery.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ApmResourceStatsQuery.class.equals(Float.class)
+                        || ApmResourceStatsQuery.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ApmResourceStatsQuery.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ApmResourceStatsQuery.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ApmResourceStatsQuery.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ApmResourceStatsQuery) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ApmResourceStatsQuery'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ApmResourceStatsQuery'", e);
+      }
+
+      // deserialize ApmMetricsQuery
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ApmMetricsQuery.class.equals(Integer.class)
+            || ApmMetricsQuery.class.equals(Long.class)
+            || ApmMetricsQuery.class.equals(Float.class)
+            || ApmMetricsQuery.class.equals(Double.class)
+            || ApmMetricsQuery.class.equals(Boolean.class)
+            || ApmMetricsQuery.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ApmMetricsQuery.class.equals(Integer.class)
+                        || ApmMetricsQuery.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ApmMetricsQuery.class.equals(Float.class)
+                        || ApmMetricsQuery.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ApmMetricsQuery.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ApmMetricsQuery.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ApmMetricsQuery.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ApmMetricsQuery) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ApmMetricsQuery'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ApmMetricsQuery'", e);
+      }
+
+      // deserialize ApmDependencyStatsQuery
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ApmDependencyStatsQuery.class.equals(Integer.class)
+            || ApmDependencyStatsQuery.class.equals(Long.class)
+            || ApmDependencyStatsQuery.class.equals(Float.class)
+            || ApmDependencyStatsQuery.class.equals(Double.class)
+            || ApmDependencyStatsQuery.class.equals(Boolean.class)
+            || ApmDependencyStatsQuery.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ApmDependencyStatsQuery.class.equals(Integer.class)
+                        || ApmDependencyStatsQuery.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ApmDependencyStatsQuery.class.equals(Float.class)
+                        || ApmDependencyStatsQuery.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ApmDependencyStatsQuery.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ApmDependencyStatsQuery.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ApmDependencyStatsQuery.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ApmDependencyStatsQuery) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ApmDependencyStatsQuery'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ApmDependencyStatsQuery'", e);
+      }
+
+      // deserialize SloQuery
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SloQuery.class.equals(Integer.class)
+            || SloQuery.class.equals(Long.class)
+            || SloQuery.class.equals(Float.class)
+            || SloQuery.class.equals(Double.class)
+            || SloQuery.class.equals(Boolean.class)
+            || SloQuery.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SloQuery.class.equals(Integer.class) || SloQuery.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SloQuery.class.equals(Float.class) || SloQuery.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SloQuery.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SloQuery.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SloQuery.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SloQuery) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SloQuery'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'SloQuery'", e);
+      }
+
+      // deserialize ProcessScalarQuery
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ProcessScalarQuery.class.equals(Integer.class)
+            || ProcessScalarQuery.class.equals(Long.class)
+            || ProcessScalarQuery.class.equals(Float.class)
+            || ProcessScalarQuery.class.equals(Double.class)
+            || ProcessScalarQuery.class.equals(Boolean.class)
+            || ProcessScalarQuery.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ProcessScalarQuery.class.equals(Integer.class)
+                        || ProcessScalarQuery.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ProcessScalarQuery.class.equals(Float.class)
+                        || ProcessScalarQuery.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ProcessScalarQuery.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ProcessScalarQuery.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ProcessScalarQuery.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ProcessScalarQuery) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ProcessScalarQuery'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ProcessScalarQuery'", e);
+      }
+
+      // deserialize ContainerScalarQuery
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ContainerScalarQuery.class.equals(Integer.class)
+            || ContainerScalarQuery.class.equals(Long.class)
+            || ContainerScalarQuery.class.equals(Float.class)
+            || ContainerScalarQuery.class.equals(Double.class)
+            || ContainerScalarQuery.class.equals(Boolean.class)
+            || ContainerScalarQuery.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ContainerScalarQuery.class.equals(Integer.class)
+                        || ContainerScalarQuery.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ContainerScalarQuery.class.equals(Float.class)
+                        || ContainerScalarQuery.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ContainerScalarQuery.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ContainerScalarQuery.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ContainerScalarQuery.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ContainerScalarQuery) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ContainerScalarQuery'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ContainerScalarQuery'", e);
+      }
+
       ScalarQuery ret = new ScalarQuery();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -203,9 +468,45 @@ public class ScalarQuery extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public ScalarQuery(ApmResourceStatsQuery o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ScalarQuery(ApmMetricsQuery o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ScalarQuery(ApmDependencyStatsQuery o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ScalarQuery(SloQuery o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ScalarQuery(ProcessScalarQuery o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ScalarQuery(ContainerScalarQuery o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("MetricsScalarQuery", new GenericType<MetricsScalarQuery>() {});
     schemas.put("EventsScalarQuery", new GenericType<EventsScalarQuery>() {});
+    schemas.put("ApmResourceStatsQuery", new GenericType<ApmResourceStatsQuery>() {});
+    schemas.put("ApmMetricsQuery", new GenericType<ApmMetricsQuery>() {});
+    schemas.put("ApmDependencyStatsQuery", new GenericType<ApmDependencyStatsQuery>() {});
+    schemas.put("SloQuery", new GenericType<SloQuery>() {});
+    schemas.put("ProcessScalarQuery", new GenericType<ProcessScalarQuery>() {});
+    schemas.put("ContainerScalarQuery", new GenericType<ContainerScalarQuery>() {});
     JSON.registerDescendants(ScalarQuery.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -216,7 +517,8 @@ public class ScalarQuery extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: MetricsScalarQuery, EventsScalarQuery
+   * against the oneOf child schemas: MetricsScalarQuery, EventsScalarQuery, ApmResourceStatsQuery,
+   * ApmMetricsQuery, ApmDependencyStatsQuery, SloQuery, ProcessScalarQuery, ContainerScalarQuery
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -231,19 +533,49 @@ public class ScalarQuery extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(ApmResourceStatsQuery.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(ApmMetricsQuery.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(ApmDependencyStatsQuery.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(SloQuery.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(ProcessScalarQuery.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(ContainerScalarQuery.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be MetricsScalarQuery, EventsScalarQuery");
+        "Invalid instance type. Must be MetricsScalarQuery, EventsScalarQuery,"
+            + " ApmResourceStatsQuery, ApmMetricsQuery, ApmDependencyStatsQuery, SloQuery,"
+            + " ProcessScalarQuery, ContainerScalarQuery");
   }
 
   /**
-   * Get the actual instance, which can be the following: MetricsScalarQuery, EventsScalarQuery
+   * Get the actual instance, which can be the following: MetricsScalarQuery, EventsScalarQuery,
+   * ApmResourceStatsQuery, ApmMetricsQuery, ApmDependencyStatsQuery, SloQuery, ProcessScalarQuery,
+   * ContainerScalarQuery
    *
-   * @return The actual instance (MetricsScalarQuery, EventsScalarQuery)
+   * @return The actual instance (MetricsScalarQuery, EventsScalarQuery, ApmResourceStatsQuery,
+   *     ApmMetricsQuery, ApmDependencyStatsQuery, SloQuery, ProcessScalarQuery,
+   *     ContainerScalarQuery)
    */
   @Override
   public Object getActualInstance() {
@@ -270,5 +602,71 @@ public class ScalarQuery extends AbstractOpenApiSchema {
    */
   public EventsScalarQuery getEventsScalarQuery() throws ClassCastException {
     return (EventsScalarQuery) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ApmResourceStatsQuery`. If the actual instance is not
+   * `ApmResourceStatsQuery`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ApmResourceStatsQuery`
+   * @throws ClassCastException if the instance is not `ApmResourceStatsQuery`
+   */
+  public ApmResourceStatsQuery getApmResourceStatsQuery() throws ClassCastException {
+    return (ApmResourceStatsQuery) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ApmMetricsQuery`. If the actual instance is not `ApmMetricsQuery`,
+   * the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ApmMetricsQuery`
+   * @throws ClassCastException if the instance is not `ApmMetricsQuery`
+   */
+  public ApmMetricsQuery getApmMetricsQuery() throws ClassCastException {
+    return (ApmMetricsQuery) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ApmDependencyStatsQuery`. If the actual instance is not
+   * `ApmDependencyStatsQuery`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ApmDependencyStatsQuery`
+   * @throws ClassCastException if the instance is not `ApmDependencyStatsQuery`
+   */
+  public ApmDependencyStatsQuery getApmDependencyStatsQuery() throws ClassCastException {
+    return (ApmDependencyStatsQuery) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SloQuery`. If the actual instance is not `SloQuery`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SloQuery`
+   * @throws ClassCastException if the instance is not `SloQuery`
+   */
+  public SloQuery getSloQuery() throws ClassCastException {
+    return (SloQuery) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ProcessScalarQuery`. If the actual instance is not
+   * `ProcessScalarQuery`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ProcessScalarQuery`
+   * @throws ClassCastException if the instance is not `ProcessScalarQuery`
+   */
+  public ProcessScalarQuery getProcessScalarQuery() throws ClassCastException {
+    return (ProcessScalarQuery) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ContainerScalarQuery`. If the actual instance is not
+   * `ContainerScalarQuery`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ContainerScalarQuery`
+   * @throws ClassCastException if the instance is not `ContainerScalarQuery`
+   */
+  public ContainerScalarQuery getContainerScalarQuery() throws ClassCastException {
+    return (ContainerScalarQuery) super.getActualInstance();
   }
 }
