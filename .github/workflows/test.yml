@@ -60,8 +60,6 @@ jobs:
       platforms: '["ubuntu-latest"]'
       test-script: './run-tests.sh'
     secrets:
-      PIPELINE_GITHUB_APP_ID: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
-      PIPELINE_GITHUB_APP_PRIVATE_KEY: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
       DD_API_KEY: ${{ secrets.DD_API_KEY }}
   
   examples:
@@ -83,15 +81,16 @@ jobs:
       - examples
       - javadoc
       - shading
+    permissions:
+      id-token: write
     steps:
       - name: Get GitHub App token
         if: github.event_name == 'pull_request'
         id: get_token
-        uses: actions/create-github-app-token@v1
+        uses: DataDog/dd-octo-sts-action@96a25462dbcb10ebf0bfd6e2ccc917d2ab235b9a # v1.0.4
         with:
-          app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
-          private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
-          repositories: datadog-api-spec
+          scope: DataDog/datadog-api-spec
+          policy: datadog-api-client-java.test.post-status
       - name: Post status check
         uses: DataDog/github-actions/post-status-check@v2
         with:
