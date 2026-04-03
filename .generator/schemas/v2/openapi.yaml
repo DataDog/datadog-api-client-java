@@ -951,6 +951,41 @@ components:
       required: true
       schema:
         type: string
+    PersonalAccessTokenID:
+      description: The UUID of the personal access token.
+      in: path
+      name: pat_uuid
+      required: true
+      schema:
+        example: "00000000-0000-1234-0000-000000000000"
+        type: string
+    PersonalAccessTokensFilterOwnerUUIDParameter:
+      description: Filter personal access tokens by the owner's UUID. Supports multiple values.
+      in: query
+      name: filter[owner_uuid]
+      required: false
+      schema:
+        items:
+          example: "00000000-0000-1234-0000-000000000000"
+          type: string
+        type: array
+    PersonalAccessTokensFilterParameter:
+      description: Filter personal access tokens by the specified string.
+      in: query
+      name: filter
+      required: false
+      schema:
+        type: string
+    PersonalAccessTokensSortParameter:
+      description: |-
+        Personal access token attribute used to sort results. Sort order is ascending
+        by default. In order to specify a descending sort, prefix the
+        attribute with a minus sign.
+      in: query
+      name: sort
+      required: false
+      schema:
+        $ref: "#/components/schemas/PersonalAccessTokensSort"
     ProductName:
       description: Name of the product to be deleted, either `logs` or `rum`.
       in: path
@@ -27300,6 +27335,62 @@ components:
         - name
         - requirements
       type: object
+    FullPersonalAccessToken:
+      description: Datadog personal access token, including the token key.
+      properties:
+        attributes:
+          $ref: "#/components/schemas/FullPersonalAccessTokenAttributes"
+        id:
+          description: ID of the personal access token.
+          type: string
+        relationships:
+          $ref: "#/components/schemas/PersonalAccessTokenRelationships"
+        type:
+          $ref: "#/components/schemas/PersonalAccessTokensType"
+      type: object
+    FullPersonalAccessTokenAttributes:
+      description: Attributes of a full personal access token, including the token key.
+      properties:
+        alias:
+          description: The alias (short identifier) of the personal access token.
+          example: "2H9MCNMBM8FQjQ16YucXkX"
+          readOnly: true
+          type: string
+        created_at:
+          description: Creation date of the personal access token.
+          example: "2024-01-01T00:00:00+00:00"
+          format: date-time
+          readOnly: true
+          type: string
+        expires_at:
+          description: Expiration date of the personal access token.
+          example: "2025-12-31T23:59:59+00:00"
+          format: date-time
+          readOnly: true
+          type: string
+        key:
+          description: The personal access token key. Only returned upon creation.
+          readOnly: true
+          type: string
+        name:
+          description: Name of the personal access token.
+          example: "My Personal Access Token"
+          type: string
+        public_portion:
+          description: The public portion of the personal access token.
+          example: "ddpat_abc123"
+          readOnly: true
+          type: string
+        scopes:
+          description: Array of scopes granted to the personal access token.
+          example:
+            - "dashboards_read"
+            - "dashboards_write"
+          items:
+            description: Name of scope.
+            type: string
+          type: array
+      type: object
     GCPCredentials:
       description: The definition of the `GCPCredentials` object.
       oneOf:
@@ -37151,6 +37242,17 @@ components:
           items:
             $ref: "#/components/schemas/OnCallNotificationRulesIncluded"
           type: array
+      type: object
+    ListPersonalAccessTokensResponse:
+      description: Response for a list of personal access tokens.
+      properties:
+        data:
+          description: Array of personal access tokens.
+          items:
+            $ref: "#/components/schemas/PersonalAccessToken"
+          type: array
+        meta:
+          $ref: "#/components/schemas/PersonalAccessTokenResponseMeta"
       type: object
     ListPipelinesResponse:
       description: Represents the response payload containing a list of pipelines and associated metadata.
@@ -48767,6 +48869,217 @@ components:
       type: string
       x-enum-varnames:
         - PERMISSIONS
+    PersonalAccessToken:
+      description: Datadog personal access token.
+      properties:
+        attributes:
+          $ref: "#/components/schemas/PersonalAccessTokenAttributes"
+        id:
+          description: ID of the personal access token.
+          type: string
+        relationships:
+          $ref: "#/components/schemas/PersonalAccessTokenRelationships"
+        type:
+          $ref: "#/components/schemas/PersonalAccessTokensType"
+      type: object
+    PersonalAccessTokenAttributes:
+      description: Attributes of a personal access token.
+      properties:
+        alias:
+          description: The alias (short identifier) of the personal access token.
+          example: "2H9MCNMBM8FQjQ16YucXkX"
+          readOnly: true
+          type: string
+        created_at:
+          description: Creation date of the personal access token.
+          example: "2024-01-01T00:00:00+00:00"
+          format: date-time
+          readOnly: true
+          type: string
+        expires_at:
+          description: Expiration date of the personal access token.
+          example: "2025-12-31T23:59:59+00:00"
+          format: date-time
+          readOnly: true
+          type: string
+        last_used_at:
+          description: Date the personal access token was last used.
+          example: "2025-06-15T12:30:00+00:00"
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        modified_at:
+          description: Date of last modification of the personal access token.
+          example: "2024-06-01T00:00:00+00:00"
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        name:
+          description: Name of the personal access token.
+          example: "My Personal Access Token"
+          type: string
+        public_portion:
+          description: The public portion of the personal access token.
+          example: "ddpat_abc123"
+          readOnly: true
+          type: string
+        scopes:
+          description: Array of scopes granted to the personal access token.
+          example:
+            - "dashboards_read"
+            - "dashboards_write"
+          items:
+            description: Name of scope.
+            type: string
+          type: array
+      type: object
+    PersonalAccessTokenCreateAttributes:
+      description: Attributes used to create a personal access token.
+      properties:
+        expires_at:
+          description: Expiration date of the personal access token. Must be at least 24 hours in the future.
+          example: "2025-12-31T23:59:59+00:00"
+          format: date-time
+          type: string
+        name:
+          description: Name of the personal access token.
+          example: "My Personal Access Token"
+          type: string
+        scopes:
+          description: Array of scopes to grant the personal access token.
+          example:
+            - "dashboards_read"
+            - "dashboards_write"
+          items:
+            description: Name of scope.
+            type: string
+          type: array
+      required:
+        - name
+        - scopes
+        - expires_at
+      type: object
+    PersonalAccessTokenCreateData:
+      description: Object used to create a personal access token.
+      properties:
+        attributes:
+          $ref: "#/components/schemas/PersonalAccessTokenCreateAttributes"
+        type:
+          $ref: "#/components/schemas/PersonalAccessTokensType"
+      required:
+        - attributes
+        - type
+      type: object
+    PersonalAccessTokenCreateRequest:
+      description: Request used to create a personal access token.
+      properties:
+        data:
+          $ref: "#/components/schemas/PersonalAccessTokenCreateData"
+      required:
+        - data
+      type: object
+    PersonalAccessTokenCreateResponse:
+      description: Response for creating a personal access token. Includes the token key.
+      properties:
+        data:
+          $ref: "#/components/schemas/FullPersonalAccessToken"
+      type: object
+    PersonalAccessTokenRelationships:
+      description: Resources related to the personal access token.
+      properties:
+        owned_by:
+          $ref: "#/components/schemas/RelationshipToUser"
+      type: object
+    PersonalAccessTokenResponse:
+      description: Response for retrieving a personal access token.
+      properties:
+        data:
+          $ref: "#/components/schemas/PersonalAccessToken"
+      type: object
+    PersonalAccessTokenResponseMeta:
+      description: Additional information related to the personal access token response.
+      properties:
+        page:
+          $ref: "#/components/schemas/PersonalAccessTokenResponseMetaPage"
+      type: object
+    PersonalAccessTokenResponseMetaPage:
+      description: Pagination information.
+      properties:
+        total_filtered_count:
+          description: Total filtered personal access token count.
+          format: int64
+          type: integer
+      type: object
+    PersonalAccessTokenUpdateAttributes:
+      description: Attributes used to update a personal access token.
+      properties:
+        name:
+          description: Name of the personal access token.
+          example: "Updated Personal Access Token"
+          type: string
+        scopes:
+          description: Array of scopes to grant the personal access token.
+          example:
+            - "dashboards_read"
+            - "dashboards_write"
+          items:
+            description: Name of scope.
+            type: string
+          type: array
+      type: object
+    PersonalAccessTokenUpdateData:
+      description: Object used to update a personal access token.
+      properties:
+        attributes:
+          $ref: "#/components/schemas/PersonalAccessTokenUpdateAttributes"
+        id:
+          description: ID of the personal access token.
+          example: "00112233-4455-6677-8899-aabbccddeeff"
+          type: string
+        type:
+          $ref: "#/components/schemas/PersonalAccessTokensType"
+      required:
+        - attributes
+        - id
+        - type
+      type: object
+    PersonalAccessTokenUpdateRequest:
+      description: Request used to update a personal access token.
+      properties:
+        data:
+          $ref: "#/components/schemas/PersonalAccessTokenUpdateData"
+      required:
+        - data
+      type: object
+    PersonalAccessTokensSort:
+      default: name
+      description: Sorting options
+      enum:
+        - name
+        - -name
+        - created_at
+        - -created_at
+        - expires_at
+        - -expires_at
+      type: string
+      x-enum-varnames:
+        - NAME_ASCENDING
+        - NAME_DESCENDING
+        - CREATED_AT_ASCENDING
+        - CREATED_AT_DESCENDING
+        - EXPIRES_AT_ASCENDING
+        - EXPIRES_AT_DESCENDING
+    PersonalAccessTokensType:
+      default: personal_access_tokens
+      description: Personal access tokens resource type.
+      enum:
+        - personal_access_tokens
+      example: personal_access_tokens
+      type: string
+      x-enum-varnames:
+        - PERSONAL_ACCESS_TOKENS
     Playlist:
       description: A single RUM replay playlist resource returned by create, update, or get operations.
       properties:
@@ -60809,6 +61122,50 @@ components:
         - REPLACEMENT_STRING
         - PARTIAL_REPLACEMENT_FROM_BEGINNING
         - PARTIAL_REPLACEMENT_FROM_END
+    ServiceAccountAccessTokenCreateAttributes:
+      description: Attributes used to create a service account access token.
+      properties:
+        expires_at:
+          description: Expiration date of the access token. Optional for service account tokens.
+          example: "2025-12-31T23:59:59+00:00"
+          format: date-time
+          type: string
+        name:
+          description: Name of the access token.
+          example: "Service Account Access Token"
+          type: string
+        scopes:
+          description: Array of scopes to grant the access token.
+          example:
+            - "dashboards_read"
+            - "dashboards_write"
+          items:
+            description: Name of scope.
+            type: string
+          type: array
+      required:
+        - name
+        - scopes
+      type: object
+    ServiceAccountAccessTokenCreateData:
+      description: Object used to create a service account access token.
+      properties:
+        attributes:
+          $ref: "#/components/schemas/ServiceAccountAccessTokenCreateAttributes"
+        type:
+          $ref: "#/components/schemas/PersonalAccessTokensType"
+      required:
+        - attributes
+        - type
+      type: object
+    ServiceAccountAccessTokenCreateRequest:
+      description: Request used to create a service account access token.
+      properties:
+        data:
+          $ref: "#/components/schemas/ServiceAccountAccessTokenCreateData"
+      required:
+        - data
+      type: object
     ServiceAccountCreateAttributes:
       description: Attributes of the created user.
       properties:
@@ -96619,6 +96976,195 @@ paths:
         operator: OR
         permissions:
           - user_access_read
+  /api/v2/personal_access_tokens:
+    get:
+      description: List all personal access tokens for the organization.
+      operationId: ListPersonalAccessTokens
+      parameters:
+        - $ref: "#/components/parameters/PageSize"
+        - $ref: "#/components/parameters/PageNumber"
+        - $ref: "#/components/parameters/PersonalAccessTokensSortParameter"
+        - $ref: "#/components/parameters/PersonalAccessTokensFilterParameter"
+        - $ref: "#/components/parameters/PersonalAccessTokensFilterOwnerUUIDParameter"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListPersonalAccessTokensResponse"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Forbidden
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      summary: Get all personal access tokens
+      tags:
+        - Key Management
+      "x-permission":
+        operator: OR
+        permissions:
+          - user_app_keys
+          - org_app_keys_read
+    post:
+      description: Create a personal access token for the current user.
+      operationId: CreatePersonalAccessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PersonalAccessTokenCreateRequest"
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PersonalAccessTokenCreateResponse"
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Forbidden
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      summary: Create a personal access token
+      tags:
+        - Key Management
+      x-codegen-request-body-name: body
+      "x-permission":
+        operator: OR
+        permissions:
+          - user_app_keys
+  /api/v2/personal_access_tokens/{pat_uuid}:
+    delete:
+      description: Revoke a specific personal access token.
+      operationId: RevokePersonalAccessToken
+      parameters:
+        - $ref: "#/components/parameters/PersonalAccessTokenID"
+      responses:
+        "204":
+          description: No Content
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Not Found
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      summary: Revoke a personal access token
+      tags:
+        - Key Management
+      "x-permission":
+        operator: OR
+        permissions:
+          - user_app_keys
+          - org_app_keys_write
+    get:
+      description: Get a specific personal access token by its UUID.
+      operationId: GetPersonalAccessToken
+      parameters:
+        - $ref: "#/components/parameters/PersonalAccessTokenID"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PersonalAccessTokenResponse"
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Not Found
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      summary: Get a personal access token
+      tags:
+        - Key Management
+      "x-permission":
+        operator: OR
+        permissions:
+          - user_app_keys
+          - org_app_keys_read
+    patch:
+      description: Update a specific personal access token.
+      operationId: UpdatePersonalAccessToken
+      parameters:
+        - $ref: "#/components/parameters/PersonalAccessTokenID"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PersonalAccessTokenUpdateRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PersonalAccessTokenResponse"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Not Found
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      summary: Update a personal access token
+      tags:
+        - Key Management
+      x-codegen-request-body-name: body
+      "x-permission":
+        operator: OR
+        permissions:
+          - user_app_keys
+          - org_app_keys_write
   /api/v2/posture_management/findings:
     get:
       description: |-
@@ -105185,6 +105731,208 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequestsResponse"
       summary: Create a service account
+      tags:
+        - Service Accounts
+      x-codegen-request-body-name: body
+      "x-permission":
+        operator: OR
+        permissions:
+          - service_account_write
+  /api/v2/service_accounts/{service_account_id}/access_tokens:
+    get:
+      description: List all access tokens for a specific service account.
+      operationId: ListServiceAccountAccessTokens
+      parameters:
+        - $ref: "#/components/parameters/ServiceAccountID"
+        - $ref: "#/components/parameters/PageSize"
+        - $ref: "#/components/parameters/PageNumber"
+        - $ref: "#/components/parameters/PersonalAccessTokensSortParameter"
+        - $ref: "#/components/parameters/PersonalAccessTokensFilterParameter"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListPersonalAccessTokensResponse"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Not Found
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      summary: List access tokens for a service account
+      tags:
+        - Service Accounts
+      "x-permission":
+        operator: OR
+        permissions:
+          - service_account_write
+    post:
+      description: Create an access token for a service account.
+      operationId: CreateServiceAccountAccessToken
+      parameters:
+        - $ref: "#/components/parameters/ServiceAccountID"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ServiceAccountAccessTokenCreateRequest"
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PersonalAccessTokenCreateResponse"
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Not Found
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      summary: Create an access token for a service account
+      tags:
+        - Service Accounts
+      x-codegen-request-body-name: body
+      "x-permission":
+        operator: OR
+        permissions:
+          - service_account_write
+  /api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}:
+    delete:
+      description: Revoke a specific access token for a service account.
+      operationId: RevokeServiceAccountAccessToken
+      parameters:
+        - $ref: "#/components/parameters/ServiceAccountID"
+        - $ref: "#/components/parameters/PersonalAccessTokenID"
+      responses:
+        "204":
+          description: No Content
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Not Found
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      summary: Revoke an access token for a service account
+      tags:
+        - Service Accounts
+      "x-permission":
+        operator: OR
+        permissions:
+          - service_account_write
+    get:
+      description: Get a specific access token for a service account by its UUID.
+      operationId: GetServiceAccountAccessToken
+      parameters:
+        - $ref: "#/components/parameters/ServiceAccountID"
+        - $ref: "#/components/parameters/PersonalAccessTokenID"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PersonalAccessTokenResponse"
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Not Found
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      summary: Get an access token for a service account
+      tags:
+        - Service Accounts
+      "x-permission":
+        operator: OR
+        permissions:
+          - service_account_write
+    patch:
+      description: Update a specific access token for a service account.
+      operationId: UpdateServiceAccountAccessToken
+      parameters:
+        - $ref: "#/components/parameters/ServiceAccountID"
+        - $ref: "#/components/parameters/PersonalAccessTokenID"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PersonalAccessTokenUpdateRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PersonalAccessTokenResponse"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIErrorResponse"
+          description: Not Found
+        "429":
+          $ref: "#/components/responses/TooManyRequestsResponse"
+      summary: Update an access token for a service account
       tags:
         - Service Accounts
       x-codegen-request-body-name: body

@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"expires_at\":\"2027-04-03T21:03:28.808Z\",\"name\":\"Test-Get_a_personal_access_token_returns_OK_response-1775250208\",\"scopes\":[\"dashboards_read\"]},\"type\":\"personal_access_tokens\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/personal_access_tokens",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"c05c3fb9-496b-46cd-a490-5a663485f581\",\"type\":\"personal_access_tokens\",\"attributes\":{\"alias\":\"5qygRojZc6mCZ8pk5VYBfd\",\"created_at\":\"2026-04-03T21:03:29.01777755Z\",\"expires_at\":\"2027-04-03T21:03:28.808Z\",\"key\":\"xxxxx_xxxxxxxxxxxxxxxxxxxxxx_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"name\":\"Test-Get_a_personal_access_token_returns_OK_response-1775250208\",\"public_portion\":\"5qygRojZc6mCZ8pk5VYBfd\",\"scopes\":[\"dashboards_read\"]},\"relationships\":{\"owned_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c90b6db0-005a-8752-e3f7-7a6edbe8a784"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/personal_access_tokens/c05c3fb9-496b-46cd-a490-5a663485f581",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"c05c3fb9-496b-46cd-a490-5a663485f581\",\"type\":\"personal_access_tokens\",\"attributes\":{\"alias\":\"5qygRojZc6mCZ8pk5VYBfd\",\"created_at\":\"2026-04-03T21:03:29.017777Z\",\"expires_at\":\"2027-04-03T21:03:28.808Z\",\"last_used_at\":null,\"name\":\"Test-Get_a_personal_access_token_returns_OK_response-1775250208\",\"public_portion\":\"5qygRojZc6mCZ8pk5VYBfd\",\"scopes\":[\"dashboards_read\"]},\"relationships\":{\"owned_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "df722c61-538a-9b71-4579-472313372eed"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/personal_access_tokens/c05c3fb9-496b-46cd-a490-5a663485f581",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "adb9659c-a1fb-f9e0-9afe-18ea3d0babb3"
+  }
+]
