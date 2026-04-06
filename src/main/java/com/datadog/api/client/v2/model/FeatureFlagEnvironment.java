@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FeatureFlagEnvironment.JSON_PROPERTY_DEFAULT_VARIANT_ID,
   FeatureFlagEnvironment.JSON_PROPERTY_ENVIRONMENT_ID,
   FeatureFlagEnvironment.JSON_PROPERTY_ENVIRONMENT_NAME,
+  FeatureFlagEnvironment.JSON_PROPERTY_ENVIRONMENT_QUERIES,
   FeatureFlagEnvironment.JSON_PROPERTY_IS_PRODUCTION,
   FeatureFlagEnvironment.JSON_PROPERTY_OVERRIDE_ALLOCATION_KEY,
   FeatureFlagEnvironment.JSON_PROPERTY_OVERRIDE_VARIANT_ID,
@@ -56,6 +57,9 @@ public class FeatureFlagEnvironment {
 
   public static final String JSON_PROPERTY_ENVIRONMENT_NAME = "environment_name";
   private String environmentName;
+
+  public static final String JSON_PROPERTY_ENVIRONMENT_QUERIES = "environment_queries";
+  private List<String> environmentQueries = null;
 
   public static final String JSON_PROPERTY_IS_PRODUCTION = "is_production";
   private Boolean isProduction;
@@ -227,6 +231,35 @@ public class FeatureFlagEnvironment {
 
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
+  }
+
+  public FeatureFlagEnvironment environmentQueries(List<String> environmentQueries) {
+    this.environmentQueries = environmentQueries;
+    return this;
+  }
+
+  public FeatureFlagEnvironment addEnvironmentQueriesItem(String environmentQueriesItem) {
+    if (this.environmentQueries == null) {
+      this.environmentQueries = new ArrayList<>();
+    }
+    this.environmentQueries.add(environmentQueriesItem);
+    return this;
+  }
+
+  /**
+   * Queries that target this environment.
+   *
+   * @return environmentQueries
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENVIRONMENT_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getEnvironmentQueries() {
+    return environmentQueries;
+  }
+
+  public void setEnvironmentQueries(List<String> environmentQueries) {
+    this.environmentQueries = environmentQueries;
   }
 
   public FeatureFlagEnvironment isProduction(Boolean isProduction) {
@@ -489,6 +522,7 @@ public class FeatureFlagEnvironment {
         && Objects.equals(this.defaultVariantId, featureFlagEnvironment.defaultVariantId)
         && Objects.equals(this.environmentId, featureFlagEnvironment.environmentId)
         && Objects.equals(this.environmentName, featureFlagEnvironment.environmentName)
+        && Objects.equals(this.environmentQueries, featureFlagEnvironment.environmentQueries)
         && Objects.equals(this.isProduction, featureFlagEnvironment.isProduction)
         && Objects.equals(this.overrideAllocationKey, featureFlagEnvironment.overrideAllocationKey)
         && Objects.equals(this.overrideVariantId, featureFlagEnvironment.overrideVariantId)
@@ -509,6 +543,7 @@ public class FeatureFlagEnvironment {
         defaultVariantId,
         environmentId,
         environmentName,
+        environmentQueries,
         isProduction,
         overrideAllocationKey,
         overrideVariantId,
@@ -531,6 +566,7 @@ public class FeatureFlagEnvironment {
     sb.append("    defaultVariantId: ").append(toIndentedString(defaultVariantId)).append("\n");
     sb.append("    environmentId: ").append(toIndentedString(environmentId)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
+    sb.append("    environmentQueries: ").append(toIndentedString(environmentQueries)).append("\n");
     sb.append("    isProduction: ").append(toIndentedString(isProduction)).append("\n");
     sb.append("    overrideAllocationKey: ")
         .append(toIndentedString(overrideAllocationKey))

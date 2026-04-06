@@ -35,6 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   FeatureFlagAttributes.JSON_PROPERTY_LAST_UPDATED_BY,
   FeatureFlagAttributes.JSON_PROPERTY_NAME,
   FeatureFlagAttributes.JSON_PROPERTY_REQUIRE_APPROVAL,
+  FeatureFlagAttributes.JSON_PROPERTY_TAGS,
   FeatureFlagAttributes.JSON_PROPERTY_UPDATED_AT,
   FeatureFlagAttributes.JSON_PROPERTY_VALUE_TYPE,
   FeatureFlagAttributes.JSON_PROPERTY_VARIANTS
@@ -75,6 +76,9 @@ public class FeatureFlagAttributes {
 
   public static final String JSON_PROPERTY_REQUIRE_APPROVAL = "require_approval";
   private Boolean requireApproval;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private OffsetDateTime updatedAt;
@@ -364,6 +368,35 @@ public class FeatureFlagAttributes {
     this.requireApproval = requireApproval;
   }
 
+  public FeatureFlagAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public FeatureFlagAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Tags associated with the feature flag.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   public FeatureFlagAttributes updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -506,6 +539,7 @@ public class FeatureFlagAttributes {
         && Objects.equals(this.lastUpdatedBy, featureFlagAttributes.lastUpdatedBy)
         && Objects.equals(this.name, featureFlagAttributes.name)
         && Objects.equals(this.requireApproval, featureFlagAttributes.requireApproval)
+        && Objects.equals(this.tags, featureFlagAttributes.tags)
         && Objects.equals(this.updatedAt, featureFlagAttributes.updatedAt)
         && Objects.equals(this.valueType, featureFlagAttributes.valueType)
         && Objects.equals(this.variants, featureFlagAttributes.variants)
@@ -526,6 +560,7 @@ public class FeatureFlagAttributes {
         lastUpdatedBy,
         name,
         requireApproval,
+        tags,
         updatedAt,
         valueType,
         variants,
@@ -551,6 +586,7 @@ public class FeatureFlagAttributes {
     sb.append("    lastUpdatedBy: ").append(toIndentedString(lastUpdatedBy)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    requireApproval: ").append(toIndentedString(requireApproval)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    valueType: ").append(toIndentedString(valueType)).append("\n");
     sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
