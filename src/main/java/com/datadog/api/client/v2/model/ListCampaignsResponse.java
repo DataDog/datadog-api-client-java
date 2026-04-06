@@ -8,75 +8,91 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Scorecard create rule request data. */
+/** Response containing a list of campaigns. */
 @JsonPropertyOrder({
-  CreateRuleRequestData.JSON_PROPERTY_ATTRIBUTES,
-  CreateRuleRequestData.JSON_PROPERTY_TYPE
+  ListCampaignsResponse.JSON_PROPERTY_DATA,
+  ListCampaignsResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CreateRuleRequestData {
+public class ListCampaignsResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private RuleAttributesRequest attributes;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<CampaignResponseData> data = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private RuleType type = RuleType.RULE;
+  public static final String JSON_PROPERTY_META = "meta";
+  private PaginatedResponseMeta meta;
 
-  public CreateRuleRequestData attributes(RuleAttributesRequest attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
+  public ListCampaignsResponse() {}
+
+  @JsonCreator
+  public ListCampaignsResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<CampaignResponseData> data,
+      @JsonProperty(required = true, value = JSON_PROPERTY_META) PaginatedResponseMeta meta) {
+    this.data = data;
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
   }
 
-  /**
-   * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at,
-   * custom) are excluded.
-   *
-   * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RuleAttributesRequest getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(RuleAttributesRequest attributes) {
-    this.attributes = attributes;
-  }
-
-  public CreateRuleRequestData type(RuleType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The JSON:API type for scorecard rules.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RuleType getType() {
-    return type;
-  }
-
-  public void setType(RuleType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+  public ListCampaignsResponse data(List<CampaignResponseData> data) {
+    this.data = data;
+    for (CampaignResponseData item : data) {
+      this.unparsed |= item.unparsed;
     }
-    this.type = type;
+    return this;
+  }
+
+  public ListCampaignsResponse addDataItem(CampaignResponseData dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Array of campaigns.
+   *
+   * @return data
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<CampaignResponseData> getData() {
+    return data;
+  }
+
+  public void setData(List<CampaignResponseData> data) {
+    this.data = data;
+  }
+
+  public ListCampaignsResponse meta(PaginatedResponseMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Metadata for scores response.
+   *
+   * @return meta
+   */
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public PaginatedResponseMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(PaginatedResponseMeta meta) {
+    this.meta = meta;
   }
 
   /**
@@ -91,10 +107,10 @@ public class CreateRuleRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CreateRuleRequestData
+   * @return ListCampaignsResponse
    */
   @JsonAnySetter
-  public CreateRuleRequestData putAdditionalProperty(String key, Object value) {
+  public ListCampaignsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -125,7 +141,7 @@ public class CreateRuleRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CreateRuleRequestData object is equal to o. */
+  /** Return true if this ListCampaignsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -134,23 +150,23 @@ public class CreateRuleRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateRuleRequestData createRuleRequestData = (CreateRuleRequestData) o;
-    return Objects.equals(this.attributes, createRuleRequestData.attributes)
-        && Objects.equals(this.type, createRuleRequestData.type)
-        && Objects.equals(this.additionalProperties, createRuleRequestData.additionalProperties);
+    ListCampaignsResponse listCampaignsResponse = (ListCampaignsResponse) o;
+    return Objects.equals(this.data, listCampaignsResponse.data)
+        && Objects.equals(this.meta, listCampaignsResponse.meta)
+        && Objects.equals(this.additionalProperties, listCampaignsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(data, meta, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateRuleRequestData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class ListCampaignsResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
