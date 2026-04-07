@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object for updating a Datadog Log index. */
 @JsonPropertyOrder({
@@ -56,7 +57,7 @@ public class LogsIndexUpdateRequest {
 
   public static final String JSON_PROPERTY_NUM_FLEX_LOGS_RETENTION_DAYS =
       "num_flex_logs_retention_days";
-  private Long numFlexLogsRetentionDays;
+  private JsonNullable<Long> numFlexLogsRetentionDays = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NUM_RETENTION_DAYS = "num_retention_days";
   private Long numRetentionDays;
@@ -219,7 +220,7 @@ public class LogsIndexUpdateRequest {
   }
 
   public LogsIndexUpdateRequest numFlexLogsRetentionDays(Long numFlexLogsRetentionDays) {
-    this.numFlexLogsRetentionDays = numFlexLogsRetentionDays;
+    this.numFlexLogsRetentionDays = JsonNullable.<Long>of(numFlexLogsRetentionDays);
     return this;
   }
 
@@ -237,14 +238,25 @@ public class LogsIndexUpdateRequest {
    * @return numFlexLogsRetentionDays
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getNumFlexLogsRetentionDays() {
+    return numFlexLogsRetentionDays.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NUM_FLEX_LOGS_RETENTION_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNumFlexLogsRetentionDays() {
+  public JsonNullable<Long> getNumFlexLogsRetentionDays_JsonNullable() {
     return numFlexLogsRetentionDays;
   }
 
-  public void setNumFlexLogsRetentionDays(Long numFlexLogsRetentionDays) {
+  @JsonProperty(JSON_PROPERTY_NUM_FLEX_LOGS_RETENTION_DAYS)
+  public void setNumFlexLogsRetentionDays_JsonNullable(
+      JsonNullable<Long> numFlexLogsRetentionDays) {
     this.numFlexLogsRetentionDays = numFlexLogsRetentionDays;
+  }
+
+  public void setNumFlexLogsRetentionDays(Long numFlexLogsRetentionDays) {
+    this.numFlexLogsRetentionDays = JsonNullable.<Long>of(numFlexLogsRetentionDays);
   }
 
   public LogsIndexUpdateRequest numRetentionDays(Long numRetentionDays) {
