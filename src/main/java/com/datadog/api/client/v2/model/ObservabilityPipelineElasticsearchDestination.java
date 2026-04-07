@@ -20,19 +20,24 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The <code>elasticsearch</code> destination writes logs to an Elasticsearch cluster.
+ * The <code>elasticsearch</code> destination writes logs or metrics to an Elasticsearch cluster.
  *
- * <p><strong>Supported pipeline types:</strong> logs
+ * <p><strong>Supported pipeline types:</strong> logs, metrics
  */
 @JsonPropertyOrder({
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_API_VERSION,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_AUTH,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_BUFFER,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_BULK_INDEX,
+  ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_COMPRESSION,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_DATA_STREAM,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_ENDPOINT_URL_KEY,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_ID,
+  ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_ID_KEY,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_INPUTS,
+  ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_PIPELINE,
+  ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_REQUEST_RETRY_PARTIAL,
+  ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_TLS,
   ObservabilityPipelineElasticsearchDestination.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -51,6 +56,9 @@ public class ObservabilityPipelineElasticsearchDestination {
   public static final String JSON_PROPERTY_BULK_INDEX = "bulk_index";
   private String bulkIndex;
 
+  public static final String JSON_PROPERTY_COMPRESSION = "compression";
+  private ObservabilityPipelineElasticsearchDestinationCompression compression;
+
   public static final String JSON_PROPERTY_DATA_STREAM = "data_stream";
   private ObservabilityPipelineElasticsearchDestinationDataStream dataStream;
 
@@ -60,8 +68,20 @@ public class ObservabilityPipelineElasticsearchDestination {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public static final String JSON_PROPERTY_ID_KEY = "id_key";
+  private String idKey;
+
   public static final String JSON_PROPERTY_INPUTS = "inputs";
   private List<String> inputs = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_PIPELINE = "pipeline";
+  private String pipeline;
+
+  public static final String JSON_PROPERTY_REQUEST_RETRY_PARTIAL = "request_retry_partial";
+  private Boolean requestRetryPartial;
+
+  public static final String JSON_PROPERTY_TLS = "tls";
+  private ObservabilityPipelineTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineElasticsearchDestinationType type =
@@ -161,7 +181,7 @@ public class ObservabilityPipelineElasticsearchDestination {
   }
 
   /**
-   * The index to write logs to in Elasticsearch.
+   * The name of the index to write events to in Elasticsearch.
    *
    * @return bulkIndex
    */
@@ -174,6 +194,29 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   public void setBulkIndex(String bulkIndex) {
     this.bulkIndex = bulkIndex;
+  }
+
+  public ObservabilityPipelineElasticsearchDestination compression(
+      ObservabilityPipelineElasticsearchDestinationCompression compression) {
+    this.compression = compression;
+    this.unparsed |= compression.unparsed;
+    return this;
+  }
+
+  /**
+   * Compression configuration for the Elasticsearch destination.
+   *
+   * @return compression
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineElasticsearchDestinationCompression getCompression() {
+    return compression;
+  }
+
+  public void setCompression(ObservabilityPipelineElasticsearchDestinationCompression compression) {
+    this.compression = compression;
   }
 
   public ObservabilityPipelineElasticsearchDestination dataStream(
@@ -240,6 +283,27 @@ public class ObservabilityPipelineElasticsearchDestination {
     this.id = id;
   }
 
+  public ObservabilityPipelineElasticsearchDestination idKey(String idKey) {
+    this.idKey = idKey;
+    return this;
+  }
+
+  /**
+   * The name of the field used as the document ID in Elasticsearch.
+   *
+   * @return idKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIdKey() {
+    return idKey;
+  }
+
+  public void setIdKey(String idKey) {
+    this.idKey = idKey;
+  }
+
   public ObservabilityPipelineElasticsearchDestination inputs(List<String> inputs) {
     this.inputs = inputs;
     return this;
@@ -263,6 +327,72 @@ public class ObservabilityPipelineElasticsearchDestination {
 
   public void setInputs(List<String> inputs) {
     this.inputs = inputs;
+  }
+
+  public ObservabilityPipelineElasticsearchDestination pipeline(String pipeline) {
+    this.pipeline = pipeline;
+    return this;
+  }
+
+  /**
+   * The name of an Elasticsearch ingest pipeline to apply to events before indexing.
+   *
+   * @return pipeline
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PIPELINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPipeline() {
+    return pipeline;
+  }
+
+  public void setPipeline(String pipeline) {
+    this.pipeline = pipeline;
+  }
+
+  public ObservabilityPipelineElasticsearchDestination requestRetryPartial(
+      Boolean requestRetryPartial) {
+    this.requestRetryPartial = requestRetryPartial;
+    return this;
+  }
+
+  /**
+   * When <code>true</code>, retries failed partial bulk requests when some events in a batch fail
+   * while others succeed.
+   *
+   * @return requestRetryPartial
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_RETRY_PARTIAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRequestRetryPartial() {
+    return requestRetryPartial;
+  }
+
+  public void setRequestRetryPartial(Boolean requestRetryPartial) {
+    this.requestRetryPartial = requestRetryPartial;
+  }
+
+  public ObservabilityPipelineElasticsearchDestination tls(ObservabilityPipelineTls tls) {
+    this.tls = tls;
+    this.unparsed |= tls.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   *
+   * @return tls
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineTls getTls() {
+    return tls;
+  }
+
+  public void setTls(ObservabilityPipelineTls tls) {
+    this.tls = tls;
   }
 
   public ObservabilityPipelineElasticsearchDestination type(
@@ -352,11 +482,19 @@ public class ObservabilityPipelineElasticsearchDestination {
         && Objects.equals(this.auth, observabilityPipelineElasticsearchDestination.auth)
         && Objects.equals(this.buffer, observabilityPipelineElasticsearchDestination.buffer)
         && Objects.equals(this.bulkIndex, observabilityPipelineElasticsearchDestination.bulkIndex)
+        && Objects.equals(
+            this.compression, observabilityPipelineElasticsearchDestination.compression)
         && Objects.equals(this.dataStream, observabilityPipelineElasticsearchDestination.dataStream)
         && Objects.equals(
             this.endpointUrlKey, observabilityPipelineElasticsearchDestination.endpointUrlKey)
         && Objects.equals(this.id, observabilityPipelineElasticsearchDestination.id)
+        && Objects.equals(this.idKey, observabilityPipelineElasticsearchDestination.idKey)
         && Objects.equals(this.inputs, observabilityPipelineElasticsearchDestination.inputs)
+        && Objects.equals(this.pipeline, observabilityPipelineElasticsearchDestination.pipeline)
+        && Objects.equals(
+            this.requestRetryPartial,
+            observabilityPipelineElasticsearchDestination.requestRetryPartial)
+        && Objects.equals(this.tls, observabilityPipelineElasticsearchDestination.tls)
         && Objects.equals(this.type, observabilityPipelineElasticsearchDestination.type)
         && Objects.equals(
             this.additionalProperties,
@@ -370,10 +508,15 @@ public class ObservabilityPipelineElasticsearchDestination {
         auth,
         buffer,
         bulkIndex,
+        compression,
         dataStream,
         endpointUrlKey,
         id,
+        idKey,
         inputs,
+        pipeline,
+        requestRetryPartial,
+        tls,
         type,
         additionalProperties);
   }
@@ -386,10 +529,17 @@ public class ObservabilityPipelineElasticsearchDestination {
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    buffer: ").append(toIndentedString(buffer)).append("\n");
     sb.append("    bulkIndex: ").append(toIndentedString(bulkIndex)).append("\n");
+    sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    dataStream: ").append(toIndentedString(dataStream)).append("\n");
     sb.append("    endpointUrlKey: ").append(toIndentedString(endpointUrlKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    idKey: ").append(toIndentedString(idKey)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
+    sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
+    sb.append("    requestRetryPartial: ")
+        .append(toIndentedString(requestRetryPartial))
+        .append("\n");
+    sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
