@@ -47,7 +47,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   private String env;
 
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
-  private List<String> groupBy = null;
+  private List<String> groupBy = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -77,14 +77,18 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
           FormulaAndFunctionApmResourceStatsDataSource dataSource,
       @JsonProperty(required = true, value = JSON_PROPERTY_ENV) String env,
+      @JsonProperty(required = true, value = JSON_PROPERTY_GROUP_BY) List<String> groupBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPERATION_NAME) String operationName,
       @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
       @JsonProperty(required = true, value = JSON_PROPERTY_STAT)
           FormulaAndFunctionApmResourceStatName stat) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     this.env = env;
+    this.groupBy = groupBy;
     this.name = name;
+    this.operationName = operationName;
     this.service = service;
     this.stat = stat;
     this.unparsed |= !stat.isValid();
@@ -172,9 +176,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   }
 
   public FormulaAndFunctionApmResourceStatsQueryDefinition addGroupByItem(String groupByItem) {
-    if (this.groupBy == null) {
-      this.groupBy = new ArrayList<>();
-    }
     this.groupBy.add(groupByItem);
     return this;
   }
@@ -184,9 +185,8 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return groupBy
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getGroupBy() {
     return groupBy;
   }
@@ -225,9 +225,8 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return operationName
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPERATION_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getOperationName() {
     return operationName;
   }
