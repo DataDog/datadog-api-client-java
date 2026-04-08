@@ -81,6 +81,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSignalListRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalListRequestPage;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalStateUpdateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalSuggestedActionsResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalTriageUpdateResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsBulkAssigneeUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsBulkStateUpdateRequest;
@@ -5472,6 +5473,150 @@ public class SecurityMonitoringApi {
         new GenericType<GetFindingResponse>() {});
   }
 
+  /**
+   * Get investigation queries for a signal.
+   *
+   * <p>See {@link #getInvestigationLogQueriesMatchingSignalWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return SecurityMonitoringSignalSuggestedActionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalSuggestedActionsResponse getInvestigationLogQueriesMatchingSignal(
+      String signalId) throws ApiException {
+    return getInvestigationLogQueriesMatchingSignalWithHttpInfo(signalId).getData();
+  }
+
+  /**
+   * Get investigation queries for a signal.
+   *
+   * <p>See {@link #getInvestigationLogQueriesMatchingSignalWithHttpInfoAsync}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSignalSuggestedActionsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalSuggestedActionsResponse>
+      getInvestigationLogQueriesMatchingSignalAsync(String signalId) {
+    return getInvestigationLogQueriesMatchingSignalWithHttpInfoAsync(signalId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of investigation log queries available for a given security signal.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return ApiResponse&lt;SecurityMonitoringSignalSuggestedActionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalSuggestedActionsResponse>
+      getInvestigationLogQueriesMatchingSignalWithHttpInfo(String signalId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'signalId' when calling"
+              + " getInvestigationLogQueriesMatchingSignal");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/{signal_id}/investigation_queries"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getInvestigationLogQueriesMatchingSignal",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalSuggestedActionsResponse>() {});
+  }
+
+  /**
+   * Get investigation queries for a signal.
+   *
+   * <p>See {@link #getInvestigationLogQueriesMatchingSignalWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalSuggestedActionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignalSuggestedActionsResponse>>
+      getInvestigationLogQueriesMatchingSignalWithHttpInfoAsync(String signalId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalSuggestedActionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'signalId' when calling"
+                  + " getInvestigationLogQueriesMatchingSignal"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/{signal_id}/investigation_queries"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getInvestigationLogQueriesMatchingSignal",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalSuggestedActionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalSuggestedActionsResponse>() {});
+  }
+
   /** Manage optional parameters to getResourceEvaluationFilters. */
   public static class GetResourceEvaluationFiltersOptionalParameters {
     private String cloudProvider;
@@ -7723,6 +7868,150 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Object>() {});
+  }
+
+  /**
+   * Get suggested actions for a signal.
+   *
+   * <p>See {@link #getSuggestedActionsMatchingSignalWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return SecurityMonitoringSignalSuggestedActionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignalSuggestedActionsResponse getSuggestedActionsMatchingSignal(
+      String signalId) throws ApiException {
+    return getSuggestedActionsMatchingSignalWithHttpInfo(signalId).getData();
+  }
+
+  /**
+   * Get suggested actions for a signal.
+   *
+   * <p>See {@link #getSuggestedActionsMatchingSignalWithHttpInfoAsync}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSignalSuggestedActionsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignalSuggestedActionsResponse>
+      getSuggestedActionsMatchingSignalAsync(String signalId) {
+    return getSuggestedActionsMatchingSignalWithHttpInfoAsync(signalId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of suggested actions for a given security signal.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return ApiResponse&lt;SecurityMonitoringSignalSuggestedActionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalSuggestedActionsResponse>
+      getSuggestedActionsMatchingSignalWithHttpInfo(String signalId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'signalId' when calling"
+              + " getSuggestedActionsMatchingSignal");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/{signal_id}/suggested_actions"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSuggestedActionsMatchingSignal",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalSuggestedActionsResponse>() {});
+  }
+
+  /**
+   * Get suggested actions for a signal.
+   *
+   * <p>See {@link #getSuggestedActionsMatchingSignalWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalSuggestedActionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignalSuggestedActionsResponse>>
+      getSuggestedActionsMatchingSignalWithHttpInfoAsync(String signalId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalSuggestedActionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'signalId' when calling"
+                  + " getSuggestedActionsMatchingSignal"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/{signal_id}/suggested_actions"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSuggestedActionsMatchingSignal",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalSuggestedActionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignalSuggestedActionsResponse>() {});
   }
 
   /**
