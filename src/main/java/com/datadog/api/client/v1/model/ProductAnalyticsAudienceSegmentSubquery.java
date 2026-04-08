@@ -37,7 +37,7 @@ public class ProductAnalyticsAudienceSegmentSubquery {
   }
 
   /**
-   * Getname
+   * The name of the segment subquery.
    *
    * @return name
    */
@@ -58,7 +58,7 @@ public class ProductAnalyticsAudienceSegmentSubquery {
   }
 
   /**
-   * GetsegmentId
+   * The unique identifier of the segment.
    *
    * @return segmentId
    */

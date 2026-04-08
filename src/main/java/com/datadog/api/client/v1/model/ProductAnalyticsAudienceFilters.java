@@ -82,7 +82,7 @@ public class ProductAnalyticsAudienceFilters {
   }
 
   /**
-   * GetfilterCondition
+   * An optional filter condition applied to the audience subquery.
    *
    * @return filterCondition
    */
