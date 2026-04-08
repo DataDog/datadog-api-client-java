@@ -19,12 +19,13 @@ import java.util.Objects;
 
 /**
  * The <code>amazon_s3</code> source ingests logs from an Amazon S3 bucket. It supports AWS
- * authentication and TLS encryption.
+ * authentication, TLS encryption, and configurable compression.
  *
  * <p><strong>Supported pipeline types:</strong> logs
  */
 @JsonPropertyOrder({
   ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_AUTH,
+  ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_COMPRESSION,
   ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_ID,
   ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_REGION,
   ObservabilityPipelineAmazonS3Source.JSON_PROPERTY_TLS,
@@ -37,6 +38,9 @@ public class ObservabilityPipelineAmazonS3Source {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH = "auth";
   private ObservabilityPipelineAwsAuth auth;
+
+  public static final String JSON_PROPERTY_COMPRESSION = "compression";
+  private ObservabilityPipelineAmazonS3SourceCompression compression;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -89,6 +93,33 @@ public class ObservabilityPipelineAmazonS3Source {
 
   public void setAuth(ObservabilityPipelineAwsAuth auth) {
     this.auth = auth;
+  }
+
+  public ObservabilityPipelineAmazonS3Source compression(
+      ObservabilityPipelineAmazonS3SourceCompression compression) {
+    this.compression = compression;
+    this.unparsed |= !compression.isValid();
+    return this;
+  }
+
+  /**
+   * Compression format for objects retrieved from the S3 bucket. Use <code>auto</code> to detect
+   * compression from the object's Content-Encoding header or file extension.
+   *
+   * @return compression
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineAmazonS3SourceCompression getCompression() {
+    return compression;
+  }
+
+  public void setCompression(ObservabilityPipelineAmazonS3SourceCompression compression) {
+    if (!compression.isValid()) {
+      this.unparsed = true;
+    }
+    this.compression = compression;
   }
 
   public ObservabilityPipelineAmazonS3Source id(String id) {
@@ -257,6 +288,7 @@ public class ObservabilityPipelineAmazonS3Source {
     ObservabilityPipelineAmazonS3Source observabilityPipelineAmazonS3Source =
         (ObservabilityPipelineAmazonS3Source) o;
     return Objects.equals(this.auth, observabilityPipelineAmazonS3Source.auth)
+        && Objects.equals(this.compression, observabilityPipelineAmazonS3Source.compression)
         && Objects.equals(this.id, observabilityPipelineAmazonS3Source.id)
         && Objects.equals(this.region, observabilityPipelineAmazonS3Source.region)
         && Objects.equals(this.tls, observabilityPipelineAmazonS3Source.tls)
@@ -268,7 +300,7 @@ public class ObservabilityPipelineAmazonS3Source {
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, id, region, tls, type, urlKey, additionalProperties);
+    return Objects.hash(auth, compression, id, region, tls, type, urlKey, additionalProperties);
   }
 
   @Override
@@ -276,6 +308,7 @@ public class ObservabilityPipelineAmazonS3Source {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineAmazonS3Source {\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
+    sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    tls: ").append(toIndentedString(tls)).append("\n");

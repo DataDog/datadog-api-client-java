@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"my-processor-group\"],\"type\":\"datadog_logs\"}],\"processor_groups\":[{\"enabled\":true,\"id\":\"my-processor-group\",\"include\":\"service:my-service\",\"inputs\":[\"amazon-s3-source\"],\"processors\":[{\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"service:my-service\",\"type\":\"filter\"}]}],\"sources\":[{\"compression\":\"gzip\",\"id\":\"amazon-s3-source\",\"region\":\"us-east-1\",\"type\":\"amazon_s3\"}]},\"name\":\"Pipeline with S3 Source Compression\"},\"type\":\"pipelines\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/obs-pipelines/pipelines/validate",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "558c65f8-ee8c-961f-c37f-fd1c9d896964"
+  }
+]
