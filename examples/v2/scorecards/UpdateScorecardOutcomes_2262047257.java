@@ -2,7 +2,7 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.ServiceScorecardsApi;
+import com.datadog.api.client.v2.api.ScorecardsApi;
 import com.datadog.api.client.v2.model.State;
 import com.datadog.api.client.v2.model.UpdateOutcomesAsyncAttributes;
 import com.datadog.api.client.v2.model.UpdateOutcomesAsyncRequest;
@@ -14,8 +14,7 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.updateScorecardOutcomesAsync", true);
-    ServiceScorecardsApi apiInstance = new ServiceScorecardsApi(defaultClient);
+    ScorecardsApi apiInstance = new ScorecardsApi(defaultClient);
 
     // there is a valid "create_scorecard_rule" in the system
     String CREATE_SCORECARD_RULE_DATA_ID = System.getenv("CREATE_SCORECARD_RULE_DATA_ID");
@@ -39,10 +38,9 @@ See: <a href="https://app.datadoghq.com/services">Services</a>
                     .type(UpdateOutcomesAsyncType.BATCHED_OUTCOME));
 
     try {
-      apiInstance.updateScorecardOutcomesAsync(body);
+      apiInstance.updateScorecardOutcomes(body);
     } catch (ApiException e) {
-      System.err.println(
-          "Exception when calling ServiceScorecardsApi#updateScorecardOutcomesAsync");
+      System.err.println("Exception when calling ScorecardsApi#updateScorecardOutcomes");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

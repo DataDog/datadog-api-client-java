@@ -2,15 +2,14 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.PaginationIterable;
-import com.datadog.api.client.v2.api.ServiceScorecardsApi;
-import com.datadog.api.client.v2.api.ServiceScorecardsApi.ListScorecardOutcomesOptionalParameters;
+import com.datadog.api.client.v2.api.ScorecardsApi;
+import com.datadog.api.client.v2.api.ScorecardsApi.ListScorecardOutcomesOptionalParameters;
 import com.datadog.api.client.v2.model.OutcomesResponseDataItem;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.listScorecardOutcomes", true);
-    ServiceScorecardsApi apiInstance = new ServiceScorecardsApi(defaultClient);
+    ScorecardsApi apiInstance = new ScorecardsApi(defaultClient);
 
     try {
       PaginationIterable<OutcomesResponseDataItem> iterable =
@@ -25,7 +24,7 @@ public class Example {
       }
     } catch (RuntimeException e) {
       System.err.println(
-          "Exception when calling ServiceScorecardsApi#listScorecardOutcomesWithPagination");
+          "Exception when calling ScorecardsApi#listScorecardOutcomesWithPagination");
       System.err.println("Reason: " + e.getMessage());
       e.printStackTrace();
     }

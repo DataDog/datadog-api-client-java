@@ -33,7 +33,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Updated description via test\",\"enabled\":true,\"name\":\"Test-Update_an_existing_rule_returns_Rule_updated_successfully_response-1722307632\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"}}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Updated description via test\",\"enabled\":true,\"name\":\"Test-Update_an_existing_rule_returns_Rule_updated_successfully_response-1722307632\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"},\"type\":\"rule\"}}"
       },
       "headers": {},
       "method": "PUT",
@@ -57,7 +57,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c173c2c3-af4e-e37c-6f43-19a3182dd04d"
+    "id": "14405d8c-52a7-3cea-87ac-1473d69830e0"
   },
   {
     "httpRequest": {
