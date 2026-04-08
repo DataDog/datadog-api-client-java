@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** */
+/** SLO count definition using a total events formula alongside a good events formula. */
 @JsonPropertyOrder({
   SLOCountDefinitionWithTotalEventsFormula.JSON_PROPERTY_GOOD_EVENTS_FORMULA,
   SLOCountDefinitionWithTotalEventsFormula.JSON_PROPERTY_QUERIES,

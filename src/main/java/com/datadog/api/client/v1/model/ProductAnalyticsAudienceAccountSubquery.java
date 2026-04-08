@@ -37,7 +37,7 @@ public class ProductAnalyticsAudienceAccountSubquery {
   }
 
   /**
-   * Getname
+   * The name of the account subquery.
    *
    * @return name
    */
@@ -58,7 +58,7 @@ public class ProductAnalyticsAudienceAccountSubquery {
   }
 
   /**
-   * Getquery
+   * The query string for the account subquery.
    *
    * @return query
    */

@@ -220,7 +220,7 @@ public class SankeyRumQuery {
   }
 
   /**
-   * Getoccurrences
+   * Filter applied to occurrence counts when building a Product Analytics audience.
    *
    * @return occurrences
    */

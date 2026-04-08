@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** */
+/** Filter applied to occurrence counts when building a Product Analytics audience. */
 @JsonPropertyOrder({
   ProductAnalyticsAudienceOccurrenceFilter.JSON_PROPERTY_OPERATOR,
   ProductAnalyticsAudienceOccurrenceFilter.JSON_PROPERTY_VALUE
@@ -37,7 +37,8 @@ public class ProductAnalyticsAudienceOccurrenceFilter {
   }
 
   /**
-   * Getoperator
+   * The comparison operator used for the occurrence filter (for example: <code>gt</code>, <code>lt
+   * </code>, <code>eq</code>).
    *
    * @return operator
    */
@@ -58,7 +59,7 @@ public class ProductAnalyticsAudienceOccurrenceFilter {
   }
 
   /**
-   * Getvalue
+   * The threshold value to compare occurrence counts against.
    *
    * @return value
    */
