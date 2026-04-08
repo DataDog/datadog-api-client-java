@@ -17,13 +17,42 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Search filter settings. */
-@JsonPropertyOrder({FlakyTestsSearchFilter.JSON_PROPERTY_QUERY})
+@JsonPropertyOrder({
+  FlakyTestsSearchFilter.JSON_PROPERTY_INCLUDE_HISTORY,
+  FlakyTestsSearchFilter.JSON_PROPERTY_QUERY
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FlakyTestsSearchFilter {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_INCLUDE_HISTORY = "include_history";
+  private Boolean includeHistory = false;
+
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query = "*";
+
+  public FlakyTestsSearchFilter includeHistory(Boolean includeHistory) {
+    this.includeHistory = includeHistory;
+    return this;
+  }
+
+  /**
+   * Whether to include the status change history for each flaky test in the response. When set to
+   * true, each test will include a 'history' array with chronological status changes. Defaults to
+   * false.
+   *
+   * @return includeHistory
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDE_HISTORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIncludeHistory() {
+    return includeHistory;
+  }
+
+  public void setIncludeHistory(Boolean includeHistory) {
+    this.includeHistory = includeHistory;
+  }
 
   public FlakyTestsSearchFilter query(String query) {
     this.query = query;
@@ -106,19 +135,21 @@ public class FlakyTestsSearchFilter {
       return false;
     }
     FlakyTestsSearchFilter flakyTestsSearchFilter = (FlakyTestsSearchFilter) o;
-    return Objects.equals(this.query, flakyTestsSearchFilter.query)
+    return Objects.equals(this.includeHistory, flakyTestsSearchFilter.includeHistory)
+        && Objects.equals(this.query, flakyTestsSearchFilter.query)
         && Objects.equals(this.additionalProperties, flakyTestsSearchFilter.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(query, additionalProperties);
+    return Objects.hash(includeHistory, query, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FlakyTestsSearchFilter {\n");
+    sb.append("    includeHistory: ").append(toIndentedString(includeHistory)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
