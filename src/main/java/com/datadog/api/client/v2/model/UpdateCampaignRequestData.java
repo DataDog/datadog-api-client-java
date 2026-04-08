@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,63 +17,73 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Scorecard create rule request data. */
+/** Data for updating a campaign. */
 @JsonPropertyOrder({
-  CreateRuleRequestData.JSON_PROPERTY_ATTRIBUTES,
-  CreateRuleRequestData.JSON_PROPERTY_TYPE
+  UpdateCampaignRequestData.JSON_PROPERTY_ATTRIBUTES,
+  UpdateCampaignRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CreateRuleRequestData {
+public class UpdateCampaignRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private RuleAttributesRequest attributes;
+  private UpdateCampaignRequestAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private RuleType type = RuleType.RULE;
+  private CampaignType type;
 
-  public CreateRuleRequestData attributes(RuleAttributesRequest attributes) {
+  public UpdateCampaignRequestData() {}
+
+  @JsonCreator
+  public UpdateCampaignRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          UpdateCampaignRequestAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CampaignType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public UpdateCampaignRequestData attributes(UpdateCampaignRequestAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at,
-   * custom) are excluded.
+   * Attributes for updating a campaign.
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RuleAttributesRequest getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UpdateCampaignRequestAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(RuleAttributesRequest attributes) {
+  public void setAttributes(UpdateCampaignRequestAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public CreateRuleRequestData type(RuleType type) {
+  public UpdateCampaignRequestData type(CampaignType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The JSON:API type for scorecard rules.
+   * The JSON:API type for campaigns.
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RuleType getType() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CampaignType getType() {
     return type;
   }
 
-  public void setType(RuleType type) {
+  public void setType(CampaignType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -91,10 +102,10 @@ public class CreateRuleRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CreateRuleRequestData
+   * @return UpdateCampaignRequestData
    */
   @JsonAnySetter
-  public CreateRuleRequestData putAdditionalProperty(String key, Object value) {
+  public UpdateCampaignRequestData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -125,7 +136,7 @@ public class CreateRuleRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CreateRuleRequestData object is equal to o. */
+  /** Return true if this UpdateCampaignRequestData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -134,10 +145,11 @@ public class CreateRuleRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateRuleRequestData createRuleRequestData = (CreateRuleRequestData) o;
-    return Objects.equals(this.attributes, createRuleRequestData.attributes)
-        && Objects.equals(this.type, createRuleRequestData.type)
-        && Objects.equals(this.additionalProperties, createRuleRequestData.additionalProperties);
+    UpdateCampaignRequestData updateCampaignRequestData = (UpdateCampaignRequestData) o;
+    return Objects.equals(this.attributes, updateCampaignRequestData.attributes)
+        && Objects.equals(this.type, updateCampaignRequestData.type)
+        && Objects.equals(
+            this.additionalProperties, updateCampaignRequestData.additionalProperties);
   }
 
   @Override
@@ -148,7 +160,7 @@ public class CreateRuleRequestData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateRuleRequestData {\n");
+    sb.append("class UpdateCampaignRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

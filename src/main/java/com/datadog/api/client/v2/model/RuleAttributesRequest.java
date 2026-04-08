@@ -12,38 +12,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Details of a rule. */
+/**
+ * Attributes for creating or updating a rule. Server-managed fields (created_at, modified_at,
+ * custom) are excluded.
+ */
 @JsonPropertyOrder({
-  RuleAttributes.JSON_PROPERTY_CATEGORY,
-  RuleAttributes.JSON_PROPERTY_CREATED_AT,
-  RuleAttributes.JSON_PROPERTY_CUSTOM,
-  RuleAttributes.JSON_PROPERTY_DESCRIPTION,
-  RuleAttributes.JSON_PROPERTY_ENABLED,
-  RuleAttributes.JSON_PROPERTY_LEVEL,
-  RuleAttributes.JSON_PROPERTY_MODIFIED_AT,
-  RuleAttributes.JSON_PROPERTY_NAME,
-  RuleAttributes.JSON_PROPERTY_OWNER,
-  RuleAttributes.JSON_PROPERTY_SCOPE_QUERY,
-  RuleAttributes.JSON_PROPERTY_SCORECARD_NAME
+  RuleAttributesRequest.JSON_PROPERTY_DESCRIPTION,
+  RuleAttributesRequest.JSON_PROPERTY_ENABLED,
+  RuleAttributesRequest.JSON_PROPERTY_LEVEL,
+  RuleAttributesRequest.JSON_PROPERTY_NAME,
+  RuleAttributesRequest.JSON_PROPERTY_OWNER,
+  RuleAttributesRequest.JSON_PROPERTY_SCOPE_QUERY,
+  RuleAttributesRequest.JSON_PROPERTY_SCORECARD_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RuleAttributes {
+public class RuleAttributesRequest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CATEGORY = "category";
-  private String category;
-
-  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private OffsetDateTime createdAt;
-
-  public static final String JSON_PROPERTY_CUSTOM = "custom";
-  private Boolean custom;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -52,9 +41,6 @@ public class RuleAttributes {
 
   public static final String JSON_PROPERTY_LEVEL = "level";
   private Integer level;
-
-  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
-  private OffsetDateTime modifiedAt;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -68,73 +54,7 @@ public class RuleAttributes {
   public static final String JSON_PROPERTY_SCORECARD_NAME = "scorecard_name";
   private String scorecardName;
 
-  public RuleAttributes category(String category) {
-    this.category = category;
-    return this;
-  }
-
-  /**
-   * The scorecard name to which this rule must belong.
-   *
-   * @return category
-   * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCategory() {
-    return category;
-  }
-
-  @Deprecated
-  public void setCategory(String category) {
-    this.category = category;
-  }
-
-  public RuleAttributes createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-  /**
-   * Creation time of the rule outcome.
-   *
-   * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public RuleAttributes custom(Boolean custom) {
-    this.custom = custom;
-    return this;
-  }
-
-  /**
-   * Defines if the rule is a custom rule.
-   *
-   * @return custom
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getCustom() {
-    return custom;
-  }
-
-  public void setCustom(Boolean custom) {
-    this.custom = custom;
-  }
-
-  public RuleAttributes description(String description) {
+  public RuleAttributesRequest description(String description) {
     this.description = description;
     return this;
   }
@@ -155,7 +75,7 @@ public class RuleAttributes {
     this.description = description;
   }
 
-  public RuleAttributes enabled(Boolean enabled) {
+  public RuleAttributesRequest enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
@@ -176,7 +96,7 @@ public class RuleAttributes {
     this.enabled = enabled;
   }
 
-  public RuleAttributes level(Integer level) {
+  public RuleAttributesRequest level(Integer level) {
     this.level = level;
     return this;
   }
@@ -197,28 +117,7 @@ public class RuleAttributes {
     this.level = level;
   }
 
-  public RuleAttributes modifiedAt(OffsetDateTime modifiedAt) {
-    this.modifiedAt = modifiedAt;
-    return this;
-  }
-
-  /**
-   * Time of the last rule outcome modification.
-   *
-   * @return modifiedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
-  public void setModifiedAt(OffsetDateTime modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
-
-  public RuleAttributes name(String name) {
+  public RuleAttributesRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -239,7 +138,7 @@ public class RuleAttributes {
     this.name = name;
   }
 
-  public RuleAttributes owner(String owner) {
+  public RuleAttributesRequest owner(String owner) {
     this.owner = owner;
     return this;
   }
@@ -260,7 +159,7 @@ public class RuleAttributes {
     this.owner = owner;
   }
 
-  public RuleAttributes scopeQuery(String scopeQuery) {
+  public RuleAttributesRequest scopeQuery(String scopeQuery) {
     this.scopeQuery = scopeQuery;
     return this;
   }
@@ -281,7 +180,7 @@ public class RuleAttributes {
     this.scopeQuery = scopeQuery;
   }
 
-  public RuleAttributes scorecardName(String scorecardName) {
+  public RuleAttributesRequest scorecardName(String scorecardName) {
     this.scorecardName = scorecardName;
     return this;
   }
@@ -314,10 +213,10 @@ public class RuleAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RuleAttributes
+   * @return RuleAttributesRequest
    */
   @JsonAnySetter
-  public RuleAttributes putAdditionalProperty(String key, Object value) {
+  public RuleAttributesRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -348,7 +247,7 @@ public class RuleAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RuleAttributes object is equal to o. */
+  /** Return true if this RuleAttributesRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -357,49 +256,30 @@ public class RuleAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RuleAttributes ruleAttributes = (RuleAttributes) o;
-    return Objects.equals(this.category, ruleAttributes.category)
-        && Objects.equals(this.createdAt, ruleAttributes.createdAt)
-        && Objects.equals(this.custom, ruleAttributes.custom)
-        && Objects.equals(this.description, ruleAttributes.description)
-        && Objects.equals(this.enabled, ruleAttributes.enabled)
-        && Objects.equals(this.level, ruleAttributes.level)
-        && Objects.equals(this.modifiedAt, ruleAttributes.modifiedAt)
-        && Objects.equals(this.name, ruleAttributes.name)
-        && Objects.equals(this.owner, ruleAttributes.owner)
-        && Objects.equals(this.scopeQuery, ruleAttributes.scopeQuery)
-        && Objects.equals(this.scorecardName, ruleAttributes.scorecardName)
-        && Objects.equals(this.additionalProperties, ruleAttributes.additionalProperties);
+    RuleAttributesRequest ruleAttributesRequest = (RuleAttributesRequest) o;
+    return Objects.equals(this.description, ruleAttributesRequest.description)
+        && Objects.equals(this.enabled, ruleAttributesRequest.enabled)
+        && Objects.equals(this.level, ruleAttributesRequest.level)
+        && Objects.equals(this.name, ruleAttributesRequest.name)
+        && Objects.equals(this.owner, ruleAttributesRequest.owner)
+        && Objects.equals(this.scopeQuery, ruleAttributesRequest.scopeQuery)
+        && Objects.equals(this.scorecardName, ruleAttributesRequest.scorecardName)
+        && Objects.equals(this.additionalProperties, ruleAttributesRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        category,
-        createdAt,
-        custom,
-        description,
-        enabled,
-        level,
-        modifiedAt,
-        name,
-        owner,
-        scopeQuery,
-        scorecardName,
-        additionalProperties);
+        description, enabled, level, name, owner, scopeQuery, scorecardName, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RuleAttributes {\n");
-    sb.append("    category: ").append(toIndentedString(category)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    custom: ").append(toIndentedString(custom)).append("\n");
+    sb.append("class RuleAttributesRequest {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
-    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    scopeQuery: ").append(toIndentedString(scopeQuery)).append("\n");
