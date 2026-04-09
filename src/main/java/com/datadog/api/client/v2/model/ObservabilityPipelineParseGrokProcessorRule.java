@@ -90,7 +90,7 @@ public class ObservabilityPipelineParseGrokProcessorRule {
   }
 
   /**
-   * The value of the source field in log events to be processed by the Grok rules.
+   * The name of the field in the log event to apply the Grok rules to.
    *
    * @return source
    */
