@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleCondition
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleConditionOperator;
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleConditionOptions;
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleConditionParameters;
+import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleConditionParametersType;
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleCreateAttributes;
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleCreateData;
 import com.datadog.api.client.v2.model.ApplicationSecurityWafCustomRuleCreateRequest;
@@ -62,6 +63,9 @@ public class Example {
                                                         .caseSensitive(false)
                                                         .minLength(0L))
                                                 .regex("path.*")
+                                                .type(
+                                                    ApplicationSecurityWafCustomRuleConditionParametersType
+                                                        .STRING)
                                                 .value("custom_tag"))))
                             .enabled(false)
                             .name("Block request from a bad useragent")

@@ -26,6 +26,7 @@ import java.util.Objects;
   ApplicationSecurityWafCustomRuleConditionParameters.JSON_PROPERTY_LIST,
   ApplicationSecurityWafCustomRuleConditionParameters.JSON_PROPERTY_OPTIONS,
   ApplicationSecurityWafCustomRuleConditionParameters.JSON_PROPERTY_REGEX,
+  ApplicationSecurityWafCustomRuleConditionParameters.JSON_PROPERTY_TYPE,
   ApplicationSecurityWafCustomRuleConditionParameters.JSON_PROPERTY_VALUE
 })
 @jakarta.annotation.Generated(
@@ -46,6 +47,9 @@ public class ApplicationSecurityWafCustomRuleConditionParameters {
 
   public static final String JSON_PROPERTY_REGEX = "regex";
   private String regex;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private ApplicationSecurityWafCustomRuleConditionParametersType type;
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
@@ -186,6 +190,32 @@ public class ApplicationSecurityWafCustomRuleConditionParameters {
     this.regex = regex;
   }
 
+  public ApplicationSecurityWafCustomRuleConditionParameters type(
+      ApplicationSecurityWafCustomRuleConditionParametersType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * The type of the value to compare against. Only used with the equals and !equals operator.
+   *
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ApplicationSecurityWafCustomRuleConditionParametersType getType() {
+    return type;
+  }
+
+  public void setType(ApplicationSecurityWafCustomRuleConditionParametersType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
+  }
+
   public ApplicationSecurityWafCustomRuleConditionParameters value(String value) {
     this.value = value;
     return this;
@@ -273,6 +303,7 @@ public class ApplicationSecurityWafCustomRuleConditionParameters {
         && Objects.equals(this.list, applicationSecurityWafCustomRuleConditionParameters.list)
         && Objects.equals(this.options, applicationSecurityWafCustomRuleConditionParameters.options)
         && Objects.equals(this.regex, applicationSecurityWafCustomRuleConditionParameters.regex)
+        && Objects.equals(this.type, applicationSecurityWafCustomRuleConditionParameters.type)
         && Objects.equals(this.value, applicationSecurityWafCustomRuleConditionParameters.value)
         && Objects.equals(
             this.additionalProperties,
@@ -281,7 +312,7 @@ public class ApplicationSecurityWafCustomRuleConditionParameters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, inputs, list, options, regex, value, additionalProperties);
+    return Objects.hash(data, inputs, list, options, regex, type, value, additionalProperties);
   }
 
   @Override
@@ -293,6 +324,7 @@ public class ApplicationSecurityWafCustomRuleConditionParameters {
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    regex: ").append(toIndentedString(regex)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
