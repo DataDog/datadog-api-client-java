@@ -18,14 +18,19 @@ import java.util.Objects;
 
 /** Configuration options for writing to Elasticsearch Data Streams instead of a fixed index. */
 @JsonPropertyOrder({
+  ObservabilityPipelineElasticsearchDestinationDataStream.JSON_PROPERTY_AUTO_ROUTING,
   ObservabilityPipelineElasticsearchDestinationDataStream.JSON_PROPERTY_DATASET,
   ObservabilityPipelineElasticsearchDestinationDataStream.JSON_PROPERTY_DTYPE,
-  ObservabilityPipelineElasticsearchDestinationDataStream.JSON_PROPERTY_NAMESPACE
+  ObservabilityPipelineElasticsearchDestinationDataStream.JSON_PROPERTY_NAMESPACE,
+  ObservabilityPipelineElasticsearchDestinationDataStream.JSON_PROPERTY_SYNC_FIELDS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ObservabilityPipelineElasticsearchDestinationDataStream {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AUTO_ROUTING = "auto_routing";
+  private Boolean autoRouting;
+
   public static final String JSON_PROPERTY_DATASET = "dataset";
   private String dataset;
 
@@ -35,13 +40,38 @@ public class ObservabilityPipelineElasticsearchDestinationDataStream {
   public static final String JSON_PROPERTY_NAMESPACE = "namespace";
   private String namespace;
 
+  public static final String JSON_PROPERTY_SYNC_FIELDS = "sync_fields";
+  private Boolean syncFields;
+
+  public ObservabilityPipelineElasticsearchDestinationDataStream autoRouting(Boolean autoRouting) {
+    this.autoRouting = autoRouting;
+    return this;
+  }
+
+  /**
+   * When <code>true</code>, automatically routes events to the appropriate data stream based on the
+   * event content.
+   *
+   * @return autoRouting
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTO_ROUTING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAutoRouting() {
+    return autoRouting;
+  }
+
+  public void setAutoRouting(Boolean autoRouting) {
+    this.autoRouting = autoRouting;
+  }
+
   public ObservabilityPipelineElasticsearchDestinationDataStream dataset(String dataset) {
     this.dataset = dataset;
     return this;
   }
 
   /**
-   * The data stream dataset for your logs. This groups logs by their source or application.
+   * The data stream dataset. This groups events by their source or application.
    *
    * @return dataset
    */
@@ -62,8 +92,7 @@ public class ObservabilityPipelineElasticsearchDestinationDataStream {
   }
 
   /**
-   * The data stream type for your logs. This determines how logs are categorized within the data
-   * stream.
+   * The data stream type. This determines how events are categorized within the data stream.
    *
    * @return dtype
    */
@@ -84,8 +113,7 @@ public class ObservabilityPipelineElasticsearchDestinationDataStream {
   }
 
   /**
-   * The data stream namespace for your logs. This separates logs into different environments or
-   * domains.
+   * The data stream namespace. This separates events into different environments or domains.
    *
    * @return namespace
    */
@@ -98,6 +126,27 @@ public class ObservabilityPipelineElasticsearchDestinationDataStream {
 
   public void setNamespace(String namespace) {
     this.namespace = namespace;
+  }
+
+  public ObservabilityPipelineElasticsearchDestinationDataStream syncFields(Boolean syncFields) {
+    this.syncFields = syncFields;
+    return this;
+  }
+
+  /**
+   * When <code>true</code>, synchronizes data stream fields with the Elasticsearch index mapping.
+   *
+   * @return syncFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYNC_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSyncFields() {
+    return syncFields;
+  }
+
+  public void setSyncFields(Boolean syncFields) {
+    this.syncFields = syncFields;
   }
 
   /**
@@ -163,10 +212,14 @@ public class ObservabilityPipelineElasticsearchDestinationDataStream {
         observabilityPipelineElasticsearchDestinationDataStream =
             (ObservabilityPipelineElasticsearchDestinationDataStream) o;
     return Objects.equals(
+            this.autoRouting, observabilityPipelineElasticsearchDestinationDataStream.autoRouting)
+        && Objects.equals(
             this.dataset, observabilityPipelineElasticsearchDestinationDataStream.dataset)
         && Objects.equals(this.dtype, observabilityPipelineElasticsearchDestinationDataStream.dtype)
         && Objects.equals(
             this.namespace, observabilityPipelineElasticsearchDestinationDataStream.namespace)
+        && Objects.equals(
+            this.syncFields, observabilityPipelineElasticsearchDestinationDataStream.syncFields)
         && Objects.equals(
             this.additionalProperties,
             observabilityPipelineElasticsearchDestinationDataStream.additionalProperties);
@@ -174,16 +227,18 @@ public class ObservabilityPipelineElasticsearchDestinationDataStream {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataset, dtype, namespace, additionalProperties);
+    return Objects.hash(autoRouting, dataset, dtype, namespace, syncFields, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObservabilityPipelineElasticsearchDestinationDataStream {\n");
+    sb.append("    autoRouting: ").append(toIndentedString(autoRouting)).append("\n");
     sb.append("    dataset: ").append(toIndentedString(dataset)).append("\n");
     sb.append("    dtype: ").append(toIndentedString(dtype)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    syncFields: ").append(toIndentedString(syncFields)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

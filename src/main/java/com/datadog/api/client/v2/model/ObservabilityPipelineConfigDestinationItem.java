@@ -90,6 +90,58 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize ObservabilityPipelineElasticsearchDestination
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineElasticsearchDestination.class.equals(Integer.class)
+            || ObservabilityPipelineElasticsearchDestination.class.equals(Long.class)
+            || ObservabilityPipelineElasticsearchDestination.class.equals(Float.class)
+            || ObservabilityPipelineElasticsearchDestination.class.equals(Double.class)
+            || ObservabilityPipelineElasticsearchDestination.class.equals(Boolean.class)
+            || ObservabilityPipelineElasticsearchDestination.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineElasticsearchDestination.class.equals(Integer.class)
+                        || ObservabilityPipelineElasticsearchDestination.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineElasticsearchDestination.class.equals(Float.class)
+                        || ObservabilityPipelineElasticsearchDestination.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineElasticsearchDestination.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineElasticsearchDestination.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineElasticsearchDestination.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineElasticsearchDestination) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineElasticsearchDestination'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineElasticsearchDestination'",
+            e);
+      }
+
       // deserialize ObservabilityPipelineHttpClientDestination
       try {
         boolean attemptParsing = true;
@@ -554,58 +606,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
         log.log(
             Level.FINER,
             "Input data does not match schema 'ObservabilityPipelineDatadogLogsDestination'",
-            e);
-      }
-
-      // deserialize ObservabilityPipelineElasticsearchDestination
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ObservabilityPipelineElasticsearchDestination.class.equals(Integer.class)
-            || ObservabilityPipelineElasticsearchDestination.class.equals(Long.class)
-            || ObservabilityPipelineElasticsearchDestination.class.equals(Float.class)
-            || ObservabilityPipelineElasticsearchDestination.class.equals(Double.class)
-            || ObservabilityPipelineElasticsearchDestination.class.equals(Boolean.class)
-            || ObservabilityPipelineElasticsearchDestination.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ObservabilityPipelineElasticsearchDestination.class.equals(Integer.class)
-                        || ObservabilityPipelineElasticsearchDestination.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ObservabilityPipelineElasticsearchDestination.class.equals(Float.class)
-                        || ObservabilityPipelineElasticsearchDestination.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ObservabilityPipelineElasticsearchDestination.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ObservabilityPipelineElasticsearchDestination.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(ObservabilityPipelineElasticsearchDestination.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineElasticsearchDestination) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(
-              Level.FINER,
-              "Input data matches schema 'ObservabilityPipelineElasticsearchDestination'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'ObservabilityPipelineElasticsearchDestination'",
             e);
       }
 
@@ -1356,6 +1356,12 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
     super("oneOf", Boolean.FALSE);
   }
 
+  public ObservabilityPipelineConfigDestinationItem(
+      ObservabilityPipelineElasticsearchDestination o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineHttpClientDestination o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1401,12 +1407,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   }
 
   public ObservabilityPipelineConfigDestinationItem(ObservabilityPipelineDatadogLogsDestination o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public ObservabilityPipelineConfigDestinationItem(
-      ObservabilityPipelineElasticsearchDestination o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -1487,6 +1487,9 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
 
   static {
     schemas.put(
+        "ObservabilityPipelineElasticsearchDestination",
+        new GenericType<ObservabilityPipelineElasticsearchDestination>() {});
+    schemas.put(
         "ObservabilityPipelineHttpClientDestination",
         new GenericType<ObservabilityPipelineHttpClientDestination>() {});
     schemas.put(
@@ -1511,9 +1514,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
     schemas.put(
         "ObservabilityPipelineDatadogLogsDestination",
         new GenericType<ObservabilityPipelineDatadogLogsDestination>() {});
-    schemas.put(
-        "ObservabilityPipelineElasticsearchDestination",
-        new GenericType<ObservabilityPipelineElasticsearchDestination>() {});
     schemas.put(
         "ObservabilityPipelineGoogleChronicleDestination",
         new GenericType<ObservabilityPipelineGoogleChronicleDestination>() {});
@@ -1565,14 +1565,13 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: ObservabilityPipelineHttpClientDestination,
-   * ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineAmazonS3Destination,
-   * ObservabilityPipelineAmazonS3GenericDestination,
+   * against the oneOf child schemas: ObservabilityPipelineElasticsearchDestination,
+   * ObservabilityPipelineHttpClientDestination, ObservabilityPipelineAmazonOpenSearchDestination,
+   * ObservabilityPipelineAmazonS3Destination, ObservabilityPipelineAmazonS3GenericDestination,
    * ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,
    * ObservabilityPipelineCloudPremDestination,
    * ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
-   * ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineElasticsearchDestination,
-   * ObservabilityPipelineGoogleChronicleDestination,
+   * ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineGoogleChronicleDestination,
    * ObservabilityPipelineGoogleCloudStorageDestination,
    * ObservabilityPipelineGooglePubSubDestination, ObservabilityPipelineKafkaDestination,
    * MicrosoftSentinelDestination, ObservabilityPipelineNewRelicDestination,
@@ -1586,6 +1585,11 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    */
   @Override
   public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineElasticsearchDestination.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(
         ObservabilityPipelineHttpClientDestination.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -1633,11 +1637,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
     }
     if (JSON.isInstanceOf(
         ObservabilityPipelineDatadogLogsDestination.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(
-        ObservabilityPipelineElasticsearchDestination.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1718,7 +1717,8 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be ObservabilityPipelineHttpClientDestination,"
+        "Invalid instance type. Must be ObservabilityPipelineElasticsearchDestination,"
+            + " ObservabilityPipelineHttpClientDestination,"
             + " ObservabilityPipelineAmazonOpenSearchDestination,"
             + " ObservabilityPipelineAmazonS3Destination,"
             + " ObservabilityPipelineAmazonS3GenericDestination,"
@@ -1726,7 +1726,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
             + " ObservabilityPipelineCloudPremDestination,"
             + " ObservabilityPipelineCrowdStrikeNextGenSiemDestination,"
             + " ObservabilityPipelineDatadogLogsDestination,"
-            + " ObservabilityPipelineElasticsearchDestination,"
             + " ObservabilityPipelineGoogleChronicleDestination,"
             + " ObservabilityPipelineGoogleCloudStorageDestination,"
             + " ObservabilityPipelineGooglePubSubDestination,"
@@ -1743,13 +1742,13 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
 
   /**
    * Get the actual instance, which can be the following:
-   * ObservabilityPipelineHttpClientDestination, ObservabilityPipelineAmazonOpenSearchDestination,
-   * ObservabilityPipelineAmazonS3Destination, ObservabilityPipelineAmazonS3GenericDestination,
+   * ObservabilityPipelineElasticsearchDestination, ObservabilityPipelineHttpClientDestination,
+   * ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineAmazonS3Destination,
+   * ObservabilityPipelineAmazonS3GenericDestination,
    * ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,
    * ObservabilityPipelineCloudPremDestination,
    * ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
-   * ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineElasticsearchDestination,
-   * ObservabilityPipelineGoogleChronicleDestination,
+   * ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineGoogleChronicleDestination,
    * ObservabilityPipelineGoogleCloudStorageDestination,
    * ObservabilityPipelineGooglePubSubDestination, ObservabilityPipelineKafkaDestination,
    * MicrosoftSentinelDestination, ObservabilityPipelineNewRelicDestination,
@@ -1758,13 +1757,14 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
    * ObservabilityPipelineSplunkHecDestination, ObservabilityPipelineSumoLogicDestination,
    * ObservabilityPipelineSyslogNgDestination, ObservabilityPipelineDatadogMetricsDestination
    *
-   * @return The actual instance (ObservabilityPipelineHttpClientDestination,
+   * @return The actual instance (ObservabilityPipelineElasticsearchDestination,
+   *     ObservabilityPipelineHttpClientDestination,
    *     ObservabilityPipelineAmazonOpenSearchDestination, ObservabilityPipelineAmazonS3Destination,
    *     ObservabilityPipelineAmazonS3GenericDestination,
    *     ObservabilityPipelineAmazonSecurityLakeDestination, AzureStorageDestination,
    *     ObservabilityPipelineCloudPremDestination,
    *     ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
-   *     ObservabilityPipelineDatadogLogsDestination, ObservabilityPipelineElasticsearchDestination,
+   *     ObservabilityPipelineDatadogLogsDestination,
    *     ObservabilityPipelineGoogleChronicleDestination,
    *     ObservabilityPipelineGoogleCloudStorageDestination,
    *     ObservabilityPipelineGooglePubSubDestination, ObservabilityPipelineKafkaDestination,
@@ -1777,6 +1777,20 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineElasticsearchDestination`. If the actual
+   * instance is not `ObservabilityPipelineElasticsearchDestination`, the ClassCastException will be
+   * thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineElasticsearchDestination`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineElasticsearchDestination`
+   */
+  public ObservabilityPipelineElasticsearchDestination
+      getObservabilityPipelineElasticsearchDestination() throws ClassCastException {
+    return (ObservabilityPipelineElasticsearchDestination) super.getActualInstance();
   }
 
   /**
@@ -1893,20 +1907,6 @@ public class ObservabilityPipelineConfigDestinationItem extends AbstractOpenApiS
   public ObservabilityPipelineDatadogLogsDestination
       getObservabilityPipelineDatadogLogsDestination() throws ClassCastException {
     return (ObservabilityPipelineDatadogLogsDestination) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ObservabilityPipelineElasticsearchDestination`. If the actual
-   * instance is not `ObservabilityPipelineElasticsearchDestination`, the ClassCastException will be
-   * thrown.
-   *
-   * @return The actual instance of `ObservabilityPipelineElasticsearchDestination`
-   * @throws ClassCastException if the instance is not
-   *     `ObservabilityPipelineElasticsearchDestination`
-   */
-  public ObservabilityPipelineElasticsearchDestination
-      getObservabilityPipelineElasticsearchDestination() throws ClassCastException {
-    return (ObservabilityPipelineElasticsearchDestination) super.getActualInstance();
   }
 
   /**
