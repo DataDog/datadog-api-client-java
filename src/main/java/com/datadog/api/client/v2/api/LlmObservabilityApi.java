@@ -4,6 +4,13 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.LLMObsAnnotatedInteractionsResponse;
+import com.datadog.api.client.v2.model.LLMObsAnnotationQueueInteractionsRequest;
+import com.datadog.api.client.v2.model.LLMObsAnnotationQueueInteractionsResponse;
+import com.datadog.api.client.v2.model.LLMObsAnnotationQueueRequest;
+import com.datadog.api.client.v2.model.LLMObsAnnotationQueueResponse;
+import com.datadog.api.client.v2.model.LLMObsAnnotationQueueUpdateRequest;
+import com.datadog.api.client.v2.model.LLMObsAnnotationQueuesResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsListResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsMutationResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetRecordsRequest;
@@ -12,6 +19,7 @@ import com.datadog.api.client.v2.model.LLMObsDatasetRequest;
 import com.datadog.api.client.v2.model.LLMObsDatasetResponse;
 import com.datadog.api.client.v2.model.LLMObsDatasetUpdateRequest;
 import com.datadog.api.client.v2.model.LLMObsDatasetsResponse;
+import com.datadog.api.client.v2.model.LLMObsDeleteAnnotationQueueInteractionsRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteDatasetRecordsRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteDatasetsRequest;
 import com.datadog.api.client.v2.model.LLMObsDeleteExperimentsRequest;
@@ -62,6 +70,355 @@ public class LlmObservabilityApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Create an LLM Observability annotation queue.
+   *
+   * <p>See {@link #createLLMObsAnnotationQueueWithHttpInfo}.
+   *
+   * @param body Create annotation queue payload. (required)
+   * @return LLMObsAnnotationQueueResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsAnnotationQueueResponse createLLMObsAnnotationQueue(
+      LLMObsAnnotationQueueRequest body) throws ApiException {
+    return createLLMObsAnnotationQueueWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an LLM Observability annotation queue.
+   *
+   * <p>See {@link #createLLMObsAnnotationQueueWithHttpInfoAsync}.
+   *
+   * @param body Create annotation queue payload. (required)
+   * @return CompletableFuture&lt;LLMObsAnnotationQueueResponse&gt;
+   */
+  public CompletableFuture<LLMObsAnnotationQueueResponse> createLLMObsAnnotationQueueAsync(
+      LLMObsAnnotationQueueRequest body) {
+    return createLLMObsAnnotationQueueWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new annotation queue. Only <code>name</code>, <code>project_id</code>, and <code>
+   * description</code> are accepted. Fields such as <code>created_by</code>, <code>owned_by</code>,
+   * <code>created_at</code>, <code>modified_by</code>, and <code>modified_at</code> are inferred by
+   * the backend.
+   *
+   * @param body Create annotation queue payload. (required)
+   * @return ApiResponse&lt;LLMObsAnnotationQueueResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsAnnotationQueueResponse> createLLMObsAnnotationQueueWithHttpInfo(
+      LLMObsAnnotationQueueRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createLLMObsAnnotationQueue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createLLMObsAnnotationQueue");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/annotation-queues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.createLLMObsAnnotationQueue",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueueResponse>() {});
+  }
+
+  /**
+   * Create an LLM Observability annotation queue.
+   *
+   * <p>See {@link #createLLMObsAnnotationQueueWithHttpInfo}.
+   *
+   * @param body Create annotation queue payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotationQueueResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsAnnotationQueueResponse>>
+      createLLMObsAnnotationQueueWithHttpInfoAsync(LLMObsAnnotationQueueRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createLLMObsAnnotationQueue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createLLMObsAnnotationQueue"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/annotation-queues";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.createLLMObsAnnotationQueue",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueueResponse>() {});
+  }
+
+  /**
+   * Add annotation queue interactions.
+   *
+   * <p>See {@link #createLLMObsAnnotationQueueInteractionsWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Add interactions payload. (required)
+   * @return LLMObsAnnotationQueueInteractionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsAnnotationQueueInteractionsResponse createLLMObsAnnotationQueueInteractions(
+      String queueId, LLMObsAnnotationQueueInteractionsRequest body) throws ApiException {
+    return createLLMObsAnnotationQueueInteractionsWithHttpInfo(queueId, body).getData();
+  }
+
+  /**
+   * Add annotation queue interactions.
+   *
+   * <p>See {@link #createLLMObsAnnotationQueueInteractionsWithHttpInfoAsync}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Add interactions payload. (required)
+   * @return CompletableFuture&lt;LLMObsAnnotationQueueInteractionsResponse&gt;
+   */
+  public CompletableFuture<LLMObsAnnotationQueueInteractionsResponse>
+      createLLMObsAnnotationQueueInteractionsAsync(
+          String queueId, LLMObsAnnotationQueueInteractionsRequest body) {
+    return createLLMObsAnnotationQueueInteractionsWithHttpInfoAsync(queueId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Add one or more interactions (traces) to an annotation queue. At least one interaction must be
+   * provided.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Add interactions payload. (required)
+   * @return ApiResponse&lt;LLMObsAnnotationQueueInteractionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsAnnotationQueueInteractionsResponse>
+      createLLMObsAnnotationQueueInteractionsWithHttpInfo(
+          String queueId, LLMObsAnnotationQueueInteractionsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createLLMObsAnnotationQueueInteractions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'queueId' when calling"
+              + " createLLMObsAnnotationQueueInteractions");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createLLMObsAnnotationQueueInteractions");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/interactions"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.createLLMObsAnnotationQueueInteractions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueueInteractionsResponse>() {});
+  }
+
+  /**
+   * Add annotation queue interactions.
+   *
+   * <p>See {@link #createLLMObsAnnotationQueueInteractionsWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Add interactions payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotationQueueInteractionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsAnnotationQueueInteractionsResponse>>
+      createLLMObsAnnotationQueueInteractionsWithHttpInfoAsync(
+          String queueId, LLMObsAnnotationQueueInteractionsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createLLMObsAnnotationQueueInteractions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueInteractionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueInteractionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'queueId' when calling"
+                  + " createLLMObsAnnotationQueueInteractions"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueInteractionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createLLMObsAnnotationQueueInteractions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/interactions"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.createLLMObsAnnotationQueueInteractions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueInteractionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueueInteractionsResponse>() {});
   }
 
   /**
@@ -935,6 +1292,342 @@ public class LlmObservabilityApi {
   }
 
   /**
+   * Delete an LLM Observability annotation queue.
+   *
+   * <p>See {@link #deleteLLMObsAnnotationQueueWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteLLMObsAnnotationQueue(String queueId) throws ApiException {
+    deleteLLMObsAnnotationQueueWithHttpInfo(queueId);
+  }
+
+  /**
+   * Delete an LLM Observability annotation queue.
+   *
+   * <p>See {@link #deleteLLMObsAnnotationQueueWithHttpInfoAsync}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteLLMObsAnnotationQueueAsync(String queueId) {
+    return deleteLLMObsAnnotationQueueWithHttpInfoAsync(queueId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an annotation queue by its ID.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteLLMObsAnnotationQueueWithHttpInfo(String queueId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsAnnotationQueue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'queueId' when calling deleteLLMObsAnnotationQueue");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.deleteLLMObsAnnotationQueue",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an LLM Observability annotation queue.
+   *
+   * <p>See {@link #deleteLLMObsAnnotationQueueWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteLLMObsAnnotationQueueWithHttpInfoAsync(
+      String queueId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsAnnotationQueue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'queueId' when calling deleteLLMObsAnnotationQueue"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.deleteLLMObsAnnotationQueue",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete annotation queue interactions.
+   *
+   * <p>See {@link #deleteLLMObsAnnotationQueueInteractionsWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Delete interactions payload. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteLLMObsAnnotationQueueInteractions(
+      String queueId, LLMObsDeleteAnnotationQueueInteractionsRequest body) throws ApiException {
+    deleteLLMObsAnnotationQueueInteractionsWithHttpInfo(queueId, body);
+  }
+
+  /**
+   * Delete annotation queue interactions.
+   *
+   * <p>See {@link #deleteLLMObsAnnotationQueueInteractionsWithHttpInfoAsync}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Delete interactions payload. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteLLMObsAnnotationQueueInteractionsAsync(
+      String queueId, LLMObsDeleteAnnotationQueueInteractionsRequest body) {
+    return deleteLLMObsAnnotationQueueInteractionsWithHttpInfoAsync(queueId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete one or more interactions from an annotation queue.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Delete interactions payload. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteLLMObsAnnotationQueueInteractionsWithHttpInfo(
+      String queueId, LLMObsDeleteAnnotationQueueInteractionsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsAnnotationQueueInteractions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'queueId' when calling"
+              + " deleteLLMObsAnnotationQueueInteractions");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " deleteLLMObsAnnotationQueueInteractions");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/interactions/delete"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.deleteLLMObsAnnotationQueueInteractions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete annotation queue interactions.
+   *
+   * <p>See {@link #deleteLLMObsAnnotationQueueInteractionsWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Delete interactions payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteLLMObsAnnotationQueueInteractionsWithHttpInfoAsync(
+          String queueId, LLMObsDeleteAnnotationQueueInteractionsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteLLMObsAnnotationQueueInteractions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'queueId' when calling"
+                  + " deleteLLMObsAnnotationQueueInteractions"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " deleteLLMObsAnnotationQueueInteractions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/interactions/delete"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.deleteLLMObsAnnotationQueueInteractions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete LLM Observability dataset records.
    *
    * <p>See {@link #deleteLLMObsDatasetRecordsWithHttpInfo}.
@@ -1606,6 +2299,380 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Get annotated queue interactions.
+   *
+   * <p>See {@link #getLLMObsAnnotatedInteractionsWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @return LLMObsAnnotatedInteractionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsAnnotatedInteractionsResponse getLLMObsAnnotatedInteractions(String queueId)
+      throws ApiException {
+    return getLLMObsAnnotatedInteractionsWithHttpInfo(queueId).getData();
+  }
+
+  /**
+   * Get annotated queue interactions.
+   *
+   * <p>See {@link #getLLMObsAnnotatedInteractionsWithHttpInfoAsync}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @return CompletableFuture&lt;LLMObsAnnotatedInteractionsResponse&gt;
+   */
+  public CompletableFuture<LLMObsAnnotatedInteractionsResponse> getLLMObsAnnotatedInteractionsAsync(
+      String queueId) {
+    return getLLMObsAnnotatedInteractionsWithHttpInfoAsync(queueId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve all interactions and their annotations for a given annotation queue.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @return ApiResponse&lt;LLMObsAnnotatedInteractionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsAnnotatedInteractionsResponse>
+      getLLMObsAnnotatedInteractionsWithHttpInfo(String queueId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsAnnotatedInteractions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'queueId' when calling getLLMObsAnnotatedInteractions");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotated-interactions"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.getLLMObsAnnotatedInteractions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotatedInteractionsResponse>() {});
+  }
+
+  /**
+   * Get annotated queue interactions.
+   *
+   * <p>See {@link #getLLMObsAnnotatedInteractionsWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotatedInteractionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionsResponse>>
+      getLLMObsAnnotatedInteractionsWithHttpInfoAsync(String queueId) {
+    // Check if unstable operation is enabled
+    String operationId = "getLLMObsAnnotatedInteractions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'queueId' when calling"
+                  + " getLLMObsAnnotatedInteractions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotated-interactions"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.getLLMObsAnnotatedInteractions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsAnnotatedInteractionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotatedInteractionsResponse>() {});
+  }
+
+  /** Manage optional parameters to listLLMObsAnnotationQueues. */
+  public static class ListLLMObsAnnotationQueuesOptionalParameters {
+    private String projectId;
+    private List<String> queueIds;
+
+    /**
+     * Set projectId.
+     *
+     * @param projectId Filter annotation queues by project ID. Cannot be used together with <code>
+     *     queueIds</code>. (optional)
+     * @return ListLLMObsAnnotationQueuesOptionalParameters
+     */
+    public ListLLMObsAnnotationQueuesOptionalParameters projectId(String projectId) {
+      this.projectId = projectId;
+      return this;
+    }
+
+    /**
+     * Set queueIds.
+     *
+     * @param queueIds Filter annotation queues by queue IDs (comma-separated). Cannot be used
+     *     together with <code>projectId</code>. (optional)
+     * @return ListLLMObsAnnotationQueuesOptionalParameters
+     */
+    public ListLLMObsAnnotationQueuesOptionalParameters queueIds(List<String> queueIds) {
+      this.queueIds = queueIds;
+      return this;
+    }
+  }
+
+  /**
+   * List LLM Observability annotation queues.
+   *
+   * <p>See {@link #listLLMObsAnnotationQueuesWithHttpInfo}.
+   *
+   * @return LLMObsAnnotationQueuesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsAnnotationQueuesResponse listLLMObsAnnotationQueues() throws ApiException {
+    return listLLMObsAnnotationQueuesWithHttpInfo(
+            new ListLLMObsAnnotationQueuesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List LLM Observability annotation queues.
+   *
+   * <p>See {@link #listLLMObsAnnotationQueuesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LLMObsAnnotationQueuesResponse&gt;
+   */
+  public CompletableFuture<LLMObsAnnotationQueuesResponse> listLLMObsAnnotationQueuesAsync() {
+    return listLLMObsAnnotationQueuesWithHttpInfoAsync(
+            new ListLLMObsAnnotationQueuesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List LLM Observability annotation queues.
+   *
+   * <p>See {@link #listLLMObsAnnotationQueuesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return LLMObsAnnotationQueuesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsAnnotationQueuesResponse listLLMObsAnnotationQueues(
+      ListLLMObsAnnotationQueuesOptionalParameters parameters) throws ApiException {
+    return listLLMObsAnnotationQueuesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List LLM Observability annotation queues.
+   *
+   * <p>See {@link #listLLMObsAnnotationQueuesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;LLMObsAnnotationQueuesResponse&gt;
+   */
+  public CompletableFuture<LLMObsAnnotationQueuesResponse> listLLMObsAnnotationQueuesAsync(
+      ListLLMObsAnnotationQueuesOptionalParameters parameters) {
+    return listLLMObsAnnotationQueuesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List annotation queues. Optionally filter by project ID or queue IDs. These parameters are
+   * mutually exclusive. If neither is provided, all queues in the organization are returned.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;LLMObsAnnotationQueuesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsAnnotationQueuesResponse> listLLMObsAnnotationQueuesWithHttpInfo(
+      ListLLMObsAnnotationQueuesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsAnnotationQueues";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String projectId = parameters.projectId;
+    List<String> queueIds = parameters.queueIds;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/annotation-queues";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "projectId", projectId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "queueIds", queueIds));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.listLLMObsAnnotationQueues",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueuesResponse>() {});
+  }
+
+  /**
+   * List LLM Observability annotation queues.
+   *
+   * <p>See {@link #listLLMObsAnnotationQueuesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotationQueuesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsAnnotationQueuesResponse>>
+      listLLMObsAnnotationQueuesWithHttpInfoAsync(
+          ListLLMObsAnnotationQueuesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listLLMObsAnnotationQueues";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueuesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String projectId = parameters.projectId;
+    List<String> queueIds = parameters.queueIds;
+    // create path and map variables
+    String localVarPath = "/api/v2/llm-obs/v1/annotation-queues";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "projectId", projectId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "queueIds", queueIds));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.listLLMObsAnnotationQueues",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueuesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueuesResponse>() {});
   }
 
   /** Manage optional parameters to listLLMObsDatasetRecords. */
@@ -2647,6 +3714,189 @@ public class LlmObservabilityApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<LLMObsProjectsResponse>() {});
+  }
+
+  /**
+   * Update an LLM Observability annotation queue.
+   *
+   * <p>See {@link #updateLLMObsAnnotationQueueWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Update annotation queue payload. (required)
+   * @return LLMObsAnnotationQueueResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LLMObsAnnotationQueueResponse updateLLMObsAnnotationQueue(
+      String queueId, LLMObsAnnotationQueueUpdateRequest body) throws ApiException {
+    return updateLLMObsAnnotationQueueWithHttpInfo(queueId, body).getData();
+  }
+
+  /**
+   * Update an LLM Observability annotation queue.
+   *
+   * <p>See {@link #updateLLMObsAnnotationQueueWithHttpInfoAsync}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Update annotation queue payload. (required)
+   * @return CompletableFuture&lt;LLMObsAnnotationQueueResponse&gt;
+   */
+  public CompletableFuture<LLMObsAnnotationQueueResponse> updateLLMObsAnnotationQueueAsync(
+      String queueId, LLMObsAnnotationQueueUpdateRequest body) {
+    return updateLLMObsAnnotationQueueWithHttpInfoAsync(queueId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Partially update an annotation queue. Only <code>name</code> and <code>description</code> can
+   * be updated.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Update annotation queue payload. (required)
+   * @return ApiResponse&lt;LLMObsAnnotationQueueResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LLMObsAnnotationQueueResponse> updateLLMObsAnnotationQueueWithHttpInfo(
+      String queueId, LLMObsAnnotationQueueUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateLLMObsAnnotationQueue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'queueId' when calling updateLLMObsAnnotationQueue");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateLLMObsAnnotationQueue");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.LlmObservabilityApi.updateLLMObsAnnotationQueue",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueueResponse>() {});
+  }
+
+  /**
+   * Update an LLM Observability annotation queue.
+   *
+   * <p>See {@link #updateLLMObsAnnotationQueueWithHttpInfo}.
+   *
+   * @param queueId The ID of the LLM Observability annotation queue. (required)
+   * @param body Update annotation queue payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LLMObsAnnotationQueueResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LLMObsAnnotationQueueResponse>>
+      updateLLMObsAnnotationQueueWithHttpInfoAsync(
+          String queueId, LLMObsAnnotationQueueUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateLLMObsAnnotationQueue";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'queueId' is set
+    if (queueId == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'queueId' when calling updateLLMObsAnnotationQueue"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateLLMObsAnnotationQueue"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/llm-obs/v1/annotation-queues/{queue_id}"
+            .replaceAll("\\{" + "queue_id" + "\\}", apiClient.escapeString(queueId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.LlmObservabilityApi.updateLLMObsAnnotationQueue",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LLMObsAnnotationQueueResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LLMObsAnnotationQueueResponse>() {});
   }
 
   /**
