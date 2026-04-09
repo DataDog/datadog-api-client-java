@@ -34,7 +34,7 @@ public class ObservabilityPipelineEnrichmentTableFileKeyItems {
   private ObservabilityPipelineEnrichmentTableFileKeyItemsComparison comparison;
 
   public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
+  private ObservabilityPipelineEnrichmentTableFileKeyItemField field;
 
   public ObservabilityPipelineEnrichmentTableFileKeyItems() {}
 
@@ -43,11 +43,13 @@ public class ObservabilityPipelineEnrichmentTableFileKeyItems {
       @JsonProperty(required = true, value = JSON_PROPERTY_COLUMN) String column,
       @JsonProperty(required = true, value = JSON_PROPERTY_COMPARISON)
           ObservabilityPipelineEnrichmentTableFileKeyItemsComparison comparison,
-      @JsonProperty(required = true, value = JSON_PROPERTY_FIELD) String field) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_FIELD)
+          ObservabilityPipelineEnrichmentTableFileKeyItemField field) {
     this.column = column;
     this.comparison = comparison;
     this.unparsed |= !comparison.isValid();
     this.field = field;
+    this.unparsed |= field.unparsed;
   }
 
   public ObservabilityPipelineEnrichmentTableFileKeyItems column(String column) {
@@ -95,23 +97,27 @@ public class ObservabilityPipelineEnrichmentTableFileKeyItems {
     this.comparison = comparison;
   }
 
-  public ObservabilityPipelineEnrichmentTableFileKeyItems field(String field) {
+  public ObservabilityPipelineEnrichmentTableFileKeyItems field(
+      ObservabilityPipelineEnrichmentTableFileKeyItemField field) {
     this.field = field;
+    this.unparsed |= field.unparsed;
     return this;
   }
 
   /**
-   * The <code>items</code> <code>field</code>.
+   * Specifies the source of the key value used for enrichment table lookups. Can be a plain field
+   * path string or an object specifying <code>event</code>, <code>vrl</code>, or <code>secret
+   * </code>.
    *
    * @return field
    */
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getField() {
+  public ObservabilityPipelineEnrichmentTableFileKeyItemField getField() {
     return field;
   }
 
-  public void setField(String field) {
+  public void setField(ObservabilityPipelineEnrichmentTableFileKeyItemField field) {
     this.field = field;
   }
 

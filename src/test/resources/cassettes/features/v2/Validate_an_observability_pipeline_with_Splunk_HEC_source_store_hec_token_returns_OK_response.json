@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"my-processor-group\"],\"type\":\"datadog_logs\"}],\"processor_groups\":[{\"enabled\":true,\"id\":\"my-processor-group\",\"include\":\"service:my-service\",\"inputs\":[\"splunk-hec-source\"],\"processors\":[{\"enabled\":true,\"id\":\"filter-processor\",\"include\":\"status:error\",\"type\":\"filter\"}]}],\"sources\":[{\"id\":\"splunk-hec-source\",\"store_hec_token\":true,\"type\":\"splunk_hec\"}]},\"name\":\"Pipeline with Splunk HEC store_hec_token\"},\"type\":\"pipelines\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/obs-pipelines/pipelines/validate",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "af5cae27-d9df-78c9-07ef-82b805cf3c0f"
+  }
+]
