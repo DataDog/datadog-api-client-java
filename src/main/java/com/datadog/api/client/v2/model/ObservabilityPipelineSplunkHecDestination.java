@@ -36,6 +36,7 @@ import java.util.Objects;
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_SOURCETYPE,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_TOKEN_KEY,
+  ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_TOKEN_STRATEGY,
   ObservabilityPipelineSplunkHecDestination.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -71,6 +72,9 @@ public class ObservabilityPipelineSplunkHecDestination {
 
   public static final String JSON_PROPERTY_TOKEN_KEY = "token_key";
   private String tokenKey;
+
+  public static final String JSON_PROPERTY_TOKEN_STRATEGY = "token_strategy";
+  private ObservabilityPipelineSplunkHecDestinationTokenStrategy tokenStrategy;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ObservabilityPipelineSplunkHecDestinationType type =
@@ -322,6 +326,35 @@ public class ObservabilityPipelineSplunkHecDestination {
     this.tokenKey = tokenKey;
   }
 
+  public ObservabilityPipelineSplunkHecDestination tokenStrategy(
+      ObservabilityPipelineSplunkHecDestinationTokenStrategy tokenStrategy) {
+    this.tokenStrategy = tokenStrategy;
+    this.unparsed |= !tokenStrategy.isValid();
+    return this;
+  }
+
+  /**
+   * Controls how the Splunk HEC token is supplied. Use <code>custom</code> to provide a token with
+   * <code>token_key</code>, or <code>from_source</code> to forward the token received from an
+   * upstream Splunk HEC source.
+   *
+   * @return tokenStrategy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOKEN_STRATEGY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineSplunkHecDestinationTokenStrategy getTokenStrategy() {
+    return tokenStrategy;
+  }
+
+  public void setTokenStrategy(
+      ObservabilityPipelineSplunkHecDestinationTokenStrategy tokenStrategy) {
+    if (!tokenStrategy.isValid()) {
+      this.unparsed = true;
+    }
+    this.tokenStrategy = tokenStrategy;
+  }
+
   public ObservabilityPipelineSplunkHecDestination type(
       ObservabilityPipelineSplunkHecDestinationType type) {
     this.type = type;
@@ -418,6 +451,8 @@ public class ObservabilityPipelineSplunkHecDestination {
         && Objects.equals(this.inputs, observabilityPipelineSplunkHecDestination.inputs)
         && Objects.equals(this.sourcetype, observabilityPipelineSplunkHecDestination.sourcetype)
         && Objects.equals(this.tokenKey, observabilityPipelineSplunkHecDestination.tokenKey)
+        && Objects.equals(
+            this.tokenStrategy, observabilityPipelineSplunkHecDestination.tokenStrategy)
         && Objects.equals(this.type, observabilityPipelineSplunkHecDestination.type)
         && Objects.equals(
             this.additionalProperties,
@@ -437,6 +472,7 @@ public class ObservabilityPipelineSplunkHecDestination {
         inputs,
         sourcetype,
         tokenKey,
+        tokenStrategy,
         type,
         additionalProperties);
   }
@@ -457,6 +493,7 @@ public class ObservabilityPipelineSplunkHecDestination {
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    sourcetype: ").append(toIndentedString(sourcetype)).append("\n");
     sb.append("    tokenKey: ").append(toIndentedString(tokenKey)).append("\n");
+    sb.append("    tokenStrategy: ").append(toIndentedString(tokenStrategy)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
