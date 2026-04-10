@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,36 +17,44 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response object containing Flaky Tests Management policies for a repository. */
-@JsonPropertyOrder({TestOptimizationFlakyTestsManagementPoliciesResponse.JSON_PROPERTY_DATA})
+/** Metadata for the list investigations response. */
+@JsonPropertyOrder({ListInvestigationsResponseMeta.JSON_PROPERTY_PAGE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TestOptimizationFlakyTestsManagementPoliciesResponse {
+public class ListInvestigationsResponseMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private TestOptimizationFlakyTestsManagementPoliciesData data;
+  public static final String JSON_PROPERTY_PAGE = "page";
+  private ListInvestigationsResponseMetaPage page;
 
-  public TestOptimizationFlakyTestsManagementPoliciesResponse data(
-      TestOptimizationFlakyTestsManagementPoliciesData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public ListInvestigationsResponseMeta() {}
+
+  @JsonCreator
+  public ListInvestigationsResponseMeta(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PAGE)
+          ListInvestigationsResponseMetaPage page) {
+    this.page = page;
+    this.unparsed |= page.unparsed;
+  }
+
+  public ListInvestigationsResponseMeta page(ListInvestigationsResponseMetaPage page) {
+    this.page = page;
+    this.unparsed |= page.unparsed;
     return this;
   }
 
   /**
-   * Data object for Flaky Tests Management policies response.
+   * Pagination metadata.
    *
-   * @return data
+   * @return page
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TestOptimizationFlakyTestsManagementPoliciesData getData() {
-    return data;
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ListInvestigationsResponseMetaPage getPage() {
+    return page;
   }
 
-  public void setData(TestOptimizationFlakyTestsManagementPoliciesData data) {
-    this.data = data;
+  public void setPage(ListInvestigationsResponseMetaPage page) {
+    this.page = page;
   }
 
   /**
@@ -60,11 +69,10 @@ public class TestOptimizationFlakyTestsManagementPoliciesResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TestOptimizationFlakyTestsManagementPoliciesResponse
+   * @return ListInvestigationsResponseMeta
    */
   @JsonAnySetter
-  public TestOptimizationFlakyTestsManagementPoliciesResponse putAdditionalProperty(
-      String key, Object value) {
+  public ListInvestigationsResponseMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -95,9 +103,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesResponse {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TestOptimizationFlakyTestsManagementPoliciesResponse object is equal to o.
-   */
+  /** Return true if this ListInvestigationsResponseMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -106,25 +112,23 @@ public class TestOptimizationFlakyTestsManagementPoliciesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TestOptimizationFlakyTestsManagementPoliciesResponse
-        testOptimizationFlakyTestsManagementPoliciesResponse =
-            (TestOptimizationFlakyTestsManagementPoliciesResponse) o;
-    return Objects.equals(this.data, testOptimizationFlakyTestsManagementPoliciesResponse.data)
+    ListInvestigationsResponseMeta listInvestigationsResponseMeta =
+        (ListInvestigationsResponseMeta) o;
+    return Objects.equals(this.page, listInvestigationsResponseMeta.page)
         && Objects.equals(
-            this.additionalProperties,
-            testOptimizationFlakyTestsManagementPoliciesResponse.additionalProperties);
+            this.additionalProperties, listInvestigationsResponseMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(page, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TestOptimizationFlakyTestsManagementPoliciesResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class ListInvestigationsResponseMeta {\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

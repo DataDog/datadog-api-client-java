@@ -1,0 +1,25 @@
+// List Bits AI investigations returns "OK" response
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.BitsAiApi;
+import com.datadog.api.client.v2.model.ListInvestigationsResponse;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.listInvestigations", true);
+    BitsAiApi apiInstance = new BitsAiApi(defaultClient);
+
+    try {
+      ListInvestigationsResponse result = apiInstance.listInvestigations();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BitsAiApi#listInvestigations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}

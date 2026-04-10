@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,34 +17,74 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Configuration for the attempt-to-fix Flaky Tests Management policy. */
-@JsonPropertyOrder({TestOptimizationFlakyTestsManagementPoliciesAttemptToFix.JSON_PROPERTY_RETRIES})
+/** Response for a single Bits AI investigation. */
+@JsonPropertyOrder({
+  GetInvestigationResponse.JSON_PROPERTY_DATA,
+  GetInvestigationResponse.JSON_PROPERTY_LINKS
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
+public class GetInvestigationResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_RETRIES = "retries";
-  private Long retries;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private GetInvestigationResponseData data;
 
-  public TestOptimizationFlakyTestsManagementPoliciesAttemptToFix retries(Long retries) {
-    this.retries = retries;
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private GetInvestigationResponseLinks links;
+
+  public GetInvestigationResponse() {}
+
+  @JsonCreator
+  public GetInvestigationResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) GetInvestigationResponseData data,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LINKS)
+          GetInvestigationResponseLinks links) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+    this.links = links;
+    this.unparsed |= links.unparsed;
+  }
+
+  public GetInvestigationResponse data(GetInvestigationResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Number of retries when attempting to fix a flaky test. Must be greater than 0.
+   * Data for the get investigation response.
    *
-   * @return retries
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RETRIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRetries() {
-    return retries;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public GetInvestigationResponseData getData() {
+    return data;
   }
 
-  public void setRetries(Long retries) {
-    this.retries = retries;
+  public void setData(GetInvestigationResponseData data) {
+    this.data = data;
+  }
+
+  public GetInvestigationResponse links(GetInvestigationResponseLinks links) {
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    return this;
+  }
+
+  /**
+   * Links related to the investigation.
+   *
+   * @return links
+   */
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public GetInvestigationResponseLinks getLinks() {
+    return links;
+  }
+
+  public void setLinks(GetInvestigationResponseLinks links) {
+    this.links = links;
   }
 
   /**
@@ -58,11 +99,10 @@ public class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TestOptimizationFlakyTestsManagementPoliciesAttemptToFix
+   * @return GetInvestigationResponse
    */
   @JsonAnySetter
-  public TestOptimizationFlakyTestsManagementPoliciesAttemptToFix putAdditionalProperty(
-      String key, Object value) {
+  public GetInvestigationResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,10 +133,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TestOptimizationFlakyTestsManagementPoliciesAttemptToFix object is equal to
-   * o.
-   */
+  /** Return true if this GetInvestigationResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -105,26 +142,23 @@ public class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TestOptimizationFlakyTestsManagementPoliciesAttemptToFix
-        testOptimizationFlakyTestsManagementPoliciesAttemptToFix =
-            (TestOptimizationFlakyTestsManagementPoliciesAttemptToFix) o;
-    return Objects.equals(
-            this.retries, testOptimizationFlakyTestsManagementPoliciesAttemptToFix.retries)
-        && Objects.equals(
-            this.additionalProperties,
-            testOptimizationFlakyTestsManagementPoliciesAttemptToFix.additionalProperties);
+    GetInvestigationResponse getInvestigationResponse = (GetInvestigationResponse) o;
+    return Objects.equals(this.data, getInvestigationResponse.data)
+        && Objects.equals(this.links, getInvestigationResponse.links)
+        && Objects.equals(this.additionalProperties, getInvestigationResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(retries, additionalProperties);
+    return Objects.hash(data, links, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TestOptimizationFlakyTestsManagementPoliciesAttemptToFix {\n");
-    sb.append("    retries: ").append(toIndentedString(retries)).append("\n");
+    sb.append("class GetInvestigationResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

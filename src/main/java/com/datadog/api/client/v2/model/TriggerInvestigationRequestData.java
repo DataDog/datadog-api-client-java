@@ -17,78 +17,75 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for get Flaky Tests Management policies request. */
+/** Data for the trigger investigation request. */
 @JsonPropertyOrder({
-  TestOptimizationFlakyTestsManagementPoliciesGetRequestData.JSON_PROPERTY_ATTRIBUTES,
-  TestOptimizationFlakyTestsManagementPoliciesGetRequestData.JSON_PROPERTY_TYPE
+  TriggerInvestigationRequestData.JSON_PROPERTY_ATTRIBUTES,
+  TriggerInvestigationRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TestOptimizationFlakyTestsManagementPoliciesGetRequestData {
+public class TriggerInvestigationRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes attributes;
+  private TriggerInvestigationRequestDataAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType type;
+  private TriggerInvestigationRequestType type;
 
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequestData() {}
+  public TriggerInvestigationRequestData() {}
 
   @JsonCreator
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequestData(
+  public TriggerInvestigationRequestData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes attributes,
+          TriggerInvestigationRequestDataAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType type) {
+          TriggerInvestigationRequestType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequestData attributes(
-      TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes attributes) {
+  public TriggerInvestigationRequestData attributes(
+      TriggerInvestigationRequestDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for requesting Flaky Tests Management policies.
+   * Attributes for the trigger investigation request.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes getAttributes() {
+  public TriggerInvestigationRequestDataAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(
-      TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes attributes) {
+  public void setAttributes(TriggerInvestigationRequestDataAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequestData type(
-      TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType type) {
+  public TriggerInvestigationRequestData type(TriggerInvestigationRequestType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * JSON:API type for get Flaky Tests Management policies request. The value must always be <code>
-   * test_optimization_get_flaky_tests_management_policies_request</code>.
+   * The resource type for trigger investigation requests.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType getType() {
+  public TriggerInvestigationRequestType getType() {
     return type;
   }
 
-  public void setType(TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType type) {
+  public void setType(TriggerInvestigationRequestType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -107,11 +104,10 @@ public class TestOptimizationFlakyTestsManagementPoliciesGetRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TestOptimizationFlakyTestsManagementPoliciesGetRequestData
+   * @return TriggerInvestigationRequestData
    */
   @JsonAnySetter
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequestData putAdditionalProperty(
-      String key, Object value) {
+  public TriggerInvestigationRequestData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -142,10 +138,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesGetRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TestOptimizationFlakyTestsManagementPoliciesGetRequestData object is equal
-   * to o.
-   */
+  /** Return true if this TriggerInvestigationRequestData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -154,16 +147,12 @@ public class TestOptimizationFlakyTestsManagementPoliciesGetRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TestOptimizationFlakyTestsManagementPoliciesGetRequestData
-        testOptimizationFlakyTestsManagementPoliciesGetRequestData =
-            (TestOptimizationFlakyTestsManagementPoliciesGetRequestData) o;
-    return Objects.equals(
-            this.attributes, testOptimizationFlakyTestsManagementPoliciesGetRequestData.attributes)
+    TriggerInvestigationRequestData triggerInvestigationRequestData =
+        (TriggerInvestigationRequestData) o;
+    return Objects.equals(this.attributes, triggerInvestigationRequestData.attributes)
+        && Objects.equals(this.type, triggerInvestigationRequestData.type)
         && Objects.equals(
-            this.type, testOptimizationFlakyTestsManagementPoliciesGetRequestData.type)
-        && Objects.equals(
-            this.additionalProperties,
-            testOptimizationFlakyTestsManagementPoliciesGetRequestData.additionalProperties);
+            this.additionalProperties, triggerInvestigationRequestData.additionalProperties);
   }
 
   @Override
@@ -174,7 +163,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesGetRequestData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TestOptimizationFlakyTestsManagementPoliciesGetRequestData {\n");
+    sb.append("class TriggerInvestigationRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

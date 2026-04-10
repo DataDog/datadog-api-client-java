@@ -17,45 +17,42 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request object for getting Flaky Tests Management policies. */
-@JsonPropertyOrder({TestOptimizationFlakyTestsManagementPoliciesGetRequest.JSON_PROPERTY_DATA})
+/** Attributes for the trigger investigation response. */
+@JsonPropertyOrder({TriggerInvestigationResponseDataAttributes.JSON_PROPERTY_INVESTIGATION_ID})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TestOptimizationFlakyTestsManagementPoliciesGetRequest {
+public class TriggerInvestigationResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private TestOptimizationFlakyTestsManagementPoliciesGetRequestData data;
+  public static final String JSON_PROPERTY_INVESTIGATION_ID = "investigation_id";
+  private String investigationId;
 
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequest() {}
+  public TriggerInvestigationResponseDataAttributes() {}
 
   @JsonCreator
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          TestOptimizationFlakyTestsManagementPoliciesGetRequestData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public TriggerInvestigationResponseDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_INVESTIGATION_ID)
+          String investigationId) {
+    this.investigationId = investigationId;
   }
 
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequest data(
-      TestOptimizationFlakyTestsManagementPoliciesGetRequestData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public TriggerInvestigationResponseDataAttributes investigationId(String investigationId) {
+    this.investigationId = investigationId;
     return this;
   }
 
   /**
-   * Data object for get Flaky Tests Management policies request.
+   * The ID of the investigation that was created.
    *
-   * @return data
+   * @return investigationId
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_INVESTIGATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequestData getData() {
-    return data;
+  public String getInvestigationId() {
+    return investigationId;
   }
 
-  public void setData(TestOptimizationFlakyTestsManagementPoliciesGetRequestData data) {
-    this.data = data;
+  public void setInvestigationId(String investigationId) {
+    this.investigationId = investigationId;
   }
 
   /**
@@ -70,10 +67,10 @@ public class TestOptimizationFlakyTestsManagementPoliciesGetRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TestOptimizationFlakyTestsManagementPoliciesGetRequest
+   * @return TriggerInvestigationResponseDataAttributes
    */
   @JsonAnySetter
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequest putAdditionalProperty(
+  public TriggerInvestigationResponseDataAttributes putAdditionalProperty(
       String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
@@ -105,10 +102,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesGetRequest {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TestOptimizationFlakyTestsManagementPoliciesGetRequest object is equal to
-   * o.
-   */
+  /** Return true if this TriggerInvestigationResponseDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,25 +111,25 @@ public class TestOptimizationFlakyTestsManagementPoliciesGetRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TestOptimizationFlakyTestsManagementPoliciesGetRequest
-        testOptimizationFlakyTestsManagementPoliciesGetRequest =
-            (TestOptimizationFlakyTestsManagementPoliciesGetRequest) o;
-    return Objects.equals(this.data, testOptimizationFlakyTestsManagementPoliciesGetRequest.data)
+    TriggerInvestigationResponseDataAttributes triggerInvestigationResponseDataAttributes =
+        (TriggerInvestigationResponseDataAttributes) o;
+    return Objects.equals(
+            this.investigationId, triggerInvestigationResponseDataAttributes.investigationId)
         && Objects.equals(
             this.additionalProperties,
-            testOptimizationFlakyTestsManagementPoliciesGetRequest.additionalProperties);
+            triggerInvestigationResponseDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(investigationId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TestOptimizationFlakyTestsManagementPoliciesGetRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class TriggerInvestigationResponseDataAttributes {\n");
+    sb.append("    investigationId: ").append(toIndentedString(investigationId)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

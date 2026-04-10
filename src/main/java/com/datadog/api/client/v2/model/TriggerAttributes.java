@@ -17,79 +17,73 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for update Flaky Tests Management policies request. */
+/** The trigger definition for starting an investigation. */
 @JsonPropertyOrder({
-  TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData.JSON_PROPERTY_ATTRIBUTES,
-  TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData.JSON_PROPERTY_TYPE
+  TriggerAttributes.JSON_PROPERTY_MONITOR_ALERT_TRIGGER,
+  TriggerAttributes.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData {
+public class TriggerAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes attributes;
+  public static final String JSON_PROPERTY_MONITOR_ALERT_TRIGGER = "monitor_alert_trigger";
+  private MonitorAlertTriggerAttributes monitorAlertTrigger;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType type;
+  private TriggerType type;
 
-  public TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData() {}
+  public TriggerAttributes() {}
 
   @JsonCreator
-  public TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public TriggerAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_MONITOR_ALERT_TRIGGER)
+          MonitorAlertTriggerAttributes monitorAlertTrigger,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TriggerType type) {
+    this.monitorAlertTrigger = monitorAlertTrigger;
+    this.unparsed |= monitorAlertTrigger.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData attributes(
-      TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public TriggerAttributes monitorAlertTrigger(MonitorAlertTriggerAttributes monitorAlertTrigger) {
+    this.monitorAlertTrigger = monitorAlertTrigger;
+    this.unparsed |= monitorAlertTrigger.unparsed;
     return this;
   }
 
   /**
-   * Attributes for updating Flaky Tests Management policies. Only provided policy blocks are
-   * updated; omitted blocks are left unchanged.
+   * Attributes for a monitor alert trigger.
    *
-   * @return attributes
+   * @return monitorAlertTrigger
    */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_MONITOR_ALERT_TRIGGER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes getAttributes() {
-    return attributes;
+  public MonitorAlertTriggerAttributes getMonitorAlertTrigger() {
+    return monitorAlertTrigger;
   }
 
-  public void setAttributes(
-      TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes attributes) {
-    this.attributes = attributes;
+  public void setMonitorAlertTrigger(MonitorAlertTriggerAttributes monitorAlertTrigger) {
+    this.monitorAlertTrigger = monitorAlertTrigger;
   }
 
-  public TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData type(
-      TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType type) {
+  public TriggerAttributes type(TriggerType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * JSON:API type for update Flaky Tests Management policies request. The value must always be
-   * <code>test_optimization_update_flaky_tests_management_policies_request</code>.
+   * The type of trigger for the investigation.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType getType() {
+  public TriggerType getType() {
     return type;
   }
 
-  public void setType(TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType type) {
+  public void setType(TriggerType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -108,11 +102,10 @@ public class TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData
+   * @return TriggerAttributes
    */
   @JsonAnySetter
-  public TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData putAdditionalProperty(
-      String key, Object value) {
+  public TriggerAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -143,10 +136,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData object is
-   * equal to o.
-   */
+  /** Return true if this TriggerAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -155,29 +145,24 @@ public class TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData
-        testOptimizationFlakyTestsManagementPoliciesUpdateRequestData =
-            (TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData) o;
-    return Objects.equals(
-            this.attributes,
-            testOptimizationFlakyTestsManagementPoliciesUpdateRequestData.attributes)
-        && Objects.equals(
-            this.type, testOptimizationFlakyTestsManagementPoliciesUpdateRequestData.type)
-        && Objects.equals(
-            this.additionalProperties,
-            testOptimizationFlakyTestsManagementPoliciesUpdateRequestData.additionalProperties);
+    TriggerAttributes triggerAttributes = (TriggerAttributes) o;
+    return Objects.equals(this.monitorAlertTrigger, triggerAttributes.monitorAlertTrigger)
+        && Objects.equals(this.type, triggerAttributes.type)
+        && Objects.equals(this.additionalProperties, triggerAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(monitorAlertTrigger, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class TriggerAttributes {\n");
+    sb.append("    monitorAlertTrigger: ")
+        .append(toIndentedString(monitorAlertTrigger))
+        .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
