@@ -769,6 +769,9 @@ public class ApiClient {
           put("v2.getOpenAPI", false);
           put("v2.listAPIs", false);
           put("v2.updateOpenAPI", false);
+          put("v2.getInvestigation", false);
+          put("v2.listInvestigations", false);
+          put("v2.triggerInvestigation", false);
           put("v2.createCaseJiraIssue", false);
           put("v2.createCaseNotebook", false);
           put("v2.createCaseServiceNowTicket", false);
@@ -783,11 +786,9 @@ public class ApiClient {
           put("v2.updateChangeRequest", false);
           put("v2.updateChangeRequestDecision", false);
           put("v2.deleteTestOptimizationServiceSettings", false);
-          put("v2.getFlakyTestsManagementPolicies", false);
           put("v2.getTestOptimizationServiceSettings", false);
           put("v2.searchFlakyTests", false);
           put("v2.updateFlakyTests", false);
-          put("v2.updateFlakyTestsManagementPolicies", false);
           put("v2.updateTestOptimizationServiceSettings", false);
           put("v2.createAWSCloudAuthPersonaMapping", false);
           put("v2.deleteAWSCloudAuthPersonaMapping", false);

@@ -17,44 +17,44 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for requesting Flaky Tests Management policies. */
-@JsonPropertyOrder({
-  TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes.JSON_PROPERTY_REPOSITORY_ID
-})
+/** Response after triggering an investigation. */
+@JsonPropertyOrder({TriggerInvestigationResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {
+public class TriggerInvestigationResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_REPOSITORY_ID = "repository_id";
-  private String repositoryId;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private TriggerInvestigationResponseData data;
 
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes() {}
+  public TriggerInvestigationResponse() {}
 
   @JsonCreator
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REPOSITORY_ID) String repositoryId) {
-    this.repositoryId = repositoryId;
+  public TriggerInvestigationResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          TriggerInvestigationResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
   }
 
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes repositoryId(
-      String repositoryId) {
-    this.repositoryId = repositoryId;
+  public TriggerInvestigationResponse data(TriggerInvestigationResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * The repository identifier.
+   * Data for the trigger investigation response.
    *
-   * @return repositoryId
+   * @return data
    */
-  @JsonProperty(JSON_PROPERTY_REPOSITORY_ID)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getRepositoryId() {
-    return repositoryId;
+  public TriggerInvestigationResponseData getData() {
+    return data;
   }
 
-  public void setRepositoryId(String repositoryId) {
-    this.repositoryId = repositoryId;
+  public void setData(TriggerInvestigationResponseData data) {
+    this.data = data;
   }
 
   /**
@@ -69,11 +69,10 @@ public class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes
+   * @return TriggerInvestigationResponse
    */
   @JsonAnySetter
-  public TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes putAdditionalProperty(
-      String key, Object value) {
+  public TriggerInvestigationResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -104,10 +103,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes object is
-   * equal to o.
-   */
+  /** Return true if this TriggerInvestigationResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -116,27 +112,22 @@ public class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes
-        testOptimizationFlakyTestsManagementPoliciesGetRequestAttributes =
-            (TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes) o;
-    return Objects.equals(
-            this.repositoryId,
-            testOptimizationFlakyTestsManagementPoliciesGetRequestAttributes.repositoryId)
+    TriggerInvestigationResponse triggerInvestigationResponse = (TriggerInvestigationResponse) o;
+    return Objects.equals(this.data, triggerInvestigationResponse.data)
         && Objects.equals(
-            this.additionalProperties,
-            testOptimizationFlakyTestsManagementPoliciesGetRequestAttributes.additionalProperties);
+            this.additionalProperties, triggerInvestigationResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(repositoryId, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes {\n");
-    sb.append("    repositoryId: ").append(toIndentedString(repositoryId)).append("\n");
+    sb.append("class TriggerInvestigationResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

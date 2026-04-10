@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,62 +17,43 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Automatic quarantine triggering rule based on a time window. */
-@JsonPropertyOrder({
-  TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule.JSON_PROPERTY_ENABLED,
-  TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule.JSON_PROPERTY_WINDOW_SECONDS
-})
+/** Attributes for the trigger investigation request. */
+@JsonPropertyOrder({TriggerInvestigationRequestDataAttributes.JSON_PROPERTY_TRIGGER})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
+public class TriggerInvestigationRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ENABLED = "enabled";
-  private Boolean enabled;
+  public static final String JSON_PROPERTY_TRIGGER = "trigger";
+  private TriggerAttributes trigger;
 
-  public static final String JSON_PROPERTY_WINDOW_SECONDS = "window_seconds";
-  private Long windowSeconds;
+  public TriggerInvestigationRequestDataAttributes() {}
 
-  public TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule enabled(Boolean enabled) {
-    this.enabled = enabled;
+  @JsonCreator
+  public TriggerInvestigationRequestDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TRIGGER) TriggerAttributes trigger) {
+    this.trigger = trigger;
+    this.unparsed |= trigger.unparsed;
+  }
+
+  public TriggerInvestigationRequestDataAttributes trigger(TriggerAttributes trigger) {
+    this.trigger = trigger;
+    this.unparsed |= trigger.unparsed;
     return this;
   }
 
   /**
-   * Whether this auto-quarantine rule is enabled.
+   * The trigger definition for starting an investigation.
    *
-   * @return enabled
+   * @return trigger
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getEnabled() {
-    return enabled;
+  @JsonProperty(JSON_PROPERTY_TRIGGER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TriggerAttributes getTrigger() {
+    return trigger;
   }
 
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
-  }
-
-  public TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule windowSeconds(
-      Long windowSeconds) {
-    this.windowSeconds = windowSeconds;
-    return this;
-  }
-
-  /**
-   * Time window in seconds over which flakiness is evaluated. Must be greater than 0.
-   *
-   * @return windowSeconds
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WINDOW_SECONDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getWindowSeconds() {
-    return windowSeconds;
-  }
-
-  public void setWindowSeconds(Long windowSeconds) {
-    this.windowSeconds = windowSeconds;
+  public void setTrigger(TriggerAttributes trigger) {
+    this.trigger = trigger;
   }
 
   /**
@@ -86,11 +68,10 @@ public class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule
+   * @return TriggerInvestigationRequestDataAttributes
    */
   @JsonAnySetter
-  public TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule putAdditionalProperty(
-      String key, Object value) {
+  public TriggerInvestigationRequestDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -121,10 +102,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule object is
-   * equal to o.
-   */
+  /** Return true if this TriggerInvestigationRequestDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,30 +111,24 @@ public class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule
-        testOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule =
-            (TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule) o;
-    return Objects.equals(
-            this.enabled, testOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule.enabled)
-        && Objects.equals(
-            this.windowSeconds,
-            testOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule.windowSeconds)
+    TriggerInvestigationRequestDataAttributes triggerInvestigationRequestDataAttributes =
+        (TriggerInvestigationRequestDataAttributes) o;
+    return Objects.equals(this.trigger, triggerInvestigationRequestDataAttributes.trigger)
         && Objects.equals(
             this.additionalProperties,
-            testOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule.additionalProperties);
+            triggerInvestigationRequestDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, windowSeconds, additionalProperties);
+    return Objects.hash(trigger, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule {\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    windowSeconds: ").append(toIndentedString(windowSeconds)).append("\n");
+    sb.append("class TriggerInvestigationRequestDataAttributes {\n");
+    sb.append("    trigger: ").append(toIndentedString(trigger)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

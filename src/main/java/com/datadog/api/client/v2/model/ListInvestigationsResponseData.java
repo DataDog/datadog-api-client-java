@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,61 +17,74 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object for Flaky Tests Management policies response. */
+/** Data for an investigation list item. */
 @JsonPropertyOrder({
-  TestOptimizationFlakyTestsManagementPoliciesData.JSON_PROPERTY_ATTRIBUTES,
-  TestOptimizationFlakyTestsManagementPoliciesData.JSON_PROPERTY_ID,
-  TestOptimizationFlakyTestsManagementPoliciesData.JSON_PROPERTY_TYPE
+  ListInvestigationsResponseData.JSON_PROPERTY_ATTRIBUTES,
+  ListInvestigationsResponseData.JSON_PROPERTY_ID,
+  ListInvestigationsResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TestOptimizationFlakyTestsManagementPoliciesData {
+public class ListInvestigationsResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private TestOptimizationFlakyTestsManagementPoliciesAttributes attributes;
+  private ListInvestigationsResponseDataAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TestOptimizationFlakyTestsManagementPoliciesType type;
+  private InvestigationType type;
 
-  public TestOptimizationFlakyTestsManagementPoliciesData attributes(
-      TestOptimizationFlakyTestsManagementPoliciesAttributes attributes) {
+  public ListInvestigationsResponseData() {}
+
+  @JsonCreator
+  public ListInvestigationsResponseData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          ListInvestigationsResponseDataAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) InvestigationType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public ListInvestigationsResponseData attributes(
+      ListInvestigationsResponseDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes of the Flaky Tests Management policies for a repository.
+   * Attributes of an investigation list item.
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TestOptimizationFlakyTestsManagementPoliciesAttributes getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ListInvestigationsResponseDataAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(TestOptimizationFlakyTestsManagementPoliciesAttributes attributes) {
+  public void setAttributes(ListInvestigationsResponseDataAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public TestOptimizationFlakyTestsManagementPoliciesData id(String id) {
+  public ListInvestigationsResponseData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The repository identifier used as the resource ID.
+   * The unique identifier of the investigation.
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
@@ -79,27 +93,24 @@ public class TestOptimizationFlakyTestsManagementPoliciesData {
     this.id = id;
   }
 
-  public TestOptimizationFlakyTestsManagementPoliciesData type(
-      TestOptimizationFlakyTestsManagementPoliciesType type) {
+  public ListInvestigationsResponseData type(InvestigationType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * JSON:API type for Flaky Tests Management policies response. The value must always be <code>
-   * test_optimization_flaky_tests_management_policies</code>.
+   * The resource type for investigations.
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TestOptimizationFlakyTestsManagementPoliciesType getType() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public InvestigationType getType() {
     return type;
   }
 
-  public void setType(TestOptimizationFlakyTestsManagementPoliciesType type) {
+  public void setType(InvestigationType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -118,11 +129,10 @@ public class TestOptimizationFlakyTestsManagementPoliciesData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TestOptimizationFlakyTestsManagementPoliciesData
+   * @return ListInvestigationsResponseData
    */
   @JsonAnySetter
-  public TestOptimizationFlakyTestsManagementPoliciesData putAdditionalProperty(
-      String key, Object value) {
+  public ListInvestigationsResponseData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -153,7 +163,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TestOptimizationFlakyTestsManagementPoliciesData object is equal to o. */
+  /** Return true if this ListInvestigationsResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -162,16 +172,13 @@ public class TestOptimizationFlakyTestsManagementPoliciesData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TestOptimizationFlakyTestsManagementPoliciesData
-        testOptimizationFlakyTestsManagementPoliciesData =
-            (TestOptimizationFlakyTestsManagementPoliciesData) o;
-    return Objects.equals(
-            this.attributes, testOptimizationFlakyTestsManagementPoliciesData.attributes)
-        && Objects.equals(this.id, testOptimizationFlakyTestsManagementPoliciesData.id)
-        && Objects.equals(this.type, testOptimizationFlakyTestsManagementPoliciesData.type)
+    ListInvestigationsResponseData listInvestigationsResponseData =
+        (ListInvestigationsResponseData) o;
+    return Objects.equals(this.attributes, listInvestigationsResponseData.attributes)
+        && Objects.equals(this.id, listInvestigationsResponseData.id)
+        && Objects.equals(this.type, listInvestigationsResponseData.type)
         && Objects.equals(
-            this.additionalProperties,
-            testOptimizationFlakyTestsManagementPoliciesData.additionalProperties);
+            this.additionalProperties, listInvestigationsResponseData.additionalProperties);
   }
 
   @Override
@@ -182,7 +189,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TestOptimizationFlakyTestsManagementPoliciesData {\n");
+    sb.append("class ListInvestigationsResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

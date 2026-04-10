@@ -17,45 +17,95 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request object for updating Flaky Tests Management policies. */
-@JsonPropertyOrder({TestOptimizationFlakyTestsManagementPoliciesUpdateRequest.JSON_PROPERTY_DATA})
+/** Pagination metadata. */
+@JsonPropertyOrder({
+  ListInvestigationsResponseMetaPage.JSON_PROPERTY_LIMIT,
+  ListInvestigationsResponseMetaPage.JSON_PROPERTY_OFFSET,
+  ListInvestigationsResponseMetaPage.JSON_PROPERTY_TOTAL
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TestOptimizationFlakyTestsManagementPoliciesUpdateRequest {
+public class ListInvestigationsResponseMetaPage {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData data;
+  public static final String JSON_PROPERTY_LIMIT = "limit";
+  private Long limit;
 
-  public TestOptimizationFlakyTestsManagementPoliciesUpdateRequest() {}
+  public static final String JSON_PROPERTY_OFFSET = "offset";
+  private Long offset;
+
+  public static final String JSON_PROPERTY_TOTAL = "total";
+  private Long total;
+
+  public ListInvestigationsResponseMetaPage() {}
 
   @JsonCreator
-  public TestOptimizationFlakyTestsManagementPoliciesUpdateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public ListInvestigationsResponseMetaPage(
+      @JsonProperty(required = true, value = JSON_PROPERTY_LIMIT) Long limit,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OFFSET) Long offset,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TOTAL) Long total) {
+    this.limit = limit;
+    this.offset = offset;
+    this.total = total;
   }
 
-  public TestOptimizationFlakyTestsManagementPoliciesUpdateRequest data(
-      TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public ListInvestigationsResponseMetaPage limit(Long limit) {
+    this.limit = limit;
     return this;
   }
 
   /**
-   * Data object for update Flaky Tests Management policies request.
+   * Maximum number of results per page.
    *
-   * @return data
+   * @return limit
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData getData() {
-    return data;
+  public Long getLimit() {
+    return limit;
   }
 
-  public void setData(TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData data) {
-    this.data = data;
+  public void setLimit(Long limit) {
+    this.limit = limit;
+  }
+
+  public ListInvestigationsResponseMetaPage offset(Long offset) {
+    this.offset = offset;
+    return this;
+  }
+
+  /**
+   * Offset of the current page.
+   *
+   * @return offset
+   */
+  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getOffset() {
+    return offset;
+  }
+
+  public void setOffset(Long offset) {
+    this.offset = offset;
+  }
+
+  public ListInvestigationsResponseMetaPage total(Long total) {
+    this.total = total;
+    return this;
+  }
+
+  /**
+   * Total number of investigations.
+   *
+   * @return total
+   */
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Long getTotal() {
+    return total;
+  }
+
+  public void setTotal(Long total) {
+    this.total = total;
   }
 
   /**
@@ -70,11 +120,10 @@ public class TestOptimizationFlakyTestsManagementPoliciesUpdateRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TestOptimizationFlakyTestsManagementPoliciesUpdateRequest
+   * @return ListInvestigationsResponseMetaPage
    */
   @JsonAnySetter
-  public TestOptimizationFlakyTestsManagementPoliciesUpdateRequest putAdditionalProperty(
-      String key, Object value) {
+  public ListInvestigationsResponseMetaPage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -105,10 +154,7 @@ public class TestOptimizationFlakyTestsManagementPoliciesUpdateRequest {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this TestOptimizationFlakyTestsManagementPoliciesUpdateRequest object is equal
-   * to o.
-   */
+  /** Return true if this ListInvestigationsResponseMetaPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,25 +163,27 @@ public class TestOptimizationFlakyTestsManagementPoliciesUpdateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TestOptimizationFlakyTestsManagementPoliciesUpdateRequest
-        testOptimizationFlakyTestsManagementPoliciesUpdateRequest =
-            (TestOptimizationFlakyTestsManagementPoliciesUpdateRequest) o;
-    return Objects.equals(this.data, testOptimizationFlakyTestsManagementPoliciesUpdateRequest.data)
+    ListInvestigationsResponseMetaPage listInvestigationsResponseMetaPage =
+        (ListInvestigationsResponseMetaPage) o;
+    return Objects.equals(this.limit, listInvestigationsResponseMetaPage.limit)
+        && Objects.equals(this.offset, listInvestigationsResponseMetaPage.offset)
+        && Objects.equals(this.total, listInvestigationsResponseMetaPage.total)
         && Objects.equals(
-            this.additionalProperties,
-            testOptimizationFlakyTestsManagementPoliciesUpdateRequest.additionalProperties);
+            this.additionalProperties, listInvestigationsResponseMetaPage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(limit, offset, total, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TestOptimizationFlakyTestsManagementPoliciesUpdateRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class ListInvestigationsResponseMetaPage {\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
