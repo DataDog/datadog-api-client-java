@@ -42,8 +42,22 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_BROWSER_RUM_UNITS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_CCM_ANTHROPIC_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_AWS_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_AZURE_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_CONFLUENT_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_DATABRICKS_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_ELASTIC_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_FASTLY_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_GCP_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_GITHUB_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_MONGODB_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_OCI_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_OPENAI_SPEND_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_SNOWFLAKE_SPEND_LAST,
   UsageSummaryDate.JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST,
   UsageSummaryDate.JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST,
+  UsageSummaryDate.JSON_PROPERTY_CCM_TWILIO_SPEND_LAST,
   UsageSummaryDate.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM,
   UsageSummaryDate.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM,
   UsageSummaryDate.JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM,
@@ -319,6 +333,45 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_BROWSER_RUM_UNITS_SUM = "browser_rum_units_sum";
   private Long browserRumUnitsSum;
 
+  public static final String JSON_PROPERTY_CCM_ANTHROPIC_SPEND_LAST = "ccm_anthropic_spend_last";
+  private Long ccmAnthropicSpendLast;
+
+  public static final String JSON_PROPERTY_CCM_AWS_SPEND_LAST = "ccm_aws_spend_last";
+  private Long ccmAwsSpendLast;
+
+  public static final String JSON_PROPERTY_CCM_AZURE_SPEND_LAST = "ccm_azure_spend_last";
+  private Long ccmAzureSpendLast;
+
+  public static final String JSON_PROPERTY_CCM_CONFLUENT_SPEND_LAST = "ccm_confluent_spend_last";
+  private Long ccmConfluentSpendLast;
+
+  public static final String JSON_PROPERTY_CCM_DATABRICKS_SPEND_LAST = "ccm_databricks_spend_last";
+  private Long ccmDatabricksSpendLast;
+
+  public static final String JSON_PROPERTY_CCM_ELASTIC_SPEND_LAST = "ccm_elastic_spend_last";
+  private Long ccmElasticSpendLast;
+
+  public static final String JSON_PROPERTY_CCM_FASTLY_SPEND_LAST = "ccm_fastly_spend_last";
+  private Long ccmFastlySpendLast;
+
+  public static final String JSON_PROPERTY_CCM_GCP_SPEND_LAST = "ccm_gcp_spend_last";
+  private Long ccmGcpSpendLast;
+
+  public static final String JSON_PROPERTY_CCM_GITHUB_SPEND_LAST = "ccm_github_spend_last";
+  private Long ccmGithubSpendLast;
+
+  public static final String JSON_PROPERTY_CCM_MONGODB_SPEND_LAST = "ccm_mongodb_spend_last";
+  private Long ccmMongodbSpendLast;
+
+  public static final String JSON_PROPERTY_CCM_OCI_SPEND_LAST = "ccm_oci_spend_last";
+  private Long ccmOciSpendLast;
+
+  public static final String JSON_PROPERTY_CCM_OPENAI_SPEND_LAST = "ccm_openai_spend_last";
+  private Long ccmOpenaiSpendLast;
+
+  public static final String JSON_PROPERTY_CCM_SNOWFLAKE_SPEND_LAST = "ccm_snowflake_spend_last";
+  private Long ccmSnowflakeSpendLast;
+
   public static final String JSON_PROPERTY_CCM_SPEND_MONITORED_ENT_LAST =
       "ccm_spend_monitored_ent_last";
   private Long ccmSpendMonitoredEntLast;
@@ -326,6 +379,9 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_CCM_SPEND_MONITORED_PRO_LAST =
       "ccm_spend_monitored_pro_last";
   private Long ccmSpendMonitoredProLast;
+
+  public static final String JSON_PROPERTY_CCM_TWILIO_SPEND_LAST = "ccm_twilio_spend_last";
+  private Long ccmTwilioSpendLast;
 
   public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM =
       "ci_pipeline_indexed_spans_sum";
@@ -1517,6 +1573,292 @@ public class UsageSummaryDate {
     this.browserRumUnitsSum = browserRumUnitsSum;
   }
 
+  public UsageSummaryDate ccmAnthropicSpendLast(Long ccmAnthropicSpendLast) {
+    this.ccmAnthropicSpendLast = ccmAnthropicSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of Anthropic cloud spend monitored over all hours in the current date for
+   * all organizations.
+   *
+   * @return ccmAnthropicSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_ANTHROPIC_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmAnthropicSpendLast() {
+    return ccmAnthropicSpendLast;
+  }
+
+  public void setCcmAnthropicSpendLast(Long ccmAnthropicSpendLast) {
+    this.ccmAnthropicSpendLast = ccmAnthropicSpendLast;
+  }
+
+  public UsageSummaryDate ccmAwsSpendLast(Long ccmAwsSpendLast) {
+    this.ccmAwsSpendLast = ccmAwsSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of AWS cloud spend monitored over all hours in the current date for all
+   * organizations.
+   *
+   * @return ccmAwsSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_AWS_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmAwsSpendLast() {
+    return ccmAwsSpendLast;
+  }
+
+  public void setCcmAwsSpendLast(Long ccmAwsSpendLast) {
+    this.ccmAwsSpendLast = ccmAwsSpendLast;
+  }
+
+  public UsageSummaryDate ccmAzureSpendLast(Long ccmAzureSpendLast) {
+    this.ccmAzureSpendLast = ccmAzureSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of Azure cloud spend monitored over all hours in the current date for all
+   * organizations.
+   *
+   * @return ccmAzureSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_AZURE_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmAzureSpendLast() {
+    return ccmAzureSpendLast;
+  }
+
+  public void setCcmAzureSpendLast(Long ccmAzureSpendLast) {
+    this.ccmAzureSpendLast = ccmAzureSpendLast;
+  }
+
+  public UsageSummaryDate ccmConfluentSpendLast(Long ccmConfluentSpendLast) {
+    this.ccmConfluentSpendLast = ccmConfluentSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of Confluent cloud spend monitored over all hours in the current date for
+   * all organizations.
+   *
+   * @return ccmConfluentSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_CONFLUENT_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmConfluentSpendLast() {
+    return ccmConfluentSpendLast;
+  }
+
+  public void setCcmConfluentSpendLast(Long ccmConfluentSpendLast) {
+    this.ccmConfluentSpendLast = ccmConfluentSpendLast;
+  }
+
+  public UsageSummaryDate ccmDatabricksSpendLast(Long ccmDatabricksSpendLast) {
+    this.ccmDatabricksSpendLast = ccmDatabricksSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of Databricks cloud spend monitored over all hours in the current date for
+   * all organizations.
+   *
+   * @return ccmDatabricksSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_DATABRICKS_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmDatabricksSpendLast() {
+    return ccmDatabricksSpendLast;
+  }
+
+  public void setCcmDatabricksSpendLast(Long ccmDatabricksSpendLast) {
+    this.ccmDatabricksSpendLast = ccmDatabricksSpendLast;
+  }
+
+  public UsageSummaryDate ccmElasticSpendLast(Long ccmElasticSpendLast) {
+    this.ccmElasticSpendLast = ccmElasticSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of Elastic cloud spend monitored over all hours in the current date for
+   * all organizations.
+   *
+   * @return ccmElasticSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_ELASTIC_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmElasticSpendLast() {
+    return ccmElasticSpendLast;
+  }
+
+  public void setCcmElasticSpendLast(Long ccmElasticSpendLast) {
+    this.ccmElasticSpendLast = ccmElasticSpendLast;
+  }
+
+  public UsageSummaryDate ccmFastlySpendLast(Long ccmFastlySpendLast) {
+    this.ccmFastlySpendLast = ccmFastlySpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of Fastly cloud spend monitored over all hours in the current date for all
+   * organizations.
+   *
+   * @return ccmFastlySpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_FASTLY_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmFastlySpendLast() {
+    return ccmFastlySpendLast;
+  }
+
+  public void setCcmFastlySpendLast(Long ccmFastlySpendLast) {
+    this.ccmFastlySpendLast = ccmFastlySpendLast;
+  }
+
+  public UsageSummaryDate ccmGcpSpendLast(Long ccmGcpSpendLast) {
+    this.ccmGcpSpendLast = ccmGcpSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of GCP cloud spend monitored over all hours in the current date for all
+   * organizations.
+   *
+   * @return ccmGcpSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_GCP_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmGcpSpendLast() {
+    return ccmGcpSpendLast;
+  }
+
+  public void setCcmGcpSpendLast(Long ccmGcpSpendLast) {
+    this.ccmGcpSpendLast = ccmGcpSpendLast;
+  }
+
+  public UsageSummaryDate ccmGithubSpendLast(Long ccmGithubSpendLast) {
+    this.ccmGithubSpendLast = ccmGithubSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of GitHub cloud spend monitored over all hours in the current date for all
+   * organizations.
+   *
+   * @return ccmGithubSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_GITHUB_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmGithubSpendLast() {
+    return ccmGithubSpendLast;
+  }
+
+  public void setCcmGithubSpendLast(Long ccmGithubSpendLast) {
+    this.ccmGithubSpendLast = ccmGithubSpendLast;
+  }
+
+  public UsageSummaryDate ccmMongodbSpendLast(Long ccmMongodbSpendLast) {
+    this.ccmMongodbSpendLast = ccmMongodbSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of MongoDB cloud spend monitored over all hours in the current date for
+   * all organizations.
+   *
+   * @return ccmMongodbSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_MONGODB_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmMongodbSpendLast() {
+    return ccmMongodbSpendLast;
+  }
+
+  public void setCcmMongodbSpendLast(Long ccmMongodbSpendLast) {
+    this.ccmMongodbSpendLast = ccmMongodbSpendLast;
+  }
+
+  public UsageSummaryDate ccmOciSpendLast(Long ccmOciSpendLast) {
+    this.ccmOciSpendLast = ccmOciSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of OCI cloud spend monitored over all hours in the current date for all
+   * organizations.
+   *
+   * @return ccmOciSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_OCI_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmOciSpendLast() {
+    return ccmOciSpendLast;
+  }
+
+  public void setCcmOciSpendLast(Long ccmOciSpendLast) {
+    this.ccmOciSpendLast = ccmOciSpendLast;
+  }
+
+  public UsageSummaryDate ccmOpenaiSpendLast(Long ccmOpenaiSpendLast) {
+    this.ccmOpenaiSpendLast = ccmOpenaiSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of OpenAI cloud spend monitored over all hours in the current date for all
+   * organizations.
+   *
+   * @return ccmOpenaiSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_OPENAI_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmOpenaiSpendLast() {
+    return ccmOpenaiSpendLast;
+  }
+
+  public void setCcmOpenaiSpendLast(Long ccmOpenaiSpendLast) {
+    this.ccmOpenaiSpendLast = ccmOpenaiSpendLast;
+  }
+
+  public UsageSummaryDate ccmSnowflakeSpendLast(Long ccmSnowflakeSpendLast) {
+    this.ccmSnowflakeSpendLast = ccmSnowflakeSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of Snowflake cloud spend monitored over all hours in the current date for
+   * all organizations.
+   *
+   * @return ccmSnowflakeSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_SNOWFLAKE_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmSnowflakeSpendLast() {
+    return ccmSnowflakeSpendLast;
+  }
+
+  public void setCcmSnowflakeSpendLast(Long ccmSnowflakeSpendLast) {
+    this.ccmSnowflakeSpendLast = ccmSnowflakeSpendLast;
+  }
+
   public UsageSummaryDate ccmSpendMonitoredEntLast(Long ccmSpendMonitoredEntLast) {
     this.ccmSpendMonitoredEntLast = ccmSpendMonitoredEntLast;
     return this;
@@ -1559,6 +1901,28 @@ public class UsageSummaryDate {
 
   public void setCcmSpendMonitoredProLast(Long ccmSpendMonitoredProLast) {
     this.ccmSpendMonitoredProLast = ccmSpendMonitoredProLast;
+  }
+
+  public UsageSummaryDate ccmTwilioSpendLast(Long ccmTwilioSpendLast) {
+    this.ccmTwilioSpendLast = ccmTwilioSpendLast;
+    return this;
+  }
+
+  /**
+   * Shows the last value of Twilio cloud spend monitored over all hours in the current date for all
+   * organizations.
+   *
+   * @return ccmTwilioSpendLast
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CCM_TWILIO_SPEND_LAST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCcmTwilioSpendLast() {
+    return ccmTwilioSpendLast;
+  }
+
+  public void setCcmTwilioSpendLast(Long ccmTwilioSpendLast) {
+    this.ccmTwilioSpendLast = ccmTwilioSpendLast;
   }
 
   public UsageSummaryDate ciPipelineIndexedSpansSum(Long ciPipelineIndexedSpansSum) {
@@ -6059,8 +6423,22 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.browserRumReplaySessionCountSum, usageSummaryDate.browserRumReplaySessionCountSum)
         && Objects.equals(this.browserRumUnitsSum, usageSummaryDate.browserRumUnitsSum)
+        && Objects.equals(this.ccmAnthropicSpendLast, usageSummaryDate.ccmAnthropicSpendLast)
+        && Objects.equals(this.ccmAwsSpendLast, usageSummaryDate.ccmAwsSpendLast)
+        && Objects.equals(this.ccmAzureSpendLast, usageSummaryDate.ccmAzureSpendLast)
+        && Objects.equals(this.ccmConfluentSpendLast, usageSummaryDate.ccmConfluentSpendLast)
+        && Objects.equals(this.ccmDatabricksSpendLast, usageSummaryDate.ccmDatabricksSpendLast)
+        && Objects.equals(this.ccmElasticSpendLast, usageSummaryDate.ccmElasticSpendLast)
+        && Objects.equals(this.ccmFastlySpendLast, usageSummaryDate.ccmFastlySpendLast)
+        && Objects.equals(this.ccmGcpSpendLast, usageSummaryDate.ccmGcpSpendLast)
+        && Objects.equals(this.ccmGithubSpendLast, usageSummaryDate.ccmGithubSpendLast)
+        && Objects.equals(this.ccmMongodbSpendLast, usageSummaryDate.ccmMongodbSpendLast)
+        && Objects.equals(this.ccmOciSpendLast, usageSummaryDate.ccmOciSpendLast)
+        && Objects.equals(this.ccmOpenaiSpendLast, usageSummaryDate.ccmOpenaiSpendLast)
+        && Objects.equals(this.ccmSnowflakeSpendLast, usageSummaryDate.ccmSnowflakeSpendLast)
         && Objects.equals(this.ccmSpendMonitoredEntLast, usageSummaryDate.ccmSpendMonitoredEntLast)
         && Objects.equals(this.ccmSpendMonitoredProLast, usageSummaryDate.ccmSpendMonitoredProLast)
+        && Objects.equals(this.ccmTwilioSpendLast, usageSummaryDate.ccmTwilioSpendLast)
         && Objects.equals(
             this.ciPipelineIndexedSpansSum, usageSummaryDate.ciPipelineIndexedSpansSum)
         && Objects.equals(this.ciTestIndexedSpansSum, usageSummaryDate.ciTestIndexedSpansSum)
@@ -6454,8 +6832,22 @@ public class UsageSummaryDate {
         browserRumLiteSessionCountSum,
         browserRumReplaySessionCountSum,
         browserRumUnitsSum,
+        ccmAnthropicSpendLast,
+        ccmAwsSpendLast,
+        ccmAzureSpendLast,
+        ccmConfluentSpendLast,
+        ccmDatabricksSpendLast,
+        ccmElasticSpendLast,
+        ccmFastlySpendLast,
+        ccmGcpSpendLast,
+        ccmGithubSpendLast,
+        ccmMongodbSpendLast,
+        ccmOciSpendLast,
+        ccmOpenaiSpendLast,
+        ccmSnowflakeSpendLast,
         ccmSpendMonitoredEntLast,
         ccmSpendMonitoredProLast,
+        ccmTwilioSpendLast,
         ciPipelineIndexedSpansSum,
         ciTestIndexedSpansSum,
         ciVisibilityItrCommittersHwm,
@@ -6705,12 +7097,38 @@ public class UsageSummaryDate {
         .append(toIndentedString(browserRumReplaySessionCountSum))
         .append("\n");
     sb.append("    browserRumUnitsSum: ").append(toIndentedString(browserRumUnitsSum)).append("\n");
+    sb.append("    ccmAnthropicSpendLast: ")
+        .append(toIndentedString(ccmAnthropicSpendLast))
+        .append("\n");
+    sb.append("    ccmAwsSpendLast: ").append(toIndentedString(ccmAwsSpendLast)).append("\n");
+    sb.append("    ccmAzureSpendLast: ").append(toIndentedString(ccmAzureSpendLast)).append("\n");
+    sb.append("    ccmConfluentSpendLast: ")
+        .append(toIndentedString(ccmConfluentSpendLast))
+        .append("\n");
+    sb.append("    ccmDatabricksSpendLast: ")
+        .append(toIndentedString(ccmDatabricksSpendLast))
+        .append("\n");
+    sb.append("    ccmElasticSpendLast: ")
+        .append(toIndentedString(ccmElasticSpendLast))
+        .append("\n");
+    sb.append("    ccmFastlySpendLast: ").append(toIndentedString(ccmFastlySpendLast)).append("\n");
+    sb.append("    ccmGcpSpendLast: ").append(toIndentedString(ccmGcpSpendLast)).append("\n");
+    sb.append("    ccmGithubSpendLast: ").append(toIndentedString(ccmGithubSpendLast)).append("\n");
+    sb.append("    ccmMongodbSpendLast: ")
+        .append(toIndentedString(ccmMongodbSpendLast))
+        .append("\n");
+    sb.append("    ccmOciSpendLast: ").append(toIndentedString(ccmOciSpendLast)).append("\n");
+    sb.append("    ccmOpenaiSpendLast: ").append(toIndentedString(ccmOpenaiSpendLast)).append("\n");
+    sb.append("    ccmSnowflakeSpendLast: ")
+        .append(toIndentedString(ccmSnowflakeSpendLast))
+        .append("\n");
     sb.append("    ccmSpendMonitoredEntLast: ")
         .append(toIndentedString(ccmSpendMonitoredEntLast))
         .append("\n");
     sb.append("    ccmSpendMonitoredProLast: ")
         .append(toIndentedString(ccmSpendMonitoredProLast))
         .append("\n");
+    sb.append("    ccmTwilioSpendLast: ").append(toIndentedString(ccmTwilioSpendLast)).append("\n");
     sb.append("    ciPipelineIndexedSpansSum: ")
         .append(toIndentedString(ciPipelineIndexedSpansSum))
         .append("\n");
