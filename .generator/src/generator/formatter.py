@@ -692,11 +692,15 @@ def get_response_type(schema, version):
         else:
             api_response_type = f"List<{simple_type(nested_schema)}>"
     else:
+        primitive = simple_type(response_schema)
         name = schema_name(response_schema)
-        if name:
+        if name and not primitive:
             api_response_type = name
         else:
-            api_response_type = simple_type(response_schema)
+            # Named primitive schemas (e.g. type: string) don't produce a class —
+            # use the primitive type directly and suppress the model import.
+            api_response_type = primitive
+            name = None
 
     if name:
         return api_response_type, f"com.datadog.api.client.{version}.model.{name}"
