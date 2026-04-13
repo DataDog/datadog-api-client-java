@@ -130,8 +130,8 @@ public class SecurityMonitoringStandardRuleQuery {
   }
 
   /**
-   * Source of events, either logs, audit trail, security signals, or Datadog events. <code>
-   * app_sec_spans</code> is deprecated in favor of <code>spans</code>.
+   * Source of events, either logs, audit trail, or Datadog events. <code>app_sec_spans</code> is
+   * deprecated in favor of <code>spans</code>.
    *
    * @return dataSource
    */

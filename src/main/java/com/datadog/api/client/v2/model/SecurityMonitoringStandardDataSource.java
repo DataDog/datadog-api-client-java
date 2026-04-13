@@ -19,8 +19,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Source of events, either logs, audit trail, security signals, or Datadog events. <code>
- * app_sec_spans</code> is deprecated in favor of <code>spans</code>.
+ * Source of events, either logs, audit trail, or Datadog events. <code>app_sec_spans</code> is
+ * deprecated in favor of <code>spans</code>.
  */
 @JsonSerialize(
     using =
@@ -30,14 +30,7 @@ public class SecurityMonitoringStandardDataSource extends ModelEnum<String> {
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
-              "logs",
-              "audit",
-              "app_sec_spans",
-              "spans",
-              "security_runtime",
-              "network",
-              "events",
-              "security_signals"));
+              "logs", "audit", "app_sec_spans", "spans", "security_runtime", "network", "events"));
 
   public static final SecurityMonitoringStandardDataSource LOGS =
       new SecurityMonitoringStandardDataSource("logs");
@@ -53,8 +46,6 @@ public class SecurityMonitoringStandardDataSource extends ModelEnum<String> {
       new SecurityMonitoringStandardDataSource("network");
   public static final SecurityMonitoringStandardDataSource EVENTS =
       new SecurityMonitoringStandardDataSource("events");
-  public static final SecurityMonitoringStandardDataSource SECURITY_SIGNALS =
-      new SecurityMonitoringStandardDataSource("security_signals");
 
   SecurityMonitoringStandardDataSource(String value) {
     super(value, allowedValues);
