@@ -3215,6 +3215,8 @@ public class CloudCostManagementApi {
     private Long pageNumber;
     private Long pageSize;
     private String filterStatus;
+    private String filterName;
+    private List<String> filterProvider;
     private String sort;
 
     /**
@@ -3247,6 +3249,28 @@ public class CloudCostManagementApi {
      */
     public ListCustomCostsFilesOptionalParameters filterStatus(String filterStatus) {
       this.filterStatus = filterStatus;
+      return this;
+    }
+
+    /**
+     * Set filterName.
+     *
+     * @param filterName Filter files by name with case-insensitive substring matching. (optional)
+     * @return ListCustomCostsFilesOptionalParameters
+     */
+    public ListCustomCostsFilesOptionalParameters filterName(String filterName) {
+      this.filterName = filterName;
+      return this;
+    }
+
+    /**
+     * Set filterProvider.
+     *
+     * @param filterProvider Filter by provider. (optional)
+     * @return ListCustomCostsFilesOptionalParameters
+     */
+    public ListCustomCostsFilesOptionalParameters filterProvider(List<String> filterProvider) {
+      this.filterProvider = filterProvider;
       return this;
     }
 
@@ -3342,6 +3366,8 @@ public class CloudCostManagementApi {
     Long pageNumber = parameters.pageNumber;
     Long pageSize = parameters.pageSize;
     String filterStatus = parameters.filterStatus;
+    String filterName = parameters.filterName;
+    List<String> filterProvider = parameters.filterProvider;
     String sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/cost/custom_costs";
@@ -3352,6 +3378,9 @@ public class CloudCostManagementApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "filter[provider]", filterProvider));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
     Invocation.Builder builder =
@@ -3388,6 +3417,8 @@ public class CloudCostManagementApi {
     Long pageNumber = parameters.pageNumber;
     Long pageSize = parameters.pageSize;
     String filterStatus = parameters.filterStatus;
+    String filterName = parameters.filterName;
+    List<String> filterProvider = parameters.filterProvider;
     String sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/cost/custom_costs";
@@ -3398,6 +3429,9 @@ public class CloudCostManagementApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("multi", "filter[provider]", filterProvider));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
     Invocation.Builder builder;
