@@ -425,6 +425,10 @@ public class SyntheticsApi {
   }
 
   /**
+   * Create a Network Path test.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   *
    * @param body (required)
    * @return ApiResponse&lt;SyntheticsNetworkTestResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1627,6 +1631,10 @@ public class SyntheticsApi {
   }
 
   /**
+   * Get a Network Path test.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   *
    * @param publicId The public ID of the Network Path test to get details from. (required)
    * @return ApiResponse&lt;SyntheticsNetworkTestResponse&gt;
    * @throws ApiException if fails to make API call
@@ -3551,6 +3559,10 @@ public class SyntheticsApi {
   }
 
   /**
+   * Edit a Network Path test.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   *
    * @param publicId The public ID of the Network Path test to edit. (required)
    * @param body New Network Path test details to be saved. (required)
    * @return ApiResponse&lt;SyntheticsNetworkTestResponse&gt;
