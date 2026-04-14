@@ -498,6 +498,171 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
             e);
       }
 
+      // deserialize FormulaAndFunctionProductAnalyticsExtendedQueryDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(Integer.class)
+            || FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(Long.class)
+            || FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(Float.class)
+            || FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(Double.class)
+            || FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(Boolean.class)
+            || FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(
+                String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(
+                            Integer.class)
+                        || FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(
+                            Float.class)
+                        || FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(
+                        Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class.equals(
+                        String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((FormulaAndFunctionProductAnalyticsExtendedQueryDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema"
+                  + " 'FormulaAndFunctionProductAnalyticsExtendedQueryDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'FormulaAndFunctionProductAnalyticsExtendedQueryDefinition'",
+            e);
+      }
+
+      // deserialize FormulaAndFunctionUserJourneyQueryDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (FormulaAndFunctionUserJourneyQueryDefinition.class.equals(Integer.class)
+            || FormulaAndFunctionUserJourneyQueryDefinition.class.equals(Long.class)
+            || FormulaAndFunctionUserJourneyQueryDefinition.class.equals(Float.class)
+            || FormulaAndFunctionUserJourneyQueryDefinition.class.equals(Double.class)
+            || FormulaAndFunctionUserJourneyQueryDefinition.class.equals(Boolean.class)
+            || FormulaAndFunctionUserJourneyQueryDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((FormulaAndFunctionUserJourneyQueryDefinition.class.equals(Integer.class)
+                        || FormulaAndFunctionUserJourneyQueryDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((FormulaAndFunctionUserJourneyQueryDefinition.class.equals(Float.class)
+                        || FormulaAndFunctionUserJourneyQueryDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (FormulaAndFunctionUserJourneyQueryDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (FormulaAndFunctionUserJourneyQueryDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(FormulaAndFunctionUserJourneyQueryDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((FormulaAndFunctionUserJourneyQueryDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'FormulaAndFunctionUserJourneyQueryDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'FormulaAndFunctionUserJourneyQueryDefinition'",
+            e);
+      }
+
+      // deserialize FormulaAndFunctionRetentionQueryDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (FormulaAndFunctionRetentionQueryDefinition.class.equals(Integer.class)
+            || FormulaAndFunctionRetentionQueryDefinition.class.equals(Long.class)
+            || FormulaAndFunctionRetentionQueryDefinition.class.equals(Float.class)
+            || FormulaAndFunctionRetentionQueryDefinition.class.equals(Double.class)
+            || FormulaAndFunctionRetentionQueryDefinition.class.equals(Boolean.class)
+            || FormulaAndFunctionRetentionQueryDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((FormulaAndFunctionRetentionQueryDefinition.class.equals(Integer.class)
+                        || FormulaAndFunctionRetentionQueryDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((FormulaAndFunctionRetentionQueryDefinition.class.equals(Float.class)
+                        || FormulaAndFunctionRetentionQueryDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (FormulaAndFunctionRetentionQueryDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (FormulaAndFunctionRetentionQueryDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(FormulaAndFunctionRetentionQueryDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((FormulaAndFunctionRetentionQueryDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'FormulaAndFunctionRetentionQueryDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'FormulaAndFunctionRetentionQueryDefinition'",
+            e);
+      }
+
       FormulaAndFunctionQueryDefinition ret = new FormulaAndFunctionQueryDefinition();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -568,6 +733,22 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public FormulaAndFunctionQueryDefinition(
+      FormulaAndFunctionProductAnalyticsExtendedQueryDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public FormulaAndFunctionQueryDefinition(FormulaAndFunctionUserJourneyQueryDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public FormulaAndFunctionQueryDefinition(FormulaAndFunctionRetentionQueryDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "FormulaAndFunctionMetricQueryDefinition",
@@ -593,6 +774,15 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
     schemas.put(
         "FormulaAndFunctionCloudCostQueryDefinition",
         new GenericType<FormulaAndFunctionCloudCostQueryDefinition>() {});
+    schemas.put(
+        "FormulaAndFunctionProductAnalyticsExtendedQueryDefinition",
+        new GenericType<FormulaAndFunctionProductAnalyticsExtendedQueryDefinition>() {});
+    schemas.put(
+        "FormulaAndFunctionUserJourneyQueryDefinition",
+        new GenericType<FormulaAndFunctionUserJourneyQueryDefinition>() {});
+    schemas.put(
+        "FormulaAndFunctionRetentionQueryDefinition",
+        new GenericType<FormulaAndFunctionRetentionQueryDefinition>() {});
     JSON.registerDescendants(
         FormulaAndFunctionQueryDefinition.class, Collections.unmodifiableMap(schemas));
   }
@@ -608,7 +798,9 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
    * FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionProcessQueryDefinition,
    * FormulaAndFunctionApmDependencyStatsQueryDefinition,
    * FormulaAndFunctionApmResourceStatsQueryDefinition, FormulaAndFunctionApmMetricsQueryDefinition,
-   * FormulaAndFunctionSLOQueryDefinition, FormulaAndFunctionCloudCostQueryDefinition
+   * FormulaAndFunctionSLOQueryDefinition, FormulaAndFunctionCloudCostQueryDefinition,
+   * FormulaAndFunctionProductAnalyticsExtendedQueryDefinition,
+   * FormulaAndFunctionUserJourneyQueryDefinition, FormulaAndFunctionRetentionQueryDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -659,6 +851,23 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        FormulaAndFunctionProductAnalyticsExtendedQueryDefinition.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        FormulaAndFunctionUserJourneyQueryDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        FormulaAndFunctionRetentionQueryDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -670,7 +879,10 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
             + " FormulaAndFunctionApmDependencyStatsQueryDefinition,"
             + " FormulaAndFunctionApmResourceStatsQueryDefinition,"
             + " FormulaAndFunctionApmMetricsQueryDefinition, FormulaAndFunctionSLOQueryDefinition,"
-            + " FormulaAndFunctionCloudCostQueryDefinition");
+            + " FormulaAndFunctionCloudCostQueryDefinition,"
+            + " FormulaAndFunctionProductAnalyticsExtendedQueryDefinition,"
+            + " FormulaAndFunctionUserJourneyQueryDefinition,"
+            + " FormulaAndFunctionRetentionQueryDefinition");
   }
 
   /**
@@ -678,14 +890,18 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
    * FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionProcessQueryDefinition,
    * FormulaAndFunctionApmDependencyStatsQueryDefinition,
    * FormulaAndFunctionApmResourceStatsQueryDefinition, FormulaAndFunctionApmMetricsQueryDefinition,
-   * FormulaAndFunctionSLOQueryDefinition, FormulaAndFunctionCloudCostQueryDefinition
+   * FormulaAndFunctionSLOQueryDefinition, FormulaAndFunctionCloudCostQueryDefinition,
+   * FormulaAndFunctionProductAnalyticsExtendedQueryDefinition,
+   * FormulaAndFunctionUserJourneyQueryDefinition, FormulaAndFunctionRetentionQueryDefinition
    *
    * @return The actual instance (FormulaAndFunctionMetricQueryDefinition,
    *     FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionProcessQueryDefinition,
    *     FormulaAndFunctionApmDependencyStatsQueryDefinition,
    *     FormulaAndFunctionApmResourceStatsQueryDefinition,
    *     FormulaAndFunctionApmMetricsQueryDefinition, FormulaAndFunctionSLOQueryDefinition,
-   *     FormulaAndFunctionCloudCostQueryDefinition)
+   *     FormulaAndFunctionCloudCostQueryDefinition,
+   *     FormulaAndFunctionProductAnalyticsExtendedQueryDefinition,
+   *     FormulaAndFunctionUserJourneyQueryDefinition, FormulaAndFunctionRetentionQueryDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -791,5 +1007,45 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
   public FormulaAndFunctionCloudCostQueryDefinition getFormulaAndFunctionCloudCostQueryDefinition()
       throws ClassCastException {
     return (FormulaAndFunctionCloudCostQueryDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `FormulaAndFunctionProductAnalyticsExtendedQueryDefinition`. If the
+   * actual instance is not `FormulaAndFunctionProductAnalyticsExtendedQueryDefinition`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `FormulaAndFunctionProductAnalyticsExtendedQueryDefinition`
+   * @throws ClassCastException if the instance is not
+   *     `FormulaAndFunctionProductAnalyticsExtendedQueryDefinition`
+   */
+  public FormulaAndFunctionProductAnalyticsExtendedQueryDefinition
+      getFormulaAndFunctionProductAnalyticsExtendedQueryDefinition() throws ClassCastException {
+    return (FormulaAndFunctionProductAnalyticsExtendedQueryDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `FormulaAndFunctionUserJourneyQueryDefinition`. If the actual
+   * instance is not `FormulaAndFunctionUserJourneyQueryDefinition`, the ClassCastException will be
+   * thrown.
+   *
+   * @return The actual instance of `FormulaAndFunctionUserJourneyQueryDefinition`
+   * @throws ClassCastException if the instance is not
+   *     `FormulaAndFunctionUserJourneyQueryDefinition`
+   */
+  public FormulaAndFunctionUserJourneyQueryDefinition
+      getFormulaAndFunctionUserJourneyQueryDefinition() throws ClassCastException {
+    return (FormulaAndFunctionUserJourneyQueryDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `FormulaAndFunctionRetentionQueryDefinition`. If the actual instance
+   * is not `FormulaAndFunctionRetentionQueryDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `FormulaAndFunctionRetentionQueryDefinition`
+   * @throws ClassCastException if the instance is not `FormulaAndFunctionRetentionQueryDefinition`
+   */
+  public FormulaAndFunctionRetentionQueryDefinition getFormulaAndFunctionRetentionQueryDefinition()
+      throws ClassCastException {
+    return (FormulaAndFunctionRetentionQueryDefinition) super.getActualInstance();
   }
 }

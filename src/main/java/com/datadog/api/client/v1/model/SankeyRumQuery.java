@@ -241,7 +241,7 @@ public class SankeyRumQuery {
   }
 
   /**
-   * Query string.
+   * RUM event search query used to filter views or actions.
    *
    * @return queryString
    */

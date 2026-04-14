@@ -302,6 +302,51 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'CheckStatusWidgetDefinition'", e);
       }
 
+      // deserialize CohortWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (CohortWidgetDefinition.class.equals(Integer.class)
+            || CohortWidgetDefinition.class.equals(Long.class)
+            || CohortWidgetDefinition.class.equals(Float.class)
+            || CohortWidgetDefinition.class.equals(Double.class)
+            || CohortWidgetDefinition.class.equals(Boolean.class)
+            || CohortWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((CohortWidgetDefinition.class.equals(Integer.class)
+                        || CohortWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((CohortWidgetDefinition.class.equals(Float.class)
+                        || CohortWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (CohortWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (CohortWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(CohortWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((CohortWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'CohortWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'CohortWidgetDefinition'", e);
+      }
+
       // deserialize DistributionWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -525,6 +570,57 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       } catch (Exception e) {
         // deserialization failed, continue
         log.log(Level.FINER, "Input data does not match schema 'FunnelWidgetDefinition'", e);
+      }
+
+      // deserialize ProductAnalyticsFunnelWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ProductAnalyticsFunnelWidgetDefinition.class.equals(Integer.class)
+            || ProductAnalyticsFunnelWidgetDefinition.class.equals(Long.class)
+            || ProductAnalyticsFunnelWidgetDefinition.class.equals(Float.class)
+            || ProductAnalyticsFunnelWidgetDefinition.class.equals(Double.class)
+            || ProductAnalyticsFunnelWidgetDefinition.class.equals(Boolean.class)
+            || ProductAnalyticsFunnelWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ProductAnalyticsFunnelWidgetDefinition.class.equals(Integer.class)
+                        || ProductAnalyticsFunnelWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ProductAnalyticsFunnelWidgetDefinition.class.equals(Float.class)
+                        || ProductAnalyticsFunnelWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ProductAnalyticsFunnelWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ProductAnalyticsFunnelWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ProductAnalyticsFunnelWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ProductAnalyticsFunnelWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ProductAnalyticsFunnelWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ProductAnalyticsFunnelWidgetDefinition'",
+            e);
       }
 
       // deserialize GeomapWidgetDefinition
@@ -1066,6 +1162,52 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       } catch (Exception e) {
         // deserialization failed, continue
         log.log(Level.FINER, "Input data does not match schema 'QueryValueWidgetDefinition'", e);
+      }
+
+      // deserialize RetentionCurveWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (RetentionCurveWidgetDefinition.class.equals(Integer.class)
+            || RetentionCurveWidgetDefinition.class.equals(Long.class)
+            || RetentionCurveWidgetDefinition.class.equals(Float.class)
+            || RetentionCurveWidgetDefinition.class.equals(Double.class)
+            || RetentionCurveWidgetDefinition.class.equals(Boolean.class)
+            || RetentionCurveWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((RetentionCurveWidgetDefinition.class.equals(Integer.class)
+                        || RetentionCurveWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((RetentionCurveWidgetDefinition.class.equals(Float.class)
+                        || RetentionCurveWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (RetentionCurveWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (RetentionCurveWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(RetentionCurveWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((RetentionCurveWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'RetentionCurveWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'RetentionCurveWidgetDefinition'", e);
       }
 
       // deserialize RunWorkflowWidgetDefinition
@@ -1796,6 +1938,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(CohortWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public WidgetDefinition(DistributionWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1817,6 +1964,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   public WidgetDefinition(FunnelWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public WidgetDefinition(ProductAnalyticsFunnelWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -1877,6 +2029,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   public WidgetDefinition(QueryValueWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public WidgetDefinition(RetentionCurveWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -1962,12 +2119,16 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     schemas.put("BarChartWidgetDefinition", new GenericType<BarChartWidgetDefinition>() {});
     schemas.put("ChangeWidgetDefinition", new GenericType<ChangeWidgetDefinition>() {});
     schemas.put("CheckStatusWidgetDefinition", new GenericType<CheckStatusWidgetDefinition>() {});
+    schemas.put("CohortWidgetDefinition", new GenericType<CohortWidgetDefinition>() {});
     schemas.put("DistributionWidgetDefinition", new GenericType<DistributionWidgetDefinition>() {});
     schemas.put("EventStreamWidgetDefinition", new GenericType<EventStreamWidgetDefinition>() {});
     schemas.put(
         "EventTimelineWidgetDefinition", new GenericType<EventTimelineWidgetDefinition>() {});
     schemas.put("FreeTextWidgetDefinition", new GenericType<FreeTextWidgetDefinition>() {});
     schemas.put("FunnelWidgetDefinition", new GenericType<FunnelWidgetDefinition>() {});
+    schemas.put(
+        "ProductAnalyticsFunnelWidgetDefinition",
+        new GenericType<ProductAnalyticsFunnelWidgetDefinition>() {});
     schemas.put("GeomapWidgetDefinition", new GenericType<GeomapWidgetDefinition>() {});
     schemas.put("GroupWidgetDefinition", new GenericType<GroupWidgetDefinition>() {});
     schemas.put("HeatMapWidgetDefinition", new GenericType<HeatMapWidgetDefinition>() {});
@@ -1981,6 +2142,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     schemas.put("NoteWidgetDefinition", new GenericType<NoteWidgetDefinition>() {});
     schemas.put("PowerpackWidgetDefinition", new GenericType<PowerpackWidgetDefinition>() {});
     schemas.put("QueryValueWidgetDefinition", new GenericType<QueryValueWidgetDefinition>() {});
+    schemas.put(
+        "RetentionCurveWidgetDefinition", new GenericType<RetentionCurveWidgetDefinition>() {});
     schemas.put("RunWorkflowWidgetDefinition", new GenericType<RunWorkflowWidgetDefinition>() {});
     schemas.put("SLOListWidgetDefinition", new GenericType<SLOListWidgetDefinition>() {});
     schemas.put("SLOWidgetDefinition", new GenericType<SLOWidgetDefinition>() {});
@@ -2009,12 +2172,13 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    * BarChartWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition,
-   * DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition,
-   * FreeTextWidgetDefinition, FunnelWidgetDefinition, GeomapWidgetDefinition,
-   * GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,
-   * IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
-   * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   * PowerpackWidgetDefinition, QueryValueWidgetDefinition, RunWorkflowWidgetDefinition,
+   * CohortWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition,
+   * EventTimelineWidgetDefinition, FreeTextWidgetDefinition, FunnelWidgetDefinition,
+   * ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,
+   * HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
+   * ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,
+   * MonitorSummaryWidgetDefinition, NoteWidgetDefinition, PowerpackWidgetDefinition,
+   * QueryValueWidgetDefinition, RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,
    * SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
    * SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
    * SplitGraphWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
@@ -2046,6 +2210,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(CohortWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(DistributionWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -2063,6 +2231,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       return;
     }
     if (JSON.isInstanceOf(FunnelWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ProductAnalyticsFunnelWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -2112,6 +2285,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       return;
     }
     if (JSON.isInstanceOf(QueryValueWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        RetentionCurveWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -2184,15 +2362,16 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     throw new RuntimeException(
         "Invalid instance type. Must be AlertGraphWidgetDefinition, AlertValueWidgetDefinition,"
             + " BarChartWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition,"
-            + " DistributionWidgetDefinition, EventStreamWidgetDefinition,"
+            + " CohortWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition,"
             + " EventTimelineWidgetDefinition, FreeTextWidgetDefinition, FunnelWidgetDefinition,"
-            + " GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,"
-            + " HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,"
-            + " ListStreamWidgetDefinition, LogStreamWidgetDefinition,"
-            + " MonitorSummaryWidgetDefinition, NoteWidgetDefinition, PowerpackWidgetDefinition,"
-            + " QueryValueWidgetDefinition, RunWorkflowWidgetDefinition, SLOListWidgetDefinition,"
-            + " SLOWidgetDefinition, ScatterPlotWidgetDefinition, SankeyWidgetDefinition,"
-            + " ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,"
+            + " ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition,"
+            + " GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,"
+            + " IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,"
+            + " LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,"
+            + " PowerpackWidgetDefinition, QueryValueWidgetDefinition,"
+            + " RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,"
+            + " SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,"
+            + " SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,"
             + " SplitGraphWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,"
             + " TimeseriesWidgetDefinition, ToplistWidgetDefinition, TopologyMapWidgetDefinition,"
             + " TreeMapWidgetDefinition, WildcardWidgetDefinition");
@@ -2201,12 +2380,13 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   /**
    * Get the actual instance, which can be the following: AlertGraphWidgetDefinition,
    * AlertValueWidgetDefinition, BarChartWidgetDefinition, ChangeWidgetDefinition,
-   * CheckStatusWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition,
-   * EventTimelineWidgetDefinition, FreeTextWidgetDefinition, FunnelWidgetDefinition,
-   * GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
-   * HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
-   * ListStreamWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
-   * NoteWidgetDefinition, PowerpackWidgetDefinition, QueryValueWidgetDefinition,
+   * CheckStatusWidgetDefinition, CohortWidgetDefinition, DistributionWidgetDefinition,
+   * EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
+   * FunnelWidgetDefinition, ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition,
+   * GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,
+   * IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
+   * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
+   * PowerpackWidgetDefinition, QueryValueWidgetDefinition, RetentionCurveWidgetDefinition,
    * RunWorkflowWidgetDefinition, SLOListWidgetDefinition, SLOWidgetDefinition,
    * ScatterPlotWidgetDefinition, SankeyWidgetDefinition, ServiceMapWidgetDefinition,
    * ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition, SunburstWidgetDefinition,
@@ -2215,12 +2395,13 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    *
    * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    *     BarChartWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition,
-   *     DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition,
-   *     FreeTextWidgetDefinition, FunnelWidgetDefinition, GeomapWidgetDefinition,
-   *     GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,
-   *     IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
-   *     LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   *     PowerpackWidgetDefinition, QueryValueWidgetDefinition, RunWorkflowWidgetDefinition,
+   *     CohortWidgetDefinition, DistributionWidgetDefinition, EventStreamWidgetDefinition,
+   *     EventTimelineWidgetDefinition, FreeTextWidgetDefinition, FunnelWidgetDefinition,
+   *     ProductAnalyticsFunnelWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,
+   *     HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
+   *     ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,
+   *     MonitorSummaryWidgetDefinition, NoteWidgetDefinition, PowerpackWidgetDefinition,
+   *     QueryValueWidgetDefinition, RetentionCurveWidgetDefinition, RunWorkflowWidgetDefinition,
    *     SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
    *     SankeyWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
    *     SplitGraphWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
@@ -2288,6 +2469,17 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
+   * Get the actual instance of `CohortWidgetDefinition`. If the actual instance is not
+   * `CohortWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `CohortWidgetDefinition`
+   * @throws ClassCastException if the instance is not `CohortWidgetDefinition`
+   */
+  public CohortWidgetDefinition getCohortWidgetDefinition() throws ClassCastException {
+    return (CohortWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
    * Get the actual instance of `DistributionWidgetDefinition`. If the actual instance is not
    * `DistributionWidgetDefinition`, the ClassCastException will be thrown.
    *
@@ -2341,6 +2533,18 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public FunnelWidgetDefinition getFunnelWidgetDefinition() throws ClassCastException {
     return (FunnelWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ProductAnalyticsFunnelWidgetDefinition`. If the actual instance is
+   * not `ProductAnalyticsFunnelWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ProductAnalyticsFunnelWidgetDefinition`
+   * @throws ClassCastException if the instance is not `ProductAnalyticsFunnelWidgetDefinition`
+   */
+  public ProductAnalyticsFunnelWidgetDefinition getProductAnalyticsFunnelWidgetDefinition()
+      throws ClassCastException {
+    return (ProductAnalyticsFunnelWidgetDefinition) super.getActualInstance();
   }
 
   /**
@@ -2474,6 +2678,18 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public QueryValueWidgetDefinition getQueryValueWidgetDefinition() throws ClassCastException {
     return (QueryValueWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `RetentionCurveWidgetDefinition`. If the actual instance is not
+   * `RetentionCurveWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `RetentionCurveWidgetDefinition`
+   * @throws ClassCastException if the instance is not `RetentionCurveWidgetDefinition`
+   */
+  public RetentionCurveWidgetDefinition getRetentionCurveWidgetDefinition()
+      throws ClassCastException {
+    return (RetentionCurveWidgetDefinition) super.getActualInstance();
   }
 
   /**
