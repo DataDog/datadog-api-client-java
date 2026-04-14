@@ -2946,6 +2946,7 @@ public class StatusPagesApi {
   public static class ListStatusPagesOptionalParameters {
     private Integer pageOffset;
     private Integer pageLimit;
+    private String filterDomainPrefix;
     private String include;
 
     /**
@@ -2967,6 +2968,18 @@ public class StatusPagesApi {
      */
     public ListStatusPagesOptionalParameters pageLimit(Integer pageLimit) {
       this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set filterDomainPrefix.
+     *
+     * @param filterDomainPrefix Filter status pages by exact domain prefix match. Returns at most
+     *     one result. (optional)
+     * @return ListStatusPagesOptionalParameters
+     */
+    public ListStatusPagesOptionalParameters filterDomainPrefix(String filterDomainPrefix) {
+      this.filterDomainPrefix = filterDomainPrefix;
       return this;
     }
 
@@ -3060,6 +3073,7 @@ public class StatusPagesApi {
     Object localVarPostBody = null;
     Integer pageOffset = parameters.pageOffset;
     Integer pageLimit = parameters.pageLimit;
+    String filterDomainPrefix = parameters.filterDomainPrefix;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/statuspages";
@@ -3069,6 +3083,8 @@ public class StatusPagesApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[domain_prefix]", filterDomainPrefix));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder =
@@ -3104,6 +3120,7 @@ public class StatusPagesApi {
     Object localVarPostBody = null;
     Integer pageOffset = parameters.pageOffset;
     Integer pageLimit = parameters.pageLimit;
+    String filterDomainPrefix = parameters.filterDomainPrefix;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/statuspages";
@@ -3113,6 +3130,8 @@ public class StatusPagesApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[domain_prefix]", filterDomainPrefix));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
