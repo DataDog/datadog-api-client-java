@@ -38,7 +38,11 @@ public class ApplicationSecurityWafCustomRuleConditionOperator extends ModelEnum
               "!exact_match",
               "ip_match",
               "!ip_match",
-              "capture_data"));
+              "capture_data",
+              "exists",
+              "!exists",
+              "equals",
+              "!equals"));
 
   public static final ApplicationSecurityWafCustomRuleConditionOperator MATCH_REGEX =
       new ApplicationSecurityWafCustomRuleConditionOperator("match_regex");
@@ -62,6 +66,14 @@ public class ApplicationSecurityWafCustomRuleConditionOperator extends ModelEnum
       new ApplicationSecurityWafCustomRuleConditionOperator("!ip_match");
   public static final ApplicationSecurityWafCustomRuleConditionOperator CAPTURE_DATA =
       new ApplicationSecurityWafCustomRuleConditionOperator("capture_data");
+  public static final ApplicationSecurityWafCustomRuleConditionOperator EXISTS =
+      new ApplicationSecurityWafCustomRuleConditionOperator("exists");
+  public static final ApplicationSecurityWafCustomRuleConditionOperator NOT_EXISTS =
+      new ApplicationSecurityWafCustomRuleConditionOperator("!exists");
+  public static final ApplicationSecurityWafCustomRuleConditionOperator EQUALS =
+      new ApplicationSecurityWafCustomRuleConditionOperator("equals");
+  public static final ApplicationSecurityWafCustomRuleConditionOperator NOT_EQUALS =
+      new ApplicationSecurityWafCustomRuleConditionOperator("!equals");
 
   ApplicationSecurityWafCustomRuleConditionOperator(String value) {
     super(value, allowedValues);
