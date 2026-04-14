@@ -42,7 +42,11 @@ public class ScatterPlotWidgetDefinitionRequests {
   }
 
   /**
-   * Scatterplot request containing formulas and functions.
+   * Scatterplot table request. Supports two modes: - <strong>Formulas and functions</strong>
+   * (default): <code>request_type</code> is absent or <code>"table"</code>. Uses <code>queries
+   * </code> and <code>formulas</code>. - <strong>Data projection</strong>: <code>request_type
+   * </code> is <code>"data_projection"</code>. Uses <code>query</code>, <code>projection</code>,
+   * and optionally <code>limit</code>.
    *
    * @return table
    */

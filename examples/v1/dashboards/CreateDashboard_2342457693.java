@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.DashboardsApi;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventsDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricAggregation;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricQueryDefinition;
@@ -13,8 +14,13 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
 import com.datadog.api.client.v1.model.ScatterPlotWidgetDefinition;
 import com.datadog.api.client.v1.model.ScatterPlotWidgetDefinitionRequests;
 import com.datadog.api.client.v1.model.ScatterPlotWidgetDefinitionType;
+import com.datadog.api.client.v1.model.ScatterplotDataProjectionDimension;
+import com.datadog.api.client.v1.model.ScatterplotDataProjectionProjection;
+import com.datadog.api.client.v1.model.ScatterplotDataProjectionProjectionType;
+import com.datadog.api.client.v1.model.ScatterplotDataProjectionQuery;
 import com.datadog.api.client.v1.model.ScatterplotDimension;
 import com.datadog.api.client.v1.model.ScatterplotTableRequest;
+import com.datadog.api.client.v1.model.ScatterplotTableRequestType;
 import com.datadog.api.client.v1.model.ScatterplotWidgetFormula;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetAxis;
@@ -24,7 +30,6 @@ import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import com.datadog.api.client.v1.model.WidgetTime;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -36,7 +41,7 @@ public class Example {
             .title("Example-Dashboard")
             .description("")
             .widgets(
-                Collections.singletonList(
+                Arrays.asList(
                     new Widget()
                         .layout(new WidgetLayout().x(0L).y(0L).width(47L).height(15L))
                         .definition(
@@ -89,6 +94,56 @@ public class Example {
                                                                             .AVG))))
                                                     .responseFormat(
                                                         FormulaAndFunctionResponseFormat.SCALAR)))
+                                    .xaxis(
+                                        new WidgetAxis()
+                                            .scale("linear")
+                                            .includeZero(true)
+                                            .min("auto")
+                                            .max("auto"))
+                                    .yaxis(
+                                        new WidgetAxis()
+                                            .scale("linear")
+                                            .includeZero(true)
+                                            .min("auto")
+                                            .max("auto")))),
+                    new Widget()
+                        .layout(new WidgetLayout().x(48L).y(0L).width(47L).height(15L))
+                        .definition(
+                            new WidgetDefinition(
+                                new ScatterPlotWidgetDefinition()
+                                    .title("Data Projection Scatterplot")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .type(ScatterPlotWidgetDefinitionType.SCATTERPLOT)
+                                    .requests(
+                                        new ScatterPlotWidgetDefinitionRequests()
+                                            .table(
+                                                new ScatterplotTableRequest()
+                                                    .requestType(
+                                                        ScatterplotTableRequestType.DATA_PROJECTION)
+                                                    .query(
+                                                        new ScatterplotDataProjectionQuery()
+                                                            .queryString("@service:web-store")
+                                                            .dataSource(
+                                                                FormulaAndFunctionEventsDataSource
+                                                                    .SPANS))
+                                                    .projection(
+                                                        new ScatterplotDataProjectionProjection()
+                                                            .type(
+                                                                ScatterplotDataProjectionProjectionType
+                                                                    .SCATTERPLOT)
+                                                            .dimensions(
+                                                                Arrays.asList(
+                                                                    new ScatterplotDataProjectionDimension()
+                                                                        .column("duration")
+                                                                        .dimension(
+                                                                            ScatterplotDimension.X),
+                                                                    new ScatterplotDataProjectionDimension()
+                                                                        .column("@resource_name")
+                                                                        .dimension(
+                                                                            ScatterplotDimension
+                                                                                .Y))))
+                                                    .limit(200L)))
                                     .xaxis(
                                         new WidgetAxis()
                                             .scale("linear")
