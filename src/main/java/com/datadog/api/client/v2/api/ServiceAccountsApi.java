@@ -9,7 +9,13 @@ import com.datadog.api.client.v2.model.ApplicationKeyResponse;
 import com.datadog.api.client.v2.model.ApplicationKeyUpdateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeysSort;
 import com.datadog.api.client.v2.model.ListApplicationKeysResponse;
+import com.datadog.api.client.v2.model.ListPersonalAccessTokensResponse;
 import com.datadog.api.client.v2.model.PartialApplicationKeyResponse;
+import com.datadog.api.client.v2.model.PersonalAccessTokenCreateResponse;
+import com.datadog.api.client.v2.model.PersonalAccessTokenResponse;
+import com.datadog.api.client.v2.model.PersonalAccessTokenUpdateRequest;
+import com.datadog.api.client.v2.model.PersonalAccessTokensSort;
+import com.datadog.api.client.v2.model.ServiceAccountAccessTokenCreateRequest;
 import com.datadog.api.client.v2.model.ServiceAccountCreateRequest;
 import com.datadog.api.client.v2.model.UserResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -181,6 +187,178 @@ public class ServiceAccountsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UserResponse>() {});
+  }
+
+  /**
+   * Create an access token for a service account.
+   *
+   * <p>See {@link #createServiceAccountAccessTokenWithHttpInfo}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param body (required)
+   * @return PersonalAccessTokenCreateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PersonalAccessTokenCreateResponse createServiceAccountAccessToken(
+      String serviceAccountId, ServiceAccountAccessTokenCreateRequest body) throws ApiException {
+    return createServiceAccountAccessTokenWithHttpInfo(serviceAccountId, body).getData();
+  }
+
+  /**
+   * Create an access token for a service account.
+   *
+   * <p>See {@link #createServiceAccountAccessTokenWithHttpInfoAsync}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;PersonalAccessTokenCreateResponse&gt;
+   */
+  public CompletableFuture<PersonalAccessTokenCreateResponse> createServiceAccountAccessTokenAsync(
+      String serviceAccountId, ServiceAccountAccessTokenCreateRequest body) {
+    return createServiceAccountAccessTokenWithHttpInfoAsync(serviceAccountId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an access token for a service account.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;PersonalAccessTokenCreateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PersonalAccessTokenCreateResponse> createServiceAccountAccessTokenWithHttpInfo(
+      String serviceAccountId, ServiceAccountAccessTokenCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'serviceAccountId' is set
+    if (serviceAccountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'serviceAccountId' when calling"
+              + " createServiceAccountAccessToken");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createServiceAccountAccessToken");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/service_accounts/{service_account_id}/access_tokens"
+            .replaceAll(
+                "\\{" + "service_account_id" + "\\}",
+                apiClient.escapeString(serviceAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceAccountsApi.createServiceAccountAccessToken",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenCreateResponse>() {});
+  }
+
+  /**
+   * Create an access token for a service account.
+   *
+   * <p>See {@link #createServiceAccountAccessTokenWithHttpInfo}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;PersonalAccessTokenCreateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PersonalAccessTokenCreateResponse>>
+      createServiceAccountAccessTokenWithHttpInfoAsync(
+          String serviceAccountId, ServiceAccountAccessTokenCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'serviceAccountId' is set
+    if (serviceAccountId == null) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenCreateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'serviceAccountId' when calling"
+                  + " createServiceAccountAccessToken"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenCreateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createServiceAccountAccessToken"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/service_accounts/{service_account_id}/access_tokens"
+            .replaceAll(
+                "\\{" + "service_account_id" + "\\}",
+                apiClient.escapeString(serviceAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceAccountsApi.createServiceAccountAccessToken",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenCreateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenCreateResponse>() {});
   }
 
   /**
@@ -521,6 +699,178 @@ public class ServiceAccountsApi {
   }
 
   /**
+   * Get an access token for a service account.
+   *
+   * <p>See {@link #getServiceAccountAccessTokenWithHttpInfo}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return PersonalAccessTokenResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PersonalAccessTokenResponse getServiceAccountAccessToken(
+      String serviceAccountId, String patUuid) throws ApiException {
+    return getServiceAccountAccessTokenWithHttpInfo(serviceAccountId, patUuid).getData();
+  }
+
+  /**
+   * Get an access token for a service account.
+   *
+   * <p>See {@link #getServiceAccountAccessTokenWithHttpInfoAsync}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return CompletableFuture&lt;PersonalAccessTokenResponse&gt;
+   */
+  public CompletableFuture<PersonalAccessTokenResponse> getServiceAccountAccessTokenAsync(
+      String serviceAccountId, String patUuid) {
+    return getServiceAccountAccessTokenWithHttpInfoAsync(serviceAccountId, patUuid)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a specific access token for a service account by its UUID.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return ApiResponse&lt;PersonalAccessTokenResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PersonalAccessTokenResponse> getServiceAccountAccessTokenWithHttpInfo(
+      String serviceAccountId, String patUuid) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'serviceAccountId' is set
+    if (serviceAccountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'serviceAccountId' when calling"
+              + " getServiceAccountAccessToken");
+    }
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'patUuid' when calling getServiceAccountAccessToken");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+            .replaceAll(
+                "\\{" + "service_account_id" + "\\}",
+                apiClient.escapeString(serviceAccountId.toString()))
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceAccountsApi.getServiceAccountAccessToken",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenResponse>() {});
+  }
+
+  /**
+   * Get an access token for a service account.
+   *
+   * <p>See {@link #getServiceAccountAccessTokenWithHttpInfo}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;PersonalAccessTokenResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PersonalAccessTokenResponse>>
+      getServiceAccountAccessTokenWithHttpInfoAsync(String serviceAccountId, String patUuid) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'serviceAccountId' is set
+    if (serviceAccountId == null) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'serviceAccountId' when calling"
+                  + " getServiceAccountAccessToken"));
+      return result;
+    }
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'patUuid' when calling"
+                  + " getServiceAccountAccessToken"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+            .replaceAll(
+                "\\{" + "service_account_id" + "\\}",
+                apiClient.escapeString(serviceAccountId.toString()))
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceAccountsApi.getServiceAccountAccessToken",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenResponse>() {});
+  }
+
+  /**
    * Get one application key for this service account.
    *
    * <p>See {@link #getServiceAccountApplicationKeyWithHttpInfo}.
@@ -690,6 +1040,270 @@ public class ServiceAccountsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<PartialApplicationKeyResponse>() {});
+  }
+
+  /** Manage optional parameters to listServiceAccountAccessTokens. */
+  public static class ListServiceAccountAccessTokensOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private PersonalAccessTokensSort sort;
+    private String filter;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
+     *     to 10)
+     * @return ListServiceAccountAccessTokensOptionalParameters
+     */
+    public ListServiceAccountAccessTokensOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListServiceAccountAccessTokensOptionalParameters
+     */
+    public ListServiceAccountAccessTokensOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Personal access token attribute used to sort results. Sort order is ascending by
+     *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
+     *     (optional, default to "name")
+     * @return ListServiceAccountAccessTokensOptionalParameters
+     */
+    public ListServiceAccountAccessTokensOptionalParameters sort(PersonalAccessTokensSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set filter.
+     *
+     * @param filter Filter personal access tokens by the specified string. (optional)
+     * @return ListServiceAccountAccessTokensOptionalParameters
+     */
+    public ListServiceAccountAccessTokensOptionalParameters filter(String filter) {
+      this.filter = filter;
+      return this;
+    }
+  }
+
+  /**
+   * List access tokens for a service account.
+   *
+   * <p>See {@link #listServiceAccountAccessTokensWithHttpInfo}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @return ListPersonalAccessTokensResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListPersonalAccessTokensResponse listServiceAccountAccessTokens(String serviceAccountId)
+      throws ApiException {
+    return listServiceAccountAccessTokensWithHttpInfo(
+            serviceAccountId, new ListServiceAccountAccessTokensOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List access tokens for a service account.
+   *
+   * <p>See {@link #listServiceAccountAccessTokensWithHttpInfoAsync}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @return CompletableFuture&lt;ListPersonalAccessTokensResponse&gt;
+   */
+  public CompletableFuture<ListPersonalAccessTokensResponse> listServiceAccountAccessTokensAsync(
+      String serviceAccountId) {
+    return listServiceAccountAccessTokensWithHttpInfoAsync(
+            serviceAccountId, new ListServiceAccountAccessTokensOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List access tokens for a service account.
+   *
+   * <p>See {@link #listServiceAccountAccessTokensWithHttpInfo}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ListPersonalAccessTokensResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListPersonalAccessTokensResponse listServiceAccountAccessTokens(
+      String serviceAccountId, ListServiceAccountAccessTokensOptionalParameters parameters)
+      throws ApiException {
+    return listServiceAccountAccessTokensWithHttpInfo(serviceAccountId, parameters).getData();
+  }
+
+  /**
+   * List access tokens for a service account.
+   *
+   * <p>See {@link #listServiceAccountAccessTokensWithHttpInfoAsync}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListPersonalAccessTokensResponse&gt;
+   */
+  public CompletableFuture<ListPersonalAccessTokensResponse> listServiceAccountAccessTokensAsync(
+      String serviceAccountId, ListServiceAccountAccessTokensOptionalParameters parameters) {
+    return listServiceAccountAccessTokensWithHttpInfoAsync(serviceAccountId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all access tokens for a specific service account.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListPersonalAccessTokensResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListPersonalAccessTokensResponse> listServiceAccountAccessTokensWithHttpInfo(
+      String serviceAccountId, ListServiceAccountAccessTokensOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'serviceAccountId' is set
+    if (serviceAccountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'serviceAccountId' when calling"
+              + " listServiceAccountAccessTokens");
+    }
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    PersonalAccessTokensSort sort = parameters.sort;
+    String filter = parameters.filter;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/service_accounts/{service_account_id}/access_tokens"
+            .replaceAll(
+                "\\{" + "service_account_id" + "\\}",
+                apiClient.escapeString(serviceAccountId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceAccountsApi.listServiceAccountAccessTokens",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListPersonalAccessTokensResponse>() {});
+  }
+
+  /**
+   * List access tokens for a service account.
+   *
+   * <p>See {@link #listServiceAccountAccessTokensWithHttpInfo}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListPersonalAccessTokensResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListPersonalAccessTokensResponse>>
+      listServiceAccountAccessTokensWithHttpInfoAsync(
+          String serviceAccountId, ListServiceAccountAccessTokensOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'serviceAccountId' is set
+    if (serviceAccountId == null) {
+      CompletableFuture<ApiResponse<ListPersonalAccessTokensResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'serviceAccountId' when calling"
+                  + " listServiceAccountAccessTokens"));
+      return result;
+    }
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    PersonalAccessTokensSort sort = parameters.sort;
+    String filter = parameters.filter;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/service_accounts/{service_account_id}/access_tokens"
+            .replaceAll(
+                "\\{" + "service_account_id" + "\\}",
+                apiClient.escapeString(serviceAccountId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceAccountsApi.listServiceAccountAccessTokens",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListPersonalAccessTokensResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListPersonalAccessTokensResponse>() {});
   }
 
   /** Manage optional parameters to listServiceAccountApplicationKeys. */
@@ -994,6 +1608,373 @@ public class ServiceAccountsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListApplicationKeysResponse>() {});
+  }
+
+  /**
+   * Revoke an access token for a service account.
+   *
+   * <p>See {@link #revokeServiceAccountAccessTokenWithHttpInfo}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void revokeServiceAccountAccessToken(String serviceAccountId, String patUuid)
+      throws ApiException {
+    revokeServiceAccountAccessTokenWithHttpInfo(serviceAccountId, patUuid);
+  }
+
+  /**
+   * Revoke an access token for a service account.
+   *
+   * <p>See {@link #revokeServiceAccountAccessTokenWithHttpInfoAsync}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> revokeServiceAccountAccessTokenAsync(
+      String serviceAccountId, String patUuid) {
+    return revokeServiceAccountAccessTokenWithHttpInfoAsync(serviceAccountId, patUuid)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Revoke a specific access token for a service account.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> revokeServiceAccountAccessTokenWithHttpInfo(
+      String serviceAccountId, String patUuid) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'serviceAccountId' is set
+    if (serviceAccountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'serviceAccountId' when calling"
+              + " revokeServiceAccountAccessToken");
+    }
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'patUuid' when calling revokeServiceAccountAccessToken");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+            .replaceAll(
+                "\\{" + "service_account_id" + "\\}",
+                apiClient.escapeString(serviceAccountId.toString()))
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceAccountsApi.revokeServiceAccountAccessToken",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Revoke an access token for a service account.
+   *
+   * <p>See {@link #revokeServiceAccountAccessTokenWithHttpInfo}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> revokeServiceAccountAccessTokenWithHttpInfoAsync(
+      String serviceAccountId, String patUuid) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'serviceAccountId' is set
+    if (serviceAccountId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'serviceAccountId' when calling"
+                  + " revokeServiceAccountAccessToken"));
+      return result;
+    }
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'patUuid' when calling"
+                  + " revokeServiceAccountAccessToken"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+            .replaceAll(
+                "\\{" + "service_account_id" + "\\}",
+                apiClient.escapeString(serviceAccountId.toString()))
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceAccountsApi.revokeServiceAccountAccessToken",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update an access token for a service account.
+   *
+   * <p>See {@link #updateServiceAccountAccessTokenWithHttpInfo}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @param body (required)
+   * @return PersonalAccessTokenResponse
+   * @throws ApiException if fails to make API call
+   */
+  public PersonalAccessTokenResponse updateServiceAccountAccessToken(
+      String serviceAccountId, String patUuid, PersonalAccessTokenUpdateRequest body)
+      throws ApiException {
+    return updateServiceAccountAccessTokenWithHttpInfo(serviceAccountId, patUuid, body).getData();
+  }
+
+  /**
+   * Update an access token for a service account.
+   *
+   * <p>See {@link #updateServiceAccountAccessTokenWithHttpInfoAsync}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;PersonalAccessTokenResponse&gt;
+   */
+  public CompletableFuture<PersonalAccessTokenResponse> updateServiceAccountAccessTokenAsync(
+      String serviceAccountId, String patUuid, PersonalAccessTokenUpdateRequest body) {
+    return updateServiceAccountAccessTokenWithHttpInfoAsync(serviceAccountId, patUuid, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a specific access token for a service account.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;PersonalAccessTokenResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PersonalAccessTokenResponse> updateServiceAccountAccessTokenWithHttpInfo(
+      String serviceAccountId, String patUuid, PersonalAccessTokenUpdateRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'serviceAccountId' is set
+    if (serviceAccountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'serviceAccountId' when calling"
+              + " updateServiceAccountAccessToken");
+    }
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'patUuid' when calling updateServiceAccountAccessToken");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling updateServiceAccountAccessToken");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+            .replaceAll(
+                "\\{" + "service_account_id" + "\\}",
+                apiClient.escapeString(serviceAccountId.toString()))
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceAccountsApi.updateServiceAccountAccessToken",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenResponse>() {});
+  }
+
+  /**
+   * Update an access token for a service account.
+   *
+   * <p>See {@link #updateServiceAccountAccessTokenWithHttpInfo}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param patUuid The UUID of the personal access token. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;PersonalAccessTokenResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<PersonalAccessTokenResponse>>
+      updateServiceAccountAccessTokenWithHttpInfoAsync(
+          String serviceAccountId, String patUuid, PersonalAccessTokenUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'serviceAccountId' is set
+    if (serviceAccountId == null) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'serviceAccountId' when calling"
+                  + " updateServiceAccountAccessToken"));
+      return result;
+    }
+
+    // verify the required parameter 'patUuid' is set
+    if (patUuid == null) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'patUuid' when calling"
+                  + " updateServiceAccountAccessToken"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateServiceAccountAccessToken"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/service_accounts/{service_account_id}/access_tokens/{pat_uuid}"
+            .replaceAll(
+                "\\{" + "service_account_id" + "\\}",
+                apiClient.escapeString(serviceAccountId.toString()))
+            .replaceAll("\\{" + "pat_uuid" + "\\}", apiClient.escapeString(patUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceAccountsApi.updateServiceAccountAccessToken",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PersonalAccessTokenResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PersonalAccessTokenResponse>() {});
   }
 
   /**
