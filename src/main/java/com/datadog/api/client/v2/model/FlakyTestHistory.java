@@ -20,6 +20,8 @@ import java.util.Objects;
 /** A single history entry representing a status change for a flaky test. */
 @JsonPropertyOrder({
   FlakyTestHistory.JSON_PROPERTY_COMMIT_SHA,
+  FlakyTestHistory.JSON_PROPERTY_POLICY_ID,
+  FlakyTestHistory.JSON_PROPERTY_POLICY_META,
   FlakyTestHistory.JSON_PROPERTY_STATUS,
   FlakyTestHistory.JSON_PROPERTY_TIMESTAMP
 })
@@ -29,6 +31,12 @@ public class FlakyTestHistory {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMIT_SHA = "commit_sha";
   private String commitSha;
+
+  public static final String JSON_PROPERTY_POLICY_ID = "policy_id";
+  private FlakyTestHistoryPolicyId policyId;
+
+  public static final String JSON_PROPERTY_POLICY_META = "policy_meta";
+  private FlakyTestHistoryPolicyMeta policyMeta;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -67,6 +75,53 @@ public class FlakyTestHistory {
 
   public void setCommitSha(String commitSha) {
     this.commitSha = commitSha;
+  }
+
+  public FlakyTestHistory policyId(FlakyTestHistoryPolicyId policyId) {
+    this.policyId = policyId;
+    this.unparsed |= !policyId.isValid();
+    return this;
+  }
+
+  /**
+   * The policy that triggered this status change.
+   *
+   * @return policyId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POLICY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FlakyTestHistoryPolicyId getPolicyId() {
+    return policyId;
+  }
+
+  public void setPolicyId(FlakyTestHistoryPolicyId policyId) {
+    if (!policyId.isValid()) {
+      this.unparsed = true;
+    }
+    this.policyId = policyId;
+  }
+
+  public FlakyTestHistory policyMeta(FlakyTestHistoryPolicyMeta policyMeta) {
+    this.policyMeta = policyMeta;
+    this.unparsed |= policyMeta.unparsed;
+    return this;
+  }
+
+  /**
+   * Metadata about the policy that triggered this status change.
+   *
+   * @return policyMeta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POLICY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FlakyTestHistoryPolicyMeta getPolicyMeta() {
+    return policyMeta;
+  }
+
+  public void setPolicyMeta(FlakyTestHistoryPolicyMeta policyMeta) {
+    this.policyMeta = policyMeta;
   }
 
   public FlakyTestHistory status(String status) {
@@ -166,6 +221,8 @@ public class FlakyTestHistory {
     }
     FlakyTestHistory flakyTestHistory = (FlakyTestHistory) o;
     return Objects.equals(this.commitSha, flakyTestHistory.commitSha)
+        && Objects.equals(this.policyId, flakyTestHistory.policyId)
+        && Objects.equals(this.policyMeta, flakyTestHistory.policyMeta)
         && Objects.equals(this.status, flakyTestHistory.status)
         && Objects.equals(this.timestamp, flakyTestHistory.timestamp)
         && Objects.equals(this.additionalProperties, flakyTestHistory.additionalProperties);
@@ -173,7 +230,7 @@ public class FlakyTestHistory {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commitSha, status, timestamp, additionalProperties);
+    return Objects.hash(commitSha, policyId, policyMeta, status, timestamp, additionalProperties);
   }
 
   @Override
@@ -181,6 +238,8 @@ public class FlakyTestHistory {
     StringBuilder sb = new StringBuilder();
     sb.append("class FlakyTestHistory {\n");
     sb.append("    commitSha: ").append(toIndentedString(commitSha)).append("\n");
+    sb.append("    policyId: ").append(toIndentedString(policyId)).append("\n");
+    sb.append("    policyMeta: ").append(toIndentedString(policyMeta)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    additionalProperties: ")
