@@ -6,36 +6,32 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /**
- * The funnel visualization displays a funnel of user sessions that maps a sequence of view
- * navigation and user interaction in your application.
+ * The user journey funnel visualization displays conversion funnels based on user journey data from
+ * Product Analytics.
  */
 @JsonPropertyOrder({
-  FunnelWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
-  FunnelWidgetDefinition.JSON_PROPERTY_GROUPED_DISPLAY,
-  FunnelWidgetDefinition.JSON_PROPERTY_REQUESTS,
-  FunnelWidgetDefinition.JSON_PROPERTY_TIME,
-  FunnelWidgetDefinition.JSON_PROPERTY_TITLE,
-  FunnelWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
-  FunnelWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
-  FunnelWidgetDefinition.JSON_PROPERTY_TYPE
+  ProductAnalyticsFunnelWidgetDefinition.JSON_PROPERTY_DESCRIPTION,
+  ProductAnalyticsFunnelWidgetDefinition.JSON_PROPERTY_GROUPED_DISPLAY,
+  ProductAnalyticsFunnelWidgetDefinition.JSON_PROPERTY_REQUESTS,
+  ProductAnalyticsFunnelWidgetDefinition.JSON_PROPERTY_TIME,
+  ProductAnalyticsFunnelWidgetDefinition.JSON_PROPERTY_TITLE,
+  ProductAnalyticsFunnelWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
+  ProductAnalyticsFunnelWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
+  ProductAnalyticsFunnelWidgetDefinition.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FunnelWidgetDefinition {
+public class ProductAnalyticsFunnelWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -44,7 +40,7 @@ public class FunnelWidgetDefinition {
   private FunnelGroupedDisplay groupedDisplay;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
-  private List<FunnelWidgetRequest> requests = new ArrayList<>();
+  private List<ProductAnalyticsFunnelRequest> requests = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TIME = "time";
   private WidgetTime time;
@@ -61,19 +57,19 @@ public class FunnelWidgetDefinition {
   public static final String JSON_PROPERTY_TYPE = "type";
   private FunnelWidgetDefinitionType type = FunnelWidgetDefinitionType.FUNNEL;
 
-  public FunnelWidgetDefinition() {}
+  public ProductAnalyticsFunnelWidgetDefinition() {}
 
   @JsonCreator
-  public FunnelWidgetDefinition(
+  public ProductAnalyticsFunnelWidgetDefinition(
       @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          List<FunnelWidgetRequest> requests,
+          List<ProductAnalyticsFunnelRequest> requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FunnelWidgetDefinitionType type) {
     this.requests = requests;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public FunnelWidgetDefinition description(String description) {
+  public ProductAnalyticsFunnelWidgetDefinition description(String description) {
     this.description = description;
     return this;
   }
@@ -94,7 +90,8 @@ public class FunnelWidgetDefinition {
     this.description = description;
   }
 
-  public FunnelWidgetDefinition groupedDisplay(FunnelGroupedDisplay groupedDisplay) {
+  public ProductAnalyticsFunnelWidgetDefinition groupedDisplay(
+      FunnelGroupedDisplay groupedDisplay) {
     this.groupedDisplay = groupedDisplay;
     this.unparsed |= !groupedDisplay.isValid();
     return this;
@@ -119,15 +116,17 @@ public class FunnelWidgetDefinition {
     this.groupedDisplay = groupedDisplay;
   }
 
-  public FunnelWidgetDefinition requests(List<FunnelWidgetRequest> requests) {
+  public ProductAnalyticsFunnelWidgetDefinition requests(
+      List<ProductAnalyticsFunnelRequest> requests) {
     this.requests = requests;
-    for (FunnelWidgetRequest item : requests) {
+    for (ProductAnalyticsFunnelRequest item : requests) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public FunnelWidgetDefinition addRequestsItem(FunnelWidgetRequest requestsItem) {
+  public ProductAnalyticsFunnelWidgetDefinition addRequestsItem(
+      ProductAnalyticsFunnelRequest requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
     return this;
@@ -140,15 +139,15 @@ public class FunnelWidgetDefinition {
    */
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<FunnelWidgetRequest> getRequests() {
+  public List<ProductAnalyticsFunnelRequest> getRequests() {
     return requests;
   }
 
-  public void setRequests(List<FunnelWidgetRequest> requests) {
+  public void setRequests(List<ProductAnalyticsFunnelRequest> requests) {
     this.requests = requests;
   }
 
-  public FunnelWidgetDefinition time(WidgetTime time) {
+  public ProductAnalyticsFunnelWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
     return this;
@@ -170,7 +169,7 @@ public class FunnelWidgetDefinition {
     this.time = time;
   }
 
-  public FunnelWidgetDefinition title(String title) {
+  public ProductAnalyticsFunnelWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
@@ -191,7 +190,7 @@ public class FunnelWidgetDefinition {
     this.title = title;
   }
 
-  public FunnelWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
+  public ProductAnalyticsFunnelWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
     return this;
@@ -216,7 +215,7 @@ public class FunnelWidgetDefinition {
     this.titleAlign = titleAlign;
   }
 
-  public FunnelWidgetDefinition titleSize(String titleSize) {
+  public ProductAnalyticsFunnelWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
@@ -237,7 +236,7 @@ public class FunnelWidgetDefinition {
     this.titleSize = titleSize;
   }
 
-  public FunnelWidgetDefinition type(FunnelWidgetDefinitionType type) {
+  public ProductAnalyticsFunnelWidgetDefinition type(FunnelWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -261,53 +260,7 @@ public class FunnelWidgetDefinition {
     this.type = type;
   }
 
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return FunnelWidgetDefinition
-   */
-  @JsonAnySetter
-  public FunnelWidgetDefinition putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
-  /** Return true if this FunnelWidgetDefinition object is equal to o. */
+  /** Return true if this ProductAnalyticsFunnelWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -316,36 +269,29 @@ public class FunnelWidgetDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunnelWidgetDefinition funnelWidgetDefinition = (FunnelWidgetDefinition) o;
-    return Objects.equals(this.description, funnelWidgetDefinition.description)
-        && Objects.equals(this.groupedDisplay, funnelWidgetDefinition.groupedDisplay)
-        && Objects.equals(this.requests, funnelWidgetDefinition.requests)
-        && Objects.equals(this.time, funnelWidgetDefinition.time)
-        && Objects.equals(this.title, funnelWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, funnelWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, funnelWidgetDefinition.titleSize)
-        && Objects.equals(this.type, funnelWidgetDefinition.type)
-        && Objects.equals(this.additionalProperties, funnelWidgetDefinition.additionalProperties);
+    ProductAnalyticsFunnelWidgetDefinition productAnalyticsFunnelWidgetDefinition =
+        (ProductAnalyticsFunnelWidgetDefinition) o;
+    return Objects.equals(this.description, productAnalyticsFunnelWidgetDefinition.description)
+        && Objects.equals(
+            this.groupedDisplay, productAnalyticsFunnelWidgetDefinition.groupedDisplay)
+        && Objects.equals(this.requests, productAnalyticsFunnelWidgetDefinition.requests)
+        && Objects.equals(this.time, productAnalyticsFunnelWidgetDefinition.time)
+        && Objects.equals(this.title, productAnalyticsFunnelWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, productAnalyticsFunnelWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, productAnalyticsFunnelWidgetDefinition.titleSize)
+        && Objects.equals(this.type, productAnalyticsFunnelWidgetDefinition.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        description,
-        groupedDisplay,
-        requests,
-        time,
-        title,
-        titleAlign,
-        titleSize,
-        type,
-        additionalProperties);
+        description, groupedDisplay, requests, time, title, titleAlign, titleSize, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunnelWidgetDefinition {\n");
+    sb.append("class ProductAnalyticsFunnelWidgetDefinition {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    groupedDisplay: ").append(toIndentedString(groupedDisplay)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
@@ -354,9 +300,6 @@ public class FunnelWidgetDefinition {
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
     sb.append("    titleSize: ").append(toIndentedString(titleSize)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
     sb.append('}');
     return sb.toString();
   }
