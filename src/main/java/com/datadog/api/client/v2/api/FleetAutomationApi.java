@@ -7,14 +7,17 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.FleetAgentInfoResponse;
 import com.datadog.api.client.v2.model.FleetAgentVersionsResponse;
 import com.datadog.api.client.v2.model.FleetAgentsResponse;
+import com.datadog.api.client.v2.model.FleetClustersResponse;
 import com.datadog.api.client.v2.model.FleetDeploymentConfigureCreateRequest;
 import com.datadog.api.client.v2.model.FleetDeploymentPackageUpgradeCreateRequest;
 import com.datadog.api.client.v2.model.FleetDeploymentResponse;
 import com.datadog.api.client.v2.model.FleetDeploymentsResponse;
+import com.datadog.api.client.v2.model.FleetInstrumentedPodsResponse;
 import com.datadog.api.client.v2.model.FleetScheduleCreateRequest;
 import com.datadog.api.client.v2.model.FleetSchedulePatchRequest;
 import com.datadog.api.client.v2.model.FleetScheduleResponse;
 import com.datadog.api.client.v2.model.FleetSchedulesResponse;
+import com.datadog.api.client.v2.model.FleetTracersResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -1696,6 +1699,276 @@ public class FleetAutomationApi {
         new GenericType<FleetAgentsResponse>() {});
   }
 
+  /** Manage optional parameters to listFleetAgentTracers. */
+  public static class ListFleetAgentTracersOptionalParameters {
+    private Long pageNumber;
+    private Long pageSize;
+    private String sortAttribute;
+    private Boolean sortDescending;
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Page number for pagination (starts at 0). (optional, default to 0)
+     * @return ListFleetAgentTracersOptionalParameters
+     */
+    public ListFleetAgentTracersOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Number of results per page (must be greater than 0 and less than or equal to
+     *     100). (optional, default to 10)
+     * @return ListFleetAgentTracersOptionalParameters
+     */
+    public ListFleetAgentTracersOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set sortAttribute.
+     *
+     * @param sortAttribute Attribute to sort by. (optional)
+     * @return ListFleetAgentTracersOptionalParameters
+     */
+    public ListFleetAgentTracersOptionalParameters sortAttribute(String sortAttribute) {
+      this.sortAttribute = sortAttribute;
+      return this;
+    }
+
+    /**
+     * Set sortDescending.
+     *
+     * @param sortDescending Sort order (true for descending, false for ascending). (optional,
+     *     default to true)
+     * @return ListFleetAgentTracersOptionalParameters
+     */
+    public ListFleetAgentTracersOptionalParameters sortDescending(Boolean sortDescending) {
+      this.sortDescending = sortDescending;
+      return this;
+    }
+  }
+
+  /**
+   * List tracers for a specific agent.
+   *
+   * <p>See {@link #listFleetAgentTracersWithHttpInfo}.
+   *
+   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
+   * @return FleetTracersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetTracersResponse listFleetAgentTracers(String agentKey) throws ApiException {
+    return listFleetAgentTracersWithHttpInfo(
+            agentKey, new ListFleetAgentTracersOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List tracers for a specific agent.
+   *
+   * <p>See {@link #listFleetAgentTracersWithHttpInfoAsync}.
+   *
+   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
+   * @return CompletableFuture&lt;FleetTracersResponse&gt;
+   */
+  public CompletableFuture<FleetTracersResponse> listFleetAgentTracersAsync(String agentKey) {
+    return listFleetAgentTracersWithHttpInfoAsync(
+            agentKey, new ListFleetAgentTracersOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List tracers for a specific agent.
+   *
+   * <p>See {@link #listFleetAgentTracersWithHttpInfo}.
+   *
+   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
+   * @param parameters Optional parameters for the request.
+   * @return FleetTracersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetTracersResponse listFleetAgentTracers(
+      String agentKey, ListFleetAgentTracersOptionalParameters parameters) throws ApiException {
+    return listFleetAgentTracersWithHttpInfo(agentKey, parameters).getData();
+  }
+
+  /**
+   * List tracers for a specific agent.
+   *
+   * <p>See {@link #listFleetAgentTracersWithHttpInfoAsync}.
+   *
+   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;FleetTracersResponse&gt;
+   */
+  public CompletableFuture<FleetTracersResponse> listFleetAgentTracersAsync(
+      String agentKey, ListFleetAgentTracersOptionalParameters parameters) {
+    return listFleetAgentTracersWithHttpInfoAsync(agentKey, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a paginated list of tracers for a specific agent.
+   *
+   * <p>This endpoint returns tracers associated with a given agent key, identified by the agent's
+   * hostname. Use this to discover telemetry-derived service names for a particular host.
+   *
+   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;FleetTracersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetTracersResponse> listFleetAgentTracersWithHttpInfo(
+      String agentKey, ListFleetAgentTracersOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetAgentTracers";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'agentKey' is set
+    if (agentKey == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'agentKey' when calling listFleetAgentTracers");
+    }
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String sortAttribute = parameters.sortAttribute;
+    Boolean sortDescending = parameters.sortDescending;
+    // create path and map variables
+    String localVarPath =
+        "/api/unstable/fleet/agents/{agent_key}/tracers"
+            .replaceAll("\\{" + "agent_key" + "\\}", apiClient.escapeString(agentKey.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_attribute", sortAttribute));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_descending", sortDescending));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.listFleetAgentTracers",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetTracersResponse>() {});
+  }
+
+  /**
+   * List tracers for a specific agent.
+   *
+   * <p>See {@link #listFleetAgentTracersWithHttpInfo}.
+   *
+   * @param agentKey The unique identifier (agent key) for the Datadog Agent. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetTracersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetTracersResponse>>
+      listFleetAgentTracersWithHttpInfoAsync(
+          String agentKey, ListFleetAgentTracersOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetAgentTracers";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FleetTracersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'agentKey' is set
+    if (agentKey == null) {
+      CompletableFuture<ApiResponse<FleetTracersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'agentKey' when calling listFleetAgentTracers"));
+      return result;
+    }
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String sortAttribute = parameters.sortAttribute;
+    Boolean sortDescending = parameters.sortDescending;
+    // create path and map variables
+    String localVarPath =
+        "/api/unstable/fleet/agents/{agent_key}/tracers"
+            .replaceAll("\\{" + "agent_key" + "\\}", apiClient.escapeString(agentKey.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_attribute", sortAttribute));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_descending", sortDescending));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.listFleetAgentTracers",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetTracersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetTracersResponse>() {});
+  }
+
   /**
    * List all available Agent versions.
    *
@@ -1829,6 +2102,279 @@ public class FleetAutomationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FleetAgentVersionsResponse>() {});
+  }
+
+  /** Manage optional parameters to listFleetClusters. */
+  public static class ListFleetClustersOptionalParameters {
+    private Long pageNumber;
+    private Long pageSize;
+    private String sortAttribute;
+    private Boolean sortDescending;
+    private String filter;
+    private String tags;
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Page number for pagination (starts at 0). (optional, default to 0)
+     * @return ListFleetClustersOptionalParameters
+     */
+    public ListFleetClustersOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Number of results per page (must be greater than 0 and less than or equal to
+     *     100). (optional, default to 10)
+     * @return ListFleetClustersOptionalParameters
+     */
+    public ListFleetClustersOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set sortAttribute.
+     *
+     * @param sortAttribute Attribute to sort by. (optional)
+     * @return ListFleetClustersOptionalParameters
+     */
+    public ListFleetClustersOptionalParameters sortAttribute(String sortAttribute) {
+      this.sortAttribute = sortAttribute;
+      return this;
+    }
+
+    /**
+     * Set sortDescending.
+     *
+     * @param sortDescending Sort order (true for descending, false for ascending). (optional)
+     * @return ListFleetClustersOptionalParameters
+     */
+    public ListFleetClustersOptionalParameters sortDescending(Boolean sortDescending) {
+      this.sortDescending = sortDescending;
+      return this;
+    }
+
+    /**
+     * Set filter.
+     *
+     * @param filter Filter string for narrowing down cluster results. (optional)
+     * @return ListFleetClustersOptionalParameters
+     */
+    public ListFleetClustersOptionalParameters filter(String filter) {
+      this.filter = filter;
+      return this;
+    }
+
+    /**
+     * Set tags.
+     *
+     * @param tags Comma-separated list of tags to filter clusters. (optional)
+     * @return ListFleetClustersOptionalParameters
+     */
+    public ListFleetClustersOptionalParameters tags(String tags) {
+      this.tags = tags;
+      return this;
+    }
+  }
+
+  /**
+   * List all fleet clusters.
+   *
+   * <p>See {@link #listFleetClustersWithHttpInfo}.
+   *
+   * @return FleetClustersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetClustersResponse listFleetClusters() throws ApiException {
+    return listFleetClustersWithHttpInfo(new ListFleetClustersOptionalParameters()).getData();
+  }
+
+  /**
+   * List all fleet clusters.
+   *
+   * <p>See {@link #listFleetClustersWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;FleetClustersResponse&gt;
+   */
+  public CompletableFuture<FleetClustersResponse> listFleetClustersAsync() {
+    return listFleetClustersWithHttpInfoAsync(new ListFleetClustersOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all fleet clusters.
+   *
+   * <p>See {@link #listFleetClustersWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return FleetClustersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetClustersResponse listFleetClusters(ListFleetClustersOptionalParameters parameters)
+      throws ApiException {
+    return listFleetClustersWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List all fleet clusters.
+   *
+   * <p>See {@link #listFleetClustersWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;FleetClustersResponse&gt;
+   */
+  public CompletableFuture<FleetClustersResponse> listFleetClustersAsync(
+      ListFleetClustersOptionalParameters parameters) {
+    return listFleetClustersWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a paginated list of Kubernetes clusters in the fleet.
+   *
+   * <p>This endpoint returns clusters with metadata including node counts, agent versions, enabled
+   * products, and associated services. Use the <code>page_number</code> and <code>page_size</code>
+   * query parameters to paginate through results.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;FleetClustersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetClustersResponse> listFleetClustersWithHttpInfo(
+      ListFleetClustersOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetClusters";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String sortAttribute = parameters.sortAttribute;
+    Boolean sortDescending = parameters.sortDescending;
+    String filter = parameters.filter;
+    String tags = parameters.tags;
+    // create path and map variables
+    String localVarPath = "/api/unstable/fleet/clusters";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_attribute", sortAttribute));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_descending", sortDescending));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.listFleetClusters",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetClustersResponse>() {});
+  }
+
+  /**
+   * List all fleet clusters.
+   *
+   * <p>See {@link #listFleetClustersWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetClustersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetClustersResponse>> listFleetClustersWithHttpInfoAsync(
+      ListFleetClustersOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetClusters";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FleetClustersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String sortAttribute = parameters.sortAttribute;
+    Boolean sortDescending = parameters.sortDescending;
+    String filter = parameters.filter;
+    String tags = parameters.tags;
+    // create path and map variables
+    String localVarPath = "/api/unstable/fleet/clusters";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_attribute", sortAttribute));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_descending", sortDescending));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.listFleetClusters",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetClustersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetClustersResponse>() {});
   }
 
   /** Manage optional parameters to listFleetDeployments. */
@@ -2038,6 +2584,175 @@ public class FleetAutomationApi {
   }
 
   /**
+   * List instrumented pods for a cluster.
+   *
+   * <p>See {@link #listFleetInstrumentedPodsWithHttpInfo}.
+   *
+   * @param clusterName The name of the Kubernetes cluster. (required)
+   * @return FleetInstrumentedPodsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetInstrumentedPodsResponse listFleetInstrumentedPods(String clusterName)
+      throws ApiException {
+    return listFleetInstrumentedPodsWithHttpInfo(clusterName).getData();
+  }
+
+  /**
+   * List instrumented pods for a cluster.
+   *
+   * <p>See {@link #listFleetInstrumentedPodsWithHttpInfoAsync}.
+   *
+   * @param clusterName The name of the Kubernetes cluster. (required)
+   * @return CompletableFuture&lt;FleetInstrumentedPodsResponse&gt;
+   */
+  public CompletableFuture<FleetInstrumentedPodsResponse> listFleetInstrumentedPodsAsync(
+      String clusterName) {
+    return listFleetInstrumentedPodsWithHttpInfoAsync(clusterName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve the list of pods targeted for Single Step Instrumentation (SSI) injection in a
+   * specific Kubernetes cluster.
+   *
+   * <p>This endpoint returns pod groups organized by owner reference (deployment, statefulset,
+   * etc.) with their injection annotations and applied targets. Use the clusters list endpoint to
+   * discover available cluster names.
+   *
+   * @param clusterName The name of the Kubernetes cluster. (required)
+   * @return ApiResponse&lt;FleetInstrumentedPodsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetInstrumentedPodsResponse> listFleetInstrumentedPodsWithHttpInfo(
+      String clusterName) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetInstrumentedPods";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'clusterName' is set
+    if (clusterName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'clusterName' when calling listFleetInstrumentedPods");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/unstable/fleet/clusters/{cluster_name}/instrumented_pods"
+            .replaceAll(
+                "\\{" + "cluster_name" + "\\}", apiClient.escapeString(clusterName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.listFleetInstrumentedPods",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetInstrumentedPodsResponse>() {});
+  }
+
+  /**
+   * List instrumented pods for a cluster.
+   *
+   * <p>See {@link #listFleetInstrumentedPodsWithHttpInfo}.
+   *
+   * @param clusterName The name of the Kubernetes cluster. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetInstrumentedPodsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetInstrumentedPodsResponse>>
+      listFleetInstrumentedPodsWithHttpInfoAsync(String clusterName) {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetInstrumentedPods";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FleetInstrumentedPodsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'clusterName' is set
+    if (clusterName == null) {
+      CompletableFuture<ApiResponse<FleetInstrumentedPodsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'clusterName' when calling"
+                  + " listFleetInstrumentedPods"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/unstable/fleet/clusters/{cluster_name}/instrumented_pods"
+            .replaceAll(
+                "\\{" + "cluster_name" + "\\}", apiClient.escapeString(clusterName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.listFleetInstrumentedPods",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetInstrumentedPodsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetInstrumentedPodsResponse>() {});
+  }
+
+  /**
    * List all schedules.
    *
    * <p>See {@link #listFleetSchedulesWithHttpInfo}.
@@ -2167,6 +2882,265 @@ public class FleetAutomationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<FleetSchedulesResponse>() {});
+  }
+
+  /** Manage optional parameters to listFleetTracers. */
+  public static class ListFleetTracersOptionalParameters {
+    private Long pageNumber;
+    private Long pageSize;
+    private String sortAttribute;
+    private Boolean sortDescending;
+    private String filter;
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Page number for pagination (starts at 0). (optional, default to 0)
+     * @return ListFleetTracersOptionalParameters
+     */
+    public ListFleetTracersOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Number of results per page (must be greater than 0 and less than or equal to
+     *     100). (optional, default to 10)
+     * @return ListFleetTracersOptionalParameters
+     */
+    public ListFleetTracersOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set sortAttribute.
+     *
+     * @param sortAttribute Attribute to sort by. (optional)
+     * @return ListFleetTracersOptionalParameters
+     */
+    public ListFleetTracersOptionalParameters sortAttribute(String sortAttribute) {
+      this.sortAttribute = sortAttribute;
+      return this;
+    }
+
+    /**
+     * Set sortDescending.
+     *
+     * @param sortDescending Sort order (true for descending, false for ascending). (optional,
+     *     default to true)
+     * @return ListFleetTracersOptionalParameters
+     */
+    public ListFleetTracersOptionalParameters sortDescending(Boolean sortDescending) {
+      this.sortDescending = sortDescending;
+      return this;
+    }
+
+    /**
+     * Set filter.
+     *
+     * @param filter Filter string for narrowing down tracer results. (optional)
+     * @return ListFleetTracersOptionalParameters
+     */
+    public ListFleetTracersOptionalParameters filter(String filter) {
+      this.filter = filter;
+      return this;
+    }
+  }
+
+  /**
+   * List all fleet tracers.
+   *
+   * <p>See {@link #listFleetTracersWithHttpInfo}.
+   *
+   * @return FleetTracersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetTracersResponse listFleetTracers() throws ApiException {
+    return listFleetTracersWithHttpInfo(new ListFleetTracersOptionalParameters()).getData();
+  }
+
+  /**
+   * List all fleet tracers.
+   *
+   * <p>See {@link #listFleetTracersWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;FleetTracersResponse&gt;
+   */
+  public CompletableFuture<FleetTracersResponse> listFleetTracersAsync() {
+    return listFleetTracersWithHttpInfoAsync(new ListFleetTracersOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all fleet tracers.
+   *
+   * <p>See {@link #listFleetTracersWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return FleetTracersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FleetTracersResponse listFleetTracers(ListFleetTracersOptionalParameters parameters)
+      throws ApiException {
+    return listFleetTracersWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List all fleet tracers.
+   *
+   * <p>See {@link #listFleetTracersWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;FleetTracersResponse&gt;
+   */
+  public CompletableFuture<FleetTracersResponse> listFleetTracersAsync(
+      ListFleetTracersOptionalParameters parameters) {
+    return listFleetTracersWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a paginated list of all fleet tracers.
+   *
+   * <p>This endpoint returns telemetry-derived service names from the SDK telemetry pipeline. These
+   * names may differ from span-derived names in APM and are useful for querying service library
+   * configurations. Use the <code>page_number</code> and <code>page_size</code> query parameters to
+   * paginate through results.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;FleetTracersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FleetTracersResponse> listFleetTracersWithHttpInfo(
+      ListFleetTracersOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetTracers";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String sortAttribute = parameters.sortAttribute;
+    Boolean sortDescending = parameters.sortDescending;
+    String filter = parameters.filter;
+    // create path and map variables
+    String localVarPath = "/api/unstable/fleet/tracers";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_attribute", sortAttribute));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_descending", sortDescending));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FleetAutomationApi.listFleetTracers",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetTracersResponse>() {});
+  }
+
+  /**
+   * List all fleet tracers.
+   *
+   * <p>See {@link #listFleetTracersWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;FleetTracersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FleetTracersResponse>> listFleetTracersWithHttpInfoAsync(
+      ListFleetTracersOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listFleetTracers";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<FleetTracersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String sortAttribute = parameters.sortAttribute;
+    Boolean sortDescending = parameters.sortDescending;
+    String filter = parameters.filter;
+    // create path and map variables
+    String localVarPath = "/api/unstable/fleet/tracers";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_attribute", sortAttribute));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_descending", sortDescending));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FleetAutomationApi.listFleetTracers",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FleetTracersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FleetTracersResponse>() {});
   }
 
   /**
