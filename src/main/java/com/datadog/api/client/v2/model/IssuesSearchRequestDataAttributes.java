@@ -13,16 +13,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** Object describing a search issue request. */
 @JsonPropertyOrder({
+  IssuesSearchRequestDataAttributes.JSON_PROPERTY_ASSIGNEE_IDS,
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_FROM,
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_ORDER_BY,
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_PERSONA,
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_QUERY,
+  IssuesSearchRequestDataAttributes.JSON_PROPERTY_TEAM_IDS,
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_TO,
   IssuesSearchRequestDataAttributes.JSON_PROPERTY_TRACK
 })
@@ -30,6 +35,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IssuesSearchRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ASSIGNEE_IDS = "assignee_ids";
+  private List<UUID> assigneeIds = null;
+
   public static final String JSON_PROPERTY_FROM = "from";
   private Long from;
 
@@ -41,6 +49,9 @@ public class IssuesSearchRequestDataAttributes {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_TEAM_IDS = "team_ids";
+  private List<UUID> teamIds = null;
 
   public static final String JSON_PROPERTY_TO = "to";
   private Long to;
@@ -58,6 +69,35 @@ public class IssuesSearchRequestDataAttributes {
     this.from = from;
     this.query = query;
     this.to = to;
+  }
+
+  public IssuesSearchRequestDataAttributes assigneeIds(List<UUID> assigneeIds) {
+    this.assigneeIds = assigneeIds;
+    return this;
+  }
+
+  public IssuesSearchRequestDataAttributes addAssigneeIdsItem(UUID assigneeIdsItem) {
+    if (this.assigneeIds == null) {
+      this.assigneeIds = new ArrayList<>();
+    }
+    this.assigneeIds.add(assigneeIdsItem);
+    return this;
+  }
+
+  /**
+   * Filter issues by assignee IDs. Multiple values are combined with OR logic.
+   *
+   * @return assigneeIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSIGNEE_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<UUID> getAssigneeIds() {
+    return assigneeIds;
+  }
+
+  public void setAssigneeIds(List<UUID> assigneeIds) {
+    this.assigneeIds = assigneeIds;
   }
 
   public IssuesSearchRequestDataAttributes from(Long from) {
@@ -150,6 +190,35 @@ public class IssuesSearchRequestDataAttributes {
 
   public void setQuery(String query) {
     this.query = query;
+  }
+
+  public IssuesSearchRequestDataAttributes teamIds(List<UUID> teamIds) {
+    this.teamIds = teamIds;
+    return this;
+  }
+
+  public IssuesSearchRequestDataAttributes addTeamIdsItem(UUID teamIdsItem) {
+    if (this.teamIds == null) {
+      this.teamIds = new ArrayList<>();
+    }
+    this.teamIds.add(teamIdsItem);
+    return this;
+  }
+
+  /**
+   * Filter issues by team IDs. Multiple values are combined with OR logic.
+   *
+   * @return teamIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<UUID> getTeamIds() {
+    return teamIds;
+  }
+
+  public void setTeamIds(List<UUID> teamIds) {
+    this.teamIds = teamIds;
   }
 
   public IssuesSearchRequestDataAttributes to(Long to) {
@@ -254,10 +323,12 @@ public class IssuesSearchRequestDataAttributes {
     }
     IssuesSearchRequestDataAttributes issuesSearchRequestDataAttributes =
         (IssuesSearchRequestDataAttributes) o;
-    return Objects.equals(this.from, issuesSearchRequestDataAttributes.from)
+    return Objects.equals(this.assigneeIds, issuesSearchRequestDataAttributes.assigneeIds)
+        && Objects.equals(this.from, issuesSearchRequestDataAttributes.from)
         && Objects.equals(this.orderBy, issuesSearchRequestDataAttributes.orderBy)
         && Objects.equals(this.persona, issuesSearchRequestDataAttributes.persona)
         && Objects.equals(this.query, issuesSearchRequestDataAttributes.query)
+        && Objects.equals(this.teamIds, issuesSearchRequestDataAttributes.teamIds)
         && Objects.equals(this.to, issuesSearchRequestDataAttributes.to)
         && Objects.equals(this.track, issuesSearchRequestDataAttributes.track)
         && Objects.equals(
@@ -266,17 +337,20 @@ public class IssuesSearchRequestDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, orderBy, persona, query, to, track, additionalProperties);
+    return Objects.hash(
+        assigneeIds, from, orderBy, persona, query, teamIds, to, track, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IssuesSearchRequestDataAttributes {\n");
+    sb.append("    assigneeIds: ").append(toIndentedString(assigneeIds)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    persona: ").append(toIndentedString(persona)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    teamIds: ").append(toIndentedString(teamIds)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    track: ").append(toIndentedString(track)).append("\n");
     sb.append("    additionalProperties: ")
