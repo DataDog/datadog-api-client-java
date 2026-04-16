@@ -27,12 +27,14 @@ import com.datadog.api.client.v2.model.FindingStatus;
 import com.datadog.api.client.v2.model.FindingVulnerabilityType;
 import com.datadog.api.client.v2.model.GetCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.GetFindingResponse;
+import com.datadog.api.client.v2.model.GetIoCIndicatorResponse;
 import com.datadog.api.client.v2.model.GetMultipleRulesetsRequest;
 import com.datadog.api.client.v2.model.GetMultipleRulesetsResponse;
 import com.datadog.api.client.v2.model.GetResourceEvaluationFiltersResponse;
 import com.datadog.api.client.v2.model.GetRuleVersionHistoryResponse;
 import com.datadog.api.client.v2.model.GetSBOMResponse;
 import com.datadog.api.client.v2.model.GetSuppressionVersionHistoryResponse;
+import com.datadog.api.client.v2.model.IoCExplorerListResponse;
 import com.datadog.api.client.v2.model.JobCreateResponse;
 import com.datadog.api.client.v2.model.ListAssetsSBOMsResponse;
 import com.datadog.api.client.v2.model.ListFindingsResponse;
@@ -5474,6 +5476,167 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get an indicator of compromise.
+   *
+   * <p>See {@link #getIndicatorOfCompromiseWithHttpInfo}.
+   *
+   * @param indicator The indicator value to look up (for example, an IP address or domain).
+   *     (required)
+   * @return GetIoCIndicatorResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetIoCIndicatorResponse getIndicatorOfCompromise(String indicator) throws ApiException {
+    return getIndicatorOfCompromiseWithHttpInfo(indicator).getData();
+  }
+
+  /**
+   * Get an indicator of compromise.
+   *
+   * <p>See {@link #getIndicatorOfCompromiseWithHttpInfoAsync}.
+   *
+   * @param indicator The indicator value to look up (for example, an IP address or domain).
+   *     (required)
+   * @return CompletableFuture&lt;GetIoCIndicatorResponse&gt;
+   */
+  public CompletableFuture<GetIoCIndicatorResponse> getIndicatorOfCompromiseAsync(
+      String indicator) {
+    return getIndicatorOfCompromiseWithHttpInfoAsync(indicator)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get detailed information about a specific indicator of compromise (IoC).
+   *
+   * @param indicator The indicator value to look up (for example, an IP address or domain).
+   *     (required)
+   * @return ApiResponse&lt;GetIoCIndicatorResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetIoCIndicatorResponse> getIndicatorOfCompromiseWithHttpInfo(String indicator)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getIndicatorOfCompromise";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'indicator' is set
+    if (indicator == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'indicator' when calling getIndicatorOfCompromise");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/siem/ioc-explorer/indicator";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "indicator", indicator));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getIndicatorOfCompromise",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetIoCIndicatorResponse>() {});
+  }
+
+  /**
+   * Get an indicator of compromise.
+   *
+   * <p>See {@link #getIndicatorOfCompromiseWithHttpInfo}.
+   *
+   * @param indicator The indicator value to look up (for example, an IP address or domain).
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GetIoCIndicatorResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetIoCIndicatorResponse>>
+      getIndicatorOfCompromiseWithHttpInfoAsync(String indicator) {
+    // Check if unstable operation is enabled
+    String operationId = "getIndicatorOfCompromise";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<GetIoCIndicatorResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'indicator' is set
+    if (indicator == null) {
+      CompletableFuture<ApiResponse<GetIoCIndicatorResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'indicator' when calling getIndicatorOfCompromise"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/siem/ioc-explorer/indicator";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "indicator", indicator));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getIndicatorOfCompromise",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetIoCIndicatorResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetIoCIndicatorResponse>() {});
+  }
+
+  /**
    * Get investigation queries for a signal.
    *
    * <p>See {@link #getInvestigationLogQueriesMatchingSignalWithHttpInfo}.
@@ -9790,6 +9953,262 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListFindingsResponse>() {});
+  }
+
+  /** Manage optional parameters to listIndicatorsOfCompromise. */
+  public static class ListIndicatorsOfCompromiseOptionalParameters {
+    private Integer limit;
+    private Integer offset;
+    private String query;
+    private String sortColumn;
+    private String sortOrder;
+
+    /**
+     * Set limit.
+     *
+     * @param limit Number of results per page. (optional, default to 50)
+     * @return ListIndicatorsOfCompromiseOptionalParameters
+     */
+    public ListIndicatorsOfCompromiseOptionalParameters limit(Integer limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /**
+     * Set offset.
+     *
+     * @param offset Pagination offset. (optional, default to 0)
+     * @return ListIndicatorsOfCompromiseOptionalParameters
+     */
+    public ListIndicatorsOfCompromiseOptionalParameters offset(Integer offset) {
+      this.offset = offset;
+      return this;
+    }
+
+    /**
+     * Set query.
+     *
+     * @param query Search/filter query (supports field:value syntax). (optional)
+     * @return ListIndicatorsOfCompromiseOptionalParameters
+     */
+    public ListIndicatorsOfCompromiseOptionalParameters query(String query) {
+      this.query = query;
+      return this;
+    }
+
+    /**
+     * Set sortColumn.
+     *
+     * @param sortColumn Sort column: score, first_seen_ts_epoch, last_seen_ts_epoch, indicator,
+     *     indicator_type, signal_count, log_count, category, as_type. (optional, default to
+     *     "score")
+     * @return ListIndicatorsOfCompromiseOptionalParameters
+     */
+    public ListIndicatorsOfCompromiseOptionalParameters sortColumn(String sortColumn) {
+      this.sortColumn = sortColumn;
+      return this;
+    }
+
+    /**
+     * Set sortOrder.
+     *
+     * @param sortOrder Sort order: asc or desc. (optional, default to "desc")
+     * @return ListIndicatorsOfCompromiseOptionalParameters
+     */
+    public ListIndicatorsOfCompromiseOptionalParameters sortOrder(String sortOrder) {
+      this.sortOrder = sortOrder;
+      return this;
+    }
+  }
+
+  /**
+   * List indicators of compromise.
+   *
+   * <p>See {@link #listIndicatorsOfCompromiseWithHttpInfo}.
+   *
+   * @return IoCExplorerListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IoCExplorerListResponse listIndicatorsOfCompromise() throws ApiException {
+    return listIndicatorsOfCompromiseWithHttpInfo(
+            new ListIndicatorsOfCompromiseOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List indicators of compromise.
+   *
+   * <p>See {@link #listIndicatorsOfCompromiseWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;IoCExplorerListResponse&gt;
+   */
+  public CompletableFuture<IoCExplorerListResponse> listIndicatorsOfCompromiseAsync() {
+    return listIndicatorsOfCompromiseWithHttpInfoAsync(
+            new ListIndicatorsOfCompromiseOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List indicators of compromise.
+   *
+   * <p>See {@link #listIndicatorsOfCompromiseWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return IoCExplorerListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IoCExplorerListResponse listIndicatorsOfCompromise(
+      ListIndicatorsOfCompromiseOptionalParameters parameters) throws ApiException {
+    return listIndicatorsOfCompromiseWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List indicators of compromise.
+   *
+   * <p>See {@link #listIndicatorsOfCompromiseWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IoCExplorerListResponse&gt;
+   */
+  public CompletableFuture<IoCExplorerListResponse> listIndicatorsOfCompromiseAsync(
+      ListIndicatorsOfCompromiseOptionalParameters parameters) {
+    return listIndicatorsOfCompromiseWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of indicators of compromise (IoCs) matching the specified filters.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IoCExplorerListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IoCExplorerListResponse> listIndicatorsOfCompromiseWithHttpInfo(
+      ListIndicatorsOfCompromiseOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listIndicatorsOfCompromise";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Integer limit = parameters.limit;
+    Integer offset = parameters.offset;
+    String query = parameters.query;
+    String sortColumn = parameters.sortColumn;
+    String sortOrder = parameters.sortOrder;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/siem/ioc-explorer";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[column]", sortColumn));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[order]", sortOrder));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listIndicatorsOfCompromise",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IoCExplorerListResponse>() {});
+  }
+
+  /**
+   * List indicators of compromise.
+   *
+   * <p>See {@link #listIndicatorsOfCompromiseWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IoCExplorerListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IoCExplorerListResponse>>
+      listIndicatorsOfCompromiseWithHttpInfoAsync(
+          ListIndicatorsOfCompromiseOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listIndicatorsOfCompromise";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IoCExplorerListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Integer limit = parameters.limit;
+    Integer offset = parameters.offset;
+    String query = parameters.query;
+    String sortColumn = parameters.sortColumn;
+    String sortOrder = parameters.sortOrder;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/siem/ioc-explorer";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[column]", sortColumn));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[order]", sortOrder));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listIndicatorsOfCompromise",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IoCExplorerListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IoCExplorerListResponse>() {});
   }
 
   /**
