@@ -807,12 +807,14 @@ public class ApiClient {
           put("v2.deleteThreatHuntingJob", false);
           put("v2.getContentPacksStates", false);
           put("v2.getFinding", false);
+          put("v2.getIndicatorOfCompromise", false);
           put("v2.getRuleVersionHistory", false);
           put("v2.getSecretsRules", false);
           put("v2.getSecurityMonitoringHistsignal", false);
           put("v2.getSecurityMonitoringHistsignalsByJobId", false);
           put("v2.getThreatHuntingJob", false);
           put("v2.listFindings", false);
+          put("v2.listIndicatorsOfCompromise", false);
           put("v2.listMultipleRulesets", false);
           put("v2.listScannedAssetsMetadata", false);
           put("v2.listSecurityMonitoringHistsignals", false);
