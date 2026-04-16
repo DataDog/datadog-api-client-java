@@ -12,12 +12,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Meta for the response from the List Custom Costs endpoints. */
 @JsonPropertyOrder({
+  CustomCostListResponseMeta.JSON_PROPERTY_COUNT_BY_STATUS,
+  CustomCostListResponseMeta.JSON_PROPERTY_PROVIDERS,
   CustomCostListResponseMeta.JSON_PROPERTY_TOTAL_FILTERED_COUNT,
   CustomCostListResponseMeta.JSON_PROPERTY_VERSION
 })
@@ -25,11 +29,75 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CustomCostListResponseMeta {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COUNT_BY_STATUS = "count_by_status";
+  private Map<String, Long> countByStatus = null;
+
+  public static final String JSON_PROPERTY_PROVIDERS = "providers";
+  private List<String> providers = null;
+
   public static final String JSON_PROPERTY_TOTAL_FILTERED_COUNT = "total_filtered_count";
   private Long totalFilteredCount;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
+
+  public CustomCostListResponseMeta countByStatus(Map<String, Long> countByStatus) {
+    this.countByStatus = countByStatus;
+    return this;
+  }
+
+  public CustomCostListResponseMeta putCountByStatusItem(String key, Long countByStatusItem) {
+    if (this.countByStatus == null) {
+      this.countByStatus = new HashMap<>();
+    }
+    this.countByStatus.put(key, countByStatusItem);
+    return this;
+  }
+
+  /**
+   * Number of Custom Costs files per status.
+   *
+   * @return countByStatus
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COUNT_BY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Long> getCountByStatus() {
+    return countByStatus;
+  }
+
+  public void setCountByStatus(Map<String, Long> countByStatus) {
+    this.countByStatus = countByStatus;
+  }
+
+  public CustomCostListResponseMeta providers(List<String> providers) {
+    this.providers = providers;
+    return this;
+  }
+
+  public CustomCostListResponseMeta addProvidersItem(String providersItem) {
+    if (this.providers == null) {
+      this.providers = new ArrayList<>();
+    }
+    this.providers.add(providersItem);
+    return this;
+  }
+
+  /**
+   * List of available providers.
+   *
+   * @return providers
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROVIDERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getProviders() {
+    return providers;
+  }
+
+  public void setProviders(List<String> providers) {
+    this.providers = providers;
+  }
 
   public CustomCostListResponseMeta totalFilteredCount(Long totalFilteredCount) {
     this.totalFilteredCount = totalFilteredCount;
@@ -129,7 +197,9 @@ public class CustomCostListResponseMeta {
       return false;
     }
     CustomCostListResponseMeta customCostListResponseMeta = (CustomCostListResponseMeta) o;
-    return Objects.equals(this.totalFilteredCount, customCostListResponseMeta.totalFilteredCount)
+    return Objects.equals(this.countByStatus, customCostListResponseMeta.countByStatus)
+        && Objects.equals(this.providers, customCostListResponseMeta.providers)
+        && Objects.equals(this.totalFilteredCount, customCostListResponseMeta.totalFilteredCount)
         && Objects.equals(this.version, customCostListResponseMeta.version)
         && Objects.equals(
             this.additionalProperties, customCostListResponseMeta.additionalProperties);
@@ -137,13 +207,16 @@ public class CustomCostListResponseMeta {
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalFilteredCount, version, additionalProperties);
+    return Objects.hash(
+        countByStatus, providers, totalFilteredCount, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomCostListResponseMeta {\n");
+    sb.append("    countByStatus: ").append(toIndentedString(countByStatus)).append("\n");
+    sb.append("    providers: ").append(toIndentedString(providers)).append("\n");
     sb.append("    totalFilteredCount: ").append(toIndentedString(totalFilteredCount)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
