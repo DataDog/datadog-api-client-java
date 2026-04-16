@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** An individual timeseries events query. */
+/**
+ * An individual timeseries query for logs, RUM, traces, CI pipelines, security signals, and other
+ * event-based data sources. Use this query type for any data source powered by the Events Platform.
+ * See the data_source field for the full list of supported sources.
+ */
 @JsonPropertyOrder({
   EventsTimeseriesQuery.JSON_PROPERTY_COMPUTE,
   EventsTimeseriesQuery.JSON_PROPERTY_DATA_SOURCE,

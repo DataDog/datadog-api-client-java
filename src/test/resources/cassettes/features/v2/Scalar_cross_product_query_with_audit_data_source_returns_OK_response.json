@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a\",\"limit\":{\"count\":10,\"order\":\"desc\"}}],\"from\":1776290795000,\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"audit\",\"indexes\":[\"*\"],\"name\":\"a\",\"search\":{\"query\":\"*\"}}],\"to\":1776294395000},\"type\":\"scalar_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/query/scalar",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0\",\"type\":\"scalar_response\",\"attributes\":{\"columns\":[{\"name\":\"a\",\"values\":[983.0],\"type\":\"number\",\"meta\":{\"unit\":null}}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b88d1d11-e7a9-b790-d794-5f67fccc8ae3"
+  }
+]

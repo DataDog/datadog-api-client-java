@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a\",\"limit\":{\"count\":10,\"order\":\"desc\"}}],\"from\":1775658332000,\"interval\":5000,\"queries\":[{\"data_source\":\"apm_resource_stats\",\"env\":\"staging\",\"group_by\":[\"resource_name\"],\"name\":\"a\",\"operation_name\":\"cassandra.query\",\"primary_tag_name\":\"datacenter\",\"primary_tag_value\":\"*\",\"service\":\"azure-bill-import\",\"stat\":\"hits\"}],\"to\":1775661932000},\"type\":\"timeseries_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/query/timeseries",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0\",\"type\":\"timeseries_response\",\"attributes\":{\"series\":[],\"times\":[],\"values\":[]}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "418a1d05-5a15-2db9-6094-65988030239b"
+  }
+]

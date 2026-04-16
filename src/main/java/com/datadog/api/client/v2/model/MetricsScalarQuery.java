@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** An individual scalar metrics query. */
+/** A query against Datadog custom metrics or Cloud Cost data sources. */
 @JsonPropertyOrder({
   MetricsScalarQuery.JSON_PROPERTY_AGGREGATOR,
   MetricsScalarQuery.JSON_PROPERTY_DATA_SOURCE,

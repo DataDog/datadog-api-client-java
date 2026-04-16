@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a\",\"limit\":{\"count\":10,\"order\":\"desc\"}}],\"from\":1776290801000,\"interval\":5000,\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"indexes\":[\"*\"],\"name\":\"a\",\"search\":{\"query\":\"*\"}}],\"to\":1776294401000},\"type\":\"timeseries_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/query/timeseries",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0\",\"type\":\"timeseries_response\",\"attributes\":{\"series\":[],\"times\":[],\"values\":[]}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c433fce3-bec9-77ce-189e-d0d7c3d524ff"
+  }
+]

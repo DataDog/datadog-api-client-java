@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a\",\"limit\":{\"count\":10,\"order\":\"desc\"}}],\"from\":1775658331000,\"queries\":[{\"data_source\":\"apm_metrics\",\"group_by\":[\"resource_name\"],\"name\":\"a\",\"query_filter\":\"env:prod\",\"service\":\"web-store\",\"stat\":\"hits\"}],\"to\":1775661931000},\"type\":\"scalar_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/query/scalar",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0\",\"type\":\"scalar_response\",\"attributes\":{\"columns\":[{\"name\":\"a\",\"values\":[],\"type\":\"number\",\"meta\":{\"unit\":null}}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "39727778-207a-72b2-bcf8-cb00d2b605dc"
+  }
+]

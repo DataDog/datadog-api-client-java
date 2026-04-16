@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a\",\"limit\":{\"count\":10,\"order\":\"desc\"}}],\"from\":1775658329000,\"queries\":[{\"data_source\":\"apm_dependency_stats\",\"env\":\"ci\",\"name\":\"a\",\"operation_name\":\"cassandra.query\",\"primary_tag_name\":\"datacenter\",\"primary_tag_value\":\"edge-eu1.prod.dog\",\"resource_name\":\"DELETE FROM monitor_history.monitor_state_change_history WHERE org_id = ? AND monitor_id IN ? AND group = ?\",\"service\":\"cassandra\",\"stat\":\"avg_duration\"}],\"to\":1775661929000},\"type\":\"scalar_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/query/scalar",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0\",\"type\":\"scalar_response\",\"attributes\":{\"columns\":[{\"name\":\"a\",\"values\":[],\"type\":\"number\",\"meta\":{\"unit\":[{\"family\":\"time\",\"name\":\"microsecond\",\"plural\":\"microseconds\",\"scale_factor\":0.000001,\"short_name\":\"\u03bcs\",\"id\":9},null]}}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b500451c-5346-4b58-49af-db6ff1691048"
+  }
+]
