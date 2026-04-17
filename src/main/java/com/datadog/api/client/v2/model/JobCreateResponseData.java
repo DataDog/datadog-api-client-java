@@ -29,7 +29,7 @@ public class JobCreateResponseData {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ThreatHuntingJobDataType type;
+  private HistoricalJobDataType type;
 
   public JobCreateResponseData id(String id) {
     this.id = id;
@@ -52,7 +52,7 @@ public class JobCreateResponseData {
     this.id = id;
   }
 
-  public JobCreateResponseData type(ThreatHuntingJobDataType type) {
+  public JobCreateResponseData type(HistoricalJobDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -66,11 +66,11 @@ public class JobCreateResponseData {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ThreatHuntingJobDataType getType() {
+  public HistoricalJobDataType getType() {
     return type;
   }
 
-  public void setType(ThreatHuntingJobDataType type) {
+  public void setType(HistoricalJobDataType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

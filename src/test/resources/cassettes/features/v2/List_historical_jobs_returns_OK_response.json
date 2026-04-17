@@ -7,7 +7,7 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/siem-threat-hunting/jobs",
+      "path": "/api/v2/siem-historical-detections/jobs",
       "keepAlive": false,
       "secure": true
     },
@@ -33,7 +33,7 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/siem-threat-hunting/jobs",
+      "path": "/api/v2/siem-historical-detections/jobs",
       "queryStringParameters": {
         "filter[query]": [
           "id:c3564eed-ff70-43e1-ab6f-593de95bd21f"
