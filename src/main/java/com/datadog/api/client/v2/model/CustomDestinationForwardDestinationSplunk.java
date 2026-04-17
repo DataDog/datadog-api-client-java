@@ -105,9 +105,11 @@ public class CustomDestinationForwardDestinationSplunk {
   /**
    * The Splunk sourcetype for the events sent to this Splunk destination.
    *
-   * <p>If absent, the default sourcetype <code>_json</code> is used. If set to null, the <code>
-   * sourcetype</code> field is omitted from the Splunk HEC payload entirely. Otherwise, the
-   * provided string value is used as the sourcetype.
+   * <p>If the field is absent from the request and no sourcetype has been previously set on this
+   * destination, the default sourcetype <code>_json</code> is used. On update, if the field is
+   * absent from the request but a sourcetype was previously set, the previous value is kept. If set
+   * to <code>null</code>, the sourcetype field is omitted from the forwarded event entirely.
+   * Otherwise, the provided string value is used as the sourcetype.
    *
    * @return sourcetype
    */
