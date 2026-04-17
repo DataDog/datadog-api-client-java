@@ -21,6 +21,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   IPAllowlistEntryAttributes.JSON_PROPERTY_CIDR_BLOCK,
   IPAllowlistEntryAttributes.JSON_PROPERTY_CREATED_AT,
+  IPAllowlistEntryAttributes.JSON_PROPERTY_LABEL,
   IPAllowlistEntryAttributes.JSON_PROPERTY_MODIFIED_AT,
   IPAllowlistEntryAttributes.JSON_PROPERTY_NOTE
 })
@@ -33,6 +34,9 @@ public class IPAllowlistEntryAttributes {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_LABEL = "label";
+  private String label;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
@@ -71,6 +75,27 @@ public class IPAllowlistEntryAttributes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
+  }
+
+  public IPAllowlistEntryAttributes label(String label) {
+    this.label = label;
+    return this;
+  }
+
+  /**
+   * A label for the IP allowlist entry.
+   *
+   * @return label
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLabel() {
+    return label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
   }
 
   /**
@@ -164,6 +189,7 @@ public class IPAllowlistEntryAttributes {
     IPAllowlistEntryAttributes ipAllowlistEntryAttributes = (IPAllowlistEntryAttributes) o;
     return Objects.equals(this.cidrBlock, ipAllowlistEntryAttributes.cidrBlock)
         && Objects.equals(this.createdAt, ipAllowlistEntryAttributes.createdAt)
+        && Objects.equals(this.label, ipAllowlistEntryAttributes.label)
         && Objects.equals(this.modifiedAt, ipAllowlistEntryAttributes.modifiedAt)
         && Objects.equals(this.note, ipAllowlistEntryAttributes.note)
         && Objects.equals(
@@ -172,7 +198,7 @@ public class IPAllowlistEntryAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, createdAt, modifiedAt, note, additionalProperties);
+    return Objects.hash(cidrBlock, createdAt, label, modifiedAt, note, additionalProperties);
   }
 
   @Override
@@ -181,6 +207,7 @@ public class IPAllowlistEntryAttributes {
     sb.append("class IPAllowlistEntryAttributes {\n");
     sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    note: ").append(toIndentedString(note)).append("\n");
     sb.append("    additionalProperties: ")
