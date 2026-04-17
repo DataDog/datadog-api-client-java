@@ -95,6 +95,10 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionSort;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionsResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringTerraformBulkExportRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringTerraformConvertRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringTerraformExportResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringTerraformResourceType;
 import com.datadog.api.client.v2.model.ThreatHuntingJobResponse;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkResponse;
@@ -1025,6 +1029,200 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Export security monitoring resources to Terraform.
+   *
+   * <p>See {@link #bulkExportSecurityMonitoringTerraformResourcesWithHttpInfo}.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param body The resource IDs to export. (required)
+   * @return File
+   * @throws ApiException if fails to make API call
+   */
+  public File bulkExportSecurityMonitoringTerraformResources(
+      SecurityMonitoringTerraformResourceType resourceType,
+      SecurityMonitoringTerraformBulkExportRequest body)
+      throws ApiException {
+    return bulkExportSecurityMonitoringTerraformResourcesWithHttpInfo(resourceType, body).getData();
+  }
+
+  /**
+   * Export security monitoring resources to Terraform.
+   *
+   * <p>See {@link #bulkExportSecurityMonitoringTerraformResourcesWithHttpInfoAsync}.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param body The resource IDs to export. (required)
+   * @return CompletableFuture&lt;File&gt;
+   */
+  public CompletableFuture<File> bulkExportSecurityMonitoringTerraformResourcesAsync(
+      SecurityMonitoringTerraformResourceType resourceType,
+      SecurityMonitoringTerraformBulkExportRequest body) {
+    return bulkExportSecurityMonitoringTerraformResourcesWithHttpInfoAsync(resourceType, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Export multiple security monitoring resources to Terraform, packaged as a zip archive. The
+   * <code>resource_type</code> path parameter specifies the type of resources to export and must be
+   * one of <code>suppressions</code> or <code>critical_assets</code>. A maximum of 1000 resources
+   * can be exported in a single request.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param body The resource IDs to export. (required)
+   * @return ApiResponse&lt;File&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<File> bulkExportSecurityMonitoringTerraformResourcesWithHttpInfo(
+      SecurityMonitoringTerraformResourceType resourceType,
+      SecurityMonitoringTerraformBulkExportRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "bulkExportSecurityMonitoringTerraformResources";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'resourceType' is set
+    if (resourceType == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'resourceType' when calling"
+              + " bulkExportSecurityMonitoringTerraformResources");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " bulkExportSecurityMonitoringTerraformResources");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/terraform/{resource_type}/bulk"
+            .replaceAll(
+                "\\{" + "resource_type" + "\\}", apiClient.escapeString(resourceType.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.bulkExportSecurityMonitoringTerraformResources",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/zip", "application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<File>() {});
+  }
+
+  /**
+   * Export security monitoring resources to Terraform.
+   *
+   * <p>See {@link #bulkExportSecurityMonitoringTerraformResourcesWithHttpInfo}.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param body The resource IDs to export. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;File&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<File>>
+      bulkExportSecurityMonitoringTerraformResourcesWithHttpInfoAsync(
+          SecurityMonitoringTerraformResourceType resourceType,
+          SecurityMonitoringTerraformBulkExportRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "bulkExportSecurityMonitoringTerraformResources";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<File>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'resourceType' is set
+    if (resourceType == null) {
+      CompletableFuture<ApiResponse<File>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'resourceType' when calling"
+                  + " bulkExportSecurityMonitoringTerraformResources"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<File>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " bulkExportSecurityMonitoringTerraformResources"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/terraform/{resource_type}/bulk"
+            .replaceAll(
+                "\\{" + "resource_type" + "\\}", apiClient.escapeString(resourceType.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.bulkExportSecurityMonitoringTerraformResources",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/zip", "application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<File>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<File>() {});
+  }
+
+  /**
    * Cancel a threat hunting job.
    *
    * <p>See {@link #cancelThreatHuntingJobWithHttpInfo}.
@@ -1626,6 +1824,204 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringRuleConvertResponse>() {});
+  }
+
+  /**
+   * Convert security monitoring resource to Terraform.
+   *
+   * <p>See {@link #convertSecurityMonitoringTerraformResourceWithHttpInfo}.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param body The resource JSON to convert. (required)
+   * @return SecurityMonitoringTerraformExportResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringTerraformExportResponse convertSecurityMonitoringTerraformResource(
+      SecurityMonitoringTerraformResourceType resourceType,
+      SecurityMonitoringTerraformConvertRequest body)
+      throws ApiException {
+    return convertSecurityMonitoringTerraformResourceWithHttpInfo(resourceType, body).getData();
+  }
+
+  /**
+   * Convert security monitoring resource to Terraform.
+   *
+   * <p>See {@link #convertSecurityMonitoringTerraformResourceWithHttpInfoAsync}.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param body The resource JSON to convert. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringTerraformExportResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringTerraformExportResponse>
+      convertSecurityMonitoringTerraformResourceAsync(
+          SecurityMonitoringTerraformResourceType resourceType,
+          SecurityMonitoringTerraformConvertRequest body) {
+    return convertSecurityMonitoringTerraformResourceWithHttpInfoAsync(resourceType, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Convert a security monitoring resource that doesn't (yet) exist from JSON to Terraform. The
+   * <code>resource_type</code> path parameter specifies the type of resource to convert and must be
+   * one of <code>suppressions</code> or <code>critical_assets</code>.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param body The resource JSON to convert. (required)
+   * @return ApiResponse&lt;SecurityMonitoringTerraformExportResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringTerraformExportResponse>
+      convertSecurityMonitoringTerraformResourceWithHttpInfo(
+          SecurityMonitoringTerraformResourceType resourceType,
+          SecurityMonitoringTerraformConvertRequest body)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "convertSecurityMonitoringTerraformResource";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'resourceType' is set
+    if (resourceType == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'resourceType' when calling"
+              + " convertSecurityMonitoringTerraformResource");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " convertSecurityMonitoringTerraformResource");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/terraform/{resource_type}/convert"
+            .replaceAll(
+                "\\{" + "resource_type" + "\\}", apiClient.escapeString(resourceType.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.convertSecurityMonitoringTerraformResource",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringTerraformExportResponse>() {});
+  }
+
+  /**
+   * Convert security monitoring resource to Terraform.
+   *
+   * <p>See {@link #convertSecurityMonitoringTerraformResourceWithHttpInfo}.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param body The resource JSON to convert. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringTerraformExportResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringTerraformExportResponse>>
+      convertSecurityMonitoringTerraformResourceWithHttpInfoAsync(
+          SecurityMonitoringTerraformResourceType resourceType,
+          SecurityMonitoringTerraformConvertRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "convertSecurityMonitoringTerraformResource";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringTerraformExportResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'resourceType' is set
+    if (resourceType == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringTerraformExportResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'resourceType' when calling"
+                  + " convertSecurityMonitoringTerraformResource"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringTerraformExportResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " convertSecurityMonitoringTerraformResource"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/terraform/{resource_type}/convert"
+            .replaceAll(
+                "\\{" + "resource_type" + "\\}", apiClient.escapeString(resourceType.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.convertSecurityMonitoringTerraformResource",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringTerraformExportResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringTerraformExportResponse>() {});
   }
 
   /**
@@ -4824,6 +5220,204 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSignalTriageUpdateResponse>() {});
+  }
+
+  /**
+   * Export security monitoring resource to Terraform.
+   *
+   * <p>See {@link #exportSecurityMonitoringTerraformResourceWithHttpInfo}.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param resourceId The ID of the security monitoring resource to export. (required)
+   * @return SecurityMonitoringTerraformExportResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringTerraformExportResponse exportSecurityMonitoringTerraformResource(
+      SecurityMonitoringTerraformResourceType resourceType, String resourceId) throws ApiException {
+    return exportSecurityMonitoringTerraformResourceWithHttpInfo(resourceType, resourceId)
+        .getData();
+  }
+
+  /**
+   * Export security monitoring resource to Terraform.
+   *
+   * <p>See {@link #exportSecurityMonitoringTerraformResourceWithHttpInfoAsync}.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param resourceId The ID of the security monitoring resource to export. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringTerraformExportResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringTerraformExportResponse>
+      exportSecurityMonitoringTerraformResourceAsync(
+          SecurityMonitoringTerraformResourceType resourceType, String resourceId) {
+    return exportSecurityMonitoringTerraformResourceWithHttpInfoAsync(resourceType, resourceId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Export a security monitoring resource to a Terraform configuration. The <code>resource_type
+   * </code> path parameter specifies the type of resource to export and must be one of <code>
+   * suppressions</code> or <code>critical_assets</code>.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param resourceId The ID of the security monitoring resource to export. (required)
+   * @return ApiResponse&lt;SecurityMonitoringTerraformExportResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringTerraformExportResponse>
+      exportSecurityMonitoringTerraformResourceWithHttpInfo(
+          SecurityMonitoringTerraformResourceType resourceType, String resourceId)
+          throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "exportSecurityMonitoringTerraformResource";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'resourceType' is set
+    if (resourceType == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'resourceType' when calling"
+              + " exportSecurityMonitoringTerraformResource");
+    }
+
+    // verify the required parameter 'resourceId' is set
+    if (resourceId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'resourceId' when calling"
+              + " exportSecurityMonitoringTerraformResource");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/terraform/{resource_type}/{resource_id}"
+            .replaceAll(
+                "\\{" + "resource_type" + "\\}", apiClient.escapeString(resourceType.toString()))
+            .replaceAll(
+                "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.exportSecurityMonitoringTerraformResource",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringTerraformExportResponse>() {});
+  }
+
+  /**
+   * Export security monitoring resource to Terraform.
+   *
+   * <p>See {@link #exportSecurityMonitoringTerraformResourceWithHttpInfo}.
+   *
+   * @param resourceType The type of security monitoring resource to export. (required)
+   * @param resourceId The ID of the security monitoring resource to export. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringTerraformExportResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringTerraformExportResponse>>
+      exportSecurityMonitoringTerraformResourceWithHttpInfoAsync(
+          SecurityMonitoringTerraformResourceType resourceType, String resourceId) {
+    // Check if unstable operation is enabled
+    String operationId = "exportSecurityMonitoringTerraformResource";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringTerraformExportResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'resourceType' is set
+    if (resourceType == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringTerraformExportResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'resourceType' when calling"
+                  + " exportSecurityMonitoringTerraformResource"));
+      return result;
+    }
+
+    // verify the required parameter 'resourceId' is set
+    if (resourceId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringTerraformExportResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'resourceId' when calling"
+                  + " exportSecurityMonitoringTerraformResource"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/terraform/{resource_type}/{resource_id}"
+            .replaceAll(
+                "\\{" + "resource_type" + "\\}", apiClient.escapeString(resourceType.toString()))
+            .replaceAll(
+                "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.exportSecurityMonitoringTerraformResource",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth", "AuthZ"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringTerraformExportResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringTerraformExportResponse>() {});
   }
 
   /**
