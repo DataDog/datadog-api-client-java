@@ -9,12 +9,15 @@ import com.datadog.api.client.v2.model.AllocationResponse;
 import com.datadog.api.client.v2.model.CreateAllocationsRequest;
 import com.datadog.api.client.v2.model.CreateEnvironmentRequest;
 import com.datadog.api.client.v2.model.CreateFeatureFlagRequest;
+import com.datadog.api.client.v2.model.CreateFlagSuggestionRequest;
 import com.datadog.api.client.v2.model.EnvironmentResponse;
 import com.datadog.api.client.v2.model.FeatureFlagResponse;
+import com.datadog.api.client.v2.model.FlagSuggestionResponse;
 import com.datadog.api.client.v2.model.ListAllocationsResponse;
 import com.datadog.api.client.v2.model.ListEnvironmentsResponse;
 import com.datadog.api.client.v2.model.ListFeatureFlagsResponse;
 import com.datadog.api.client.v2.model.OverwriteAllocationsRequest;
+import com.datadog.api.client.v2.model.ReviewFlagSuggestionRequest;
 import com.datadog.api.client.v2.model.UpdateEnvironmentRequest;
 import com.datadog.api.client.v2.model.UpdateFeatureFlagRequest;
 import jakarta.ws.rs.client.Invocation;
@@ -55,6 +58,167 @@ public class FeatureFlagsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Approve a flag suggestion.
+   *
+   * <p>See {@link #approveFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @param body (required)
+   * @return FlagSuggestionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FlagSuggestionResponse approveFlagSuggestion(
+      UUID suggestionId, ReviewFlagSuggestionRequest body) throws ApiException {
+    return approveFlagSuggestionWithHttpInfo(suggestionId, body).getData();
+  }
+
+  /**
+   * Approve a flag suggestion.
+   *
+   * <p>See {@link #approveFlagSuggestionWithHttpInfoAsync}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FlagSuggestionResponse&gt;
+   */
+  public CompletableFuture<FlagSuggestionResponse> approveFlagSuggestionAsync(
+      UUID suggestionId, ReviewFlagSuggestionRequest body) {
+    return approveFlagSuggestionWithHttpInfoAsync(suggestionId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Approve a pending flag change suggestion. The change is applied immediately upon approval. A
+   * user cannot approve their own suggestion.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FlagSuggestionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - Cannot approve your own suggestion </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FlagSuggestionResponse> approveFlagSuggestionWithHttpInfo(
+      UUID suggestionId, ReviewFlagSuggestionRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'suggestionId' when calling approveFlagSuggestion");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling approveFlagSuggestion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}/approve"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.approveFlagSuggestion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FlagSuggestionResponse>() {});
+  }
+
+  /**
+   * Approve a flag suggestion.
+   *
+   * <p>See {@link #approveFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FlagSuggestionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FlagSuggestionResponse>>
+      approveFlagSuggestionWithHttpInfoAsync(UUID suggestionId, ReviewFlagSuggestionRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      CompletableFuture<ApiResponse<FlagSuggestionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'suggestionId' when calling approveFlagSuggestion"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FlagSuggestionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling approveFlagSuggestion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}/approve"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.approveFlagSuggestion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FlagSuggestionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FlagSuggestionResponse>() {});
   }
 
   /**
@@ -669,6 +833,171 @@ public class FeatureFlagsApi {
   }
 
   /**
+   * Create a flag suggestion.
+   *
+   * <p>See {@link #createFlagSuggestionWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return FlagSuggestionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FlagSuggestionResponse createFlagSuggestion(
+      UUID featureFlagId, CreateFlagSuggestionRequest body) throws ApiException {
+    return createFlagSuggestionWithHttpInfo(featureFlagId, body).getData();
+  }
+
+  /**
+   * Create a flag suggestion.
+   *
+   * <p>See {@link #createFlagSuggestionWithHttpInfoAsync}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FlagSuggestionResponse&gt;
+   */
+  public CompletableFuture<FlagSuggestionResponse> createFlagSuggestionAsync(
+      UUID featureFlagId, CreateFlagSuggestionRequest body) {
+    return createFlagSuggestionWithHttpInfoAsync(featureFlagId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a change suggestion for a feature flag. Suggestions require approval before the change
+   * is applied. The request must include at least one notification_rule_targets handle to receive
+   * approval or rejection notifications.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FlagSuggestionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FlagSuggestionResponse> createFlagSuggestionWithHttpInfo(
+      UUID featureFlagId, CreateFlagSuggestionRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'featureFlagId' when calling createFlagSuggestion");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createFlagSuggestion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/suggestions"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.createFlagSuggestion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FlagSuggestionResponse>() {});
+  }
+
+  /**
+   * Create a flag suggestion.
+   *
+   * <p>See {@link #createFlagSuggestionWithHttpInfo}.
+   *
+   * @param featureFlagId The ID of the feature flag. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FlagSuggestionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FlagSuggestionResponse>>
+      createFlagSuggestionWithHttpInfoAsync(UUID featureFlagId, CreateFlagSuggestionRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'featureFlagId' is set
+    if (featureFlagId == null) {
+      CompletableFuture<ApiResponse<FlagSuggestionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'featureFlagId' when calling createFlagSuggestion"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FlagSuggestionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createFlagSuggestion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/{feature_flag_id}/suggestions"
+            .replaceAll(
+                "\\{" + "feature_flag_id" + "\\}",
+                apiClient.escapeString(featureFlagId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.createFlagSuggestion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FlagSuggestionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FlagSuggestionResponse>() {});
+  }
+
+  /**
    * Delete an environment.
    *
    * <p>See {@link #deleteFeatureFlagsEnvironmentWithHttpInfo}.
@@ -786,6 +1115,143 @@ public class FeatureFlagsApi {
       builder =
           apiClient.createBuilder(
               "v2.FeatureFlagsApi.deleteFeatureFlagsEnvironment",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a flag suggestion.
+   *
+   * <p>See {@link #deleteFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteFlagSuggestion(UUID suggestionId) throws ApiException {
+    deleteFlagSuggestionWithHttpInfo(suggestionId);
+  }
+
+  /**
+   * Delete a flag suggestion.
+   *
+   * <p>See {@link #deleteFlagSuggestionWithHttpInfoAsync}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteFlagSuggestionAsync(UUID suggestionId) {
+    return deleteFlagSuggestionWithHttpInfoAsync(suggestionId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a pending flag change suggestion. Approved suggestions cannot be deleted.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteFlagSuggestionWithHttpInfo(UUID suggestionId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'suggestionId' when calling deleteFlagSuggestion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.deleteFlagSuggestion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a flag suggestion.
+   *
+   * <p>See {@link #deleteFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteFlagSuggestionWithHttpInfoAsync(
+      UUID suggestionId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'suggestionId' when calling deleteFlagSuggestion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.deleteFlagSuggestion",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1428,6 +1894,144 @@ public class FeatureFlagsApi {
         new GenericType<EnvironmentResponse>() {});
   }
 
+  /**
+   * Get a flag suggestion.
+   *
+   * <p>See {@link #getFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @return FlagSuggestionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FlagSuggestionResponse getFlagSuggestion(UUID suggestionId) throws ApiException {
+    return getFlagSuggestionWithHttpInfo(suggestionId).getData();
+  }
+
+  /**
+   * Get a flag suggestion.
+   *
+   * <p>See {@link #getFlagSuggestionWithHttpInfoAsync}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @return CompletableFuture&lt;FlagSuggestionResponse&gt;
+   */
+  public CompletableFuture<FlagSuggestionResponse> getFlagSuggestionAsync(UUID suggestionId) {
+    return getFlagSuggestionWithHttpInfoAsync(suggestionId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a flag change suggestion by ID.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @return ApiResponse&lt;FlagSuggestionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FlagSuggestionResponse> getFlagSuggestionWithHttpInfo(UUID suggestionId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'suggestionId' when calling getFlagSuggestion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.getFlagSuggestion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FlagSuggestionResponse>() {});
+  }
+
+  /**
+   * Get a flag suggestion.
+   *
+   * <p>See {@link #getFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FlagSuggestionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FlagSuggestionResponse>> getFlagSuggestionWithHttpInfoAsync(
+      UUID suggestionId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      CompletableFuture<ApiResponse<FlagSuggestionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'suggestionId' when calling getFlagSuggestion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.getFlagSuggestion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FlagSuggestionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FlagSuggestionResponse>() {});
+  }
+
   /** Manage optional parameters to listFeatureFlags. */
   public static class ListFeatureFlagsOptionalParameters {
     private String key;
@@ -2011,6 +2615,166 @@ public class FeatureFlagsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AllocationExposureScheduleResponse>() {});
+  }
+
+  /**
+   * Reject a flag suggestion.
+   *
+   * <p>See {@link #rejectFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @param body (required)
+   * @return FlagSuggestionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public FlagSuggestionResponse rejectFlagSuggestion(
+      UUID suggestionId, ReviewFlagSuggestionRequest body) throws ApiException {
+    return rejectFlagSuggestionWithHttpInfo(suggestionId, body).getData();
+  }
+
+  /**
+   * Reject a flag suggestion.
+   *
+   * <p>See {@link #rejectFlagSuggestionWithHttpInfoAsync}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;FlagSuggestionResponse&gt;
+   */
+  public CompletableFuture<FlagSuggestionResponse> rejectFlagSuggestionAsync(
+      UUID suggestionId, ReviewFlagSuggestionRequest body) {
+    return rejectFlagSuggestionWithHttpInfoAsync(suggestionId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Reject a pending flag change suggestion. The suggested change is not applied.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;FlagSuggestionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<FlagSuggestionResponse> rejectFlagSuggestionWithHttpInfo(
+      UUID suggestionId, ReviewFlagSuggestionRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'suggestionId' when calling rejectFlagSuggestion");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling rejectFlagSuggestion");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}/reject"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.FeatureFlagsApi.rejectFlagSuggestion",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FlagSuggestionResponse>() {});
+  }
+
+  /**
+   * Reject a flag suggestion.
+   *
+   * <p>See {@link #rejectFlagSuggestionWithHttpInfo}.
+   *
+   * @param suggestionId The ID of the flag suggestion. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;FlagSuggestionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<FlagSuggestionResponse>>
+      rejectFlagSuggestionWithHttpInfoAsync(UUID suggestionId, ReviewFlagSuggestionRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'suggestionId' is set
+    if (suggestionId == null) {
+      CompletableFuture<ApiResponse<FlagSuggestionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'suggestionId' when calling rejectFlagSuggestion"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<FlagSuggestionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling rejectFlagSuggestion"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/feature-flags/suggestions/{suggestion_id}/reject"
+            .replaceAll(
+                "\\{" + "suggestion_id" + "\\}", apiClient.escapeString(suggestionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.FeatureFlagsApi.rejectFlagSuggestion",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<FlagSuggestionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<FlagSuggestionResponse>() {});
   }
 
   /**
