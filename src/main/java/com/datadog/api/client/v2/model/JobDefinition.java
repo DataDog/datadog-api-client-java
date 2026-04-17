@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Definition of a threat hunting job. */
+/** Definition of a historical job. */
 @JsonPropertyOrder({
   JobDefinition.JSON_PROPERTY_CALCULATED_FIELDS,
   JobDefinition.JSON_PROPERTY_CASES,
@@ -62,10 +62,10 @@ public class JobDefinition {
   private String name;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
-  private ThreatHuntingJobOptions options;
+  private HistoricalJobOptions options;
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
-  private List<ThreatHuntingJobQuery> queries = new ArrayList<>();
+  private List<HistoricalJobQuery> queries = new ArrayList<>();
 
   public static final String JSON_PROPERTY_REFERENCE_TABLES = "referenceTables";
   private List<SecurityMonitoringReferenceTable> referenceTables = null;
@@ -93,7 +93,7 @@ public class JobDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
-          List<ThreatHuntingJobQuery> queries,
+          List<HistoricalJobQuery> queries,
       @JsonProperty(required = true, value = JSON_PROPERTY_TO) Long to) {
     this.cases = cases;
     this.from = from;
@@ -276,7 +276,7 @@ public class JobDefinition {
     this.name = name;
   }
 
-  public JobDefinition options(ThreatHuntingJobOptions options) {
+  public JobDefinition options(HistoricalJobOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
     return this;
@@ -290,23 +290,23 @@ public class JobDefinition {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ThreatHuntingJobOptions getOptions() {
+  public HistoricalJobOptions getOptions() {
     return options;
   }
 
-  public void setOptions(ThreatHuntingJobOptions options) {
+  public void setOptions(HistoricalJobOptions options) {
     this.options = options;
   }
 
-  public JobDefinition queries(List<ThreatHuntingJobQuery> queries) {
+  public JobDefinition queries(List<HistoricalJobQuery> queries) {
     this.queries = queries;
-    for (ThreatHuntingJobQuery item : queries) {
+    for (HistoricalJobQuery item : queries) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public JobDefinition addQueriesItem(ThreatHuntingJobQuery queriesItem) {
+  public JobDefinition addQueriesItem(HistoricalJobQuery queriesItem) {
     this.queries.add(queriesItem);
     this.unparsed |= queriesItem.unparsed;
     return this;
@@ -319,11 +319,11 @@ public class JobDefinition {
    */
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<ThreatHuntingJobQuery> getQueries() {
+  public List<HistoricalJobQuery> getQueries() {
     return queries;
   }
 
-  public void setQueries(List<ThreatHuntingJobQuery> queries) {
+  public void setQueries(List<HistoricalJobQuery> queries) {
     this.queries = queries;
   }
 
